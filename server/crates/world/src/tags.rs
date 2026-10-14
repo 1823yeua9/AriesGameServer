@@ -89,6 +89,8 @@ pub fn net_index_order(nodes: &[TagNode], common_tags: &[String]) -> Result<Vec<
 /// (min with the settings value) and whether the client's own NetIndex values
 /// (node+0x50) replace the computed order. `nodes` is the node map in its
 /// storage order (free slots dropped); `first_bit_segment_setting` is settings+0xBC.
+/// the read itself must refuse a partial map (gtni:85-86 raises when the
+/// decoded nodes are fewer than the map's count), so no index is cached then.
 pub fn predict_net_indices(nodes: &[TagNode], common_tags: &[String], first_bit_segment_setting: i32) -> Result<TagNetIndex, TagError> {
     let order = net_index_order(nodes, common_tags)?;
     let true_bit_num = true_bit_num(order.len());

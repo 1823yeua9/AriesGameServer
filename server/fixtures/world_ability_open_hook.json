@@ -1,0 +1,600 @@
+{
+ "line": 4046,
+ "caches": [
+  {
+   "label": "spec08_sample",
+   "activation": true,
+   "indices": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 240,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 241,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 243,
+    "AbilityTuning.Wushu.E.MaxCharges": 244,
+    "AbilityTuning.Wushu.E.PrimeDuration": 245,
+    "AbilityTuning.Wushu.Q.MaxCharges": 250
+   },
+   "true_bit_num": 10,
+   "first_bit_segment": 10,
+   "constructed": true,
+   "rows": [
+    {
+     "index": 0,
+     "default": true,
+     "event": {}
+    },
+    {
+     "index": 1,
+     "default": true,
+     "event": {}
+    },
+    {
+     "index": 2,
+     "hex": "0400000046050a4e050a00740000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be685e82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6ca00000000004200000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6cabe860000000000d2322d0a4205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000004205460514a0b44c8b6702db427e37756bb961470c285bfd5f6a270575c6d8bee900",
+     "bit_count": 1443,
+     "event": {
+      "ability_open_tuning": [
+       2,
+       10,
+       true
+      ]
+     }
+    },
+    {
+     "index": 3,
+     "hex": "0400000056050a5e050a00720000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be8a5e82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d000000000004000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d0be860000000000da322d0a5205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000005205560514a0b64c8bf102dba77e5a436575616495acba84008a7fd6ec4cebbe8ebdb8d46b1f3cba4abf",
+     "bit_count": 1496,
+     "event": {
+      "ability_open_tuning": [
+       3,
+       10,
+       true
+      ]
+     }
+    },
+    {
+     "index": 4,
+     "hex": "0400000066050a6e050a00820000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2bea25e82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e800000000005000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e8be860000000000e2322d0a6205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000006205660514a0b84c8bdcd97073f57e675f61644715775616",
+     "bit_count": 1478,
+     "event": {
+      "ability_open_tuning": [
+       4,
+       10,
+       true
+      ]
+     }
+    },
+    {
+     "index": 5,
+     "default": true,
+     "event": {}
+    },
+    {
+     "index": 6,
+     "default": true,
+     "event": {}
+    }
+   ]
+  },
+  {
+   "label": "spec04_sample",
+   "activation": true,
+   "indices": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 100,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 101,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 243,
+    "AbilityTuning.Wushu.E.PrimeDuration": 245,
+    "AbilityTuning.Wushu.E.MaxCharges": 244,
+    "AbilityTuning.Wushu.Q.MaxCharges": 300
+   },
+   "true_bit_num": 10,
+   "first_bit_segment": 10,
+   "constructed": true,
+   "rows": [
+    {
+     "index": 0,
+     "default": true,
+     "event": {}
+    },
+    {
+     "index": 1,
+     "default": true,
+     "event": {}
+    },
+    {
+     "index": 2,
+     "hex": "0400000046050a4e050a00740000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be685e82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6ca00000000004200000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6cabe860000000000d2322d0a4205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000004205460514a0b44c8b67025a307e37756bb961880c285bfd5f6a270575c6d8bee900",
+     "bit_count": 1443,
+     "event": {
+      "ability_open_tuning": [
+       2,
+       10,
+       true
+      ]
+     }
+    },
+    {
+     "index": 3,
+     "hex": "0400000056050a5e050a00720000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be8a5e82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d000000000004000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d0be860000000000da322d0a5205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000005205560514a0b64c8bf102dba77e5a436575616495acba84008a7fd6ec4cebbe8ebdb8d46b1f3cba4abf",
+     "bit_count": 1496,
+     "event": {
+      "ability_open_tuning": [
+       3,
+       10,
+       true
+      ]
+     }
+    },
+    {
+     "index": 4,
+     "hex": "0400000066050a6e050a00820000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2bea25e82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e800000000005000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e8be860000000000e2322d0a6205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000006205660514a0b84c8bdc9b7a73f57e675f61644715775616",
+     "bit_count": 1478,
+     "event": {
+      "ability_open_tuning": [
+       4,
+       10,
+       true
+      ]
+     }
+    },
+    {
+     "index": 5,
+     "default": true,
+     "event": {}
+    },
+    {
+     "index": 6,
+     "default": true,
+     "event": {}
+    }
+   ]
+  },
+  {
+   "label": "unconstructed",
+   "activation": true,
+   "indices": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 240,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 241,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 243,
+    "AbilityTuning.Wushu.E.MaxCharges": 244,
+    "AbilityTuning.Wushu.E.PrimeDuration": 245,
+    "AbilityTuning.Wushu.Q.MaxCharges": 250
+   },
+   "true_bit_num": 10,
+   "first_bit_segment": 10,
+   "constructed": false,
+   "rows": [
+    {
+     "index": 0,
+     "default": true,
+     "event": {}
+    },
+    {
+     "index": 1,
+     "default": true,
+     "event": {}
+    },
+    {
+     "index": 2,
+     "hex": "0400000046050a4e050a00740000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be685e82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6ca00000000004200000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6cabe860000000000d2322d0a4205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000004205460514a0b44c8b6702db427e37756bb961470c285bfd5f6a270575c6d8bee900",
+     "bit_count": 1443,
+     "event": {
+      "ability_open_tuning": [
+       2,
+       10,
+       false
+      ]
+     }
+    },
+    {
+     "index": 3,
+     "hex": "0400000056050a5e050a00720000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be8a5e82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d000000000004000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d0be860000000000da322d0a5205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000005205560514a0b64c8bf102dba77e5a436575616495acba84008a7fd6ec4cebbe8ebdb8d46b1f3cba4abf",
+     "bit_count": 1496,
+     "event": {
+      "ability_open_tuning": [
+       3,
+       10,
+       false
+      ]
+     }
+    },
+    {
+     "index": 4,
+     "hex": "0400000066050a6e050a00820000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2bea25e82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e800000000005000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e8be860000000000e2322d0a6205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000006205660514a0b84c8bdcd97073f57e675f61644715775616",
+     "bit_count": 1478,
+     "event": {
+      "ability_open_tuning": [
+       4,
+       10,
+       false
+      ]
+     }
+    },
+    {
+     "index": 5,
+     "default": true,
+     "event": {}
+    },
+    {
+     "index": 6,
+     "default": true,
+     "event": {}
+    }
+   ]
+  },
+  {
+   "label": "segmented",
+   "activation": true,
+   "indices": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 240,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 241,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 243,
+    "AbilityTuning.Wushu.E.MaxCharges": 244,
+    "AbilityTuning.Wushu.E.PrimeDuration": 245,
+    "AbilityTuning.Wushu.Q.MaxCharges": 250
+   },
+   "true_bit_num": 10,
+   "first_bit_segment": 8,
+   "constructed": true,
+   "rows": [
+    {
+     "index": 0,
+     "default": true,
+     "event": {}
+    },
+    {
+     "index": 1,
+     "default": true,
+     "event": {}
+    },
+    {
+     "index": 2,
+     "default": true,
+     "event": {
+      "ability_open_tuning_error": "error"
+     }
+    },
+    {
+     "index": 3,
+     "default": true,
+     "event": {
+      "ability_open_tuning_error": "error"
+     }
+    },
+    {
+     "index": 4,
+     "default": true,
+     "event": {
+      "ability_open_tuning_error": "error"
+     }
+    },
+    {
+     "index": 5,
+     "default": true,
+     "event": {}
+    },
+    {
+     "index": 6,
+     "default": true,
+     "event": {}
+    }
+   ]
+  },
+  {
+   "label": "negative_segment",
+   "activation": true,
+   "indices": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 240,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 241,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 243,
+    "AbilityTuning.Wushu.E.MaxCharges": 244,
+    "AbilityTuning.Wushu.E.PrimeDuration": 245,
+    "AbilityTuning.Wushu.Q.MaxCharges": 250
+   },
+   "true_bit_num": 10,
+   "first_bit_segment": -3,
+   "constructed": true,
+   "rows": [
+    {
+     "index": 0,
+     "default": true,
+     "event": {}
+    },
+    {
+     "index": 1,
+     "default": true,
+     "event": {}
+    },
+    {
+     "index": 2,
+     "default": true,
+     "event": {
+      "ability_open_tuning_error": "error"
+     }
+    },
+    {
+     "index": 3,
+     "default": true,
+     "event": {
+      "ability_open_tuning_error": "error"
+     }
+    },
+    {
+     "index": 4,
+     "default": true,
+     "event": {
+      "ability_open_tuning_error": "error"
+     }
+    },
+    {
+     "index": 5,
+     "default": true,
+     "event": {}
+    },
+    {
+     "index": 6,
+     "default": true,
+     "event": {}
+    }
+   ]
+  },
+  {
+   "label": "eight_bits",
+   "activation": true,
+   "indices": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 100,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 101,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 243,
+    "AbilityTuning.Wushu.E.PrimeDuration": 245,
+    "AbilityTuning.Wushu.E.MaxCharges": 244,
+    "AbilityTuning.Wushu.Q.MaxCharges": 300
+   },
+   "true_bit_num": 8,
+   "first_bit_segment": 8,
+   "constructed": true,
+   "rows": [
+    {
+     "index": 0,
+     "default": true,
+     "event": {}
+    },
+    {
+     "index": 1,
+     "default": true,
+     "event": {}
+    },
+    {
+     "index": 2,
+     "hex": "0400000046050a4e050a00740000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be685e82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6ca00000000004200000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6cabe860000000000d2322d0a4205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000004205460514a0b44c8b5f026930610c7548b961726ae7041cfcfc9bf1976b2a3208",
+     "bit_count": 1439,
+     "event": {
+      "ability_open_tuning": [
+       2,
+       8,
+       true
+      ]
+     }
+    },
+    {
+     "index": 3,
+     "hex": "0400000056050a5e050a00720000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be8a5e82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d000000000004000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d0be860000000000da322d0a5205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000005205560514a0b64c8be5024148617d43b85f61d8db14b04b5c7d7f534fa406a4898986451218f451cf00",
+     "bit_count": 1490,
+     "event": {
+      "ability_open_tuning": [
+       3,
+       8,
+       true
+      ]
+     }
+    },
+    {
+     "index": 4,
+     "default": true,
+     "event": {
+      "ability_open_tuning_error": "error"
+     }
+    },
+    {
+     "index": 5,
+     "default": true,
+     "event": {}
+    },
+    {
+     "index": 6,
+     "default": true,
+     "event": {}
+    }
+   ]
+  },
+  {
+   "label": "missing_prime",
+   "activation": true,
+   "indices": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 240,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 241,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 243,
+    "AbilityTuning.Wushu.E.MaxCharges": 244,
+    "AbilityTuning.Wushu.Q.MaxCharges": 250
+   },
+   "true_bit_num": 10,
+   "first_bit_segment": 10,
+   "constructed": true,
+   "rows": [
+    {
+     "index": 0,
+     "default": true,
+     "event": {}
+    },
+    {
+     "index": 1,
+     "default": true,
+     "event": {}
+    },
+    {
+     "index": 2,
+     "hex": "0400000046050a4e050a00740000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be685e82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6ca00000000004200000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6cabe860000000000d2322d0a4205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000004205460514a0b44c8b6702db427e37756bb961470c285bfd5f6a270575c6d8bee900",
+     "bit_count": 1443,
+     "event": {
+      "ability_open_tuning": [
+       2,
+       10,
+       true
+      ]
+     }
+    },
+    {
+     "index": 3,
+     "default": true,
+     "event": {
+      "ability_open_tuning_error": "error"
+     }
+    },
+    {
+     "index": 4,
+     "hex": "0400000066050a6e050a00820000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2bea25e82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e800000000005000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e8be860000000000e2322d0a6205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000006205660514a0b84c8bdcd97073f57e675f61644715775616",
+     "bit_count": 1478,
+     "event": {
+      "ability_open_tuning": [
+       4,
+       10,
+       true
+      ]
+     }
+    },
+    {
+     "index": 5,
+     "default": true,
+     "event": {}
+    },
+    {
+     "index": 6,
+     "default": true,
+     "event": {}
+    }
+   ]
+  },
+  {
+   "label": "sixteen_bits",
+   "activation": true,
+   "indices": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 40000,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 40007,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 40014,
+    "AbilityTuning.Wushu.E.MaxCharges": 40021,
+    "AbilityTuning.Wushu.E.PrimeDuration": 40028,
+    "AbilityTuning.Wushu.Q.MaxCharges": 40035
+   },
+   "true_bit_num": 16,
+   "first_bit_segment": 16,
+   "constructed": true,
+   "rows": [
+    {
+     "index": 0,
+     "default": true,
+     "event": {}
+    },
+    {
+     "index": 1,
+     "default": true,
+     "event": {}
+    },
+    {
+     "index": 2,
+     "hex": "0400000046050a4e050a00740000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be685e82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6ca00000000004200000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6cabe860000000000d2322d0a4205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000004205460514a0b44c8b7f02d8fdf1ac75e5b961c2d62ebe1cfcee7348706798aadee677",
+     "bit_count": 1455,
+     "event": {
+      "ability_open_tuning": [
+       2,
+       16,
+       true
+      ]
+     }
+    },
+    {
+     "index": 3,
+     "hex": "0400000056050a5e050a00720000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be8a5e82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d000000000004000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d0be860000000000da322d0a5205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000005205560514a0b64c8b1504db89f13d430c5f617889e3e10e43e22fe24f8cf94cb134d65a41f2c8960b1fc9fb02",
+     "bit_count": 1514,
+     "event": {
+      "ability_open_tuning": [
+       3,
+       16,
+       true
+      ]
+     }
+    },
+    {
+     "index": 4,
+     "hex": "0400000066050a6e050a00820000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2bea25e82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e800000000005000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e8be860000000000e2322d0a6205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000006205660514a0b84c8be8daaf0ae57e4975615ebc0bbbfb300f",
+     "bit_count": 1484,
+     "event": {
+      "ability_open_tuning": [
+       4,
+       16,
+       true
+      ]
+     }
+    },
+    {
+     "index": 5,
+     "default": true,
+     "event": {}
+    },
+    {
+     "index": 6,
+     "default": true,
+     "event": {}
+    }
+   ]
+  },
+  {
+   "label": "off",
+   "activation": false,
+   "indices": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 240,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 241,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 243,
+    "AbilityTuning.Wushu.E.MaxCharges": 244,
+    "AbilityTuning.Wushu.E.PrimeDuration": 245,
+    "AbilityTuning.Wushu.Q.MaxCharges": 250
+   },
+   "true_bit_num": 10,
+   "first_bit_segment": 10,
+   "constructed": true,
+   "rows": [
+    {
+     "index": 0,
+     "default": true,
+     "event": {}
+    },
+    {
+     "index": 1,
+     "default": true,
+     "event": {}
+    },
+    {
+     "index": 2,
+     "default": true,
+     "event": {}
+    },
+    {
+     "index": 3,
+     "default": true,
+     "event": {}
+    },
+    {
+     "index": 4,
+     "default": true,
+     "event": {}
+    },
+    {
+     "index": 5,
+     "default": true,
+     "event": {}
+    },
+    {
+     "index": 6,
+     "default": true,
+     "event": {}
+    }
+   ]
+  }
+ ]
+}

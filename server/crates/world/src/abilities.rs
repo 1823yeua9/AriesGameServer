@@ -14,6 +14,7 @@ use aries_rep::props::{autonomous_role, empty_rep};
 use aries_rep::{RepError, RepResult};
 
 use crate::bots::{ChannelSend, py_pack_f32};
+use crate::tags::TagNetIndex;
 
 /// ra:23: Cloudburst (C), Tailwind (E), Updraft (Q), Blade Storm (X).
 pub const ABILITY_INDICES: [usize; 4] = [2, 3, 4, 5];
@@ -43,15 +44,20 @@ const STARTING_ABILITIES: [(&str, &str, u32); 4] = [
     ("Default__Ability_Wushu_X_Dagger_Production_C", "/Game/Characters/Wushu/S0/Ability_X/Ability_Wushu_X_Dagger_Production", 9),
 ];
 
-/// (archetype, package, slot) of starting equippable `index` (2..=5 only).
-fn starting_ability(index: usize) -> Option<(&'static str, &'static str, u32)> {
+/// (archetype, package, slot) of starting equippable `index`, for the
+/// abilities 2..=5 only (the rows of rsb:683-688).
+pub fn starting_ability(index: usize) -> Option<(&'static str, &'static str, u32)> {
     ABILITY_INDICES.iter().position(|&i| i == index).map(|row| STARTING_ABILITIES[row])
 }
 
-/// rsb:701-706: actor (even), archetype and package (odd) guids of starting equippable `index`.
-pub fn starting_equippable_guids(index: usize) -> (u32, u32, u32) {
+/// rsb:701-706: actor (even), archetype and package (odd) guids of starting
+/// equippable `index`; none past the seven (python raises there).
+pub fn starting_equippable_guids(index: usize) -> Option<(u32, u32, u32)> {
+    if index >= STARTING_EQUIPPABLE_COUNT {
+        return None;
+    }
     let actor = STARTING_EQUIPPABLE_FIRST_GUID + 4 * index as u32;
-    (actor, actor + 1, actor + 3)
+    Some((actor, actor + 1, actor + 3))
 }
 
 fn invalid(message: &str) -> RepError {
@@ -101,13 +107,14 @@ pub struct AbilityLoad {
 /// ra:43-50: fixed channel/actor/slot, then two fresh guids (machine, InactiveState).
 pub fn plan_ability_load(index: usize, allocator: &mut AbilityAllocator) -> RepResult<AbilityLoad> {
     let (archetype, _, slot) = starting_ability(index).ok_or_else(|| invalid("not a usable starting ability"))?;
+    let (actor_guid, _, _) = starting_equippable_guids(index).ok_or_else(|| invalid("starting equippable index out of range"))?;
     let state_machine_guid = allocator.dynamic_guid();
     let inactive_guid = allocator.dynamic_guid();
     Ok(AbilityLoad {
         index,
         class_name: archetype.strip_prefix("Default__").unwrap_or(archetype),
         channel: STARTING_EQUIPPABLE_FIRST_CHANNEL + index as u32,
-        actor_guid: starting_equippable_guids(index).0,
+        actor_guid,
         slot,
         state_machine_guid,
         inactive_guid,
@@ -276,7 +283,7 @@ pub fn build_ability_open_with_tuning(index: usize, tag_indices: &HashMap<String
         entries.push(TuningEntry { tag_net_index, value: *value });
     }
     let (archetype, package, _) = starting_ability(index).ok_or_else(|| invalid("not a usable starting ability"))?;
-    let (actor_guid, archetype_guid, package_guid) = starting_equippable_guids(index);
+    let (actor_guid, archetype_guid, package_guid) = starting_equippable_guids(index).ok_or_else(|| invalid("starting equippable index out of range"))?;
     let tuning_guid = ability_tuning_guid(index);
 
     let mut w = BitWriter::new();
@@ -293,6 +300,19 @@ pub fn build_ability_open_with_tuning(index: usize, tag_indices: &HashMap<String
     Ok(body)
 }
 
+/// ruh:4045-4066, the B18 hook once the process's tag index is known (the
+/// caller gates on ability_activation and caches the index after the first
+/// successful read): the segmented encoding is refused before anything is
+/// built, then the open with tuning. an Err means keep the default open and
+/// log ability_open_tuning_error; Ok goes with ability_open_tuning
+/// [index, true_bit_num, constructed].
+pub fn build_ability_open_from_tags(index: usize, tags: &TagNetIndex) -> RepResult<Bits> {
+    if !tags.is_plain() {
+        return Err(invalid("segmented tag net index is not supported"));
+    }
+    build_ability_open_with_tuning(index, &tags.indices, tags.true_bit_num)
+}
+
 // ---------------------------------------------------------------- registration
 
 /// the oracle's read of an ability's inventory slot (read_slot_machines, res:132-164).
@@ -302,7 +322,9 @@ pub struct SlotMachine {
     pub class_name: Option<String>,
     /// item+0xE00
     pub state_machine: u64,
-    /// the main machine's state names in SM+0x160 order (the reader's cached names)
+    /// the main machine's state names in SM+0x160 order (the reader's cached
+    /// names). python holds them as dict keys, so a repeated name counts once,
+    /// at its first position (res:81-88)
     pub state_names: Vec<String>,
 }
 
@@ -311,9 +333,21 @@ pub struct SlotMachine {
 pub struct ItemMachine {
     pub name: String,
     pub address: u64,
-    /// the state named by machine+0x1E8, if any
+    /// the state named by machine+0x1E8, if any (one of `state_names`)
     pub starting: Option<String>,
+    /// SM+0x160 order; repeated names count once, as in SlotMachine
     pub state_names: Vec<String>,
+}
+
+/// the names as python dict keys keep them: each once, at its first position.
+fn unique_names(names: &[String]) -> Vec<&str> {
+    let mut unique: Vec<&str> = Vec::with_capacity(names.len());
+    for name in names {
+        if !unique.contains(&name.as_str()) {
+            unique.push(name);
+        }
+    }
+    unique
 }
 
 /// re:43-51: a further state machine of the item (e.g. Tailwind's StateMachine_Priming).
@@ -397,11 +431,7 @@ pub fn plan_extra_machines(main_machine: u64, item_machines: &[ItemMachine], all
             continue;
         }
         let guid = allocator.dynamic_guid();
-        let mut state_guids = Vec::new();
-        for state in &machine.state_names {
-            let state_guid = allocator.dynamic_guid();
-            put_guid(&mut state_guids, state, state_guid);
-        }
+        let state_guids = unique_names(&machine.state_names).into_iter().map(|state| (state.to_string(), allocator.dynamic_guid())).collect();
         extra.push(ExtraMachine { name: machine.name.clone(), guid, starting_state: starting.to_string(), state_guids });
     }
     extra
@@ -410,24 +440,29 @@ pub fn plan_extra_machines(main_machine: u64, item_machines: &[ItemMachine], all
 /// ruh:1158-1165 once the slot holds the ability: extra machines first, then the
 /// main machine's states except InactiveState, in SM+0x160 order.
 pub fn register_ability(load: &AbilityLoad, allocator: &mut AbilityAllocator, slot: &SlotMachine, item_machines: &[ItemMachine]) -> AbilityEquippable {
-    let names: Vec<&String> = slot.state_names.iter().filter(|name| name.as_str() != INACTIVE_STATE).collect();
+    let names: Vec<&str> = unique_names(&slot.state_names).into_iter().filter(|&name| name != INACTIVE_STATE).collect();
     let extra = plan_extra_machines(slot.state_machine, item_machines, allocator);
-    let mut state_guids = Vec::with_capacity(names.len());
-    for name in names {
-        let guid = allocator.dynamic_guid();
-        put_guid(&mut state_guids, name, guid);
-    }
+    let state_guids: Vec<(String, u32)> = names.into_iter().map(|name| (name.to_string(), allocator.dynamic_guid())).collect();
     ability_equippable(load, &state_guids, extra)
 }
 
 /// ruh:1120-1128 for one extra machine: open it (exports), then its
 /// AuthCurrentState = the starting state, exported. the caller then seeds the
 /// mirror state "<key>/<name>" (auth and exported = starting, active).
-pub fn extra_machine_sends(equippable: &AbilityEquippable, extra: &ExtraMachine) -> RepResult<[ChannelSend; 2]> {
-    let open = machine_open_body(equippable.actor_guid, extra.guid, &extra.name)?;
+pub fn extra_machine_sends(equippable: &AbilityEquippable, extra: &ExtraMachine) -> RepResult<Vec<ChannelSend>> {
+    let mut sends = Vec::with_capacity(2);
+    push_extra_machine_sends(&mut sends, equippable, extra)?;
+    Ok(sends)
+}
+
+/// the two extra-machine bunches in send order; the open is pushed before the
+/// state body is built, so a failure leaves it sent as in python.
+fn push_extra_machine_sends(sends: &mut Vec<ChannelSend>, equippable: &AbilityEquippable, extra: &ExtraMachine) -> RepResult<()> {
+    sends.push(ChannelSend::update(equippable.channel, machine_open_body(equippable.actor_guid, extra.guid, &extra.name)?, true));
+    // re:137-141 looks the starting state up in the machine's guids (a KeyError there)
     let starting_guid = extra.state_guid(&extra.starting_state).ok_or_else(|| invalid("extra machine has no guid for its starting state"))?;
-    let state = auth_state_body(equippable.actor_guid, extra.guid, starting_guid, &extra.starting_state, true)?;
-    Ok([ChannelSend::update(equippable.channel, open, true), ChannelSend::update(equippable.channel, state, true)])
+    sends.push(ChannelSend::update(equippable.channel, auth_state_body(equippable.actor_guid, extra.guid, starting_guid, &extra.starting_state, true)?, true));
+    Ok(())
 }
 
 // ---------------------------------------------------------------- jobs
@@ -475,6 +510,9 @@ pub struct AbilityStep {
     pub extra_machine_errors: Vec<String>,
     /// event ability_register_gave_up: class names
     pub gave_up: Vec<&'static str>,
+    /// the pass stopped here (python raises out of the per-packet block, so
+    /// what went out before stays sent); `sends` are still to be sent
+    pub error: Option<RepError>,
 }
 
 /// per connection: the four ability jobs and their allocator (ruh:2068-2078).
@@ -502,8 +540,15 @@ impl AbilityJobs {
     }
 
     /// ruh:2075-2078 -> advance_ability_job (ruh:1130-1170) for every due job, in order.
-    pub fn step(&mut self, now: f64, oracle: &mut dyn AbilityOracle) -> RepResult<AbilityStep> {
+    pub fn step(&mut self, now: f64, oracle: &mut dyn AbilityOracle) -> AbilityStep {
         let mut step = AbilityStep::default();
+        if let Err(error) = self.step_into(now, oracle, &mut step) {
+            step.error = Some(error);
+        }
+        step
+    }
+
+    fn step_into(&mut self, now: f64, oracle: &mut dyn AbilityOracle, step: &mut AbilityStep) -> RepResult<()> {
         for job in &mut self.jobs {
             if job.stage >= JOB_DONE || now < job.next {
                 continue;
@@ -546,11 +591,11 @@ impl AbilityJobs {
             };
             let equippable = register_ability(&job.load, &mut self.allocator, &machine, &item_machines);
             for extra in &equippable.extra_machines {
-                step.sends.extend(extra_machine_sends(&equippable, extra)?);
+                push_extra_machine_sends(&mut step.sends, &equippable, extra)?;
             }
             step.ready.push(equippable);
             job.stage = JOB_DONE;
         }
-        Ok(step)
+        Ok(())
     }
 }

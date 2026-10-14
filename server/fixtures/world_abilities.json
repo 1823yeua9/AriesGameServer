@@ -50,7 +50,45 @@
     "/Game/Characters/Wushu/S0/Glide/Ability_Wushu_Passive_Glide",
     6
    ]
-  ]
+  ],
+  "starting_equippable_guids": [
+   [
+    200,
+    201,
+    203
+   ],
+   [
+    204,
+    205,
+    207
+   ],
+   [
+    208,
+    209,
+    211
+   ],
+   [
+    212,
+    213,
+    215
+   ],
+   [
+    216,
+    217,
+    219
+   ],
+   [
+    220,
+    221,
+    223
+   ],
+   [
+    224,
+    225,
+    227
+   ]
+  ],
+  "past_the_table": "ValueError"
  },
  "loads": [
   {

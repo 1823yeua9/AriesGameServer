@@ -9,7 +9,7 @@ use std::collections::HashMap;
 use aries_world::abilities::{
     ABILITY_INDICES, AbilityAllocator, AbilityLoad, FIRST_ABILITY_GUID, STARTING_EQUIPPABLE_COUNT, TuningEntry, TuningValue, ability_setup_bodies,
     ability_tuning_guid, build_ability_open_with_tuning, build_ability_tuning_body, plan_ability_load, starting_ability_tunings,
-    starting_equippable_guids,
+    starting_ability, starting_equippable_guids,
 };
 use golden_ab_common::{check, fixture, python_error, u32_of};
 use serde_json::Value;
@@ -42,7 +42,20 @@ fn constants_and_tuning_rows_match_python() {
         let load = plan_ability_load(index, &mut allocator).unwrap();
         assert_eq!(Some(load.class_name), row[0].as_str().unwrap().strip_prefix("Default__"));
         assert_eq!(load.slot, u32_of(&row[2]));
-        assert_eq!(starting_equippable_guids(index).0, load.actor_guid);
+        assert_eq!(starting_equippable_guids(index).unwrap().0, load.actor_guid);
+        let (archetype, package, slot) = starting_ability(index).unwrap();
+        assert_eq!((archetype, package, slot), (row[0].as_str().unwrap(), row[1].as_str().unwrap(), u32_of(&row[2])), "rsb row {index}");
+    }
+    // rsb:699-706: only the seven starting equippables have guids
+    assert_eq!(table.len(), STARTING_EQUIPPABLE_COUNT);
+    for (index, guids) in f["constants"]["starting_equippable_guids"].as_array().unwrap().iter().enumerate() {
+        let want = (u32_of(&guids[0]), u32_of(&guids[1]), u32_of(&guids[2]));
+        assert_eq!(starting_equippable_guids(index), Some(want), "index {index}");
+    }
+    assert_eq!(f["constants"]["past_the_table"], "ValueError");
+    assert_eq!(starting_equippable_guids(STARTING_EQUIPPABLE_COUNT), None);
+    for index in [0, 1, 6] {
+        assert!(starting_ability(index).is_none());
     }
     let tunings = f["tunings"].as_object().unwrap();
     assert_eq!(tunings.len(), 3);

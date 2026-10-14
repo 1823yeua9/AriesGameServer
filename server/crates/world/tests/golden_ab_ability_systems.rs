@@ -72,7 +72,8 @@ fn ability_jobs_match_python() {
         let jobs = jobs.get_or_insert_with(|| AbilityJobs::new(now).unwrap());
         let calls = datagram["oracle"].as_array().unwrap();
         let mut replay = Replay { calls: calls.iter() };
-        let step = jobs.step(now, &mut replay).unwrap();
+        let step = jobs.step(now, &mut replay);
+        assert!(step.error.is_none(), "{label}: {:?}", step.error);
         assert!(replay.calls.next().is_none(), "{label}: python read more");
         check_sends(&step.sends, &datagram["sends"], &mut sequences, &label);
         let ready: Vec<Value> = step

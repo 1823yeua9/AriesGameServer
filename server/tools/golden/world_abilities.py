@@ -217,6 +217,14 @@ def section_world_abilities():
                         # ruh:2067 gate: starting_equippable_index >= len(wushu_starting_equippables)
                         "starting_equippable_count": len(rsb.wushu_starting_equippables),
                         "starting_equippables": [list(row) for row in rsb.wushu_starting_equippables]}
+    # rsb:699-706 for every index, and the first one past the table
+    out["constants"]["starting_equippable_guids"] = [list(rsb.starting_equippable_guids(i))
+                                                     for i in range(len(rsb.wushu_starting_equippables))]
+    try:
+        rsb.starting_equippable_guids(len(rsb.wushu_starting_equippables))
+        out["constants"]["past_the_table"] = None
+    except ValueError as error:
+        out["constants"]["past_the_table"] = type(error).__name__
     for index, rows in ra.starting_ability_tunings.items():
         out["tunings"][str(index)] = [[tag, kind, value] for tag, kind, value in rows]
 
@@ -438,6 +446,33 @@ def section_world_tags():
 
     for n in list(range(0, 2100)) + [2 ** k + d for k in range(11, 32) for d in (-1, 0, 1)]:
         out["true_bits"].append([n, math.ceil(math.log2(n + 1))])
+    return out
+
+
+def section_world_tags_live():
+    """the client's own node map, captured read-only by _capture_live_tags.py
+    (fixtures/world_tags_live_capture.json), replayed through
+    predict_net_indices on a fake memory image: the client's NetIndex path, the
+    order python computes when every NetIndex is still 0xffff, and the B18 opens
+    with the six live AbilityTuning indices. {"captured": false} until a
+    capture exists (spec 08 open question 1)."""
+    import json
+    import range_abilities as ra
+
+    path = Path(__file__).resolve().parents[2] / "fixtures" / "world_tags_live_capture.json"
+    if not path.is_file():
+        return {"captured": False}
+    capture = json.loads(path.read_text(encoding="utf-8"))
+    nodes = [tuple(node) for node in capture["nodes"]]
+    client = run_tag_case(nodes, capture["common"], capture["setting"])
+    computed = run_tag_case([(name, number, 0xFFFF) for name, number, _ in nodes], capture["common"], capture["setting"])
+    out = {"captured": True, "when": capture["captured"], "python_live": capture["python_live"],
+           "client": client, "computed": computed,
+           # the computed order is ignored once the client built its index; does it agree?
+           "computed_matches_client": client.get("indices") == computed.get("indices")}
+    if "indices" in client:
+        out["opens"] = [{"index": i, **attempt(ra.build_ability_open_with_tuning, i, client["indices"], client["true_bit_num"])}
+                        for i in (2, 3, 4)]
     return out
 
 
@@ -1160,12 +1195,195 @@ def section_world_ability_systems():
             "next_guid": allocator.next_guid}
 
 
+# ---------------------------------------------------------------- debug queue, B18 hook, firing state
+
+def if_in_loop(test_fragment):
+    """if_statement, wrapped in a one-pass loop so the `continue` it ends with compiles."""
+    text, tree = ruh_source()
+    found = [node for node in ast.walk(tree)
+             if isinstance(node, ast.If) and test_fragment in ast.get_source_segment(text, node.test)]
+    if len(found) != 1:
+        raise LookupError(f"{test_fragment!r}: {len(found)} matches")
+    node = found[0]
+    body = textwrap.dedent("\n".join(text.splitlines()[node.lineno - 1:node.end_lineno]))
+    source = "for _queued_once in (0,):\n" + textwrap.indent(body, "    ")
+    return compile(source, f"ruh:{node.lineno}", "exec"), node.lineno
+
+
+def section_world_bot_queue():
+    """the debug queue's spawn_bot (ruh:1958-1971) in production order per
+    datagram: the mirror poll's shot, the command queue, the bot tick."""
+    import range_bots as rb
+    import read_equippable_state as res
+
+    tick_code, tick_line = if_statement("range_bots and source in range_streaming_sent_sources")
+    spawn_code, spawn_line = if_in_loop('"spawn_bot" in command')
+    bot_count, _ = argparse_default("--range-bot-count")
+    harness = Harness(range_bots=True, bot_fields={}, bot_ticks={}, bot_spawned_at={}, range_bot_count=bot_count)
+    source = harness.source
+    harness.ns["range_streaming_sent_sources"] = {source}
+    bot_shots, _ = nested_function("bot_shots", harness.ns)
+    reader = FakeReader()
+    camera = {}
+    saved = res.read_camera
+    res.read_camera = lambda handle, image_base, controller=None: camera.get("value")
+    rng = random.Random(1971)
+    classes = [name for name, _ in sorted(rb.weapon_damage.items())]
+    datagrams = []
+    now = 6000.0
+    try:
+        for k in range(600):
+            now += rng.choice([0.004, 0.016, 0.05, 0.12, 0.26])
+            event = {}
+            shot = None
+            field = harness.ns["bot_fields"].get(source)
+            if field is not None and rng.random() < 0.4:
+                origin = (4825.0 + rng.uniform(-250, 250), -12600.0 + rng.uniform(-400, 300), 1371.8 + rng.uniform(-40, 40))
+                live = [b for b in field.bots if b.alive and b.opened]
+                if live and rng.random() < 0.85:
+                    bot = rng.choice(live)
+                    target = (bot.location[0] + rng.uniform(-10, 10), bot.location[1] + rng.uniform(-10, 10),
+                              bot.location[2] + rng.choice([75.0, 20.0, -60.0]))
+                else:
+                    target = (origin[0] + rng.uniform(-3000, 3000), origin[1] - rng.uniform(100, 3000), origin[2])
+                dx, dy, dz = (target[i] - origin[i] for i in range(3))
+                yaw = math.degrees(math.atan2(dy, dx))
+                pitch = math.degrees(math.atan2(dz, math.hypot(dx, dy)))
+                camera["value"] = (origin, (pitch, yaw, 0.0))
+                class_name = rng.choice(classes)
+                bot_shots(source, class_name, 1, now, event, harness.send_reliable, reader)
+                shot = {"origin": vec(origin), "pitch": pitch, "yaw": yaw, "class_name": class_name}
+            shot_sends = harness.take_sends()
+            # the first datagram queues a bot before any tick: the queue makes the
+            # field, and the dummy then takes the channel after it
+            queued = []
+            if k == 0 or rng.random() < 0.07:
+                for _ in range(rng.choice([1, 1, 2])):
+                    location = [rng.uniform(3000, 7000), rng.uniform(-16000, -11000), rng.choice([1351.8, rng.uniform(1200, 1500)])]
+                    if rng.random() < 0.25:
+                        location = [int(v) for v in location]   # json ints, float() in ruh
+                    harness.ns.update(now=now, event=event, command={"spawn_bot": location})
+                    exec(spawn_code, harness.ns)
+                    queued.append(vec(location))
+            queue_sends = harness.take_sends()
+            harness.ns.update(now=now, event=event)
+            exec(tick_code, harness.ns)
+            datagrams.append({"now": now, "shot": shot, "shot_sends": shot_sends, "queued": queued,
+                              "queue_sends": queue_sends, "tick_sends": harness.take_sends(), "event": jsonable_event(event)})
+    finally:
+        res.read_camera = saved
+    field = harness.ns["bot_fields"][source]
+    return {"lines": {"spawn_bot": spawn_line, "bot_tick": tick_line}, "first_offsets": first_offsets_json(),
+            "datagrams": datagrams,
+            "final": {"bots": [bot_json(b) for b in field.bots], "next_channel": field.next_channel,
+                      "next_guid": field.next_guid, "rng_next": field.rng.random()}}
+
+
+def section_world_ability_open_hook():
+    """the B18 tuning hook (ruh:4045-4068) run as written with the process tag
+    cache already filled: what it leaves in open_body for every starting index,
+    and its event."""
+    import range_abilities as ra
+    from gameplay_tag_net_index import TagNetIndex
+
+    code, line = if_statement("ability_activation and equip_i in starting_ability_tunings")
+    # stands for build_starting_equippable_open (the rep crate's): the hook's fallback
+    default = (b"\xde\xfa\x17", 23)
+    sample08 = {"AbilityTuning.Wushu.4.SmokeDuration": 240, "AbilityTuning.Wushu.4.SmokeMaxCharges": 241,
+                "AbilityTuning.Wushu.E.DashVelocityMultiplier": 243, "AbilityTuning.Wushu.E.MaxCharges": 244,
+                "AbilityTuning.Wushu.E.PrimeDuration": 245, "AbilityTuning.Wushu.Q.MaxCharges": 250}
+    # 04_bringup_b.md section 11 open_tuning_SAMPLE_TAGS
+    sample04 = {"AbilityTuning.Wushu.4.SmokeDuration": 100, "AbilityTuning.Wushu.4.SmokeMaxCharges": 101,
+                "AbilityTuning.Wushu.E.DashVelocityMultiplier": 243, "AbilityTuning.Wushu.E.PrimeDuration": 245,
+                "AbilityTuning.Wushu.E.MaxCharges": 244, "AbilityTuning.Wushu.Q.MaxCharges": 300}
+    no_prime = {k: v for k, v in sample08.items() if "PrimeDuration" not in k}
+    wide = {name: 40000 + 7 * i for i, name in enumerate(sorted(sample08))}
+    # (label, activation, indices, true_bit_num, first_bit_segment, constructed)
+    caches = [("spec08_sample", True, sample08, 10, 10, True), ("spec04_sample", True, sample04, 10, 10, True),
+              ("unconstructed", True, sample08, 10, 10, False), ("segmented", True, sample08, 10, 8, True),
+              ("negative_segment", True, sample08, 10, -3, True), ("eight_bits", True, sample04, 8, 8, True),
+              ("missing_prime", True, no_prime, 10, 10, True), ("sixteen_bits", True, wide, 16, 16, True),
+              ("off", False, sample08, 10, 10, True)]
+    out = []
+    for label, activation, indices, true_bits, first_segment, constructed in caches:
+        rows = []
+        for equip_i in range(7):
+            event = {}
+            ns = {"ability_activation": activation, "equip_i": equip_i,
+                  "starting_ability_tunings": ra.starting_ability_tunings,
+                  "tag_net_index_cache": {"indices": TagNetIndex(dict(indices), true_bits, first_segment, constructed)},
+                  "open_body": default[0], "open_bits": default[1], "event": event}
+            exec(code, ns)
+            body = (ns["open_body"], ns["open_bits"])
+            rows.append({"index": equip_i, **({"default": True} if body == default else hb(body)),
+                         "event": jsonable_event(event)})
+        out.append({"label": label, "activation": activation, "indices": dict(indices), "true_bit_num": true_bits,
+                    "first_bit_segment": first_segment, "constructed": constructed, "rows": rows})
+    return {"line": line, "caches": out}
+
+
+def section_world_firing_seed():
+    """read_firing_seed (ruh:946-964) run as written on fake reads that make
+    the seed equal the address of the firing state it picked."""
+    import capture_input_event_cursor as cec
+
+    harness = Harness(firing_rng_components={})
+    read_firing_seed, line = nested_function("read_firing_seed", harness.ns)
+    rng_base = 1 << 40
+
+    def fake_u64(handle, address):
+        return address - 0x4A0 + rng_base           # the RNG component of state `address - 0x4A0`
+
+    def fake_u32(handle, address):
+        return address - 0xEC - rng_base             # its seed: the state address again
+
+    class Machine:
+        state_machine = 0xABC000
+
+    class Equippable:
+        key = "BasePistol"
+
+    cases = [[("InactiveState", 0x1000), ("FiringState", 0x2000)],
+             [("FiringBurst", 0x3000), ("FiringState", 0x2000)],
+             [("FiringBurst", 0x3000), ("Idle", 0x10)],
+             [("FiringState", 0), ("FiringAlt", 0x4000)],
+             [("FiringAlt", 0x4000), ("FiringState", 0)],
+             [],
+             [("Firing", 0x5000)],
+             [("firingstate", 0x6000), ("FIRINGState", 0x6100)],
+             [("FiringState", 0x7000), ("Idle", 1), ("FiringState", 0x8000)],
+             [("FiringAlt", 0x9000), ("FiringState", 0x7000), ("FiringAlt", 0)],
+             [("FiringAlt", 0x9000), ("FiringState", 0), ("FiringAlt", 0)],
+             [("Idle", 0x10), ("ReloadState", 0x20)]]
+    r = random.Random(964)
+    pool = ["FiringState", "FiringAlt", "Firing", "FiringBurst", "InactiveState", "EquipState", "ReloadState", "firing"]
+    for _ in range(300):
+        cases.append([(r.choice(pool), r.choice([0, 0x100 * r.randrange(1, 4096)])) for _ in range(r.randint(0, 7))])
+    out = []
+    saved = (cec.read_u32, cec.read_u64)
+    cec.read_u32, cec.read_u64 = fake_u32, fake_u64
+    try:
+        for pairs in cases:
+            reader = FakeReader()
+            reader._names[Machine.state_machine] = dict(pairs)
+            harness.ns["firing_rng_components"] = {}
+            seed = read_firing_seed(harness.source, Equippable, Machine, reader)
+            out.append({"states": [[name, address] for name, address in pairs], "address": seed})
+    finally:
+        cec.read_u32, cec.read_u64 = saved
+    return {"line": line, "cases": out}
+
+
 SECTIONS = {
     "world_abilities": section_world_abilities,
+    "world_bot_queue": section_world_bot_queue,
+    "world_ability_open_hook": section_world_ability_open_hook,
+    "world_firing_seed": section_world_firing_seed,
     "world_bot_systems": section_world_bot_systems,
     "world_projectile_systems": section_world_projectile_systems,
     "world_ability_systems": section_world_ability_systems,
     "world_tags": section_world_tags,
+    "world_tags_live": section_world_tags_live,
     "world_bots": section_world_bots,
     "world_projectiles": section_world_projectiles,
     "world_teams": section_world_teams,

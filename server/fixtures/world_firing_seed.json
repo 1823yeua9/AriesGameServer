@@ -1,0 +1,5481 @@
+{
+ "line": 946,
+ "cases": [
+  {
+   "states": [
+    [
+     "InactiveState",
+     4096
+    ],
+    [
+     "FiringState",
+     8192
+    ]
+   ],
+   "address": 8192
+  },
+  {
+   "states": [
+    [
+     "FiringBurst",
+     12288
+    ],
+    [
+     "FiringState",
+     8192
+    ]
+   ],
+   "address": 8192
+  },
+  {
+   "states": [
+    [
+     "FiringBurst",
+     12288
+    ],
+    [
+     "Idle",
+     16
+    ]
+   ],
+   "address": 12288
+  },
+  {
+   "states": [
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "FiringAlt",
+     16384
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringAlt",
+     16384
+    ],
+    [
+     "FiringState",
+     0
+    ]
+   ],
+   "address": 16384
+  },
+  {
+   "states": [],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "Firing",
+     20480
+    ]
+   ],
+   "address": 20480
+  },
+  {
+   "states": [
+    [
+     "firingstate",
+     24576
+    ],
+    [
+     "FIRINGState",
+     24832
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringState",
+     28672
+    ],
+    [
+     "Idle",
+     1
+    ],
+    [
+     "FiringState",
+     32768
+    ]
+   ],
+   "address": 32768
+  },
+  {
+   "states": [
+    [
+     "FiringAlt",
+     36864
+    ],
+    [
+     "FiringState",
+     28672
+    ],
+    [
+     "FiringAlt",
+     0
+    ]
+   ],
+   "address": 28672
+  },
+  {
+   "states": [
+    [
+     "FiringAlt",
+     36864
+    ],
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "FiringAlt",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "Idle",
+     16
+    ],
+    [
+     "ReloadState",
+     32
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "firing",
+     0
+    ],
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "Firing",
+     599552
+    ],
+    [
+     "firing",
+     69632
+    ],
+    [
+     "firing",
+     366080
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringAlt",
+     487680
+    ],
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "EquipState",
+     0
+    ],
+    [
+     "firing",
+     0
+    ],
+    [
+     "firing",
+     0
+    ],
+    [
+     "InactiveState",
+     48384
+    ],
+    [
+     "EquipState",
+     0
+    ]
+   ],
+   "address": 487680
+  },
+  {
+   "states": [
+    [
+     "EquipState",
+     449536
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringBurst",
+     0
+    ],
+    [
+     "FiringAlt",
+     80640
+    ],
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "FiringState",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringBurst",
+     0
+    ],
+    [
+     "FiringAlt",
+     489728
+    ],
+    [
+     "firing",
+     0
+    ],
+    [
+     "firing",
+     268544
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "Firing",
+     0
+    ],
+    [
+     "ReloadState",
+     940032
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "EquipState",
+     30720
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringBurst",
+     287232
+    ],
+    [
+     "EquipState",
+     686848
+    ],
+    [
+     "ReloadState",
+     166912
+    ],
+    [
+     "firing",
+     0
+    ],
+    [
+     "firing",
+     0
+    ]
+   ],
+   "address": 287232
+  },
+  {
+   "states": [
+    [
+     "Firing",
+     204288
+    ],
+    [
+     "EquipState",
+     538112
+    ],
+    [
+     "InactiveState",
+     675584
+    ]
+   ],
+   "address": 204288
+  },
+  {
+   "states": [
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "ReloadState",
+     559616
+    ],
+    [
+     "EquipState",
+     0
+    ],
+    [
+     "FiringState",
+     296960
+    ],
+    [
+     "FiringAlt",
+     170752
+    ],
+    [
+     "FiringAlt",
+     118016
+    ],
+    [
+     "Firing",
+     0
+    ]
+   ],
+   "address": 296960
+  },
+  {
+   "states": [
+    [
+     "InactiveState",
+     969216
+    ],
+    [
+     "FiringBurst",
+     980992
+    ],
+    [
+     "FiringState",
+     0
+    ]
+   ],
+   "address": 980992
+  },
+  {
+   "states": [
+    [
+     "firing",
+     26112
+    ],
+    [
+     "EquipState",
+     868352
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "InactiveState",
+     0
+    ],
+    [
+     "firing",
+     0
+    ],
+    [
+     "FiringBurst",
+     539392
+    ],
+    [
+     "Firing",
+     833536
+    ],
+    [
+     "EquipState",
+     0
+    ],
+    [
+     "Firing",
+     622080
+    ]
+   ],
+   "address": 539392
+  },
+  {
+   "states": [
+    [
+     "FiringBurst",
+     1027840
+    ]
+   ],
+   "address": 1027840
+  },
+  {
+   "states": [
+    [
+     "FiringBurst",
+     0
+    ],
+    [
+     "ReloadState",
+     592128
+    ],
+    [
+     "InactiveState",
+     180224
+    ],
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "ReloadState",
+     643840
+    ],
+    [
+     "Firing",
+     428544
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "ReloadState",
+     355072
+    ],
+    [
+     "FiringAlt",
+     931584
+    ],
+    [
+     "ReloadState",
+     0
+    ],
+    [
+     "InactiveState",
+     814592
+    ],
+    [
+     "Firing",
+     1033472
+    ],
+    [
+     "FiringAlt",
+     126976
+    ],
+    [
+     "firing",
+     0
+    ]
+   ],
+   "address": 126976
+  },
+  {
+   "states": [
+    [
+     "FiringBurst",
+     0
+    ],
+    [
+     "FiringBurst",
+     408576
+    ],
+    [
+     "EquipState",
+     0
+    ]
+   ],
+   "address": 408576
+  },
+  {
+   "states": [
+    [
+     "FiringAlt",
+     929024
+    ],
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "FiringAlt",
+     954368
+    ],
+    [
+     "ReloadState",
+     184320
+    ]
+   ],
+   "address": 954368
+  },
+  {
+   "states": [
+    [
+     "EquipState",
+     0
+    ],
+    [
+     "ReloadState",
+     530432
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "ReloadState",
+     811008
+    ],
+    [
+     "FiringBurst",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringBurst",
+     0
+    ],
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "ReloadState",
+     14080
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringAlt",
+     768512
+    ],
+    [
+     "InactiveState",
+     0
+    ],
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "Firing",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "ReloadState",
+     388608
+    ],
+    [
+     "EquipState",
+     0
+    ],
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "ReloadState",
+     631296
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "Firing",
+     762624
+    ],
+    [
+     "FiringAlt",
+     973568
+    ],
+    [
+     "Firing",
+     0
+    ],
+    [
+     "EquipState",
+     0
+    ],
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "firing",
+     0
+    ],
+    [
+     "FiringAlt",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringBurst",
+     0
+    ],
+    [
+     "Firing",
+     0
+    ],
+    [
+     "firing",
+     375552
+    ],
+    [
+     "ReloadState",
+     825856
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "firing",
+     508416
+    ],
+    [
+     "ReloadState",
+     0
+    ],
+    [
+     "FiringBurst",
+     0
+    ],
+    [
+     "FiringAlt",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "EquipState",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "EquipState",
+     428800
+    ],
+    [
+     "firing",
+     0
+    ],
+    [
+     "FiringAlt",
+     682496
+    ],
+    [
+     "Firing",
+     0
+    ],
+    [
+     "InactiveState",
+     799232
+    ],
+    [
+     "Firing",
+     410368
+    ],
+    [
+     "firing",
+     0
+    ]
+   ],
+   "address": 682496
+  },
+  {
+   "states": [
+    [
+     "InactiveState",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "firing",
+     1019904
+    ],
+    [
+     "firing",
+     542976
+    ],
+    [
+     "EquipState",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringBurst",
+     27392
+    ],
+    [
+     "FiringAlt",
+     775168
+    ],
+    [
+     "EquipState",
+     64512
+    ],
+    [
+     "FiringBurst",
+     0
+    ],
+    [
+     "FiringBurst",
+     285440
+    ]
+   ],
+   "address": 285440
+  },
+  {
+   "states": [
+    [
+     "FiringBurst",
+     0
+    ],
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "firing",
+     0
+    ],
+    [
+     "FiringAlt",
+     628480
+    ],
+    [
+     "EquipState",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringAlt",
+     537600
+    ]
+   ],
+   "address": 537600
+  },
+  {
+   "states": [
+    [
+     "firing",
+     675584
+    ],
+    [
+     "InactiveState",
+     957440
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "EquipState",
+     197632
+    ],
+    [
+     "InactiveState",
+     0
+    ],
+    [
+     "EquipState",
+     235776
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "firing",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "firing",
+     0
+    ],
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "Firing",
+     207360
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "FiringAlt",
+     715520
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "EquipState",
+     318720
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "ReloadState",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "InactiveState",
+     0
+    ],
+    [
+     "FiringAlt",
+     766720
+    ]
+   ],
+   "address": 766720
+  },
+  {
+   "states": [
+    [
+     "FiringAlt",
+     115712
+    ],
+    [
+     "FiringBurst",
+     0
+    ],
+    [
+     "ReloadState",
+     0
+    ],
+    [
+     "FiringBurst",
+     616704
+    ],
+    [
+     "Firing",
+     0
+    ],
+    [
+     "InactiveState",
+     724224
+    ],
+    [
+     "ReloadState",
+     853760
+    ]
+   ],
+   "address": 115712
+  },
+  {
+   "states": [
+    [
+     "Firing",
+     0
+    ],
+    [
+     "Firing",
+     0
+    ],
+    [
+     "FiringBurst",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringState",
+     211968
+    ],
+    [
+     "ReloadState",
+     0
+    ],
+    [
+     "FiringAlt",
+     21760
+    ]
+   ],
+   "address": 211968
+  },
+  {
+   "states": [
+    [
+     "InactiveState",
+     703232
+    ],
+    [
+     "ReloadState",
+     0
+    ],
+    [
+     "ReloadState",
+     659712
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "InactiveState",
+     0
+    ],
+    [
+     "EquipState",
+     292352
+    ],
+    [
+     "Firing",
+     547584
+    ]
+   ],
+   "address": 547584
+  },
+  {
+   "states": [
+    [
+     "InactiveState",
+     0
+    ],
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "EquipState",
+     597248
+    ],
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "ReloadState",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "EquipState",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringBurst",
+     740352
+    ],
+    [
+     "FiringState",
+     818176
+    ],
+    [
+     "EquipState",
+     455168
+    ]
+   ],
+   "address": 818176
+  },
+  {
+   "states": [
+    [
+     "FiringAlt",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "firing",
+     860672
+    ],
+    [
+     "Firing",
+     0
+    ],
+    [
+     "EquipState",
+     117504
+    ],
+    [
+     "EquipState",
+     0
+    ],
+    [
+     "ReloadState",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "EquipState",
+     544000
+    ],
+    [
+     "Firing",
+     766464
+    ]
+   ],
+   "address": 766464
+  },
+  {
+   "states": [
+    [
+     "InactiveState",
+     0
+    ],
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "ReloadState",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "EquipState",
+     129536
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "FiringAlt",
+     645888
+    ],
+    [
+     "Firing",
+     676864
+    ],
+    [
+     "firing",
+     732416
+    ],
+    [
+     "firing",
+     0
+    ],
+    [
+     "InactiveState",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringBurst",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "InactiveState",
+     0
+    ],
+    [
+     "FiringAlt",
+     771840
+    ],
+    [
+     "Firing",
+     0
+    ],
+    [
+     "FiringBurst",
+     0
+    ]
+   ],
+   "address": 771840
+  },
+  {
+   "states": [
+    [
+     "FiringBurst",
+     471552
+    ],
+    [
+     "InactiveState",
+     0
+    ],
+    [
+     "InactiveState",
+     767488
+    ]
+   ],
+   "address": 471552
+  },
+  {
+   "states": [
+    [
+     "EquipState",
+     200704
+    ],
+    [
+     "FiringBurst",
+     0
+    ],
+    [
+     "FiringAlt",
+     228608
+    ],
+    [
+     "Firing",
+     708608
+    ],
+    [
+     "Firing",
+     0
+    ],
+    [
+     "EquipState",
+     1029632
+    ],
+    [
+     "FiringBurst",
+     545792
+    ]
+   ],
+   "address": 545792
+  },
+  {
+   "states": [],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "ReloadState",
+     0
+    ],
+    [
+     "FiringBurst",
+     167424
+    ]
+   ],
+   "address": 167424
+  },
+  {
+   "states": [
+    [
+     "InactiveState",
+     357888
+    ],
+    [
+     "FiringBurst",
+     0
+    ],
+    [
+     "Firing",
+     0
+    ],
+    [
+     "ReloadState",
+     0
+    ],
+    [
+     "InactiveState",
+     790016
+    ],
+    [
+     "FiringBurst",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "ReloadState",
+     0
+    ],
+    [
+     "Firing",
+     712704
+    ],
+    [
+     "Firing",
+     0
+    ],
+    [
+     "InactiveState",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringBurst",
+     478464
+    ],
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "Firing",
+     399872
+    ],
+    [
+     "ReloadState",
+     0
+    ],
+    [
+     "firing",
+     0
+    ]
+   ],
+   "address": 478464
+  },
+  {
+   "states": [
+    [
+     "firing",
+     513024
+    ],
+    [
+     "InactiveState",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "Firing",
+     0
+    ],
+    [
+     "EquipState",
+     0
+    ],
+    [
+     "FiringBurst",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "EquipState",
+     328192
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "EquipState",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "Firing",
+     8960
+    ],
+    [
+     "firing",
+     519168
+    ],
+    [
+     "FiringBurst",
+     0
+    ],
+    [
+     "EquipState",
+     619008
+    ],
+    [
+     "FiringAlt",
+     0
+    ]
+   ],
+   "address": 8960
+  },
+  {
+   "states": [
+    [
+     "EquipState",
+     0
+    ],
+    [
+     "firing",
+     0
+    ],
+    [
+     "firing",
+     0
+    ],
+    [
+     "FiringAlt",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "firing",
+     731904
+    ],
+    [
+     "InactiveState",
+     877824
+    ],
+    [
+     "EquipState",
+     451584
+    ],
+    [
+     "FiringState",
+     997888
+    ],
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "FiringState",
+     537856
+    ],
+    [
+     "firing",
+     300544
+    ]
+   ],
+   "address": 537856
+  },
+  {
+   "states": [],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "EquipState",
+     846336
+    ],
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "Firing",
+     0
+    ],
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "FiringBurst",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "InactiveState",
+     903424
+    ],
+    [
+     "firing",
+     356096
+    ],
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "firing",
+     0
+    ],
+    [
+     "firing",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "FiringBurst",
+     630784
+    ],
+    [
+     "firing",
+     978944
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "Firing",
+     881152
+    ],
+    [
+     "EquipState",
+     51200
+    ],
+    [
+     "ReloadState",
+     395776
+    ]
+   ],
+   "address": 881152
+  },
+  {
+   "states": [
+    [
+     "EquipState",
+     107776
+    ],
+    [
+     "firing",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "firing",
+     0
+    ],
+    [
+     "InactiveState",
+     555520
+    ],
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "InactiveState",
+     885248
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringBurst",
+     860928
+    ],
+    [
+     "FiringBurst",
+     728576
+    ],
+    [
+     "ReloadState",
+     0
+    ],
+    [
+     "ReloadState",
+     320512
+    ],
+    [
+     "Firing",
+     295424
+    ],
+    [
+     "FiringState",
+     0
+    ]
+   ],
+   "address": 728576
+  },
+  {
+   "states": [
+    [
+     "firing",
+     0
+    ],
+    [
+     "Firing",
+     0
+    ],
+    [
+     "firing",
+     834048
+    ],
+    [
+     "firing",
+     62720
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringState",
+     237568
+    ],
+    [
+     "FiringBurst",
+     76288
+    ],
+    [
+     "EquipState",
+     423680
+    ],
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "FiringBurst",
+     881408
+    ],
+    [
+     "Firing",
+     687616
+    ],
+    [
+     "InactiveState",
+     675072
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "Firing",
+     387072
+    ]
+   ],
+   "address": 387072
+  },
+  {
+   "states": [
+    [
+     "Firing",
+     0
+    ],
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "InactiveState",
+     0
+    ],
+    [
+     "InactiveState",
+     0
+    ],
+    [
+     "InactiveState",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "InactiveState",
+     0
+    ],
+    [
+     "Firing",
+     0
+    ],
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "EquipState",
+     845568
+    ],
+    [
+     "EquipState",
+     338176
+    ],
+    [
+     "FiringBurst",
+     903424
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringBurst",
+     639232
+    ]
+   ],
+   "address": 639232
+  },
+  {
+   "states": [],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringBurst",
+     0
+    ],
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "FiringState",
+     877568
+    ],
+    [
+     "FiringAlt",
+     721920
+    ],
+    [
+     "EquipState",
+     0
+    ]
+   ],
+   "address": 877568
+  },
+  {
+   "states": [
+    [
+     "EquipState",
+     108544
+    ],
+    [
+     "FiringBurst",
+     316416
+    ],
+    [
+     "FiringState",
+     288768
+    ],
+    [
+     "InactiveState",
+     0
+    ],
+    [
+     "InactiveState",
+     0
+    ],
+    [
+     "InactiveState",
+     239872
+    ]
+   ],
+   "address": 288768
+  },
+  {
+   "states": [
+    [
+     "firing",
+     55040
+    ],
+    [
+     "ReloadState",
+     964096
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "firing",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "Firing",
+     0
+    ],
+    [
+     "FiringAlt",
+     70656
+    ],
+    [
+     "FiringAlt",
+     334592
+    ],
+    [
+     "Firing",
+     329216
+    ],
+    [
+     "FiringState",
+     184064
+    ]
+   ],
+   "address": 184064
+  },
+  {
+   "states": [
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "EquipState",
+     992768
+    ],
+    [
+     "ReloadState",
+     0
+    ],
+    [
+     "FiringState",
+     280576
+    ],
+    [
+     "FiringBurst",
+     258560
+    ]
+   ],
+   "address": 280576
+  },
+  {
+   "states": [],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringState",
+     489216
+    ],
+    [
+     "FiringAlt",
+     0
+    ]
+   ],
+   "address": 489216
+  },
+  {
+   "states": [],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "InactiveState",
+     512512
+    ],
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "EquipState",
+     400128
+    ],
+    [
+     "ReloadState",
+     828672
+    ],
+    [
+     "FiringBurst",
+     503296
+    ],
+    [
+     "Firing",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "EquipState",
+     172800
+    ],
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "Firing",
+     930560
+    ],
+    [
+     "EquipState",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "EquipState",
+     28928
+    ],
+    [
+     "InactiveState",
+     0
+    ],
+    [
+     "FiringState",
+     165120
+    ],
+    [
+     "Firing",
+     789248
+    ],
+    [
+     "FiringBurst",
+     0
+    ],
+    [
+     "firing",
+     0
+    ],
+    [
+     "EquipState",
+     882432
+    ]
+   ],
+   "address": 165120
+  },
+  {
+   "states": [
+    [
+     "FiringState",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "Firing",
+     0
+    ],
+    [
+     "FiringBurst",
+     1030144
+    ],
+    [
+     "FiringBurst",
+     0
+    ],
+    [
+     "FiringAlt",
+     531456
+    ],
+    [
+     "EquipState",
+     399872
+    ],
+    [
+     "Firing",
+     521728
+    ],
+    [
+     "InactiveState",
+     0
+    ]
+   ],
+   "address": 521728
+  },
+  {
+   "states": [
+    [
+     "FiringAlt",
+     846336
+    ]
+   ],
+   "address": 846336
+  },
+  {
+   "states": [],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringAlt",
+     331264
+    ]
+   ],
+   "address": 331264
+  },
+  {
+   "states": [],
+   "address": null
+  },
+  {
+   "states": [],
+   "address": null
+  },
+  {
+   "states": [],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "InactiveState",
+     791552
+    ],
+    [
+     "FiringBurst",
+     193792
+    ],
+    [
+     "ReloadState",
+     0
+    ]
+   ],
+   "address": 193792
+  },
+  {
+   "states": [
+    [
+     "FiringBurst",
+     0
+    ],
+    [
+     "firing",
+     531712
+    ],
+    [
+     "EquipState",
+     0
+    ],
+    [
+     "InactiveState",
+     0
+    ],
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "FiringBurst",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringBurst",
+     360192
+    ],
+    [
+     "FiringBurst",
+     197888
+    ],
+    [
+     "firing",
+     556288
+    ]
+   ],
+   "address": 197888
+  },
+  {
+   "states": [
+    [
+     "Firing",
+     0
+    ],
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "firing",
+     948992
+    ],
+    [
+     "FiringAlt",
+     404992
+    ],
+    [
+     "ReloadState",
+     54272
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "firing",
+     433664
+    ],
+    [
+     "FiringState",
+     471552
+    ]
+   ],
+   "address": 471552
+  },
+  {
+   "states": [
+    [
+     "EquipState",
+     649472
+    ],
+    [
+     "FiringBurst",
+     745216
+    ],
+    [
+     "FiringBurst",
+     0
+    ],
+    [
+     "FiringAlt",
+     682752
+    ],
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "FiringAlt",
+     251136
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "EquipState",
+     0
+    ],
+    [
+     "FiringBurst",
+     0
+    ],
+    [
+     "InactiveState",
+     0
+    ],
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "Firing",
+     663296
+    ],
+    [
+     "InactiveState",
+     568064
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "Firing",
+     0
+    ],
+    [
+     "firing",
+     0
+    ],
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "ReloadState",
+     0
+    ],
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "FiringState",
+     93952
+    ]
+   ],
+   "address": 93952
+  },
+  {
+   "states": [
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "firing",
+     0
+    ],
+    [
+     "FiringBurst",
+     737792
+    ],
+    [
+     "InactiveState",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "Firing",
+     616448
+    ],
+    [
+     "firing",
+     551936
+    ],
+    [
+     "EquipState",
+     28160
+    ],
+    [
+     "FiringBurst",
+     0
+    ],
+    [
+     "EquipState",
+     33024
+    ],
+    [
+     "ReloadState",
+     0
+    ]
+   ],
+   "address": 616448
+  },
+  {
+   "states": [
+    [
+     "FiringState",
+     975872
+    ]
+   ],
+   "address": 975872
+  },
+  {
+   "states": [],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringBurst",
+     878592
+    ],
+    [
+     "firing",
+     0
+    ]
+   ],
+   "address": 878592
+  },
+  {
+   "states": [
+    [
+     "EquipState",
+     810240
+    ],
+    [
+     "Firing",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringBurst",
+     0
+    ],
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "EquipState",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringState",
+     521728
+    ]
+   ],
+   "address": 521728
+  },
+  {
+   "states": [
+    [
+     "EquipState",
+     0
+    ],
+    [
+     "InactiveState",
+     0
+    ],
+    [
+     "FiringState",
+     604672
+    ]
+   ],
+   "address": 604672
+  },
+  {
+   "states": [
+    [
+     "InactiveState",
+     0
+    ],
+    [
+     "InactiveState",
+     233728
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [],
+   "address": null
+  },
+  {
+   "states": [],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringBurst",
+     82944
+    ],
+    [
+     "FiringState",
+     838656
+    ],
+    [
+     "FiringBurst",
+     920576
+    ],
+    [
+     "firing",
+     0
+    ],
+    [
+     "FiringAlt",
+     1014528
+    ],
+    [
+     "EquipState",
+     0
+    ]
+   ],
+   "address": 838656
+  },
+  {
+   "states": [
+    [
+     "FiringState",
+     68608
+    ],
+    [
+     "ReloadState",
+     924416
+    ]
+   ],
+   "address": 68608
+  },
+  {
+   "states": [
+    [
+     "Firing",
+     0
+    ],
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "FiringBurst",
+     708608
+    ],
+    [
+     "firing",
+     573952
+    ],
+    [
+     "Firing",
+     781056
+    ]
+   ],
+   "address": 781056
+  },
+  {
+   "states": [
+    [
+     "FiringAlt",
+     84736
+    ],
+    [
+     "Firing",
+     0
+    ],
+    [
+     "FiringBurst",
+     727808
+    ],
+    [
+     "ReloadState",
+     1010688
+    ],
+    [
+     "firing",
+     0
+    ],
+    [
+     "Firing",
+     0
+    ],
+    [
+     "ReloadState",
+     0
+    ]
+   ],
+   "address": 84736
+  },
+  {
+   "states": [],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "Firing",
+     567808
+    ],
+    [
+     "FiringBurst",
+     352512
+    ],
+    [
+     "InactiveState",
+     281088
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "InactiveState",
+     0
+    ],
+    [
+     "FiringAlt",
+     621824
+    ],
+    [
+     "Firing",
+     737024
+    ],
+    [
+     "FiringAlt",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "EquipState",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringBurst",
+     0
+    ],
+    [
+     "InactiveState",
+     664320
+    ],
+    [
+     "ReloadState",
+     0
+    ],
+    [
+     "Firing",
+     0
+    ],
+    [
+     "FiringBurst",
+     0
+    ],
+    [
+     "firing",
+     21248
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "ReloadState",
+     0
+    ],
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "EquipState",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "firing",
+     0
+    ],
+    [
+     "InactiveState",
+     0
+    ],
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "Firing",
+     80384
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "Firing",
+     707072
+    ],
+    [
+     "FiringState",
+     210176
+    ],
+    [
+     "firing",
+     288512
+    ],
+    [
+     "FiringBurst",
+     0
+    ],
+    [
+     "InactiveState",
+     0
+    ],
+    [
+     "EquipState",
+     0
+    ],
+    [
+     "ReloadState",
+     0
+    ]
+   ],
+   "address": 210176
+  },
+  {
+   "states": [
+    [
+     "FiringState",
+     927232
+    ],
+    [
+     "Firing",
+     0
+    ],
+    [
+     "FiringAlt",
+     978432
+    ]
+   ],
+   "address": 927232
+  },
+  {
+   "states": [
+    [
+     "firing",
+     0
+    ],
+    [
+     "ReloadState",
+     294912
+    ],
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "EquipState",
+     161536
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "EquipState",
+     0
+    ],
+    [
+     "ReloadState",
+     645632
+    ],
+    [
+     "FiringBurst",
+     484096
+    ],
+    [
+     "ReloadState",
+     177920
+    ],
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "ReloadState",
+     190720
+    ]
+   ],
+   "address": 484096
+  },
+  {
+   "states": [
+    [
+     "InactiveState",
+     0
+    ],
+    [
+     "firing",
+     0
+    ],
+    [
+     "ReloadState",
+     39424
+    ],
+    [
+     "FiringState",
+     836864
+    ],
+    [
+     "InactiveState",
+     0
+    ]
+   ],
+   "address": 836864
+  },
+  {
+   "states": [
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "ReloadState",
+     506112
+    ],
+    [
+     "FiringState",
+     133888
+    ],
+    [
+     "firing",
+     380416
+    ],
+    [
+     "FiringBurst",
+     0
+    ]
+   ],
+   "address": 133888
+  },
+  {
+   "states": [
+    [
+     "InactiveState",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "EquipState",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "Firing",
+     907008
+    ]
+   ],
+   "address": 907008
+  },
+  {
+   "states": [
+    [
+     "EquipState",
+     286720
+    ],
+    [
+     "ReloadState",
+     0
+    ],
+    [
+     "Firing",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "EquipState",
+     925440
+    ],
+    [
+     "Firing",
+     0
+    ],
+    [
+     "EquipState",
+     0
+    ],
+    [
+     "EquipState",
+     392960
+    ],
+    [
+     "FiringAlt",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "InactiveState",
+     0
+    ],
+    [
+     "Firing",
+     0
+    ],
+    [
+     "FiringBurst",
+     955136
+    ],
+    [
+     "ReloadState",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "EquipState",
+     7168
+    ],
+    [
+     "ReloadState",
+     7936
+    ],
+    [
+     "InactiveState",
+     0
+    ],
+    [
+     "FiringAlt",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "firing",
+     0
+    ],
+    [
+     "FiringAlt",
+     893440
+    ]
+   ],
+   "address": 893440
+  },
+  {
+   "states": [
+    [
+     "Firing",
+     656128
+    ],
+    [
+     "InactiveState",
+     522496
+    ]
+   ],
+   "address": 656128
+  },
+  {
+   "states": [
+    [
+     "firing",
+     0
+    ],
+    [
+     "firing",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringBurst",
+     0
+    ],
+    [
+     "InactiveState",
+     133376
+    ],
+    [
+     "FiringAlt",
+     235264
+    ],
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "ReloadState",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "firing",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "ReloadState",
+     0
+    ],
+    [
+     "InactiveState",
+     598784
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringBurst",
+     633856
+    ],
+    [
+     "FiringState",
+     609536
+    ],
+    [
+     "FiringState",
+     0
+    ]
+   ],
+   "address": 633856
+  },
+  {
+   "states": [],
+   "address": null
+  },
+  {
+   "states": [],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "Firing",
+     618496
+    ],
+    [
+     "firing",
+     0
+    ],
+    [
+     "FiringState",
+     617728
+    ],
+    [
+     "EquipState",
+     14592
+    ],
+    [
+     "InactiveState",
+     0
+    ]
+   ],
+   "address": 617728
+  },
+  {
+   "states": [
+    [
+     "firing",
+     784896
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "Firing",
+     0
+    ],
+    [
+     "FiringState",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringBurst",
+     0
+    ],
+    [
+     "InactiveState",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "EquipState",
+     441088
+    ],
+    [
+     "FiringAlt",
+     848640
+    ],
+    [
+     "Firing",
+     0
+    ],
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "InactiveState",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "InactiveState",
+     0
+    ],
+    [
+     "FiringBurst",
+     885248
+    ],
+    [
+     "InactiveState",
+     0
+    ]
+   ],
+   "address": 885248
+  },
+  {
+   "states": [
+    [
+     "EquipState",
+     0
+    ],
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "FiringBurst",
+     0
+    ],
+    [
+     "FiringBurst",
+     910080
+    ],
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "ReloadState",
+     0
+    ],
+    [
+     "InactiveState",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringState",
+     466176
+    ],
+    [
+     "InactiveState",
+     889344
+    ]
+   ],
+   "address": 466176
+  },
+  {
+   "states": [
+    [
+     "FiringState",
+     425984
+    ],
+    [
+     "EquipState",
+     836608
+    ],
+    [
+     "FiringBurst",
+     820480
+    ],
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "FiringBurst",
+     0
+    ],
+    [
+     "FiringState",
+     71424
+    ]
+   ],
+   "address": 71424
+  },
+  {
+   "states": [
+    [
+     "Firing",
+     61440
+    ],
+    [
+     "FiringAlt",
+     1011968
+    ],
+    [
+     "firing",
+     0
+    ],
+    [
+     "EquipState",
+     0
+    ],
+    [
+     "FiringBurst",
+     0
+    ],
+    [
+     "ReloadState",
+     1037312
+    ],
+    [
+     "firing",
+     766464
+    ]
+   ],
+   "address": 61440
+  },
+  {
+   "states": [
+    [
+     "Firing",
+     516096
+    ],
+    [
+     "firing",
+     586496
+    ],
+    [
+     "InactiveState",
+     0
+    ],
+    [
+     "InactiveState",
+     286720
+    ]
+   ],
+   "address": 516096
+  },
+  {
+   "states": [
+    [
+     "EquipState",
+     0
+    ],
+    [
+     "firing",
+     0
+    ],
+    [
+     "ReloadState",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "InactiveState",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "InactiveState",
+     91136
+    ],
+    [
+     "ReloadState",
+     835072
+    ],
+    [
+     "InactiveState",
+     0
+    ],
+    [
+     "FiringAlt",
+     574208
+    ],
+    [
+     "Firing",
+     43264
+    ],
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "Firing",
+     485376
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringBurst",
+     0
+    ],
+    [
+     "FiringAlt",
+     502528
+    ],
+    [
+     "firing",
+     565248
+    ],
+    [
+     "FiringAlt",
+     608000
+    ],
+    [
+     "Firing",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "InactiveState",
+     0
+    ],
+    [
+     "Firing",
+     301312
+    ],
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "EquipState",
+     582912
+    ],
+    [
+     "ReloadState",
+     472320
+    ]
+   ],
+   "address": 301312
+  },
+  {
+   "states": [
+    [
+     "firing",
+     136960
+    ],
+    [
+     "InactiveState",
+     782848
+    ],
+    [
+     "FiringBurst",
+     743680
+    ],
+    [
+     "FiringBurst",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "firing",
+     0
+    ],
+    [
+     "Firing",
+     0
+    ],
+    [
+     "InactiveState",
+     0
+    ],
+    [
+     "FiringAlt",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "InactiveState",
+     0
+    ],
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "EquipState",
+     0
+    ],
+    [
+     "EquipState",
+     775936
+    ],
+    [
+     "FiringAlt",
+     912384
+    ],
+    [
+     "FiringAlt",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringState",
+     638720
+    ]
+   ],
+   "address": 638720
+  },
+  {
+   "states": [
+    [
+     "EquipState",
+     384768
+    ],
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "FiringBurst",
+     586752
+    ],
+    [
+     "FiringState",
+     928256
+    ],
+    [
+     "InactiveState",
+     0
+    ],
+    [
+     "InactiveState",
+     0
+    ]
+   ],
+   "address": 928256
+  },
+  {
+   "states": [
+    [
+     "firing",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringState",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "firing",
+     620288
+    ],
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "firing",
+     0
+    ],
+    [
+     "ReloadState",
+     0
+    ],
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "FiringAlt",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "firing",
+     955136
+    ],
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "FiringAlt",
+     895744
+    ],
+    [
+     "FiringBurst",
+     0
+    ]
+   ],
+   "address": 895744
+  },
+  {
+   "states": [
+    [
+     "firing",
+     0
+    ],
+    [
+     "FiringBurst",
+     0
+    ],
+    [
+     "Firing",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "EquipState",
+     1035776
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "ReloadState",
+     410624
+    ],
+    [
+     "FiringAlt",
+     795392
+    ],
+    [
+     "firing",
+     0
+    ],
+    [
+     "EquipState",
+     842752
+    ],
+    [
+     "EquipState",
+     0
+    ]
+   ],
+   "address": 795392
+  },
+  {
+   "states": [
+    [
+     "firing",
+     307456
+    ],
+    [
+     "ReloadState",
+     189184
+    ],
+    [
+     "FiringState",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "firing",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "firing",
+     0
+    ],
+    [
+     "FiringBurst",
+     409344
+    ],
+    [
+     "ReloadState",
+     24576
+    ],
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "EquipState",
+     456448
+    ],
+    [
+     "firing",
+     15616
+    ]
+   ],
+   "address": 409344
+  },
+  {
+   "states": [
+    [
+     "firing",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "firing",
+     651264
+    ],
+    [
+     "EquipState",
+     0
+    ],
+    [
+     "FiringBurst",
+     0
+    ],
+    [
+     "FiringBurst",
+     1039104
+    ],
+    [
+     "FiringAlt",
+     27392
+    ],
+    [
+     "ReloadState",
+     546048
+    ],
+    [
+     "ReloadState",
+     634112
+    ]
+   ],
+   "address": 1039104
+  },
+  {
+   "states": [],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "EquipState",
+     0
+    ],
+    [
+     "ReloadState",
+     0
+    ],
+    [
+     "InactiveState",
+     0
+    ],
+    [
+     "ReloadState",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "ReloadState",
+     783104
+    ],
+    [
+     "FiringBurst",
+     0
+    ],
+    [
+     "InactiveState",
+     780800
+    ],
+    [
+     "FiringState",
+     401152
+    ]
+   ],
+   "address": 401152
+  },
+  {
+   "states": [
+    [
+     "firing",
+     1027072
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "EquipState",
+     0
+    ],
+    [
+     "firing",
+     0
+    ],
+    [
+     "EquipState",
+     0
+    ],
+    [
+     "EquipState",
+     854016
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "Firing",
+     15360
+    ],
+    [
+     "FiringAlt",
+     51200
+    ],
+    [
+     "ReloadState",
+     868352
+    ],
+    [
+     "Firing",
+     603136
+    ],
+    [
+     "InactiveState",
+     0
+    ],
+    [
+     "Firing",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringAlt",
+     207872
+    ],
+    [
+     "Firing",
+     0
+    ],
+    [
+     "ReloadState",
+     423168
+    ],
+    [
+     "firing",
+     692224
+    ],
+    [
+     "ReloadState",
+     894976
+    ],
+    [
+     "InactiveState",
+     640512
+    ]
+   ],
+   "address": 207872
+  },
+  {
+   "states": [
+    [
+     "FiringState",
+     631552
+    ],
+    [
+     "Firing",
+     0
+    ],
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "ReloadState",
+     0
+    ],
+    [
+     "FiringState",
+     857600
+    ]
+   ],
+   "address": 857600
+  },
+  {
+   "states": [
+    [
+     "Firing",
+     0
+    ],
+    [
+     "FiringBurst",
+     0
+    ],
+    [
+     "FiringBurst",
+     0
+    ],
+    [
+     "ReloadState",
+     0
+    ],
+    [
+     "firing",
+     676608
+    ],
+    [
+     "EquipState",
+     536064
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "Firing",
+     0
+    ],
+    [
+     "firing",
+     0
+    ],
+    [
+     "ReloadState",
+     0
+    ],
+    [
+     "EquipState",
+     0
+    ],
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "FiringBurst",
+     385024
+    ],
+    [
+     "EquipState",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "EquipState",
+     799232
+    ],
+    [
+     "EquipState",
+     0
+    ],
+    [
+     "InactiveState",
+     0
+    ],
+    [
+     "InactiveState",
+     0
+    ],
+    [
+     "InactiveState",
+     0
+    ],
+    [
+     "EquipState",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "ReloadState",
+     1036288
+    ],
+    [
+     "FiringState",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "InactiveState",
+     174592
+    ],
+    [
+     "FiringState",
+     254976
+    ]
+   ],
+   "address": 254976
+  },
+  {
+   "states": [
+    [
+     "InactiveState",
+     939520
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "Firing",
+     970240
+    ],
+    [
+     "FiringState",
+     338944
+    ],
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "EquipState",
+     0
+    ],
+    [
+     "FiringBurst",
+     403200
+    ],
+    [
+     "FiringBurst",
+     805632
+    ],
+    [
+     "InactiveState",
+     0
+    ]
+   ],
+   "address": 970240
+  },
+  {
+   "states": [
+    [
+     "Firing",
+     0
+    ],
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "EquipState",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "firing",
+     122368
+    ],
+    [
+     "FiringBurst",
+     80896
+    ],
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "ReloadState",
+     363776
+    ],
+    [
+     "FiringState",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "firing",
+     0
+    ],
+    [
+     "ReloadState",
+     0
+    ],
+    [
+     "Firing",
+     128000
+    ],
+    [
+     "FiringState",
+     0
+    ]
+   ],
+   "address": 128000
+  },
+  {
+   "states": [
+    [
+     "FiringState",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "firing",
+     965376
+    ],
+    [
+     "FiringAlt",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "FiringBurst",
+     0
+    ],
+    [
+     "firing",
+     0
+    ],
+    [
+     "FiringState",
+     758784
+    ],
+    [
+     "FiringBurst",
+     0
+    ],
+    [
+     "FiringState",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "ReloadState",
+     969216
+    ],
+    [
+     "ReloadState",
+     416256
+    ],
+    [
+     "ReloadState",
+     0
+    ],
+    [
+     "Firing",
+     587776
+    ],
+    [
+     "Firing",
+     0
+    ],
+    [
+     "firing",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "ReloadState",
+     716800
+    ],
+    [
+     "ReloadState",
+     0
+    ],
+    [
+     "FiringAlt",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "Firing",
+     334336
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringState",
+     977664
+    ],
+    [
+     "FiringBurst",
+     1038336
+    ],
+    [
+     "firing",
+     0
+    ],
+    [
+     "ReloadState",
+     749312
+    ],
+    [
+     "FiringAlt",
+     59648
+    ],
+    [
+     "InactiveState",
+     574464
+    ]
+   ],
+   "address": 977664
+  },
+  {
+   "states": [
+    [
+     "InactiveState",
+     0
+    ],
+    [
+     "FiringAlt",
+     476672
+    ]
+   ],
+   "address": 476672
+  },
+  {
+   "states": [
+    [
+     "InactiveState",
+     0
+    ],
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "EquipState",
+     183296
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "firing",
+     0
+    ],
+    [
+     "Firing",
+     0
+    ],
+    [
+     "Firing",
+     533248
+    ]
+   ],
+   "address": 533248
+  },
+  {
+   "states": [
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "ReloadState",
+     83968
+    ],
+    [
+     "Firing",
+     378368
+    ],
+    [
+     "firing",
+     0
+    ],
+    [
+     "firing",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "EquipState",
+     839680
+    ],
+    [
+     "FiringBurst",
+     26368
+    ],
+    [
+     "ReloadState",
+     292608
+    ]
+   ],
+   "address": 26368
+  },
+  {
+   "states": [
+    [
+     "firing",
+     0
+    ],
+    [
+     "InactiveState",
+     677376
+    ],
+    [
+     "InactiveState",
+     0
+    ],
+    [
+     "FiringBurst",
+     0
+    ],
+    [
+     "FiringBurst",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "InactiveState",
+     703232
+    ],
+    [
+     "firing",
+     0
+    ],
+    [
+     "Firing",
+     0
+    ],
+    [
+     "InactiveState",
+     506880
+    ],
+    [
+     "Firing",
+     229632
+    ],
+    [
+     "FiringState",
+     594176
+    ],
+    [
+     "FiringBurst",
+     0
+    ]
+   ],
+   "address": 594176
+  },
+  {
+   "states": [],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringBurst",
+     538880
+    ]
+   ],
+   "address": 538880
+  },
+  {
+   "states": [
+    [
+     "InactiveState",
+     0
+    ],
+    [
+     "InactiveState",
+     67840
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringState",
+     573696
+    ],
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "firing",
+     0
+    ],
+    [
+     "EquipState",
+     468736
+    ],
+    [
+     "Firing",
+     0
+    ],
+    [
+     "EquipState",
+     288512
+    ]
+   ],
+   "address": 573696
+  },
+  {
+   "states": [
+    [
+     "Firing",
+     0
+    ],
+    [
+     "FiringBurst",
+     417280
+    ],
+    [
+     "InactiveState",
+     21504
+    ],
+    [
+     "InactiveState",
+     551168
+    ],
+    [
+     "FiringAlt",
+     1011200
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "Firing",
+     786176
+    ],
+    [
+     "firing",
+     732928
+    ],
+    [
+     "EquipState",
+     276480
+    ],
+    [
+     "firing",
+     350976
+    ],
+    [
+     "FiringBurst",
+     0
+    ],
+    [
+     "InactiveState",
+     98048
+    ],
+    [
+     "Firing",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "firing",
+     821504
+    ],
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "ReloadState",
+     533504
+    ],
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "EquipState",
+     725760
+    ],
+    [
+     "firing",
+     0
+    ],
+    [
+     "Firing",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringBurst",
+     111104
+    ],
+    [
+     "firing",
+     0
+    ],
+    [
+     "EquipState",
+     0
+    ],
+    [
+     "FiringState",
+     24064
+    ],
+    [
+     "firing",
+     0
+    ],
+    [
+     "FiringBurst",
+     0
+    ]
+   ],
+   "address": 24064
+  },
+  {
+   "states": [
+    [
+     "FiringBurst",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "EquipState",
+     0
+    ],
+    [
+     "FiringAlt",
+     221184
+    ],
+    [
+     "FiringState",
+     588800
+    ]
+   ],
+   "address": 588800
+  },
+  {
+   "states": [
+    [
+     "FiringBurst",
+     0
+    ],
+    [
+     "FiringState",
+     610560
+    ],
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "EquipState",
+     0
+    ],
+    [
+     "firing",
+     0
+    ],
+    [
+     "Firing",
+     887296
+    ],
+    [
+     "FiringState",
+     564224
+    ]
+   ],
+   "address": 564224
+  },
+  {
+   "states": [
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "EquipState",
+     0
+    ],
+    [
+     "FiringState",
+     475904
+    ],
+    [
+     "ReloadState",
+     0
+    ],
+    [
+     "EquipState",
+     0
+    ],
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "Firing",
+     0
+    ]
+   ],
+   "address": 475904
+  },
+  {
+   "states": [],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "ReloadState",
+     0
+    ],
+    [
+     "EquipState",
+     698112
+    ],
+    [
+     "FiringState",
+     559872
+    ],
+    [
+     "InactiveState",
+     523264
+    ],
+    [
+     "Firing",
+     713472
+    ]
+   ],
+   "address": 559872
+  },
+  {
+   "states": [
+    [
+     "firing",
+     0
+    ],
+    [
+     "FiringBurst",
+     0
+    ],
+    [
+     "InactiveState",
+     340480
+    ],
+    [
+     "Firing",
+     792064
+    ],
+    [
+     "InactiveState",
+     685056
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringAlt",
+     703232
+    ],
+    [
+     "EquipState",
+     278528
+    ],
+    [
+     "EquipState",
+     1001472
+    ],
+    [
+     "FiringBurst",
+     0
+    ],
+    [
+     "FiringAlt",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "firing",
+     0
+    ],
+    [
+     "FiringBurst",
+     399360
+    ],
+    [
+     "ReloadState",
+     918016
+    ],
+    [
+     "ReloadState",
+     0
+    ],
+    [
+     "FiringAlt",
+     0
+    ]
+   ],
+   "address": 399360
+  },
+  {
+   "states": [
+    [
+     "ReloadState",
+     0
+    ],
+    [
+     "EquipState",
+     122624
+    ],
+    [
+     "ReloadState",
+     982016
+    ],
+    [
+     "InactiveState",
+     454400
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "Firing",
+     310016
+    ],
+    [
+     "Firing",
+     756480
+    ]
+   ],
+   "address": 756480
+  },
+  {
+   "states": [
+    [
+     "Firing",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "InactiveState",
+     847872
+    ],
+    [
+     "EquipState",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "EquipState",
+     0
+    ],
+    [
+     "InactiveState",
+     467712
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "ReloadState",
+     741632
+    ],
+    [
+     "ReloadState",
+     395008
+    ],
+    [
+     "FiringState",
+     491264
+    ]
+   ],
+   "address": 491264
+  },
+  {
+   "states": [
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "FiringState",
+     167680
+    ],
+    [
+     "FiringState",
+     387840
+    ],
+    [
+     "Firing",
+     0
+    ]
+   ],
+   "address": 387840
+  },
+  {
+   "states": [
+    [
+     "ReloadState",
+     29952
+    ],
+    [
+     "Firing",
+     262400
+    ],
+    [
+     "EquipState",
+     791296
+    ]
+   ],
+   "address": 262400
+  },
+  {
+   "states": [],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringState",
+     518400
+    ],
+    [
+     "FiringState",
+     762880
+    ],
+    [
+     "FiringState",
+     182016
+    ]
+   ],
+   "address": 182016
+  },
+  {
+   "states": [
+    [
+     "FiringState",
+     599808
+    ],
+    [
+     "FiringState",
+     687360
+    ],
+    [
+     "Firing",
+     295168
+    ],
+    [
+     "Firing",
+     0
+    ],
+    [
+     "EquipState",
+     0
+    ],
+    [
+     "ReloadState",
+     0
+    ]
+   ],
+   "address": 687360
+  },
+  {
+   "states": [
+    [
+     "EquipState",
+     0
+    ],
+    [
+     "ReloadState",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "firing",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringAlt",
+     42240
+    ],
+    [
+     "ReloadState",
+     636928
+    ],
+    [
+     "FiringBurst",
+     0
+    ],
+    [
+     "Firing",
+     934144
+    ],
+    [
+     "FiringBurst",
+     0
+    ],
+    [
+     "InactiveState",
+     0
+    ]
+   ],
+   "address": 42240
+  },
+  {
+   "states": [
+    [
+     "FiringBurst",
+     888832
+    ]
+   ],
+   "address": 888832
+  },
+  {
+   "states": [],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringState",
+     701440
+    ],
+    [
+     "EquipState",
+     0
+    ],
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "InactiveState",
+     950784
+    ],
+    [
+     "ReloadState",
+     905472
+    ]
+   ],
+   "address": 701440
+  },
+  {
+   "states": [
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "ReloadState",
+     0
+    ],
+    [
+     "ReloadState",
+     485888
+    ],
+    [
+     "EquipState",
+     488704
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "ReloadState",
+     0
+    ],
+    [
+     "Firing",
+     537344
+    ],
+    [
+     "InactiveState",
+     654592
+    ],
+    [
+     "Firing",
+     117248
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "ReloadState",
+     0
+    ],
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "InactiveState",
+     888832
+    ],
+    [
+     "FiringBurst",
+     0
+    ],
+    [
+     "firing",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringBurst",
+     943872
+    ],
+    [
+     "firing",
+     0
+    ],
+    [
+     "FiringBurst",
+     0
+    ],
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "EquipState",
+     364032
+    ],
+    [
+     "firing",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "EquipState",
+     0
+    ],
+    [
+     "EquipState",
+     1029120
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "ReloadState",
+     781056
+    ],
+    [
+     "FiringBurst",
+     1028352
+    ],
+    [
+     "InactiveState",
+     0
+    ],
+    [
+     "EquipState",
+     947200
+    ],
+    [
+     "FiringAlt",
+     948992
+    ],
+    [
+     "firing",
+     1041408
+    ],
+    [
+     "Firing",
+     0
+    ]
+   ],
+   "address": 1028352
+  },
+  {
+   "states": [
+    [
+     "firing",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringAlt",
+     740352
+    ]
+   ],
+   "address": 740352
+  },
+  {
+   "states": [
+    [
+     "InactiveState",
+     0
+    ],
+    [
+     "FiringAlt",
+     916736
+    ],
+    [
+     "InactiveState",
+     91136
+    ],
+    [
+     "Firing",
+     603904
+    ],
+    [
+     "firing",
+     0
+    ],
+    [
+     "InactiveState",
+     274944
+    ]
+   ],
+   "address": 916736
+  },
+  {
+   "states": [
+    [
+     "FiringState",
+     76544
+    ]
+   ],
+   "address": 76544
+  },
+  {
+   "states": [
+    [
+     "EquipState",
+     120576
+    ],
+    [
+     "FiringAlt",
+     346368
+    ],
+    [
+     "firing",
+     522240
+    ],
+    [
+     "ReloadState",
+     1042688
+    ],
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "FiringBurst",
+     223488
+    ],
+    [
+     "EquipState",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringAlt",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "FiringBurst",
+     1027072
+    ]
+   ],
+   "address": 1027072
+  },
+  {
+   "states": [
+    [
+     "EquipState",
+     935424
+    ],
+    [
+     "ReloadState",
+     0
+    ],
+    [
+     "FiringState",
+     543488
+    ]
+   ],
+   "address": 543488
+  },
+  {
+   "states": [
+    [
+     "FiringState",
+     812288
+    ],
+    [
+     "ReloadState",
+     0
+    ]
+   ],
+   "address": 812288
+  },
+  {
+   "states": [
+    [
+     "FiringState",
+     0
+    ],
+    [
+     "ReloadState",
+     0
+    ],
+    [
+     "Firing",
+     217856
+    ],
+    [
+     "Firing",
+     512768
+    ],
+    [
+     "FiringBurst",
+     0
+    ],
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "FiringAlt",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "InactiveState",
+     0
+    ],
+    [
+     "FiringAlt",
+     0
+    ],
+    [
+     "InactiveState",
+     0
+    ],
+    [
+     "FiringState",
+     444160
+    ],
+    [
+     "firing",
+     403200
+    ],
+    [
+     "FiringState",
+     0
+    ]
+   ],
+   "address": null
+  },
+  {
+   "states": [
+    [
+     "ReloadState",
+     0
+    ],
+    [
+     "firing",
+     0
+    ],
+    [
+     "FiringAlt",
+     443648
+    ],
+    [
+     "Firing",
+     0
+    ]
+   ],
+   "address": 443648
+  },
+  {
+   "states": [
+    [
+     "ReloadState",
+     424192
+    ]
+   ],
+   "address": null
+  }
+ ]
+}
