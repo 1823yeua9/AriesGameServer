@@ -7,6 +7,7 @@ pub mod bringup;
 pub mod config;
 pub mod conn;
 pub mod event;
+pub mod hooks;
 pub mod live;
 pub mod mirror;
 pub mod moves;
@@ -53,8 +54,6 @@ pub struct RangeServer {
     key_source: Box<dyn KeySource>,
     pub connections: HashMap<SocketAddr, Connection>,
     pub events: EventLog,
-    /// skins, ability tuning and live rpc indices for bring-up
-    pub hooks: Box<dyn bringup::StageHooks>,
     /// reads of the running client (moves, input bounds, game state)
     pub live: Box<dyn LiveClient>,
     /// the player's skins (bought guns; reloaded when the state file changes)
@@ -74,7 +73,6 @@ impl RangeServer {
             key_source,
             connections: HashMap::new(),
             events: EventLog::new(event_path),
-            hooks: Box::new(bringup::DefaultHooks),
             live: Box::new(NoLiveClient),
             skins,
             start: 0.0,
@@ -252,8 +250,9 @@ impl RangeServer {
                     reply.event.set("acked_client_sequence", header.sequence);
                     reply.event.set("server_sequence", server_sequence);
                     reply.conn.last_session_ack = Some(now);
-                    bringup::run_stage_chain(&mut reply, &self.config, self.hooks.as_mut());
-                    moves::run_move_ack(&mut reply, &self.config, self.live.as_mut());
+                    let mut env = authority::Env { config: &self.config, live: self.live.as_mut(), skins: &mut self.skins };
+                    bringup::run_stage_chain(&mut reply, &mut env);
+                    moves::run_move_ack(&mut reply, env.config, env.live);
                 }
                 Err(error) => reply.event.set("session_ack_error", error.to_string()),
             }

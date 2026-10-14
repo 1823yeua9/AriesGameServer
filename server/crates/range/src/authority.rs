@@ -299,27 +299,30 @@ fn command_queue(reply: &mut Reply, queue: &Path) {
     let mut files: Vec<_> = entries.flatten().map(|e| e.path()).filter(|p| p.extension().is_some_and(|x| x == "json")).collect();
     files.sort();
     for file in files {
-        let text = std::fs::read_to_string(&file);
-        let _ = std::fs::remove_file(&file);
         let name = file.file_name().map(|n| n.to_string_lossy().into_owned()).unwrap_or_default();
-        let result = text.map_err(|e| e.to_string()).and_then(|text| serde_json::from_str::<Value>(&text).map_err(|e| e.to_string())).and_then(|command| queued_bunch(reply, &command));
+        // python parses before it unlinks: a file that does not parse stays and errors every poll
+        let command = std::fs::read_to_string(&file).map_err(|e| e.to_string()).and_then(|text| serde_json::from_str::<Value>(&text).map_err(|e| e.to_string()));
+        let result = command.and_then(|command| {
+            let _ = std::fs::remove_file(&file);
+            queued_bunch(reply, &command)
+        });
         match result {
-            Ok(channel) => reply.event.push("sent_queued_commands", json!([name, channel])),
+            Ok((channel, bits)) => reply.event.push("sent_queued_commands", json!([name, channel, bits])),
             Err(error) => reply.event.push("queued_command_errors", json!([name, error])),
         }
     }
 }
 
-fn queued_bunch(reply: &mut Reply, command: &Value) -> Result<u32, String> {
+fn queued_bunch(reply: &mut Reply, command: &Value) -> Result<(u32, u64), String> {
     let channel = command["channel"].as_u64().ok_or("missing channel")? as u32;
-    let bits = command["bits"].as_u64().ok_or("missing bits")? as usize;
-    let body = aries_bits::Bits::from_hex(command["body_hex"].as_str().ok_or("missing body_hex")?, bits).map_err(|e| e.to_string())?;
+    let bits = command["bits"].as_u64().ok_or("missing bits")?;
+    let body = aries_bits::Bits::from_hex(command["body_hex"].as_str().ok_or("missing body_hex")?, bits as usize).map_err(|e| e.to_string())?;
     let open = command["open"].as_bool().unwrap_or(false);
     if open {
         reply.conn.channel_first_offset.entry(channel).or_insert(0);
     }
     reply.send_reliable(channel, &body, command["exports"].as_bool().unwrap_or(false), open, false).map_err(|e| e.to_string())?;
-    Ok(channel)
+    Ok((channel, bits))
 }
 
 /// 6.12: the bottom hud starts collapsed when load-in cinematic mode is still

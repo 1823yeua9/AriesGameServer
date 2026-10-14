@@ -1,10 +1,10 @@
-//! the bring-up stage chain (python elif chain 2185-4407): per session-ack tick
+﻿//! the bring-up stage chain (python elif chain 2185-4407): per session-ack tick
 //! the FIRST ready stage sends, in chain order. specs: docs/port/03_bringup_a.md,
 //! 04_bringup_b.md. conditions are copied from range_udp_handshake.py; times
 //! the python reads with .get(source, 0) are Option here, and None counts as
 //! "long ago" (python monotonic uptime minus 0 always passes the gate).
 
-use crate::config::RangeConfig;
+use crate::authority::Env;
 use crate::send::Reply;
 
 /// every production stage, in chain (elif) order. dead probes are left out.
@@ -349,8 +349,9 @@ fn frame(channel: u32, offset: u32, open: bool, exports: bool, body: aries_rep::
 /// the frames a stage sends and its python event key. counters (slot index,
 /// team index, equippable index, correction index) are read here and advanced
 /// by advance() after the send.
-fn stage_frames(stage: Stage, reply: &Reply, config: &RangeConfig, hooks: &mut dyn StageHooks) -> (Vec<Frame>, &'static str) {
+fn stage_frames(stage: Stage, reply: &mut Reply, env: &mut Env) -> (Vec<Frame>, &'static str) {
     use aries_rep::setup::*;
+    let config = env.config;
     let state = &reply.conn.bringup;
     match stage {
         Stage::WorldSettingsOpen => (vec![frame(3, 0, true, true, world_settings_open())], "sent_actor_open_probe_length"),
@@ -380,7 +381,7 @@ fn stage_frames(stage: Stage, reply: &Reply, config: &RangeConfig, hooks: &mut d
             let offset = 7 + 2 * (slot - 1);
             (vec![frame(8, offset, false, true, item_slot_create_body(slot)), frame(8, offset + 1, false, false, item_slot_link_body(slot))], "sent_item_slot_scale_pair_length")
         }
-        Stage::PistolOpen => (vec![frame(9, 0, true, true, hooks.pistol_open_body(config))], "sent_base_pistol_open_length"),
+        Stage::PistolOpen => (vec![frame(9, 0, true, true, crate::hooks::pistol_open_body(env, &mut reply.event))], "sent_base_pistol_open_length"),
         Stage::PistolLink => (vec![frame(8, 37, false, false, pistol_slot_contents_body())], "sent_base_pistol_link_length"),
         Stage::PistolOwner => (vec![frame(9, 1, false, false, pistol_owner_body())], "sent_base_pistol_owner_length"),
         Stage::PistolRole => (vec![frame(9, 2, false, false, pistol_remote_role_body())], "sent_base_pistol_role_length"),
@@ -409,7 +410,8 @@ fn stage_frames(stage: Stage, reply: &Reply, config: &RangeConfig, hooks: &mut d
         Stage::RangeMoney => (vec![frame(6, 10, false, true, range_money_body())], "sent_range_money_length"),
         Stage::PawnOwner => (vec![frame(8, 43, false, false, pawn_owner_body())], "sent_pawn_owner_length"),
         Stage::ClientSetHud => {
-            let (field, max) = hooks.client_set_hud_index();
+            // resolved by run_stage_chain just before (python hud_rpc_cache)
+            let (field, max) = state.hud_rpc.expect("resolved before the frames");
             (vec![frame(5, 5, false, true, hud_set_body(field, max))], "sent_hud_set_length")
         }
         Stage::MatchState => (vec![frame(4, 4, false, false, match_state_body())], "sent_match_state_length"),
@@ -421,7 +423,7 @@ fn stage_frames(stage: Stage, reply: &Reply, config: &RangeConfig, hooks: &mut d
             let channel = aries_rep::actors::STARTING_EQUIPPABLE_FIRST_CHANNEL + index as u32;
             (
                 vec![
-                    frame(channel, 0, true, true, hooks.starting_equippable_open_body(index, config)),
+                    frame(channel, 0, true, true, crate::hooks::starting_equippable_open_body(index, env, &mut reply.event)),
                     frame(channel, 1, false, false, starting_equippable_owner_body(index)),
                     frame(8, 44 + index as u32, false, false, starting_equippable_contents_body(index)),
                 ],
@@ -435,33 +437,15 @@ fn stage_frames(stage: Stage, reply: &Reply, config: &RangeConfig, hooks: &mut d
     }
 }
 
-/// the gameplay-dependent pieces of bring-up (skins, ability tuning, live
-/// rpc indices). each default is the python's fallback.
-pub trait StageHooks {
-    /// A21: the saved-skin pistol open, else the plain one.
-    fn pistol_open_body(&mut self, _config: &RangeConfig) -> aries_rep::RepResult<aries_bits::Bits> {
-        aries_rep::setup::base_pistol_open_body()
-    }
-    /// B18: the knife-skin and ability-tuning opens replace the default ones.
-    fn starting_equippable_open_body(&mut self, index: usize, _config: &RangeConfig) -> aries_rep::RepResult<aries_bits::Bits> {
-        aries_rep::setup::starting_equippable_open_body(index)
-    }
-    /// B13: ClientSetHUD (field, class max) from the live class net cache; 52/178 in every logged run.
-    fn client_set_hud_index(&mut self) -> (u32, u32) {
-        (aries_rep::rpc::CLIENT_SET_HUD_FIELD, aries_rep::rpc::CONTROLLER_CLASS_MAX)
-    }
-}
-
-/// no live client data: every stage uses the python fallback.
-pub struct DefaultHooks;
-impl StageHooks for DefaultHooks {}
-
 /// runs at most one stage (the first ready one in chain order). returns the
 /// stage when it sent. a stage whose body fails to build is logged and skipped
 /// this tick (the python would crash the responder; we keep the session).
-pub fn run_stage_chain(reply: &mut Reply, config: &RangeConfig, hooks: &mut dyn StageHooks) -> Option<Stage> {
+pub fn run_stage_chain(reply: &mut Reply, env: &mut Env) -> Option<Stage> {
     let stage = reply.conn.bringup.next_stage(reply.now, reply.conn.correction_index)?;
-    let (frames, key) = stage_frames(stage, reply, config, hooks);
+    if stage == Stage::ClientSetHud {
+        reply.conn.bringup.hud_rpc = Some(crate::hooks::client_set_hud_index(env, &mut reply.event));
+    }
+    let (frames, key) = stage_frames(stage, reply, env);
     let mut total = 0usize;
     for frame in frames {
         let body = match frame.body {
@@ -483,9 +467,6 @@ pub fn run_stage_chain(reply: &mut Reply, config: &RangeConfig, hooks: &mut dyn 
     if stage == Stage::InventoryCorrection {
         reply.conn.correction_index += 1;
         reply.event.set("auth_correct_rep_index", reply.conn.correction_index);
-    }
-    if stage == Stage::ClientSetHud {
-        reply.conn.bringup.hud_rpc = Some(hooks.client_set_hud_index());
     }
     let now = reply.now;
     reply.conn.bringup.advance(stage, now);

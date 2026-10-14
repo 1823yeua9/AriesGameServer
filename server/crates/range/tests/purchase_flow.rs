@@ -363,3 +363,45 @@ impl Harness {
         self.last_event()
     }
 }
+
+/// A21/B18 with the player's real skin files (read only): the classic and the
+/// knife open exactly as the world crate's decision builds them.
+#[test]
+fn saved_skins_open_the_classic_and_knife() {
+    let backend = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../../../local_backend");
+    let (catalog, state) = (backend.join("skin_catalog.json"), backend.join("offline_skin_state.json"));
+    if !catalog.is_file() || !state.is_file() {
+        eprintln!("skipped: no local_backend skin files");
+        return;
+    }
+    let source: SocketAddr = "127.0.0.1:50622".parse().unwrap();
+    let mut config = RangeConfig::default();
+    config.skin_catalog = catalog.clone();
+    config.skin_state = state.clone();
+    let player = config.player_id.clone();
+    let mut server = RangeServer::new(config, Box::new(FixedKeys), None);
+    let mut client = Client::new(2000, 5000, 77);
+    let mut out = Outbox::default();
+    client.connect(&mut server, 1.0, source, &mut out);
+    let mut now = 1.0;
+    let mut opens: HashMap<u32, Bits> = HashMap::new();
+    for _ in 0..2000 {
+        now += 0.125;
+        client.tick(&mut server, now, source, &mut out);
+        for (_, datagram) in out.datagrams.drain(..) {
+            let (packet, _) = open_server_datagram(&datagram, &client.server_gcm).unwrap();
+            if let Some(b) = inspect_first_bunch(&packet).filter(|b| b.is_open && (b.channel_index == 9 || b.channel_index == 13)) {
+                opens.insert(b.channel_index, slice(&packet, b.body_start_bit, b.end_bit));
+            }
+        }
+        if opens.len() == 2 {
+            break;
+        }
+    }
+    let inventory = aries_world::skins::SkinInventory::load(&player, &catalog, Some(&state)).unwrap();
+    let selection = aries_world::skins::select_cosmetic_loadout(&inventory, aries_world::cosmetics::BASE_PISTOL_WEAPON_ID).unwrap();
+    let (classic, _) = aries_world::cosmetics::base_pistol_open(selection.as_ref()).unwrap();
+    let (knife, _) = aries_world::melee::melee_open(Ok(&inventory)).unwrap();
+    assert_eq!(opens[&9], classic);
+    assert_eq!(opens[&13], knife);
+}

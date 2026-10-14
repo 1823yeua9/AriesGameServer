@@ -129,6 +129,10 @@ pub trait LiveClient {
     fn camera(&mut self) -> Result<Option<Camera>, String> {
         Ok(None)
     }
+    /// ClientSetHUD's (field index, class max) in the live controller class cache
+    fn client_set_hud_index(&mut self) -> Result<Option<(u32, u32)>, String> {
+        Ok(None)
+    }
 }
 
 /// no client to read (tests, or the oracle failed to attach): every read is "no data".
