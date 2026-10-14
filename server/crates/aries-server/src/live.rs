@@ -69,7 +69,8 @@ impl LiveClient for OracleLive {
     }
 
     fn new_session(&mut self) {
-        // python's caches lived one responder (one range entry)
+        // python kept these for its whole run, across entries (05 quirk 9); a new
+        // entry's actors are new objects, so drop the address caches (DESIGN.md)
         if let Some(oracle) = self.oracle.as_mut() {
             oracle.caches.clear();
         }
