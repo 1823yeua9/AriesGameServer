@@ -1,0 +1,40 @@
+# aries-server settings. every value shown is the default (the python
+# responder's production configuration); delete a line to keep the default.
+
+# loopback only; the client connects here
+bind = "127.0.0.1:58100"
+# logs/aries_server_<pid>.log (console mirror) and aries_events_<pid>.jsonl (per datagram)
+log_dir = "logs"
+# trace | debug | info | warn | error
+log_level = "info"
+# refuse any client exe other than this one (python check_project_client); unset = any
+# client_path = "C:/Users/Cayden/Desktop/valorant proj/game req/VALORANT_GAME/VALORANT/live/ShooterGame/Binaries/Win64/VALORANT-Win64-Shipping.exe"
+
+[range]
+spawn_location = [3581.634, -12019.322, 1294.153]
+# wushu (jett)
+desired_class_guid = [0xADD6443A, 0x41BDE414, 0xF6ADE58D, 0x267F4E95]
+game_state_phase = 4
+player_team = 1
+bot_count = 5
+# shared with the platform backend
+skin_catalog = "../local_backend/skin_catalog.json"
+skin_state = "../local_backend/offline_skin_state.json"
+player_id = "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61"
+# debug hook: json files dropped here are sent as reliable bunches
+command_queue = "../local_backend/runtime/responder_queue"
+
+[range.features]
+pistol_initial_cosmetic = true
+equippable_mirror = true
+input_correction = true
+store_purchases = true
+range_hud = true
+ability_activation = true
+streaming_levels = true
+range_settings = true
+bots = true
+hud_refresh = true
+ability_projectiles = true
+move_ack = true
+input_ack = true
