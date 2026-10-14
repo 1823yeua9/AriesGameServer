@@ -597,7 +597,8 @@ impl SkinInventory {
             if let Some(loadout) = self.loadout.as_mut() {
                 apply_equipped(&self.catalog, &self.equipped, loadout);
             }
-            self.version += 1;
+            // python ints never overflow; only a >38-digit version saturates here
+            self.version = self.version.saturating_add(1);
             if let Some(loadout) = self.loadout.as_mut() {
                 let key = if loadout.contains_key("version") { "version" } else { "Version" };
                 loadout.set(key, Json::Int(self.version));
