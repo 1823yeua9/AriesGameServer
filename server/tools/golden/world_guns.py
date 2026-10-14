@@ -267,6 +267,14 @@ def section_store():
         ("<GUID:525>.AssaultRifle_AK_C", pkg, seen), ("guid:525.AssaultRifle_AK_C", pkg, seen),
         ("<guid:4294967296>.BattleRifle_C", {4294967296 % (1 << 32): "/Game/Wrap"}, seen),
         ("<guid:525>.<guid:9>.X", pkg, seen),
+        # int() takes any unicode decimal digit (Nd); the text can be a client FString name
+        ("<guid:٥٢٥>.AssaultRifle_AK_C", pkg, {}), ("<guid:５２５>.AssaultRifle_AK_C", pkg, {}),
+        ("<guid:5_٢٥>.AssaultRifle_AK_C", pkg, {}), ("<guid:　\U0001d7d3\U0001d7d0\U0001d7d3 >.AssaultRifle_AK_C", pkg, {}),
+        ("<guid:-٥٢٥>.BattleRifle_C", pkg, seen), ("<guid:²>.BattleRifle_C", pkg, seen),
+        ("<guid:᧚>.BattleRifle_C", pkg, seen), ("<guid:٥_>.BattleRifle_C", pkg, seen),
+        ("<guid:−525>.BattleRifle_C", pkg, seen), ("<guid:5　5>.BattleRifle_C", pkg, seen),
+        ("<guid:\U0001fbf5\U0001fbf2\U0001fbf5>.AssaultRifle_AK_C", pkg, {}), ("<guid:༩༠>.BattleRifle_C", pkg, seen),
+        ("<guid:" + "9_" * 4299 + "9>.BattleRifle_C", pkg, seen), ("<guid:" + "9_" * 4300 + "9>.BattleRifle_C", pkg, seen),
     ]
     for item_path, package_guids, seen_paths in resolves:
         out["resolve"].append({"item_path": item_path,
@@ -1081,6 +1089,7 @@ def skin_cases():
     case("schema_string", mutate_state=lambda s: s.update({"schema_version": "1"}))
     case("player_differs", mutate_state=lambda s: s.update({"player_id": iid(1)}))
     case("version_string", mutate_state=lambda s: s.update({"version": " 46 "}))
+    case("version_unicode_digits", mutate_state=lambda s: s.update({"version": "　٤٦"}))
     case("version_float", mutate_state=lambda s: s.update({"version": 46.9}))
     case("version_null", mutate_state=lambda s: s.update({"version": None}))
     case("version_zero", mutate_state=lambda s: s.update({"version": 0}))
@@ -1369,7 +1378,100 @@ def section_skins():
     return out
 
 
+# ---------------------------------------------------------------- whole catalog
+
+def component_ids(entry, default_key):
+    """ids sharing the default's entitlement type, in entitlement order (equipped_cosmetic.py:84-87)."""
+    default_id = entry[default_key].lower()
+    type_id = next(x["type_id"].lower() for x in entry["entitlements"] if x["item_id"].lower() == default_id)
+    return [x["item_id"].lower() for x in entry["entitlements"] if x["type_id"].lower() == type_id]
+
+
+def section_catalog_sweep():
+    """every skin a player can equip, as production would see it: catalog_cdo_path for every
+    skin / level / chroma id of every catalog entry, and the open of every level x chroma
+    combination on its weapon (bought gun on a fresh allocator, the knife's b18 open, the
+    classic's a21 open). one text line per result, digested per weapon with zlib.crc32 over
+    the utf-8 lines joined by newlines, so the fixture stays small."""
+    import zlib
+
+    import range_gun_loader as rgl
+    import range_melee_cosmetics as rmc
+    import range_store as rst
+    import range_weapon_cosmetics as rwc
+    from equipped_cosmetic import EquippedCdoPaths, EquippedCosmetic, catalog_cdo_path
+
+    catalog_text, _ = real_skin_files()
+    catalog = json.loads(catalog_text)
+    items = {item.weapon_id: item for item in rst._items}
+    weapons = {}
+
+    def lines_for(weapon_id):
+        return weapons.setdefault(weapon_id, {"paths": [], "gun": [], "knife": [], "a21": []})
+
+    def body_line(prefix, fn, *args):
+        try:
+            body, bits = fn(*args)
+            return f"{prefix}|{bits}|{body.hex()}", bits
+        except Exception as error:
+            return f"{prefix}|err|{error}", None
+
+    for entry in catalog["skins"]:
+        weapon_id = entry["weapon_id"].lower()
+        out = lines_for(weapon_id)
+        resolved = {}
+        for kind, ids in (("skin", [entry["skin_id"]]), ("level", component_ids(entry, "skin_level_id")),
+                          ("chroma", component_ids(entry, "chroma_id"))):
+            for asset_id in ids:
+                try:
+                    path = catalog_cdo_path(entry, kind, asset_id)
+                    resolved[(kind, asset_id)] = path
+                    out["paths"].append(f"{entry['skin_id']}|{kind}|{asset_id}|{int(path.packaged)}|{path.source_asset}"
+                                        f"|{path.package_path}|{path.object_name}")
+                except Exception as error:
+                    out["paths"].append(f"{entry['skin_id']}|{kind}|{asset_id}|err|{error}")
+        skin = resolved.get(("skin", entry["skin_id"]))
+        for level_id in component_ids(entry, "skin_level_id"):
+            for chroma_id in component_ids(entry, "chroma_id"):
+                level, chroma = resolved.get(("level", level_id)), resolved.get(("chroma", chroma_id))
+                if skin is None or level is None or chroma is None:
+                    continue
+                paths = EquippedCdoPaths(weapon_id=weapon_id, skin=skin, level=level, chroma=chroma)
+                prefix = f"{entry['skin_id']}|{level_id}|{chroma_id}"
+                item = items.get(weapon_id)
+                if item is not None and item.is_gun:
+                    load = rgl.plan_gun_load(CLASS_PATHS[item.class_name], item, rgl.PurchaseAllocator())
+                    out["gun"].append(body_line(prefix, rgl.gun_open_body, load, paths))
+                if weapon_id == rmc.melee_weapon_id:
+                    out["knife"].append(body_line(prefix, rmc.build_starting_melee_cosmetic_open, paths))
+                if weapon_id == rwc.base_pistol_weapon_id:
+                    cosmetic = EquippedCosmetic(
+                        weapon_id=weapon_id, skin_id=skin.asset_id, level_id=level.asset_id,
+                        chroma_id=chroma.asset_id, name=entry["name"], weapon_asset=entry["source"]["weapon_asset"],
+                        skin_asset=skin.source_asset, level_asset=level.source_asset,
+                        chroma_asset=chroma.source_asset)
+                    out["a21"].append(body_line(prefix, rwc.build_base_pistol_initial_cosmetic_open, cosmetic, paths))
+
+    def digest(lines):
+        return zlib.crc32("\n".join(lines).encode("utf-8"))
+
+    result = {"catalog_bytes": len((backend_dir() / "skin_catalog.json").read_bytes()),
+              "class_paths": [[item.weapon_id, CLASS_PATHS[item.class_name]] for item in rst._items
+                              if item.is_gun],
+              "weapons": []}
+    for weapon_id, out in weapons.items():
+        row = {"weapon_id": weapon_id, "paths": [len(out["paths"]), digest(out["paths"])]}
+        for kind in ("gun", "knife", "a21"):
+            if out[kind]:
+                sizes = [bits for _, bits in out[kind] if bits is not None]
+                row[kind] = [len(out[kind]), digest([line for line, _ in out[kind]]),
+                             max(sizes) if sizes else None, len(out[kind]) - len(sizes)]
+        result["weapons"].append(row)
+    return result
+
+
 SECTIONS = {
+    "guns_catalog_sweep": section_catalog_sweep,
     "guns_store": section_store,
     "guns_alloc": section_alloc,
     "guns_equippables": section_equippables,

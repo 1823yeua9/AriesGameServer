@@ -311,26 +311,26 @@
     "weapon_id": "2f59173c-4bed-b6c3-2191-dea9b58be9c7",
     "skin": {
      "kind": "skin",
-     "asset_id": "1c808469-4aee-ae6c-fcd2-1099e96ac6a0",
-     "source_asset": "Equippables/Melee/Rogue/Melee_Rogue_PrimaryAsset.uasset",
-     "package_path": "/Game/Equippables/Melee/Rogue/Melee_Rogue_PrimaryAsset",
-     "object_name": "Default__Melee_Rogue_PrimaryAsset_C",
+     "asset_id": "30300aea-4d8a-320d-5cb0-0e8badc8d3df",
+     "source_asset": "Equippables/Melee/Champions2024/Melee_Champions2024_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Melee/Champions2024/Melee_Champions2024_PrimaryAsset",
+     "object_name": "Default__Melee_Champions2024_PrimaryAsset_C",
      "packaged": true
     },
     "level": {
      "kind": "level",
-     "asset_id": "319ba790-4bfc-0099-4c50-de822474a7b8",
-     "source_asset": "Equippables/Melee/Rogue/Levels/Melee_Rogue_Lv2_PrimaryAsset.uasset",
-     "package_path": "/Game/Equippables/Melee/Rogue/Levels/Melee_Rogue_Lv2_PrimaryAsset",
-     "object_name": "Default__Melee_Rogue_Lv2_PrimaryAsset_C",
+     "asset_id": "c1ad7aa1-4c52-795e-21cf-5788b010ec32",
+     "source_asset": "Equippables/Melee/Champions2024/Levels/Melee_Champions2024_Lv3_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Melee/Champions2024/Levels/Melee_Champions2024_Lv3_PrimaryAsset",
+     "object_name": "Default__Melee_Champions2024_Lv3_PrimaryAsset_C",
      "packaged": true
     },
     "chroma": {
      "kind": "chroma",
-     "asset_id": "a0887c73-4ba7-3064-2378-3981c6ed3e2c",
-     "source_asset": "Equippables/Melee/Rogue/Chromas/v3/Melee_Rogue_v3_PrimaryAsset.uasset",
-     "package_path": "/Game/Equippables/Melee/Rogue/Chromas/v3/Melee_Rogue_v3_PrimaryAsset",
-     "object_name": "Default__Melee_Rogue_v3_PrimaryAsset_C",
+     "asset_id": "e414be02-4af4-10e9-2589-1daae7087208",
+     "source_asset": "Equippables/Melee/Champions2024/Chromas/Standard/Melee_Champions2024_Standard_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Melee/Champions2024/Chromas/Standard/Melee_Champions2024_Standard_PrimaryAsset",
+     "object_name": "Default__Melee_Champions2024_Standard_PrimaryAsset_C",
      "packaged": true
     }
    },
@@ -369,8 +369,8 @@
     ]
    },
    "attachments": [],
-   "hex": "0800000036050a3e050a00560000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e9acad8caca5e82c4d2d8d2e8f2be9acad8cacabe84c2e6ca00000000003c00000088caccc2ead8e8bebe82c4d2d8d2e8f2be9acad8cacabe84c2e6cabe860000000000c6050ace050a006e0000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e9acad8caca5ea4deceeaca5e9acad8cacabea4deceeacabea0e4d2dac2e4f282e6e6cae800000000004800000088caccc2ead8e8bebe9acad8cacabea4deceeacabea0e4d2dac2e4f282e6e6cae8be860000000000d6050ade050a00840000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e9acad8caca5ea4deceeaca5e98caeccad8e65e9acad8cacabea4deceeacabe98ec64bea0e4d2dac2e4f282e6e6cae800000000005000000088caccc2ead8e8bebe9acad8cacabea4deceeacabe98ec64bea0e4d2dac2e4f282e6e6cae8be860000000000e6050aee050a008a0000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e9acad8caca5ea4deceeaca5e86d0e4dedac2e65eec665e9acad8cacabea4deceeacabeec66bea0e4d2dac2e4f282e6e6cae800000000004e00000088caccc2ead8e8bebe9acad8cacabea4deceeacabeec66bea0e4d2dac2e4f282e6e6cae8be8600000000003205360514e03184ddbc533b50e9da589456920fc94009f30a99567d90aab1b920547752d8abac4688ea7aa496aaf4e8154f666cd6c0c7ae0c6e750567f7f8a3d88ffb5acea0f05d1fc1bcb53df5",
-   "bit_count": 4416
+   "hex": "0800000036050a3e050a00560000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e9acad8caca5e82c4d2d8d2e8f2be9acad8cacabe84c2e6ca00000000003c00000088caccc2ead8e8bebe82c4d2d8d2e8f2be9acad8cacabe84c2e6cabe860000000000c6050ace050a008e0000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e9acad8caca5e86d0c2dae0d2dedce6646064685e9acad8cacabe86d0c2dae0d2dedce664606468bea0e4d2dac2e4f282e6e6cae800000000005800000088caccc2ead8e8bebe9acad8cacabe86d0c2dae0d2dedce664606468bea0e4d2dac2e4f282e6e6cae8be860000000000d6050ade050a00a40000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e9acad8caca5e86d0c2dae0d2dedce6646064685e98caeccad8e65e9acad8cacabe86d0c2dae0d2dedce664606468be98ec66bea0e4d2dac2e4f282e6e6cae800000000006000000088caccc2ead8e8bebe9acad8cacabe86d0c2dae0d2dedce664606468be98ec66bea0e4d2dac2e4f282e6e6cae8be860000000000e6050aee050a00c20000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e9acad8caca5e86d0c2dae0d2dedce6646064685e86d0e4dedac2e65ea6e8c2dcc8c2e4c85e9acad8cacabe86d0c2dae0d2dedce664606468bea6e8c2dcc8c2e4c8bea0e4d2dac2e4f282e6e6cae800000000006a00000088caccc2ead8e8bebe9acad8cacabe86d0c2dae0d2dedce664606468bea6e8c2dcc8c2e4c8bea0e4d2dac2e4f282e6e6cae8be8600000000003205360514e03184ddbc533b50e9dad85b09870fc9c0afa1140827e90e3b8bd9a078afc672e0040ff1d0fa648d495d66094f9847801e755b49920f057c98d28c0df1dc595391f016d9c4e3355bf5",
+   "bit_count": 5136
   },
   {
    "name": "vandal_saved_one",
@@ -3041,8 +3041,8 @@
    "bit_count": 845
   },
   "knife_saved_open": {
-   "hex": "0800000036050a3e050a00560000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e9acad8caca5e82c4d2d8d2e8f2be9acad8cacabe84c2e6ca00000000003c00000088caccc2ead8e8bebe82c4d2d8d2e8f2be9acad8cacabe84c2e6cabe860000000000c6050ace050a006e0000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e9acad8caca5ea4deceeaca5e9acad8cacabea4deceeacabea0e4d2dac2e4f282e6e6cae800000000004800000088caccc2ead8e8bebe9acad8cacabea4deceeacabea0e4d2dac2e4f282e6e6cae8be860000000000d6050ade050a00840000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e9acad8caca5ea4deceeaca5e98caeccad8e65e9acad8cacabea4deceeacabe98ec64bea0e4d2dac2e4f282e6e6cae800000000005000000088caccc2ead8e8bebe9acad8cacabea4deceeacabe98ec64bea0e4d2dac2e4f282e6e6cae8be860000000000e6050aee050a008a0000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e9acad8caca5ea4deceeaca5e86d0e4dedac2e65eec665e9acad8cacabea4deceeacabeec66bea0e4d2dac2e4f282e6e6cae800000000004e00000088caccc2ead8e8bebe9acad8cacabea4deceeacabeec66bea0e4d2dac2e4f282e6e6cae8be8600000000003205360514e03184ddbc533b50e9da589456920fc94009f30a99567d90aab1b920547752d8abac4688ea7aa496aaf4e8154f666cd6c0c7ae0c6e750567f7f8a3d88ffb5acea0f05d1fc1bcb53df5",
-   "bit_count": 4416
+   "hex": "0800000036050a3e050a00560000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e9acad8caca5e82c4d2d8d2e8f2be9acad8cacabe84c2e6ca00000000003c00000088caccc2ead8e8bebe82c4d2d8d2e8f2be9acad8cacabe84c2e6cabe860000000000c6050ace050a008e0000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e9acad8caca5e86d0c2dae0d2dedce6646064685e9acad8cacabe86d0c2dae0d2dedce664606468bea0e4d2dac2e4f282e6e6cae800000000005800000088caccc2ead8e8bebe9acad8cacabe86d0c2dae0d2dedce664606468bea0e4d2dac2e4f282e6e6cae8be860000000000d6050ade050a00a40000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e9acad8caca5e86d0c2dae0d2dedce6646064685e98caeccad8e65e9acad8cacabe86d0c2dae0d2dedce664606468be98ec66bea0e4d2dac2e4f282e6e6cae800000000006000000088caccc2ead8e8bebe9acad8cacabe86d0c2dae0d2dedce664606468be98ec66bea0e4d2dac2e4f282e6e6cae8be860000000000e6050aee050a00c20000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e9acad8caca5e86d0c2dae0d2dedce6646064685e86d0e4dedac2e65ea6e8c2dcc8c2e4c85e9acad8cacabe86d0c2dae0d2dedce664606468bea6e8c2dcc8c2e4c8bea0e4d2dac2e4f282e6e6cae800000000006a00000088caccc2ead8e8bebe9acad8cacabe86d0c2dae0d2dedce664606468bea6e8c2dcc8c2e4c8bea0e4d2dac2e4f282e6e6cae8be8600000000003205360514e03184ddbc533b50e9dad85b09870fc9c0afa1140827e90e3b8bd9a078afc672e0040ff1d0fa648d495d66094f9847801e755b49920f057c98d28c0df1dc595391f016d9c4e3355bf5",
+   "bit_count": 5136
   }
  }
 }

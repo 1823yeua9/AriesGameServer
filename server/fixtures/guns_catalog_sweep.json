@@ -1,0 +1,366 @@
+{
+ "catalog_bytes": 3279524,
+ "class_paths": [
+  [
+   "29a0cfab-485b-f5d5-779a-b59f85e204a8",
+   "/Game/Equippables/Guns/Sidearms/BasePistol/BasePistol.BasePistol_C"
+  ],
+  [
+   "42da8ccc-40d5-affc-beec-15aa47b42eda",
+   "/Game/Equippables/Guns/Sidearms/Slim/SawedOffShotgun.SawedOffShotgun_C"
+  ],
+  [
+   "44d4e95c-4157-0037-81b2-17841bf2e8e3",
+   "/Game/Equippables/Guns/Sidearms/AutoPistol/AutomaticPistol.AutomaticPistol_C"
+  ],
+  [
+   "1baa85b4-4c70-1284-64bb-6481dfc3bb4e",
+   "/Game/Equippables/Guns/Sidearms/Luger/LugerPistol.LugerPistol_C"
+  ],
+  [
+   "410b2e0b-4ceb-1321-1727-20858f7f3477",
+   "/Game/Equippables/Guns/Sidearms/Compact/CompactPistol.CompactPistol_C"
+  ],
+  [
+   "e336c6b8-418d-9340-d77f-7a9e4cfe0702",
+   "/Game/Equippables/Guns/Sidearms/Revolver/RevolverPistol.RevolverPistol_C"
+  ],
+  [
+   "f7e1b454-4ad4-1063-ec0a-159e56b58941",
+   "/Game/Equippables/Guns/SubMachineGuns/Vector/Vector.Vector_C"
+  ],
+  [
+   "462080d1-4035-2937-7c09-27aa2a5c27a7",
+   "/Game/Equippables/Guns/SubMachineGuns/MP5/SubMachineGun_MP5.SubMachineGun_MP5_C"
+  ],
+  [
+   "910be174-449b-c412-ab22-d0873436b21b",
+   "/Game/Equippables/Guns/Shotguns/PumpShotgun/PumpShotgun.PumpShotgun_C"
+  ],
+  [
+   "ec845bf4-4f79-ddda-a3da-0db3774b2794",
+   "/Game/Equippables/Guns/Shotguns/AutoShotgun/AutomaticShotgun.AutomaticShotgun_C"
+  ],
+  [
+   "ae3de142-4d85-2547-dd26-4e90bed35cf7",
+   "/Game/Equippables/Guns/Rifles/Burst/AssaultRifle_Burst.AssaultRifle_Burst_C"
+  ],
+  [
+   "4ade7faa-4cf1-8376-95ef-39884480959b",
+   "/Game/Equippables/Guns/SniperRifles/DMR/DMR.DMR_C"
+  ],
+  [
+   "ee8e8d15-496b-07ac-e5f6-8fae5d4c7b1a",
+   "/Game/Equippables/Guns/Rifles/Carbine/AssaultRifle_ACR.AssaultRifle_ACR_C"
+  ],
+  [
+   "9c82e19d-4575-0200-1a81-3eacf00cf872",
+   "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.AssaultRifle_AK_C"
+  ],
+  [
+   "8db0a1bf-4a50-832a-4566-faaaa6d250ca",
+   "/Game/Equippables/Guns/Rifles/BattleRifle/BattleRifle.BattleRifle_C"
+  ],
+  [
+   "c4883e50-4494-202c-3ec3-6b8a9284f00b",
+   "/Game/Equippables/Guns/SniperRifles/Leversniper/LeverSniperRifle.LeverSniperRifle_C"
+  ],
+  [
+   "5f0aaf7a-4289-3998-d5ff-eb9a5cf7ef5c",
+   "/Game/Equippables/Guns/SniperRifles/Doublesniper/DS_Gun.DS_Gun_C"
+  ],
+  [
+   "a03b24d3-4319-996d-0f8c-94bbfba1dfc7",
+   "/Game/Equippables/Guns/SniperRifles/Boltsniper/BoltSniper.BoltSniper_C"
+  ],
+  [
+   "55d8a0f4-4274-ca67-fe2c-06ab45efdf58",
+   "/Game/Equippables/Guns/HvyMachineGuns/LMG/LightMachineGun.LightMachineGun_C"
+  ],
+  [
+   "63e6c2b6-4a8e-869c-3d4c-e38355226584",
+   "/Game/Equippables/Guns/HvyMachineGuns/HMG/HeavyMachineGun.HeavyMachineGun_C"
+  ]
+ ],
+ "weapons": [
+  {
+   "weapon_id": "63e6c2b6-4a8e-869c-3d4c-e38355226584",
+   "paths": [
+    193,
+    3750738283
+   ],
+   "gun": [
+    209,
+    4108941222,
+    6176,
+    0
+   ]
+  },
+  {
+   "weapon_id": "55d8a0f4-4274-ca67-fe2c-06ab45efdf58",
+   "paths": [
+    220,
+    4279345056
+   ],
+   "gun": [
+    207,
+    3048027795,
+    6248,
+    0
+   ]
+  },
+  {
+   "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+   "paths": [
+    607,
+    2958176179
+   ],
+   "gun": [
+    722,
+    3661567351,
+    5760,
+    0
+   ]
+  },
+  {
+   "weapon_id": "8db0a1bf-4a50-832a-4566-faaaa6d250ca",
+   "paths": [
+    9,
+    305721265
+   ],
+   "gun": [
+    3,
+    214379751,
+    5848,
+    0
+   ]
+  },
+  {
+   "weapon_id": "ae3de142-4d85-2547-dd26-4e90bed35cf7",
+   "paths": [
+    287,
+    2271248691
+   ],
+   "gun": [
+    252,
+    2198666515,
+    6248,
+    0
+   ]
+  },
+  {
+   "weapon_id": "ee8e8d15-496b-07ac-e5f6-8fae5d4c7b1a",
+   "paths": [
+    565,
+    812411008
+   ],
+   "gun": [
+    630,
+    437996488,
+    6368,
+    0
+   ]
+  },
+  {
+   "weapon_id": "ec845bf4-4f79-ddda-a3da-0db3774b2794",
+   "paths": [
+    256,
+    1069755089
+   ],
+   "gun": [
+    223,
+    1871837431,
+    6128,
+    0
+   ]
+  },
+  {
+   "weapon_id": "910be174-449b-c412-ab22-d0873436b21b",
+   "paths": [
+    206,
+    4006395950
+   ],
+   "gun": [
+    188,
+    2028624796,
+    6024,
+    0
+   ]
+  },
+  {
+   "weapon_id": "44d4e95c-4157-0037-81b2-17841bf2e8e3",
+   "paths": [
+    248,
+    3250893705
+   ],
+   "gun": [
+    229,
+    384979477,
+    6032,
+    0
+   ]
+  },
+  {
+   "weapon_id": "29a0cfab-485b-f5d5-779a-b59f85e204a8",
+   "paths": [
+    977,
+    504663394
+   ],
+   "gun": [
+    660,
+    3339804052,
+    6168,
+    0
+   ],
+   "a21": [
+    660,
+    3645970983,
+    6136,
+    0
+   ]
+  },
+  {
+   "weapon_id": "410b2e0b-4ceb-1321-1727-20858f7f3477",
+   "paths": [
+    48,
+    3387060597
+   ],
+   "gun": [
+    57,
+    3095049074,
+    5592,
+    0
+   ]
+  },
+  {
+   "weapon_id": "1baa85b4-4c70-1284-64bb-6481dfc3bb4e",
+   "paths": [
+    327,
+    3894681782
+   ],
+   "gun": [
+    331,
+    1806537057,
+    5848,
+    0
+   ]
+  },
+  {
+   "weapon_id": "e336c6b8-418d-9340-d77f-7a9e4cfe0702",
+   "paths": [
+    364,
+    2937739523
+   ],
+   "gun": [
+    409,
+    1766656153,
+    5904,
+    0
+   ]
+  },
+  {
+   "weapon_id": "42da8ccc-40d5-affc-beec-15aa47b42eda",
+   "paths": [
+    180,
+    4047867736
+   ],
+   "gun": [
+    167,
+    1457407645,
+    5568,
+    1
+   ]
+  },
+  {
+   "weapon_id": "a03b24d3-4319-996d-0f8c-94bbfba1dfc7",
+   "paths": [
+    351,
+    78778813
+   ],
+   "gun": [
+    396,
+    3416690590,
+    6304,
+    0
+   ]
+  },
+  {
+   "weapon_id": "4ade7faa-4cf1-8376-95ef-39884480959b",
+   "paths": [
+    336,
+    250574801
+   ],
+   "gun": [
+    360,
+    2083013898,
+    5704,
+    0
+   ]
+  },
+  {
+   "weapon_id": "5f0aaf7a-4289-3998-d5ff-eb9a5cf7ef5c",
+   "paths": [
+    128,
+    1795029901
+   ],
+   "gun": [
+    137,
+    145123048,
+    5968,
+    0
+   ]
+  },
+  {
+   "weapon_id": "c4883e50-4494-202c-3ec3-6b8a9284f00b",
+   "paths": [
+    227,
+    433166246
+   ],
+   "gun": [
+    197,
+    4099662658,
+    6552,
+    0
+   ]
+  },
+  {
+   "weapon_id": "462080d1-4035-2937-7c09-27aa2a5c27a7",
+   "paths": [
+    404,
+    948225861
+   ],
+   "gun": [
+    437,
+    1486491341,
+    6360,
+    0
+   ]
+  },
+  {
+   "weapon_id": "f7e1b454-4ad4-1063-ec0a-159e56b58941",
+   "paths": [
+    207,
+    2652887304
+   ],
+   "gun": [
+    172,
+    1855832033,
+    6056,
+    0
+   ]
+  },
+  {
+   "weapon_id": "2f59173c-4bed-b6c3-2191-dea9b58be9c7",
+   "paths": [
+    898,
+    3197110161
+   ],
+   "knife": [
+    750,
+    1881844950,
+    5568,
+    0
+   ]
+  }
+ ]
+}
