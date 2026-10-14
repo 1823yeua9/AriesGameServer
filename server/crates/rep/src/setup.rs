@@ -22,6 +22,8 @@ use crate::RepResult;
 
 /// GameState handle 18, unnamed in code (hs:2387).
 pub const GAME_STATE_BOOL_HANDLE: u32 = 18;
+/// --game-state-bool-probe-value 1 (launch_range.py:31).
+pub const GAME_STATE_BOOL_VALUE: bool = true;
 /// Controller.PlayerState / Controller.Pawn (hs:2415, 2441).
 pub const CONTROLLER_PLAYER_STATE_HANDLE: u32 = 15;
 pub const CONTROLLER_PAWN_HANDLE: u32 = 16;
@@ -42,8 +44,6 @@ pub const ITEM_SLOT_PACKAGE_GUID: u32 = 63;
 pub const ITEM_SLOTS_FIRST_HANDLE: u32 = 3;
 /// rsb:709-712 item_slot_net_guid bound.
 pub const ITEM_SLOT_COUNT: u32 = 16;
-/// UItemSlot.Contents (hs:3058, rsb:698).
-pub const ITEM_SLOT_CONTENTS_HANDLE: u32 = 1;
 /// BasePistol EquippableSlot Secondary (hs:3053-3055).
 pub const BASE_PISTOL_SLOT: u32 = 1;
 /// GameState.TeamStates (hs:3450), PlayerArray (hs:3947), PlayerState team (hs:3512).
@@ -57,7 +57,8 @@ pub const TEAM_COMPONENT_NAMES: [&str; 2] = ["BlueTeam", "RedTeam"];
 pub const BOMB_TEAM_GUID: u32 = 108;
 pub const TEAM_NUMBER_HANDLE: u32 = 3;
 /// --bomb-team-number-value / --bomb-team-number-bits defaults (hs:4670, 4672).
-pub const BOMB_TEAM_NUMBER_VALUE: u32 = 1;
+/// the value is a python int (any sign), so it stays signed here.
+pub const BOMB_TEAM_NUMBER_VALUE: i64 = 1;
 pub const BOMB_TEAM_NUMBER_BITS: u32 = 8;
 /// PlayerState.AccessibleCharacterList (hs:3638, 3647).
 pub const ACCESSIBLE_CHARACTER_LIST_HANDLE: u32 = 31;
@@ -109,7 +110,7 @@ pub fn pawn_open() -> RepResult<Bits> {
     actors::wushu_pawn_reference(Some(PAWN_SPAWN_LOCATION))
 }
 
-/// A07 ch4: GameState handle 18 = value, seed 2 (hs:2386-2391). production true.
+/// A07 ch4: GameState handle 18 = value, seed 2 (hs:2386-2391). production GAME_STATE_BOOL_VALUE.
 pub fn game_state_bool_h18_body(value: bool) -> RepResult<Bits> {
     actor_rep_body(&props::bool_property(GAME_STATE_BOOL_HANDLE, value)?, GAME_STATE_GUID)
 }
@@ -160,9 +161,10 @@ pub fn pawn_controller_link() -> RepResult<Bits> {
     actor_object_link(PAWN_GUID, PAWN_CONTROLLER_HANDLE, CONTROLLER_GUID)
 }
 
-/// A16 ch8: Pawn.RemoteRole = 2 in 3 bits, seed 10 (hs:2667-2672).
+/// A16 ch8: Pawn.RemoteRole = 2 in 3 bits, seed 10 (hs:2667-2672; 3 is the dead
+/// pawn_authority_role trial).
 pub fn pawn_remote_role_body() -> RepResult<Bits> {
-    actor_rep_body(&props::autonomous_role(props::REMOTE_ROLE_BITS, props::AUTONOMOUS_PROXY)?, PAWN_GUID)
+    actor_rep_body(&props::pawn_autonomous_role(props::REMOTE_ROLE_BITS, props::AUTONOMOUS_PROXY)?, PAWN_GUID)
 }
 
 /// A17 ch8, exports: InventoryComponent (60, outer pawn) with the empty rep, seed 10 (hs:2706-2729).
@@ -284,12 +286,32 @@ pub fn bomb_team_open_body() -> RepResult<Bits> {
     exported_subobject_rep_body(BOMB_TEAM_GUID, PLAYER_STATE_GUID, "BombTeam", BOMB_TEAM_GUID, &empty_rep(), PLAYER_STATE_GUID)
 }
 
+/// python `value & ((1 << bits) - 1)` written as `bits` raw bits (hs:3604-3605).
+/// python ints are unbounded two's complement, so every bit above 63 repeats
+/// the sign: -1 with 70 bits is 70 ones, 5 with 70 bits is 5 then zeros.
+fn append_masked_bits(w: &mut BitWriter, value: i64, bits: u32) {
+    let fill = if value < 0 { u64::MAX } else { 0 };
+    let mut chunk = value as u64;
+    let mut left = bits;
+    while left > 0 {
+        let take = left.min(64);
+        let mask = if take == 64 { u64::MAX } else { (1u64 << take) - 1 };
+        w.append_bits(chunk & mask, take);
+        chunk = fill;
+        left -= take;
+    }
+}
+
 /// B8 ch6: BombTeam.TeamNumber = value masked to `bits` bits, seed 6 (hs:3601-3615).
-/// production BOMB_TEAM_NUMBER_VALUE / BOMB_TEAM_NUMBER_BITS. widths above 64 fail.
-pub fn bomb_team_number_body(value: u32, bits: u32) -> RepResult<Bits> {
-    let mask = if bits >= 64 { u64::MAX } else { (1u64 << bits) - 1 };
-    let plain = props::bits_property(TEAM_NUMBER_HANDLE, value as u64 & mask, bits)?;
-    subobject_rep_body(BOMB_TEAM_GUID, &plain, PLAYER_STATE_GUID)
+/// production BOMB_TEAM_NUMBER_VALUE / BOMB_TEAM_NUMBER_BITS (8 bits, still
+/// unconfirmed against the live NetSerialize, hs:3594-3596).
+pub fn bomb_team_number_body(value: i64, bits: u32) -> RepResult<Bits> {
+    let mut rep = BitWriter::new();
+    rep.append_bits(0, 1);
+    rep.append_packed_uint(TEAM_NUMBER_HANDLE as u64);
+    append_masked_bits(&mut rep, value, bits);
+    rep.append_packed_uint(0);
+    subobject_rep_body(BOMB_TEAM_GUID, &rep.finish()?, PLAYER_STATE_GUID)
 }
 
 /// B9 ch6: AccessibleCharacterList = [guid], seed 6 (hs:3646-3652). production props::WUSHU_CLASS_GUID.
@@ -406,6 +428,15 @@ pub fn input_ack_body(latest_event_id: u32) -> RepResult<Bits> {
 }
 
 // ---- per-packet bodies after bring-up (spec 02 section 9.1, 9.2) ----
+
+/// ch8: the input-resume correction (hs:1734-1741). CurrentEquippable is the
+/// purchased guid for the live class, else equippable_guid_for_class, else left
+/// out (python `a or b`, so a purchased guid of 0 also falls through). pass ""
+/// when the live class is unknown (python `class or ""`).
+pub fn input_resume_correction_body(correction_index: u32, purchased_guid: Option<u32>, equippable_class: &str) -> RepResult<Bits> {
+    let equippable_guid = purchased_guid.filter(|&guid| guid != 0).or_else(|| actors::equippable_guid_for_class(equippable_class));
+    bodies::inventory_correction_body(correction_index, equippable_guid)
+}
 
 /// ch4, exports: a GameState class property, seed 2 (hs:1789-1792).
 pub fn range_class_property_body(property: &ClassProperty) -> RepResult<Bits> {

@@ -42,9 +42,12 @@ def section_rep_builders():
 
     # ---- section 3: actor opens and exports ----
     cases = []
+    # fstring guard edges: 240 ascii chars is the longest, nul and non-ascii raise (rsb:67-72)
     for chain, actor in ((WORLD, 3), (WORLD, 201), (WORLD[:2], 3), (WORLD + ("A", "B", "C", "D"), 5),
                          (WORLD[:1], 3), (WORLD + ("A", "B", "C", "D", "E"), 3), (WORLD, 4), (WORLD, 1),
-                         (WORLD, 0xFFFFFFFD), (WORLD, 0xFFFFFFF9), (("", "x"), 3)):
+                         (WORLD, 0xFFFFFFFD), (WORLD, 0xFFFFFFF9), (("", "x"), 3),
+                         (("A" * 240, "/Game/B"), 3), (("A" * 241, "/Game/B"), 3), (("A\x00B", "/Game/B"), 3),
+                         (("Café", "/Game/B"), 3), (("x", "y"), 0x7F), (("x", "y"), 0x81)):
         cases.append({"chain": list(chain), "actor": actor, **run(rsb.build_exported_static_actor_reference, chain, actor)})
     out["static_reference"] = cases
 
@@ -64,6 +67,13 @@ def section_rep_builders():
     )
     out["named_reference"] = [{"name": name, **run(fn)} for name, fn in named]
 
+    # the pawn open's spawn vector at its int32 / rounding / finiteness edges (rsb:78-96)
+    locations = (SPAWN, (0.0, 0.0, 0.0), (-0.0, -0.0, -0.0), (0.05, -0.05, 0.15), (-0.25, 0.25, 0.35),
+                 (214748364.7, -214748364.8, 0.0), (214748364.8, 0.0, 0.0), (0.0, -214748364.86, 0.0),
+                 (1e300, 0.0, 0.0), (float("nan"), 0.0, 0.0), (0.0, float("inf"), 0.0), (0.0, 0.0, float("-inf")))
+    out["pawn_location"] = [{"location": vector(loc), **run(rsb.build_dynamic_wushu_pawn_reference, loc)}
+                            for loc in locations]
+
     out["base_team_state"] = [{"actor": a, **run(rsb.build_dynamic_base_team_state_reference, a)}
                               for a in (100, 102, 104, 98, 0)]
 
@@ -73,7 +83,9 @@ def section_rep_builders():
                  ("ShootingRangeHUDConfig_C", "/Game/UI/InGame/HUD/GameStateHUDConfigs/ShootingRangeHUDConfig", 265, 267),
                  ("X_C", "/Game/X", 3, 5), ("X_C", "/Game/X", 0xFFFFFFFF, 0xFFFFFFFD),
                  ("", "/Game/X", 109, 111), ("X_C", "/Script/ShooterGame", 109, 111), ("X_C", "/Game/X", 110, 111),
-                 ("X_C", "/Game/X", 109, 112), ("X_C", "/Game/X", 109, 109), ("X_C", "/Game/X", 1, 111)):
+                 ("X_C", "/Game/X", 109, 112), ("X_C", "/Game/X", 109, 109), ("X_C", "/Game/X", 1, 111),
+                 ("C" * 240, "/Game/X", 109, 111), ("C" * 241, "/Game/X", 109, 111), ("X_C", "/Game/" + "P" * 234, 109, 111),
+                 ("X_C", "/Game/" + "P" * 235, 109, 111), ("X_C", "/Game/", 109, 111), ("X_é", "/Game/X", 109, 111)):
         cases.append({"class_name": args[0], "package": args[1], "class_guid": args[2], "package_guid": args[3],
                       **run(rsb.build_class_netguid_export, *args)})
     out["class_export"] = cases
@@ -148,6 +160,10 @@ def section_rep_builders():
     out["shop"] = [{"handles": list(h), **run(rsb.build_range_shop_settings_payload, h)}
                    for h in ((44, 48, 49), (44,), (49, 44, 44), (44, 45, 46, 47, 48, 49), (49,), (), (43,), (44, 50))]
     out["pistol_role"] = [{"width": w, **run(rsb.build_base_pistol_autonomous_role_payload, w)} for w in (3, 2, 1, 4, 8)]
+    # rsb:1438-1441 guards; (1, 2) and (1, 3) fail in append_bits, not in the guard
+    out["pawn_role"] = [{"width": w, "value": v, **run(rsb.build_pawn_autonomous_role_payload, w, v)}
+                        for w, v in ((3, 2), (3, 3), (8, 2), (8, 0), (1, 1), (2, 3), (1, 2), (1, 3), (0, 0), (9, 2),
+                                     (3, 4), (8, 4))]
 
     # the inline leaves the generic rust helpers stand for
     def int_leaf(handle, value):
@@ -188,7 +204,8 @@ def section_rep_builders():
     out["client_restart"] = [run(rsb.build_client_restart_rpc_payload)]
     cases = []
     for field_index, class_max, guid in ((52, 178, 109), (0, 1, 1), (177, 178, 0xFFFFFFFF), (127, 178, 109),
-                                         (128, 178, 109), (52, 0xFFFFFFFF, 109), (178, 178, 109), (52, 178, 0), (5, 3, 109)):
+                                         (128, 178, 109), (52, 0xFFFFFFFF, 109), (178, 178, 109), (52, 178, 0), (5, 3, 109),
+                                         (0xFFFFFFFE, 0xFFFFFFFF, 1), (0, 0, 109)):
         cases.append({"field": field_index, "max": class_max, "guid": guid,
                       **run(rsb.build_client_set_hud_payload, field_index, class_max, guid)})
     out["set_hud"] = cases
@@ -214,7 +231,10 @@ def section_rep_builders():
             (rsb.range_gameplay_sublevels, 66, 178, False, True), (rsb.range_gameplay_sublevels, 66, 178, True, False),
             (many[:16], 66, 178, True, True), (many, 66, 178, True, True), ((), 66, 178, True, True),
             (("/Script/Engine",), 66, 178, True, True), (rsb.range_gameplay_sublevels, 0, 1, True, True),
-            (rsb.range_gameplay_sublevels, 179, 178, True, True)):
+            (rsb.range_gameplay_sublevels, 179, 178, True, True), (rsb.range_gameplay_sublevels, 178, 178, True, True),
+            (("/Game/",), 66, 178, True, True), (("/Game/" + "L" * 234,), 66, 178, False, False),
+            (("/Game/" + "L" * 235,), 66, 178, True, True), (("/Game/Café",), 66, 178, True, True),
+            (("/Game/A", "/Script/B"), 66, 178, True, True)):
         cases.append({"names": list(names), "field": field_index, "max": class_max, "loaded": loaded, "visible": visible,
                       **run(rsb.build_client_update_multiple_levels_streaming_status_payload, names, field_index, class_max,
                             loaded, visible)})
@@ -278,6 +298,41 @@ def section_rep_builders():
     out["state_link"] = [{"name": n, "guid": g, **run(hs.build_equippable_state_link_body, n, g)}
                          for n, g in (("InactiveState", 98), ("EquipState", 99), ("InactiveState", 99), ("EquipState", 98),
                                       ("IdleState", 98), ("InactiveState", 100))]
+
+    # the python module constants the rust consts copy, read from the modules
+    # themselves so a rust value can never drift from its source
+    import range_melee_equippable as rme
+    out["constants"] = {
+        "range_shop_setting_handles": list(rsb.range_shop_setting_handles),
+        "starting_equippable_first_channel": rsb.starting_equippable_first_channel,
+        "starting_equippable_first_guid": rsb.starting_equippable_first_guid,
+        "inventory_net_guid": rsb.inventory_net_guid,
+        "item_slot_class_net_guid": rsb.item_slot_class_net_guid,
+        "first_item_slot_net_guid": rsb.first_item_slot_net_guid,
+        "actor_owner_handle": rsb.actor_owner_handle,
+        "item_slot_contents_handle": rsb.item_slot_contents_handle,
+        "base_pistol_actor_guid": rsb.base_pistol_actor_guid,
+        "base_pistol_state_machine_guid": rsb.base_pistol_state_machine_guid,
+        "base_pistol_inactive_state_guid": rsb.base_pistol_state_guids["InactiveState"],
+        "auth_current_state_handle": rsb.auth_current_state_handle,
+        "player_state_ultimate_points_handle": rsb.player_state_ultimate_points_handle,
+        "range_game_mode_class": list(rsb.range_game_mode_class),
+        "range_hud_config_class": list(rsb.range_hud_config_class),
+        "range_gameplay_sublevels": list(rsb.range_gameplay_sublevels),
+        "client_update_multiple_levels_streaming_status_field": rsb.client_update_multiple_levels_streaming_status_field,
+        "client_flush_level_streaming_field": rsb.client_flush_level_streaming_field,
+        "shooting_range_controller_class_max": rsb.shooting_range_controller_class_max,
+        "client_update_range_settings_field": rsb.client_update_range_settings_field,
+        "game_info_infinite_ammo_handle": rsb.game_info_infinite_ammo_handle,
+        "money_component_guid": rsb.money_component_guid,
+        "money_handle": rsb.money_handle,
+        "range_money": rsb.range_money,
+        "melee_channel": rme.melee_channel,
+        "melee_actor_guid": rme.melee_actor_guid,
+        "melee_state_machine_guid": rme.melee_state_machine_guid,
+        "melee_inactive_state_guid": rme.melee_state_guids["InactiveState"],
+        "melee_auth_current_state_handle": rme.melee_auth_current_state_handle,
+    }
     return out
 
 

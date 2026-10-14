@@ -242,3 +242,11 @@ pub fn base_pistol_autonomous_role(role_bit_width: u32) -> RepResult<Bits> {
     check(matches!(role_bit_width, 2 | 3), "ENetRole wire width must be 2 or 3 bits")?;
     autonomous_role(role_bit_width, AUTONOMOUS_PROXY)
 }
+
+/// python build_pawn_autonomous_role_payload (rsb:1419) with its guards, which the
+/// shared autonomous_role lacks: width 1..=8, role 0..=3 (rsb:1438-1441).
+pub fn pawn_autonomous_role(role_bit_width: u32, role_value: u32) -> RepResult<Bits> {
+    check((1..=8).contains(&role_bit_width), "role_bit_width must fit in a byte")?;
+    check(role_value <= 3, "role_value must be a valid ENetRole (0..3)")?;
+    autonomous_role(role_bit_width, role_value)
+}

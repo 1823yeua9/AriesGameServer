@@ -116,6 +116,57 @@
    ],
    "actor": 3,
    "error": "ValueError"
+  },
+  {
+   "chain": [
+    "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "/Game/B"
+   ],
+   "actor": 3,
+   "hex": "020000000c0a140a00100000005e8ec2daca5e840000000000e201000082828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828282828200000000000c00",
+   "bit_count": 2201
+  },
+  {
+   "chain": [
+    "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "/Game/B"
+   ],
+   "actor": 3,
+   "error": "ValueError"
+  },
+  {
+   "chain": [
+    "A\u0000B",
+    "/Game/B"
+   ],
+   "actor": 3,
+   "error": "ValueError"
+  },
+  {
+   "chain": [
+    "Caf\u00e9",
+    "/Game/B"
+   ],
+   "actor": 3,
+   "error": "UnicodeEncodeError"
+  },
+  {
+   "chain": [
+    "x",
+    "y"
+   ],
+   "actor": 127,
+   "hex": "02000000fc0b06040a0004000000f2000000000004000000f00000000000fc01",
+   "bit_count": 249
+  },
+  {
+   "chain": [
+    "x",
+    "y"
+   ],
+   "actor": 129,
+   "hex": "0200000006040a0e040a0004000000f2000000000004000000f00000000000060400",
+   "bit_count": 265
   }
  ],
  "named_reference": [
@@ -163,6 +214,110 @@
    "name": "base_pistol",
    "hex": "020000007c0b840b006c0000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea6d2c8cac2e4dae65e84c2e6caa0d2e6e8ded85e84c2e6caa0d2e6e8ded800000000002c00000088caccc2ead8e8bebe84c2e6caa0d2e6e8ded8be860000000000787d1500",
    "bit_count": 837
+  }
+ ],
+ "pawn_location": [
+  {
+   "location": [
+    3581.634,
+    -12019.322,
+    1294.153
+   ],
+   "hex": "020000006c0a740a00400000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5eaeeae6d0eabea08600000000002800000088caccc2ead8e8bebeaeeae6d0eabea086be860000000000286c1496a22ff2a7a2a30c00",
+   "bit_count": 707
+  },
+  {
+   "location": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "hex": "020000006c0a740a00400000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5eaeeae6d0eabea08600000000002800000088caccc2ead8e8bebeaeeae6d0eabea086be860000000000286c140e02",
+   "bit_count": 656
+  },
+  {
+   "location": [
+    -0.0,
+    -0.0,
+    -0.0
+   ],
+   "hex": "020000006c0a740a00400000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5eaeeae6d0eabea08600000000002800000088caccc2ead8e8bebeaeeae6d0eabea086be860000000000286c140e02",
+   "bit_count": 656
+  },
+  {
+   "location": [
+    0.05,
+    -0.05,
+    0.15
+   ],
+   "hex": "020000006c0a740a00400000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5eaeeae6d0eabea08600000000002800000088caccc2ead8e8bebeaeeae6d0eabea086be860000000000286c141ee602",
+   "bit_count": 662
+  },
+  {
+   "location": [
+    -0.25,
+    0.25,
+    0.35
+   ],
+   "hex": "020000006c0a740a00400000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5eaeeae6d0eabea08600000000002800000088caccc2ead8e8bebeaeeae6d0eabea086be860000000000286c1426f61000",
+   "bit_count": 665
+  },
+  {
+   "location": [
+    214748364.7,
+    -214748364.8,
+    0.0
+   ],
+   "hex": "020000006c0a740a00400000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5eaeeae6d0eabea08600000000002800000088caccc2ead8e8bebeaeeae6d0eabea086be860000000000286c1406ffffffff010000000200000000",
+   "bit_count": 749
+  },
+  {
+   "location": [
+    214748364.8,
+    0.0,
+    0.0
+   ],
+   "error": "ValueError"
+  },
+  {
+   "location": [
+    0.0,
+    -214748364.86,
+    0.0
+   ],
+   "error": "ValueError"
+  },
+  {
+   "location": [
+    1e+300,
+    0.0,
+    0.0
+   ],
+   "error": "ValueError"
+  },
+  {
+   "location": [
+    "nan",
+    0.0,
+    0.0
+   ],
+   "error": "ValueError"
+  },
+  {
+   "location": [
+    0.0,
+    "inf",
+    0.0
+   ],
+   "error": "ValueError"
+  },
+  {
+   "location": [
+    0.0,
+    0.0,
+    "-inf"
+   ],
+   "error": "ValueError"
   }
  ],
  "base_team_state": [
@@ -271,6 +426,51 @@
    "class_guid": 1,
    "package_guid": 111,
    "error": "ValueError"
+  },
+  {
+   "class_name": "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC",
+   "package": "/Game/X",
+   "class_guid": 109,
+   "package_guid": 111,
+   "hex": "02000000b40bbc0b00100000005e8ec2daca5eb00000000000e2010000868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686868686000000000000",
+   "bit_count": 2193
+  },
+  {
+   "class_name": "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC",
+   "package": "/Game/X",
+   "class_guid": 109,
+   "package_guid": 111,
+   "error": "ValueError"
+  },
+  {
+   "class_name": "X_C",
+   "package": "/Game/PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP",
+   "class_guid": 109,
+   "package_guid": 111,
+   "hex": "02000000b40bbc0b00e20100005e8ec2daca5ea0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0000000000008000000b0be86000000000000",
+   "bit_count": 2161
+  },
+  {
+   "class_name": "X_C",
+   "package": "/Game/PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP",
+   "class_guid": 109,
+   "package_guid": 111,
+   "error": "ValueError"
+  },
+  {
+   "class_name": "X_C",
+   "package": "/Game/",
+   "class_guid": 109,
+   "package_guid": 111,
+   "hex": "02000000b40bbc0b000e0000005e8ec2daca5e000000000008000000b0be86000000000000",
+   "bit_count": 289
+  },
+  {
+   "class_name": "X_\u00e9",
+   "package": "/Game/X",
+   "class_guid": 109,
+   "package_guid": 111,
+   "error": "UnicodeEncodeError"
   }
  ],
  "starting_open": [
@@ -4897,6 +5097,74 @@
    "error": "ValueError"
   }
  ],
+ "pawn_role": [
+  {
+   "width": 3,
+   "value": 2,
+   "hex": "100400",
+   "bit_count": 20
+  },
+  {
+   "width": 3,
+   "value": 3,
+   "hex": "100600",
+   "bit_count": 20
+  },
+  {
+   "width": 8,
+   "value": 2,
+   "hex": "10040000",
+   "bit_count": 25
+  },
+  {
+   "width": 8,
+   "value": 0,
+   "hex": "10000000",
+   "bit_count": 25
+  },
+  {
+   "width": 1,
+   "value": 1,
+   "hex": "100200",
+   "bit_count": 18
+  },
+  {
+   "width": 2,
+   "value": 3,
+   "hex": "100600",
+   "bit_count": 19
+  },
+  {
+   "width": 1,
+   "value": 2,
+   "error": "ValueError"
+  },
+  {
+   "width": 1,
+   "value": 3,
+   "error": "ValueError"
+  },
+  {
+   "width": 0,
+   "value": 0,
+   "error": "ValueError"
+  },
+  {
+   "width": 9,
+   "value": 2,
+   "error": "ValueError"
+  },
+  {
+   "width": 3,
+   "value": 4,
+   "error": "ValueError"
+  },
+  {
+   "width": 8,
+   "value": 4,
+   "error": "ValueError"
+  }
+ ],
  "int_property": [
   {
    "handle": 197,
@@ -5070,6 +5338,19 @@
   {
    "field": 5,
    "max": 3,
+   "guid": 109,
+   "error": "ValueError"
+  },
+  {
+   "field": 4294967294,
+   "max": 4294967295,
+   "guid": 1,
+   "hex": "feffffff120500",
+   "bit_count": 49
+  },
+  {
+   "field": 0,
+   "max": 0,
    "guid": 109,
    "error": "ValueError"
   }
@@ -5322,6 +5603,71 @@
     "/Game/LiveStory/LiveStory_Permanent/Range_LiveStory_Permanent"
    ],
    "field": 179,
+   "max": 178,
+   "loaded": true,
+   "visible": true,
+   "error": "ValueError"
+  },
+  {
+   "names": [
+    "/Game/Maps/Poveglia/Range_Only_Gameplay",
+    "/Game/LiveStory/LiveStory_Permanent/Range_LiveStory_Permanent"
+   ],
+   "field": 178,
+   "max": 178,
+   "loaded": true,
+   "visible": true,
+   "hex": "b217100500a0000000bc1c85b595bd3485c1cdbd40bdd9959db1a585bd4885b99d957d3db9b1e57d1d85b595c1b185e50100000000fcffffff0f1f00008097a3b0b6b217a634bbb229ba37b9bc17a634bbb229ba37b9bc2fa832b9b630b73237ba17a930b7b3b22fa634bbb229ba37b9bc2fa832b9b630b732373a0000000080ffffffff01",
+   "bit_count": 1059
+  },
+  {
+   "names": [
+    "/Game/"
+   ],
+   "field": 66,
+   "max": 178,
+   "loaded": true,
+   "visible": true,
+   "hex": "c22e8101000e0000005e8ec2daca5e0000000000feffffff07",
+   "bit_count": 197
+  },
+  {
+   "names": [
+    "/Game/LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL"
+   ],
+   "field": 66,
+   "max": 178,
+   "loaded": false,
+   "visible": false,
+   "hex": "c27e8f0100e20100005e8ec2daca5e9898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898989898980000000000feffffff01",
+   "bit_count": 2069
+  },
+  {
+   "names": [
+    "/Game/LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL"
+   ],
+   "field": 66,
+   "max": 178,
+   "loaded": true,
+   "visible": true,
+   "error": "ValueError"
+  },
+  {
+   "names": [
+    "/Game/Caf\u00e9"
+   ],
+   "field": 66,
+   "max": 178,
+   "loaded": true,
+   "visible": true,
+   "error": "UnicodeEncodeError"
+  },
+  {
+   "names": [
+    "/Game/A",
+    "/Script/B"
+   ],
+   "field": 66,
    "max": 178,
    "loaded": true,
    "visible": true,
@@ -7526,5 +7872,55 @@
    "guid": 100,
    "error": "ValueError"
   }
- ]
+ ],
+ "constants": {
+  "range_shop_setting_handles": [
+   44,
+   48,
+   49
+  ],
+  "starting_equippable_first_channel": 12,
+  "starting_equippable_first_guid": 200,
+  "inventory_net_guid": 60,
+  "item_slot_class_net_guid": 61,
+  "first_item_slot_net_guid": 62,
+  "actor_owner_handle": 12,
+  "item_slot_contents_handle": 1,
+  "base_pistol_actor_guid": 94,
+  "base_pistol_state_machine_guid": 96,
+  "base_pistol_inactive_state_guid": 98,
+  "auth_current_state_handle": 3,
+  "player_state_ultimate_points_handle": 197,
+  "range_game_mode_class": [
+   "ShootingRangeGameMode_C",
+   "/Game/GameModes/ShootingRange/ShootingRangeGameMode",
+   261,
+   263,
+   15
+  ],
+  "range_hud_config_class": [
+   "ShootingRangeHUDConfig_C",
+   "/Game/UI/InGame/HUD/GameStateHUDConfigs/ShootingRangeHUDConfig",
+   265,
+   267,
+   58
+  ],
+  "range_gameplay_sublevels": [
+   "/Game/Maps/Poveglia/Range_Only_Gameplay",
+   "/Game/LiveStory/LiveStory_Permanent/Range_LiveStory_Permanent"
+  ],
+  "client_update_multiple_levels_streaming_status_field": 66,
+  "client_flush_level_streaming_field": 26,
+  "shooting_range_controller_class_max": 178,
+  "client_update_range_settings_field": 170,
+  "game_info_infinite_ammo_handle": 46,
+  "money_component_guid": 254,
+  "money_handle": 3,
+  "range_money": 9000,
+  "melee_channel": 13,
+  "melee_actor_guid": 204,
+  "melee_state_machine_guid": 206,
+  "melee_inactive_state_guid": 256,
+  "melee_auth_current_state_handle": 3
+ }
 }

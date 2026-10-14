@@ -3,7 +3,7 @@
 //! with "error" is a python guard that raised; rust must fail there too.
 
 use aries_bits::Bits;
-use aries_rep::{RepResult, Spawn, actors, bodies, props, rpc};
+use aries_rep::{RepResult, Spawn, actors, bodies, props, rpc, setup};
 use serde_json::Value;
 
 fn fixture() -> Value {
@@ -86,6 +86,9 @@ fn actor_opens_match_python() {
         };
         check(result, c, s(&c["name"]));
     }
+    for c in cases(&f, "pawn_location") {
+        check(actors::wushu_pawn_reference(Some(vec3(&c["location"]))), c, "pawn location");
+    }
     for c in cases(&f, "base_team_state") {
         check(actors::base_team_state_reference(u(&c["actor"])), c, "team");
     }
@@ -154,6 +157,9 @@ fn rep_payloads_match_python() {
     }
     for c in cases(&f, "pistol_role") {
         check(props::base_pistol_autonomous_role(u(&c["width"])), c, "pistol role");
+    }
+    for c in cases(&f, "pawn_role") {
+        check(props::pawn_autonomous_role(u(&c["width"]), u(&c["value"])), c, "pawn role");
     }
     for c in cases(&f, "int_property") {
         check(props::int_property(u(&c["handle"]), u(&c["value"])), c, "int property");
@@ -235,4 +241,46 @@ fn complete_bodies_match_python() {
     // the spawn location the pawn open uses (hs:2357-2360) feeds Spawn with no yaw
     let spawn = Spawn { location: actors::PAWN_SPAWN_LOCATION, yaw: 0.0 };
     assert_eq!(actors::WUSHU_PAWN.reference(Some(spawn)).unwrap(), actors::wushu_pawn_reference(Some(actors::PAWN_SPAWN_LOCATION)).unwrap());
+}
+
+fn class_property(v: &Value) -> (String, String, u32, u32, u32) {
+    (s(&v[0]).to_owned(), s(&v[1]).to_owned(), u(&v[2]), u(&v[3]), u(&v[4]))
+}
+
+#[test]
+fn constants_match_python_modules() {
+    let f = fixture();
+    let k = &f["constants"];
+    assert_eq!(uv(&k["range_shop_setting_handles"]), props::RANGE_SHOP_SETTING_HANDLES);
+    assert_eq!(u(&k["starting_equippable_first_channel"]), actors::STARTING_EQUIPPABLE_FIRST_CHANNEL);
+    assert_eq!(u(&k["starting_equippable_first_guid"]), actors::STARTING_EQUIPPABLE_FIRST_GUID);
+    assert_eq!(u(&k["inventory_net_guid"]), bodies::INVENTORY_GUID);
+    assert_eq!(u(&k["item_slot_class_net_guid"]), bodies::ITEM_SLOT_CLASS_GUID);
+    assert_eq!(u(&k["first_item_slot_net_guid"]), bodies::FIRST_ITEM_SLOT_GUID);
+    assert_eq!(u(&k["actor_owner_handle"]), bodies::ACTOR_OWNER_HANDLE);
+    assert_eq!(u(&k["item_slot_contents_handle"]), bodies::ITEM_SLOT_CONTENTS_HANDLE);
+    assert_eq!(u(&k["base_pistol_actor_guid"]), actors::BASE_PISTOL_GUID);
+    assert_eq!(u(&k["base_pistol_state_machine_guid"]), bodies::BASE_PISTOL_STATE_MACHINE_GUID);
+    assert_eq!(u(&k["base_pistol_inactive_state_guid"]), bodies::BASE_PISTOL_INACTIVE_STATE_GUID);
+    assert_eq!(u(&k["auth_current_state_handle"]), bodies::AUTH_CURRENT_STATE_HANDLE);
+    assert_eq!(u(&k["player_state_ultimate_points_handle"]), bodies::PLAYER_STATE_ULTIMATE_POINTS_HANDLE);
+    for (key, rust) in [("range_game_mode_class", bodies::RANGE_GAME_MODE_CLASS), ("range_hud_config_class", bodies::RANGE_HUD_CONFIG_CLASS)] {
+        let rust = (rust.class_name.to_owned(), rust.package.to_owned(), rust.class_guid, rust.package_guid, rust.handle);
+        assert_eq!(class_property(&k[key]), rust, "{key}");
+    }
+    let sublevels: Vec<&str> = k["range_gameplay_sublevels"].as_array().unwrap().iter().map(s).collect();
+    assert_eq!(sublevels, rpc::RANGE_GAMEPLAY_SUBLEVELS);
+    assert_eq!(u(&k["client_update_multiple_levels_streaming_status_field"]), rpc::LEVELS_STREAMING_STATUS_FIELD);
+    assert_eq!(u(&k["client_flush_level_streaming_field"]), rpc::FLUSH_LEVEL_STREAMING_FIELD);
+    assert_eq!(u(&k["shooting_range_controller_class_max"]), rpc::CONTROLLER_CLASS_MAX);
+    assert_eq!(u(&k["client_update_range_settings_field"]), rpc::UPDATE_RANGE_SETTINGS_FIELD);
+    assert_eq!(u(&k["game_info_infinite_ammo_handle"]), bodies::GAME_INFO_INFINITE_AMMO_HANDLE);
+    assert_eq!(u(&k["money_component_guid"]), bodies::MONEY_COMPONENT_GUID);
+    assert_eq!(u(&k["money_handle"]), bodies::MONEY_HANDLE);
+    assert_eq!(k["range_money"].as_i64().unwrap(), bodies::RANGE_MONEY as i64);
+    assert_eq!(u(&k["melee_channel"]), actors::STARTING_EQUIPPABLE_FIRST_CHANNEL + 1);
+    assert_eq!(u(&k["melee_actor_guid"]), setup::KNIFE_GUID);
+    assert_eq!(u(&k["melee_state_machine_guid"]), setup::KNIFE_STATE_MACHINE_GUID);
+    assert_eq!(u(&k["melee_inactive_state_guid"]), setup::KNIFE_INACTIVE_STATE_GUID);
+    assert_eq!(u(&k["melee_auth_current_state_handle"]), bodies::AUTH_CURRENT_STATE_HANDLE);
 }

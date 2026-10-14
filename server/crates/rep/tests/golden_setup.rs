@@ -2,7 +2,7 @@
 //! tools/golden/rep_setup.py makes by re-running run_probe's inline statements.
 
 use aries_bits::Bits;
-use aries_rep::{RepResult, bodies, props, setup};
+use aries_rep::{RepResult, bodies, props, rpc, setup};
 use serde_json::Value;
 
 fn fixture() -> Value {
@@ -112,7 +112,7 @@ fn part_b_bodies_match_python() {
     single(&f, "b6_player_state_team", setup::player_state_team_body());
     single(&f, "b7_bomb_team_open", setup::bomb_team_open_body());
     for c in cases(&f, "b8_bomb_team_number") {
-        check(setup::bomb_team_number_body(u(&c["value"]), u(&c["bits"])), c, "b8");
+        check(setup::bomb_team_number_body(c["value"].as_i64().unwrap(), u(&c["bits"])), c, "b8");
     }
     for c in cases(&f, "b9_accessible_character") {
         check(setup::accessible_character_list_body(guid(&c["guid"])), c, "b9");
@@ -160,9 +160,38 @@ fn move_and_input_acks_match_python() {
     }
 }
 
+/// the production constants equal what the python launch files pass, and the
+/// production-argument stage bodies match python's.
+#[test]
+fn production_arguments_match_launch_config() {
+    let f = fixture();
+    let p = &f["production_args"];
+    assert_eq!(u(&p["game_state_phase_value"]), props::RANGE_PHASE);
+    assert_eq!(vec3(&p["move_correction_location"]), setup::MOVE_CORRECTION_LOCATION);
+    assert_eq!(u(&p["viewtarget_handle"]), setup::VIEWTARGET_HANDLE);
+    assert_eq!(p["viewtarget_name"].as_str().unwrap(), setup::VIEWTARGET_NAME);
+    assert_eq!(u(&p["move_ack_index"]), rpc::MOVE_RESPONSE_FIELD);
+    assert_eq!(u(&p["move_ack_class_max"]), rpc::PAWN_CLASS_MAX);
+    assert_eq!(p["bomb_team_number_value"].as_i64().unwrap(), setup::BOMB_TEAM_NUMBER_VALUE);
+    assert_eq!(u(&p["bomb_team_number_bits"]), setup::BOMB_TEAM_NUMBER_BITS);
+    assert_eq!(guid(&p["desired_class_guid"]), props::WUSHU_CLASS_GUID);
+    assert_eq!(p["game_state_bool_probe_value"].as_u64().unwrap() != 0, setup::GAME_STATE_BOOL_VALUE);
+    single(&f, "a07_production", setup::game_state_bool_h18_body(setup::GAME_STATE_BOOL_VALUE));
+    single(&f, "b2_production", setup::game_state_phase_body(props::RANGE_PHASE));
+    single(&f, "b8_production", setup::bomb_team_number_body(setup::BOMB_TEAM_NUMBER_VALUE, setup::BOMB_TEAM_NUMBER_BITS));
+}
+
 #[test]
 fn per_packet_bodies_match_python() {
     let f = fixture();
+    for c in cases(&f, "c_input_resume_correction") {
+        let result = setup::input_resume_correction_body(u(&c["index"]), c["purchased_guid"].as_u64().map(|g| g as u32), c["class"].as_str().unwrap());
+        if c.get("error").is_some() {
+            assert!(result.is_err(), "input resume: python raised, rust gave {:?} for {c}", result.ok());
+        } else {
+            check(result, c, "input resume correction");
+        }
+    }
     for c in cases(&f, "c_range_class_property") {
         let property = match c["which"].as_str().unwrap() {
             "game_mode" => bodies::RANGE_GAME_MODE_CLASS,

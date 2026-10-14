@@ -1,4 +1,43 @@
 {
+ "production_args": {
+  "game_state_phase_value": 4,
+  "move_correction_location": [
+   3581.634,
+   -12019.322,
+   1294.153
+  ],
+  "game_state_bool_probe_value": 1,
+  "viewtarget_handle": 3,
+  "viewtarget_name": "ViewTarget",
+  "move_ack_index": 25,
+  "move_ack_class_max": 53,
+  "bomb_team_number_value": 1,
+  "bomb_team_number_bits": 8,
+  "desired_class_guid": [
+   2916500538,
+   1102963732,
+   4138591629,
+   645877397
+  ]
+ },
+ "a07_production": [
+  {
+   "hex": "93c8d20f",
+   "bit_count": 28
+  }
+ ],
+ "b2_production": [
+  {
+   "hex": "cb98a69906",
+   "bit_count": 35
+  }
+ ],
+ "b8_production": [
+  {
+   "hex": "619701db7606",
+   "bit_count": 44
+  }
+ ],
  "a01_world_settings_open": [
   {
    "hex": "020000000c0a140a1c0a240a00340000005e8ec2daca5e9ac2e0e65ea0deeccaced8d2c25ea4c2dcceca00000000000c000000a4c2dcceca000000000020000000a0cae4e6d2e6e8cadce898caeccad800000000002400000082e4cae6aedee4d8c8a6cae8e8d2dccee600000000000c00",
@@ -521,6 +560,66 @@
    "bits": 16,
    "hex": "6117b2aeed3c00",
    "bit_count": 52
+  },
+  {
+   "value": -1,
+   "bits": 8,
+   "hex": "619701bb7e06",
+   "bit_count": 44
+  },
+  {
+   "value": -2,
+   "bits": 3,
+   "hex": "6147696c21",
+   "bit_count": 39
+  },
+  {
+   "value": -1,
+   "bits": 0,
+   "hex": "611771d00d",
+   "bit_count": 36
+  },
+  {
+   "value": 5,
+   "bits": 65,
+   "hex": "61270d0b0bab416c080b838111",
+   "bit_count": 101
+  },
+  {
+   "value": -1,
+   "bits": 70,
+   "hex": "6177ad07af2705e99aab8fe57f02",
+   "bit_count": 106
+  },
+  {
+   "value": -9223372036854775808,
+   "bits": 64,
+   "hex": "61170d0b0be3096b980fd37901",
+   "bit_count": 100
+  },
+  {
+   "value": 9223372036854775807,
+   "bits": 64,
+   "hex": "6117ad07af47056908ac8f3d02",
+   "bit_count": 100
+  },
+  {
+   "value": -3,
+   "bits": 130,
+   "hex": "613f11b807af077f079dabe71597d18abccabfd9412f",
+   "bit_count": 174
+  },
+  {
+   "value": 1,
+   "bits": 200,
+   "hex": "619f15180b0be3f0ab9d0f53958c66003c1cca8bd8b779fdd0ddc275903c03",
+   "bit_count": 244
+  },
+  {
+   "value": -9223372036854775808,
+   "bits": 129,
+   "hex": "612f11180b0bab0b030d0bdb43132da6f90b30a7f21e",
+   "bit_count": 173
   }
  ],
  "b9_accessible_character": [
@@ -812,6 +911,26 @@
    "bit_count": 942
   },
   {
+   "move": 101,
+   "location": [
+    3581.634,
+    -12019.322,
+    1294.153
+   ],
+   "hex": "e638e8f998077359d257393756f89033183ad1599ee194b8584d4e5b492417f235a82f9bb3947e5939f8f450b34d105e7bbb37ce247f634fe7ce9cb9afddf9ca899240e4f3055ddb40c5e73af11438ea6fa696a62ba230793008d2b6ffc1a2f123924019408ea619f164325655d5f861717337a19207",
+   "bit_count": 942
+  },
+  {
+   "move": 101,
+   "location": [
+    0.0,
+    -0.0,
+    12.5
+   ],
+   "hex": "e638e8f984f57159d2577924d0b2ecfe363f5a99e4d6ab46fcec03034a24abc082f02d9bb3947e5939f8f450b34d105e7bbb37ce247f634fe7ce9cb9afddf9ca899240e4f3055ddb40c5e73af11438ea6fa696a62ba230793008d2b6ffc1a2f123924019408ea619f164325655d5f861717337a19207",
+   "bit_count": 942
+  },
+  {
    "move": 127,
    "location": [
     3581.634,
@@ -1049,6 +1168,11 @@
    "bit_count": 90
   },
   {
+   "move": 101,
+   "hex": "82d683872534a5a1d7b30e00",
+   "bit_count": 90
+  },
+  {
    "move": 127,
    "hex": "82d68387b937a5a1d7b30e00",
    "bit_count": 90
@@ -1144,6 +1268,84 @@
    "event": 4294967295,
    "hex": "82d683876534a5a1d7b30e00",
    "bit_count": 90
+  }
+ ],
+ "c_input_resume_correction": [
+  {
+   "index": 6,
+   "class": "BasePistol_C",
+   "purchased_guid": null,
+   "hex": "e1150c230b43b8cb7aa60f",
+   "bit_count": 84
+  },
+  {
+   "index": 7,
+   "class": "Ability_Melee_Base_C",
+   "purchased_guid": null,
+   "hex": "e1950c530b43f940198a0509",
+   "bit_count": 92
+  },
+  {
+   "index": 8,
+   "class": "Equippable_Unarmed_C",
+   "purchased_guid": null,
+   "hex": "e1950cc30f43c944198a0509",
+   "bit_count": 92
+  },
+  {
+   "index": 9,
+   "class": "Ability_Wushu_Passive_Glide_C",
+   "purchased_guid": null,
+   "hex": "e1950c3b0e435140198a0509",
+   "bit_count": 92
+  },
+  {
+   "index": 10,
+   "class": "AssaultRifle_AK_C",
+   "purchased_guid": 520,
+   "hex": "e1950c230d43c94419c20709",
+   "bit_count": 92
+  },
+  {
+   "index": 11,
+   "class": "Unknown_C",
+   "purchased_guid": null,
+   "hex": "e115b3c69527c59000",
+   "bit_count": 68
+  },
+  {
+   "index": 12,
+   "class": "",
+   "purchased_guid": null,
+   "hex": "e115b3c62527c59000",
+   "bit_count": 68
+  },
+  {
+   "index": 13,
+   "class": "",
+   "purchased_guid": null,
+   "hex": "e115b3c6dd25c59000",
+   "bit_count": 68
+  },
+  {
+   "index": 14,
+   "class": "Zero_C",
+   "purchased_guid": 0,
+   "hex": "e115b3c62522c59000",
+   "bit_count": 68
+  },
+  {
+   "index": 4294967295,
+   "class": "BasePistol_C",
+   "purchased_guid": null,
+   "hex": "e115ac0737e3bccb2aa40f",
+   "bit_count": 84
+  },
+  {
+   "index": 0,
+   "class": "BasePistol_C",
+   "purchased_guid": null,
+   "error": "ValueError"
   }
  ],
  "c_range_class_property": [

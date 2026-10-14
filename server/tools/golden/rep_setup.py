@@ -6,8 +6,47 @@ production arguments (docs/port/03_bringup_a.md section 7, 04_bringup_b.md
 section 8 and 9). no socket, no live process.
 """
 
-DESIRED_CLASS = (0xADD6443A, 0x41BDE414, 0xF6ADE58D, 0x267F4E95)  # hs:4753, parsed hs:720-723
-MOVE_CORRECTION_LOCATION = (3581.634, -12019.322, 1294.153)  # launch.ps1:176
+import re
+from pathlib import Path
+
+
+def production_args():
+    """the production values of the run_probe arguments these stages use, read
+    from the launch files and the argparse defaults (not typed by hand):
+    launch.ps1:166-176 -> launch_range.py:29-53 -> range_udp_handshake main()."""
+    import range_udp_handshake
+
+    backend = Path(range_udp_handshake.__file__).resolve().parent
+    ps = (backend.parent / "launch.ps1").read_text(encoding="utf-8", errors="replace")
+    launcher = (backend / "launch_range.py").read_text(encoding="utf-8")
+    handshake = (backend / "range_udp_handshake.py").read_text(encoding="utf-8")
+
+    def ps_flag(name, count=1):
+        values = r",\s*".join([r"'([^']+)'"] * count)
+        return re.search(rf"'--{name}',\s*{values}", ps).groups()
+
+    def launcher_flag(name):
+        return re.search(rf'"--{name}",\s*"([^"]+)"', launcher).group(1)
+
+    def argparse_default(name):
+        return re.search(rf'add_argument\("--{name}"[^)]*?default=("[^"]*"|[^,)\s]+)', handshake).group(1).strip('"')
+
+    # hs:720-723: "AAAAAAAA-BBBBBBBB-CCCCCCCC-DDDDDDDD" -> four uint32
+    guid_text = argparse_default("desired-class-guid")
+    guid_parts = guid_text.strip().replace("{", "").replace("}", "").split("-")
+    assert len(guid_parts) == 4 and all(len(p) == 8 for p in guid_parts)
+    return {
+        "game_state_phase_value": int(ps_flag("game-state-phase-value")[0]),
+        "move_correction_location": [float(v) for v in ps_flag("move-correction-location", 3)],
+        "game_state_bool_probe_value": int(launcher_flag("game-state-bool-probe-value")),
+        "viewtarget_handle": int(launcher_flag("viewtarget-handle")),
+        "viewtarget_name": argparse_default("viewtarget-name"),
+        "move_ack_index": int(launcher_flag("move-ack-index")),
+        "move_ack_class_max": int(launcher_flag("move-ack-class-max")),
+        "bomb_team_number_value": int(argparse_default("bomb-team-number-value")),
+        "bomb_team_number_bits": int(argparse_default("bomb-team-number-bits")),
+        "desired_class_guid": [int(p, 16) for p in guid_parts],
+    }
 
 
 def hb(pair):
@@ -368,11 +407,10 @@ def b18_starting_equippable(equip_i):
     return (open_body, open_bits), (owner_body, owner_bits), (contents_body, contents_bits)
 
 
-def b22_viewtarget():
+def b22_viewtarget(viewtarget_name, viewtarget_handle):
     from range_server_bunch import BitWriter, build_object_property_payload, encode_short_actor_rep_payload
-    # hs:4281-4313 with viewtarget_name "ViewTarget", viewtarget_handle "3", viewtarget_transform on
-    viewtarget_name = "ViewTarget"
-    viewtarget_handle = "3"
+    # hs:4281-4313 with the production viewtarget_name / viewtarget_handle, viewtarget_transform on
+    viewtarget_handle = str(viewtarget_handle)
     viewtarget_sent_sources = set()
     SUBOBJ_GUID = 50
     header = BitWriter()
@@ -401,10 +439,10 @@ def b22_viewtarget():
 
 # ---- move / input acks ----
 
-def m_correction(move_number, location):
+def m_correction(move_number, location, move_ack_index, move_ack_class_max):
     from range_move_correction import build_correction_rpc_payload
-    # hs:4483-4499 (move_ack_index 25, move_ack_class_max 53)
-    rpc_payload, rpc_bits = build_correction_rpc_payload(move_number, location, 25, 53)
+    # hs:4483-4499
+    rpc_payload, rpc_bits = build_correction_rpc_payload(move_number, location, move_ack_index, move_ack_class_max)
     return actor_rpc((rpc_payload, rpc_bits), 10)
 
 
@@ -423,6 +461,18 @@ def i_input_ack(latest_id):
 
 
 # ---- per-packet bodies (part C) ----
+
+def c_input_resume_correction(correction_index, purchased, current_equippable_class):
+    from range_server_bunch import build_inventory_correction_body, equippable_guid_for_class
+    # hs:1734-1741; purchased = purchased_class_guids[source]
+    source = ("127.0.0.1", 1)
+    purchased_class_guids = {source: purchased}
+    equippable_class = current_equippable_class or ""
+    equippable_guid = (
+        purchased_class_guids.get(source, {}).get(equippable_class)
+        or equippable_guid_for_class(equippable_class))
+    return build_inventory_correction_body(correction_index, equippable_guid)
+
 
 def c_range_class_properties():
     from range_server_bunch import build_actor_class_property_body, range_game_mode_class, range_hud_config_class
@@ -494,7 +544,14 @@ def section_rep_setup():
     from range_melee_equippable import (build_melee_auth_state_body, build_melee_autonomous_role_body,
                                         build_melee_state_machine_open)
 
-    out = {}
+    prod = production_args()
+    desired_class = tuple(prod["desired_class_guid"])
+    move_correction_location = tuple(prod["move_correction_location"])
+    out = {"production_args": prod}
+    # each "production" list holds the one body the production flags build
+    out["a07_production"] = [hb(actor_rep(rsb.build_bool_property_payload(18, bool(prod["game_state_bool_probe_value"])), 2))]
+    out["b2_production"] = [hb(actor_rep(rsb.build_phase_property_payload(prod["game_state_phase_value"]), 2))]
+    out["b8_production"] = [hb(b8_bomb_team_number(prod["bomb_team_number_value"], prod["bomb_team_number_bits"]))]
     # part A, single-body stages
     out["a01_world_settings_open"] = [hb(a01_world_settings_open())]
     out["a02_game_state_open"] = [hb(rsb.build_dynamic_range_game_state_reference())]  # hs:2223
@@ -512,7 +569,7 @@ def section_rep_setup():
     out["a11_possessed_character"] = [hb(actor_rep(rsb.build_object_property_payload(195, 10), 6))]  # hs:2508
     # hs:2545-2551
     out["a12_desired_class"] = [{"guid": list(g), **hb(actor_rep(rsb.build_desired_class_payload(*g, base_handle=201), 6))}
-                                for g in (DESIRED_CLASS, (1, 2, 3, 4))]
+                                for g in (desired_class, (1, 2, 3, 4))]
     out["a13_player_info_controller"] = [hb(actor_rep(rsb.build_object_property_payload(15, 4), 8))]  # hs:2586
     out["a14_pawn_player_state"] = [hb(actor_rep(rsb.build_object_property_payload(15, 6), 10))]  # hs:2614
     out["a15_pawn_controller"] = [hb(actor_rep(rsb.build_object_property_payload(16, 4), 10))]  # hs:2640
@@ -544,12 +601,16 @@ def section_rep_setup():
     out["b5_team_state_link"] = [{"team": i, **hb(b5_team_link(i))} for i in (0, 1)]
     out["b6_player_state_team"] = [hb(actor_rep(rsb.build_object_property_payload(27, 100), 6))]  # hs:3512
     out["b7_bomb_team_open"] = [hb(b7_bomb_team_open())]
+    # the value and width are cli ints: negative values and widths past 64 bits
+    # follow python's unbounded two's complement masking
     out["b8_bomb_team_number"] = [{"value": v, "bits": n, **hb(b8_bomb_team_number(v, n))}
                                   for v, n in ((1, 8), (0, 8), (2, 8), (0x1FF, 8), (5, 3), (1, 1), (3, 0), (0xFFFFFFFF, 32),
-                                               (0xFFFFFFFF, 64), (7, 16))]
+                                               (0xFFFFFFFF, 64), (7, 16), (-1, 8), (-2, 3), (-1, 0), (5, 65), (-1, 70),
+                                               (-0x8000000000000000, 64), (0x7FFFFFFFFFFFFFFF, 64), (-3, 130), (1, 200),
+                                               (-0x8000000000000000, 129))]
     # hs:3646-3652
     out["b9_accessible_character"] = [{"guid": list(g), **hb(actor_rep(rsb.build_guid_array_property_payload(31, (g,)), 6))}
-                                      for g in (DESIRED_CLASS, (0, 0, 0, 0))]
+                                      for g in (desired_class, (0, 0, 0, 0))]
     # hs:3684-3689
     out["b10_unique_id"] = [{"subject": s, **hb(actor_rep(rsb.build_player_unique_id_property_payload(s), 6))}
                             for s in (offline_player_id, "00000000-0000-0000-0000-000000000000")]
@@ -568,16 +629,29 @@ def section_rep_setup():
     out["b19_knife_role"] = [hb(build_melee_autonomous_role_body())]  # hs:4114
     out["b20_knife_state_machine"] = [hb(build_melee_state_machine_open())]  # hs:4144
     out["b21_knife_inactive_state"] = [hb(build_melee_auth_state_body("InactiveState"))]  # hs:4174
-    out["b22_viewtarget"] = [hb(b22_viewtarget())]
+    out["b22_viewtarget"] = [hb(b22_viewtarget(prod["viewtarget_name"], prod["viewtarget_handle"]))]
 
-    # move / input acks
-    moves = (1, 5, 100, 127, 128, 201, 3908, 5542, 16383, 16384, 20000, 2097152, 0x12345678, 0xFFFFFFFF)
-    out["m_correction"] = [{"move": m, "location": list(loc), **hb(m_correction(m, loc))}
-                           for m in moves for loc in (MOVE_CORRECTION_LOCATION, (0.0, -0.0, 12.5))]
+    # move / input acks (101 is spec 03 V.3 M_input_ack_move101)
+    moves = (1, 5, 100, 101, 127, 128, 201, 3908, 5542, 16383, 16384, 20000, 2097152, 0x12345678, 0xFFFFFFFF)
+    out["m_correction"] = [{"move": m, "location": list(loc),
+                            **hb(m_correction(m, loc, prod["move_ack_index"], prod["move_ack_class_max"]))}
+                           for m in moves for loc in (move_correction_location, (0.0, -0.0, 12.5))]
     out["m_move_ack"] = [{"move": m, **hb(m_move_ack(m))} for m in moves + (0,)]
     out["i_input_ack"] = [{"event": e, **hb(i_input_ack(e))} for e in (0, 1, 11, 26, 162, 0x7FFFFFFF, 0xFFFFFFFF)]
 
     # per-packet bodies
+    purchased = {"AssaultRifle_AK_C": 520, "Zero_C": 0}
+    cases = []
+    for index, live_class in ((6, "BasePistol_C"), (7, "Ability_Melee_Base_C"), (8, "Equippable_Unarmed_C"),
+                              (9, "Ability_Wushu_Passive_Glide_C"), (10, "AssaultRifle_AK_C"), (11, "Unknown_C"),
+                              (12, None), (13, ""), (14, "Zero_C"), (0xFFFFFFFF, "BasePistol_C"), (0, "BasePistol_C")):
+        try:
+            result = hb(c_input_resume_correction(index, purchased, live_class))
+        except ValueError:
+            result = {"error": "ValueError"}
+        cases.append({"index": index, "class": live_class or "", "purchased_guid": purchased.get(live_class or ""),
+                      **result})
+    out["c_input_resume_correction"] = cases
     game_mode, hud_config = c_range_class_properties()
     out["c_range_class_property"] = [{"which": "game_mode", **hb(game_mode)}, {"which": "hud_config", **hb(hud_config)}]
     out["c_hud_rebuild"] = [{"field": f, "max": m, **hb(c_hud_rebuild(f, m))} for f, m in ((52, 178), (128, 178))]
