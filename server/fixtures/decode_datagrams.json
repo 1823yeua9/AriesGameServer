@@ -1,0 +1,42 @@
+[
+ {
+  "name": "ack_only_clean",
+  "key": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+  "datagram": "000000000000000018ff8e0f9b7566d7f672617f448a27d4c8fd650e",
+  "decoded": "d036676500000000059a",
+  "bit_count": 77,
+  "counter": 1816017916,
+  "stateless_header": 24,
+  "purchases": []
+ },
+ {
+  "name": "ack_only_flip20",
+  "key": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+  "datagram": "000000000000000018ff8e0f9b7566d7f672617f458a27d4c8fd650e",
+  "decoded": null
+ },
+ {
+  "name": "warden_clean",
+  "key": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+  "datagram": "00000000000000000c9e158d44cd3889f9ff73a199862cc0541a4f91d73732ab6cc3e0313f85a881763fd110979137bd03e34deb43234b9cb5dd009326c0ae866869ade316e28b6b3f75d6f659477c7ec90b3fd9e86a56a7ade6fb8221b0007c1320728ae198bf776034d6b4b461c090b342710e31d80543df48ba6a244b6dbe03",
+  "decoded": "70e0ca72ffffffffc34c05f89accf5c263853ff6b0a2f1303e443490f6b7c1cf6f62d82c528570892e7ea0c3eeaa850a6b3cad92f9a426ae671d6eb19d7127cd9320a2e5f51b320f728552a5220f16f6fd8c03a4d5757d5c3c049a3ee8c81b35e0231e62d9d4dbbe9b0bc73bb23c64",
+  "bit_count": 883,
+  "counter": 305419896,
+  "stateless_header": 12,
+  "purchases": [
+   {
+    "field": 156,
+    "item_path": "/Game/Equippables/Guns/Rifles/BattleRifle/BattleRifle.BattleRifle_C",
+    "target_slot": 0,
+    "purchasable_type": 0,
+    "channel_sequence": 863
+   }
+  ]
+ },
+ {
+  "name": "warden_flip20",
+  "key": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+  "datagram": "00000000000000000c9e158d44cd3889f9ff73a198862cc0541a4f91d73732ab6cc3e0313f85a881763fd110979137bd03e34deb43234b9cb5dd009326c0ae866869ade316e28b6b3f75d6f659477c7ec90b3fd9e86a56a7ade6fb8221b0007c1320728ae198bf776034d6b4b461c090b342710e31d80543df48ba6a244b6dbe03",
+  "decoded": null
+ }
+]
