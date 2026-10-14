@@ -6,6 +6,7 @@ use std::net::SocketAddr;
 use aries_bits::Bits;
 use aries_net::reliable::ReliableTracker;
 
+use crate::authority::AuthorityState;
 use crate::bringup::BringupState;
 use crate::moves::MoveAckState;
 
@@ -43,6 +44,8 @@ pub struct Connection {
     pub reliable: ReliableTracker,
     /// move and input acks
     pub moves: MoveAckState,
+    /// the per-packet authority features
+    pub authority: AuthorityState,
 }
 
 impl Connection {
@@ -64,6 +67,7 @@ impl Connection {
             correction_index: 0,
             reliable: ReliableTracker::default(),
             moves: MoveAckState::default(),
+            authority: AuthorityState::default(),
         }
     }
 

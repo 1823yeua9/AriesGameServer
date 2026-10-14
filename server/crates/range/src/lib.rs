@@ -2,6 +2,7 @@
 //! order (stateless handshake, nmt replies, session-ack tick with one bring-up
 //! stage and the move ack, plus the per-packet authority work).
 
+pub mod authority;
 pub mod bringup;
 pub mod config;
 pub mod conn;
@@ -22,7 +23,7 @@ use aries_net::{AresGcm, decode_client_packet, seal_packet};
 pub use config::RangeConfig;
 pub use conn::Connection;
 pub use event::{Event, EventLog};
-pub use live::{LiveClient, NoLiveClient, SavedMoves};
+pub use live::{HudWidget, InputReplication, LiveClient, NoLiveClient, SavedMoves};
 pub use send::{Outbox, Reply, SendError};
 
 /// both session keys, read from the live client's ares packet handler.
@@ -167,8 +168,11 @@ impl RangeServer {
         if self.config.features.retransmit && reply.conn.challenge_sent {
             reply.resend_lost(header.acked, header.history);
         }
-        // per-packet work that runs before the dispatch chain (input ack, authority)
-        // lands here as those systems come online.
+        // per-packet authority work runs before the dispatch chain, so its frames
+        // take the lower packet sequences (python 1566-2078)
+        if reply.conn.bringup.sent(bringup::Stage::ClientRestart) {
+            authority::run_authority(&mut reply, &self.config, self.live.as_mut());
+        }
 
         let message_type = first_bunch.as_ref().and_then(|b| b.control_message_type);
         let pending = reply.conn.pending.is_some();
