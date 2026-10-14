@@ -41,9 +41,12 @@ gives the platform (`runtime/account/skins.json`), so bought guns and the starti
 Classic/knife open with the skins the player equipped through the platform. Without them
 the server reads the paths in `aries-server.toml` (the python's `local_backend` files).
 
-Start it after the game process exists (it needs the pid for the key scan); it retries
-the key scan in the background until the client's handler exists, and drops game
-packets until then (the python's `not_ready`).
+Start it after the game process exists (it needs the pid for the key scan). It scans for
+the client's ares handler in the background; datagrams that arrive meanwhile wait and are
+handled in order once the keys are read (one is dropped as `not_ready` only when a scan
+that started after it fails, like the python's blocking scan). It can stay up for the
+whole game session: each range entry (a handshake from a new client socket) starts a
+fresh session with the new handler's keys.
 
 ## what runs per datagram
 
