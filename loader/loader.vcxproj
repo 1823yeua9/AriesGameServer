@@ -19,10 +19,16 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="entry.cpp" />
+    <ClCompile Include="src\utils\config\settings.cpp" />
+    <ClCompile Include="src\entry.cpp" />
+    <ClCompile Include="src\utils\injector\injector.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="injector\inject.h" />
+    <ClInclude Include="3p\json\json.hpp" />
+    <ClInclude Include="src\utils\config\settings.h" />
+    <ClInclude Include="src\utils\injector\injector.h" />
+    <ClInclude Include="src\init\networking\firewall.h" />
+    <ClInclude Include="src\pch.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>18.0</VCProjectVersion>

@@ -1,5 +1,7 @@
 # AriesGameServer — port plan
 
+> **Superseded architecture (2026-10-14):** see `PORT_PLAN_v2.md`. The Rust server is the network game server, and `internal` is an in-process oracle plus the dev menu, not the gameplay authority. The phases below are kept for history.
+
 Target: VALORANT 13.06 (`5.3.2-5590001 Ares-Core release-13.06`), the pinned project-local build.
 Source of the port: `../local_backend` (Python), `../range_authority_probe` (C++ bridge + dev menu),
 `../dumper7/output/.../CppSDK` (13.06 SDK), `../launch.ps1` + ~30 PowerShell scripts.
