@@ -46,6 +46,7 @@ dependencies = [
  "aries-net",
  "log",
  "serde_json",
+ "sha2",
  "thiserror",
  "windows-sys",
 ]
