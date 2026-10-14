@@ -4,8 +4,12 @@
 //! newest sequence it received plus a 32-bit history. ue 5.3 FNetPacketNotify:
 //! the receiver shifts each status in at bit 0 (AddDeliveryStatus), so bit k is
 //! AckedSeq - k (bit 0 = the acked packet itself) and the sender reads
-//! IsDelivered(k). (the python's own server-side mask is shifted by one: bit 0
-//! = current-1; kept for parity there, but we read the client the ue way.)
+//! IsDelivered(k). verified in the 13.06 client: sub_7FF7393D9360
+//! (ProcessReceivedAcks) walks OutAckSeq+1..AckedSeq reading history bit
+//! AckCount-1 down to 0. (the python's own server-side mask is shifted by
+//! one: bit 0 = current-1; kept for parity there, but we read the client the
+//! ue way.) the client supports up to 8 history words (header low 4 bits);
+//! like the python we only read the first, which is all it sends in practice.
 //! a reliable bunch in a packet the client reports missing is sent again in a
 //! new packet with its ORIGINAL channel sequence and body, exactly like ue's
 //! UChannel resend; the client drops any copy it already has by sequence.
