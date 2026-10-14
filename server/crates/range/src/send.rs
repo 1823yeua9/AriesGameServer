@@ -50,6 +50,7 @@ impl Reply<'_> {
 
     fn push(&mut self, datagram: Vec<u8>) -> usize {
         let length = datagram.len();
+        self.conn.rtt.sent(self.conn.next_server_sequence, self.now);
         self.out.datagrams.push((self.conn.source, datagram));
         self.conn.next_server_sequence = (self.conn.next_server_sequence + 1) & 0x3FFF;
         length

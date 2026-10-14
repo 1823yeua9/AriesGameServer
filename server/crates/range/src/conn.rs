@@ -48,6 +48,8 @@ pub struct Connection {
     pub authority: AuthorityState,
     /// diagnostic packet capture
     pub capture: crate::capture::CaptureState,
+    /// smoothed round trip from the client's acks (lag compensation)
+    pub rtt: aries_net::rtt::RttEstimator,
 }
 
 impl Connection {
@@ -71,6 +73,7 @@ impl Connection {
             moves: MoveAckState::default(),
             authority: AuthorityState::default(),
             capture: Default::default(),
+            rtt: Default::default(),
         }
     }
 

@@ -184,6 +184,7 @@ impl RangeServer {
             return true;
         };
         let ack_mask = conn.record_client_sequence(header.sequence);
+        conn.rtt.acked(header.acked, now);
         let mut reply = Reply { conn, gcm: &keys.server, out, event, now, client_sequence: header.sequence, ack_mask, stateless_header: packet.stateless_header };
 
         if self.config.features.retransmit && reply.conn.challenge_sent {
