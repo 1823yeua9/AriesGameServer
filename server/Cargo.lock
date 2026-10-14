@@ -71,6 +71,19 @@ dependencies = [
 ]
 
 [[package]]
+name = "aries-world"
+version = "0.1.0"
+dependencies = [
+ "aries-bits",
+ "aries-interp",
+ "aries-rep",
+ "log",
+ "serde",
+ "serde_json",
+ "thiserror",
+]
+
+[[package]]
 name = "base64"
 version = "0.22.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
