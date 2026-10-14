@@ -1,0 +1,3833 @@
+[
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/bloomline/v0/players/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "Bonsais": [],
+      "LongGroupVersion": 0
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/bloomline/v0/players/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61/bonsai/41FB69C141897B37F117BCAF1E96F1BF",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "Bonsais": [],
+      "LongGroupVersion": 0
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/bloomline/v0/players/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61/bonsai/41fb69c1-4189-7b37-f117-bcaf1e96f1bf",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "Bonsais": [],
+      "LongGroupVersion": 0
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/bloomline/v0/players/7C9F41A465E24D81A8D5F879C3E5AB61",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "Bonsais": [],
+      "LongGroupVersion": 0
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/bloomline/v0/players/7C9F41A465E24D81A8D5F879C3E5AB61/bonsai/41FB69C141897B37F117BCAF1E96F1BF",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "Bonsais": [],
+      "LongGroupVersion": 0
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/bloomline/v0/players/7C9F41A465E24D81A8D5F879C3E5AB61/bonsai/41fb69c1-4189-7b37-f117-bcaf1e96f1bf",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "Bonsais": [],
+      "LongGroupVersion": 0
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/bloomline/v0/players/00000000-0000-0000-0000-000000000001",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 404,
+    "payload": {
+      "error": "bloomline_player_not_found"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/bloomline/v0/players/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61/bonsai/not-a-guid",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 400,
+    "payload": {
+      "error": "invalid_bonsai_id"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/bloomline/v0/players/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61/bonsai",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 404,
+    "payload": {
+      "error": "bloomline_resource_not_found"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/bloomline/v0/players/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61/bonsai/41FB69C141897B37F117BCAF1E96F1BF/extra",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 404,
+    "payload": {
+      "error": "bloomline_resource_not_found"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/bloomline/v0/players/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61/unknown/41FB69C141897B37F117BCAF1E96F1BF",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 404,
+    "payload": {
+      "error": "bloomline_resource_not_found"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/chat/v6/conversations",
+    "raw_body": "{\"domain\": \"offline\", \"hidden\": null, \"id\": \"offline-local-party\", \"password\": \"offline-local-muc-token\", \"resource\": \"\", \"targetRegion\": \"na\", \"type\": \"groupchat\"}",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "cid": "offline-local-party@offline.na.pvp.net/00000000-0000-0000-0000-000000000001",
+      "directMessages": false,
+      "globalReadership": false,
+      "messageHistory": false,
+      "mid": "",
+      "muted": false,
+      "mutedRestriction": false,
+      "type": "groupchat",
+      "uiState": {
+        "changedSinceHidden": false,
+        "hidden": false
+      },
+      "unreadCount": "0"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/chat/v4/friends?pid=&puuid=",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "friends": []
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/chat/v4/presences?pid=&puuid=&product=",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "presences": [
+        {
+          "name": "OfflinePlayer",
+          "game_name": "OfflinePlayer",
+          "game_tag": "LOCAL",
+          "pid": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61@pvp.net",
+          "puuid": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+          "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+          "resource": "RC",
+          "product": "valorant",
+          "patchline": "live",
+          "platform": "PC",
+          "state": "chat",
+          "time": 0,
+          "msg": "",
+          "actor": "",
+          "details": "",
+          "location": "",
+          "private": "eyJpc1ZhbGlkIjp0cnVlLCJpc0lkbGUiOmZhbHNlLCJxdWV1ZUlkIjoidW5yYXRlZCIsInByb3Zpc2lvbmluZ0Zsb3ciOiJJbnZhbGlkIiwicGFydHlJZCI6IjAwMDAwMDAwLTAwMDAtMDAwMC0wMDAwLTAwMDAwMDAwMDAwMSIsInBhcnR5U2l6ZSI6MSwibWF4UGFydHlTaXplIjo1LCJtYXRjaFByZXNlbmNlRGF0YSI6eyJzZXNzaW9uTG9vcFN0YXRlIjoiTUVOVVMiLCJxdWV1ZUlkIjoidW5yYXRlZCJ9LCJwYXJ0eVByZXNlbmNlRGF0YSI6eyJwYXJ0eUlkIjoiMDAwMDAwMDAtMDAwMC0wMDAwLTAwMDAtMDAwMDAwMDAwMDAxIiwicGFydHlTaXplIjoxLCJtYXhQYXJ0eVNpemUiOjUsInBhcnR5U3RhdGUiOiJERUZBVUxUIiwiaXNQYXJ0eU93bmVyIjp0cnVlfSwicGxheWVyUHJlc2VuY2VEYXRhIjp7ImFjY291bnRMZXZlbCI6MSwicGxhdGZvcm1PdmVycmlkZSI6IlBDIn19"
+        }
+      ]
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/chat/v1/session",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "federated": false,
+      "game_name": "OfflinePlayer",
+      "game_tag": "LOCAL",
+      "loaded": true,
+      "name": "OfflinePlayer",
+      "pid": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61@pvp.net",
+      "puuid": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "region": "na",
+      "resource": "valorant",
+      "state": "connected"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/client-config/v2/namespace/valorant.client/player",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "config_endpoint": "https://127.0.0.1:58089/.a.pvp.net",
+      "game_shard_zone": "na",
+      "platform_environment": "na",
+      "should_use_affinity": false,
+      "valorant.client.config_endpoint": "https://127.0.0.1:58089/.a.pvp.net",
+      "valorant.client.game_shard_zone": "na",
+      "valorant.client.platform_environment": "na",
+      "valorant.client.should_use_affinity": false
+    }
+  },
+  {
+    "method": "PUT",
+    "path": "/social/v1/presences/session",
+    "raw_body": "{\"activity\": null, \"crossPlayPermissions\": {}, \"party\": {}, \"player\": {}, \"productData\": {}, \"region\": \"\"}",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": null
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/daily-ticket/v1/queue-config",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "Default": {
+        "ProgressPerRoundWin": 0.0,
+        "FlatProgressPerMatch": 0
+      },
+      "QueueOverrides": {}
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/.a.pvp.net/daily-ticket/v1/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61/renew",
+    "raw_body": "{}",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "Version": 1,
+      "DailyRewards": {
+        "RemainingLifetimeSeconds": 86400,
+        "BonusMilestonesPending": 0,
+        "Milestones": []
+      },
+      "ProcessedMatches": []
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/.a.pvp.net/no/such/route",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 404,
+    "payload": {
+      "error": "unhandled_route",
+      "method": "POST",
+      "path": "/.a.pvp.net/no/such/route"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/.a.pvp.net/parties/v1/players/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61/startsoloexperience",
+    "raw_body": "{\"gameType\": \"ShootingRange\", \"module\": \"Aimbots_spawn\"}",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "Version": 1,
+      "SessionClientID": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "CurrentPartyID": "00000000-0000-0000-0000-000000000001",
+      "Invites": [],
+      "Requests": [],
+      "PlatformInfo": {
+        "platformType": "PC",
+        "platformOS": "Windows",
+        "platformOSVersion": "10.0.19045.0.256.64bit",
+        "platformChipset": "Unknown"
+      }
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/core-game/v1/players/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+    "raw_body": "",
+    "session": {
+      "party_state": "SOLO_EXPERIENCE_STARTING",
+      "party_previous_state": "DEFAULT",
+      "party_version": 2,
+      "session_loop_state": "INGAME",
+      "session_version": 2,
+      "core_game_match_id": "333a7c5e-1661-4d4d-ad5d-d09da691f893",
+      "core_game_player_version": 2
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "MatchID": "333a7c5e-1661-4d4d-ad5d-d09da691f893",
+      "Version": 2
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/.a.pvp.net/parties/v1/players/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61/startsoloexperience",
+    "raw_body": "{\"gameType\": \"ShootingRange\", \"module\": \"Aimbots_spawn\"}",
+    "session": {
+      "party_state": "SOLO_EXPERIENCE_STARTING",
+      "party_previous_state": "DEFAULT",
+      "party_version": 2,
+      "session_loop_state": "INGAME",
+      "session_version": 2,
+      "core_game_match_id": "333a7c5e-1661-4d4d-ad5d-d09da691f893",
+      "core_game_player_version": 2
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "Version": 1,
+      "SessionClientID": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "CurrentPartyID": "00000000-0000-0000-0000-000000000001",
+      "Invites": [],
+      "Requests": [],
+      "PlatformInfo": {
+        "platformType": "PC",
+        "platformOS": "Windows",
+        "platformOSVersion": "10.0.19045.0.256.64bit",
+        "platformChipset": "Unknown"
+      }
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/core-game/v1/players/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+    "raw_body": "",
+    "session": {
+      "party_state": "SOLO_EXPERIENCE_STARTING",
+      "party_previous_state": "DEFAULT",
+      "party_version": 2,
+      "session_loop_state": "INGAME",
+      "session_version": 2,
+      "core_game_match_id": "8a9b31d6-16d5-4ac2-863a-a6d17a6a3e2a",
+      "core_game_player_version": 3
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "MatchID": "8a9b31d6-16d5-4ac2-863a-a6d17a6a3e2a",
+      "Version": 3
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/core-game/v1/matches/333a7c5e-1661-4d4d-ad5d-d09da691f893",
+    "raw_body": "",
+    "session": {
+      "party_state": "SOLO_EXPERIENCE_STARTING",
+      "party_previous_state": "DEFAULT",
+      "party_version": 2,
+      "session_loop_state": "INGAME",
+      "session_version": 2,
+      "core_game_match_id": "8a9b31d6-16d5-4ac2-863a-a6d17a6a3e2a",
+      "core_game_player_version": 3
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 404,
+    "payload": {
+      "error": "range_match_not_started"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/core-game/v1/matches/8a9b31d6-16d5-4ac2-863a-a6d17a6a3e2a",
+    "raw_body": "",
+    "session": {
+      "party_state": "SOLO_EXPERIENCE_STARTING",
+      "party_previous_state": "DEFAULT",
+      "party_version": 2,
+      "session_loop_state": "INGAME",
+      "session_version": 2,
+      "core_game_match_id": "8a9b31d6-16d5-4ac2-863a-a6d17a6a3e2a",
+      "core_game_player_version": 3
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "MatchID": "8a9b31d6-16d5-4ac2-863a-a6d17a6a3e2a",
+      "Version": 1,
+      "State": "IN_PROGRESS",
+      "MapID": "/Game/Maps/Poveglia/Range",
+      "ModeID": "/Game/GameModes/ShootingRange/ShootingRangeGameMode.ShootingRangeGameMode_C",
+      "ProvisioningFlow": "ShootingRange",
+      "GamePodID": "offline-local-range",
+      "AllMUCName": "offline-local-range-all@offline.na.pvp.net/8a9b31d6-16d5-4ac2-863a-a6d17a6a3e2a",
+      "TeamMUCName": "offline-local-range-team@offline.na.pvp.net/8a9b31d6-16d5-4ac2-863a-a6d17a6a3e2a",
+      "TeamVoiceID": "offline-local-range-voice",
+      "TeamMatchToken": "eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJzdWIiOiI3YzlmNDFhNC02NWUyLTRkODEtYThkNS1mODc5YzNlNWFiNjEiLCJwdXVpZCI6IjdjOWY0MWE0LTY1ZTItNGQ4MS1hOGQ1LWY4NzljM2U1YWI2MSIsImlzcyI6Imh0dHBzOi8vb2ZmbGluZS5sb2NhbCIsImF1ZCI6Im9mZmxpbmUtcmFuZ2UiLCJpYXQiOjE3MDAwMDAwMDAsImV4cCI6NDEwMjQ0NDgwMCwiYWNjdCI6eyJnYW1lX25hbWUiOiJPZmZsaW5lUGxheWVyIiwidGFnX2xpbmUiOiJMT0NBTCJ9LCJtYXRjaF9pZCI6IjhhOWIzMWQ2LTE2ZDUtNGFjMi04NjNhLWE2ZDE3YTZhM2UyYSJ9.",
+      "IsReconnectable": true,
+      "ConnectionDetails": {
+        "GameServerHosts": [
+          "127.0.0.1"
+        ],
+        "GameServerHost": "127.0.0.1",
+        "GameServerPort": 58100,
+        "GameServerObfuscatedIP": 0,
+        "GameClientHash": 0,
+        "PlayerKey": ""
+      },
+      "PostGameDetails": null,
+      "Players": [
+        {
+          "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+          "TeamID": "Blue",
+          "CharacterID": "add6443a-41bd-e414-f6ad-e58d267f4e95",
+          "PlayerIdentity": {
+            "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+            "PlayerCardID": "00000000-0000-0000-0000-000000000000",
+            "PlayerTitleID": "00000000-0000-0000-0000-000000000000",
+            "AccountLevel": 1,
+            "PreferredLevelBorderID": "00000000-0000-0000-0000-000000000000",
+            "Incognito": false,
+            "HideAccountLevel": false
+          },
+          "SeasonalBadgeInfo": {
+            "SeasonID": "8102cd81-43a0-d0d7-bd59-47b8fe9bed1b",
+            "NumberOfWins": 0,
+            "WinsByTier": null,
+            "Rank": 0,
+            "LeaderboardRank": 0
+          },
+          "IsCoach": false,
+          "IsAssociated": true
+        }
+      ],
+      "MatchmakingData": null
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/.a.pvp.net/core-game/v1/players/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61/disassociate/333a7c5e-1661-4d4d-ad5d-d09da691f893",
+    "raw_body": "",
+    "session": {
+      "party_state": "SOLO_EXPERIENCE_STARTING",
+      "party_previous_state": "DEFAULT",
+      "party_version": 2,
+      "session_loop_state": "INGAME",
+      "session_version": 2,
+      "core_game_match_id": "8a9b31d6-16d5-4ac2-863a-a6d17a6a3e2a",
+      "core_game_player_version": 3
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 404,
+    "payload": {
+      "error": "match_not_associated"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/.a.pvp.net/core-game/v1/players/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61/disassociate/8a9b31d6-16d5-4ac2-863a-a6d17a6a3e2a",
+    "raw_body": "",
+    "session": {
+      "party_state": "SOLO_EXPERIENCE_STARTING",
+      "party_previous_state": "DEFAULT",
+      "party_version": 2,
+      "session_loop_state": "INGAME",
+      "session_version": 2,
+      "core_game_match_id": "8a9b31d6-16d5-4ac2-863a-a6d17a6a3e2a",
+      "core_game_player_version": 3
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {}
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/core-game/v1/players/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "SOLO_EXPERIENCE_STARTING",
+      "party_version": 3,
+      "session_loop_state": "MENUS",
+      "session_version": 3,
+      "core_game_match_id": "",
+      "core_game_player_version": 4
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "MatchID": "",
+      "Version": 4
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/core-game/v1/matches/8a9b31d6-16d5-4ac2-863a-a6d17a6a3e2a",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "SOLO_EXPERIENCE_STARTING",
+      "party_version": 3,
+      "session_loop_state": "MENUS",
+      "session_version": 3,
+      "core_game_match_id": "",
+      "core_game_player_version": 4
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 404,
+    "payload": {
+      "error": "range_match_not_started"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/session/v1/sessions/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "SOLO_EXPERIENCE_STARTING",
+      "party_version": 3,
+      "session_loop_state": "MENUS",
+      "session_version": 3,
+      "core_game_match_id": "",
+      "core_game_player_version": 4
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "raw": "",
+      "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "cxnState": "CONNECTED",
+      "cxnCloseReason": "",
+      "clientID": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "loopState": "MENUS",
+      "loopStateMetadata": "",
+      "version": 3,
+      "lastHeartbeatTime": "2026-10-11T05:45:00.000Z",
+      "expiredTime": "2099-01-01T00:00:00.000Z",
+      "heartbeatIntervalMillis": 60000,
+      "heartbeatInterval": {
+        "ticks": 600000000
+      },
+      "heartbeatIntervalMSString": "60000",
+      "playtimeNotification": "",
+      "playtimeMinutes": 0,
+      "restrictionType": "",
+      "userInfoValidTime": "2099-01-01T00:00:00.000Z",
+      "ticket": "",
+      "shouldForceInvalidate": false
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/parties/v1/parties/00000000-0000-0000-0000-000000000001",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "SOLO_EXPERIENCE_STARTING",
+      "party_version": 3,
+      "session_loop_state": "MENUS",
+      "session_version": 3,
+      "core_game_match_id": "",
+      "core_game_player_version": 4
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "ID": "00000000-0000-0000-0000-000000000001",
+      "MUCName": "offline-local-party@offline.na.pvp.net/00000000-0000-0000-0000-000000000001",
+      "VoiceRoomID": "offline-local-party",
+      "Members": [
+        {
+          "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+          "CompetitiveTier": 0,
+          "PlayerIdentity": {
+            "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+            "PlayerCardID": "00000000-0000-0000-0000-000000000000",
+            "PlayerTitleID": "00000000-0000-0000-0000-000000000000",
+            "AccountLevel": 1,
+            "PreferredLevelBorderID": "00000000-0000-0000-0000-000000000000",
+            "Incognito": false,
+            "HideAccountLevel": false
+          },
+          "SeasonalInfo": {},
+          "SeasonalBadgeInfo": {},
+          "IsOwner": true,
+          "IsReady": true,
+          "QueueEligibleRemainingAccountLevels": 0,
+          "Pings": [],
+          "IsModerator": true,
+          "UseBroadcastHUD": false,
+          "IsCrossPlayEnabled": false,
+          "PremierPrestige": {},
+          "PreferredAgentInfo": {},
+          "CurrentExperience": ""
+        }
+      ],
+      "CustomGameData": {
+        "Settings": {
+          "Name": "Offline Local",
+          "Description": "",
+          "Map": "",
+          "Mode": "",
+          "GamePod": "",
+          "UseBots": false,
+          "GameRules": {},
+          "EsportsCustomLobbyName": ""
+        },
+        "Membership": {
+          "TeamOne": [],
+          "TeamTwo": [],
+          "TeamSpectate": [],
+          "TeamOneCoaches": [],
+          "TeamTwoCoaches": []
+        },
+        "MaxPartySize": 5,
+        "AutobalanceEnabled": false,
+        "AutobalanceMinPlayers": 0
+      },
+      "MatchmakingData": {
+        "QueueID": "unrated",
+        "QueueIneligibleMemberPairs": [],
+        "PreferredGamePods": [],
+        "SkillDisparityRRPenalty": 0.0
+      },
+      "TournamentData": {},
+      "ClientVersion": "release-13.06-shipping-18-5590001",
+      "Version": 3,
+      "LookingForMore": false,
+      "CheatData": {},
+      "EligibleQueues": [
+        "unrated"
+      ],
+      "XPBonuses": [],
+      "State": "DEFAULT",
+      "PreviousState": "SOLO_EXPERIENCE_STARTING",
+      "Accessibility": "OPEN",
+      "StateTransitionReason": "NONE",
+      "Invites": [],
+      "ExternalInvites": [],
+      "Requests": [],
+      "QueueEntryTime": "0001-01-01T00:00:00.000Z",
+      "EstimatedQueueTimeSeconds": 0.0,
+      "ErrorNotification": {},
+      "RestrictedSeconds": 0,
+      "QueueIneligibilities": [],
+      "InviteCode": "",
+      "IsCrossPlayEnabled": false,
+      "PreferredAgents": {}
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/.a.pvp.net/parties/v1/players/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61/startsoloexperience",
+    "raw_body": "{\"gameType\": \"ShootingRange\", \"module\": \"Aimbots_spawn\"}",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "SOLO_EXPERIENCE_STARTING",
+      "party_version": 3,
+      "session_loop_state": "MENUS",
+      "session_version": 3,
+      "core_game_match_id": "",
+      "core_game_player_version": 4
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "Version": 1,
+      "SessionClientID": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "CurrentPartyID": "00000000-0000-0000-0000-000000000001",
+      "Invites": [],
+      "Requests": [],
+      "PlatformInfo": {
+        "platformType": "PC",
+        "platformOS": "Windows",
+        "platformOSVersion": "10.0.19045.0.256.64bit",
+        "platformChipset": "Unknown"
+      }
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/core-game/v1/players/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+    "raw_body": "",
+    "session": {
+      "party_state": "SOLO_EXPERIENCE_STARTING",
+      "party_previous_state": "DEFAULT",
+      "party_version": 4,
+      "session_loop_state": "INGAME",
+      "session_version": 4,
+      "core_game_match_id": "49db5622-bddd-41a2-bb30-d8e7f7f31296",
+      "core_game_player_version": 5
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "MatchID": "49db5622-bddd-41a2-bb30-d8e7f7f31296",
+      "Version": 5
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/parties/v1/parties/00000000-0000-0000-0000-000000000001",
+    "raw_body": "",
+    "session": {
+      "party_state": "SOLO_EXPERIENCE_STARTING",
+      "party_previous_state": "DEFAULT",
+      "party_version": 4,
+      "session_loop_state": "INGAME",
+      "session_version": 4,
+      "core_game_match_id": "49db5622-bddd-41a2-bb30-d8e7f7f31296",
+      "core_game_player_version": 5
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "ID": "00000000-0000-0000-0000-000000000001",
+      "MUCName": "offline-local-party@offline.na.pvp.net/00000000-0000-0000-0000-000000000001",
+      "VoiceRoomID": "offline-local-party",
+      "Members": [
+        {
+          "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+          "CompetitiveTier": 0,
+          "PlayerIdentity": {
+            "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+            "PlayerCardID": "00000000-0000-0000-0000-000000000000",
+            "PlayerTitleID": "00000000-0000-0000-0000-000000000000",
+            "AccountLevel": 1,
+            "PreferredLevelBorderID": "00000000-0000-0000-0000-000000000000",
+            "Incognito": false,
+            "HideAccountLevel": false
+          },
+          "SeasonalInfo": {},
+          "SeasonalBadgeInfo": {},
+          "IsOwner": true,
+          "IsReady": true,
+          "QueueEligibleRemainingAccountLevels": 0,
+          "Pings": [],
+          "IsModerator": true,
+          "UseBroadcastHUD": false,
+          "IsCrossPlayEnabled": false,
+          "PremierPrestige": {},
+          "PreferredAgentInfo": {},
+          "CurrentExperience": ""
+        }
+      ],
+      "CustomGameData": {
+        "Settings": {
+          "Name": "Offline Local",
+          "Description": "",
+          "Map": "",
+          "Mode": "",
+          "GamePod": "",
+          "UseBots": false,
+          "GameRules": {},
+          "EsportsCustomLobbyName": ""
+        },
+        "Membership": {
+          "TeamOne": [],
+          "TeamTwo": [],
+          "TeamSpectate": [],
+          "TeamOneCoaches": [],
+          "TeamTwoCoaches": []
+        },
+        "MaxPartySize": 5,
+        "AutobalanceEnabled": false,
+        "AutobalanceMinPlayers": 0
+      },
+      "MatchmakingData": {
+        "QueueID": "unrated",
+        "QueueIneligibleMemberPairs": [],
+        "PreferredGamePods": [],
+        "SkillDisparityRRPenalty": 0.0
+      },
+      "TournamentData": {},
+      "ClientVersion": "release-13.06-shipping-18-5590001",
+      "Version": 4,
+      "LookingForMore": false,
+      "CheatData": {},
+      "EligibleQueues": [
+        "unrated"
+      ],
+      "XPBonuses": [],
+      "State": "SOLO_EXPERIENCE_STARTING",
+      "PreviousState": "DEFAULT",
+      "Accessibility": "OPEN",
+      "StateTransitionReason": "GAME_STARTING",
+      "Invites": [],
+      "ExternalInvites": [],
+      "Requests": [],
+      "QueueEntryTime": "0001-01-01T00:00:00.000Z",
+      "EstimatedQueueTimeSeconds": 0.0,
+      "ErrorNotification": {},
+      "RestrictedSeconds": 0,
+      "QueueIneligibilities": [],
+      "InviteCode": "",
+      "IsCrossPlayEnabled": false,
+      "PreferredAgents": {}
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/core-game/v1/players/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "MatchID": "",
+      "Version": 1
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/account-xp/v1/players/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "Version": 1,
+      "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "Progress": {
+        "Level": 1,
+        "XP": 0
+      },
+      "NextTimeFirstWinAvailable": "2099-01-01T00:00:00.000Z",
+      "History": []
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/contract-definitions/v3/item-upgrades",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "Definitions": []
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/parties/v1/parties/customgameconfigs",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "Enabled": false,
+      "EnabledMaps": [],
+      "EnabledModes": [],
+      "Queues": [
+        {
+          "QueueID": "unrated",
+          "Enabled": true,
+          "TeamSize": 5,
+          "HighSkillTier": 1,
+          "Mode": "/Game/GameModes/Bomb/BombGameMode.BombGameMode_C",
+          "IsRanked": false,
+          "MinimumAccountLevelRequired": 0,
+          "MaxPartySize": 5,
+          "MaxPartySizeHighSkill": 5,
+          "MinPartySize": 1,
+          "InvalidPartySizes": [],
+          "MapPool": []
+        }
+      ],
+      "GamePodPingServiceInfo": {
+        "offline-local-gamepod": {
+          "SecurityHash": 0,
+          "ObfuscatedIP": 2130706433,
+          "PingProxyAddress": "127.0.0.1:58089",
+          "PingProxyAddresses": [
+            "127.0.0.1:58089"
+          ]
+        }
+      },
+      "QueueConfigsLastUpdated": "2026-10-11T00:00:00.000Z"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/content-service/v3/content",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "Seasons": [
+        {
+          "ID": "8102cd81-43a0-d0d7-bd59-47b8fe9bed1b",
+          "Name": "Offline Act",
+          "Type": "act",
+          "StartTime": "2026-08-19T00:00:00.000Z",
+          "EndTime": "2026-10-14T00:00:00.000Z",
+          "IsEnabled": true,
+          "IsActive": true,
+          "DevelopmentOnly": false
+        }
+      ],
+      "Events": [],
+      "DisabledIDs": []
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/store/v1/wallet/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "Balances": {
+        "85ad13f7-3d1b-5128-9eb2-7cd8ee0b5741": 0
+      },
+      "CurrencyLimits": {}
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/store/v1/entitlements/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "EntitlementsByTypes": [
+        {
+          "ItemTypeID": "01bb38e1-da47-4e6a-9b3d-945fe4655707",
+          "Entitlements": [
+            {
+              "TypeID": "4e60e748-bce6-4faa-9327-ebbe6089d5fe",
+              "ItemId": "add6443a-41bd-e414-f6ad-e58d267f4e95",
+              "InstanceId": "00000000-0000-0000-0000-000000000003",
+              "DynamicOptionAssetIDs": []
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/store/v1/storefronts/agent",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "AgentStore": [],
+      "CurrentFeaturedAgent": "00000000-0000-0000-0000-000000000000",
+      "NextFeaturedAgent": "00000000-0000-0000-0000-000000000000"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/.a.pvp.net/mass-rewards/v1/players/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61/reconcile",
+    "raw_body": "{}",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "Version": 1,
+      "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "Ceremonies": []
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/.a.pvp.net/parties/v1/players/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61/startsoloexperience",
+    "raw_body": "{\"gameType\": \"ShootingRange\", \"module\": \"Aimbots_spawn\"}",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "Version": 1,
+      "SessionClientID": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "CurrentPartyID": "00000000-0000-0000-0000-000000000001",
+      "Invites": [],
+      "Requests": [],
+      "PlatformInfo": {
+        "platformType": "PC",
+        "platformOS": "Windows",
+        "platformOSVersion": "10.0.19045.0.256.64bit",
+        "platformChipset": "Unknown"
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/.a.pvp.net/parties/v1/players/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61/startsoloexperience",
+    "raw_body": "{\"gameType\": \"ShootingRange\", \"module\": \"Aimbots_spawn\"}",
+    "session": {
+      "party_state": "SOLO_EXPERIENCE_STARTING",
+      "party_previous_state": "DEFAULT",
+      "party_version": 2,
+      "session_loop_state": "INGAME",
+      "session_version": 2,
+      "core_game_match_id": "a9caff4a-9ae2-43b5-8a59-92f19edae035",
+      "core_game_player_version": 2
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "Version": 1,
+      "SessionClientID": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "CurrentPartyID": "00000000-0000-0000-0000-000000000001",
+      "Invites": [],
+      "Requests": [],
+      "PlatformInfo": {
+        "platformType": "PC",
+        "platformOS": "Windows",
+        "platformOSVersion": "10.0.19045.0.256.64bit",
+        "platformChipset": "Unknown"
+      }
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/eula/v1/agreement/acceptance",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": "Accepted"
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/favorites/v1/players/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61/favorites",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "FavoritedContent": []
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/v1/config/na",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "LastApplication": "offline-local",
+      "Collapsed": {
+        "SERVICEURL_ACCOUNT_XP": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_CONTENT": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_CONTRACT_DEFINITIONS": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_CONTRACTS": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_COREGAME": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_DAILY_TICKET": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_FAVORITES": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_MASS_REWARDS": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_MMR": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_NAME": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_PARTY": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_PERSONALIZATION": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_PREMIER": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_PREGAME": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_SESSION": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_STORE": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_MASTERY": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_LATENCY": "https://127.0.0.1:58089/.a.pvp.net",
+        "loginqueue.enabled": false,
+        "loginqueue.region": "na",
+        "progression.agentRecruitment.enabled": false
+      }
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/parties/v1/parties/00000000-0000-0000-0000-000000000001",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "ID": "00000000-0000-0000-0000-000000000001",
+      "MUCName": "offline-local-party@offline.na.pvp.net/00000000-0000-0000-0000-000000000001",
+      "VoiceRoomID": "offline-local-party",
+      "Members": [
+        {
+          "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+          "CompetitiveTier": 0,
+          "PlayerIdentity": {
+            "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+            "PlayerCardID": "00000000-0000-0000-0000-000000000000",
+            "PlayerTitleID": "00000000-0000-0000-0000-000000000000",
+            "AccountLevel": 1,
+            "PreferredLevelBorderID": "00000000-0000-0000-0000-000000000000",
+            "Incognito": false,
+            "HideAccountLevel": false
+          },
+          "SeasonalInfo": {},
+          "SeasonalBadgeInfo": {},
+          "IsOwner": true,
+          "IsReady": true,
+          "QueueEligibleRemainingAccountLevels": 0,
+          "Pings": [],
+          "IsModerator": true,
+          "UseBroadcastHUD": false,
+          "IsCrossPlayEnabled": false,
+          "PremierPrestige": {},
+          "PreferredAgentInfo": {},
+          "CurrentExperience": ""
+        }
+      ],
+      "CustomGameData": {
+        "Settings": {
+          "Name": "Offline Local",
+          "Description": "",
+          "Map": "",
+          "Mode": "",
+          "GamePod": "",
+          "UseBots": false,
+          "GameRules": {},
+          "EsportsCustomLobbyName": ""
+        },
+        "Membership": {
+          "TeamOne": [],
+          "TeamTwo": [],
+          "TeamSpectate": [],
+          "TeamOneCoaches": [],
+          "TeamTwoCoaches": []
+        },
+        "MaxPartySize": 5,
+        "AutobalanceEnabled": false,
+        "AutobalanceMinPlayers": 0
+      },
+      "MatchmakingData": {
+        "QueueID": "unrated",
+        "QueueIneligibleMemberPairs": [],
+        "PreferredGamePods": [],
+        "SkillDisparityRRPenalty": 0.0
+      },
+      "TournamentData": {},
+      "ClientVersion": "release-13.06-shipping-18-5590001",
+      "Version": 1,
+      "LookingForMore": false,
+      "CheatData": {},
+      "EligibleQueues": [
+        "unrated"
+      ],
+      "XPBonuses": [],
+      "State": "DEFAULT",
+      "PreviousState": "DEFAULT",
+      "Accessibility": "OPEN",
+      "StateTransitionReason": "NONE",
+      "Invites": [],
+      "ExternalInvites": [],
+      "Requests": [],
+      "QueueEntryTime": "0001-01-01T00:00:00.000Z",
+      "EstimatedQueueTimeSeconds": 0.0,
+      "ErrorNotification": {},
+      "RestrictedSeconds": 0,
+      "QueueIneligibilities": [],
+      "InviteCode": "",
+      "IsCrossPlayEnabled": false,
+      "PreferredAgents": {}
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/.a.pvp.net/parties/v1/players/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61/startsoloexperience",
+    "raw_body": "{\"gameType\": \"ShootingRange\", \"module\": \"Aimbots_spawn\"}",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "Version": 1,
+      "SessionClientID": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "CurrentPartyID": "00000000-0000-0000-0000-000000000001",
+      "Invites": [],
+      "Requests": [],
+      "PlatformInfo": {
+        "platformType": "PC",
+        "platformOS": "Windows",
+        "platformOSVersion": "10.0.19045.0.256.64bit",
+        "platformChipset": "Unknown"
+      }
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/parties/v1/parties/00000000-0000-0000-0000-000000000001",
+    "raw_body": "",
+    "session": {
+      "party_state": "SOLO_EXPERIENCE_STARTING",
+      "party_previous_state": "DEFAULT",
+      "party_version": 2,
+      "session_loop_state": "INGAME",
+      "session_version": 2,
+      "core_game_match_id": "d08ab28d-c83f-41e9-ba6a-0a30da9438be",
+      "core_game_player_version": 2
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "ID": "00000000-0000-0000-0000-000000000001",
+      "MUCName": "offline-local-party@offline.na.pvp.net/00000000-0000-0000-0000-000000000001",
+      "VoiceRoomID": "offline-local-party",
+      "Members": [
+        {
+          "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+          "CompetitiveTier": 0,
+          "PlayerIdentity": {
+            "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+            "PlayerCardID": "00000000-0000-0000-0000-000000000000",
+            "PlayerTitleID": "00000000-0000-0000-0000-000000000000",
+            "AccountLevel": 1,
+            "PreferredLevelBorderID": "00000000-0000-0000-0000-000000000000",
+            "Incognito": false,
+            "HideAccountLevel": false
+          },
+          "SeasonalInfo": {},
+          "SeasonalBadgeInfo": {},
+          "IsOwner": true,
+          "IsReady": true,
+          "QueueEligibleRemainingAccountLevels": 0,
+          "Pings": [],
+          "IsModerator": true,
+          "UseBroadcastHUD": false,
+          "IsCrossPlayEnabled": false,
+          "PremierPrestige": {},
+          "PreferredAgentInfo": {},
+          "CurrentExperience": ""
+        }
+      ],
+      "CustomGameData": {
+        "Settings": {
+          "Name": "Offline Local",
+          "Description": "",
+          "Map": "",
+          "Mode": "",
+          "GamePod": "",
+          "UseBots": false,
+          "GameRules": {},
+          "EsportsCustomLobbyName": ""
+        },
+        "Membership": {
+          "TeamOne": [],
+          "TeamTwo": [],
+          "TeamSpectate": [],
+          "TeamOneCoaches": [],
+          "TeamTwoCoaches": []
+        },
+        "MaxPartySize": 5,
+        "AutobalanceEnabled": false,
+        "AutobalanceMinPlayers": 0
+      },
+      "MatchmakingData": {
+        "QueueID": "unrated",
+        "QueueIneligibleMemberPairs": [],
+        "PreferredGamePods": [],
+        "SkillDisparityRRPenalty": 0.0
+      },
+      "TournamentData": {},
+      "ClientVersion": "release-13.06-shipping-18-5590001",
+      "Version": 2,
+      "LookingForMore": false,
+      "CheatData": {},
+      "EligibleQueues": [
+        "unrated"
+      ],
+      "XPBonuses": [],
+      "State": "SOLO_EXPERIENCE_STARTING",
+      "PreviousState": "DEFAULT",
+      "Accessibility": "OPEN",
+      "StateTransitionReason": "GAME_STARTING",
+      "Invites": [],
+      "ExternalInvites": [],
+      "Requests": [],
+      "QueueEntryTime": "0001-01-01T00:00:00.000Z",
+      "EstimatedQueueTimeSeconds": 0.0,
+      "ErrorNotification": {},
+      "RestrictedSeconds": 0,
+      "QueueIneligibilities": [],
+      "InviteCode": "",
+      "IsCrossPlayEnabled": false,
+      "PreferredAgents": {}
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/core-game/v1/players/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+    "raw_body": "",
+    "session": {
+      "party_state": "SOLO_EXPERIENCE_STARTING",
+      "party_previous_state": "DEFAULT",
+      "party_version": 2,
+      "session_loop_state": "INGAME",
+      "session_version": 2,
+      "core_game_match_id": "d08ab28d-c83f-41e9-ba6a-0a30da9438be",
+      "core_game_player_version": 2
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "MatchID": "d08ab28d-c83f-41e9-ba6a-0a30da9438be",
+      "Version": 2
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/core-game/v1/matches/d08ab28d-c83f-41e9-ba6a-0a30da9438be",
+    "raw_body": "",
+    "session": {
+      "party_state": "SOLO_EXPERIENCE_STARTING",
+      "party_previous_state": "DEFAULT",
+      "party_version": 2,
+      "session_loop_state": "INGAME",
+      "session_version": 2,
+      "core_game_match_id": "d08ab28d-c83f-41e9-ba6a-0a30da9438be",
+      "core_game_player_version": 2
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "MatchID": "d08ab28d-c83f-41e9-ba6a-0a30da9438be",
+      "Version": 1,
+      "State": "IN_PROGRESS",
+      "MapID": "/Game/Maps/Poveglia/Range",
+      "ModeID": "/Game/GameModes/ShootingRange/ShootingRangeGameMode.ShootingRangeGameMode_C",
+      "ProvisioningFlow": "ShootingRange",
+      "GamePodID": "offline-local-range",
+      "AllMUCName": "offline-local-range-all@offline.na.pvp.net/d08ab28d-c83f-41e9-ba6a-0a30da9438be",
+      "TeamMUCName": "offline-local-range-team@offline.na.pvp.net/d08ab28d-c83f-41e9-ba6a-0a30da9438be",
+      "TeamVoiceID": "offline-local-range-voice",
+      "TeamMatchToken": "eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJzdWIiOiI3YzlmNDFhNC02NWUyLTRkODEtYThkNS1mODc5YzNlNWFiNjEiLCJwdXVpZCI6IjdjOWY0MWE0LTY1ZTItNGQ4MS1hOGQ1LWY4NzljM2U1YWI2MSIsImlzcyI6Imh0dHBzOi8vb2ZmbGluZS5sb2NhbCIsImF1ZCI6Im9mZmxpbmUtcmFuZ2UiLCJpYXQiOjE3MDAwMDAwMDAsImV4cCI6NDEwMjQ0NDgwMCwiYWNjdCI6eyJnYW1lX25hbWUiOiJPZmZsaW5lUGxheWVyIiwidGFnX2xpbmUiOiJMT0NBTCJ9LCJtYXRjaF9pZCI6ImQwOGFiMjhkLWM4M2YtNDFlOS1iYTZhLTBhMzBkYTk0MzhiZSJ9.",
+      "IsReconnectable": true,
+      "ConnectionDetails": {
+        "GameServerHosts": [
+          "127.0.0.1"
+        ],
+        "GameServerHost": "127.0.0.1",
+        "GameServerPort": 58100,
+        "GameServerObfuscatedIP": 0,
+        "GameClientHash": 0,
+        "PlayerKey": ""
+      },
+      "PostGameDetails": null,
+      "Players": [
+        {
+          "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+          "TeamID": "Blue",
+          "CharacterID": "add6443a-41bd-e414-f6ad-e58d267f4e95",
+          "PlayerIdentity": {
+            "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+            "PlayerCardID": "00000000-0000-0000-0000-000000000000",
+            "PlayerTitleID": "00000000-0000-0000-0000-000000000000",
+            "AccountLevel": 1,
+            "PreferredLevelBorderID": "00000000-0000-0000-0000-000000000000",
+            "Incognito": false,
+            "HideAccountLevel": false
+          },
+          "SeasonalBadgeInfo": {
+            "SeasonID": "8102cd81-43a0-d0d7-bd59-47b8fe9bed1b",
+            "NumberOfWins": 0,
+            "WinsByTier": null,
+            "Rank": 0,
+            "LeaderboardRank": 0
+          },
+          "IsCoach": false,
+          "IsAssociated": true
+        }
+      ],
+      "MatchmakingData": null
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/core-game/v1/matches/d08ab28d-c83f-41e9-ba6a-0a30da9438be/loadouts",
+    "raw_body": "",
+    "session": {
+      "party_state": "SOLO_EXPERIENCE_STARTING",
+      "party_previous_state": "DEFAULT",
+      "party_version": 2,
+      "session_loop_state": "INGAME",
+      "session_version": 2,
+      "core_game_match_id": "d08ab28d-c83f-41e9-ba6a-0a30da9438be",
+      "core_game_player_version": 2
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "Loadouts": [
+        {
+          "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+          "CharacterID": "add6443a-41bd-e414-f6ad-e58d267f4e95",
+          "Loadout": {
+            "Sprays": {
+              "SpraySelections": []
+            },
+            "Expressions": {
+              "AESSelections": []
+            },
+            "Items": {},
+            "DynamicOptions": {}
+          }
+        }
+      ]
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/core-game/v1/matches/d08ab28d-c83f-41e9-ba6a-0a30da9438be/teamchatmuctoken",
+    "raw_body": "",
+    "session": {
+      "party_state": "SOLO_EXPERIENCE_STARTING",
+      "party_previous_state": "DEFAULT",
+      "party_version": 2,
+      "session_loop_state": "INGAME",
+      "session_version": 2,
+      "core_game_match_id": "d08ab28d-c83f-41e9-ba6a-0a30da9438be",
+      "core_game_player_version": 2
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "Token": "offline-local-muc-token",
+      "Room": "offline-local-range-team@offline.na.pvp.net/d08ab28d-c83f-41e9-ba6a-0a30da9438be"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/core-game/v1/matches/d08ab28d-c83f-41e9-ba6a-0a30da9438be/allchatmuctoken",
+    "raw_body": "",
+    "session": {
+      "party_state": "SOLO_EXPERIENCE_STARTING",
+      "party_previous_state": "DEFAULT",
+      "party_version": 2,
+      "session_loop_state": "INGAME",
+      "session_version": 2,
+      "core_game_match_id": "d08ab28d-c83f-41e9-ba6a-0a30da9438be",
+      "core_game_player_version": 2
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "Token": "offline-local-muc-token",
+      "Room": "offline-local-range-all@offline.na.pvp.net/d08ab28d-c83f-41e9-ba6a-0a30da9438be"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/session/v1/sessions/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+    "raw_body": "",
+    "session": {
+      "party_state": "SOLO_EXPERIENCE_STARTING",
+      "party_previous_state": "DEFAULT",
+      "party_version": 2,
+      "session_loop_state": "INGAME",
+      "session_version": 2,
+      "core_game_match_id": "d08ab28d-c83f-41e9-ba6a-0a30da9438be",
+      "core_game_player_version": 2
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "raw": "",
+      "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "cxnState": "CONNECTED",
+      "cxnCloseReason": "",
+      "clientID": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "loopState": "INGAME",
+      "loopStateMetadata": "",
+      "version": 2,
+      "lastHeartbeatTime": "2026-10-11T05:45:00.000Z",
+      "expiredTime": "2099-01-01T00:00:00.000Z",
+      "heartbeatIntervalMillis": 60000,
+      "heartbeatInterval": {
+        "ticks": 600000000
+      },
+      "heartbeatIntervalMSString": "60000",
+      "playtimeNotification": "",
+      "playtimeMinutes": 0,
+      "restrictionType": "",
+      "userInfoValidTime": "2099-01-01T00:00:00.000Z",
+      "ticket": "",
+      "shouldForceInvalidate": false
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/.a.pvp.net/parties/v1/players/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61/startsoloexperience",
+    "raw_body": "{\"gameType\": \"ShootingRange\", \"module\": \"Aimbots_spawn\"}",
+    "session": {
+      "party_state": "SOLO_EXPERIENCE_STARTING",
+      "party_previous_state": "DEFAULT",
+      "party_version": 2,
+      "session_loop_state": "INGAME",
+      "session_version": 2,
+      "core_game_match_id": "d08ab28d-c83f-41e9-ba6a-0a30da9438be",
+      "core_game_player_version": 2
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "Version": 1,
+      "SessionClientID": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "CurrentPartyID": "00000000-0000-0000-0000-000000000001",
+      "Invites": [],
+      "Requests": [],
+      "PlatformInfo": {
+        "platformType": "PC",
+        "platformOS": "Windows",
+        "platformOSVersion": "10.0.19045.0.256.64bit",
+        "platformChipset": "Unknown"
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/.a.pvp.net/parties/v1/players/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61/startsoloexperience",
+    "raw_body": "{\"gameType\": \"ShootingRange\", \"module\": \"unknown\"}",
+    "session": {
+      "party_state": "SOLO_EXPERIENCE_STARTING",
+      "party_previous_state": "DEFAULT",
+      "party_version": 2,
+      "session_loop_state": "INGAME",
+      "session_version": 2,
+      "core_game_match_id": "a78c2837-3bd6-4d12-8794-f3f132b2f026",
+      "core_game_player_version": 3
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 400,
+    "payload": {
+      "error": "unsupported_solo_experience"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/parties/v2/parties/00000000-0000-0000-0000-000000000001/muctoken",
+    "raw_body": "",
+    "session": {
+      "party_state": "SOLO_EXPERIENCE_STARTING",
+      "party_previous_state": "DEFAULT",
+      "party_version": 2,
+      "session_loop_state": "INGAME",
+      "session_version": 2,
+      "core_game_match_id": "a78c2837-3bd6-4d12-8794-f3f132b2f026",
+      "core_game_player_version": 3
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "Token": "offline-local-muc-token",
+      "Room": "offline-local-party@offline.na.pvp.net/00000000-0000-0000-0000-000000000001"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/mailbox/v1/mail",
+    "raw_body": "{\"count\": 100, \"includedStates\": [\"NEW\", \"READ\", \"ACKNOWLEDGED\"], \"startIndex\": 0, \"tags\": []}",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": []
+  },
+  {
+    "method": "POST",
+    "path": "/mailbox/v1/mail",
+    "raw_body": "{\"count\": 100, \"startIndex\": 0, \"tags\": []}",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 400,
+    "payload": {
+      "error": "invalid_mailbox_request"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/.a.pvp.net/name-service/v3/players",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "DisplayName": "OfflinePlayer#LOCAL",
+      "GameName": "OfflinePlayer",
+      "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "TagLine": "LOCAL"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/product-session/v2/heartbeat",
+    "raw_body": "{\"phase\": \"Gameplay\", \"sessionTTL\": 0}",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": null
+  },
+  {
+    "method": "POST",
+    "path": "/product-session/v2/heartbeat",
+    "raw_body": "{\"phase\": \"Idle\", \"sessionTTL\": 0}",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": null
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/personalization/v3/players/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61/playerloadout",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "Version": 1,
+      "Guns": [],
+      "Sprays": [],
+      "Identity": {}
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/contracts/v1/contracts/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "Version": 1,
+      "Contracts": []
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/contracts/v1/agents/activeRecruitmentEvent",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {}
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/premier/v3/players/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {}
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/store/v1/entitlements/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61/d5f120f8-ff8c-4aac-92ea-f2b5acbe9475",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "Entitlements": []
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/store/v1/entitlements/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61/01bb38e1-da47-4e6a-9b3d-945fe4655707",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "Entitlements": [
+        {
+          "TypeID": "4e60e748-bce6-4faa-9327-ebbe6089d5fe",
+          "ItemId": "add6443a-41bd-e414-f6ad-e58d267f4e95",
+          "InstanceId": "00000000-0000-0000-0000-000000000003",
+          "DynamicOptionAssetIDs": []
+        }
+      ]
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/parties/v1/players/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "Version": 1,
+      "SessionClientID": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "CurrentPartyID": "00000000-0000-0000-0000-000000000001",
+      "Invites": [],
+      "Requests": [],
+      "PlatformInfo": {
+        "platformType": "PC",
+        "platformOS": "Windows",
+        "platformOSVersion": "10.0.19045.0.256.64bit",
+        "platformChipset": "Unknown"
+      }
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/bloomline/v0/config/valid-queues",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "ProcessedQueues": [],
+      "PerformanceScoreQueues": []
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/bloomline/v0/players/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "Bonsais": [],
+      "LongGroupVersion": 0
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/riot-messaging-service/v1/messages/ares-daily-ticket/daily-ticket/v1/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": []
+  },
+  {
+    "method": "GET",
+    "path": "/riot-messaging-service/v1/messages/ares-parties/parties/v1/players/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": []
+  },
+  {
+    "method": "PUT",
+    "path": "/.a.pvp.net/personalization/v3/players/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61/playerloadout",
+    "raw_body": "{\"subject\": null, \"version\": -1, \"guns\": []}",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "version": 1,
+      "guns": []
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/.a.pvp.net/parties/v1/parties/00000000-0000-0000-0000-000000000001/members/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61/refreshPlayerIdentity",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": {
+        "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+        "version": 1,
+        "guns": []
+      }
+    },
+    "status": 200,
+    "payload": {
+      "ID": "00000000-0000-0000-0000-000000000001",
+      "MUCName": "offline-local-party@offline.na.pvp.net/00000000-0000-0000-0000-000000000001",
+      "VoiceRoomID": "offline-local-party",
+      "Members": [
+        {
+          "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+          "CompetitiveTier": 0,
+          "PlayerIdentity": {
+            "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+            "PlayerCardID": "00000000-0000-0000-0000-000000000000",
+            "PlayerTitleID": "00000000-0000-0000-0000-000000000000",
+            "AccountLevel": 1,
+            "PreferredLevelBorderID": "00000000-0000-0000-0000-000000000000",
+            "Incognito": false,
+            "HideAccountLevel": false
+          },
+          "SeasonalInfo": {},
+          "SeasonalBadgeInfo": {},
+          "IsOwner": true,
+          "IsReady": true,
+          "QueueEligibleRemainingAccountLevels": 0,
+          "Pings": [],
+          "IsModerator": true,
+          "UseBroadcastHUD": false,
+          "IsCrossPlayEnabled": false,
+          "PremierPrestige": {},
+          "PreferredAgentInfo": {},
+          "CurrentExperience": ""
+        }
+      ],
+      "CustomGameData": {
+        "Settings": {
+          "Name": "Offline Local",
+          "Description": "",
+          "Map": "",
+          "Mode": "",
+          "GamePod": "",
+          "UseBots": false,
+          "GameRules": {},
+          "EsportsCustomLobbyName": ""
+        },
+        "Membership": {
+          "TeamOne": [],
+          "TeamTwo": [],
+          "TeamSpectate": [],
+          "TeamOneCoaches": [],
+          "TeamTwoCoaches": []
+        },
+        "MaxPartySize": 5,
+        "AutobalanceEnabled": false,
+        "AutobalanceMinPlayers": 0
+      },
+      "MatchmakingData": {
+        "QueueID": "unrated",
+        "QueueIneligibleMemberPairs": [],
+        "PreferredGamePods": [],
+        "SkillDisparityRRPenalty": 0.0
+      },
+      "TournamentData": {},
+      "ClientVersion": "release-13.06-shipping-18-5590001",
+      "Version": 1,
+      "LookingForMore": false,
+      "CheatData": {},
+      "EligibleQueues": [
+        "unrated"
+      ],
+      "XPBonuses": [],
+      "State": "DEFAULT",
+      "PreviousState": "DEFAULT",
+      "Accessibility": "OPEN",
+      "StateTransitionReason": "NONE",
+      "Invites": [],
+      "ExternalInvites": [],
+      "Requests": [],
+      "QueueEntryTime": "0001-01-01T00:00:00.000Z",
+      "EstimatedQueueTimeSeconds": 0.0,
+      "ErrorNotification": {},
+      "RestrictedSeconds": 0,
+      "QueueIneligibilities": [],
+      "InviteCode": "",
+      "IsCrossPlayEnabled": false,
+      "PreferredAgents": {}
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/.a.pvp.net/latency/v1/ingestMulti",
+    "raw_body": "{}",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": {
+        "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+        "version": 1,
+        "guns": []
+      }
+    },
+    "status": 200,
+    "payload": {}
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/v1/config/na",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": {
+        "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+        "version": 1,
+        "guns": []
+      }
+    },
+    "status": 200,
+    "payload": {
+      "LastApplication": "offline-local",
+      "Collapsed": {
+        "SERVICEURL_ACCOUNT_XP": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_CONTENT": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_CONTRACT_DEFINITIONS": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_CONTRACTS": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_COREGAME": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_DAILY_TICKET": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_FAVORITES": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_MASS_REWARDS": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_MMR": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_NAME": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_PARTY": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_PERSONALIZATION": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_PREMIER": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_PREGAME": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_SESSION": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_STORE": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_MASTERY": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_LATENCY": "https://127.0.0.1:58089/.a.pvp.net",
+        "loginqueue.enabled": false,
+        "loginqueue.region": "na",
+        "progression.agentRecruitment.enabled": false
+      }
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/riot-messaging-service/v1/messages/ares-session/v1/sessions/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": {
+        "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+        "version": 1,
+        "guns": []
+      }
+    },
+    "status": 200,
+    "payload": [
+      {
+        "id": "offline-ares-session-message-1",
+        "resource": "ares-session/v1/sessions/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+        "service": "ares-session",
+        "version": "1",
+        "timestamp": 0,
+        "payload": "{\"raw\":\"\",\"subject\":\"7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61\",\"cxnState\":\"CONNECTED\",\"cxnCloseReason\":\"\",\"clientID\":\"7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61\",\"loopState\":\"MENUS\",\"loopStateMetadata\":\"\",\"version\":1,\"lastHeartbeatTime\":\"2026-10-11T05:45:00.000Z\",\"expiredTime\":\"2099-01-01T00:00:00.000Z\",\"heartbeatIntervalMillis\":60000,\"heartbeatInterval\":{\"ticks\":600000000},\"heartbeatIntervalMSString\":\"60000\",\"playtimeNotification\":\"\",\"playtimeMinutes\":0,\"restrictionType\":\"\",\"userInfoValidTime\":\"2099-01-01T00:00:00.000Z\",\"ticket\":\"\",\"shouldForceInvalidate\":false}",
+        "ackRequired": false,
+        "traceContext": {
+          "traceParent": ""
+        }
+      }
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/.a.pvp.net/session/v2/sessions/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61/connect",
+    "raw_body": "{\"isRestricted\": false, \"pas\": \"local-pas\", \"lq\": \"\", \"userInfoToken\": \"local-user-info\", \"platformInfo\": {\"platformType\": \"PC\", \"platformOS\": \"Windows\"}}",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": {
+        "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+        "version": 1,
+        "guns": []
+      }
+    },
+    "status": 200,
+    "payload": {
+      "raw": "",
+      "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "cxnState": "CONNECTED",
+      "cxnCloseReason": "",
+      "clientID": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "loopState": "MENUS",
+      "loopStateMetadata": "",
+      "version": 1,
+      "lastHeartbeatTime": "2026-10-11T05:45:00.000Z",
+      "expiredTime": "2099-01-01T00:00:00.000Z",
+      "heartbeatIntervalMillis": 60000,
+      "heartbeatInterval": {
+        "ticks": 600000000
+      },
+      "heartbeatIntervalMSString": "60000",
+      "playtimeNotification": "",
+      "playtimeMinutes": 0,
+      "restrictionType": "",
+      "userInfoValidTime": "2099-01-01T00:00:00.000Z",
+      "ticket": "",
+      "shouldForceInvalidate": false
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/.a.pvp.net/session/v1/sessions/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61/heartbeat",
+    "raw_body": "{\"raw\": \"\", \"subject\": \"7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61\", \"cXNState\": \"CONNECTED\", \"clientId\": \"7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61\", \"loopState\": \"MENUS\", \"loopStateMetadata\": \"\", \"version\": 1, \"lastHeartbeatTime\": \"2026-10-11T05:45:00.000Z\", \"expiredTime\": \"2099-01-01T00:00:00.000Z\", \"heartbeatIntervalMillis\": 60000, \"heartbeatIntervalMSString\": \"60000\", \"playtimeNotification\": \"\", \"playtimeMinutes\": 0, \"restrictionType\": \"\", \"userInfoValidTime\": \"2099-01-01T00:00:00.000Z\", \"ticket\": \"\", \"shouldForceInvalidate\": false}",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": {
+        "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+        "version": 1,
+        "guns": []
+      }
+    },
+    "status": 200,
+    "payload": {
+      "raw": "",
+      "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "cXNState": "CONNECTED",
+      "clientId": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "loopState": "MENUS",
+      "loopStateMetadata": "",
+      "version": 1,
+      "lastHeartbeatTime": "2026-10-11T05:45:00.000Z",
+      "expiredTime": "2099-01-01T00:00:00.000Z",
+      "heartbeatIntervalMillis": 60000,
+      "heartbeatIntervalMSString": "60000",
+      "playtimeNotification": "",
+      "playtimeMinutes": 0,
+      "restrictionType": "",
+      "userInfoValidTime": "2099-01-01T00:00:00.000Z",
+      "ticket": "",
+      "shouldForceInvalidate": false
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/player-account/lookup/v2/namesets-for-puuids",
+    "raw_body": "{\"puuids\": [\"7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61\"]}",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": {
+        "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+        "version": 1,
+        "guns": []
+      }
+    },
+    "status": 200,
+    "payload": {
+      "namesets": [
+        {
+          "puuid": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+          "providerId": "offline",
+          "error": "",
+          "alias": {
+            "gameName": "OfflinePlayer",
+            "tagLine": "LOCAL"
+          },
+          "switchNameset": {
+            "nickname": ""
+          },
+          "xboxNameset": {
+            "classicGamertag": "",
+            "modernGamertag": "",
+            "modernSuffix": ""
+          },
+          "playstationNameset": {
+            "onlineId": ""
+          }
+        }
+      ]
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/player-account/lookup/v2/namesets-for-puuids",
+    "raw_body": "{\"puuids\": \"7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61\"}",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": {
+        "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+        "version": 1,
+        "guns": []
+      }
+    },
+    "status": 400,
+    "payload": {
+      "error": "invalid_namesets_request"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/player-affinity/config/v1/status",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": {
+        "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+        "version": 1,
+        "guns": []
+      }
+    },
+    "status": 200,
+    "payload": {
+      "ready": true
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/player-affinity/product/v2/token",
+    "raw_body": "{\"product\": \"valorant\"}",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": {
+        "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+        "version": 1,
+        "guns": []
+      }
+    },
+    "status": 200,
+    "payload": {
+      "affinities": {
+        "live": "na"
+      },
+      "expiry": 4102444800000,
+      "issuedAt": 0,
+      "product": "valorant",
+      "puuid": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "token": "eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJzdWIiOiI3YzlmNDFhNC02NWUyLTRkODEtYThkNS1mODc5YzNlNWFiNjEiLCJwdXVpZCI6IjdjOWY0MWE0LTY1ZTItNGQ4MS1hOGQ1LWY4NzljM2U1YWI2MSIsImlzcyI6Imh0dHBzOi8vb2ZmbGluZS5sb2NhbCIsImF1ZCI6InBsYXllci1hZmZpbml0eSIsImlhdCI6MTcwMDAwMDAwMCwiZXhwIjo0MTAyNDQ0ODAwLCJhY2N0Ijp7ImdhbWVfbmFtZSI6Ik9mZmxpbmVQbGF5ZXIiLCJ0YWdfbGluZSI6IkxPQ0FMIn0sImFmZmluaXRpZXMiOnsibGl2ZSI6Im5hIn0sInByb2R1Y3QiOiJ2YWxvcmFudCJ9."
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/pregame/v1/players/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": {
+        "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+        "version": 1,
+        "guns": []
+      }
+    },
+    "status": 200,
+    "payload": {
+      "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "Version": 1,
+      "MatchID": ""
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/chat/v6/conversations",
+    "raw_body": "{\"domain\": \"offline\", \"hidden\": null, \"id\": \"offline-local-range-all\", \"password\": \"offline-local-muc-token\", \"resource\": \"\", \"targetRegion\": \"na\", \"type\": \"groupchat\"}",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": {
+        "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+        "version": 1,
+        "guns": []
+      }
+    },
+    "status": 404,
+    "payload": {
+      "error": "chat_conversation_not_found"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/chat/v6/conversations",
+    "raw_body": "{\"domain\": \"offline\", \"hidden\": null, \"id\": \"offline-local-range-team\", \"password\": \"offline-local-muc-token\", \"resource\": \"\", \"targetRegion\": \"na\", \"type\": \"groupchat\"}",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": {
+        "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+        "version": 1,
+        "guns": []
+      }
+    },
+    "status": 404,
+    "payload": {
+      "error": "chat_conversation_not_found"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/chat/v6/conversations",
+    "raw_body": "{\"domain\": \"offline\", \"hidden\": null, \"id\": \"unknown-room\", \"password\": \"offline-local-muc-token\", \"resource\": \"\", \"targetRegion\": \"na\", \"type\": \"groupchat\"}",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": {
+        "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+        "version": 1,
+        "guns": []
+      }
+    },
+    "status": 404,
+    "payload": {
+      "error": "chat_conversation_not_found"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/.a.pvp.net/parties/v1/players/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61/startsoloexperience",
+    "raw_body": "{\"gameType\": \"ShootingRange\", \"module\": \"Aimbots_spawn\"}",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": {
+        "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+        "version": 1,
+        "guns": []
+      }
+    },
+    "status": 200,
+    "payload": {
+      "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "Version": 1,
+      "SessionClientID": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "CurrentPartyID": "00000000-0000-0000-0000-000000000001",
+      "Invites": [],
+      "Requests": [],
+      "PlatformInfo": {
+        "platformType": "PC",
+        "platformOS": "Windows",
+        "platformOSVersion": "10.0.19045.0.256.64bit",
+        "platformChipset": "Unknown"
+      }
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/core-game/v1/players/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+    "raw_body": "",
+    "session": {
+      "party_state": "SOLO_EXPERIENCE_STARTING",
+      "party_previous_state": "DEFAULT",
+      "party_version": 2,
+      "session_loop_state": "INGAME",
+      "session_version": 2,
+      "core_game_match_id": "3741b065-e248-45b3-a5e9-f812e768e4e3",
+      "core_game_player_version": 2
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": {
+        "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+        "version": 1,
+        "guns": []
+      }
+    },
+    "status": 200,
+    "payload": {
+      "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "MatchID": "3741b065-e248-45b3-a5e9-f812e768e4e3",
+      "Version": 2
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/core-game/v1/matches/3741b065-e248-45b3-a5e9-f812e768e4e3",
+    "raw_body": "",
+    "session": {
+      "party_state": "SOLO_EXPERIENCE_STARTING",
+      "party_previous_state": "DEFAULT",
+      "party_version": 2,
+      "session_loop_state": "INGAME",
+      "session_version": 2,
+      "core_game_match_id": "3741b065-e248-45b3-a5e9-f812e768e4e3",
+      "core_game_player_version": 2
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": {
+        "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+        "version": 1,
+        "guns": []
+      }
+    },
+    "status": 200,
+    "payload": {
+      "MatchID": "3741b065-e248-45b3-a5e9-f812e768e4e3",
+      "Version": 1,
+      "State": "IN_PROGRESS",
+      "MapID": "/Game/Maps/Poveglia/Range",
+      "ModeID": "/Game/GameModes/ShootingRange/ShootingRangeGameMode.ShootingRangeGameMode_C",
+      "ProvisioningFlow": "ShootingRange",
+      "GamePodID": "offline-local-range",
+      "AllMUCName": "offline-local-range-all@offline.na.pvp.net/3741b065-e248-45b3-a5e9-f812e768e4e3",
+      "TeamMUCName": "offline-local-range-team@offline.na.pvp.net/3741b065-e248-45b3-a5e9-f812e768e4e3",
+      "TeamVoiceID": "offline-local-range-voice",
+      "TeamMatchToken": "eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJzdWIiOiI3YzlmNDFhNC02NWUyLTRkODEtYThkNS1mODc5YzNlNWFiNjEiLCJwdXVpZCI6IjdjOWY0MWE0LTY1ZTItNGQ4MS1hOGQ1LWY4NzljM2U1YWI2MSIsImlzcyI6Imh0dHBzOi8vb2ZmbGluZS5sb2NhbCIsImF1ZCI6Im9mZmxpbmUtcmFuZ2UiLCJpYXQiOjE3MDAwMDAwMDAsImV4cCI6NDEwMjQ0NDgwMCwiYWNjdCI6eyJnYW1lX25hbWUiOiJPZmZsaW5lUGxheWVyIiwidGFnX2xpbmUiOiJMT0NBTCJ9LCJtYXRjaF9pZCI6IjM3NDFiMDY1LWUyNDgtNDViMy1hNWU5LWY4MTJlNzY4ZTRlMyJ9.",
+      "IsReconnectable": true,
+      "ConnectionDetails": {
+        "GameServerHosts": [
+          "127.0.0.1"
+        ],
+        "GameServerHost": "127.0.0.1",
+        "GameServerPort": 58100,
+        "GameServerObfuscatedIP": 0,
+        "GameClientHash": 0,
+        "PlayerKey": ""
+      },
+      "PostGameDetails": null,
+      "Players": [
+        {
+          "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+          "TeamID": "Blue",
+          "CharacterID": "add6443a-41bd-e414-f6ad-e58d267f4e95",
+          "PlayerIdentity": {
+            "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+            "PlayerCardID": "00000000-0000-0000-0000-000000000000",
+            "PlayerTitleID": "00000000-0000-0000-0000-000000000000",
+            "AccountLevel": 1,
+            "PreferredLevelBorderID": "00000000-0000-0000-0000-000000000000",
+            "Incognito": false,
+            "HideAccountLevel": false
+          },
+          "SeasonalBadgeInfo": {
+            "SeasonID": "8102cd81-43a0-d0d7-bd59-47b8fe9bed1b",
+            "NumberOfWins": 0,
+            "WinsByTier": null,
+            "Rank": 0,
+            "LeaderboardRank": 0
+          },
+          "IsCoach": false,
+          "IsAssociated": true
+        }
+      ],
+      "MatchmakingData": null
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/core-game/v1/matches/3741b065-e248-45b3-a5e9-f812e768e4e3/allchatmuctoken",
+    "raw_body": "",
+    "session": {
+      "party_state": "SOLO_EXPERIENCE_STARTING",
+      "party_previous_state": "DEFAULT",
+      "party_version": 2,
+      "session_loop_state": "INGAME",
+      "session_version": 2,
+      "core_game_match_id": "3741b065-e248-45b3-a5e9-f812e768e4e3",
+      "core_game_player_version": 2
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": {
+        "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+        "version": 1,
+        "guns": []
+      }
+    },
+    "status": 200,
+    "payload": {
+      "Token": "offline-local-muc-token",
+      "Room": "offline-local-range-all@offline.na.pvp.net/3741b065-e248-45b3-a5e9-f812e768e4e3"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/chat/v6/conversations",
+    "raw_body": "{\"domain\": \"offline\", \"hidden\": null, \"id\": \"offline-local-range-all\", \"password\": \"offline-local-muc-token\", \"resource\": \"3741b065-e248-45b3-a5e9-f812e768e4e3\", \"targetRegion\": \"na\", \"type\": \"groupchat\"}",
+    "session": {
+      "party_state": "SOLO_EXPERIENCE_STARTING",
+      "party_previous_state": "DEFAULT",
+      "party_version": 2,
+      "session_loop_state": "INGAME",
+      "session_version": 2,
+      "core_game_match_id": "3741b065-e248-45b3-a5e9-f812e768e4e3",
+      "core_game_player_version": 2
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": {
+        "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+        "version": 1,
+        "guns": []
+      }
+    },
+    "status": 200,
+    "payload": {
+      "cid": "offline-local-range-all@offline.na.pvp.net/3741b065-e248-45b3-a5e9-f812e768e4e3",
+      "directMessages": false,
+      "globalReadership": false,
+      "messageHistory": false,
+      "mid": "",
+      "muted": false,
+      "mutedRestriction": false,
+      "type": "groupchat",
+      "uiState": {
+        "changedSinceHidden": false,
+        "hidden": false
+      },
+      "unreadCount": "0"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/.a.pvp.net/core-game/v1/matches/3741b065-e248-45b3-a5e9-f812e768e4e3/teamchatmuctoken",
+    "raw_body": "",
+    "session": {
+      "party_state": "SOLO_EXPERIENCE_STARTING",
+      "party_previous_state": "DEFAULT",
+      "party_version": 2,
+      "session_loop_state": "INGAME",
+      "session_version": 2,
+      "core_game_match_id": "3741b065-e248-45b3-a5e9-f812e768e4e3",
+      "core_game_player_version": 2
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": {
+        "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+        "version": 1,
+        "guns": []
+      }
+    },
+    "status": 200,
+    "payload": {
+      "Token": "offline-local-muc-token",
+      "Room": "offline-local-range-team@offline.na.pvp.net/3741b065-e248-45b3-a5e9-f812e768e4e3"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/chat/v6/conversations",
+    "raw_body": "{\"domain\": \"offline\", \"hidden\": null, \"id\": \"offline-local-range-team\", \"password\": \"offline-local-muc-token\", \"resource\": \"3741b065-e248-45b3-a5e9-f812e768e4e3\", \"targetRegion\": \"na\", \"type\": \"groupchat\"}",
+    "session": {
+      "party_state": "SOLO_EXPERIENCE_STARTING",
+      "party_previous_state": "DEFAULT",
+      "party_version": 2,
+      "session_loop_state": "INGAME",
+      "session_version": 2,
+      "core_game_match_id": "3741b065-e248-45b3-a5e9-f812e768e4e3",
+      "core_game_player_version": 2
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": {
+        "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+        "version": 1,
+        "guns": []
+      }
+    },
+    "status": 200,
+    "payload": {
+      "cid": "offline-local-range-team@offline.na.pvp.net/3741b065-e248-45b3-a5e9-f812e768e4e3",
+      "directMessages": false,
+      "globalReadership": false,
+      "messageHistory": false,
+      "mid": "",
+      "muted": false,
+      "mutedRestriction": false,
+      "type": "groupchat",
+      "uiState": {
+        "changedSinceHidden": false,
+        "hidden": false
+      },
+      "unreadCount": "0"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/riot-messaging-service/v1/session",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": {
+        "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+        "version": 1,
+        "guns": []
+      }
+    },
+    "status": 200,
+    "payload": {
+      "state": "Connected",
+      "token": "eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJzdWIiOiI3YzlmNDFhNC02NWUyLTRkODEtYThkNS1mODc5YzNlNWFiNjEiLCJwdXVpZCI6IjdjOWY0MWE0LTY1ZTItNGQ4MS1hOGQ1LWY4NzljM2U1YWI2MSIsImlzcyI6Imh0dHBzOi8vb2ZmbGluZS5sb2NhbCIsImF1ZCI6InJpb3QtbWVzc2FnaW5nLXNlcnZpY2UiLCJpYXQiOjE3MDAwMDAwMDAsImV4cCI6NDEwMjQ0NDgwMCwiYWNjdCI6eyJnYW1lX25hbWUiOiJPZmZsaW5lUGxheWVyIiwidGFnX2xpbmUiOiJMT0NBTCJ9fQ.",
+      "tokenType": "Access"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/social/v1/ready",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": {
+        "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+        "version": 1,
+        "guns": []
+      }
+    },
+    "status": 200,
+    "payload": true
+  },
+  {
+    "method": "GET",
+    "path": "/mailbox/v1/ready",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": {
+        "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+        "version": 1,
+        "guns": []
+      }
+    },
+    "status": 200,
+    "payload": true
+  },
+  {
+    "method": "GET",
+    "path": "/social/v1/blocklist",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": {
+        "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+        "version": 1,
+        "guns": []
+      }
+    },
+    "status": 200,
+    "payload": {
+      "blockedUsers": []
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/social/v1/blocklist/patch",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": {
+        "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+        "version": 1,
+        "guns": []
+      }
+    },
+    "status": 200,
+    "payload": []
+  },
+  {
+    "method": "GET",
+    "path": "/social/v2/friendrequests?puuid=",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": {
+        "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+        "version": 1,
+        "guns": []
+      }
+    },
+    "status": 200,
+    "payload": {
+      "requests": []
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/social/v2/friendrequests/patch",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": {
+        "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+        "version": 1,
+        "guns": []
+      }
+    },
+    "status": 200,
+    "payload": []
+  },
+  {
+    "method": "POST",
+    "path": "/social/v1/initialize",
+    "raw_body": "{\"patchline\": \"live\", \"product\": \"valorant\"}",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": {
+        "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+        "version": 1,
+        "guns": []
+      }
+    },
+    "status": 200,
+    "payload": null
+  },
+  {
+    "method": "POST",
+    "path": "/social/v2/initialize",
+    "raw_body": "{\"patchline\": \"live\", \"product\": \"valorant\"}",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": {
+        "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+        "version": 1,
+        "guns": []
+      }
+    },
+    "status": 200,
+    "payload": null
+  },
+  {
+    "method": "GET",
+    "path": "/social/v1/presences/session",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": {
+        "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+        "version": 1,
+        "guns": []
+      }
+    },
+    "status": 200,
+    "payload": []
+  },
+  {
+    "method": "GET",
+    "path": "/social/v4/friends",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": {
+        "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+        "version": 1,
+        "guns": []
+      }
+    },
+    "status": 200,
+    "payload": {
+      "friends": []
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/social/v4/friends/patch",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": {
+        "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+        "version": 1,
+        "guns": []
+      }
+    },
+    "status": 200,
+    "payload": []
+  },
+  {
+    "method": "POST",
+    "path": "/.a.pvp.net/parties/v1/players/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61/startsoloexperience",
+    "raw_body": "{\"gameType\": \"ShootingRange\", \"module\": \"Aimbots_spawn\"}",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": null
+    },
+    "status": 200,
+    "payload": {
+      "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "Version": 1,
+      "SessionClientID": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "CurrentPartyID": "00000000-0000-0000-0000-000000000001",
+      "Invites": [],
+      "Requests": [],
+      "PlatformInfo": {
+        "platformType": "PC",
+        "platformOS": "Windows",
+        "platformOSVersion": "10.0.19045.0.256.64bit",
+        "platformChipset": "Unknown"
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/.a.pvp.net/store/v3/storefront/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+    "raw_body": "{\"iDToken\": \"local\"}",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": {
+        "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+        "version": 1,
+        "guns": []
+      }
+    },
+    "status": 200,
+    "payload": {
+      "FeaturedBundle": {
+        "FeaturedTileEntries": [],
+        "BundleRemainingDurationInSeconds": 0
+      },
+      "SkinsPanelLayout": {
+        "SingleItemStoreOffers": [
+          {
+            "OfferID": "9f51da57-4623-415a-6313-f49588297d0e",
+            "IsDirectPurchase": true,
+            "StartDate": "2026-10-13T00:00:00Z",
+            "Cost": {
+              "85ad13f7-3d1b-5128-9eb2-7cd8ee0b5741": 67
+            },
+            "Rewards": [
+              {
+                "ItemTypeID": "e7c63390-eda7-46e0-bb7a-a6abdacd2433",
+                "ItemID": "9f51da57-4623-415a-6313-f49588297d0e",
+                "Quantity": 1
+              }
+            ]
+          },
+          {
+            "OfferID": "726b77c9-41c3-80c6-f33e-068b9f74ef56",
+            "IsDirectPurchase": true,
+            "StartDate": "2026-10-13T00:00:00Z",
+            "Cost": {
+              "85ad13f7-3d1b-5128-9eb2-7cd8ee0b5741": 67
+            },
+            "Rewards": [
+              {
+                "ItemTypeID": "e7c63390-eda7-46e0-bb7a-a6abdacd2433",
+                "ItemID": "726b77c9-41c3-80c6-f33e-068b9f74ef56",
+                "Quantity": 1
+              }
+            ]
+          },
+          {
+            "OfferID": "3f547576-41a5-9b71-76d5-9288bb031350",
+            "IsDirectPurchase": true,
+            "StartDate": "2026-10-13T00:00:00Z",
+            "Cost": {
+              "85ad13f7-3d1b-5128-9eb2-7cd8ee0b5741": 67
+            },
+            "Rewards": [
+              {
+                "ItemTypeID": "e7c63390-eda7-46e0-bb7a-a6abdacd2433",
+                "ItemID": "3f547576-41a5-9b71-76d5-9288bb031350",
+                "Quantity": 1
+              }
+            ]
+          },
+          {
+            "OfferID": "a57aa3d0-4ad0-b06a-6c54-338cb3ea6b41",
+            "IsDirectPurchase": true,
+            "StartDate": "2026-10-13T00:00:00Z",
+            "Cost": {
+              "85ad13f7-3d1b-5128-9eb2-7cd8ee0b5741": 67
+            },
+            "Rewards": [
+              {
+                "ItemTypeID": "dd3bf334-87f3-40bd-b043-682a57a8dc3a",
+                "ItemID": "a57aa3d0-4ad0-b06a-6c54-338cb3ea6b41",
+                "Quantity": 1
+              }
+            ]
+          }
+        ],
+        "SingleItemOffersRemainingDurationInSeconds": 86400
+      },
+      "AccessoryStore": {
+        "AccessoryStoreOffers": [],
+        "AccessoryStoreRemainingDurationInSeconds": 86400,
+        "StorefrontID": "00000000-0000-0000-0000-000000000000"
+      },
+      "UpgradeCurrencyStore": {
+        "UpgradeCurrencyOffers": []
+      },
+      "PluginStores": [],
+      "SecondsUntilRefreshNeeded": 86400
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/no/such/route",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": {
+        "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+        "version": 1,
+        "guns": []
+      }
+    },
+    "status": 404,
+    "payload": {
+      "error": "unhandled_route",
+      "method": "GET",
+      "path": "/no/such/route"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/voice-chat/v1/initialize-provider/valorant",
+    "raw_body": "\"vivox\"",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": {
+        "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+        "version": 1,
+        "guns": []
+      }
+    },
+    "status": 200,
+    "payload": null
+  },
+  {
+    "method": "POST",
+    "path": "/voice-chat/v1/initialize-provider/valorant",
+    "raw_body": "\"unsupported\"",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": {
+        "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+        "version": 1,
+        "guns": []
+      }
+    },
+    "status": 400,
+    "payload": {
+      "error": "unsupported_local_voice_provider"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/voice-chat/v1/status",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": {
+        "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+        "version": 1,
+        "guns": []
+      }
+    },
+    "status": 200,
+    "payload": "noProviders"
+  },
+  {
+    "method": "GET",
+    "path": "/voice-chat/v4/sessions/valorant",
+    "raw_body": "",
+    "session": {
+      "party_state": "DEFAULT",
+      "party_previous_state": "DEFAULT",
+      "party_version": 1,
+      "session_loop_state": "MENUS",
+      "session_version": 1,
+      "core_game_match_id": "",
+      "core_game_player_version": 1
+    },
+    "inventory": {
+      "version": 1,
+      "loadout": {
+        "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+        "version": 1,
+        "guns": []
+      }
+    },
+    "status": 200,
+    "payload": []
+  }
+]

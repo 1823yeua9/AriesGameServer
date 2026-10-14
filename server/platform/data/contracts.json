@@ -1,0 +1,572 @@
+{
+  "static_routes": {
+    "/.a.pvp.net/account-xp/v1/players/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61": {
+      "Version": 1,
+      "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "Progress": {
+        "Level": 1,
+        "XP": 0
+      },
+      "NextTimeFirstWinAvailable": "2099-01-01T00:00:00.000Z",
+      "History": []
+    },
+    "/.a.pvp.net/content-service/v3/content": {
+      "Seasons": [
+        {
+          "ID": "8102cd81-43a0-d0d7-bd59-47b8fe9bed1b",
+          "Name": "Offline Act",
+          "Type": "act",
+          "StartTime": "2026-08-19T00:00:00.000Z",
+          "EndTime": "2026-10-14T00:00:00.000Z",
+          "IsEnabled": true,
+          "IsActive": true,
+          "DevelopmentOnly": false
+        }
+      ],
+      "Events": [],
+      "DisabledIDs": []
+    },
+    "/.a.pvp.net/contract-definitions/v3/item-upgrades": {
+      "Definitions": []
+    },
+    "/.a.pvp.net/contracts/v1/agents/activeRecruitmentEvent": {},
+    "/.a.pvp.net/contracts/v1/contracts/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61": {
+      "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "Version": 1,
+      "Contracts": []
+    },
+    "/.a.pvp.net/daily-ticket/v1/queue-config": {
+      "Default": {
+        "ProgressPerRoundWin": 0.0,
+        "FlatProgressPerMatch": 0
+      },
+      "QueueOverrides": {}
+    },
+    "/.a.pvp.net/mmr/v1/players/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61": {
+      "Version": 1,
+      "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "NewPlayerExperienceFinished": true,
+      "QueueSkills": {},
+      "LatestCompetitiveUpdate": {},
+      "IsLeaderboardAnonymized": false,
+      "IsActRankBadgeHidden": false,
+      "OnboardingStatus": "OnboardingComplete",
+      "OnboardingFlowV2Enabled": false,
+      "IsAtDerankProtectedTier": false,
+      "LifetimePrestige": {}
+    },
+    "/.a.pvp.net/pregame/v1/players/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61": {
+      "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "Version": 1,
+      "MatchID": ""
+    },
+    "/.a.pvp.net/premier/v3/players/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61": {},
+    "/.a.pvp.net/store/v1/storefronts/agent": {
+      "AgentStore": [],
+      "CurrentFeaturedAgent": "00000000-0000-0000-0000-000000000000",
+      "NextFeaturedAgent": "00000000-0000-0000-0000-000000000000"
+    },
+    "/.a.pvp.net/store/v1/wallet/7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61": {
+      "Balances": {
+        "85ad13f7-3d1b-5128-9eb2-7cd8ee0b5741": 0
+      },
+      "CurrencyLimits": {}
+    },
+    "/.a.pvp.net/v1/config/": {
+      "LastApplication": "offline-local",
+      "Collapsed": {
+        "SERVICEURL_ACCOUNT_XP": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_CONTENT": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_CONTRACT_DEFINITIONS": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_CONTRACTS": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_COREGAME": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_DAILY_TICKET": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_FAVORITES": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_MASS_REWARDS": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_MMR": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_NAME": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_PARTY": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_PERSONALIZATION": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_PREMIER": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_PREGAME": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_SESSION": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_STORE": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_MASTERY": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_LATENCY": "https://127.0.0.1:58089/.a.pvp.net",
+        "loginqueue.enabled": false,
+        "loginqueue.region": "na",
+        "progression.agentRecruitment.enabled": false
+      }
+    },
+    "/chat/v1/session": {
+      "federated": false,
+      "game_name": "OfflinePlayer",
+      "game_tag": "LOCAL",
+      "loaded": true,
+      "name": "OfflinePlayer",
+      "pid": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61@pvp.net",
+      "puuid": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "region": "na",
+      "resource": "valorant",
+      "state": "connected"
+    },
+    "/chat/v4/friends": {
+      "friends": []
+    },
+    "/chat/v4/presences": {
+      "presences": [
+        {
+          "name": "OfflinePlayer",
+          "game_name": "OfflinePlayer",
+          "game_tag": "LOCAL",
+          "pid": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61@pvp.net",
+          "puuid": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+          "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+          "resource": "RC",
+          "product": "valorant",
+          "patchline": "live",
+          "platform": "PC",
+          "state": "chat",
+          "time": 1792009668450,
+          "msg": "",
+          "actor": "",
+          "details": "",
+          "location": "",
+          "private": "eyJpc1ZhbGlkIjp0cnVlLCJpc0lkbGUiOmZhbHNlLCJxdWV1ZUlkIjoidW5yYXRlZCIsInByb3Zpc2lvbmluZ0Zsb3ciOiJJbnZhbGlkIiwicGFydHlJZCI6IjAwMDAwMDAwLTAwMDAtMDAwMC0wMDAwLTAwMDAwMDAwMDAwMSIsInBhcnR5U2l6ZSI6MSwibWF4UGFydHlTaXplIjo1LCJtYXRjaFByZXNlbmNlRGF0YSI6eyJzZXNzaW9uTG9vcFN0YXRlIjoiTUVOVVMiLCJxdWV1ZUlkIjoidW5yYXRlZCJ9LCJwYXJ0eVByZXNlbmNlRGF0YSI6eyJwYXJ0eUlkIjoiMDAwMDAwMDAtMDAwMC0wMDAwLTAwMDAtMDAwMDAwMDAwMDAxIiwicGFydHlTaXplIjoxLCJtYXhQYXJ0eVNpemUiOjUsInBhcnR5U3RhdGUiOiJERUZBVUxUIiwiaXNQYXJ0eU93bmVyIjp0cnVlfSwicGxheWVyUHJlc2VuY2VEYXRhIjp7ImFjY291bnRMZXZlbCI6MSwicGxhdGZvcm1PdmVycmlkZSI6IlBDIn19"
+        }
+      ]
+    },
+    "/client-config/v2/namespace/valorant.client/player": {
+      "config_endpoint": "https://127.0.0.1:58089/.a.pvp.net",
+      "game_shard_zone": "na",
+      "platform_environment": "na",
+      "should_use_affinity": false,
+      "valorant.client.config_endpoint": "https://127.0.0.1:58089/.a.pvp.net",
+      "valorant.client.game_shard_zone": "na",
+      "valorant.client.platform_environment": "na",
+      "valorant.client.should_use_affinity": false
+    },
+    "/eula/v1/agreement/acceptance": "Accepted",
+    "/eula/v1/agreement/content": "Offline local-use agreement content.",
+    "/eula/v1/privacy-policy/content": "Offline local-use privacy policy content.",
+    "/mailbox/v1/ready": true,
+    "/player-account/aliases/v1/display-name": {
+      "gameName": "OfflinePlayer",
+      "tagLine": "LOCAL"
+    },
+    "/player-account/aliases/v1/required": {
+      "isAliasChangeRequired": false,
+      "isAliasMissing": false
+    },
+    "/player-affinity/config/v1/status": {
+      "ready": true
+    },
+    "/product-integration/v1/signout/permission": "Allowed",
+    "/riot-messaging-service/v1/out-of-sync": null,
+    "/riot-messaging-service/v1/session": {
+      "state": "Connected",
+      "token": "eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJzdWIiOiI3YzlmNDFhNC02NWUyLTRkODEtYThkNS1mODc5YzNlNWFiNjEiLCJwdXVpZCI6IjdjOWY0MWE0LTY1ZTItNGQ4MS1hOGQ1LWY4NzljM2U1YWI2MSIsImlzcyI6Imh0dHBzOi8vb2ZmbGluZS5sb2NhbCIsImF1ZCI6InJpb3QtbWVzc2FnaW5nLXNlcnZpY2UiLCJpYXQiOjE3MDAwMDAwMDAsImV4cCI6NDEwMjQ0NDgwMCwiYWNjdCI6eyJnYW1lX25hbWUiOiJPZmZsaW5lUGxheWVyIiwidGFnX2xpbmUiOiJMT0NBTCJ9fQ.",
+      "tokenType": "Access"
+    },
+    "/social/v1/blocklist": {
+      "blockedUsers": []
+    },
+    "/social/v1/blocklist/patch": [],
+    "/social/v1/presences/session": [],
+    "/social/v1/ready": true,
+    "/social/v2/friendrequests": {
+      "requests": []
+    },
+    "/social/v2/friendrequests/patch": [],
+    "/social/v4/friends": {
+      "friends": []
+    },
+    "/social/v4/friends/patch": [],
+    "/v1/config/": {
+      "LastApplication": "offline-local",
+      "Collapsed": {
+        "SERVICEURL_ACCOUNT_XP": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_CONTENT": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_CONTRACT_DEFINITIONS": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_CONTRACTS": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_COREGAME": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_DAILY_TICKET": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_FAVORITES": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_MASS_REWARDS": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_MMR": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_NAME": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_PARTY": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_PERSONALIZATION": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_PREMIER": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_PREGAME": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_SESSION": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_STORE": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_MASTERY": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_LATENCY": "https://127.0.0.1:58089/.a.pvp.net",
+        "loginqueue.enabled": false,
+        "loginqueue.region": "na",
+        "progression.agentRecruitment.enabled": false
+      }
+    },
+    "/voice-chat/v1/status": "noProviders",
+    "/voice-chat/v4/sessions/valorant": []
+  },
+  "templates": {
+    "party": {
+      "ID": "00000000-0000-0000-0000-000000000001",
+      "MUCName": "offline-local-party@offline.na.pvp.net/00000000-0000-0000-0000-000000000001",
+      "VoiceRoomID": "offline-local-party",
+      "Members": [
+        {
+          "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+          "CompetitiveTier": 0,
+          "PlayerIdentity": {
+            "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+            "PlayerCardID": "00000000-0000-0000-0000-000000000000",
+            "PlayerTitleID": "00000000-0000-0000-0000-000000000000",
+            "AccountLevel": 1,
+            "PreferredLevelBorderID": "00000000-0000-0000-0000-000000000000",
+            "Incognito": false,
+            "HideAccountLevel": false
+          },
+          "SeasonalInfo": {},
+          "SeasonalBadgeInfo": {},
+          "IsOwner": true,
+          "IsReady": true,
+          "QueueEligibleRemainingAccountLevels": 0,
+          "Pings": [],
+          "IsModerator": true,
+          "UseBroadcastHUD": false,
+          "IsCrossPlayEnabled": false,
+          "PremierPrestige": {},
+          "PreferredAgentInfo": {},
+          "CurrentExperience": ""
+        }
+      ],
+      "CustomGameData": {
+        "Settings": {
+          "Name": "Offline Local",
+          "Description": "",
+          "Map": "",
+          "Mode": "",
+          "GamePod": "",
+          "UseBots": false,
+          "GameRules": {},
+          "EsportsCustomLobbyName": ""
+        },
+        "Membership": {
+          "TeamOne": [],
+          "TeamTwo": [],
+          "TeamSpectate": [],
+          "TeamOneCoaches": [],
+          "TeamTwoCoaches": []
+        },
+        "MaxPartySize": 5,
+        "AutobalanceEnabled": false,
+        "AutobalanceMinPlayers": 0
+      },
+      "MatchmakingData": {
+        "QueueID": "unrated",
+        "QueueIneligibleMemberPairs": [],
+        "PreferredGamePods": [],
+        "SkillDisparityRRPenalty": 0.0
+      },
+      "TournamentData": {},
+      "ClientVersion": "release-13.06-shipping-18-5590001",
+      "Version": 1,
+      "LookingForMore": false,
+      "CheatData": {},
+      "EligibleQueues": [
+        "unrated"
+      ],
+      "XPBonuses": [],
+      "State": "DEFAULT",
+      "PreviousState": "DEFAULT",
+      "Accessibility": "OPEN",
+      "StateTransitionReason": "NONE",
+      "Invites": [],
+      "ExternalInvites": [],
+      "Requests": [],
+      "QueueEntryTime": "0001-01-01T00:00:00.000Z",
+      "EstimatedQueueTimeSeconds": 0.0,
+      "ErrorNotification": {},
+      "RestrictedSeconds": 0,
+      "QueueIneligibilities": [],
+      "InviteCode": "",
+      "IsCrossPlayEnabled": false,
+      "PreferredAgents": {}
+    },
+    "party_player": {
+      "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "Version": 1,
+      "SessionClientID": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "CurrentPartyID": "00000000-0000-0000-0000-000000000001",
+      "Invites": [],
+      "Requests": [],
+      "PlatformInfo": {
+        "platformType": "PC",
+        "platformOS": "Windows",
+        "platformOSVersion": "10.0.19045.0.256.64bit",
+        "platformChipset": "Unknown"
+      }
+    },
+    "session": {
+      "raw": "",
+      "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "cxnState": "CONNECTED",
+      "cxnCloseReason": "",
+      "clientID": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "loopState": "MENUS",
+      "loopStateMetadata": "",
+      "version": 1,
+      "lastHeartbeatTime": "2026-10-11T05:45:00.000Z",
+      "expiredTime": "2099-01-01T00:00:00.000Z",
+      "heartbeatIntervalMillis": 60000,
+      "heartbeatInterval": {
+        "ticks": 600000000
+      },
+      "heartbeatIntervalMSString": "60000",
+      "playtimeNotification": "",
+      "playtimeMinutes": 0,
+      "restrictionType": "",
+      "userInfoValidTime": "2099-01-01T00:00:00.000Z",
+      "ticket": "",
+      "shouldForceInvalidate": false
+    },
+    "range_match": {
+      "MatchID": "{match_id}",
+      "Version": 1,
+      "State": "IN_PROGRESS",
+      "MapID": "/Game/Maps/Poveglia/Range",
+      "ModeID": "/Game/GameModes/ShootingRange/ShootingRangeGameMode.ShootingRangeGameMode_C",
+      "ProvisioningFlow": "ShootingRange",
+      "GamePodID": "offline-local-range",
+      "AllMUCName": "offline-local-range-all@offline.na.pvp.net/{match_id}",
+      "TeamMUCName": "offline-local-range-team@offline.na.pvp.net/{match_id}",
+      "TeamVoiceID": "offline-local-range-voice",
+      "TeamMatchToken": "eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJzdWIiOiI3YzlmNDFhNC02NWUyLTRkODEtYThkNS1mODc5YzNlNWFiNjEiLCJwdXVpZCI6IjdjOWY0MWE0LTY1ZTItNGQ4MS1hOGQ1LWY4NzljM2U1YWI2MSIsImlzcyI6Imh0dHBzOi8vb2ZmbGluZS5sb2NhbCIsImF1ZCI6Im9mZmxpbmUtcmFuZ2UiLCJpYXQiOjE3MDAwMDAwMDAsImV4cCI6NDEwMjQ0NDgwMCwiYWNjdCI6eyJnYW1lX25hbWUiOiJPZmZsaW5lUGxheWVyIiwidGFnX2xpbmUiOiJMT0NBTCJ9LCJtYXRjaF9pZCI6InttYXRjaF9pZH0ifQ.",
+      "IsReconnectable": true,
+      "ConnectionDetails": {
+        "GameServerHosts": [
+          "127.0.0.1"
+        ],
+        "GameServerHost": "127.0.0.1",
+        "GameServerPort": 58100,
+        "GameServerObfuscatedIP": 0,
+        "GameClientHash": 0,
+        "PlayerKey": ""
+      },
+      "PostGameDetails": null,
+      "Players": [
+        {
+          "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+          "TeamID": "Blue",
+          "CharacterID": "add6443a-41bd-e414-f6ad-e58d267f4e95",
+          "PlayerIdentity": {
+            "Subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+            "PlayerCardID": "00000000-0000-0000-0000-000000000000",
+            "PlayerTitleID": "00000000-0000-0000-0000-000000000000",
+            "AccountLevel": 1,
+            "PreferredLevelBorderID": "00000000-0000-0000-0000-000000000000",
+            "Incognito": false,
+            "HideAccountLevel": false
+          },
+          "SeasonalBadgeInfo": {
+            "SeasonID": "8102cd81-43a0-d0d7-bd59-47b8fe9bed1b",
+            "NumberOfWins": 0,
+            "WinsByTier": null,
+            "Rank": 0,
+            "LeaderboardRank": 0
+          },
+          "IsCoach": false,
+          "IsAssociated": true
+        }
+      ],
+      "MatchmakingData": null
+    },
+    "presence": {
+      "name": "OfflinePlayer",
+      "game_name": "OfflinePlayer",
+      "game_tag": "LOCAL",
+      "pid": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61@pvp.net",
+      "puuid": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+      "resource": "RC",
+      "product": "valorant",
+      "patchline": "live",
+      "platform": "PC",
+      "state": "chat",
+      "time": 0,
+      "msg": "",
+      "actor": "",
+      "details": "",
+      "location": "",
+      "private": "eyJpc1ZhbGlkIjp0cnVlLCJpc0lkbGUiOmZhbHNlLCJxdWV1ZUlkIjoidW5yYXRlZCIsInByb3Zpc2lvbmluZ0Zsb3ciOiJJbnZhbGlkIiwicGFydHlJZCI6IjAwMDAwMDAwLTAwMDAtMDAwMC0wMDAwLTAwMDAwMDAwMDAwMSIsInBhcnR5U2l6ZSI6MSwibWF4UGFydHlTaXplIjo1LCJtYXRjaFByZXNlbmNlRGF0YSI6eyJzZXNzaW9uTG9vcFN0YXRlIjoiTUVOVVMiLCJxdWV1ZUlkIjoidW5yYXRlZCJ9LCJwYXJ0eVByZXNlbmNlRGF0YSI6eyJwYXJ0eUlkIjoiMDAwMDAwMDAtMDAwMC0wMDAwLTAwMDAtMDAwMDAwMDAwMDAxIiwicGFydHlTaXplIjoxLCJtYXhQYXJ0eVNpemUiOjUsInBhcnR5U3RhdGUiOiJERUZBVUxUIiwiaXNQYXJ0eU93bmVyIjp0cnVlfSwicGxheWVyUHJlc2VuY2VEYXRhIjp7ImFjY291bnRMZXZlbCI6MSwicGxhdGZvcm1PdmVycmlkZSI6IlBDIn19"
+    },
+    "nameset": {
+      "puuid": "{player_id}",
+      "providerId": "offline",
+      "error": "",
+      "alias": {
+        "gameName": "OfflinePlayer",
+        "tagLine": "LOCAL"
+      },
+      "switchNameset": {
+        "nickname": ""
+      },
+      "xboxNameset": {
+        "classicGamertag": "",
+        "modernGamertag": "",
+        "modernSuffix": ""
+      },
+      "playstationNameset": {
+        "onlineId": ""
+      }
+    },
+    "agent_entitlement": {
+      "TypeID": "4e60e748-bce6-4faa-9327-ebbe6089d5fe",
+      "ItemId": "add6443a-41bd-e414-f6ad-e58d267f4e95",
+      "InstanceId": "00000000-0000-0000-0000-000000000003",
+      "DynamicOptionAssetIDs": []
+    },
+    "storefront": {
+      "FeaturedBundle": {
+        "FeaturedTileEntries": [],
+        "BundleRemainingDurationInSeconds": 0
+      },
+      "SkinsPanelLayout": {
+        "SingleItemStoreOffers": [
+          {
+            "OfferID": "9f51da57-4623-415a-6313-f49588297d0e",
+            "IsDirectPurchase": true,
+            "StartDate": "2026-10-13T00:00:00Z",
+            "Cost": {
+              "85ad13f7-3d1b-5128-9eb2-7cd8ee0b5741": 67
+            },
+            "Rewards": [
+              {
+                "ItemTypeID": "e7c63390-eda7-46e0-bb7a-a6abdacd2433",
+                "ItemID": "9f51da57-4623-415a-6313-f49588297d0e",
+                "Quantity": 1
+              }
+            ]
+          },
+          {
+            "OfferID": "726b77c9-41c3-80c6-f33e-068b9f74ef56",
+            "IsDirectPurchase": true,
+            "StartDate": "2026-10-13T00:00:00Z",
+            "Cost": {
+              "85ad13f7-3d1b-5128-9eb2-7cd8ee0b5741": 67
+            },
+            "Rewards": [
+              {
+                "ItemTypeID": "e7c63390-eda7-46e0-bb7a-a6abdacd2433",
+                "ItemID": "726b77c9-41c3-80c6-f33e-068b9f74ef56",
+                "Quantity": 1
+              }
+            ]
+          },
+          {
+            "OfferID": "3f547576-41a5-9b71-76d5-9288bb031350",
+            "IsDirectPurchase": true,
+            "StartDate": "2026-10-13T00:00:00Z",
+            "Cost": {
+              "85ad13f7-3d1b-5128-9eb2-7cd8ee0b5741": 67
+            },
+            "Rewards": [
+              {
+                "ItemTypeID": "e7c63390-eda7-46e0-bb7a-a6abdacd2433",
+                "ItemID": "3f547576-41a5-9b71-76d5-9288bb031350",
+                "Quantity": 1
+              }
+            ]
+          },
+          {
+            "OfferID": "a57aa3d0-4ad0-b06a-6c54-338cb3ea6b41",
+            "IsDirectPurchase": true,
+            "StartDate": "2026-10-13T00:00:00Z",
+            "Cost": {
+              "85ad13f7-3d1b-5128-9eb2-7cd8ee0b5741": 67
+            },
+            "Rewards": [
+              {
+                "ItemTypeID": "dd3bf334-87f3-40bd-b043-682a57a8dc3a",
+                "ItemID": "a57aa3d0-4ad0-b06a-6c54-338cb3ea6b41",
+                "Quantity": 1
+              }
+            ]
+          }
+        ],
+        "SingleItemOffersRemainingDurationInSeconds": 86400
+      },
+      "AccessoryStore": {
+        "AccessoryStoreOffers": [],
+        "AccessoryStoreRemainingDurationInSeconds": 86400,
+        "StorefrontID": "00000000-0000-0000-0000-000000000000"
+      },
+      "UpgradeCurrencyStore": {
+        "UpgradeCurrencyOffers": []
+      },
+      "PluginStores": [],
+      "SecondsUntilRefreshNeeded": 86400
+    },
+    "game_config": {
+      "LastApplication": "offline-local",
+      "Collapsed": {
+        "SERVICEURL_ACCOUNT_XP": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_CONTENT": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_CONTRACT_DEFINITIONS": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_CONTRACTS": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_COREGAME": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_DAILY_TICKET": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_FAVORITES": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_MASS_REWARDS": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_MMR": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_NAME": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_PARTY": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_PERSONALIZATION": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_PREMIER": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_PREGAME": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_SESSION": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_STORE": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_MASTERY": "https://127.0.0.1:58089/.a.pvp.net",
+        "SERVICEURL_LATENCY": "https://127.0.0.1:58089/.a.pvp.net",
+        "loginqueue.enabled": false,
+        "loginqueue.region": "na",
+        "progression.agentRecruitment.enabled": false
+      }
+    },
+    "queue_config": {
+      "Enabled": false,
+      "EnabledMaps": [],
+      "EnabledModes": [],
+      "Queues": [
+        {
+          "QueueID": "unrated",
+          "Enabled": true,
+          "TeamSize": 5,
+          "HighSkillTier": 1,
+          "Mode": "/Game/GameModes/Bomb/BombGameMode.BombGameMode_C",
+          "IsRanked": false,
+          "MinimumAccountLevelRequired": 0,
+          "MaxPartySize": 5,
+          "MaxPartySizeHighSkill": 5,
+          "MinPartySize": 1,
+          "InvalidPartySizes": [],
+          "MapPool": []
+        }
+      ],
+      "GamePodPingServiceInfo": {
+        "offline-local-gamepod": {
+          "SecurityHash": 0,
+          "ObfuscatedIP": 2130706433,
+          "PingProxyAddress": "127.0.0.1:58089",
+          "PingProxyAddresses": [
+            "127.0.0.1:58089"
+          ]
+        }
+      },
+      "QueueConfigsLastUpdated": "2026-10-11T00:00:00.000Z"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+[package]
+name = "aries-platform"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+axum = { version = "0.8", features = ["ws"] }
+axum-server = { version = "0.8", features = ["tls-rustls-no-provider"] }
+rustls = { version = "0.23", default-features = false, features = ["ring", "std", "tls12"] }
+base64 = "0.22"
+futures-util = "0.3"
+rmp-serde = "1"
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["preserve_order"] }
+tokio = { version = "1", features = ["full"] }
+uuid = { version = "1", features = ["v4", "v5", "serde"] }
+subtle = "2"
+indexmap = "2"
+
+[dev-dependencies]
+tempfile = "3"

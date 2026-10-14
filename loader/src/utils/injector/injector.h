@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <string>
 #include <stdexcept> 
+#include <filesystem>
 
 namespace loader::injector {
 
@@ -12,6 +13,7 @@ namespace loader::injector {
 		FailedAlloc,
 		FailedWrite,
 		FailedThread,
+		TimedOut,
 		FailedDll
 	};
 
@@ -19,26 +21,21 @@ namespace loader::injector {
 		std::uint32_t pid = -1;
 		std::uint64_t load_lib_w_addr = 0;
 		HANDLE process_handle = INVALID_HANDLE_VALUE;
+		DWORD thread_exit_code = 0;
 
 	public:
 
-		Injector(std::uint32_t pid) : pid(pid) {
-			process_handle = OpenProcess(PROCESS_ALL_ACCESS, FALSE, pid);
-			if (process_handle == INVALID_HANDLE_VALUE) {
-				throw std::runtime_error("Failed to open process");
-			}
-
-			load_lib_w_addr = reinterpret_cast<std::uint64_t>( // resolving addr avoids the annoying shit you have to do normally
-				GetProcAddress(GetModuleHandleA("kernel32.dll"), 
-					"LoadLibraryW"));
-		}
+		Injector(std::uint32_t process_id);
+		Injector(const Injector&) = delete;
+		auto operator=(const Injector&) -> Injector& = delete;
 
 		~Injector() {
-			if (process_handle != INVALID_HANDLE_VALUE) {
+			if (process_handle && process_handle != INVALID_HANDLE_VALUE) {
 				CloseHandle(process_handle);
 			}
 		}
 
-		[[nodiscard]] auto inject_module(const std::string& module_path) -> InjectionResult;
+		[[nodiscard]] auto inject_module(const std::filesystem::path& module_path) -> InjectionResult;
+		[[nodiscard]] auto last_thread_exit_code() const -> DWORD { return thread_exit_code; }
 	};
 }

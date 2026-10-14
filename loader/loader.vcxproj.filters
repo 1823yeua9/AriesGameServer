@@ -18,6 +18,8 @@
     <ClCompile Include="src\entry.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\init\runtime.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="src\init\networking\firewall.cpp"><Filter>Source Files</Filter></ClCompile>
     <ClCompile Include="src\utils\config\settings.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -32,6 +34,7 @@
     <ClInclude Include="src\pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\init\runtime.h"><Filter>Header Files</Filter></ClInclude>
     <ClInclude Include="src\utils\config\settings.h">
       <Filter>Header Files</Filter>
     </ClInclude>
