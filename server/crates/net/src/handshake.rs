@@ -1,4 +1,4 @@
-//! ue stateless connect handshake (connectionless packets before the ares
+﻿//! ue stateless connect handshake (connectionless packets before the ares
 //! session). production uses the raw framing: 4 zero envelope bytes, no ares
 //! trailer. mirrors range_udp_handshake parse_handshake/build_challenge/build_ack.
 
@@ -31,7 +31,7 @@ pub struct HandshakePacket {
 
 #[derive(Debug, Clone, PartialEq, Eq, thiserror::Error)]
 pub enum HandshakeError {
-    #[error("missing expected eight-byte ares initial envelope")]
+    #[error("missing expected eight-byte Ares initial envelope")]
     Envelope,
     #[error("truncated handshake")]
     Truncated,
