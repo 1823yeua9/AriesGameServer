@@ -7,5 +7,9 @@ license.workspace = true
 
 [dependencies]
 aries-bits.workspace = true
+aries-oracle.workspace = true
+aries-range.workspace = true
 log.workspace = true
+serde.workspace = true
+toml.workspace = true
 windows-sys.workspace = true

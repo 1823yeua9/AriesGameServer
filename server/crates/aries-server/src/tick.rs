@@ -31,6 +31,7 @@ impl TickClock {
     }
 
     /// seconds per tick, for simulation code.
+    #[allow(dead_code)]
     pub fn delta(&self) -> f64 {
         self.period.as_secs_f64()
     }
