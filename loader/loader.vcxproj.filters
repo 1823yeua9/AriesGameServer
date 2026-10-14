@@ -18,6 +18,15 @@
     <ClCompile Include="src\entry.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\application.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\command_line.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\init\launch_session.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="src\init\runtime.cpp"><Filter>Source Files</Filter></ClCompile>
     <ClCompile Include="src\init\networking\firewall.cpp"><Filter>Source Files</Filter></ClCompile>
     <ClCompile Include="src\utils\config\settings.cpp">
@@ -32,6 +41,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\pch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\application.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\command_line.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\init\launch_session.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\init\runtime.h"><Filter>Header Files</Filter></ClInclude>

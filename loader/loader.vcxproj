@@ -21,6 +21,9 @@
   <ItemGroup>
     <ClCompile Include="src\utils\config\settings.cpp" />
     <ClCompile Include="src\entry.cpp" />
+    <ClCompile Include="src\application.cpp" />
+    <ClCompile Include="src\command_line.cpp" />
+    <ClCompile Include="src\init\launch_session.cpp" />
     <ClCompile Include="src\utils\injector\injector.cpp" />
     <ClCompile Include="src\init\runtime.cpp" />
     <ClCompile Include="src\init\networking\firewall.cpp" />
@@ -32,6 +35,9 @@
     <ClInclude Include="src\init\networking\firewall.h" />
     <ClInclude Include="src\pch.h" />
     <ClInclude Include="src\init\runtime.h" />
+    <ClInclude Include="src\application.h" />
+    <ClInclude Include="src\command_line.h" />
+    <ClInclude Include="src\init\launch_session.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>18.0</VCProjectVersion>
