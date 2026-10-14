@@ -333,9 +333,164 @@ impl BringupState {
     }
 }
 
-/// runs at most one stage. returns true when a stage sent.
-pub fn run_stage_chain(_reply: &mut Reply, _config: &RangeConfig) -> bool {
-    false
+/// one fixed-offset reliable send of a stage.
+struct Frame {
+    channel: u32,
+    offset: u32,
+    open: bool,
+    exports: bool,
+    body: aries_rep::RepResult<aries_bits::Bits>,
+}
+
+fn frame(channel: u32, offset: u32, open: bool, exports: bool, body: aries_rep::RepResult<aries_bits::Bits>) -> Frame {
+    Frame { channel, offset, open, exports, body }
+}
+
+/// the frames a stage sends and its python event key. counters (slot index,
+/// team index, equippable index, correction index) are read here and advanced
+/// by advance() after the send.
+fn stage_frames(stage: Stage, reply: &Reply, config: &RangeConfig, hooks: &mut dyn StageHooks) -> (Vec<Frame>, &'static str) {
+    use aries_rep::setup::*;
+    let state = &reply.conn.bringup;
+    match stage {
+        Stage::WorldSettingsOpen => (vec![frame(3, 0, true, true, world_settings_open())], "sent_actor_open_probe_length"),
+        Stage::GameStateOpen => (vec![frame(4, 0, true, true, game_state_open())], "sent_game_state_probe_length"),
+        Stage::ControllerOpen => (vec![frame(5, 0, true, true, controller_open())], "sent_player_controller_probe_length"),
+        Stage::PlayerStateOpen => (vec![frame(6, 0, true, true, player_state_open())], "sent_player_state_probe_length"),
+        Stage::PlayerInfoOpen => (vec![frame(7, 0, true, true, player_info_open())], "sent_player_info_probe_length"),
+        Stage::PawnOpen => (vec![frame(8, 0, true, true, pawn_open())], "sent_wushu_pawn_probe_length"),
+        Stage::GameStateBool => (vec![frame(4, 1, false, false, game_state_bool_h18_body(GAME_STATE_BOOL_VALUE))], "sent_game_state_bool_probe_length"),
+        Stage::ControllerPlayerState => (vec![frame(5, 1, false, false, controller_player_state_link())], "sent_controller_player_state_link_length"),
+        Stage::ControllerPawn => (vec![frame(5, 2, false, false, controller_pawn_link())], "sent_controller_pawn_link_length"),
+        Stage::PlayerStatePlayerInfo => (vec![frame(6, 1, false, false, player_state_player_info_link())], "sent_player_state_info_link_length"),
+        Stage::PlayerStateCharacter => (
+            vec![frame(6, 2, false, false, player_state_spawned_character_link()), frame(6, 3, false, false, player_state_possessed_character_link())],
+            "sent_player_state_spawned_character_link_length",
+        ),
+        Stage::PlayerStateDesiredClass => (vec![frame(6, 4, false, false, player_state_desired_class_body(config.desired_class_guid))], "sent_player_state_desired_class_link_length"),
+        Stage::PlayerInfoController => (vec![frame(7, 1, false, false, player_info_controller_link())], "sent_player_info_controller_link_length"),
+        Stage::PawnPlayerState => (vec![frame(8, 1, false, false, pawn_player_state_link())], "sent_pawn_player_state_link_length"),
+        Stage::PawnController => (vec![frame(8, 2, false, false, pawn_controller_link())], "sent_pawn_controller_link_length"),
+        Stage::PawnRole => (vec![frame(8, 3, false, false, pawn_remote_role_body())], "sent_pawn_autonomous_role_length"),
+        Stage::InventoryOpen => (vec![frame(8, 4, false, true, inventory_open_body())], "sent_inventory_open_length"),
+        Stage::ItemSlotCreate => (vec![frame(8, 5, false, true, item_slot_create_body(0))], "sent_item_slot_create_length"),
+        Stage::ItemSlotLink => (vec![frame(8, 6, false, false, item_slot_link_body(0))], "sent_item_slot_link_length"),
+        Stage::ItemSlotScale => {
+            let slot = state.item_slot_scale_index;
+            let offset = 7 + 2 * (slot - 1);
+            (vec![frame(8, offset, false, true, item_slot_create_body(slot)), frame(8, offset + 1, false, false, item_slot_link_body(slot))], "sent_item_slot_scale_pair_length")
+        }
+        Stage::PistolOpen => (vec![frame(9, 0, true, true, hooks.pistol_open_body(config))], "sent_base_pistol_open_length"),
+        Stage::PistolLink => (vec![frame(8, 37, false, false, pistol_slot_contents_body())], "sent_base_pistol_link_length"),
+        Stage::PistolOwner => (vec![frame(9, 1, false, false, pistol_owner_body())], "sent_base_pistol_owner_length"),
+        Stage::PistolRole => (vec![frame(9, 2, false, false, pistol_remote_role_body())], "sent_base_pistol_role_length"),
+        Stage::PistolStateMachine => (vec![frame(9, 3, false, true, pistol_state_machine_open_body())], "sent_equippable_sm_open_length"),
+        Stage::PistolInactiveState => (vec![frame(9, 4, false, true, pistol_inactive_state_body())], "sent_inactive_state_link_length"),
+        Stage::InventoryCorrection => {
+            let index = reply.conn.correction_index + 1;
+            (vec![frame(8, 37 + index, false, false, pistol_correction_body(index))], "sent_auth_correct_rep_length")
+        }
+        Stage::ClientRestart => (vec![frame(5, 3, false, false, client_restart_body())], "sent_client_restart_rpc_length"),
+        Stage::GameStatePhase => (vec![frame(4, 2, false, false, game_state_phase_body(config.game_state_phase))], "sent_game_state_phase_probe_length"),
+        Stage::TeamStateOpen => {
+            let team = state.team_state_open_index as usize;
+            (vec![frame(10 + team as u32, 0, true, true, team_state_open_body(team))], "sent_team_state_open_length")
+        }
+        Stage::TeamStateArray => (vec![frame(4, 3, false, false, team_state_array_body())], "sent_team_state_array_length"),
+        Stage::TeamStateLink => {
+            let team = state.team_state_link_index as usize;
+            (vec![frame(10 + team as u32, 1, false, true, team_state_link_body(team))], "sent_team_state_link_length")
+        }
+        Stage::TeamStatePlayer => (vec![frame(6, 5, false, false, player_state_team_body())], "sent_team_state_player_length"),
+        Stage::BombTeamOpen => (vec![frame(6, 6, false, true, bomb_team_open_body())], "sent_bomb_team_open_length"),
+        Stage::BombTeamNumber => (vec![frame(6, 7, false, false, bomb_team_number_body(config.player_team as i64, BOMB_TEAM_NUMBER_BITS))], "sent_bomb_team_number_length"),
+        Stage::AccessibleCharacters => (vec![frame(6, 8, false, false, accessible_character_list_body(config.desired_class_guid))], "sent_accessible_character_length"),
+        Stage::PlayerUniqueId => (vec![frame(6, 9, false, false, player_unique_id_body(&config.player_id))], "sent_player_unique_id_length"),
+        Stage::RangeMoney => (vec![frame(6, 10, false, true, range_money_body())], "sent_range_money_length"),
+        Stage::PawnOwner => (vec![frame(8, 43, false, false, pawn_owner_body())], "sent_pawn_owner_length"),
+        Stage::ClientSetHud => {
+            let (field, max) = hooks.client_set_hud_index();
+            (vec![frame(5, 5, false, true, hud_set_body(field, max))], "sent_hud_set_length")
+        }
+        Stage::MatchState => (vec![frame(4, 4, false, false, match_state_body())], "sent_match_state_length"),
+        Stage::GameplayStart => (vec![frame(4, 5, false, false, gameplay_start_body())], "sent_gameplay_start_length"),
+        Stage::PlayerArray => (vec![frame(4, 6, false, false, player_array_body())], "sent_player_array_length"),
+        Stage::RangeShop => (vec![frame(4, 7, false, false, range_shop_body())], "sent_range_shop_settings_length"),
+        Stage::StartingEquippable => {
+            let index = state.starting_equippable_index as usize;
+            let channel = aries_rep::actors::STARTING_EQUIPPABLE_FIRST_CHANNEL + index as u32;
+            (
+                vec![
+                    frame(channel, 0, true, true, hooks.starting_equippable_open_body(index, config)),
+                    frame(channel, 1, false, false, starting_equippable_owner_body(index)),
+                    frame(8, 44 + index as u32, false, false, starting_equippable_contents_body(index)),
+                ],
+                "sent_starting_equippable_length",
+            )
+        }
+        Stage::MeleeRole => (vec![frame(13, 2, false, false, knife_remote_role_body())], "sent_melee_autonomous_role_length"),
+        Stage::MeleeStateMachine => (vec![frame(13, 3, false, true, knife_state_machine_open_body())], "sent_melee_state_machine_open_length"),
+        Stage::MeleeInactiveState => (vec![frame(13, 4, false, true, knife_inactive_state_body())], "sent_melee_inactive_state_length"),
+        Stage::ViewTarget => (vec![frame(5, 4, false, true, viewtarget_body())], "sent_viewtarget_length"),
+    }
+}
+
+/// the gameplay-dependent pieces of bring-up (skins, ability tuning, live
+/// rpc indices). each default is the python's fallback.
+pub trait StageHooks {
+    /// A21: the saved-skin pistol open, else the plain one.
+    fn pistol_open_body(&mut self, _config: &RangeConfig) -> aries_rep::RepResult<aries_bits::Bits> {
+        aries_rep::setup::base_pistol_open_body()
+    }
+    /// B18: the knife-skin and ability-tuning opens replace the default ones.
+    fn starting_equippable_open_body(&mut self, index: usize, _config: &RangeConfig) -> aries_rep::RepResult<aries_bits::Bits> {
+        aries_rep::setup::starting_equippable_open_body(index)
+    }
+    /// B13: ClientSetHUD (field, class max) from the live class net cache; 52/178 in every logged run.
+    fn client_set_hud_index(&mut self) -> (u32, u32) {
+        (aries_rep::rpc::CLIENT_SET_HUD_FIELD, aries_rep::rpc::CONTROLLER_CLASS_MAX)
+    }
+}
+
+/// no live client data: every stage uses the python fallback.
+pub struct DefaultHooks;
+impl StageHooks for DefaultHooks {}
+
+/// runs at most one stage (the first ready one in chain order). returns the
+/// stage when it sent. a stage whose body fails to build is logged and skipped
+/// this tick (the python would crash the responder; we keep the session).
+pub fn run_stage_chain(reply: &mut Reply, config: &RangeConfig, hooks: &mut dyn StageHooks) -> Option<Stage> {
+    let stage = reply.conn.bringup.next_stage(reply.now, reply.conn.correction_index)?;
+    let (frames, key) = stage_frames(stage, reply, config, hooks);
+    let mut total = 0usize;
+    for frame in frames {
+        let body = match frame.body {
+            Ok(body) => body,
+            Err(error) => {
+                reply.event.set("stage_error", format!("{stage:?}: {error}"));
+                return None;
+            }
+        };
+        match reply.send_fixed(frame.channel, frame.offset, &body, frame.exports, frame.open) {
+            Ok(length) => total += length,
+            Err(error) => {
+                reply.event.set("stage_error", format!("{stage:?}: {error}"));
+                return None;
+            }
+        }
+    }
+    reply.event.set(key, total);
+    if stage == Stage::InventoryCorrection {
+        reply.conn.correction_index += 1;
+        reply.event.set("auth_correct_rep_index", reply.conn.correction_index);
+    }
+    if stage == Stage::ClientSetHud {
+        reply.conn.bringup.hud_rpc = Some(hooks.client_set_hud_index());
+    }
+    let now = reply.now;
+    reply.conn.bringup.advance(stage, now);
+    log::info!(target: "bringup", "{stage:?} ({key} {total})");
+    Some(stage)
 }
 
 #[cfg(test)]

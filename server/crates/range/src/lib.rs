@@ -48,6 +48,8 @@ pub struct RangeServer {
     key_source: Box<dyn KeySource>,
     pub connections: HashMap<SocketAddr, Connection>,
     pub events: EventLog,
+    /// skins, ability tuning and live rpc indices for bring-up
+    pub hooks: Box<dyn bringup::StageHooks>,
     start: f64,
 }
 
@@ -56,7 +58,7 @@ pub const WELCOME_MAP_URL: &str = "/Game/Maps/Poveglia/Range";
 
 impl RangeServer {
     pub fn new(config: RangeConfig, key_source: Box<dyn KeySource>, event_path: Option<&Path>) -> Self {
-        Self { config, keys: None, key_source, connections: HashMap::new(), events: EventLog::new(event_path), start: 0.0 }
+        Self { config, keys: None, key_source, connections: HashMap::new(), events: EventLog::new(event_path), hooks: Box::new(bringup::DefaultHooks), start: 0.0 }
     }
 
     /// handles one datagram at monotonic time `now` (seconds).
@@ -225,7 +227,7 @@ impl RangeServer {
                     reply.event.set("acked_client_sequence", header.sequence);
                     reply.event.set("server_sequence", server_sequence);
                     reply.conn.last_session_ack = Some(now);
-                    bringup::run_stage_chain(&mut reply, &self.config);
+                    bringup::run_stage_chain(&mut reply, &self.config, self.hooks.as_mut());
                     moves::run_move_ack(&mut reply, &self.config);
                 }
                 Err(error) => reply.event.set("session_ack_error", error.to_string()),
