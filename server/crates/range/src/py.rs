@@ -46,7 +46,7 @@ pub fn py_truthy(value: &Value) -> bool {
 /// python bytes.fromhex: ascii whitespace is skipped, pairs of hex digits.
 pub fn py_fromhex(text: &str) -> Result<Vec<u8>, String> {
     let digits: Vec<u8> = text.bytes().filter(|b| !b.is_ascii_whitespace()).collect();
-    if digits.len() % 2 != 0 || !digits.iter().all(u8::is_ascii_hexdigit) {
+    if !digits.len().is_multiple_of(2) || !digits.iter().all(u8::is_ascii_hexdigit) {
         return Err("non-hexadecimal number found in fromhex() arg".into());
     }
     Ok(digits.chunks(2).map(|pair| u8::from_str_radix(std::str::from_utf8(pair).expect("ascii"), 16).expect("hex")).collect())

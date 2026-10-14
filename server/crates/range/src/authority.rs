@@ -77,10 +77,8 @@ fn starting_equippables_done(reply: &Reply) -> bool {
 pub fn run_authority(reply: &mut Reply, env: &mut Env, decoded: &Bits) {
     let config = env.config;
     // python makes the state reader lazily each pass until it opens (1591-1598)
-    if !env.live.attached() {
-        if let Some(error) = env.live.attach_error() {
-            reply.event.set("equippable_reader_error", error);
-        }
+    if !env.live.attached() && let Some(error) = env.live.attach_error() {
+        reply.event.set("equippable_reader_error", error);
     }
     let pass = crate::mirror::run_mirror(reply, config, env.live);
     // python runs these inline in the mirror loop; each only touches its own channels

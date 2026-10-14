@@ -113,10 +113,9 @@ fn full_bringup_sequences() {
     let (_, challenge) = out.datagrams.pop().unwrap();
     server.handle_datagram(now, source, &response_datagram(&challenge), &mut out);
     out.datagrams.clear();
-    for packet in [client.control(0, true, 232)] {
-        let d = client.seal(&packet);
-        server.handle_datagram(now, source, &d, &mut out);
-    }
+    let hello = client.control(0, true, 232);
+    let d = client.seal(&hello);
+    server.handle_datagram(now, source, &d, &mut out);
     let short = client.short();
     let d = client.seal(&short);
     server.handle_datagram(now, source, &d, &mut out);
@@ -139,10 +138,8 @@ fn full_bringup_sequences() {
         server.handle_datagram(now, source, &d, &mut out);
         for (_, datagram) in out.datagrams.drain(..) {
             let (packet, _) = open_server_datagram(&datagram, &client.server_gcm).unwrap();
-            if let Some(bunch) = inspect_first_bunch(&packet) {
-                if bunch.reliable {
-                    per_channel.entry(bunch.channel_index).or_default().push(bunch.channel_sequence.unwrap());
-                }
+            if let Some(bunch) = inspect_first_bunch(&packet) && bunch.reliable {
+                per_channel.entry(bunch.channel_index).or_default().push(bunch.channel_sequence.unwrap());
             }
         }
     }
@@ -206,11 +203,9 @@ fn move_acks_follow_client_restart() {
         restart_seen |= server.connections[&source].bringup.sent(aries_range::bringup::Stage::ClientRestart);
         for (_, datagram) in out.datagrams.drain(..) {
             let (packet, _) = open_server_datagram(&datagram, &client.server_gcm).unwrap();
-            if let Some(bunch) = inspect_first_bunch(&packet) {
-                if !bunch.reliable && bunch.channel_index == 8 {
-                    assert!(restart_seen, "no move ack before ClientRestart");
-                    acks.push((datagram.len(), bunch.bunch_bit_count));
-                }
+            if let Some(bunch) = inspect_first_bunch(&packet) && !bunch.reliable && bunch.channel_index == 8 {
+                assert!(restart_seen, "no move ack before ClientRestart");
+                acks.push((datagram.len(), bunch.bunch_bit_count));
             }
         }
         if acks.len() > 30 {

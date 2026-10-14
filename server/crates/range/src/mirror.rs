@@ -125,12 +125,10 @@ pub fn run_mirror(reply: &mut Reply, config: &RangeConfig, live: &mut dyn LiveCl
             pass.smoke_state = Some(machine.predicted.clone());
         }
         // a shot consumes the firing state's networked seed (works with infinite ammo too)
-        if config.features.bots && machine.is_current && !equippable.resources.is_empty() {
-            if let Some(seed) = live.firing_seed(machine.state_machine, &equippable.key) {
-                let previous = reply.conn.authority.mirror.firing_seeds.insert(equippable.key.clone(), seed);
-                if previous.is_some_and(|p| p != seed) {
-                    pass.shots.push(equippable.class_name.clone());
-                }
+        if config.features.bots && machine.is_current && !equippable.resources.is_empty() && let Some(seed) = live.firing_seed(machine.state_machine, &equippable.key) {
+            let previous = reply.conn.authority.mirror.firing_seeds.insert(equippable.key.clone(), seed);
+            if previous.is_some_and(|p| p != seed) {
+                pass.shots.push(equippable.class_name.clone());
             }
         }
         // ammo first: a gun at AuthResourceAmount 0 never predicts FiringState

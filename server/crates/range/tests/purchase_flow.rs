@@ -99,7 +99,7 @@ fn vandal_purchase_job_and_mirror() {
     let ch20 = h.on(20);
     assert_eq!(ch20[before].body, vector("02000000aa100a22100022000000b4dededaa6e8c2e8ca9ac2c6d0d2dcca0000000000aa4228f109", 317));
     assert_eq!(ch20[before + 1].body, vector("02000000b2100a22100024000000b4dededaa6e8c2e8ca92dcc2c6e8d2ecca0000000000aa4228644d121806", 349));
-    let allocator = h.server.connections[&h.source].authority.purchases.allocator.clone().unwrap();
+    let allocator = h.server.connections[&h.source].authority.purchases.allocator.unwrap();
     assert_eq!((allocator.next_channel, allocator.next_guid), (21, 570));
 
     // the player equips it: ammo seeds, zoom and EquipState are confirmed in that order

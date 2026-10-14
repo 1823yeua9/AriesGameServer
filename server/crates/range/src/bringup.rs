@@ -453,7 +453,7 @@ fn stage_plan(stage: Stage, reply: &mut Reply, env: &mut Env) -> StagePlan {
                 .with("item_slot_scale_slot_guid", aries_rep::bodies::item_slot_net_guid(slot))
                 .with("item_slot_scale_wire_handle", ITEM_SLOT_FIRST_WIRE_HANDLE + slot)
         }
-        Stage::PistolOpen => plan(vec![frame(9, 0, true, true, crate::hooks::pistol_open_body(env, &mut reply.event))], "sent_base_pistol_open_length").with("base_pistol_actor_guid", aries_world::cosmetics::BASE_PISTOL_ACTOR_GUID),
+        Stage::PistolOpen => plan(vec![frame(9, 0, true, true, crate::hooks::pistol_open_body(env, reply.event))], "sent_base_pistol_open_length").with("base_pistol_actor_guid", aries_world::cosmetics::BASE_PISTOL_ACTOR_GUID),
         Stage::PistolLink => plan(vec![frame(8, 37, false, false, pistol_slot_contents_body())], "sent_base_pistol_link_length"),
         Stage::PistolOwner => plan(vec![frame(9, 1, false, false, pistol_owner_body())], "sent_base_pistol_owner_length"),
         Stage::PistolRole => plan(vec![frame(9, 2, false, false, pistol_remote_role_body())], "sent_base_pistol_role_length"),
@@ -505,7 +505,7 @@ fn stage_plan(stage: Stage, reply: &mut Reply, env: &mut Env) -> StagePlan {
             let entry = aries_rep::actors::STARTING_EQUIPPABLES[index];
             let guid = aries_rep::actors::STARTING_EQUIPPABLE_FIRST_GUID + 4 * index as u32;
             let frames = vec![
-                frame(channel, 0, true, true, crate::hooks::starting_equippable_open_body(index, env, &mut reply.event)),
+                frame(channel, 0, true, true, crate::hooks::starting_equippable_open_body(index, env, reply.event)),
                 frame(channel, 1, false, false, starting_equippable_owner_body(index)),
                 frame(8, 44 + index as u32, false, false, starting_equippable_contents_body(index)),
             ];
@@ -536,7 +536,7 @@ const PAWN_OWNER_GUID: u32 = 4;
 pub fn run_stage_chain(reply: &mut Reply, env: &mut Env) -> Option<Stage> {
     let stage = reply.conn.bringup.next_stage(reply.now, reply.conn.correction_index)?;
     if stage == Stage::ClientSetHud {
-        reply.conn.bringup.hud_rpc = Some(crate::hooks::client_set_hud_index(env, &mut reply.event));
+        reply.conn.bringup.hud_rpc = Some(crate::hooks::client_set_hud_index(env, reply.event));
     }
     let plan = stage_plan(stage, reply, env);
     let mut total = 0usize;

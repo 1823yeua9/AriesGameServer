@@ -35,7 +35,7 @@ impl Bits {
     }
 
     pub fn from_hex(hex: &str, bit_count: usize) -> Result<Self, BitError> {
-        if hex.len() % 2 != 0 || !hex.is_ascii() {
+        if !hex.len().is_multiple_of(2) || !hex.is_ascii() {
             return Err(BitError::BadHex);
         }
         let bytes = (0..hex.len())

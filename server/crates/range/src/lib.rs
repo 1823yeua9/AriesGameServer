@@ -192,12 +192,10 @@ impl RangeServer {
             let matches = conn.pending.is_some_and(|(timestamp, cookie)| packet.timestamp == timestamp && packet.cookie == cookie);
             event.set("matches_challenge", matches);
             event.set("cookie_sha256_prefix", cookie_prefix(&packet.cookie));
-            if matches {
-                if let Some(ack) = handshake::build_ack(packet, &random_bytes()) {
-                    let datagram = handshake::wrap_raw(&ack, RAW_ENVELOPE_BYTES);
-                    event.set("sent_ack_length", datagram.len());
-                    out.datagrams.push((source, datagram));
-                }
+            if matches && let Some(ack) = handshake::build_ack(packet, &random_bytes()) {
+                let datagram = handshake::wrap_raw(&ack, RAW_ENVELOPE_BYTES);
+                event.set("sent_ack_length", datagram.len());
+                out.datagrams.push((source, datagram));
             }
         }
     }

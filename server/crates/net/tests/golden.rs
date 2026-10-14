@@ -39,7 +39,7 @@ fn transform_matches_python() {
         // and they undo each other
         assert!(inverse_short_packet(&mut forward, bits, counter));
         let mask_last = |v: &mut Vec<u8>| {
-            if bits % 8 != 0 {
+            if !bits.is_multiple_of(8) {
                 let last = v.len() - 1;
                 v[last] &= (1u8 << (bits % 8)) - 1;
             }

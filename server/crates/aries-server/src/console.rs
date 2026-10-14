@@ -79,10 +79,8 @@ impl Log for Logger {
                 let _ = writeln!(std::io::stdout(), "{line}");
             }
         }
-        if let Ok(mut file) = self.file.lock() {
-            if let Some(file) = file.as_mut() {
-                let _ = writeln!(file, "{elapsed:9.3} {tag} {target:<14} {}", record.args());
-            }
+        if let Ok(mut file) = self.file.lock() && let Some(file) = file.as_mut() {
+            let _ = writeln!(file, "{elapsed:9.3} {tag} {target:<14} {}", record.args());
         }
     }
 
@@ -91,10 +89,8 @@ impl Log for Logger {
         if let Ok(Some(console)) = self.console.lock().as_deref_mut() {
             let _ = console.flush();
         }
-        if let Ok(mut file) = self.file.lock() {
-            if let Some(file) = file.as_mut() {
-                let _ = file.flush();
-            }
+        if let Ok(mut file) = self.file.lock() && let Some(file) = file.as_mut() {
+            let _ = file.flush();
         }
     }
 }
