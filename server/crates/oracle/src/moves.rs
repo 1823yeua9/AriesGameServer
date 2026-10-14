@@ -36,6 +36,8 @@ pub struct SavedMoves {
     pub move_handler_gate_open: bool,
     /// movement +0x13D8 (diagnostic)
     pub dropping_moves: bool,
+    /// saved move +592 of that same slot (RMN:145-146): the player-position stream's feed
+    pub newest_saved_location: Option<[f64; 3]>,
 }
 
 impl SavedMoves {
@@ -88,6 +90,7 @@ pub fn read_saved_moves(memory: &impl Memory) -> Result<Option<SavedMoves>, Orac
     let walked = count.min(MAX_WALKED) as u64;
     let mut numbers = Vec::new();
     let mut newest_timestamp_bits = None;
+    let mut newest_saved_location = None;
     let mut saw_move = false;
     for i in 0..walked {
         let saved_move = memory.u64(at(base, SAVED_STRIDE * i))?;
@@ -105,7 +108,8 @@ pub fn read_saved_moves(memory: &impl Memory) -> Result<Option<SavedMoves>, Orac
             newest_timestamp_bits = Some(memory.u32(at(saved_move, SAVED_MOVE_TIMESTAMP))?);
             // move direction and saved location: follow/track modes only (RMN:143-146)
             memory.read::<24>(at(saved_move, 1080))?;
-            memory.read::<24>(at(saved_move, 592))?;
+            let location = memory.read::<24>(at(saved_move, 592))?;
+            newest_saved_location = Some([0, 8, 16].map(|o| f64::from_le_bytes(location[o..o + 8].try_into().expect("8 bytes"))));
         }
     }
     let (Some(&oldest), Some(&newest)) = (numbers.first(), numbers.last()) else {
@@ -120,5 +124,6 @@ pub fn read_saved_moves(memory: &impl Memory) -> Result<Option<SavedMoves>, Orac
         newest_timestamp_bits,
         move_handler_gate_open: move_handler_flags & 0x20 != 0,
         dropping_moves,
+        newest_saved_location,
     }))
 }

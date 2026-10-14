@@ -62,7 +62,7 @@ impl LiveClient for OracleLive {
 
     fn saved_moves(&mut self) -> Result<Option<SavedMoves>, String> {
         let moves = self.oracle()?.saved_moves().map_err(text)?;
-        Ok(moves.map(|m| SavedMoves { newest: m.newest, count: m.count, oldest: Some(m.oldest), last_acked: m.last_acked, timestamp: m.newest_timestamp(), newest_location: None }))
+        Ok(moves.map(|m| SavedMoves { newest: m.newest, count: m.count, oldest: Some(m.oldest), last_acked: m.last_acked, timestamp: m.newest_timestamp(), newest_location: m.newest_saved_location }))
     }
 
     fn latest_generated_input_event(&mut self) -> Result<Option<u32>, String> {
