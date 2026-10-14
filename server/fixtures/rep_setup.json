@@ -1,0 +1,1436 @@
+{
+ "production_args": {
+  "game_state_phase_value": 4,
+  "move_correction_location": [
+   3581.634,
+   -12019.322,
+   1294.153
+  ],
+  "game_state_bool_probe_value": 1,
+  "viewtarget_handle": 3,
+  "viewtarget_name": "ViewTarget",
+  "move_ack_index": 25,
+  "move_ack_class_max": 53,
+  "bomb_team_number_value": 1,
+  "bomb_team_number_bits": 8,
+  "desired_class_guid": [
+   2916500538,
+   1102963732,
+   4138591629,
+   645877397
+  ]
+ },
+ "a07_production": [
+  {
+   "hex": "93c8d20f",
+   "bit_count": 28
+  }
+ ],
+ "b2_production": [
+  {
+   "hex": "cb98a69906",
+   "bit_count": 35
+  }
+ ],
+ "b8_production": [
+  {
+   "hex": "619701db7606",
+   "bit_count": 44
+  }
+ ],
+ "a01_world_settings_open": [
+  {
+   "hex": "020000000c0a140a1c0a240a00340000005e8ec2daca5e9ac2e0e65ea0deeccaced8d2c25ea4c2dcceca00000000000c000000a4c2dcceca000000000020000000a0cae4e6d2e6e8cadce898caeccad800000000002400000082e4cae6aedee4d8c8a6cae8e8d2dccee600000000000c00",
+   "bit_count": 897
+  }
+ ],
+ "a02_game_state_open": [
+  {
+   "hex": "020000002c0a340a006a0000005e8ec2daca5e8ec2daca9adec8cae65ea6d0dedee8d2dccea4c2dcceca5ea6d0dedee8d2dccea4c2dcceca8ec2dacaa6e8c2e8ca00000000004400000088caccc2ead8e8bebea6d0dedee8d2dccea4c2dcceca8ec2dacaa6e8c2e8cabe860000000000082c1400",
+   "bit_count": 925
+  }
+ ],
+ "a03_controller_open": [
+  {
+   "hex": "020000003c0a440a005e0000005e8ec2daca5e86d0c2e4c2c6e8cae4e65ebe86dee4ca5ea6d0dedee8d2dccea4c2dcceca86dedce8e4ded8d8cae400000000004600000088caccc2ead8e8bebea6d0dedee8d2dccea4c2dcceca86dedce8e4ded8d8cae4be860000000000103c140000",
+   "bit_count": 893
+  }
+ ],
+ "a04_player_state_open": [
+  {
+   "hex": "020000004c0a540a006e0000005e8ec2daca5e8ec2daca9adec8cae65ea6d0dedee8d2dccea4c2dcceca5ea6d0dedee8d2dccea4c2dccecaa0d8c2f2cae4a6e8c2e8ca00000000004800000088caccc2ead8e8bebea6d0dedee8d2dccea4c2dccecaa0d8c2f2cae4a6e8c2e8cabe860000000000184c1400",
+   "bit_count": 957
+  }
+ ],
+ "a05_player_info_open": [
+  {
+   "hex": "020000005c0a640a00280000005ea6c6e4d2e0e85ea6d0dedee8cae48ec2daca00000000004400000088caccc2ead8e8bebe9eeedccae48af0c6d8eae6d2eccaa0d8c2f2cae492dcccde0000000000205c1400",
+   "bit_count": 661
+  }
+ ],
+ "a06_pawn_open": [
+  {
+   "hex": "020000006c0a740a00400000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5eaeeae6d0eabea08600000000002800000088caccc2ead8e8bebeaeeae6d0eabea086be860000000000286c1496a22ff2a7a2a30c00",
+   "bit_count": 707
+  }
+ ],
+ "a07_game_state_bool": [
+  {
+   "value": true,
+   "hex": "93c8d20f",
+   "bit_count": 28
+  },
+  {
+   "value": false,
+   "hex": "93c8f20d",
+   "bit_count": 28
+  }
+ ],
+ "a08_controller_player_state": [
+  {
+   "hex": "cb58057605",
+   "bit_count": 35
+  }
+ ],
+ "a09_controller_pawn": [
+  {
+   "hex": "cb90087705",
+   "bit_count": 35
+  }
+ ],
+ "a10_player_state_player_info": [
+  {
+   "hex": "cb982c3903",
+   "bit_count": 35
+  }
+ ],
+ "a11_spawned_character": [
+  {
+   "hex": "0b5953a08e01",
+   "bit_count": 43
+  }
+ ],
+ "a11_possessed_character": [
+  {
+   "hex": "0b5953b02101",
+   "bit_count": 43
+  }
+ ],
+ "a12_desired_class": [
+  {
+   "guid": [
+    2916500538,
+    1102963732,
+    4138591629,
+    645877397
+   ],
+   "hex": "4f0a9c4fc63ac422d25beb2d3d2f2e5abdcd48ac1e013718394f7c02",
+   "bit_count": 219
+  },
+  {
+   "guid": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "hex": "4f0a8c85c51ec722cefbe90d46bb00360fe521a2f9066232385f7f02",
+   "bit_count": 219
+  }
+ ],
+ "a13_player_info_controller": [
+  {
+   "hex": "cb44036d07",
+   "bit_count": 35
+  }
+ ],
+ "a14_pawn_player_state": [
+  {
+   "hex": "cb98bfd403",
+   "bit_count": 35
+  }
+ ],
+ "a15_pawn_controller": [
+  {
+   "hex": "cb50ead503",
+   "bit_count": 35
+  }
+ ],
+ "a16_pawn_role": [
+  {
+   "hex": "a3408c1f",
+   "bit_count": 30
+  }
+ ],
+ "a17_inventory_open": [
+  {
+   "hex": "02000000f00a28002600000092dceccadce8dee4f286dedae0dedccadce80000000000c22ba10c",
+   "bit_count": 309
+  }
+ ],
+ "a18_a20_item_slot_create": [
+  {
+   "slot": 0,
+   "hex": "02000000f40afc0a00280000005ea6c6e4d2e0e85ea6d0dedee8cae48ec2daca00000000001200000092e8cadaa6d8dee80000000000e2430f9e8432",
+   "bit_count": 479
+  },
+  {
+   "slot": 1,
+   "hex": "02000000f40afc0a00280000005ea6c6e4d2e0e85ea6d0dedee8cae48ec2daca00000000001200000092e8cadaa6d8dee8000000000002440f9e8432",
+   "bit_count": 479
+  },
+  {
+   "slot": 2,
+   "hex": "02000000f40afc0a00280000005ea6c6e4d2e0e85ea6d0dedee8cae48ec2daca00000000001200000092e8cadaa6d8dee8000000000022440f9e8432",
+   "bit_count": 479
+  },
+  {
+   "slot": 3,
+   "hex": "02000000f40afc0a00280000005ea6c6e4d2e0e85ea6d0dedee8cae48ec2daca00000000001200000092e8cadaa6d8dee8000000000042440f9e8432",
+   "bit_count": 479
+  },
+  {
+   "slot": 4,
+   "hex": "02000000f40afc0a00280000005ea6c6e4d2e0e85ea6d0dedee8cae48ec2daca00000000001200000092e8cadaa6d8dee8000000000062440f9e8432",
+   "bit_count": 479
+  },
+  {
+   "slot": 5,
+   "hex": "02000000f40afc0a00280000005ea6c6e4d2e0e85ea6d0dedee8cae48ec2daca00000000001200000092e8cadaa6d8dee8000000000082440f9e8432",
+   "bit_count": 479
+  },
+  {
+   "slot": 6,
+   "hex": "02000000f40afc0a00280000005ea6c6e4d2e0e85ea6d0dedee8cae48ec2daca00000000001200000092e8cadaa6d8dee80000000000a2440f9e8432",
+   "bit_count": 479
+  },
+  {
+   "slot": 7,
+   "hex": "02000000f40afc0a00280000005ea6c6e4d2e0e85ea6d0dedee8cae48ec2daca00000000001200000092e8cadaa6d8dee80000000000c2440f9e8432",
+   "bit_count": 479
+  },
+  {
+   "slot": 8,
+   "hex": "02000000f40afc0a00280000005ea6c6e4d2e0e85ea6d0dedee8cae48ec2daca00000000001200000092e8cadaa6d8dee80000000000e2440f9e8432",
+   "bit_count": 479
+  },
+  {
+   "slot": 9,
+   "hex": "02000000f40afc0a00280000005ea6c6e4d2e0e85ea6d0dedee8cae48ec2daca00000000001200000092e8cadaa6d8dee8000000000002450f9e8432",
+   "bit_count": 479
+  },
+  {
+   "slot": 10,
+   "hex": "02000000f40afc0a00280000005ea6c6e4d2e0e85ea6d0dedee8cae48ec2daca00000000001200000092e8cadaa6d8dee8000000000022450f9e8432",
+   "bit_count": 479
+  },
+  {
+   "slot": 11,
+   "hex": "02000000f40afc0a00280000005ea6c6e4d2e0e85ea6d0dedee8cae48ec2daca00000000001200000092e8cadaa6d8dee8000000000042450f9e8432",
+   "bit_count": 479
+  },
+  {
+   "slot": 12,
+   "hex": "02000000f40afc0a00280000005ea6c6e4d2e0e85ea6d0dedee8cae48ec2daca00000000001200000092e8cadaa6d8dee8000000000062450f9e8432",
+   "bit_count": 479
+  },
+  {
+   "slot": 13,
+   "hex": "02000000f40afc0a00280000005ea6c6e4d2e0e85ea6d0dedee8cae48ec2daca00000000001200000092e8cadaa6d8dee8000000000082450f9e8432",
+   "bit_count": 479
+  },
+  {
+   "slot": 14,
+   "hex": "02000000f40afc0a00280000005ea6c6e4d2e0e85ea6d0dedee8cae48ec2daca00000000001200000092e8cadaa6d8dee80000000000a2450f9e8432",
+   "bit_count": 479
+  },
+  {
+   "slot": 15,
+   "hex": "02000000f40afc0a00280000005ea6c6e4d2e0e85ea6d0dedee8cae48ec2daca00000000001200000092e8cadaa6d8dee80000000000c2450f9e8432",
+   "bit_count": 479
+  }
+ ],
+ "a19_a20_item_slot_link": [
+  {
+   "slot": 0,
+   "hex": "e1959968a807",
+   "bit_count": 44
+  },
+  {
+   "slot": 1,
+   "hex": "e195c1847d00",
+   "bit_count": 44
+  },
+  {
+   "slot": 2,
+   "hex": "e195212e7f00",
+   "bit_count": 44
+  },
+  {
+   "slot": 3,
+   "hex": "e19511d27b00",
+   "bit_count": 44
+  },
+  {
+   "slot": 4,
+   "hex": "e195597b7900",
+   "bit_count": 44
+  },
+  {
+   "slot": 5,
+   "hex": "e19569f77b00",
+   "bit_count": 44
+  },
+  {
+   "slot": 6,
+   "hex": "e19591707900",
+   "bit_count": 44
+  },
+  {
+   "slot": 7,
+   "hex": "e19571577f00",
+   "bit_count": 44
+  },
+  {
+   "slot": 8,
+   "hex": "e195a9b47a00",
+   "bit_count": 44
+  },
+  {
+   "slot": 9,
+   "hex": "e195e17b7e00",
+   "bit_count": 44
+  },
+  {
+   "slot": 10,
+   "hex": "e19581f17d00",
+   "bit_count": 44
+  },
+  {
+   "slot": 11,
+   "hex": "e19539397d00",
+   "bit_count": 44
+  },
+  {
+   "slot": 12,
+   "hex": "e19531777e00",
+   "bit_count": 44
+  },
+  {
+   "slot": 13,
+   "hex": "e195a13c7a00",
+   "bit_count": 44
+  },
+  {
+   "slot": 14,
+   "hex": "e195b9ca7a00",
+   "bit_count": 44
+  },
+  {
+   "slot": 15,
+   "hex": "e19579897a00",
+   "bit_count": 44
+  }
+ ],
+ "a21_base_pistol_open": [
+  {
+   "hex": "020000007c0b840b006c0000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea6d2c8cac2e4dae65e84c2e6caa0d2e6e8ded85e84c2e6caa0d2e6e8ded800000000002c00000088caccc2ead8e8bebe84c2e6caa0d2e6e8ded8be860000000000787d1500",
+   "bit_count": 837
+  }
+ ],
+ "a22_pistol_slot_contents": [
+  {
+   "hex": "01a2074f86fcee01",
+   "bit_count": 62
+  }
+ ],
+ "a23_pistol_owner": [
+  {
+   "hex": "cb60018902",
+   "bit_count": 35
+  }
+ ],
+ "a24_pistol_role": [
+  {
+   "hex": "a3f8d424",
+   "bit_count": 30
+  }
+ ],
+ "a25_pistol_state_machine_open": [
+  {
+   "hex": "02000000800b78012e0000008ae2ead2e0e0c2c4d8caa6e8c2e8ca9ac2c6d0d2dcca0000000000022e411e",
+   "bit_count": 341
+  }
+ ],
+ "a26_inactive_state_link": [
+  {
+   "hex": "02000000880b78011c00000092dcc2c6e8d2eccaa6e8c2e8ca0000000000022ec3210705",
+   "bit_count": 285
+  }
+ ],
+ "a27_auth_correct": [
+  {
+   "index": 1,
+   "hex": "e1150c0b0b43b8cb72a60f",
+   "bit_count": 84
+  },
+  {
+   "index": 2,
+   "hex": "e1150c230b43b8cbcaa50f",
+   "bit_count": 84
+  },
+  {
+   "index": 3,
+   "hex": "e1150c230b43b8cb4aa20f",
+   "bit_count": 84
+  },
+  {
+   "index": 4,
+   "hex": "e1150c230b43b8cbb2a60f",
+   "bit_count": 84
+  },
+  {
+   "index": 5,
+   "hex": "e1150c230b43b8cb82a20f",
+   "bit_count": 84
+  },
+  {
+   "index": 6,
+   "hex": "e1150c230b43b8cb7aa60f",
+   "bit_count": 84
+  },
+  {
+   "index": 300,
+   "hex": "e1150cf30b43b8cb4aa70f",
+   "bit_count": 84
+  },
+  {
+   "index": 4294967295,
+   "hex": "e115ac0737e3bccb2aa40f",
+   "bit_count": 84
+  }
+ ],
+ "b1_client_restart": [
+  {
+   "hex": "cab806e105",
+   "bit_count": 35
+  }
+ ],
+ "b2_game_state_phase": [
+  {
+   "phase": 0,
+   "hex": "cb98a69b06",
+   "bit_count": 35
+  },
+  {
+   "phase": 1,
+   "hex": "cb98ce9a06",
+   "bit_count": 35
+  },
+  {
+   "phase": 2,
+   "hex": "cb98129906",
+   "bit_count": 35
+  },
+  {
+   "phase": 3,
+   "hex": "cb98ea9b06",
+   "bit_count": 35
+  },
+  {
+   "phase": 4,
+   "hex": "cb98a69906",
+   "bit_count": 35
+  },
+  {
+   "phase": 5,
+   "hex": "cb980e9b06",
+   "bit_count": 35
+  },
+  {
+   "phase": 6,
+   "hex": "cb98969806",
+   "bit_count": 35
+  },
+  {
+   "phase": 7,
+   "hex": "cb98629a06",
+   "bit_count": 35
+  }
+ ],
+ "b3_team_state_open": [
+  {
+   "team": 0,
+   "hex": "02000000940b9c0b00280000005ea6c6e4d2e0e85ea6d0dedee8cae48ec2daca00000000002e00000088caccc2ead8e8bebe84c2e6caa8cac2daa6e8c2e8ca000000000090951500",
+   "bit_count": 573
+  },
+  {
+   "team": 1,
+   "hex": "02000000940b9c0b00280000005ea6c6e4d2e0e85ea6d0dedee8cae48ec2daca00000000002e00000088caccc2ead8e8bebe84c2e6caa8cac2daa6e8c2e8ca000000000098951500",
+   "bit_count": 573
+  }
+ ],
+ "b4_team_state_array": [
+  {
+   "hex": "4b06bd9811d459e7863900",
+   "bit_count": 83
+  }
+ ],
+ "b5_team_state_link": [
+  {
+   "team": 0,
+   "hex": "02000000a00b08001200000084d8eacaa8cac2da0000000000f6322fef2c35d300",
+   "bit_count": 258
+  },
+  {
+   "team": 1,
+   "hex": "02000000a80b080010000000a4cac8a8cac2da0000000000f6323eff9bf22a03",
+   "bit_count": 250
+  }
+ ],
+ "b6_player_state_team": [
+  {
+   "hex": "cbd47d3d03",
+   "bit_count": 35
+  }
+ ],
+ "b7_bomb_team_open": [
+  {
+   "hex": "02000000b00b18001200000084dedac4a8cac2da0000000000c22e3105",
+   "bit_count": 229
+  }
+ ],
+ "b8_bomb_team_number": [
+  {
+   "value": 1,
+   "bits": 8,
+   "hex": "619701db7606",
+   "bit_count": 44
+  },
+  {
+   "value": 0,
+   "bits": 8,
+   "hex": "619701b37006",
+   "bit_count": 44
+  },
+  {
+   "value": 2,
+   "bits": 8,
+   "hex": "6197019b7006",
+   "bit_count": 44
+  },
+  {
+   "value": 511,
+   "bits": 8,
+   "hex": "619701bb7e06",
+   "bit_count": 44
+  },
+  {
+   "value": 5,
+   "bits": 3,
+   "hex": "6147698c22",
+   "bit_count": 39
+  },
+  {
+   "value": 1,
+   "bits": 1,
+   "hex": "6127f1db09",
+   "bit_count": 37
+  },
+  {
+   "value": 3,
+   "bits": 0,
+   "hex": "611771d00d",
+   "bit_count": 36
+  },
+  {
+   "value": 4294967295,
+   "bits": 32,
+   "hex": "6117437ad988c6bc0e",
+   "bit_count": 68
+  },
+  {
+   "value": 4294967295,
+   "bits": 64,
+   "hex": "611735030fe3016908acd73902",
+   "bit_count": 100
+  },
+  {
+   "value": 7,
+   "bits": 16,
+   "hex": "6117b2aeed3c00",
+   "bit_count": 52
+  },
+  {
+   "value": -1,
+   "bits": 8,
+   "hex": "619701bb7e06",
+   "bit_count": 44
+  },
+  {
+   "value": -2,
+   "bits": 3,
+   "hex": "6147696c21",
+   "bit_count": 39
+  },
+  {
+   "value": -1,
+   "bits": 0,
+   "hex": "611771d00d",
+   "bit_count": 36
+  },
+  {
+   "value": 5,
+   "bits": 65,
+   "hex": "61270d0b0bab416c080b838111",
+   "bit_count": 101
+  },
+  {
+   "value": -1,
+   "bits": 70,
+   "hex": "6177ad07af2705e99aab8fe57f02",
+   "bit_count": 106
+  },
+  {
+   "value": -9223372036854775808,
+   "bits": 64,
+   "hex": "61170d0b0be3096b980fd37901",
+   "bit_count": 100
+  },
+  {
+   "value": 9223372036854775807,
+   "bits": 64,
+   "hex": "6117ad07af47056908ac8f3d02",
+   "bit_count": 100
+  },
+  {
+   "value": -3,
+   "bits": 130,
+   "hex": "613f11b807af077f079dabe71597d18abccabfd9412f",
+   "bit_count": 174
+  },
+  {
+   "value": 1,
+   "bits": 200,
+   "hex": "619f15180b0be3f0ab9d0f53958c66003c1cca8bd8b779fdd0ddc275903c03",
+   "bit_count": 244
+  },
+  {
+   "value": -9223372036854775808,
+   "bits": 129,
+   "hex": "612f11180b0bab0b030d0bdb43132da6f90b30a7f21e",
+   "bit_count": 173
+  }
+ ],
+ "b9_accessible_character": [
+  {
+   "guid": [
+    2916500538,
+    1102963732,
+    4138591629,
+    645877397
+   ],
+   "hex": "4f0a744e95fbfba1e686a5263c2f4611aa7324ebfbe235185d917d02",
+   "bit_count": 219
+  },
+  {
+   "guid": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "hex": "4f0a8c918531f8a1e686a54a463300420ce52182f9066232e4e17d02",
+   "bit_count": 219
+  }
+ ],
+ "b10_unique_id": [
+  {
+   "subject": "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61",
+   "hex": "4f1988854d730583cd5b547f8ed87cd4654cb262df9cdea047847542d52159095e524e6907d40d080e62de10476f95976b5b01202d498503",
+   "bit_count": 443
+  },
+  {
+   "subject": "00000000-0000-0000-0000-000000000000",
+   "hex": "4f1988854d730583cd5b547f66db7cd4654c9e73dcf0420a40451b427ddd2a3347c78ffccdd44146b3a79d816baeac510a4db40186c38603",
+   "bit_count": 443
+  }
+ ],
+ "b11_money": [
+  {
+   "hex": "02000000fa050a1800320000009adedccaf29ac2dcc2cecadacadce886dedae0dedccadce80000000000ea1728662d49196dbe1b",
+   "bit_count": 413
+  }
+ ],
+ "b12_pawn_owner": [
+  {
+   "hex": "cbf0e9d503",
+   "bit_count": 35
+  }
+ ],
+ "b13_hud_set": [
+  {
+   "field": 52,
+   "max": 178,
+   "hex": "02000000b40bbc0b00380000005e8ec2daca5eaa925e92dc8ec2daca5e90aa885e82e4cae690aa8800000000001400000082e4cae690aa88be8600000000008451195b07",
+   "bit_count": 539
+  },
+  {
+   "field": 0,
+   "max": 1,
+   "hex": "02000000b40bbc0b00380000005e8ec2daca5eaa925e92dc8ec2daca5e90aa885e82e4cae690aa8800000000001400000082e4cae690aa88be8600000000002439b907",
+   "bit_count": 533
+  },
+  {
+   "field": 127,
+   "max": 178,
+   "hex": "02000000b40bbc0b00380000005e8ec2daca5eaa925e92dc8ec2daca5e90aa885e82e4cae690aa8800000000001400000082e4cae690aa88be8600000000008459185b07",
+   "bit_count": 539
+  },
+  {
+   "field": 128,
+   "max": 178,
+   "hex": "02000000b40bbc0b00380000005e8ec2daca5eaa925e92dc8ec2daca5e90aa885e82e4cae690aa8800000000001400000082e4cae690aa88be86000000000094790f9204",
+   "bit_count": 540
+  }
+ ],
+ "b14_match_state": [
+  {
+   "hex": "57092487b5c65c5e85853da8def4f4c363d49998f0e5ae0e",
+   "bit_count": 188
+  }
+ ],
+ "b15_gameplay_start": [
+  {
+   "hex": "8b59c39e6082e804",
+   "bit_count": 59
+  }
+ ],
+ "b16_player_array": [
+  {
+   "hex": "cbfde172b54a4a2001",
+   "bit_count": 67
+  }
+ ],
+ "b17_range_shop": [
+  {
+   "hex": "23e9f0c6211e",
+   "bit_count": 46
+  }
+ ],
+ "b18_starting_equippable": [
+  {
+   "index": 0,
+   "open": {
+    "hex": "0200000026050a2e050a00540000005e8ec2daca5e86d0c2e4c2c6e8cae4e65ebe86dee4ca5e8ae2ead2e0e0c2c4d8cabeaadcc2e4dacac800000000003c00000088caccc2ead8e8bebe8ae2ead2e0e0c2c4d8cabeaadcc2e4dacac8be860000000000220526051400",
+    "bit_count": 837
+   },
+   "owner": {
+    "hex": "cb28b69304",
+    "bit_count": 35
+   },
+   "contents": {
+    "hex": "91a2074fc85a102028",
+    "bit_count": 70
+   }
+  },
+  {
+   "index": 1,
+   "open": {
+    "hex": "0200000036050a3e050a00560000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e9acad8caca5e82c4d2d8d2e8f2be9acad8cacabe84c2e6ca00000000003c00000088caccc2ead8e8bebe82c4d2d8d2e8f2be9acad8cacabe84c2e6cabe860000000000320536051400",
+    "bit_count": 845
+   },
+   "owner": {
+    "hex": "cbb0228104",
+    "bit_count": 35
+   },
+   "contents": {
+    "hex": "11a2074fc85ad02e28",
+    "bit_count": 70
+   }
+  },
+  {
+   "index": 2,
+   "open": {
+    "hex": "0200000046050a4e050a00740000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be685e82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6ca00000000004200000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6cabe860000000000420546051400",
+    "bit_count": 989
+   },
+   "owner": {
+    "hex": "cb8c32f201",
+    "bit_count": 35
+   },
+   "contents": {
+    "hex": "21a2074fc85a303e28",
+    "bit_count": 70
+   }
+  },
+  {
+   "index": 3,
+   "open": {
+    "hex": "0200000056050a5e050a00720000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be8a5e82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d000000000004000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d0be860000000000520556051400",
+    "bit_count": 973
+   },
+   "owner": {
+    "hex": "cbb0222d02",
+    "bit_count": 35
+   },
+   "contents": {
+    "hex": "41a2074fc85a303c28",
+    "bit_count": 70
+   }
+  },
+  {
+   "index": 4,
+   "open": {
+    "hex": "0200000066050a6e050a00820000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2bea25e82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e800000000005000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e8be860000000000620566051400",
+    "bit_count": 1101
+   },
+   "owner": {
+    "hex": "cb3410a201",
+    "bit_count": 35
+   },
+   "contents": {
+    "hex": "31a2074fc85af02d28",
+    "bit_count": 70
+   }
+  },
+  {
+   "index": 5,
+   "open": {
+    "hex": "0200000076050a7e050a008c0000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2beb05e82c4d2d8d2e8f2beaeeae6d0eabeb0be88c2cececae4bea0e4dec8eac6e8d2dedc00000000005a00000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabeb0be88c2cececae4bea0e4dec8eac6e8d2dedcbe860000000000720576051400",
+    "bit_count": 1181
+   },
+   "owner": {
+    "hex": "cb6c20b500",
+    "bit_count": 35
+   },
+   "contents": {
+    "hex": "81a2074fc85ab03228",
+    "bit_count": 70
+   }
+  },
+  {
+   "index": 6,
+   "open": {
+    "hex": "0200000086050a8e050a00780000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e8ed8d2c8ca5e82c4d2d8d2e8f2beaeeae6d0eabea0c2e6e6d2eccabe8ed8d2c8ca00000000004e00000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabea0c2e6e6d2eccabe8ed8d2c8cabe860000000000820586051400",
+    "bit_count": 1053
+   },
+   "owner": {
+    "hex": "cb0cef5605",
+    "bit_count": 35
+   },
+   "contents": {
+    "hex": "51a2074fc85a302e28",
+    "bit_count": 70
+   }
+  }
+ ],
+ "b19_knife_role": [
+  {
+   "hex": "a3acf008",
+   "bit_count": 30
+  }
+ ],
+ "b20_knife_state_machine": [
+  {
+   "hex": "020000003a050a3205002e0000008ae2ead2e0e0c2c4d8caa6e8c2e8ca9ac2c6d0d2dcca0000000000ea1428e110",
+   "bit_count": 365
+  }
+ ],
+ "b21_knife_inactive_state": [
+  {
+   "hex": "0200000002080a3205001c00000092dcc2c6e8d2eccaa6e8c2e8ca0000000000ea142864ed911e15",
+   "bit_count": 317
+  }
+ ],
+ "b22_viewtarget": [
+  {
+   "hex": "02000000c80a100016000000acd2caeea8c2e4cecae80000000000222bb322dc15",
+   "bit_count": 261
+  }
+ ],
+ "m_correction": [
+  {
+   "move": 1,
+   "location": [
+    3581.634,
+    -12019.322,
+    1294.153
+   ],
+   "hex": "e638b4f998077359d257393756f89033183ad1599ee194b8584d4e5b492417f235a82f9bb3947e5939f8f450b34d105e7bbb37ce247f634fe7ce9cb9afddf9ca899240e4f3055ddb40c5e73af11438ea6fa696a62ba230793008d2b6ffc1a2f123924019408ea619f164325655d5f861717337a19207",
+   "bit_count": 942
+  },
+  {
+   "move": 1,
+   "location": [
+    0.0,
+    -0.0,
+    12.5
+   ],
+   "hex": "e638b4f984f57159d2577924d0b2ecfe363f5a99e4d6ab46fcec03034a24abc082f02d9bb3947e5939f8f450b34d105e7bbb37ce247f634fe7ce9cb9afddf9ca899240e4f3055ddb40c5e73af11438ea6fa696a62ba230793008d2b6ffc1a2f123924019408ea619f164325655d5f861717337a19207",
+   "bit_count": 942
+  },
+  {
+   "move": 5,
+   "location": [
+    3581.634,
+    -12019.322,
+    1294.153
+   ],
+   "hex": "e638e8fa98077359d257393756f89033183ad1599ee194b8584d4e5b492417f235a82f9bb3947e5939f8f450b34d105e7bbb37ce247f634fe7ce9cb9afddf9ca899240e4f3055ddb40c5e73af11438ea6fa696a62ba230793008d2b6ffc1a2f123924019408ea619f164325655d5f861717337a19207",
+   "bit_count": 942
+  },
+  {
+   "move": 5,
+   "location": [
+    0.0,
+    -0.0,
+    12.5
+   ],
+   "hex": "e638e8fa84f57159d2577924d0b2ecfe363f5a99e4d6ab46fcec03034a24abc082f02d9bb3947e5939f8f450b34d105e7bbb37ce247f634fe7ce9cb9afddf9ca899240e4f3055ddb40c5e73af11438ea6fa696a62ba230793008d2b6ffc1a2f123924019408ea619f164325655d5f861717337a19207",
+   "bit_count": 942
+  },
+  {
+   "move": 100,
+   "location": [
+    3581.634,
+    -12019.322,
+    1294.153
+   ],
+   "hex": "e63804fb98077359d257393756f89033183ad1599ee194b8584d4e5b492417f235a82f9bb3947e5939f8f450b34d105e7bbb37ce247f634fe7ce9cb9afddf9ca899240e4f3055ddb40c5e73af11438ea6fa696a62ba230793008d2b6ffc1a2f123924019408ea619f164325655d5f861717337a19207",
+   "bit_count": 942
+  },
+  {
+   "move": 100,
+   "location": [
+    0.0,
+    -0.0,
+    12.5
+   ],
+   "hex": "e63804fb84f57159d2577924d0b2ecfe363f5a99e4d6ab46fcec03034a24abc082f02d9bb3947e5939f8f450b34d105e7bbb37ce247f634fe7ce9cb9afddf9ca899240e4f3055ddb40c5e73af11438ea6fa696a62ba230793008d2b6ffc1a2f123924019408ea619f164325655d5f861717337a19207",
+   "bit_count": 942
+  },
+  {
+   "move": 101,
+   "location": [
+    3581.634,
+    -12019.322,
+    1294.153
+   ],
+   "hex": "e638e8f998077359d257393756f89033183ad1599ee194b8584d4e5b492417f235a82f9bb3947e5939f8f450b34d105e7bbb37ce247f634fe7ce9cb9afddf9ca899240e4f3055ddb40c5e73af11438ea6fa696a62ba230793008d2b6ffc1a2f123924019408ea619f164325655d5f861717337a19207",
+   "bit_count": 942
+  },
+  {
+   "move": 101,
+   "location": [
+    0.0,
+    -0.0,
+    12.5
+   ],
+   "hex": "e638e8f984f57159d2577924d0b2ecfe363f5a99e4d6ab46fcec03034a24abc082f02d9bb3947e5939f8f450b34d105e7bbb37ce247f634fe7ce9cb9afddf9ca899240e4f3055ddb40c5e73af11438ea6fa696a62ba230793008d2b6ffc1a2f123924019408ea619f164325655d5f861717337a19207",
+   "bit_count": 942
+  },
+  {
+   "move": 127,
+   "location": [
+    3581.634,
+    -12019.322,
+    1294.153
+   ],
+   "hex": "e63874fa98077359d257393756f89033183ad1599ee194b8584d4e5b492417f235a82f9bb3947e5939f8f450b34d105e7bbb37ce247f634fe7ce9cb9afddf9ca899240e4f3055ddb40c5e73af11438ea6fa696a62ba230793008d2b6ffc1a2f123924019408ea619f164325655d5f861717337a19207",
+   "bit_count": 942
+  },
+  {
+   "move": 127,
+   "location": [
+    0.0,
+    -0.0,
+    12.5
+   ],
+   "hex": "e63874fa84f57159d2577924d0b2ecfe363f5a99e4d6ab46fcec03034a24abc082f02d9bb3947e5939f8f450b34d105e7bbb37ce247f634fe7ce9cb9afddf9ca899240e4f3055ddb40c5e73af11438ea6fa696a62ba230793008d2b6ffc1a2f123924019408ea619f164325655d5f861717337a19207",
+   "bit_count": 942
+  },
+  {
+   "move": 128,
+   "location": [
+    3581.634,
+    -12019.322,
+    1294.153
+   ],
+   "hex": "2639a8e9772bbf7970560d69843ebc7bdd58a0cc8063bb2f22698bd34c10bf29ea6afdb3c162ddfd09d919c2856d0e96071fb523818cf89c6ddb1408ad6542e6e95411f2e42f39db54aa9517c1edac7e0eab77a06008b4e18004bc49f0cd722ec915e81ce442f572f0ebdfdeee9cc4bcf7c69e0f21f926",
+   "bit_count": 950
+  },
+  {
+   "move": 128,
+   "location": [
+    0.0,
+    -0.0,
+    12.5
+   ],
+   "hex": "2639a8e98729bf79705679d1cf7e27d22dc960feb4e8b3c4b3a9d1444e5c4f2465c6fdb3c162ddfd09d919c2856d0e96071fb523818cf89c6ddb1408ad6542e6e95411f2e42f39db54aa9517c1edac7e0eab77a06008b4e18004bc49f0cd722ec915e81ce442f572f0ebdfdeee9cc4bcf7c69e0f21f926",
+   "bit_count": 950
+  },
+  {
+   "move": 201,
+   "location": [
+    3581.634,
+    -12019.322,
+    1294.153
+   ],
+   "hex": "263908e9772bbf7970560d69843ebc7bdd58a0cc8063bb2f22698bd34c10bf29ea6afdb3c162ddfd09d919c2856d0e96071fb523818cf89c6ddb1408ad6542e6e95411f2e42f39db54aa9517c1edac7e0eab77a06008b4e18004bc49f0cd722ec915e81ce442f572f0ebdfdeee9cc4bcf7c69e0f21f926",
+   "bit_count": 950
+  },
+  {
+   "move": 201,
+   "location": [
+    0.0,
+    -0.0,
+    12.5
+   ],
+   "hex": "263908e98729bf79705679d1cf7e27d22dc960feb4e8b3c4b3a9d1444e5c4f2465c6fdb3c162ddfd09d919c2856d0e96071fb523818cf89c6ddb1408ad6542e6e95411f2e42f39db54aa9517c1edac7e0eab77a06008b4e18004bc49f0cd722ec915e81ce442f572f0ebdfdeee9cc4bcf7c69e0f21f926",
+   "bit_count": 950
+  },
+  {
+   "move": 3908,
+   "location": [
+    3581.634,
+    -12019.322,
+    1294.153
+   ],
+   "hex": "2639f0eb77a3bc7970560d69843ebc7bdd58a0cc8063bb2f22698bd34c10bf29ea6afdb3c162ddfd09d919c2856d0e96071fb523818cf89c6ddb1408ad6542e6e95411f2e42f39db54aa9517c1edac7e0eab77a06008b4e18004bc49f0cd722ec915e81ce442f572f0ebdfdeee9cc4bcf7c69e0f21f926",
+   "bit_count": 950
+  },
+  {
+   "move": 3908,
+   "location": [
+    0.0,
+    -0.0,
+    12.5
+   ],
+   "hex": "2639f0eb87a1bc79705679d1cf7e27d22dc960feb4e8b3c4b3a9d1444e5c4f2465c6fdb3c162ddfd09d919c2856d0e96071fb523818cf89c6ddb1408ad6542e6e95411f2e42f39db54aa9517c1edac7e0eab77a06008b4e18004bc49f0cd722ec915e81ce442f572f0ebdfdeee9cc4bcf7c69e0f21f926",
+   "bit_count": 950
+  },
+  {
+   "move": 5542,
+   "location": [
+    3581.634,
+    -12019.322,
+    1294.153
+   ],
+   "hex": "263960e8773fbf7970560d69843ebc7bdd58a0cc8063bb2f22698bd34c10bf29ea6afdb3c162ddfd09d919c2856d0e96071fb523818cf89c6ddb1408ad6542e6e95411f2e42f39db54aa9517c1edac7e0eab77a06008b4e18004bc49f0cd722ec915e81ce442f572f0ebdfdeee9cc4bcf7c69e0f21f926",
+   "bit_count": 950
+  },
+  {
+   "move": 5542,
+   "location": [
+    0.0,
+    -0.0,
+    12.5
+   ],
+   "hex": "263960e8873dbf79705679d1cf7e27d22dc960feb4e8b3c4b3a9d1444e5c4f2465c6fdb3c162ddfd09d919c2856d0e96071fb523818cf89c6ddb1408ad6542e6e95411f2e42f39db54aa9517c1edac7e0eab77a06008b4e18004bc49f0cd722ec915e81ce442f572f0ebdfdeee9cc4bcf7c69e0f21f926",
+   "bit_count": 950
+  },
+  {
+   "move": 16383,
+   "location": [
+    3581.634,
+    -12019.322,
+    1294.153
+   ],
+   "hex": "263974ea77ebbc7970560d69843ebc7bdd58a0cc8063bb2f22698bd34c10bf29ea6afdb3c162ddfd09d919c2856d0e96071fb523818cf89c6ddb1408ad6542e6e95411f2e42f39db54aa9517c1edac7e0eab77a06008b4e18004bc49f0cd722ec915e81ce442f572f0ebdfdeee9cc4bcf7c69e0f21f926",
+   "bit_count": 950
+  },
+  {
+   "move": 16383,
+   "location": [
+    0.0,
+    -0.0,
+    12.5
+   ],
+   "hex": "263974ea87e9bc79705679d1cf7e27d22dc960feb4e8b3c4b3a9d1444e5c4f2465c6fdb3c162ddfd09d919c2856d0e96071fb523818cf89c6ddb1408ad6542e6e95411f2e42f39db54aa9517c1edac7e0eab77a06008b4e18004bc49f0cd722ec915e81ce442f572f0ebdfdeee9cc4bcf7c69e0f21f926",
+   "bit_count": 950
+  },
+  {
+   "move": 16384,
+   "location": [
+    3581.634,
+    -12019.322,
+    1294.153
+   ],
+   "hex": "663970e99bb59b0b4f54a534fd1badb64dd3de327a13f98c9792a0ac20303f53efe97eb6d4b54ba65e39d8a5a9625c817ccbb6974a44ae321b038a644afc9c917f94234bd14b7f0d65b09fcf8f970179b7bfac600ef89dd52c449d7e23d55ac510bbcf0882d7008fb663faa72d5027d13d06b7e1fff7862f",
+   "bit_count": 958
+  },
+  {
+   "move": 16384,
+   "location": [
+    0.0,
+    -0.0,
+    12.5
+   ],
+   "hex": "663970e99bb59b0b4f5495b9bc6cf956a3a0d090f2d313f6f561b41c6f6814af115c7cb6d4b54ba65e39d8a5a9625c817ccbb6974a44ae321b038a644afc9c917f94234bd14b7f0d65b09fcf8f970179b7bfac600ef89dd52c449d7e23d55ac510bbcf0882d7008fb663faa72d5027d13d06b7e1fff7862f",
+   "bit_count": 958
+  },
+  {
+   "move": 20000,
+   "location": [
+    3581.634,
+    -12019.322,
+    1294.153
+   ],
+   "hex": "663958eb9bf1990b4f54a534fd1badb64dd3de327a13f98c9792a0ac20303f53efe97eb6d4b54ba65e39d8a5a9625c817ccbb6974a44ae321b038a644afc9c917f94234bd14b7f0d65b09fcf8f970179b7bfac600ef89dd52c449d7e23d55ac510bbcf0882d7008fb663faa72d5027d13d06b7e1fff7862f",
+   "bit_count": 958
+  },
+  {
+   "move": 20000,
+   "location": [
+    0.0,
+    -0.0,
+    12.5
+   ],
+   "hex": "663958eb9bf1990b4f5495b9bc6cf956a3a0d090f2d313f6f561b41c6f6814af115c7cb6d4b54ba65e39d8a5a9625c817ccbb6974a44ae321b038a644afc9c917f94234bd14b7f0d65b09fcf8f970179b7bfac600ef89dd52c449d7e23d55ac510bbcf0882d7008fb663faa72d5027d13d06b7e1fff7862f",
+   "bit_count": 958
+  },
+  {
+   "move": 2097152,
+   "location": [
+    3581.634,
+    -12019.322,
+    1294.153
+   ],
+   "hex": "a63970e184ad9f7c9656d193bb4eeab2d49c5fc5915804dbd3313ae2e2f374d8dc3fcfa58858047b979686e88bdaec6c3664f04e7124c73c1880796d2440f6b03c5e173e683082fbb51da2591f61bf0d31c2aa90fec6b4b0dd5a29585abf0df836297e1db0134e81a3a678e28d15ca568449c54a5e7f083326",
+   "bit_count": 966
+  },
+  {
+   "move": 2097152,
+   "location": [
+    0.0,
+    -0.0,
+    12.5
+   ],
+   "hex": "a63970e184ad9f7c965679d1cf7e27b22cc9fc7d5356d6144d2a8901b8e428005f87cca5885848b2979686e88bdaec6c3664f04e7124c73c1880796d2440f6b03c5e173e683082fbb51da2591f61bf0d31c2aa90fec6b4b0dd5a29585abf0df836297e1db0134e81a3a678e28d15ca568449c54a5e7f083326",
+   "bit_count": 966
+  },
+  {
+   "move": 305419896,
+   "location": [
+    3581.634,
+    -12019.322,
+    1294.153
+   ],
+   "hex": "e63920e86b3e704cdc56251b8ec5ef4c31d03868eadddbe28aca5b6d9938e1257056a6993a6d1c6f0e6f26951ef2139f38dbd26e382fc43e56ba4e6f66378c842431370ffb30fbab60d571f4d32f1a3074f445dfd99f183ac81cfc33bc1bdd21506655916b238c4f0c255bb5fb71bff236262345fe7af54fcb19",
+   "bit_count": 974
+  },
+  {
+   "move": 305419896,
+   "location": [
+    0.0,
+    -0.0,
+    12.5
+   ],
+   "hex": "e63920e86b3e704cdc5695b9bc6ced4ca170399ae47fdbd355eebb5f8e882ae04903a5993a6d94260e7f26951ef2139f38dbd26e382fc43e56ba4e6f66378c842431370ffb30fbab60d571f4d32f1a3074f445dfd99f183ac81cfc33bc1bdd21506655916b238c4f0c255bb5fb71bff236262345fe7af54fcb19",
+   "bit_count": 974
+  },
+  {
+   "move": 4294967295,
+   "location": [
+    3581.634,
+    -12019.322,
+    1294.153
+   ],
+   "hex": "e639f8ebd7a7714cdc56251b8ec5477930d03868eadddbe28aca5b6d9938e1257056a6993a6d1c6f0e6f26951ef2139f38dbd26e382fc43e56ba4e6f66378c842431370ffb30fbab60d571f4d32f1a3074f445dfd99f183ac81cfc33bc1bdd21506655916b238c4f0c255bb5fb71bff236262345fe7af54fcb19",
+   "bit_count": 974
+  },
+  {
+   "move": 4294967295,
+   "location": [
+    0.0,
+    -0.0,
+    12.5
+   ],
+   "hex": "e639f8ebd7a7714cdc5695b9bc6c4579a070399ae47fdbd355eebb5f8e882ae04903a5993a6d94260e7f26951ef2139f38dbd26e382fc43e56ba4e6f66378c842431370ffb30fbab60d571f4d32f1a3074f445dfd99f183ac81cfc33bc1bdd21506655916b238c4f0c255bb5fb71bff236262345fe7af54fcb19",
+   "bit_count": 974
+  }
+ ],
+ "m_move_ack": [
+  {
+   "move": 1,
+   "hex": "82d683877934a5a1d7b30e00",
+   "bit_count": 90
+  },
+  {
+   "move": 5,
+   "hex": "82d683872537a5a1d7b30e00",
+   "bit_count": 90
+  },
+  {
+   "move": 100,
+   "hex": "82d68387c936a5a1d7b30e00",
+   "bit_count": 90
+  },
+  {
+   "move": 101,
+   "hex": "82d683872534a5a1d7b30e00",
+   "bit_count": 90
+  },
+  {
+   "move": 127,
+   "hex": "82d68387b937a5a1d7b30e00",
+   "bit_count": 90
+  },
+  {
+   "move": 128,
+   "hex": "82d68387bd34a5a1d7b30e00",
+   "bit_count": 90
+  },
+  {
+   "move": 201,
+   "hex": "82d683876537a5a1d7b30e00",
+   "bit_count": 90
+  },
+  {
+   "move": 3908,
+   "hex": "82d6830b3c36a5a1d7b30e00",
+   "bit_count": 90
+  },
+  {
+   "move": 5542,
+   "hex": "82d6837bc435a5a1d7b30e00",
+   "bit_count": 90
+  },
+  {
+   "move": 16383,
+   "hex": "82d683fb3636a5a1d7b30e00",
+   "bit_count": 90
+  },
+  {
+   "move": 16384,
+   "hex": "82d683db6634a5a1d7b30e00",
+   "bit_count": 90
+  },
+  {
+   "move": 20000,
+   "hex": "82d683b78b34a5a1d7b30e00",
+   "bit_count": 90
+  },
+  {
+   "move": 2097152,
+   "hex": "82d683876534a5a1d7f70f00",
+   "bit_count": 90
+  },
+  {
+   "move": 305419896,
+   "hex": "82d683433f34a5a1d703ca02",
+   "bit_count": 90
+  },
+  {
+   "move": 4294967295,
+   "hex": "82d683d73736a5a1d7431003",
+   "bit_count": 90
+  },
+  {
+   "move": 0,
+   "hex": "82d683876534a5a1d7b30e00",
+   "bit_count": 90
+  }
+ ],
+ "i_input_ack": [
+  {
+   "event": 0,
+   "hex": "825e85856554a5e984b10e00",
+   "bit_count": 90
+  },
+  {
+   "event": 1,
+   "hex": "825e85856534a5e984b10e00",
+   "bit_count": 90
+  },
+  {
+   "event": 11,
+   "hex": "825e85856534a5e9c4b20e00",
+   "bit_count": 90
+  },
+  {
+   "event": 26,
+   "hex": "825e85856554a5e980b30e00",
+   "bit_count": 90
+  },
+  {
+   "event": 162,
+   "hex": "825e85856554a5e900b10e00",
+   "bit_count": 90
+  },
+  {
+   "event": 2147483647,
+   "hex": "825e83876534a5a1d7b30e00",
+   "bit_count": 90
+  },
+  {
+   "event": 4294967295,
+   "hex": "82d683876534a5a1d7b30e00",
+   "bit_count": 90
+  }
+ ],
+ "c_input_resume_correction": [
+  {
+   "index": 6,
+   "class": "BasePistol_C",
+   "purchased_guid": null,
+   "hex": "e1150c230b43b8cb7aa60f",
+   "bit_count": 84
+  },
+  {
+   "index": 7,
+   "class": "Ability_Melee_Base_C",
+   "purchased_guid": null,
+   "hex": "e1950c530b43f940198a0509",
+   "bit_count": 92
+  },
+  {
+   "index": 8,
+   "class": "Equippable_Unarmed_C",
+   "purchased_guid": null,
+   "hex": "e1950cc30f43c944198a0509",
+   "bit_count": 92
+  },
+  {
+   "index": 9,
+   "class": "Ability_Wushu_Passive_Glide_C",
+   "purchased_guid": null,
+   "hex": "e1950c3b0e435140198a0509",
+   "bit_count": 92
+  },
+  {
+   "index": 10,
+   "class": "AssaultRifle_AK_C",
+   "purchased_guid": 520,
+   "hex": "e1950c230d43c94419c20709",
+   "bit_count": 92
+  },
+  {
+   "index": 11,
+   "class": "Unknown_C",
+   "purchased_guid": null,
+   "hex": "e115b3c69527c59000",
+   "bit_count": 68
+  },
+  {
+   "index": 12,
+   "class": "",
+   "purchased_guid": null,
+   "hex": "e115b3c62527c59000",
+   "bit_count": 68
+  },
+  {
+   "index": 13,
+   "class": "",
+   "purchased_guid": null,
+   "hex": "e115b3c6dd25c59000",
+   "bit_count": 68
+  },
+  {
+   "index": 14,
+   "class": "Zero_C",
+   "purchased_guid": 0,
+   "hex": "e115b3c62522c59000",
+   "bit_count": 68
+  },
+  {
+   "index": 4294967295,
+   "class": "BasePistol_C",
+   "purchased_guid": null,
+   "hex": "e115ac0737e3bccb2aa40f",
+   "bit_count": 84
+  },
+  {
+   "index": 0,
+   "class": "BasePistol_C",
+   "purchased_guid": null,
+   "error": "ValueError"
+  }
+ ],
+ "c_range_class_property": [
+  {
+   "which": "game_mode",
+   "hex": "0200000016080a1e080a00680000005e8ec2daca5e8ec2daca9adec8cae65ea6d0dedee8d2dccea4c2dcceca5ea6d0dedee8d2dccea4c2dcceca8ec2daca9adec8ca000000000030000000a6d0dedee8d2dccea4c2dcceca8ec2daca9adec8cabe86000000000016b22e94a902",
+   "bit_count": 868
+  },
+  {
+   "which": "hud_config",
+   "hex": "0200000026080a2e080a007e0000005e8ec2daca5eaa925e92dc8ec2daca5e90aa885e8ec2dacaa6e8c2e8ca90aa8886dedcccd2cee65ea6d0dedee8d2dccea4c2dcceca90aa8886dedcccd2ce000000000032000000a6d0dedee8d2dccea4c2dcceca90aa8886dedcccd2cebe86000000000016b22e640e05",
+   "bit_count": 964
+  }
+ ],
+ "c_hud_rebuild": [
+  {
+   "field": 52,
+   "max": 178,
+   "hex": "c2a88cad03",
+   "bit_count": 34
+  },
+  {
+   "field": 128,
+   "max": 178,
+   "hex": "cabc074902",
+   "bit_count": 35
+  }
+ ],
+ "c_levels_streaming": [
+  {
+   "hex": "1641108685b58ff5d07e4e5537a9c973e9e0f1254a5fb1042396696a0dfa39d0c9b9c52f9383c0d60f306b8c3572513bbaf64ab54f9e5f4b8500c526b6b901a643bb14adcb90313b618654e1cc4d226b915cd5569d6d2be4b1d3a58355bb9ef88a15af973bf5c4679f46700b98bc70930913db5c6ce927d8fc8c99af6c93b5e6f0738f2090a20a",
+   "bit_count": 1076
+  }
+ ],
+ "c_flush_level_streaming": [
+  {
+   "hex": "82c4c202",
+   "bit_count": 26
+  }
+ ],
+ "c_ultimate_points": [
+  {
+   "points": 1,
+   "hex": "cb59cfb14dcb7a4c07",
+   "bit_count": 67
+  },
+  {
+   "points": 8,
+   "hex": "cb598fb04dcb7a4c07",
+   "bit_count": 67
+  },
+  {
+   "points": 49,
+   "hex": "cb59ffb04dcb7a4c07",
+   "bit_count": 67
+  }
+ ],
+ "c_range_settings_request": [
+  {
+   "hex": "8290c002",
+   "bit_count": 26
+  }
+ ],
+ "c_infinite_ammo": [
+  {
+   "enabled": true,
+   "hex": "9350d10f",
+   "bit_count": 28
+  },
+  {
+   "enabled": false,
+   "hex": "9350f10d",
+   "bit_count": 28
+  }
+ ],
+ "c_hud_refresh_null": [
+  {
+   "hex": "0b59d7a28e01",
+   "bit_count": 43
+  }
+ ],
+ "c_hud_refresh_pawn": [
+  {
+   "hex": "0b5953a08e01",
+   "bit_count": 43
+  }
+ ]
+}
