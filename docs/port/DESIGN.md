@@ -74,7 +74,7 @@ gates, event keys and values).
 | skin load error at A21 | raises out of the stage | plain Classic open, `base_pistol_initial_cosmetic_error` | keep the session |
 | ClientSetHUD index read fails | raises | 52/178 (every logged session), `hud_rpc_error` | keep the session |
 | lifetime | 3600 s deadline | none; exits when the client exits | the loader owns restarts |
-| range re-entry | a new responder process per entry | one process for the game session; a handshake from a new client socket starts a fresh session (old connections dropped, keys re-scanned and the previous handler refused, first-offset table reseeded, oracle address caches cleared) | the loader keeps aries-server alive from MainMenuV2 and treats its exit as fatal |
+| range re-entry | one responder served several entries; keys read once per process (the same in every logged run) | the same, with the oracle's address caches cleared when a handshake arrives from a new client socket | the actors of a new entry are new objects; python's caches could name a stale address (05 quirk 9) |
 | shots | hit-tested at the bots' current position | rewound by lag compensation | bots never move, so every hit is identical (tested) |
 | reader reopen after a failure | every pass | at most once a second (`equippable_reader_error` still logged every pass) | no handle churn |
 | `pre_control_sequence`, `pre_in_sequence` | diagnostic packet-notify read at the nmt challenge | not logged | diagnostic only |

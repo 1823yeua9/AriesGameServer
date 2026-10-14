@@ -49,8 +49,6 @@ pub trait KeySource {
     fn failed_scan_since(&mut self, _since: f64) -> Option<String> {
         None
     }
-    /// a new client connection has its own handler and keys: scan again
-    fn rescan(&mut self) {}
 }
 
 struct Keys {
@@ -106,7 +104,7 @@ impl RangeServer {
         if !source.ip().is_loopback() {
             return;
         }
-        // python ran one responder per range entry; the loader keeps us across entries
+        // a new range entry (the loader keeps us across them)
         if self.keys.is_some() && !self.connections.contains_key(&source) && is_initial_handshake(datagram) {
             self.new_session(source);
         }
@@ -120,16 +118,12 @@ impl RangeServer {
         self.handle_keyed(now, source, datagram, out);
     }
 
-    /// a new range entry: what a fresh python responder started without. the
-    /// client built a new connection (new handler, keys and actors), so drop
-    /// the old connections, re-scan the keys and forget address caches.
+    /// a new range entry. like the python responder, which served several
+    /// entries per process, the keys (one per client process), the old
+    /// connections and the first-offset table stay. only the live reader's
+    /// address caches are dropped: the client's actors are new objects.
     fn new_session(&mut self, source: SocketAddr) {
-        log::info!(target: "range", "new client connection from port {}: starting a fresh session", source.port());
-        self.connections.clear();
-        self.first_offsets = conn::first_offsets();
-        self.keys = None;
-        self.held.clear();
-        self.key_source.rescan();
+        log::info!(target: "range", "new client connection from port {}", source.port());
         self.live.new_session();
     }
 
