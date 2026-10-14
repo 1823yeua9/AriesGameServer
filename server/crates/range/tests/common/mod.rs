@@ -198,6 +198,9 @@ pub struct World {
     pub camera: Option<Camera>,
     pub seed: Option<u32>,
     pub projectiles: HashMap<u32, ProjectileSnapshot>,
+    pub replication: Option<aries_range::InputReplication>,
+    pub hud: Option<aries_range::HudWidget>,
+    pub ult: Option<i32>,
 }
 
 pub struct Scripted(pub Rc<RefCell<World>>);
@@ -230,6 +233,15 @@ impl LiveClient for Scripted {
     }
     fn projectile(&mut self, channel: u32) -> Result<Option<ProjectileSnapshot>, String> {
         Ok(self.0.borrow().projectiles.get(&channel).cloned())
+    }
+    fn input_replication(&mut self) -> Result<Option<aries_range::InputReplication>, String> {
+        Ok(self.0.borrow().replication.clone())
+    }
+    fn hud_widget(&mut self) -> Result<Option<aries_range::HudWidget>, String> {
+        Ok(self.0.borrow().hud)
+    }
+    fn ultimate_points_requirement(&mut self) -> Result<Option<i32>, String> {
+        Ok(self.0.borrow().ult)
     }
 }
 
