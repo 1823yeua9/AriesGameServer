@@ -1,0 +1,3913 @@
+{
+ "read_bits": [
+  {
+   "hex": "b9",
+   "offset": 10,
+   "width": 55,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "b344e8f3e7535c9a09aad3",
+   "offset": 43,
+   "width": 12,
+   "value": 2954
+  },
+  {
+   "hex": "2ed423fd6d116d",
+   "offset": 9,
+   "width": 54,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "a542da00265bdf",
+   "offset": 7,
+   "width": 46,
+   "value": 68952680150149
+  },
+  {
+   "hex": "28b72519a69b",
+   "offset": 14,
+   "width": 41,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "77ff62a230e2",
+   "offset": 40,
+   "width": 57,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "0c0a1c18e956001d99",
+   "offset": 43,
+   "width": 3,
+   "value": 2
+  },
+  {
+   "hex": "da0c",
+   "offset": 4,
+   "width": 45,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "e3460292",
+   "offset": 20,
+   "width": 59,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "ebc07fd52c5dd2",
+   "offset": 33,
+   "width": 53,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "256db6c74fa5",
+   "offset": 42,
+   "width": 43,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "0b1005770e2065fd1bec63",
+   "offset": 66,
+   "width": 14,
+   "value": 15110
+  },
+  {
+   "hex": "de07",
+   "offset": 3,
+   "width": 62,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "93",
+   "offset": 9,
+   "width": 40,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "dcf2ce73c4794f5c65",
+   "offset": 38,
+   "width": 6,
+   "value": 39
+  },
+  {
+   "hex": "c98bff0c241394d3ec",
+   "offset": 72,
+   "width": 47,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "b490cc772cb11df5",
+   "offset": 9,
+   "width": 58,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "7a",
+   "offset": 1,
+   "width": 8,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "eaa2ce",
+   "offset": 16,
+   "width": 16,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "13652efe7660a16869",
+   "offset": 37,
+   "width": 12,
+   "value": 2819
+  },
+  {
+   "hex": "e413d3b5ce7622a6b0",
+   "offset": 60,
+   "width": 60,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "a2",
+   "offset": 1,
+   "width": 61,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "135d7fcff3ddfe",
+   "offset": 54,
+   "width": 58,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "89669895",
+   "offset": 24,
+   "width": 10,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "ab0683c08b4b856a450606",
+   "offset": 69,
+   "width": 41,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "acd3b9",
+   "offset": 17,
+   "width": 27,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "bea763287646c1",
+   "offset": 29,
+   "width": 32,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "e7225097ee092cf7ed45fa",
+   "offset": 54,
+   "width": 37,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "519f224e6d0a9ac1",
+   "offset": 26,
+   "width": 1,
+   "value": 1
+  },
+  {
+   "hex": "9e5514177b6814ff92a677",
+   "offset": 6,
+   "width": 40,
+   "value": 695455207766
+  },
+  {
+   "hex": "931e",
+   "offset": 15,
+   "width": 42,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "eb4be24ecc0fc374a65c",
+   "offset": 59,
+   "width": 26,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "446596b8d41b7c",
+   "offset": 0,
+   "width": 2,
+   "value": 0
+  },
+  {
+   "hex": "99160ccf085e3b62",
+   "offset": 61,
+   "width": 63,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "299d1686a8c87305de",
+   "offset": 46,
+   "width": 32,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "89da8becb476",
+   "offset": 50,
+   "width": 1,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "830d1ffb5d85e018",
+   "offset": 41,
+   "width": 19,
+   "value": 290882
+  },
+  {
+   "hex": "a1d9566c5f60f463f69c",
+   "offset": 13,
+   "width": 44,
+   "value": 17192804115126
+  },
+  {
+   "hex": "f82425d8f368",
+   "offset": 4,
+   "width": 3,
+   "value": 7
+  },
+  {
+   "hex": "9573bf17459865e02cab55",
+   "offset": 63,
+   "width": 31,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "cebace2f3e7a9ae4",
+   "offset": 41,
+   "width": 58,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "e631e411f8e6",
+   "offset": 29,
+   "width": 2,
+   "value": 0
+  },
+  {
+   "hex": "b473b0c909",
+   "offset": 7,
+   "width": 3,
+   "value": 7
+  },
+  {
+   "hex": "6c5858a7",
+   "offset": 33,
+   "width": 40,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "cc",
+   "offset": 5,
+   "width": 44,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "4b9c05",
+   "offset": 21,
+   "width": 1,
+   "value": 0
+  },
+  {
+   "hex": "d04c0513",
+   "offset": 11,
+   "width": 57,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "4f3c",
+   "offset": 3,
+   "width": 57,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "163376ec0cbc",
+   "offset": 27,
+   "width": 62,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "242245",
+   "offset": 15,
+   "width": 36,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "0d3700cd600247da3d7531",
+   "offset": 14,
+   "width": 27,
+   "value": 25375744
+  },
+  {
+   "hex": "0c",
+   "offset": 9,
+   "width": 27,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "bfa0f201",
+   "offset": 31,
+   "width": 35,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "98f39c05635d",
+   "offset": 14,
+   "width": 46,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "4fd9",
+   "offset": 1,
+   "width": 38,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "a2",
+   "offset": 5,
+   "width": 1,
+   "value": 1
+  },
+  {
+   "hex": "69405833e34b1b",
+   "offset": 52,
+   "width": 52,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "11e12ee9",
+   "offset": 25,
+   "width": 64,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "f0c1550eddf0",
+   "offset": 14,
+   "width": 26,
+   "value": 57948503
+  },
+  {
+   "hex": "924241",
+   "offset": 12,
+   "width": 41,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  }
+ ],
+ "packed": [
+  {
+   "hex": "0012",
+   "offset": 0,
+   "limit": 13,
+   "value": 0,
+   "end": 8
+  },
+  {
+   "hex": "0050",
+   "offset": 3,
+   "limit": 16,
+   "value": 0,
+   "end": 11
+  },
+  {
+   "hex": "0213",
+   "offset": 0,
+   "limit": 13,
+   "value": 1,
+   "end": 8
+  },
+  {
+   "hex": "1000",
+   "offset": 3,
+   "limit": 16,
+   "value": 1,
+   "end": 11
+  },
+  {
+   "hex": "7e0f",
+   "offset": 0,
+   "limit": 13,
+   "value": 63,
+   "end": 8
+  },
+  {
+   "hex": "f01b",
+   "offset": 3,
+   "limit": 16,
+   "value": 63,
+   "end": 11
+  },
+  {
+   "hex": "801a",
+   "offset": 0,
+   "limit": 13,
+   "value": 64,
+   "end": 8
+  },
+  {
+   "hex": "003c",
+   "offset": 3,
+   "limit": 16,
+   "value": 64,
+   "end": 11
+  },
+  {
+   "hex": "fe01",
+   "offset": 0,
+   "limit": 13,
+   "value": 127,
+   "end": 8
+  },
+  {
+   "hex": "f0a7",
+   "offset": 3,
+   "limit": 16,
+   "value": 127,
+   "end": 11
+  },
+  {
+   "hex": "01021e",
+   "offset": 0,
+   "limit": 21,
+   "value": 128,
+   "end": 16
+  },
+  {
+   "hex": "081058",
+   "offset": 3,
+   "limit": 24,
+   "value": 128,
+   "end": 19
+  },
+  {
+   "hex": "ff021d",
+   "offset": 0,
+   "limit": 21,
+   "value": 255,
+   "end": 16
+  },
+  {
+   "hex": "f817d0",
+   "offset": 3,
+   "limit": 24,
+   "value": 255,
+   "end": 19
+  },
+  {
+   "hex": "1b0809",
+   "offset": 0,
+   "limit": 21,
+   "value": 525,
+   "end": 16
+  },
+  {
+   "hex": "d84068",
+   "offset": 3,
+   "limit": 24,
+   "value": 525,
+   "end": 19
+  },
+  {
+   "hex": "bf0c03",
+   "offset": 0,
+   "limit": 21,
+   "value": 863,
+   "end": 16
+  },
+  {
+   "hex": "f86500",
+   "offset": 3,
+   "limit": 24,
+   "value": 863,
+   "end": 19
+  },
+  {
+   "hex": "fffe12",
+   "offset": 0,
+   "limit": 21,
+   "value": 16383,
+   "end": 16
+  },
+  {
+   "hex": "f8f7c7",
+   "offset": 3,
+   "limit": 24,
+   "value": 16383,
+   "end": 19
+  },
+  {
+   "hex": "ffffffff1e16",
+   "offset": 0,
+   "limit": 45,
+   "value": 4294967295,
+   "end": 40
+  },
+  {
+   "hex": "f8fffffff7b0",
+   "offset": 3,
+   "limit": 48,
+   "value": 4294967295,
+   "end": 43
+  },
+  {
+   "hex": "010101021c",
+   "offset": 0,
+   "limit": 37,
+   "value": 2097152,
+   "end": 32
+  },
+  {
+   "hex": "08080810c8",
+   "offset": 3,
+   "limit": 40,
+   "value": 2097152,
+   "end": 35
+  },
+  {
+   "hex": "fffffffe1d",
+   "offset": 0,
+   "limit": 37,
+   "value": 268435455,
+   "end": 32
+  },
+  {
+   "hex": "f8fffff7af",
+   "offset": 3,
+   "limit": 40,
+   "value": 268435455,
+   "end": 35
+  },
+  {
+   "hex": "010101010216",
+   "offset": 0,
+   "limit": 45,
+   "value": 268435456,
+   "end": 40
+  },
+  {
+   "hex": "080808081090",
+   "offset": 3,
+   "limit": 48,
+   "value": 268435456,
+   "end": 43
+  },
+  {
+   "hex": "ffffffff1e",
+   "offset": 0,
+   "limit": 40,
+   "value": 4294967295,
+   "end": 40
+  },
+  {
+   "hex": "fffffffffe",
+   "offset": 0,
+   "limit": 40,
+   "value": 34359738367,
+   "end": 40
+  },
+  {
+   "hex": "ffffffff1f",
+   "offset": 0,
+   "limit": 40,
+   "error": "packed integer exceeds five bytes",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "ffffffffff00",
+   "offset": 0,
+   "limit": 48,
+   "error": "packed integer exceeds five bytes",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "01",
+   "offset": 0,
+   "limit": 8,
+   "error": "packed integer truncated",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "01",
+   "offset": 0,
+   "limit": 16,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "0102",
+   "offset": 0,
+   "limit": 15,
+   "error": "packed integer truncated",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "0102",
+   "offset": 0,
+   "limit": 16,
+   "value": 128,
+   "end": 16
+  },
+  {
+   "hex": "ff",
+   "offset": 0,
+   "limit": 7,
+   "error": "packed integer truncated",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "80",
+   "offset": 0,
+   "limit": 8,
+   "value": 64,
+   "end": 8
+  },
+  {
+   "hex": "016dff",
+   "offset": 2,
+   "limit": 22,
+   "value": 32,
+   "end": 10
+  },
+  {
+   "hex": "ff0181017f01",
+   "offset": 5,
+   "limit": 44,
+   "value": 519,
+   "end": 21
+  },
+  {
+   "hex": "0101817f817f81",
+   "offset": 0,
+   "limit": 58,
+   "error": "packed integer exceeds five bytes",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "01",
+   "offset": 1,
+   "limit": 12,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "ff81ff",
+   "offset": 6,
+   "limit": 11,
+   "error": "packed integer truncated",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "ffffffff04",
+   "offset": 5,
+   "limit": 42,
+   "error": "packed integer truncated",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "018101a3818103",
+   "offset": 1,
+   "limit": 18,
+   "value": 64,
+   "end": 9
+  },
+  {
+   "hex": "7fff010d81",
+   "offset": 7,
+   "limit": 14,
+   "error": "packed integer truncated",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "390159817f80",
+   "offset": 0,
+   "limit": 34,
+   "error": "packed integer truncated",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "010c7fdc7f",
+   "offset": 2,
+   "limit": 4,
+   "error": "packed integer truncated",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "ec7fff",
+   "offset": 7,
+   "limit": 31,
+   "value": 16383,
+   "end": 23
+  },
+  {
+   "hex": "7f7f7f0181",
+   "offset": 7,
+   "limit": 41,
+   "value": 127,
+   "end": 15
+  },
+  {
+   "hex": "01ff7f",
+   "offset": 6,
+   "limit": 18,
+   "value": 126,
+   "end": 14
+  },
+  {
+   "hex": "819f",
+   "offset": 2,
+   "limit": 6,
+   "error": "packed integer truncated",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "01017f017f81",
+   "offset": 3,
+   "limit": 9,
+   "error": "packed integer truncated",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "817fff7f7f",
+   "offset": 7,
+   "limit": 38,
+   "value": 16383,
+   "end": 23
+  },
+  {
+   "hex": "7f01be01c48181",
+   "offset": 2,
+   "limit": 63,
+   "value": 8239,
+   "end": 18
+  },
+  {
+   "hex": "13",
+   "offset": 5,
+   "limit": 8,
+   "error": "packed integer truncated",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "257f",
+   "offset": 1,
+   "limit": 14,
+   "value": 73,
+   "end": 9
+  },
+  {
+   "hex": "0101",
+   "offset": 8,
+   "limit": 12,
+   "error": "packed integer truncated",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "a501edf47fff",
+   "offset": 3,
+   "limit": 22,
+   "value": 26,
+   "end": 11
+  },
+  {
+   "hex": "817fff81ff81ff",
+   "offset": 2,
+   "limit": 43,
+   "value": 112,
+   "end": 10
+  },
+  {
+   "hex": "ff7fffbfff",
+   "offset": 0,
+   "limit": 46,
+   "error": "packed integer exceeds five bytes",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "1901",
+   "offset": 4,
+   "limit": 21,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "01ff677f",
+   "offset": 1,
+   "limit": 12,
+   "value": 64,
+   "end": 9
+  },
+  {
+   "hex": "81",
+   "offset": 1,
+   "limit": 2,
+   "error": "packed integer truncated",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "897f81ff7f01",
+   "offset": 6,
+   "limit": 49,
+   "value": 127,
+   "end": 14
+  },
+  {
+   "hex": "7f812e7f0181",
+   "offset": 4,
+   "limit": 43,
+   "value": 14859,
+   "end": 20
+  },
+  {
+   "hex": "ffff",
+   "offset": 4,
+   "limit": 10,
+   "error": "packed integer truncated",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "81157f2f8181",
+   "offset": 1,
+   "limit": 28,
+   "value": 96,
+   "end": 9
+  },
+  {
+   "hex": "617f1a",
+   "offset": 6,
+   "limit": 21,
+   "error": "packed integer truncated",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "8181",
+   "offset": 1,
+   "limit": 17,
+   "value": 96,
+   "end": 9
+  },
+  {
+   "hex": "28047f01",
+   "offset": 4,
+   "limit": 10,
+   "error": "packed integer truncated",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "710181",
+   "offset": 5,
+   "limit": 11,
+   "error": "packed integer truncated",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "81e87fff",
+   "offset": 8,
+   "limit": 27,
+   "value": 116,
+   "end": 16
+  },
+  {
+   "hex": "ff817f81810181",
+   "offset": 5,
+   "limit": 63,
+   "value": 16135,
+   "end": 21
+  },
+  {
+   "hex": "01018181",
+   "offset": 6,
+   "limit": 23,
+   "value": 2,
+   "end": 14
+  },
+  {
+   "hex": "405301010281",
+   "offset": 2,
+   "limit": 44,
+   "value": 104,
+   "end": 10
+  },
+  {
+   "hex": "81ff014401817f",
+   "offset": 4,
+   "limit": 5,
+   "error": "packed integer truncated",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "017f010d",
+   "offset": 5,
+   "limit": 9,
+   "error": "packed integer truncated",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "010281ff",
+   "offset": 3,
+   "limit": 15,
+   "value": 32,
+   "end": 11
+  },
+  {
+   "hex": "7f8181ff48",
+   "offset": 6,
+   "limit": 10,
+   "error": "packed integer truncated",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "7f15",
+   "offset": 0,
+   "limit": 5,
+   "error": "packed integer truncated",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "81ff7f81",
+   "offset": 8,
+   "limit": 8,
+   "error": "packed integer truncated",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "7f01ca0181ff",
+   "offset": 5,
+   "limit": 33,
+   "value": 5125,
+   "end": 21
+  },
+  {
+   "hex": "a2ff97",
+   "offset": 0,
+   "limit": 5,
+   "error": "packed integer truncated",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "81817f818181",
+   "offset": 0,
+   "limit": 11,
+   "error": "packed integer truncated",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "b17fff01",
+   "offset": 6,
+   "limit": 21,
+   "value": 127,
+   "end": 14
+  },
+  {
+   "hex": "8181",
+   "offset": 0,
+   "limit": 15,
+   "error": "packed integer truncated",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "377f",
+   "offset": 5,
+   "limit": 18,
+   "error": "packed integer truncated",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "ff6e",
+   "offset": 3,
+   "limit": 24,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "9a81",
+   "offset": 2,
+   "limit": 13,
+   "value": 51,
+   "end": 10
+  },
+  {
+   "hex": "ff3f817fffdb",
+   "offset": 8,
+   "limit": 52,
+   "error": "packed integer exceeds five bytes",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "3bffff",
+   "offset": 4,
+   "limit": 30,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "81",
+   "offset": 7,
+   "limit": 12,
+   "error": "packed integer truncated",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "7f9175",
+   "offset": 4,
+   "limit": 18,
+   "error": "packed integer truncated",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "81ff01",
+   "offset": 1,
+   "limit": 31,
+   "value": 96,
+   "end": 9
+  },
+  {
+   "hex": "7f017fd3817fff",
+   "offset": 0,
+   "limit": 27,
+   "error": "packed integer truncated",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "81017f817fd0",
+   "offset": 1,
+   "limit": 26,
+   "value": 96,
+   "end": 9
+  },
+  {
+   "hex": "f3",
+   "offset": 6,
+   "limit": 13,
+   "error": "packed integer truncated",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "ffc601ff7fff7f",
+   "offset": 5,
+   "limit": 53,
+   "value": 923,
+   "end": 21
+  },
+  {
+   "hex": "81",
+   "offset": 7,
+   "limit": 16,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "01d1",
+   "offset": 7,
+   "limit": 8,
+   "error": "packed integer truncated",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "ff",
+   "offset": 7,
+   "limit": 9,
+   "error": "packed integer truncated",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "7ffb8b",
+   "offset": 6,
+   "limit": 27,
+   "error": "packed integer truncated",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "43",
+   "offset": 8,
+   "limit": 8,
+   "error": "packed integer truncated",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "5201ff8101e2ff",
+   "offset": 2,
+   "limit": 11,
+   "value": 42,
+   "end": 10
+  },
+  {
+   "hex": "fa690181",
+   "offset": 4,
+   "limit": 7,
+   "error": "packed integer truncated",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "7fff01",
+   "offset": 1,
+   "limit": 6,
+   "error": "packed integer truncated",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "ffff019101ff01",
+   "offset": 1,
+   "limit": 43,
+   "value": 1064959,
+   "end": 25
+  },
+  {
+   "hex": "81817f01ff0115",
+   "offset": 6,
+   "limit": 23,
+   "value": 3,
+   "end": 14
+  },
+  {
+   "hex": "ff017a012301",
+   "offset": 1,
+   "limit": 10,
+   "error": "packed integer truncated",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "8181ff318101",
+   "offset": 4,
+   "limit": 23,
+   "value": 12,
+   "end": 12
+  },
+  {
+   "hex": "24017f8101ff01",
+   "offset": 0,
+   "limit": 0,
+   "error": "packed integer truncated",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "ddffff",
+   "offset": 0,
+   "limit": 30,
+   "error": "packed integer truncated",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "ff",
+   "offset": 8,
+   "limit": 8,
+   "error": "packed integer truncated",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "7f7fff81",
+   "offset": 0,
+   "limit": 29,
+   "error": "packed integer truncated",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "7f01818158ff7f",
+   "offset": 1,
+   "limit": 2,
+   "error": "packed integer truncated",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "fc81",
+   "offset": 0,
+   "limit": 20,
+   "value": 126,
+   "end": 8
+  },
+  {
+   "hex": "fff47f198101",
+   "offset": 6,
+   "limit": 29,
+   "error": "packed integer truncated",
+   "error_type": "ValueError"
+  }
+ ],
+ "header_packed": [
+  {
+   "hex": "0012",
+   "offset": 0,
+   "limit": 13,
+   "value": 0,
+   "end": 8
+  },
+  {
+   "hex": "0050",
+   "offset": 3,
+   "limit": 16,
+   "value": 0,
+   "end": 11
+  },
+  {
+   "hex": "0213",
+   "offset": 0,
+   "limit": 13,
+   "value": 1,
+   "end": 8
+  },
+  {
+   "hex": "1000",
+   "offset": 3,
+   "limit": 16,
+   "value": 1,
+   "end": 11
+  },
+  {
+   "hex": "7e0f",
+   "offset": 0,
+   "limit": 13,
+   "value": 63,
+   "end": 8
+  },
+  {
+   "hex": "f01b",
+   "offset": 3,
+   "limit": 16,
+   "value": 63,
+   "end": 11
+  },
+  {
+   "hex": "801a",
+   "offset": 0,
+   "limit": 13,
+   "value": 64,
+   "end": 8
+  },
+  {
+   "hex": "003c",
+   "offset": 3,
+   "limit": 16,
+   "value": 64,
+   "end": 11
+  },
+  {
+   "hex": "fe01",
+   "offset": 0,
+   "limit": 13,
+   "value": 127,
+   "end": 8
+  },
+  {
+   "hex": "f0a7",
+   "offset": 3,
+   "limit": 16,
+   "value": 127,
+   "end": 11
+  },
+  {
+   "hex": "01021e",
+   "offset": 0,
+   "limit": 21,
+   "value": 128,
+   "end": 16
+  },
+  {
+   "hex": "081058",
+   "offset": 3,
+   "limit": 24,
+   "value": 128,
+   "end": 19
+  },
+  {
+   "hex": "ff021d",
+   "offset": 0,
+   "limit": 21,
+   "value": 255,
+   "end": 16
+  },
+  {
+   "hex": "f817d0",
+   "offset": 3,
+   "limit": 24,
+   "value": 255,
+   "end": 19
+  },
+  {
+   "hex": "1b0809",
+   "offset": 0,
+   "limit": 21,
+   "value": 525,
+   "end": 16
+  },
+  {
+   "hex": "d84068",
+   "offset": 3,
+   "limit": 24,
+   "value": 525,
+   "end": 19
+  },
+  {
+   "hex": "bf0c03",
+   "offset": 0,
+   "limit": 21,
+   "value": 863,
+   "end": 16
+  },
+  {
+   "hex": "f86500",
+   "offset": 3,
+   "limit": 24,
+   "value": 863,
+   "end": 19
+  },
+  {
+   "hex": "fffe12",
+   "offset": 0,
+   "limit": 21,
+   "value": 16383,
+   "end": 16
+  },
+  {
+   "hex": "f8f7c7",
+   "offset": 3,
+   "limit": 24,
+   "value": 16383,
+   "end": 19
+  },
+  {
+   "hex": "ffffffff1e16",
+   "offset": 0,
+   "limit": 45,
+   "value": 4294967295,
+   "end": 40
+  },
+  {
+   "hex": "f8fffffff7b0",
+   "offset": 3,
+   "limit": 48,
+   "value": 4294967295,
+   "end": 43
+  },
+  {
+   "hex": "010101021c",
+   "offset": 0,
+   "limit": 37,
+   "value": 2097152,
+   "end": 32
+  },
+  {
+   "hex": "08080810c8",
+   "offset": 3,
+   "limit": 40,
+   "value": 2097152,
+   "end": 35
+  },
+  {
+   "hex": "fffffffe1d",
+   "offset": 0,
+   "limit": 37,
+   "value": 268435455,
+   "end": 32
+  },
+  {
+   "hex": "f8fffff7af",
+   "offset": 3,
+   "limit": 40,
+   "value": 268435455,
+   "end": 35
+  },
+  {
+   "hex": "010101010216",
+   "offset": 0,
+   "limit": 45,
+   "value": 268435456,
+   "end": 40
+  },
+  {
+   "hex": "080808081090",
+   "offset": 3,
+   "limit": 48,
+   "value": 268435456,
+   "end": 43
+  },
+  {
+   "hex": "ffffffff1e",
+   "offset": 0,
+   "limit": 40,
+   "value": 4294967295,
+   "end": 40
+  },
+  {
+   "hex": "fffffffffe",
+   "offset": 0,
+   "limit": 40,
+   "value": 34359738367,
+   "end": 40
+  },
+  {
+   "hex": "ffffffff1f",
+   "offset": 0,
+   "limit": 40,
+   "error": "packed channel field exceeds five bytes",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "ffffffffff00",
+   "offset": 0,
+   "limit": 48,
+   "error": "packed channel field exceeds five bytes",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "01",
+   "offset": 0,
+   "limit": 8,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "01",
+   "offset": 0,
+   "limit": 16,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "0102",
+   "offset": 0,
+   "limit": 15,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "0102",
+   "offset": 0,
+   "limit": 16,
+   "value": 128,
+   "end": 16
+  },
+  {
+   "hex": "ff",
+   "offset": 0,
+   "limit": 7,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "80",
+   "offset": 0,
+   "limit": 8,
+   "value": 64,
+   "end": 8
+  },
+  {
+   "hex": "016dff",
+   "offset": 2,
+   "limit": 22,
+   "value": 32,
+   "end": 10
+  },
+  {
+   "hex": "ff0181017f01",
+   "offset": 5,
+   "limit": 44,
+   "value": 519,
+   "end": 21
+  },
+  {
+   "hex": "0101817f817f81",
+   "offset": 0,
+   "limit": 58,
+   "error": "packed channel field exceeds five bytes",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "01",
+   "offset": 1,
+   "limit": 12,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "ff81ff",
+   "offset": 6,
+   "limit": 11,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "ffffffff04",
+   "offset": 5,
+   "limit": 42,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "018101a3818103",
+   "offset": 1,
+   "limit": 18,
+   "value": 64,
+   "end": 9
+  },
+  {
+   "hex": "7fff010d81",
+   "offset": 7,
+   "limit": 14,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "390159817f80",
+   "offset": 0,
+   "limit": 34,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "010c7fdc7f",
+   "offset": 2,
+   "limit": 4,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "ec7fff",
+   "offset": 7,
+   "limit": 31,
+   "value": 16383,
+   "end": 23
+  },
+  {
+   "hex": "7f7f7f0181",
+   "offset": 7,
+   "limit": 41,
+   "value": 127,
+   "end": 15
+  },
+  {
+   "hex": "01ff7f",
+   "offset": 6,
+   "limit": 18,
+   "value": 126,
+   "end": 14
+  },
+  {
+   "hex": "819f",
+   "offset": 2,
+   "limit": 6,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "01017f017f81",
+   "offset": 3,
+   "limit": 9,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "817fff7f7f",
+   "offset": 7,
+   "limit": 38,
+   "value": 16383,
+   "end": 23
+  },
+  {
+   "hex": "7f01be01c48181",
+   "offset": 2,
+   "limit": 63,
+   "value": 8239,
+   "end": 18
+  },
+  {
+   "hex": "13",
+   "offset": 5,
+   "limit": 8,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "257f",
+   "offset": 1,
+   "limit": 14,
+   "value": 73,
+   "end": 9
+  },
+  {
+   "hex": "0101",
+   "offset": 8,
+   "limit": 12,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "a501edf47fff",
+   "offset": 3,
+   "limit": 22,
+   "value": 26,
+   "end": 11
+  },
+  {
+   "hex": "817fff81ff81ff",
+   "offset": 2,
+   "limit": 43,
+   "value": 112,
+   "end": 10
+  },
+  {
+   "hex": "ff7fffbfff",
+   "offset": 0,
+   "limit": 46,
+   "error": "packed channel field exceeds five bytes",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "1901",
+   "offset": 4,
+   "limit": 21,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "01ff677f",
+   "offset": 1,
+   "limit": 12,
+   "value": 64,
+   "end": 9
+  },
+  {
+   "hex": "81",
+   "offset": 1,
+   "limit": 2,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "897f81ff7f01",
+   "offset": 6,
+   "limit": 49,
+   "value": 127,
+   "end": 14
+  },
+  {
+   "hex": "7f812e7f0181",
+   "offset": 4,
+   "limit": 43,
+   "value": 14859,
+   "end": 20
+  },
+  {
+   "hex": "ffff",
+   "offset": 4,
+   "limit": 10,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "81157f2f8181",
+   "offset": 1,
+   "limit": 28,
+   "value": 96,
+   "end": 9
+  },
+  {
+   "hex": "617f1a",
+   "offset": 6,
+   "limit": 21,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "8181",
+   "offset": 1,
+   "limit": 17,
+   "value": 96,
+   "end": 9
+  },
+  {
+   "hex": "28047f01",
+   "offset": 4,
+   "limit": 10,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "710181",
+   "offset": 5,
+   "limit": 11,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "81e87fff",
+   "offset": 8,
+   "limit": 27,
+   "value": 116,
+   "end": 16
+  },
+  {
+   "hex": "ff817f81810181",
+   "offset": 5,
+   "limit": 63,
+   "value": 16135,
+   "end": 21
+  },
+  {
+   "hex": "01018181",
+   "offset": 6,
+   "limit": 23,
+   "value": 2,
+   "end": 14
+  },
+  {
+   "hex": "405301010281",
+   "offset": 2,
+   "limit": 44,
+   "value": 104,
+   "end": 10
+  },
+  {
+   "hex": "81ff014401817f",
+   "offset": 4,
+   "limit": 5,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "017f010d",
+   "offset": 5,
+   "limit": 9,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "010281ff",
+   "offset": 3,
+   "limit": 15,
+   "value": 32,
+   "end": 11
+  },
+  {
+   "hex": "7f8181ff48",
+   "offset": 6,
+   "limit": 10,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "7f15",
+   "offset": 0,
+   "limit": 5,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "81ff7f81",
+   "offset": 8,
+   "limit": 8,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "7f01ca0181ff",
+   "offset": 5,
+   "limit": 33,
+   "value": 5125,
+   "end": 21
+  },
+  {
+   "hex": "a2ff97",
+   "offset": 0,
+   "limit": 5,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "81817f818181",
+   "offset": 0,
+   "limit": 11,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "b17fff01",
+   "offset": 6,
+   "limit": 21,
+   "value": 127,
+   "end": 14
+  },
+  {
+   "hex": "8181",
+   "offset": 0,
+   "limit": 15,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "377f",
+   "offset": 5,
+   "limit": 18,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "ff6e",
+   "offset": 3,
+   "limit": 24,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "9a81",
+   "offset": 2,
+   "limit": 13,
+   "value": 51,
+   "end": 10
+  },
+  {
+   "hex": "ff3f817fffdb",
+   "offset": 8,
+   "limit": 52,
+   "error": "packed channel field exceeds five bytes",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "3bffff",
+   "offset": 4,
+   "limit": 30,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "81",
+   "offset": 7,
+   "limit": 12,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "7f9175",
+   "offset": 4,
+   "limit": 18,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "81ff01",
+   "offset": 1,
+   "limit": 31,
+   "value": 96,
+   "end": 9
+  },
+  {
+   "hex": "7f017fd3817fff",
+   "offset": 0,
+   "limit": 27,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "81017f817fd0",
+   "offset": 1,
+   "limit": 26,
+   "value": 96,
+   "end": 9
+  },
+  {
+   "hex": "f3",
+   "offset": 6,
+   "limit": 13,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "ffc601ff7fff7f",
+   "offset": 5,
+   "limit": 53,
+   "value": 923,
+   "end": 21
+  },
+  {
+   "hex": "81",
+   "offset": 7,
+   "limit": 16,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "01d1",
+   "offset": 7,
+   "limit": 8,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "ff",
+   "offset": 7,
+   "limit": 9,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "7ffb8b",
+   "offset": 6,
+   "limit": 27,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "43",
+   "offset": 8,
+   "limit": 8,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "5201ff8101e2ff",
+   "offset": 2,
+   "limit": 11,
+   "value": 42,
+   "end": 10
+  },
+  {
+   "hex": "fa690181",
+   "offset": 4,
+   "limit": 7,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "7fff01",
+   "offset": 1,
+   "limit": 6,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "ffff019101ff01",
+   "offset": 1,
+   "limit": 43,
+   "value": 1064959,
+   "end": 25
+  },
+  {
+   "hex": "81817f01ff0115",
+   "offset": 6,
+   "limit": 23,
+   "value": 3,
+   "end": 14
+  },
+  {
+   "hex": "ff017a012301",
+   "offset": 1,
+   "limit": 10,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "8181ff318101",
+   "offset": 4,
+   "limit": 23,
+   "value": 12,
+   "end": 12
+  },
+  {
+   "hex": "24017f8101ff01",
+   "offset": 0,
+   "limit": 0,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "ddffff",
+   "offset": 0,
+   "limit": 30,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "ff",
+   "offset": 8,
+   "limit": 8,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "7f7fff81",
+   "offset": 0,
+   "limit": 29,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "7f01818158ff7f",
+   "offset": 1,
+   "limit": 2,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "fc81",
+   "offset": 0,
+   "limit": 20,
+   "value": 126,
+   "end": 8
+  },
+  {
+   "hex": "fff47f198101",
+   "offset": 6,
+   "limit": 29,
+   "error": "read past end",
+   "error_type": "ValueError"
+  }
+ ],
+ "serialize_int": [
+  {
+   "hex": "716200",
+   "offset": 2,
+   "limit": 17,
+   "maximum": 179,
+   "value": 156,
+   "end": 10
+  },
+  {
+   "hex": "716200",
+   "offset": 2,
+   "limit": 4,
+   "maximum": 179,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "753601",
+   "offset": 2,
+   "limit": 17,
+   "maximum": 179,
+   "value": 157,
+   "end": 10
+  },
+  {
+   "hex": "753601",
+   "offset": 2,
+   "limit": 4,
+   "maximum": 179,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "85ea01",
+   "offset": 2,
+   "limit": 17,
+   "maximum": 179,
+   "value": 161,
+   "end": 10
+  },
+  {
+   "hex": "85ea01",
+   "offset": 2,
+   "limit": 4,
+   "maximum": 179,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "a96200",
+   "offset": 2,
+   "limit": 17,
+   "maximum": 179,
+   "value": 170,
+   "end": 10
+  },
+  {
+   "hex": "a96200",
+   "offset": 2,
+   "limit": 4,
+   "maximum": 179,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "b19e01",
+   "offset": 2,
+   "limit": 17,
+   "maximum": 179,
+   "value": 172,
+   "end": 10
+  },
+  {
+   "hex": "b19e01",
+   "offset": 2,
+   "limit": 4,
+   "maximum": 179,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "b5aa00",
+   "offset": 2,
+   "limit": 17,
+   "maximum": 179,
+   "value": 173,
+   "end": 10
+  },
+  {
+   "hex": "b5aa00",
+   "offset": 2,
+   "limit": 4,
+   "maximum": 179,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "b93a00",
+   "offset": 2,
+   "limit": 17,
+   "maximum": 179,
+   "value": 174,
+   "end": 10
+  },
+  {
+   "hex": "b93a00",
+   "offset": 2,
+   "limit": 4,
+   "maximum": 179,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "bd4e01",
+   "offset": 2,
+   "limit": 17,
+   "maximum": 179,
+   "value": 175,
+   "end": 10
+  },
+  {
+   "hex": "bd4e01",
+   "offset": 2,
+   "limit": 4,
+   "maximum": 179,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "c19a01",
+   "offset": 2,
+   "limit": 17,
+   "maximum": 179,
+   "value": 176,
+   "end": 10
+  },
+  {
+   "hex": "c19a01",
+   "offset": 2,
+   "limit": 4,
+   "maximum": 179,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "c5ae00",
+   "offset": 2,
+   "limit": 17,
+   "maximum": 179,
+   "value": 177,
+   "end": 10
+  },
+  {
+   "hex": "c5ae00",
+   "offset": 2,
+   "limit": 4,
+   "maximum": 179,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "1975",
+   "offset": 2,
+   "limit": 16,
+   "maximum": 179,
+   "value": 70,
+   "end": 9
+  },
+  {
+   "hex": "1975",
+   "offset": 2,
+   "limit": 4,
+   "maximum": 179,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "4d45",
+   "offset": 2,
+   "limit": 16,
+   "maximum": 179,
+   "value": 83,
+   "end": 9
+  },
+  {
+   "hex": "4d45",
+   "offset": 2,
+   "limit": 4,
+   "maximum": 179,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "716f",
+   "offset": 2,
+   "limit": 16,
+   "maximum": 179,
+   "value": 92,
+   "end": 9
+  },
+  {
+   "hex": "716f",
+   "offset": 2,
+   "limit": 4,
+   "maximum": 179,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "696a01",
+   "offset": 2,
+   "limit": 17,
+   "maximum": 179,
+   "value": 154,
+   "end": 10
+  },
+  {
+   "hex": "696a01",
+   "offset": 2,
+   "limit": 4,
+   "maximum": 179,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "016400",
+   "offset": 2,
+   "limit": 17,
+   "maximum": 179,
+   "value": 0,
+   "end": 10
+  },
+  {
+   "hex": "016400",
+   "offset": 2,
+   "limit": 4,
+   "maximum": 179,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "05fc00",
+   "offset": 2,
+   "limit": 17,
+   "maximum": 179,
+   "value": 1,
+   "end": 10
+  },
+  {
+   "hex": "05fc00",
+   "offset": 2,
+   "limit": 4,
+   "maximum": 179,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "c96601",
+   "offset": 2,
+   "limit": 17,
+   "maximum": 179,
+   "value": 178,
+   "end": 10
+  },
+  {
+   "hex": "c96601",
+   "offset": 2,
+   "limit": 4,
+   "maximum": 179,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "cd39",
+   "offset": 2,
+   "limit": 15,
+   "maximum": 54,
+   "value": 51,
+   "end": 8
+  },
+  {
+   "hex": "cd39",
+   "offset": 2,
+   "limit": 4,
+   "maximum": 54,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "e525",
+   "offset": 2,
+   "limit": 14,
+   "maximum": 54,
+   "value": 25,
+   "end": 7
+  },
+  {
+   "hex": "e525",
+   "offset": 2,
+   "limit": 4,
+   "maximum": 54,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "a508",
+   "offset": 2,
+   "limit": 15,
+   "maximum": 54,
+   "value": 41,
+   "end": 8
+  },
+  {
+   "hex": "a508",
+   "offset": 2,
+   "limit": 4,
+   "maximum": 54,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "5571",
+   "offset": 2,
+   "limit": 15,
+   "maximum": 54,
+   "value": 21,
+   "end": 8
+  },
+  {
+   "hex": "5571",
+   "offset": 2,
+   "limit": 4,
+   "maximum": 54,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "d552",
+   "offset": 2,
+   "limit": 15,
+   "maximum": 54,
+   "value": 53,
+   "end": 8
+  },
+  {
+   "hex": "d552",
+   "offset": 2,
+   "limit": 4,
+   "maximum": 54,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "cd22",
+   "offset": 2,
+   "limit": 15,
+   "maximum": 53,
+   "value": 51,
+   "end": 8
+  },
+  {
+   "hex": "cd22",
+   "offset": 2,
+   "limit": 4,
+   "maximum": 53,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "6529",
+   "offset": 2,
+   "limit": 14,
+   "maximum": 53,
+   "value": 25,
+   "end": 7
+  },
+  {
+   "hex": "6529",
+   "offset": 2,
+   "limit": 4,
+   "maximum": 53,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "a513",
+   "offset": 2,
+   "limit": 15,
+   "maximum": 53,
+   "value": 41,
+   "end": 8
+  },
+  {
+   "hex": "a513",
+   "offset": 2,
+   "limit": 4,
+   "maximum": 53,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "552b",
+   "offset": 2,
+   "limit": 14,
+   "maximum": 53,
+   "value": 21,
+   "end": 7
+  },
+  {
+   "hex": "552b",
+   "offset": 2,
+   "limit": 4,
+   "maximum": 53,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "d11b",
+   "offset": 2,
+   "limit": 15,
+   "maximum": 53,
+   "value": 52,
+   "end": 8
+  },
+  {
+   "hex": "d11b",
+   "offset": 2,
+   "limit": 4,
+   "maximum": 53,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "7901",
+   "offset": 2,
+   "limit": 10,
+   "maximum": 2,
+   "value": 0,
+   "end": 3
+  },
+  {
+   "hex": "7901",
+   "offset": 2,
+   "limit": 4,
+   "maximum": 2,
+   "value": 0,
+   "end": 3
+  },
+  {
+   "hex": "1d02",
+   "offset": 2,
+   "limit": 10,
+   "maximum": 2,
+   "value": 1,
+   "end": 3
+  },
+  {
+   "hex": "1d02",
+   "offset": 2,
+   "limit": 4,
+   "maximum": 2,
+   "value": 1,
+   "end": 3
+  },
+  {
+   "hex": "e901",
+   "offset": 2,
+   "limit": 9,
+   "maximum": 1,
+   "value": 0,
+   "end": 2
+  },
+  {
+   "hex": "e901",
+   "offset": 2,
+   "limit": 4,
+   "maximum": 1,
+   "value": 0,
+   "end": 2
+  },
+  {
+   "hex": "6d06",
+   "offset": 2,
+   "limit": 11,
+   "maximum": 5,
+   "value": 3,
+   "end": 4
+  },
+  {
+   "hex": "6d06",
+   "offset": 2,
+   "limit": 4,
+   "maximum": 5,
+   "value": 3,
+   "end": 4
+  },
+  {
+   "hex": "f10d",
+   "offset": 2,
+   "limit": 12,
+   "maximum": 5,
+   "value": 4,
+   "end": 5
+  },
+  {
+   "hex": "f10d",
+   "offset": 2,
+   "limit": 4,
+   "maximum": 5,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "fdffcb00",
+   "offset": 2,
+   "limit": 25,
+   "maximum": 65536,
+   "value": 65535,
+   "end": 18
+  },
+  {
+   "hex": "fdffcb00",
+   "offset": 2,
+   "limit": 4,
+   "maximum": 65536,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "fdffffffe701",
+   "offset": 2,
+   "limit": 41,
+   "maximum": 4294967296,
+   "value": 4294967295,
+   "end": 34
+  },
+  {
+   "hex": "fdffffffe701",
+   "offset": 2,
+   "limit": 4,
+   "maximum": 4294967296,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "b5",
+   "offset": 0,
+   "limit": 8,
+   "maximum": 53,
+   "value": 21,
+   "end": 5
+  },
+  {
+   "hex": "b5",
+   "offset": 0,
+   "limit": 8,
+   "maximum": 54,
+   "value": 53,
+   "end": 6
+  },
+  {
+   "hex": "b5",
+   "offset": 0,
+   "limit": 8,
+   "maximum": 179,
+   "value": 53,
+   "end": 7
+  },
+  {
+   "hex": "51a5af6d56b6a244",
+   "offset": 2,
+   "limit": 49,
+   "maximum": 0,
+   "value": 0,
+   "end": 2
+  },
+  {
+   "hex": "9b555fc8b2575cfd",
+   "offset": 2,
+   "limit": 3,
+   "maximum": 0,
+   "value": 0,
+   "end": 2
+  },
+  {
+   "hex": "34880ffd7db5fe2d",
+   "offset": 7,
+   "limit": 55,
+   "maximum": 0,
+   "value": 0,
+   "end": 7
+  },
+  {
+   "hex": "06bdd6fad1728986",
+   "offset": 6,
+   "limit": 50,
+   "maximum": 1,
+   "value": 0,
+   "end": 6
+  },
+  {
+   "hex": "f88a30ee14803037",
+   "offset": 0,
+   "limit": 14,
+   "maximum": 1,
+   "value": 0,
+   "end": 0
+  },
+  {
+   "hex": "3d54ea0959fb3ec7",
+   "offset": 7,
+   "limit": 23,
+   "maximum": 1,
+   "value": 0,
+   "end": 7
+  },
+  {
+   "hex": "9079fb4e77ddd0f2",
+   "offset": 5,
+   "limit": 46,
+   "maximum": 2,
+   "value": 0,
+   "end": 6
+  },
+  {
+   "hex": "29c63fb291e0280c",
+   "offset": 4,
+   "limit": 35,
+   "maximum": 2,
+   "value": 0,
+   "end": 5
+  },
+  {
+   "hex": "2189eba7f88f21d3",
+   "offset": 5,
+   "limit": 61,
+   "maximum": 2,
+   "value": 1,
+   "end": 6
+  },
+  {
+   "hex": "98606e557ff6018a",
+   "offset": 0,
+   "limit": 45,
+   "maximum": 3,
+   "value": 0,
+   "end": 2
+  },
+  {
+   "hex": "26b2a6d43e03e473",
+   "offset": 5,
+   "limit": 19,
+   "maximum": 3,
+   "value": 1,
+   "end": 6
+  },
+  {
+   "hex": "1065ed9dc7118534",
+   "offset": 2,
+   "limit": 53,
+   "maximum": 3,
+   "value": 0,
+   "end": 4
+  },
+  {
+   "hex": "eca2c8a04e7ae0d3",
+   "offset": 2,
+   "limit": 30,
+   "maximum": 5,
+   "value": 3,
+   "end": 4
+  },
+  {
+   "hex": "29bce4ae0db71fde",
+   "offset": 4,
+   "limit": 31,
+   "maximum": 5,
+   "value": 2,
+   "end": 6
+  },
+  {
+   "hex": "2bdab55c9c2723e4",
+   "offset": 6,
+   "limit": 6,
+   "maximum": 5,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "dcc6f178c1e85977",
+   "offset": 4,
+   "limit": 25,
+   "maximum": 53,
+   "value": 45,
+   "end": 10
+  },
+  {
+   "hex": "803f13fe7272df39",
+   "offset": 6,
+   "limit": 44,
+   "maximum": 53,
+   "value": 30,
+   "end": 11
+  },
+  {
+   "hex": "ed274f1b57d853cf",
+   "offset": 5,
+   "limit": 44,
+   "maximum": 53,
+   "value": 31,
+   "end": 10
+  },
+  {
+   "hex": "20a79e06d7c1cd9d",
+   "offset": 2,
+   "limit": 18,
+   "maximum": 54,
+   "value": 8,
+   "end": 8
+  },
+  {
+   "hex": "73167ede2e214f3d",
+   "offset": 7,
+   "limit": 29,
+   "maximum": 54,
+   "value": 44,
+   "end": 13
+  },
+  {
+   "hex": "6df017a39fbce676",
+   "offset": 7,
+   "limit": 47,
+   "maximum": 54,
+   "value": 32,
+   "end": 13
+  },
+  {
+   "hex": "206a033d0a2f1d50",
+   "offset": 0,
+   "limit": 22,
+   "maximum": 179,
+   "value": 32,
+   "end": 8
+  },
+  {
+   "hex": "4617d51e834b6c87",
+   "offset": 1,
+   "limit": 40,
+   "maximum": 179,
+   "value": 163,
+   "end": 9
+  },
+  {
+   "hex": "052efa1c1cb6627c",
+   "offset": 6,
+   "limit": 63,
+   "maximum": 179,
+   "value": 56,
+   "end": 13
+  },
+  {
+   "hex": "5a22e4bf036b6921",
+   "offset": 2,
+   "limit": 64,
+   "maximum": 180,
+   "value": 150,
+   "end": 10
+  },
+  {
+   "hex": "4ef5b41e1febfde2",
+   "offset": 3,
+   "limit": 46,
+   "maximum": 180,
+   "value": 169,
+   "end": 11
+  },
+  {
+   "hex": "a9119ec26582c3c6",
+   "offset": 5,
+   "limit": 27,
+   "maximum": 180,
+   "value": 141,
+   "end": 13
+  },
+  {
+   "hex": "0f4644c99a81133a",
+   "offset": 0,
+   "limit": 61,
+   "maximum": 256,
+   "value": 15,
+   "end": 8
+  },
+  {
+   "hex": "47f89ef2a5f69722",
+   "offset": 4,
+   "limit": 63,
+   "maximum": 256,
+   "value": 132,
+   "end": 12
+  },
+  {
+   "hex": "1d7460bd5e5ee6ae",
+   "offset": 6,
+   "limit": 36,
+   "maximum": 256,
+   "value": 208,
+   "end": 14
+  },
+  {
+   "hex": "8ce0809fbf351a95",
+   "offset": 2,
+   "limit": 41,
+   "maximum": 257,
+   "value": 35,
+   "end": 10
+  },
+  {
+   "hex": "e6bd12288e23d023",
+   "offset": 1,
+   "limit": 59,
+   "maximum": 257,
+   "value": 243,
+   "end": 9
+  },
+  {
+   "hex": "78a73c43c7705f34",
+   "offset": 6,
+   "limit": 60,
+   "maximum": 257,
+   "value": 157,
+   "end": 14
+  },
+  {
+   "hex": "4ae0652ea49a93f2",
+   "offset": 2,
+   "limit": 40,
+   "maximum": 65536,
+   "value": 30738,
+   "end": 18
+  },
+  {
+   "hex": "a306ddcb1f014009",
+   "offset": 3,
+   "limit": 6,
+   "maximum": 65536,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "372e2a05b3dbe2da",
+   "offset": 3,
+   "limit": 39,
+   "maximum": 65536,
+   "value": 17862,
+   "end": 19
+  },
+  {
+   "hex": "febfbc5a5274c83f",
+   "offset": 4,
+   "limit": 44,
+   "maximum": 4294967296,
+   "value": 632015871,
+   "end": 36
+  },
+  {
+   "hex": "954fb9072a32aebe",
+   "offset": 7,
+   "limit": 16,
+   "maximum": 4294967296,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "9a7555f491b88587",
+   "offset": 1,
+   "limit": 61,
+   "maximum": 4294967296,
+   "value": 4197104333,
+   "end": 33
+  },
+  {
+   "hex": "6cdf6eae1ce84417",
+   "offset": 4,
+   "limit": 32,
+   "maximum": 4294967297,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "12e5023833a3cdfa",
+   "offset": 5,
+   "limit": 50,
+   "maximum": 4294967297,
+   "value": 2579502888,
+   "end": 37
+  },
+  {
+   "hex": "4c8c3acaed751607",
+   "offset": 6,
+   "limit": 25,
+   "maximum": 4294967297,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "9dc7fdecfc54ee8d",
+   "offset": 6,
+   "limit": 7,
+   "maximum": 1099511627776,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "910e318c3c2f1200",
+   "offset": 2,
+   "limit": 23,
+   "maximum": 1099511627776,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "7f8855aa6d5772f4",
+   "offset": 4,
+   "limit": 44,
+   "maximum": 1099511627776,
+   "value": 510474410119,
+   "end": 44
+  }
+ ],
+ "fstring": [
+  {
+   "hex": "0400000041626300",
+   "offset": 0,
+   "limit": 64,
+   "value": "Abc",
+   "end": 64
+  },
+  {
+   "hex": "fdffffff480069000000",
+   "offset": 0,
+   "limit": 80,
+   "value": "Hi",
+   "end": 80
+  },
+  {
+   "hex": "00000000",
+   "offset": 0,
+   "limit": 32,
+   "value": "",
+   "end": 32
+  },
+  {
+   "hex": "2500000008121b0300",
+   "offset": 3,
+   "limit": 67,
+   "value": "Abc",
+   "end": 67
+  },
+  {
+   "hex": "2500000008121b0300",
+   "offset": 3,
+   "limit": 58,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "2500000008121b0300",
+   "offset": 3,
+   "limit": 96,
+   "value": "Abc",
+   "end": 67
+  },
+  {
+   "hex": "250000000803100300",
+   "offset": 3,
+   "limit": 67,
+   "value": "a\u0000b",
+   "end": 67
+  },
+  {
+   "hex": "250000000803100300",
+   "offset": 3,
+   "limit": 58,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "250000000803100300",
+   "offset": 3,
+   "limit": 96,
+   "value": "a\u0000b",
+   "end": 67
+  },
+  {
+   "hex": "3500000008031003000000",
+   "offset": 3,
+   "limit": 83,
+   "value": "a\u0000b",
+   "end": 83
+  },
+  {
+   "hex": "3500000008031003000000",
+   "offset": 3,
+   "limit": 74,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "3500000008031003000000",
+   "offset": 3,
+   "limit": 112,
+   "value": "a\u0000b",
+   "end": 83
+  },
+  {
+   "hex": "1d00000000000000",
+   "offset": 3,
+   "limit": 59,
+   "value": "",
+   "end": 59
+  },
+  {
+   "hex": "1d00000000000000",
+   "offset": 3,
+   "limit": 50,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "1d00000000000000",
+   "offset": 3,
+   "limit": 88,
+   "value": "",
+   "end": 59
+  },
+  {
+   "hex": "05200000c0c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c30300",
+   "offset": 3,
+   "limit": 8227,
+   "value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+   "end": 8227
+  },
+  {
+   "hex": "05200000c0c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c30300",
+   "offset": 3,
+   "limit": 8218,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "05200000c0c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c30300",
+   "offset": 3,
+   "limit": 8256,
+   "value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+   "end": 8227
+  },
+  {
+   "hex": "0d20000000",
+   "offset": 3,
+   "limit": 35,
+   "error": "implausible FString length",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "15000000180600",
+   "offset": 3,
+   "limit": 51,
+   "error": "'ascii' codec can't decode byte 0xc3 in position 0: ordinal not in range(128)",
+   "error_type": "UnicodeDecodeError"
+  },
+  {
+   "hex": "15000000180600",
+   "offset": 3,
+   "limit": 42,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "15000000180600",
+   "offset": 3,
+   "limit": 80,
+   "error": "'ascii' codec can't decode byte 0xc3 in position 0: ordinal not in range(128)",
+   "error_type": "UnicodeDecodeError"
+  },
+  {
+   "hex": "0d000000f803",
+   "offset": 3,
+   "limit": 43,
+   "value": "\u007f",
+   "end": 43
+  },
+  {
+   "hex": "edffffff4f1d4807000000",
+   "offset": 3,
+   "limit": 83,
+   "value": "\u03a9\u00e9",
+   "end": 83
+  },
+  {
+   "hex": "edffffff4f1d4807000000",
+   "offset": 3,
+   "limit": 74,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "edffffff4f1d4807000000",
+   "offset": 3,
+   "limit": 112,
+   "value": "\u03a9\u00e9",
+   "end": 83
+  },
+  {
+   "hex": "e5ffffffefc106f0d603000000",
+   "offset": 3,
+   "limit": 99,
+   "value": "\ud83d\ude00z",
+   "end": 99
+  },
+  {
+   "hex": "e5ffffffefc106f0d603000000",
+   "offset": 3,
+   "limit": 90,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "e5ffffffefc106f0d603000000",
+   "offset": 3,
+   "limit": 128,
+   "value": "\ud83d\ude00z",
+   "end": 99
+  },
+  {
+   "hex": "f5ffffff07c00e0200",
+   "offset": 3,
+   "limit": 67,
+   "error": "'utf-16-le' codec can't decode bytes in position 0-1: illegal UTF-16 surrogate",
+   "error_type": "UnicodeDecodeError"
+  },
+  {
+   "hex": "f5ffffff07c00e0200",
+   "offset": 3,
+   "limit": 58,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "f5ffffff07c00e0200",
+   "offset": 3,
+   "limit": 96,
+   "error": "'utf-16-le' codec can't decode bytes in position 0-1: illegal UTF-16 surrogate",
+   "error_type": "UnicodeDecodeError"
+  },
+  {
+   "hex": "f5ffffff07e00e0200",
+   "offset": 3,
+   "limit": 67,
+   "error": "'utf-16-le' codec can't decode bytes in position 0-1: illegal encoding",
+   "error_type": "UnicodeDecodeError"
+  },
+  {
+   "hex": "f5ffffff07e00e0200",
+   "offset": 3,
+   "limit": 58,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "f5ffffff07e00e0200",
+   "offset": 3,
+   "limit": 96,
+   "error": "'utf-16-le' codec can't decode bytes in position 0-1: illegal encoding",
+   "error_type": "UnicodeDecodeError"
+  },
+  {
+   "hex": "edffffff0f020000000000",
+   "offset": 3,
+   "limit": 83,
+   "value": "A",
+   "end": 83
+  },
+  {
+   "hex": "edffffff0f020000000000",
+   "offset": 3,
+   "limit": 74,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "edffffff0f020000000000",
+   "offset": 3,
+   "limit": 112,
+   "value": "A",
+   "end": 83
+  },
+  {
+   "hex": "fdffffff0f0200",
+   "offset": 3,
+   "limit": 51,
+   "value": "A",
+   "end": 51
+  },
+  {
+   "hex": "fdffffff0f0200",
+   "offset": 3,
+   "limit": 42,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "fdffffff0f0200",
+   "offset": 3,
+   "limit": 80,
+   "value": "A",
+   "end": 51
+  },
+  {
+   "hex": "fdffffff07c006",
+   "offset": 3,
+   "limit": 51,
+   "error": "'utf-16-le' codec can't decode bytes in position 0-1: unexpected end of data",
+   "error_type": "UnicodeDecodeError"
+  },
+  {
+   "hex": "fdffffff07c006",
+   "offset": 3,
+   "limit": 42,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "fdffffff07c006",
+   "offset": 3,
+   "limit": 80,
+   "error": "'utf-16-le' codec can't decode bytes in position 0-1: unexpected end of data",
+   "error_type": "UnicodeDecodeError"
+  },
+  {
+   "hex": "050000000c1303",
+   "offset": 3,
+   "limit": 51,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "050000000c1303",
+   "offset": 3,
+   "limit": 42,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "050000000c1303",
+   "offset": 3,
+   "limit": 80,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "e5ffffff0f0300001003000000",
+   "offset": 3,
+   "limit": 99,
+   "value": "a\u0000b",
+   "end": 99
+  },
+  {
+   "hex": "e5ffffff0f0300001003000000",
+   "offset": 3,
+   "limit": 90,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "e5ffffff0f0300001003000000",
+   "offset": 3,
+   "limit": 128,
+   "value": "a\u0000b",
+   "end": 99
+  },
+  {
+   "hex": "8d01000078390a6b2b7b298aab4b83830b13632b9b7b39aa739b7b914a33632b9b7b095a7a099a9b0bab63a3934a33632bfb0a5a0200",
+   "offset": 3,
+   "limit": 427,
+   "value": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK",
+   "end": 427
+  },
+  {
+   "hex": "8d01000078390a6b2b7b298aab4b83830b13632b9b7b39aa739b7b914a33632b9b7b095a7a099a9b0bab63a3934a33632bfb0a5a0200",
+   "offset": 3,
+   "limit": 418,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "8d01000078390a6b2b7b298aab4b83830b13632b9b7b39aa739b7b914a33632b9b7b095a7a099a9b0bab63a3934a33632bfb0a5a0200",
+   "offset": 3,
+   "limit": 456,
+   "value": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK",
+   "end": 427
+  },
+  {
+   "hex": "25000000081303",
+   "offset": 3,
+   "limit": 51,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "25000000081303",
+   "offset": 3,
+   "limit": 42,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "25000000081303",
+   "offset": 3,
+   "limit": 80,
+   "error": "bit range outside data",
+   "error_type": "ValueError"
+  }
+ ],
+ "object_reference": [
+  {
+   "hex": "03c4",
+   "offset": 2,
+   "limit": 9,
+   "error": "packed integer truncated",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "03c4",
+   "offset": 2,
+   "limit": 16,
+   "value": null,
+   "end": 10
+  },
+  {
+   "hex": "03c4",
+   "offset": 2,
+   "limit": 56,
+   "value": null,
+   "end": 10
+  },
+  {
+   "hex": "6bae",
+   "offset": 2,
+   "limit": 9,
+   "error": "packed integer truncated",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "6bae",
+   "offset": 2,
+   "limit": 16,
+   "value": "<guid:77>",
+   "end": 10
+  },
+  {
+   "hex": "6bae",
+   "offset": 2,
+   "limit": 56,
+   "value": "<guid:77>",
+   "end": 10
+  },
+  {
+   "hex": "ffffffff7b2c",
+   "offset": 2,
+   "limit": 41,
+   "error": "packed integer truncated",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "ffffffff7b2c",
+   "offset": 2,
+   "limit": 48,
+   "value": "<guid:4294967295>",
+   "end": 42
+  },
+  {
+   "hex": "ffffffff7b2c",
+   "offset": 2,
+   "limit": 88,
+   "value": "<guid:4294967295>",
+   "end": 42
+  },
+  {
+   "hex": "fffffffffbbf",
+   "offset": 2,
+   "limit": 41,
+   "error": "packed integer truncated",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "fffffffffbbf",
+   "offset": 2,
+   "limit": 48,
+   "value": "<guid:34359738367>",
+   "end": 42
+  },
+  {
+   "hex": "fffffffffbbf",
+   "offset": 2,
+   "limit": 88,
+   "value": "<guid:34359738367>",
+   "end": 42
+  },
+  {
+   "hex": "ffffffffff0344",
+   "offset": 2,
+   "limit": 49,
+   "error": "packed integer exceeds five bytes",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "ffffffffff0344",
+   "offset": 2,
+   "limit": 56,
+   "error": "packed integer exceeds five bytes",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "ffffffffff0344",
+   "offset": 2,
+   "limit": 96,
+   "error": "packed integer exceeds five bytes",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "0b006c",
+   "offset": 2,
+   "limit": 17,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "0b006c",
+   "offset": 2,
+   "limit": 24,
+   "value": "<guid:1>",
+   "end": 18
+  },
+  {
+   "hex": "0b006c",
+   "offset": 2,
+   "limit": 64,
+   "value": "<guid:1>",
+   "end": 18
+  },
+  {
+   "hex": "0b1058",
+   "offset": 2,
+   "limit": 17,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "0b1058",
+   "offset": 2,
+   "limit": 24,
+   "value": "<guid:1>",
+   "end": 18
+  },
+  {
+   "hex": "0b1058",
+   "offset": 2,
+   "limit": 64,
+   "value": "<guid:1>",
+   "end": 18
+  },
+  {
+   "hex": "0bf8b7",
+   "offset": 2,
+   "limit": 17,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "0bf8b7",
+   "offset": 2,
+   "limit": 24,
+   "value": "<guid:1>",
+   "end": 18
+  },
+  {
+   "hex": "0bf8b7",
+   "offset": 2,
+   "limit": 64,
+   "value": "<guid:1>",
+   "end": 18
+  },
+  {
+   "hex": "0b0400140000003885b5950194",
+   "offset": 2,
+   "limit": 97,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "0b0400140000003885b5950194",
+   "offset": 2,
+   "limit": 104,
+   "value": "Name",
+   "end": 98
+  },
+  {
+   "hex": "0b0400140000003885b5950194",
+   "offset": 2,
+   "limit": 144,
+   "value": "Name",
+   "end": 98
+  },
+  {
+   "hex": "0b14081400d8000000bc1c85b595bd14c5d5a5c1c18589b195cdbd1cd5b9cdbd48a599b195cdbd0885d1d1b19549a599b195bd0885d1d1b19549a599b1950100000000380000000885d1d1b19549a599b1957d0d01bc1dfadd66",
+   "offset": 2,
+   "limit": 713,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "0b14081400d8000000bc1c85b595bd14c5d5a5c1c18589b195cdbd1cd5b9cdbd48a599b195cdbd0885d1d1b19549a599b195bd0885d1d1b19549a599b1950100000000380000000885d1d1b19549a599b1957d0d01bc1dfadd66",
+   "offset": 2,
+   "limit": 720,
+   "value": "/Game/Equippables/Guns/Rifles/BattleRifle/BattleRifle.BattleRifle_C",
+   "end": 714
+  },
+  {
+   "hex": "0b14081400d8000000bc1c85b595bd14c5d5a5c1c18589b195cdbd1cd5b9cdbd48a599b195cdbd0885d1d1b19549a599b195bd0885d1d1b19549a599b1950100000000380000000885d1d1b19549a599b1957d0d01bc1dfadd66",
+   "offset": 2,
+   "limit": 760,
+   "value": "/Game/Equippables/Guns/Rifles/BattleRifle/BattleRifle.BattleRifle_C",
+   "end": 714
+  },
+  {
+   "hex": "0b046c204800000004cdcd85d5b1d149a599b1957d052d7d0d013c",
+   "offset": 2,
+   "limit": 209,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "0b046c204800000004cdcd85d5b1d149a599b1957d052d7d0d013c",
+   "offset": 2,
+   "limit": 216,
+   "value": "<guid:525>.AssaultRifle_AK_C",
+   "end": 210
+  },
+  {
+   "hex": "0b046c204800000004cdcd85d5b1d149a599b1957d052d7d0d013c",
+   "offset": 2,
+   "limit": 256,
+   "value": "<guid:525>.AssaultRifle_AK_C",
+   "end": 210
+  },
+  {
+   "hex": "0bfc6f2010000000607d0d01e059d14898",
+   "offset": 2,
+   "limit": 129,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "0bfc6f2010000000607d0d01e059d14898",
+   "offset": 2,
+   "limit": 136,
+   "value": "<guid:525>.X_C",
+   "end": 130
+  },
+  {
+   "hex": "0bfc6f2010000000607d0d01e059d14898",
+   "offset": 2,
+   "limit": 176,
+   "value": "<guid:525>.X_C",
+   "end": 130
+  },
+  {
+   "hex": "0b04080008000000600130",
+   "offset": 2,
+   "limit": 81,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "0b04080008000000600130",
+   "offset": 2,
+   "limit": 88,
+   "value": "<guid:1>.X",
+   "end": 82
+  },
+  {
+   "hex": "0b04080008000000600130",
+   "offset": 2,
+   "limit": 128,
+   "value": "<guid:1>.X",
+   "end": 82
+  },
+  {
+   "hex": "0b0408040000000000080000006001a0",
+   "offset": 2,
+   "limit": 121,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "0b0408040000000000080000006001a0",
+   "offset": 2,
+   "limit": 128,
+   "value": "X",
+   "end": 122
+  },
+  {
+   "hex": "0b0408040000000000080000006001a0",
+   "offset": 2,
+   "limit": 168,
+   "value": "X",
+   "end": 122
+  },
+  {
+   "hex": "0b04000000000020",
+   "offset": 2,
+   "limit": 57,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "0b04000000000020",
+   "offset": 2,
+   "limit": 64,
+   "value": "",
+   "end": 58
+  },
+  {
+   "hex": "0b04000000000020",
+   "offset": 2,
+   "limit": 104,
+   "value": "",
+   "end": 58
+  },
+  {
+   "hex": "0b040804000800000004010000000050",
+   "offset": 2,
+   "limit": 121,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "0b040804000800000004010000000050",
+   "offset": 2,
+   "limit": 128,
+   "value": "A.",
+   "end": 122
+  },
+  {
+   "hex": "0b040804000800000004010000000050",
+   "offset": 2,
+   "limit": 168,
+   "value": "A.",
+   "end": 122
+  },
+  {
+   "hex": "0b0400f4ffffff5f01a403000078",
+   "offset": 2,
+   "limit": 105,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "0b0400f4ffffff5f01a403000078",
+   "offset": 2,
+   "limit": 112,
+   "value": "W\u00e9",
+   "end": 106
+  },
+  {
+   "hex": "0b0400f4ffffff5f01a403000078",
+   "offset": 2,
+   "limit": 152,
+   "value": "W\u00e9",
+   "end": 106
+  },
+  {
+   "hex": "0b040008000000fc8761",
+   "offset": 2,
+   "limit": 73,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "0b040008000000fc8761",
+   "offset": 2,
+   "limit": 80,
+   "error": "'ascii' codec can't decode byte 0xff in position 0: ordinal not in range(128)",
+   "error_type": "UnicodeDecodeError"
+  },
+  {
+   "hex": "0b040008000000fc8761",
+   "offset": 2,
+   "limit": 120,
+   "error": "'ascii' codec can't decode byte 0xff in position 0: ordinal not in range(128)",
+   "error_type": "UnicodeDecodeError"
+  },
+  {
+   "hex": "0b0400401f000084",
+   "offset": 2,
+   "limit": 57,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "0b0400401f000084",
+   "offset": 2,
+   "limit": 64,
+   "error": "implausible FString length",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "0b0400401f000084",
+   "offset": 2,
+   "limit": 104,
+   "error": "implausible FString length",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "0b04002000000050c985a5b101000048",
+   "offset": 2,
+   "limit": 121,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "0b04002000000050c985a5b101000048",
+   "offset": 2,
+   "limit": 128,
+   "value": "Trail",
+   "end": 122
+  },
+  {
+   "hex": "0b04002000000050c985a5b101000048",
+   "offset": 2,
+   "limit": 168,
+   "value": "Trail",
+   "end": 122
+  },
+  {
+   "hex": "0b04fcfffffffb1b00000008a59d7d0d011c",
+   "offset": 2,
+   "limit": 137,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "0b04fcfffffffb1b00000008a59d7d0d011c",
+   "offset": 2,
+   "limit": 144,
+   "value": "<guid:34359738367>.Big_C",
+   "end": 138
+  },
+  {
+   "hex": "0b04fcfffffffb1b00000008a59d7d0d011c",
+   "offset": 2,
+   "limit": 184,
+   "value": "<guid:34359738367>.Big_C",
+   "end": 138
+  },
+  {
+   "hex": "0b0408040804000c00000030c1000c00000030c5000c00000030c9004c",
+   "offset": 2,
+   "limit": 225,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "0b0408040804000c00000030c1000c00000030c5000c00000030c9004c",
+   "offset": 2,
+   "limit": 232,
+   "value": "L0.L1.L2",
+   "end": 226
+  },
+  {
+   "hex": "0b0408040804000c00000030c1000c00000030c5000c00000030c9004c",
+   "offset": 2,
+   "limit": 272,
+   "value": "L0.L1.L2",
+   "end": 226
+  },
+  {
+   "hex": "0b040804080408040804080408040804000c00000030c1000c00000030c5000c00000030c9000c00000030cd000c00000030d1000c00000030d5000c00000030d9000c00000030dd00b8",
+   "offset": 2,
+   "limit": 585,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "0b040804080408040804080408040804000c00000030c1000c00000030c5000c00000030c9000c00000030cd000c00000030d1000c00000030d5000c00000030d9000c00000030dd00b8",
+   "offset": 2,
+   "limit": 592,
+   "value": "L0.L1.L2.L3.L4.L5.L6.L7",
+   "end": 586
+  },
+  {
+   "hex": "0b040804080408040804080408040804000c00000030c1000c00000030c5000c00000030c9000c00000030cd000c00000030d1000c00000030d5000c00000030d9000c00000030dd00b8",
+   "offset": 2,
+   "limit": 632,
+   "value": "L0.L1.L2.L3.L4.L5.L6.L7",
+   "end": 586
+  },
+  {
+   "hex": "0b0408040804080408040804080408040804000c00000030c1000c00000030c5000c00000030c9000c00000030cd000c00000030d1000c00000030d5000c00000030d9000c00000030dd000c00000030e10098",
+   "offset": 2,
+   "limit": 657,
+   "error": "object outer chain too deep",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "0b0408040804080408040804080408040804000c00000030c1000c00000030c5000c00000030c9000c00000030cd000c00000030d1000c00000030d5000c00000030d9000c00000030dd000c00000030e10098",
+   "offset": 2,
+   "limit": 664,
+   "error": "object outer chain too deep",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "0b0408040804080408040804080408040804000c00000030c1000c00000030c5000c00000030c9000c00000030cd000c00000030d1000c00000030d5000c00000030d9000c00000030dd000c00000030e10098",
+   "offset": 2,
+   "limit": 704,
+   "error": "object outer chain too deep",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "0b0408040804080408040804080408040804080408040804000c00000030c1000c00000030c5000c00000030c9000c00000030cd000c00000030d1000c00000030d5000c00000030d9000c00000030dd000c00000030e1000c00000030e5001000000030c5c0001000000030c5c40068",
+   "offset": 2,
+   "limit": 889,
+   "error": "object outer chain too deep",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "0b0408040804080408040804080408040804080408040804000c00000030c1000c00000030c5000c00000030c9000c00000030cd000c00000030d1000c00000030d5000c00000030d9000c00000030dd000c00000030e1000c00000030e5001000000030c5c0001000000030c5c40068",
+   "offset": 2,
+   "limit": 896,
+   "error": "object outer chain too deep",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "0b0408040804080408040804080408040804080408040804000c00000030c1000c00000030c5000c00000030c9000c00000030cd000c00000030d1000c00000030d5000c00000030d9000c00000030dd000c00000030e1000c00000030e5001000000030c5c0001000000030c5c40068",
+   "offset": 2,
+   "limit": 936,
+   "error": "object outer chain too deep",
+   "error_type": "ValueError"
+  }
+ ]
+}
