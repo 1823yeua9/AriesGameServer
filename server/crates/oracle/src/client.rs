@@ -1,0 +1,1 @@
+//! LiveClient: one read-only view of the running client that owns the process, GObjects, the FName pool and every cache the python kept (state names by machine address, class names by object, rng components). the range systems call its methods; spec 09. owner: I5.
