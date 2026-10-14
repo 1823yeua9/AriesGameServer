@@ -13,7 +13,7 @@ use crate::objects::NamePool;
 use crate::probes::{HudState, ProjectileSnapshot};
 use crate::rpc_index::{CLIENT_SET_HUD_RVA, RpcActor, RpcIndex, resolve_rpc_index};
 use crate::tags::TagNetIndex;
-use crate::world::{Camera, HeaderRule, WorldChain, at, require_object_array};
+use crate::world::{Camera, WorldChain, at, name_key_engine};
 use crate::{Memory, OracleError, Process};
 
 /// a machine's states in live TMap order (python dict order: a repeated name keeps
@@ -45,11 +45,11 @@ impl ReaderCaches {
     }
 }
 
-/// derive_name_key (FNP:43-64): the strict header rule, the engine's object index
-/// check, then the 4-byte key validated against the full "AresGameEngine".
+/// derive_name_key (FNP:43-64): the strict header rule, the engine's chunk only, the
+/// engine's object index check, then the 4-byte key validated against the full
+/// "AresGameEngine".
 pub fn derive_names(memory: &impl Memory) -> Result<NamePool, OracleError> {
-    let objects = require_object_array(memory, HeaderRule::NameKey)?;
-    NamePool::new(memory, &objects)
+    NamePool::from_engine(memory, name_key_engine(memory)?)
 }
 
 pub struct LiveClient<M: Memory> {
@@ -81,6 +81,13 @@ impl<M: Memory> LiveClient<M> {
     /// decode_name of a comparison index (FNP:67-71).
     pub fn name(&mut self, index: u32) -> Result<String, OracleError> {
         self.names.name(&self.memory, index)
+    }
+
+    /// `reader._names.get(sm, {})` with no read: what registration takes after its
+    /// slot read (H:1159-1160 abilities, H:1301 purchases) and what the firing seed
+    /// searches (H:953). None when the machine was never read.
+    pub fn cached_state_names(&self, state_machine: u64) -> Option<&StateNames> {
+        self.caches.state_names.get(&state_machine)
     }
 
     /// `_class_names.get(object)` or decode it and remember it: `own` decodes the
@@ -150,28 +157,54 @@ impl<M: Memory> LiveClient<M> {
         crate::probes::read_hud_state(&self.memory)
     }
 
-    /// R16: gameplay-tag net indices. the responder used a fresh reader (same key)
-    /// for it (H:4054-4059); the key is per run, so ours is reused.
-    pub fn tag_net_indices(&mut self) -> Result<TagNetIndex, OracleError> {
-        crate::tags::predict_net_indices(&self.memory, &mut self.names)
+    /// R16: gameplay-tag net indices. like the responder (H:4054-4059) it derives a
+    /// fresh name key for the read instead of reusing ours, so it fails the same way.
+    pub fn tag_net_indices(&self) -> Result<TagNetIndex, OracleError> {
+        crate::tags::read_tag_net_indices(&self.memory)
     }
 }
 
-/// what a snapshot reads beyond its always-read fields (spec 09 §7.1-7.2). list a
-/// slot only when the python would read it (its mirror is due or a registration
-/// stage is), or the empty-TMap race of Q4 gets more likely.
+/// one entry of mirror_ready_equippables (H:1316-1331) and what the mirror pass
+/// reads for it (H:1615-1700).
+#[derive(Debug, Clone)]
+pub struct WatchedEquippable {
+    /// equippable.key, part of the firing rng cache key (H:949)
+    pub key: String,
+    pub slot: u32,
+    /// the slot's item must have this class or nothing more is read for it (H:1617)
+    pub class_name: String,
+    /// R7, read when not empty (H:1635-1645)
+    pub resources: Vec<ResourceSlot<'static>>,
+    /// R8 with range_bots on: the seed, while the item is current and has resources (H:1624)
+    pub firing: bool,
+    /// R6 for an equippable with mirror_states and extra machines (H:1667-1676)
+    pub item_machines: bool,
+}
+
+/// what a snapshot reads beyond its always-read fields (spec 09 §7.1-7.2). list an
+/// equippable only while the python would read it (its mirror is due or a
+/// registration stage is), or the empty-TMap race of Q4 gets more likely.
 #[derive(Debug, Clone, Default)]
 pub struct WatchList {
-    /// R4: slots in mirror order (pistol 1, melee 2, C 3, Q 4, E 5, X 9, then purchases)
-    pub slots: Vec<u32>,
-    /// R7: per slot, the resources its equippable declares
-    pub resources: Vec<(u32, Vec<ResourceSlot<'static>>)>,
-    /// R6: slots whose item machine array is read (equippables with extra machines)
-    pub item_machine_slots: Vec<u32>,
-    /// R8: (slot, equippable key), read only while that slot's item is current
-    pub firing: Vec<(u32, String)>,
+    /// in mirror order: pistol 1, melee 2, C 3, Q 4, E 5, X 9, then purchases
+    pub equippables: Vec<WatchedEquippable>,
     /// R14: our projectile channels in flight
     pub projectile_channels: Vec<u32>,
+}
+
+/// one equippable's reads in a mirror pass. there is one only for an equippable whose
+/// slot machine was found with the expected class (H:1616-1618).
+#[derive(Debug)]
+pub struct EquippableReads {
+    pub key: String,
+    pub slot: u32,
+    /// None when not read; Some(None) where the responder got None, every failure
+    /// included (H:963-964)
+    pub firing_seed: Option<Option<u32>>,
+    /// None when not read (python: `{}` + resource_mirror_error on failure)
+    pub resources: Option<Result<ResourceMap, OracleError>>,
+    /// None when not read (python: `{}` + machine_mirror_error on failure)
+    pub item_machines: Option<Result<Vec<ItemMachine>, OracleError>>,
 }
 
 /// one pass of reads (spec 09 §7.2). each field fails on its own like the python's
@@ -181,13 +214,10 @@ pub struct Snapshot {
     pub taken_at: Instant,
     pub read_us: u64,
     pub chain: Result<WorldChain, OracleError>,
+    /// R4 for the watched slots; with nothing watched the python skips the read (H:1603)
     pub slots: Result<Vec<SlotMachine>, OracleError>,
-    /// slot -> resource amounts (python: `{}` + resource_mirror_error on failure)
-    pub resources: Vec<(u32, Result<ResourceMap, OracleError>)>,
-    /// slot -> machines (python: `{}` + machine_mirror_error on failure)
-    pub item_machines: Vec<(u32, Result<Vec<ItemMachine>, OracleError>)>,
-    /// slot -> seed; the responder maps every failure to None (H:963-964)
-    pub firing_seeds: Vec<(u32, Option<u32>)>,
+    /// per watched equippable in watch order, the ones whose class matched
+    pub equippables: Vec<EquippableReads>,
     pub camera: Result<Option<Camera>, OracleError>,
     pub input_replication: Result<Option<InputReplication>, OracleError>,
     pub ult_required: Result<i32, OracleError>,
@@ -198,31 +228,43 @@ pub struct Snapshot {
 }
 
 impl<M: Memory> LiveClient<M> {
+    /// the mirror pass's reads (H:1602-1700): one slot read for every watched slot,
+    /// then per equippable, skipping it without a machine or with another class:
+    /// firing seed, resources, item machines, in that order.
+    fn mirror_reads(&mut self, watch: &WatchList) -> (Result<Vec<SlotMachine>, OracleError>, Vec<EquippableReads>) {
+        if watch.equippables.is_empty() {
+            return (Ok(Vec::new()), Vec::new());
+        }
+        let slots: Vec<u32> = watch.equippables.iter().map(|equippable| equippable.slot).collect();
+        let machines = match self.slot_machines(&slots) {
+            Ok(machines) => machines,
+            Err(error) => return (Err(error), Vec::new()),
+        };
+        let mut reads = Vec::new();
+        for equippable in &watch.equippables {
+            let Some(machine) = machines.iter().find(|machine| machine.slot == equippable.slot) else {
+                continue;
+            };
+            if machine.class_name != equippable.class_name {
+                continue;
+            }
+            let has_resources = !equippable.resources.is_empty();
+            let firing_seed = (equippable.firing && machine.is_current && has_resources)
+                .then(|| self.firing_seed(machine.state_machine, &equippable.key).unwrap_or(None));
+            let resources = has_resources.then(|| self.resource_amounts(machine.item, &equippable.resources));
+            let item_machines = equippable.item_machines.then(|| self.item_machines(machine.item));
+            reads.push(EquippableReads { key: equippable.key.clone(), slot: equippable.slot, firing_seed, resources, item_machines });
+        }
+        (Ok(machines), reads)
+    }
+
     /// every snapshot field once, in the order one python authority pass reads them
-    /// (§1: mirror R4 -> R8 -> R7 -> R6, then R9, R10, R12, R13, R14, and R17).
+    /// (§1: the mirror R4 -> R8 -> R7 -> R6, then R9, R10, R12, R13, R14, and R17).
     /// R11 (input bounds), R15 and R16 are on-demand queries, never snapshot fields.
     pub fn snapshot(&mut self, watch: &WatchList) -> Snapshot {
         let taken_at = Instant::now();
         let chain = self.world_chain();
-        let slots = self.slot_machines(&watch.slots);
-        let mut resources = Vec::new();
-        let mut item_machines = Vec::new();
-        let mut firing_seeds = Vec::new();
-        if let Ok(machines) = &slots {
-            for machine in machines {
-                for (_, key) in watch.firing.iter().filter(|(slot, _)| *slot == machine.slot) {
-                    if machine.is_current {
-                        firing_seeds.push((machine.slot, self.firing_seed(machine.state_machine, key).unwrap_or(None)));
-                    }
-                }
-                for (_, declared) in watch.resources.iter().filter(|(slot, _)| *slot == machine.slot) {
-                    resources.push((machine.slot, self.resource_amounts(machine.item, declared)));
-                }
-                if watch.item_machine_slots.contains(&machine.slot) {
-                    item_machines.push((machine.slot, self.item_machines(machine.item)));
-                }
-            }
-        }
+        let (slots, equippables) = self.mirror_reads(watch);
         let camera = self.camera();
         let input_replication = self.input_replication();
         let ult_required = self.ult_required();
@@ -234,9 +276,7 @@ impl<M: Memory> LiveClient<M> {
             read_us: taken_at.elapsed().as_micros() as u64,
             chain,
             slots,
-            resources,
-            item_machines,
-            firing_seeds,
+            equippables,
             camera,
             input_replication,
             ult_required,
@@ -257,9 +297,10 @@ impl LiveClient<Process> {
         self.memory.pid
     }
 
-    /// R18 liveness on the reader's own handle.
+    /// R18 the python way (H:148-163): a fresh SYNCHRONIZE handle and a zero wait,
+    /// not the exit code (a process that exits with 259 would look alive forever).
     pub fn alive(&self) -> bool {
-        self.memory.is_alive()
+        client_process_alive(self.memory.pid)
     }
 
     /// R1: the ares handler and both session keys (CLK:42-82). slow (a memory scan).

@@ -24,6 +24,8 @@ pub struct ArrayHeader {
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum HeaderRule {
     /// read_fname_pool.derive_name_key (FNP:48): 0x107E2 < elements <= 0x400000, 1 <= chunks <= 0x14; raises.
+    /// the tag scan (GTN:45-46) has no check of its own but always runs right after
+    /// a fresh derive_name_key on the same header (H:4054-4057), so it uses this one.
     NameKey,
     /// resolve_rpc_index.resolve (RRI:64), read_saved_moves (RMN:57): 1 <= chunks <= 0x14,
     /// 0x800 < elements <= 0x400000; returns None.
@@ -71,6 +73,22 @@ pub fn object_array(memory: &impl Memory, rule: HeaderRule) -> Result<Option<GOb
 /// the raising form (RES:35-36, CIE:28-29, FNP:48-49).
 pub fn require_object_array(memory: &impl Memory, rule: HeaderRule) -> Result<GObjects, OracleError> {
     object_array(memory, rule)?.ok_or(OracleError::Invalid("GObjects header failed validation"))
+}
+
+/// derive_name_key's own walk (FNP:44-54): the strict header rule, then only the
+/// chunk holding the engine. it does not check that chunk against NumChunks the
+/// way read_object does, so one chunk is enough, and it never reads the others.
+pub fn name_key_engine(memory: &impl Memory) -> Result<u64, OracleError> {
+    let header = read_array_header(memory)?;
+    if !HeaderRule::NameKey.accepts(&header) {
+        return Err(OracleError::Invalid("GObjects header failed validation"));
+    }
+    let chunk = memory.u64(at(header.chunk_table, 8 * (ENGINE_INDEX / 0x10000) as u64))?;
+    let engine = memory.u64(at(chunk, 24 * (ENGINE_INDEX % 0x10000) as u64))?;
+    if memory.u32(at(engine, 0xC))? != ENGINE_INDEX {
+        return Err(OracleError::Invalid("AresGameEngine object index changed"));
+    }
+    Ok(engine)
 }
 
 /// GEngine -> GameViewport +0xBD0 -> World +0x80 (RES:47-57). no null checks.

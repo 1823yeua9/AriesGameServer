@@ -80,7 +80,10 @@ fn handler_scan_matches_python() {
             .collect();
         let pages = case["writes"].as_array().unwrap().iter().map(|w| (w[0].as_u64().unwrap(), hex(w[1].as_str().unwrap()))).collect();
         let space = Space { regions, pages };
-        let result = scan_handler_keys(&space, case["needle"].as_u64().unwrap(), 30.0);
+        // python repr: "30.0", "-1.0", "nan", "inf"
+        let max_seconds: f64 = case["max_seconds"].as_str().unwrap().parse().unwrap();
+        let name = &format!("{name} max_seconds {max_seconds}");
+        let result = scan_handler_keys(&space, case["needle"].as_u64().unwrap(), max_seconds);
         match (&result, case.get("ok")) {
             (Ok(keys), Some(expected)) => {
                 assert_eq!(keys.handler, expected["handler"].as_u64().unwrap(), "{name} handler");
