@@ -1,0 +1,9216 @@
+{
+ "lines": {
+  "jobs": 2066
+ },
+ "first_offsets": {
+  "line": 786,
+  "base": 1000,
+  "offsets": {
+   "6": 11,
+   "8": 51,
+   "9": 5,
+   "12": 2,
+   "13": 5,
+   "14": 2,
+   "15": 2,
+   "16": 2,
+   "17": 2,
+   "18": 2
+  }
+ },
+ "datagrams": [
+  {
+   "now": 9000.002,
+   "sends": [
+    {
+     "channel": 14,
+     "sequence": 1002,
+     "hex": "a3807b08",
+     "bit_count": 30,
+     "has_exports": false,
+     "is_open": false,
+     "is_close": false
+    }
+   ],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.006000000001,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.010000000002,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.014000000003,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.022000000003,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.024000000003,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.032000000003,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.048000000003,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.064000000002,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.072000000002,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.080000000002,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.084000000003,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.095000000003,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.111000000003,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.117000000002,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.125000000002,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.133000000002,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.149000000001,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.157000000001,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.173,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.181,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.197,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.208,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.224,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.232,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.24,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.256,
+   "sends": [
+    {
+     "channel": 15,
+     "sequence": 1002,
+     "hex": "a360452e",
+     "bit_count": 30,
+     "has_exports": false,
+     "is_open": false,
+     "is_close": false
+    }
+   ],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.26,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.264000000001,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.266000000001,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.277000000002,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.279000000002,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.290000000003,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.292000000003,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.296000000004,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.307000000004,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.318000000005,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.329000000005,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.345000000005,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.353000000005,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.361000000004,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.363000000005,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.365000000005,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.367000000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.378000000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.380000000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.396000000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.402000000006,
+   "sends": [
+    {
+     "channel": 14,
+     "sequence": 1003,
+     "hex": "020000008236180a4205002e0000008ae2ead2e0e0c2c4d8caa6e8c2e8ca9ac2c6d0d2dcca00000000000ada60281101",
+     "bit_count": 381,
+     "has_exports": true,
+     "is_open": false,
+     "is_close": false
+    }
+   ],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.418000000005,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.434000000005,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.440000000004,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.444000000005,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.455000000005,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.463000000005,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.479000000005,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.485000000004,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.487000000005,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.498000000005,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.504000000004,
+   "sends": [
+    {
+     "channel": 16,
+     "sequence": 1002,
+     "hex": "a3b03f3c",
+     "bit_count": 30,
+     "has_exports": false,
+     "is_open": false,
+     "is_close": false
+    }
+   ],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.515000000005,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.521000000004,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.537000000004,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.543000000003,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.547000000004,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.555000000004,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.566000000004,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.570000000005,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.581000000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.592000000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.600000000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.602000000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.610000000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.616000000005,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.622000000005,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.633000000005,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.635000000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.651000000005,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.659000000005,
+   "sends": [
+    {
+     "channel": 15,
+     "sequence": 1003,
+     "hex": "020000009236180a5205002e0000008ae2ead2e0e0c2c4d8caa6e8c2e8ca9ac2c6d0d2dcca00000000004ada60287110",
+     "bit_count": 381,
+     "has_exports": true,
+     "is_open": false,
+     "is_close": false
+    }
+   ],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.665000000005,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.673000000004,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.677000000005,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.683000000005,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.689000000004,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.693000000005,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.695000000005,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.703000000005,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.707000000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.715000000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.717000000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.733000000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.749000000005,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.765000000005,
+   "sends": [
+    {
+     "channel": 17,
+     "sequence": 1002,
+     "hex": "a324f138",
+     "bit_count": 30,
+     "has_exports": false,
+     "is_open": false,
+     "is_close": false
+    }
+   ],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.781000000004,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.789000000004,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.800000000005,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.816000000004,
+   "sends": [
+    {
+     "channel": 14,
+     "sequence": 1004,
+     "hex": "020000008a36180a4205001c00000092dcc2c6e8d2eccaa6e8c2e8ca00000000000ada6028e539d0f80113",
+     "bit_count": 341,
+     "has_exports": true,
+     "is_open": false,
+     "is_close": false
+    }
+   ],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.832000000004,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.843000000004,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.847000000005,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.858000000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.860000000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.871000000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.875000000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.879000000008,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.883000000009,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.899000000009,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.905000000008,
+   "sends": [
+    {
+     "channel": 16,
+     "sequence": 1003,
+     "hex": "02000000a236180a6205002e0000008ae2ead2e0e0c2c4d8caa6e8c2e8ca9ac2c6d0d2dcca00000000008ada6028d11c",
+     "bit_count": 381,
+     "has_exports": true,
+     "is_open": false,
+     "is_close": false
+    }
+   ],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.921000000008,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.932000000008,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.938000000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.942000000008,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.958000000008,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.966000000008,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.968000000008,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.976000000008,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.978000000008,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9000.994000000008,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.005000000008,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.013000000008,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.024000000009,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.026000000009,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.034000000009,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.03800000001,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.044000000009,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.04800000001,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.05900000001,
+   "sends": [
+    {
+     "channel": 15,
+     "sequence": 1004,
+     "hex": "020000009a36180a5205001c00000092dcc2c6e8d2eccaa6e8c2e8ca00000000004ada6028e529407bce18",
+     "bit_count": 341,
+     "has_exports": true,
+     "is_open": false,
+     "is_close": false
+    }
+   ],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.06700000001,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.07100000001,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.08700000001,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.091000000011,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.095000000012,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.106000000013,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.108000000013,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.116000000013,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.127000000013,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.133000000013,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.137000000013,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.143000000013,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.149000000012,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.160000000013,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.164000000013,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.180000000013,
+   "sends": [
+    {
+     "channel": 17,
+     "sequence": 1003,
+     "hex": "02000000b236180a7205002e0000008ae2ead2e0e0c2c4d8caa6e8c2e8ca9ac2c6d0d2dcca0000000000cada60285110",
+     "bit_count": 381,
+     "has_exports": true,
+     "is_open": false,
+     "is_close": false
+    }
+   ],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.196000000013,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.204000000012,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.215000000013,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.219000000014,
+   "sends": [],
+   "oracle": [
+    {
+     "call": "slot",
+     "slot": 3,
+     "machine": {
+      "item": 28672,
+      "class_name": "Ability_Wushu_4_Smoke_C",
+      "state_machine": 28928,
+      "state_names": [
+       "SmokeState0",
+       "SmokeState1",
+       "InactiveState",
+       "SmokeState2",
+       "SmokeState3",
+       "SmokeState4",
+       "SmokeState5",
+       "SmokeState6",
+       "SmokeState7",
+       "SmokeState8",
+       "SmokeState9"
+      ]
+     }
+    },
+    {
+     "call": "items",
+     "item": 28672,
+     "error": true
+    }
+   ],
+   "event": {
+    "extra_machines_error": "error",
+    "ability_ready": [
+     [
+      "Ability_Wushu_4_Smoke_C",
+      11,
+      []
+     ]
+    ]
+   }
+  },
+  {
+   "now": 9001.221000000014,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.237000000014,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.239000000014,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.241000000015,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.257000000014,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.273000000014,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.279000000013,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.283000000014,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.291000000014,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.299000000014,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.301000000014,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.309000000014,
+   "sends": [
+    {
+     "channel": 16,
+     "sequence": 1004,
+     "hex": "02000000aa36180a6205001c00000092dcc2c6e8d2eccaa6e8c2e8ca00000000008ada6028e5b990dc2404",
+     "bit_count": 341,
+     "has_exports": true,
+     "is_open": false,
+     "is_close": false
+    }
+   ],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.320000000014,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.328000000014,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.334000000013,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.345000000014,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.361000000014,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.372000000014,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.376000000015,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.392000000014,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.394000000015,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.402000000015,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.418000000014,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.434000000014,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.438000000015,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.446000000014,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.454000000014,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.470000000014,
+   "sends": [],
+   "oracle": [
+    {
+     "call": "slot",
+     "slot": 5,
+     "machine": null
+    }
+   ],
+   "event": {}
+  },
+  {
+   "now": 9001.476000000013,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.484000000013,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.486000000014,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.488000000014,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.504000000014,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.520000000013,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.522000000014,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.526000000014,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.530000000015,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.546000000015,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.557000000015,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.568000000016,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.570000000016,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.578000000016,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.586000000016,
+   "sends": [
+    {
+     "channel": 17,
+     "sequence": 1004,
+     "hex": "02000000ba36180a7205001c00000092dcc2c6e8d2eccaa6e8c2e8ca0000000000cada6028e5a9d03a500c",
+     "bit_count": 341,
+     "has_exports": true,
+     "is_open": false,
+     "is_close": false
+    }
+   ],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.590000000017,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.592000000017,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.603000000017,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.609000000017,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.617000000017,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.619000000017,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.623000000018,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.631000000018,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.637000000017,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.639000000017,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.641000000018,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.643000000018,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.651000000018,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.657000000017,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.661000000018,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.663000000019,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.674000000019,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.68500000002,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.69300000002,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.699000000019,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.71000000002,
+   "sends": [],
+   "oracle": [
+    {
+     "call": "slot",
+     "slot": 4,
+     "error": true
+    }
+   ],
+   "event": {
+    "ability_register_error": "error"
+   }
+  },
+  {
+   "now": 9001.72100000002,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.73200000002,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.73400000002,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.74000000002,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.74400000002,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.755000000021,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.757000000021,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.76300000002,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.774000000021,
+   "sends": [],
+   "oracle": [
+    {
+     "call": "slot",
+     "slot": 5,
+     "machine": {
+      "item": 32768,
+      "class_name": "Ability_Melee_Base_C",
+      "state_machine": 33024,
+      "state_names": []
+     }
+    }
+   ],
+   "event": {}
+  },
+  {
+   "now": 9001.79000000002,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.792000000021,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.794000000022,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.805000000022,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.813000000022,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.821000000022,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.825000000023,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.829000000023,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.840000000024,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.842000000024,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.850000000024,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.856000000023,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.860000000024,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.864000000025,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.872000000025,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.880000000025,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.891000000025,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.893000000025,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.909000000025,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.915000000025,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.923000000024,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.927000000025,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.933000000025,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.949000000024,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.965000000024,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.976000000024,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9001.987000000025,
+   "sends": [],
+   "oracle": [
+    {
+     "call": "slot",
+     "slot": 9,
+     "machine": null
+    }
+   ],
+   "event": {}
+  },
+  {
+   "now": 9001.993000000024,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.009000000024,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.013000000024,
+   "sends": [
+    {
+     "channel": 16,
+     "sequence": 1005,
+     "hex": "020000001237180a6205002400000084dedee6e8a6e8c2e8ca9ac2c6d0d2dcca00000000004adc6028d11c",
+     "bit_count": 341,
+     "has_exports": true,
+     "is_open": false,
+     "is_close": false
+    },
+    {
+     "channel": 16,
+     "sequence": 1006,
+     "hex": "020000001a37180a6205001800000084dedee6e8bea4cac2c8f200000000004adc6028e51949d92404",
+     "bit_count": 325,
+     "has_exports": true,
+     "is_open": false,
+     "is_close": false
+    }
+   ],
+   "oracle": [
+    {
+     "call": "slot",
+     "slot": 4,
+     "machine": {
+      "item": 36864,
+      "class_name": "Ability_Wushu_Q_CycloneBoost_C",
+      "state_machine": 37120,
+      "state_names": [
+       "BoostState0",
+       "BoostState1",
+       "BoostState2",
+       "BoostState3",
+       "BoostState4",
+       "BoostState5",
+       "BoostState6",
+       "BoostState7",
+       "BoostState8",
+       "BoostState9",
+       "BoostState10",
+       "InactiveState"
+      ]
+     }
+    },
+    {
+     "call": "items",
+     "item": 36864,
+     "machines": [
+      {
+       "name": "BoostStateMachine",
+       "address": 37376,
+       "starting": "Boost_Ready",
+       "state_names": [
+        "Boost_Ready",
+        "Boost_Active",
+        "Boost_Done"
+       ]
+      }
+     ]
+    }
+   ],
+   "event": {
+    "ability_ready": [
+     [
+      "Ability_Wushu_Q_CycloneBoost_C",
+      12,
+      [
+       "BoostStateMachine"
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "now": 9002.019000000024,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.021000000024,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.023000000025,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.025000000025,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.031000000025,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.035000000025,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.043000000025,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.059000000025,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.061000000025,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.065000000026,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.073000000026,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.079000000025,
+   "sends": [
+    {
+     "channel": 15,
+     "sequence": 1005,
+     "hex": "020000008a37180a5205002a000000a6e8c2e8ca9ac2c6d0d2dccabea0e4d2dad2dcce00000000002ade60287110",
+     "bit_count": 365,
+     "has_exports": true,
+     "is_open": false,
+     "is_close": false
+    },
+    {
+     "channel": 15,
+     "sequence": 1006,
+     "hex": "020000009237180a52050016000000a0e4d2dacabe92c8d8ca00000000002ade6028e5895977ce18",
+     "bit_count": 317,
+     "has_exports": true,
+     "is_open": false,
+     "is_close": false
+    }
+   ],
+   "oracle": [
+    {
+     "call": "slot",
+     "slot": 5,
+     "machine": {
+      "item": 32768,
+      "class_name": "Ability_Wushu_E_Dash_C",
+      "state_machine": 33024,
+      "state_names": [
+       "InactiveState",
+       "DashState0",
+       "DashState1",
+       "DashState2",
+       "DashState3",
+       "DashState4",
+       "DashState5",
+       "DashState6",
+       "DashState7",
+       "DashState8",
+       "DashState9",
+       "DashState10",
+       "DashState11",
+       "DashState12",
+       "DashState13"
+      ]
+     }
+    },
+    {
+     "call": "items",
+     "item": 32768,
+     "machines": [
+      {
+       "name": "EquippableStateMachine",
+       "address": 33024,
+       "starting": "DashState1",
+       "state_names": [
+        "InactiveState",
+        "DashState0",
+        "DashState1",
+        "DashState2",
+        "DashState3",
+        "DashState4",
+        "DashState5",
+        "DashState6",
+        "DashState7",
+        "DashState8",
+        "DashState9",
+        "DashState10",
+        "DashState11",
+        "DashState12",
+        "DashState13"
+       ]
+      },
+      {
+       "name": "StateMachine_Priming",
+       "address": 33280,
+       "starting": "Prime_Idle",
+       "state_names": [
+        "Prime_Idle",
+        "Prime_Priming",
+        "Prime_Primed"
+       ]
+      },
+      {
+       "name": "NoStartMachine",
+       "address": 33536,
+       "starting": null,
+       "state_names": [
+        "A",
+        "B"
+       ]
+      },
+      {
+       "name": "EmptyStartMachine",
+       "address": 33792,
+       "starting": "",
+       "state_names": [
+        "C"
+       ]
+      }
+     ]
+    }
+   ],
+   "event": {
+    "ability_ready": [
+     [
+      "Ability_Wushu_E_Dash_C",
+      15,
+      [
+       "StateMachine_Priming"
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "now": 9002.090000000026,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.096000000025,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.104000000025,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.106000000025,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.110000000026,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.112000000026,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.118000000026,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.122000000027,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.126000000027,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.130000000028,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.136000000028,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.142000000027,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.153000000028,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.169000000027,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.180000000028,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.191000000028,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.197000000027,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.213000000027,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.221000000027,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.225000000028,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.236000000028,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.242000000027,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.250000000027,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.254000000028,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.256000000029,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.262000000028,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.264000000028,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.266000000029,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.274000000029,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.282000000028,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.288000000028,
+   "sends": [],
+   "oracle": [
+    {
+     "call": "slot",
+     "slot": 9,
+     "machine": {
+      "item": 40960,
+      "class_name": "Ability_Melee_Base_C",
+      "state_machine": 41216,
+      "state_names": []
+     }
+    }
+   ],
+   "event": {}
+  },
+  {
+   "now": 9002.290000000028,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.301000000029,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.317000000028,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.328000000029,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.344000000028,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.360000000028,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.362000000028,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.370000000028,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.386000000028,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.394000000028,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.396000000028,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.400000000029,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.416000000028,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.42000000003,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.426000000029,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.43000000003,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.43400000003,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.44500000003,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.456000000031,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.458000000031,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.474000000031,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.48000000003,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.49600000003,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.50700000003,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.51300000003,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.51700000003,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.528000000031,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.532000000032,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.534000000032,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.542000000032,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.553000000033,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.557000000033,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.565000000033,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.569000000034,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.573000000035,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.575000000035,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.581000000035,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.585000000036,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.591000000035,
+   "sends": [],
+   "oracle": [
+    {
+     "call": "slot",
+     "slot": 9,
+     "machine": null
+    }
+   ],
+   "event": {}
+  },
+  {
+   "now": 9002.599000000035,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.615000000034,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.621000000034,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.629000000034,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.645000000033,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.651000000033,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.653000000033,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.661000000033,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.665000000034,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.681000000033,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.692000000034,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.700000000033,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.702000000034,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.704000000034,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.710000000034,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.716000000033,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.720000000034,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.726000000033,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.734000000033,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.745000000034,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.753000000033,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.755000000034,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.761000000033,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.763000000034,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.769000000033,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.785000000033,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.787000000033,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.798000000033,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.814000000033,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.816000000033,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.820000000034,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.836000000034,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.840000000035,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.842000000035,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.848000000035,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.856000000034,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.872000000034,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.880000000034,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.891000000034,
+   "sends": [],
+   "oracle": [
+    {
+     "call": "slot",
+     "slot": 9,
+     "machine": {
+      "item": 40960,
+      "class_name": "Ability_Melee_Base_C",
+      "state_machine": 41216,
+      "state_names": []
+     }
+    }
+   ],
+   "event": {}
+  },
+  {
+   "now": 9002.897000000034,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.903000000033,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.911000000033,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.913000000033,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.917000000034,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.919000000034,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.930000000035,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.936000000034,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.944000000034,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.960000000034,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.968000000033,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9002.984000000033,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.000000000033,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.002000000033,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.006000000034,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.014000000034,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.018000000035,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.022000000035,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.033000000036,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.037000000037,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.039000000037,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.041000000037,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.057000000037,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.068000000038,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.072000000038,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.07600000004,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.07800000004,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.08000000004,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.09100000004,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.10200000004,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.11800000004,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.122000000041,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.13800000004,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.142000000042,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.153000000042,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.161000000042,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.163000000042,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.167000000043,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.178000000044,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.184000000043,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.188000000044,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.192000000045,
+   "sends": [],
+   "oracle": [
+    {
+     "call": "slot",
+     "slot": 9,
+     "machine": null
+    }
+   ],
+   "event": {}
+  },
+  {
+   "now": 9003.200000000044,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.204000000045,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.208000000046,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.224000000046,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.230000000045,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.232000000045,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.240000000045,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.251000000046,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.255000000046,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.259000000047,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.270000000048,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.286000000047,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.288000000048,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.304000000047,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.315000000048,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.323000000048,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.329000000047,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.331000000047,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.335000000048,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.343000000048,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.345000000048,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.34900000005,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.35100000005,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.35900000005,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.36700000005,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.37800000005,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.38900000005,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.39100000005,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.402000000051,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.41800000005,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.420000000051,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.42600000005,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.42800000005,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.439000000051,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.45500000005,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.457000000051,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.468000000052,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.474000000051,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.49000000005,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.494000000052,
+   "sends": [],
+   "oracle": [
+    {
+     "call": "slot",
+     "slot": 9,
+     "machine": {
+      "item": 40960,
+      "class_name": "Ability_Melee_Base_C",
+      "state_machine": 41216,
+      "state_names": []
+     }
+    }
+   ],
+   "event": {}
+  },
+  {
+   "now": 9003.496000000052,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.512000000052,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.523000000052,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.534000000052,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.536000000053,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.552000000052,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.568000000052,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.576000000052,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.580000000053,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.586000000052,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.588000000052,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.596000000052,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.607000000053,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.613000000052,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.615000000053,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.621000000052,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.627000000051,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.63300000005,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.637000000052,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.639000000052,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.643000000053,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.645000000053,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.651000000053,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.662000000053,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.670000000053,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.686000000052,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.702000000052,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.704000000052,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.715000000053,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.717000000053,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.721000000054,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.732000000055,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.748000000054,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.754000000054,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.765000000054,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.769000000055,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.771000000055,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.779000000055,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.790000000055,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.798000000055,
+   "sends": [],
+   "oracle": [
+    {
+     "call": "slot",
+     "slot": 9,
+     "machine": null
+    }
+   ],
+   "event": {}
+  },
+  {
+   "now": 9003.802000000056,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.818000000056,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.822000000057,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.830000000056,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.836000000056,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.847000000056,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.863000000056,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.879000000055,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.883000000056,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.887000000057,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.898000000057,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.909000000058,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.917000000058,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.921000000058,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.937000000058,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.945000000058,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.949000000059,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.955000000058,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.971000000058,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.979000000058,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.990000000058,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9003.998000000058,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.014000000057,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.020000000057,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.028000000057,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.030000000057,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.038000000057,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.049000000057,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.051000000058,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.059000000057,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.067000000057,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.073000000057,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.084000000057,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.095000000058,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.111000000057,
+   "sends": [],
+   "oracle": [
+    {
+     "call": "slot",
+     "slot": 9,
+     "machine": {
+      "item": 40960,
+      "class_name": "Ability_Melee_Base_C",
+      "state_machine": 41216,
+      "state_names": []
+     }
+    }
+   ],
+   "event": {}
+  },
+  {
+   "now": 9004.122000000058,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.126000000058,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.128000000059,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.134000000058,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.138000000059,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.14900000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.155000000059,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.163000000059,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.165000000059,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.16900000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.17300000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.18100000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.192000000061,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.203000000061,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.214000000062,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.225000000062,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.241000000062,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.249000000062,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.255000000061,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.266000000061,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.27200000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.283000000061,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.299000000061,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.30700000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.31500000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.326000000061,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.328000000061,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.33400000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.34000000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.34200000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.34800000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.36400000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.37500000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.38300000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.38700000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.39500000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.40600000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.408000000061,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.419000000062,
+   "sends": [],
+   "oracle": [
+    {
+     "call": "slot",
+     "slot": 9,
+     "machine": null
+    }
+   ],
+   "event": {}
+  },
+  {
+   "now": 9004.430000000062,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.436000000062,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.452000000061,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.460000000061,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.46600000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.47400000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.48000000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.49100000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.49500000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.51100000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.52700000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.53500000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.54600000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.55200000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.55600000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.558000000061,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.560000000061,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.568000000061,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.58400000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.59000000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.60100000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.612000000061,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.623000000061,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.639000000061,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.65500000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.666000000061,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.668000000062,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.670000000062,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.678000000062,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.684000000061,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.69000000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.692000000061,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.694000000061,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.70000000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.702000000061,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.704000000062,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.706000000062,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.722000000062,
+   "sends": [],
+   "oracle": [
+    {
+     "call": "slot",
+     "slot": 9,
+     "machine": {
+      "item": 40960,
+      "class_name": "Ability_Melee_Base_C",
+      "state_machine": 41216,
+      "state_names": []
+     }
+    }
+   ],
+   "event": {}
+  },
+  {
+   "now": 9004.728000000061,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.74400000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.75200000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.76000000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.764000000061,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.78000000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.791000000061,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.799000000061,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.803000000062,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.807000000063,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.823000000062,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.827000000063,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.829000000063,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.845000000063,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.851000000062,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.859000000062,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.875000000062,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.891000000061,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.899000000061,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.907000000061,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.91500000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.93100000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.93700000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.93900000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.95500000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.96300000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.96700000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.98300000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9004.99900000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.00700000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.01500000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.021000000059,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.037000000058,
+   "sends": [],
+   "oracle": [
+    {
+     "call": "slot",
+     "slot": 9,
+     "machine": null
+    }
+   ],
+   "event": {}
+  },
+  {
+   "now": 9005.039000000059,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.04300000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.04900000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.065000000059,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.073000000059,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.079000000058,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.090000000058,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.098000000058,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.114000000058,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.116000000058,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.120000000059,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.12400000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.13500000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.14100000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.15700000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.16100000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.17200000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.174000000061,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.176000000061,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.184000000061,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.19000000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.19800000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.21400000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.22200000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.23300000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.23500000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.239000000061,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.255000000061,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.266000000061,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.274000000061,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.29000000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.301000000061,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.305000000062,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.321000000062,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.332000000062,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.338000000062,
+   "sends": [],
+   "oracle": [
+    {
+     "call": "slot",
+     "slot": 9,
+     "machine": {
+      "item": 40960,
+      "class_name": "Ability_Melee_Base_C",
+      "state_machine": 41216,
+      "state_names": []
+     }
+    }
+   ],
+   "event": {}
+  },
+  {
+   "now": 9005.346000000061,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.35200000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.354000000061,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.365000000062,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.376000000062,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.382000000061,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.390000000061,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.398000000061,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.40400000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.42000000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.42600000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.44200000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.44400000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.44600000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.44800000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.45400000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.46000000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.468000000059,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.47200000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.48300000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.48500000006,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.496000000061,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.498000000061,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.502000000062,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.504000000063,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.506000000063,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.510000000064,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.518000000064,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.526000000064,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.530000000064,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.546000000064,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.548000000064,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.550000000065,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.554000000066,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.562000000065,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.570000000065,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.576000000065,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.592000000064,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.594000000065,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.598000000065,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.606000000065,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.614000000065,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.620000000064,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.636000000064,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.647000000065,
+   "sends": [],
+   "oracle": [
+    {
+     "call": "slot",
+     "slot": 9,
+     "machine": null
+    }
+   ],
+   "event": {}
+  },
+  {
+   "now": 9005.649000000065,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.657000000065,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.665000000065,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.671000000064,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.682000000064,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.690000000064,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.696000000064,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.700000000064,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.716000000064,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.724000000064,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.735000000064,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.751000000064,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.767000000063,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.778000000064,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.789000000064,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.800000000065,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.802000000065,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.808000000065,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.819000000065,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.823000000066,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.827000000067,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.835000000066,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.846000000067,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.848000000067,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.856000000067,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.862000000066,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.873000000067,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.884000000067,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.892000000067,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.896000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.902000000067,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.908000000067,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.916000000067,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.927000000067,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.935000000067,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.939000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.955000000067,
+   "sends": [],
+   "oracle": [
+    {
+     "call": "slot",
+     "slot": 9,
+     "machine": {
+      "item": 40960,
+      "class_name": "Ability_Melee_Base_C",
+      "state_machine": 41216,
+      "state_names": []
+     }
+    }
+   ],
+   "event": {}
+  },
+  {
+   "now": 9005.963000000067,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.974000000067,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.985000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.987000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9005.993000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.009000000067,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.025000000067,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.033000000067,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.044000000067,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.046000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.050000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.058000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.060000000069,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.068000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.074000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.085000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.087000000069,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.098000000069,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.10200000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.11300000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.12900000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.14500000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.15600000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.17200000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.17400000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.19000000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.196000000069,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.20000000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.20400000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.22000000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.23600000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.24200000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.258000000069,
+   "sends": [],
+   "oracle": [
+    {
+     "call": "slot",
+     "slot": 9,
+     "machine": null
+    }
+   ],
+   "event": {}
+  },
+  {
+   "now": 9006.26900000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.28000000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.29600000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.302000000069,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.308000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.324000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.340000000067,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.342000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.344000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.352000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.360000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.371000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.379000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.381000000069,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.389000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.391000000069,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.39300000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.39700000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.39900000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.41000000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.42600000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.43400000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.44200000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.44800000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.45000000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.45600000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.45800000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.46000000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.46600000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.47700000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.49300000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.49500000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.50100000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.51200000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.52000000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.53600000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.54000000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.55100000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.55700000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.55900000007,
+   "sends": [],
+   "oracle": [
+    {
+     "call": "slot",
+     "slot": 9,
+     "machine": {
+      "item": 40960,
+      "class_name": "Ability_Melee_Base_C",
+      "state_machine": 41216,
+      "state_names": []
+     }
+    }
+   ],
+   "event": {}
+  },
+  {
+   "now": 9006.57500000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.57900000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.58700000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.59300000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.59900000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.60300000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.60900000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.62500000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.641000000069,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.657000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.673000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.684000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.695000000069,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.703000000069,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.711000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.722000000069,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.73300000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.739000000069,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.745000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.753000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.755000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.763000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.767000000069,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.773000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.781000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.785000000069,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.791000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.79500000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.811000000069,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.827000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.833000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.837000000069,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.839000000069,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.847000000069,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.853000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.85700000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.863000000068,
+   "sends": [],
+   "oracle": [
+    {
+     "call": "slot",
+     "slot": 9,
+     "machine": null
+    }
+   ],
+   "event": {}
+  },
+  {
+   "now": 9006.865000000069,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.86900000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.88000000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.89100000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.902000000071,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.91800000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.93400000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.94200000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.95300000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.95900000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.96500000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.971000000069,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.98200000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.98600000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9006.99200000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.008000000069,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.01900000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.02100000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.02900000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.03100000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.03500000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.04100000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.05700000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.06100000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.07700000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.08800000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.09400000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.10500000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.11300000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.11900000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.12500000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.131000000069,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.13500000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.13900000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.14500000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.151000000069,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.167000000069,
+   "sends": [],
+   "oracle": [
+    {
+     "call": "slot",
+     "slot": 9,
+     "machine": {
+      "item": 40960,
+      "class_name": "Ability_Melee_Base_C",
+      "state_machine": 41216,
+      "state_names": []
+     }
+    }
+   ],
+   "event": {}
+  },
+  {
+   "now": 9007.173000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.181000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.192000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.208000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.212000000069,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.228000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.234000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.245000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.251000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.255000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.257000000069,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.26800000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.274000000069,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.290000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.306000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.314000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.322000000067,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.333000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.339000000067,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.347000000067,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.349000000067,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.365000000067,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.371000000066,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.379000000066,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.383000000067,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.385000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.387000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.403000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.419000000067,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.423000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.425000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.42900000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.44000000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.446000000069,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.45700000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.463000000069,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.471000000069,
+   "sends": [],
+   "oracle": [
+    {
+     "call": "slot",
+     "slot": 9,
+     "machine": null
+    }
+   ],
+   "event": {}
+  },
+  {
+   "now": 9007.487000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.498000000069,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.504000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.508000000069,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.524000000069,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.530000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.536000000067,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.540000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.544000000069,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.54800000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.55900000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.57000000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.57600000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.58700000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.59300000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.60900000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.61700000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.633000000069,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.641000000069,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.657000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.665000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.681000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.689000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.691000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.695000000069,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.703000000069,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.705000000069,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.70900000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.71700000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.723000000069,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.729000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.737000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.739000000069,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.755000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.757000000069,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.75900000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.77000000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.77800000007,
+   "sends": [],
+   "oracle": [
+    {
+     "call": "slot",
+     "slot": 9,
+     "machine": {
+      "item": 40960,
+      "class_name": "Ability_Melee_Base_C",
+      "state_machine": 41216,
+      "state_names": []
+     }
+    }
+   ],
+   "event": {}
+  },
+  {
+   "now": 9007.784000000069,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.78800000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.79600000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.80700000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.81300000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.829000000069,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.837000000069,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.845000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.84900000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.855000000069,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.861000000068,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.865000000069,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.86700000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.873000000069,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.87700000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.88100000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.89200000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.894000000071,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.91000000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.91600000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.93200000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.94300000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.95900000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.96700000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.97500000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.98600000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9007.99400000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.01000000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.01200000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.01400000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.02200000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.02400000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.03500000007,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.039000000072,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.041000000072,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.043000000072,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.051000000072,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.055000000073,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.063000000073,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.067000000074,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.071000000074,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.087000000074,
+   "sends": [],
+   "oracle": [
+    {
+     "call": "slot",
+     "slot": 9,
+     "machine": null
+    }
+   ],
+   "event": {
+    "ability_register_gave_up": "Ability_Wushu_X_Dagger_Production_C"
+   }
+  },
+  {
+   "now": 9008.091000000075,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.097000000074,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.099000000075,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.101000000075,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.103000000076,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.109000000075,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.115000000074,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.126000000075,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.137000000075,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.139000000076,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.143000000076,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.154000000077,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.162000000077,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.164000000077,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.168000000078,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.174000000077,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.190000000077,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.201000000077,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.217000000077,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.223000000076,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.225000000077,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.229000000078,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.237000000077,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.248000000078,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.264000000077,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.275000000078,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.283000000078,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.299000000077,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.310000000078,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.314000000079,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.320000000078,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.336000000078,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.352000000077,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.356000000078,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.367000000078,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.375000000078,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.386000000079,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.394000000078,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.39800000008,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.40200000008,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.40600000008,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.410000000082,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.421000000082,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.425000000083,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.441000000083,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.457000000082,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.459000000083,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.461000000083,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.467000000082,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.473000000082,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.489000000081,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.49500000008,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.50100000008,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.505000000081,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.507000000081,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.518000000082,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.522000000083,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.528000000082,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.532000000083,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.548000000083,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.564000000082,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.568000000083,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.584000000083,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.595000000083,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.611000000083,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.617000000082,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.625000000082,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.629000000083,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.637000000082,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.639000000083,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.643000000084,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.651000000084,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.657000000083,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.668000000083,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.672000000084,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.674000000085,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.680000000084,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.696000000084,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.702000000083,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.718000000083,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.722000000083,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.738000000083,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.742000000084,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.748000000083,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.759000000084,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.765000000083,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.776000000084,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.792000000083,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.800000000083,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.806000000082,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.808000000083,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.824000000082,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.830000000082,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.841000000082,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.852000000083,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.858000000082,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.862000000083,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.864000000083,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.870000000083,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.872000000083,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.878000000082,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.884000000082,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.892000000082,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.900000000081,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.911000000082,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.927000000082,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.935000000081,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.943000000081,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.95900000008,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.961000000081,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.965000000082,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.967000000082,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.983000000082,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.994000000082,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9008.998000000083,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.006000000083,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.022000000083,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.030000000083,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.036000000082,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.044000000082,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.055000000082,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.071000000082,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.079000000082,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.081000000082,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.092000000082,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.103000000083,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.111000000083,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.122000000083,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.133000000083,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.149000000083,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.160000000084,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.162000000084,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.178000000084,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.182000000084,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.198000000084,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.214000000084,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.216000000084,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.220000000085,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.236000000084,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.244000000084,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.255000000085,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.261000000084,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.265000000085,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.267000000085,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.271000000086,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.287000000086,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.298000000086,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.306000000086,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.308000000086,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.319000000087,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.321000000087,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.337000000087,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.348000000087,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.359000000088,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.375000000087,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.386000000088,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.390000000089,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.396000000088,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.400000000089,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.40400000009,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.410000000089,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.418000000089,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.424000000088,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.435000000089,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.437000000089,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.44100000009,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.44500000009,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.449000000091,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.451000000092,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.462000000092,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.466000000093,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.474000000093,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.482000000093,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.484000000093,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.500000000093,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.506000000092,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.514000000092,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.522000000092,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.524000000092,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.540000000092,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.546000000091,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.557000000092,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.568000000092,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.576000000092,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.582000000091,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.586000000092,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.597000000093,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.605000000092,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.611000000092,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.627000000091,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.635000000091,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.637000000092,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.648000000092,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.654000000091,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.66000000009,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.66600000009,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.670000000091,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.672000000091,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.683000000092,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.694000000092,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.696000000093,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.704000000092,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.710000000092,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.714000000093,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.716000000093,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.718000000094,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.724000000093,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.732000000093,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.736000000094,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.742000000093,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.750000000093,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.754000000094,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.758000000094,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.764000000094,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.775000000094,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.783000000094,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.787000000095,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.795000000095,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.806000000095,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.810000000096,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.826000000096,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.830000000096,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.832000000097,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.843000000097,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.845000000098,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.849000000098,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.857000000098,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.865000000098,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.871000000097,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.877000000097,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.883000000096,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.887000000097,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.893000000096,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.909000000096,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.925000000096,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.927000000096,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.931000000097,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.937000000096,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.953000000096,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.959000000095,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.963000000096,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.979000000096,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.981000000096,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9009.987000000096,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.003000000095,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.019000000095,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.023000000096,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.034000000096,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.045000000096,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.056000000097,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.062000000096,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.070000000096,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.081000000097,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.092000000097,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.108000000097,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.119000000097,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.125000000096,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.131000000096,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.135000000097,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.146000000097,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.152000000096,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.156000000097,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.160000000098,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.164000000099,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.1750000001,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.191000000099,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.1950000001,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.2010000001,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.2030000001,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.2190000001,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.225000000099,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.227000000099,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.233000000098,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.239000000098,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.245000000097,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.249000000098,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.253000000099,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.259000000098,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.275000000098,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.277000000098,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.279000000099,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.2830000001,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.2990000001,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.3100000001,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.316000000099,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.322000000098,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.330000000098,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.334000000099,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.3380000001,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.3420000001,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.353000000101,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.3690000001,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.3850000001,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.3930000001,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.3970000001,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.408000000101,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.419000000102,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.423000000103,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.429000000102,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.445000000102,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.447000000102,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.449000000102,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.451000000103,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.455000000104,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.459000000104,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.463000000105,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.469000000105,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.480000000105,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.488000000105,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.496000000105,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.512000000104,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.514000000105,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.522000000105,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.526000000105,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.530000000106,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.536000000106,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.547000000106,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.563000000106,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.565000000106,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.576000000106,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.580000000107,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.584000000108,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.595000000108,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.603000000108,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.609000000108,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.620000000108,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.622000000109,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.633000000109,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.63700000011,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.64100000011,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.64900000011,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.653000000111,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.65900000011,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.663000000111,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.679000000111,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.68500000011,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.70100000011,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.70900000011,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.72500000011,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.73300000011,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.749000000109,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.765000000109,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.776000000109,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.784000000109,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.78800000011,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.79000000011,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.79800000011,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.80400000011,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.812000000109,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.82300000011,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.82700000011,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.84300000011,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.84700000011,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.851000000112,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.867000000111,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.88300000011,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.894000000111,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.896000000112,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.904000000111,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.908000000112,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.919000000113,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.927000000112,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.938000000113,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.946000000113,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.950000000114,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.954000000114,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.970000000114,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.981000000114,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.992000000115,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9010.998000000114,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9011.014000000114,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9011.025000000114,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9011.029000000115,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9011.040000000115,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9011.051000000116,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9011.055000000117,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9011.066000000117,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9011.070000000118,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9011.078000000118,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9011.084000000117,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  },
+  {
+   "now": 9011.086000000118,
+   "sends": [],
+   "oracle": [],
+   "event": {}
+  }
+ ],
+ "ready": [
+  {
+   "key": "Ability_Wushu_4_Smoke_C",
+   "class_name": "Ability_Wushu_4_Smoke_C",
+   "channel": 14,
+   "actor_guid": 208,
+   "slot": 3,
+   "state_machine_guid": 100000,
+   "state_guids": [
+    [
+     "InactiveState",
+     100002
+    ],
+    [
+     "SmokeState0",
+     100016
+    ],
+    [
+     "SmokeState1",
+     100018
+    ],
+    [
+     "SmokeState2",
+     100020
+    ],
+    [
+     "SmokeState3",
+     100022
+    ],
+    [
+     "SmokeState4",
+     100024
+    ],
+    [
+     "SmokeState5",
+     100026
+    ],
+    [
+     "SmokeState6",
+     100028
+    ],
+    [
+     "SmokeState7",
+     100030
+    ],
+    [
+     "SmokeState8",
+     100032
+    ],
+    [
+     "SmokeState9",
+     100034
+    ]
+   ],
+   "mirror_states": true,
+   "extra": []
+  },
+  {
+   "key": "Ability_Wushu_Q_CycloneBoost_C",
+   "class_name": "Ability_Wushu_Q_CycloneBoost_C",
+   "channel": 16,
+   "actor_guid": 216,
+   "slot": 4,
+   "state_machine_guid": 100008,
+   "state_guids": [
+    [
+     "InactiveState",
+     100010
+    ],
+    [
+     "BoostState0",
+     100044
+    ],
+    [
+     "BoostState1",
+     100046
+    ],
+    [
+     "BoostState2",
+     100048
+    ],
+    [
+     "BoostState3",
+     100050
+    ],
+    [
+     "BoostState4",
+     100052
+    ],
+    [
+     "BoostState5",
+     100054
+    ],
+    [
+     "BoostState6",
+     100056
+    ],
+    [
+     "BoostState7",
+     100058
+    ],
+    [
+     "BoostState8",
+     100060
+    ],
+    [
+     "BoostState9",
+     100062
+    ],
+    [
+     "BoostState10",
+     100064
+    ]
+   ],
+   "mirror_states": true,
+   "extra": [
+    {
+     "name": "BoostStateMachine",
+     "guid": 100036,
+     "starting_state": "Boost_Ready",
+     "state_guids": [
+      [
+       "Boost_Ready",
+       100038
+      ],
+      [
+       "Boost_Active",
+       100040
+      ],
+      [
+       "Boost_Done",
+       100042
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "key": "Ability_Wushu_E_Dash_C",
+   "class_name": "Ability_Wushu_E_Dash_C",
+   "channel": 15,
+   "actor_guid": 212,
+   "slot": 5,
+   "state_machine_guid": 100004,
+   "state_guids": [
+    [
+     "InactiveState",
+     100006
+    ],
+    [
+     "DashState0",
+     100074
+    ],
+    [
+     "DashState1",
+     100076
+    ],
+    [
+     "DashState2",
+     100078
+    ],
+    [
+     "DashState3",
+     100080
+    ],
+    [
+     "DashState4",
+     100082
+    ],
+    [
+     "DashState5",
+     100084
+    ],
+    [
+     "DashState6",
+     100086
+    ],
+    [
+     "DashState7",
+     100088
+    ],
+    [
+     "DashState8",
+     100090
+    ],
+    [
+     "DashState9",
+     100092
+    ],
+    [
+     "DashState10",
+     100094
+    ],
+    [
+     "DashState11",
+     100096
+    ],
+    [
+     "DashState12",
+     100098
+    ],
+    [
+     "DashState13",
+     100100
+    ]
+   ],
+   "mirror_states": true,
+   "extra": [
+    {
+     "name": "StateMachine_Priming",
+     "guid": 100066,
+     "starting_state": "Prime_Idle",
+     "state_guids": [
+      [
+       "Prime_Idle",
+       100068
+      ],
+      [
+       "Prime_Priming",
+       100070
+      ],
+      [
+       "Prime_Primed",
+       100072
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "mirror_states": [
+  "Ability_Wushu_E_Dash_C/StateMachine_Priming",
+  "Ability_Wushu_Q_CycloneBoost_C/BoostStateMachine"
+ ],
+ "jobs": [
+  {
+   "stage": 7,
+   "registered_tries": 0
+  },
+  {
+   "stage": 7,
+   "registered_tries": 2
+  },
+  {
+   "stage": 7,
+   "registered_tries": 1
+  },
+  {
+   "stage": 7,
+   "registered_tries": 21
+  }
+ ],
+ "next_guid": 100102
+}

@@ -1,0 +1,5869 @@
+{
+ "constants": {
+  "ability_indices": [
+   2,
+   3,
+   4,
+   5
+  ],
+  "first_ability_guid": 100000,
+  "tuning_guids": {
+   "2": 190004,
+   "3": 190006,
+   "4": 190008,
+   "5": 190010
+  },
+  "starting_equippable_count": 7,
+  "starting_equippables": [
+   [
+    "Default__Equippable_Unarmed_C",
+    "/Game/Characters/_Core/Equippable_Unarmed",
+    10
+   ],
+   [
+    "Default__Ability_Melee_Base_C",
+    "/Game/Equippables/Melee/Ability_Melee_Base",
+    2
+   ],
+   [
+    "Default__Ability_Wushu_4_Smoke_C",
+    "/Game/Characters/Wushu/S0/Ability_4/Ability_Wushu_4_Smoke",
+    3
+   ],
+   [
+    "Default__Ability_Wushu_E_Dash_C",
+    "/Game/Characters/Wushu/S0/Ability_E/Ability_Wushu_E_Dash",
+    5
+   ],
+   [
+    "Default__Ability_Wushu_Q_CycloneBoost_C",
+    "/Game/Characters/Wushu/S0/Ability_Q/Ability_Wushu_Q_CycloneBoost",
+    4
+   ],
+   [
+    "Default__Ability_Wushu_X_Dagger_Production_C",
+    "/Game/Characters/Wushu/S0/Ability_X/Ability_Wushu_X_Dagger_Production",
+    9
+   ],
+   [
+    "Default__Ability_Wushu_Passive_Glide_C",
+    "/Game/Characters/Wushu/S0/Glide/Ability_Wushu_Passive_Glide",
+    6
+   ]
+  ]
+ },
+ "loads": [
+  {
+   "index": 2,
+   "class_name": "Ability_Wushu_4_Smoke_C",
+   "channel": 14,
+   "actor_guid": 208,
+   "slot": 3,
+   "state_machine_guid": 100000,
+   "inactive_guid": 100002
+  },
+  {
+   "index": 3,
+   "class_name": "Ability_Wushu_E_Dash_C",
+   "channel": 15,
+   "actor_guid": 212,
+   "slot": 5,
+   "state_machine_guid": 100004,
+   "inactive_guid": 100006
+  },
+  {
+   "index": 4,
+   "class_name": "Ability_Wushu_Q_CycloneBoost_C",
+   "channel": 16,
+   "actor_guid": 216,
+   "slot": 4,
+   "state_machine_guid": 100008,
+   "inactive_guid": 100010
+  },
+  {
+   "index": 5,
+   "class_name": "Ability_Wushu_X_Dagger_Production_C",
+   "channel": 17,
+   "actor_guid": 220,
+   "slot": 9,
+   "state_machine_guid": 100012,
+   "inactive_guid": 100014
+  },
+  {
+   "index": 2,
+   "class_name": "Ability_Wushu_4_Smoke_C",
+   "channel": 14,
+   "actor_guid": 208,
+   "slot": 3,
+   "state_machine_guid": 100016,
+   "inactive_guid": 100018
+  },
+  {
+   "index": 5,
+   "class_name": "Ability_Wushu_X_Dagger_Production_C",
+   "channel": 17,
+   "actor_guid": 220,
+   "slot": 9,
+   "state_machine_guid": 123456,
+   "inactive_guid": 2097152
+  },
+  {
+   "index": 3,
+   "class_name": "Ability_Wushu_E_Dash_C",
+   "channel": 15,
+   "actor_guid": 212,
+   "slot": 5,
+   "state_machine_guid": 16382,
+   "inactive_guid": 16384
+  }
+ ],
+ "bad_index": [
+  {
+   "index": -1,
+   "error": "ValueError",
+   "next_guid": 100000
+  },
+  {
+   "index": 0,
+   "error": "ValueError",
+   "next_guid": 100000
+  },
+  {
+   "index": 1,
+   "error": "ValueError",
+   "next_guid": 100000
+  },
+  {
+   "index": 6,
+   "error": "ValueError",
+   "next_guid": 100000
+  },
+  {
+   "index": 7,
+   "error": "ValueError",
+   "next_guid": 100000
+  }
+ ],
+ "setup": [
+  [
+   {
+    "hex": "a3807b08",
+    "bit_count": 30,
+    "exports": false
+   },
+   {
+    "hex": "020000008236180a4205002e0000008ae2ead2e0e0c2c4d8caa6e8c2e8ca9ac2c6d0d2dcca00000000000ada60281101",
+    "bit_count": 381,
+    "exports": true
+   },
+   {
+    "hex": "020000008a36180a4205001c00000092dcc2c6e8d2eccaa6e8c2e8ca00000000000ada6028e539d0f80113",
+    "bit_count": 341,
+    "exports": true
+   }
+  ],
+  [
+   {
+    "hex": "a360452e",
+    "bit_count": 30,
+    "exports": false
+   },
+   {
+    "hex": "020000009236180a5205002e0000008ae2ead2e0e0c2c4d8caa6e8c2e8ca9ac2c6d0d2dcca00000000004ada60287110",
+    "bit_count": 381,
+    "exports": true
+   },
+   {
+    "hex": "020000009a36180a5205001c00000092dcc2c6e8d2eccaa6e8c2e8ca00000000004ada6028e529407bce18",
+    "bit_count": 341,
+    "exports": true
+   }
+  ],
+  [
+   {
+    "hex": "a3b03f3c",
+    "bit_count": 30,
+    "exports": false
+   },
+   {
+    "hex": "02000000a236180a6205002e0000008ae2ead2e0e0c2c4d8caa6e8c2e8ca9ac2c6d0d2dcca00000000008ada6028d11c",
+    "bit_count": 381,
+    "exports": true
+   },
+   {
+    "hex": "02000000aa36180a6205001c00000092dcc2c6e8d2eccaa6e8c2e8ca00000000008ada6028e5b990dc2404",
+    "bit_count": 341,
+    "exports": true
+   }
+  ],
+  [
+   {
+    "hex": "a324f138",
+    "bit_count": 30,
+    "exports": false
+   },
+   {
+    "hex": "02000000b236180a7205002e0000008ae2ead2e0e0c2c4d8caa6e8c2e8ca9ac2c6d0d2dcca0000000000cada60285110",
+    "bit_count": 381,
+    "exports": true
+   },
+   {
+    "hex": "02000000ba36180a7205001c00000092dcc2c6e8d2eccaa6e8c2e8ca0000000000cada6028e5a9d03a500c",
+    "bit_count": 341,
+    "exports": true
+   }
+  ],
+  [
+   {
+    "hex": "a3807b08",
+    "bit_count": 30,
+    "exports": false
+   },
+   {
+    "hex": "02000000c236180a4205002e0000008ae2ead2e0e0c2c4d8caa6e8c2e8ca9ac2c6d0d2dcca00000000000adb60281101",
+    "bit_count": 381,
+    "exports": true
+   },
+   {
+    "hex": "02000000ca36180a4205001c00000092dcc2c6e8d2eccaa6e8c2e8ca00000000000adb6028e539b0f70113",
+    "bit_count": 341,
+    "exports": true
+   }
+  ],
+  [
+   {
+    "hex": "a324f138",
+    "bit_count": 30,
+    "exports": false
+   },
+   {
+    "hex": "0200000002131d0a7205002e0000008ae2ead2e0e0c2c4d8caa6e8c2e8ca9ac2c6d0d2dcca00000000000a4c74285110",
+    "bit_count": 381,
+    "exports": true
+   },
+   {
+    "hex": "02000000020202040a7205001c00000092dcc2c6e8d2eccaa6e8c2e8ca00000000000a4c7428c6519e1ea54406",
+    "bit_count": 357,
+    "exports": true
+   }
+  ],
+  [
+   {
+    "hex": "a360452e",
+    "bit_count": 30,
+    "exports": false
+   },
+   {
+    "hex": "02000000fafd0b5205002e0000008ae2ead2e0e0c2c4d8caa6e8c2e8ca9ac2c6d0d2dcca0000000000eaf72f7110",
+    "bit_count": 365,
+    "exports": true
+   },
+   {
+    "hex": "020000000202040a5205001c00000092dcc2c6e8d2eccaa6e8c2e8ca0000000000eaf72ff5173e78ce18",
+    "bit_count": 333,
+    "exports": true
+   }
+  ]
+ ],
+ "allocator": [
+  {
+   "start": 100000,
+   "guids": [
+    100000,
+    100002,
+    100004,
+    100006,
+    100008
+   ],
+   "next_guid": 100010
+  },
+  {
+   "start": 100001,
+   "guids": [
+    100002,
+    100004,
+    100006,
+    100008,
+    100010
+   ],
+   "next_guid": 100012
+  },
+  {
+   "start": 0,
+   "guids": [
+    0,
+    2,
+    4,
+    6,
+    8
+   ],
+   "next_guid": 10
+  },
+  {
+   "start": 1,
+   "guids": [
+    2,
+    4,
+    6,
+    8,
+    10
+   ],
+   "next_guid": 12
+  },
+  {
+   "start": 99999,
+   "guids": [
+    100000,
+    100002,
+    100004,
+    100006,
+    100008
+   ],
+   "next_guid": 100010
+  },
+  {
+   "start": 4294967200,
+   "guids": [
+    4294967200,
+    4294967202,
+    4294967204,
+    4294967206,
+    4294967208
+   ],
+   "next_guid": 4294967210
+  }
+ ],
+ "tuning": [
+  {
+   "actor": 212,
+   "component": 190006,
+   "tag_bits": 10,
+   "entries": [
+    {
+     "tag": 245,
+     "kind": "float",
+     "value_bits": 4620130267728707584
+    }
+   ],
+   "hex": "b5655ae4ce1ef633f2dbff0a03c5c8f31d8301",
+   "bit_count": 145
+  },
+  {
+   "actor": 212,
+   "component": 190006,
+   "tag_bits": 10,
+   "entries": [
+    {
+     "tag": 245,
+     "kind": "float",
+     "value_bits": 4620130267728707584
+    },
+    {
+     "tag": 244,
+     "kind": "int",
+     "value": 1
+    }
+   ],
+   "hex": "b5655a3c13d81ef69ba9b3cf0d334e6eb05484a42f33ceda1b37650a",
+   "bit_count": 222
+  },
+  {
+   "actor": 220,
+   "component": 190004,
+   "tag_bits": 1,
+   "entries": [
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": -1
+    }
+   ],
+   "hex": "a5655a54be4ba8e7f7db5708b33129cb33",
+   "bit_count": 136
+  },
+  {
+   "actor": 216,
+   "component": 190006,
+   "tag_bits": 3,
+   "entries": [
+    {
+     "tag": 7,
+     "kind": "float",
+     "value_bits": 13906592336004937417
+    }
+   ],
+   "hex": "b5655a74c65afd00f5c3c90d83e4629b3802",
+   "bit_count": 138
+  },
+  {
+   "actor": 208,
+   "component": 190004,
+   "tag_bits": 8,
+   "entries": [
+    {
+     "tag": 50,
+     "kind": "float",
+     "value_bits": 3933566627244108473
+    }
+   ],
+   "hex": "a5655ac45e53c62ff2c3a90bf3e25db03314",
+   "bit_count": 143
+  },
+  {
+   "actor": 216,
+   "component": 190004,
+   "tag_bits": 10,
+   "entries": [
+    {
+     "tag": 28,
+     "kind": "int",
+     "value": 0
+    }
+   ],
+   "hex": "a5655ae4c6a2f0abf73bfb0a233baab8b3b200",
+   "bit_count": 145
+  },
+  {
+   "actor": 220,
+   "component": 190006,
+   "tag_bits": 12,
+   "entries": [
+    {
+     "tag": 1581,
+     "kind": "int",
+     "value": -2147483648
+    }
+   ],
+   "hex": "b5655a0437ca4ff3f74baa0be3e25db0db8701",
+   "bit_count": 147
+  },
+  {
+   "actor": 220,
+   "component": 190006,
+   "tag_bits": 16,
+   "entries": [
+    {
+     "tag": 11207,
+     "kind": "int",
+     "value": -2147483648
+    }
+   ],
+   "hex": "b5655a44d7635448f63ba90bd3d0d03bd45f3d",
+   "bit_count": 151
+  },
+  {
+   "actor": 208,
+   "component": 190004,
+   "tag_bits": 1,
+   "entries": [
+    {
+     "tag": 0,
+     "kind": "int",
+     "value": -2147483648
+    },
+    {
+     "tag": 0,
+     "kind": "float",
+     "value_bits": 5183643170566569984
+    }
+   ],
+   "hex": "a5655a1c12a8d30dbbad5354088b747874220b01fbe9c293b103",
+   "bit_count": 204
+  },
+  {
+   "actor": 300100,
+   "component": 4294967294,
+   "tag_bits": 3,
+   "entries": [
+    {
+     "tag": 6,
+     "kind": "float",
+     "value_bits": 13832806255468478464
+    },
+    {
+     "tag": 4,
+     "kind": "float",
+     "value_bits": 5183643170835005440
+    }
+   ],
+   "error": "OverflowError"
+  },
+  {
+   "actor": 212,
+   "component": 190006,
+   "tag_bits": 8,
+   "entries": [
+    {
+     "tag": 210,
+     "kind": "float",
+     "value_bits": 18442240474082181120
+    },
+    {
+     "tag": 112,
+     "kind": "float",
+     "value_bits": 4694122249518504498
+    }
+   ],
+   "hex": "b5655afc1208ba0b43a83bcd0d3b3236428db846e0332f2a3fc41f00",
+   "bit_count": 218
+  },
+  {
+   "actor": 216,
+   "component": 190008,
+   "tag_bits": 10,
+   "entries": [
+    {
+     "tag": 435,
+     "kind": "float",
+     "value_bits": 18442240474082181120
+    },
+    {
+     "tag": 468,
+     "kind": "int",
+     "value": -1
+    }
+   ],
+   "hex": "c5655a3c133878f5bba8e3cb0da341d55e8cb8b6e488cff45960a10a",
+   "bit_count": 222
+  },
+  {
+   "actor": 212,
+   "component": 190004,
+   "tag_bits": 12,
+   "entries": [
+    {
+     "tag": 2028,
+     "kind": "float",
+     "value_bits": 4607182418800017408
+    },
+    {
+     "tag": 3579,
+     "kind": "float",
+     "value_bits": 4607182418800017408
+    }
+   ],
+   "hex": "a5655a7c13e09744fcab5bcb0dab5dcf1beaff3aaeccab3306b84f4702",
+   "bit_count": 226
+  },
+  {
+   "actor": 216,
+   "component": 190008,
+   "tag_bits": 16,
+   "entries": [
+    {
+     "tag": 18088,
+     "kind": "int",
+     "value": -2147483648
+    },
+    {
+     "tag": 24953,
+     "kind": "float",
+     "value_bits": 18442240474082181120
+    }
+   ],
+   "hex": "c5655afc13280b5420adb3cf0d4b5821065484245134165df1dcf88d6503",
+   "bit_count": 234
+  },
+  {
+   "actor": 220,
+   "component": 190004,
+   "tag_bits": 1,
+   "entries": [
+    {
+     "tag": 1,
+     "kind": "float",
+     "value_bits": 9218868437227405312
+    },
+    {
+     "tag": 0,
+     "kind": "int",
+     "value": -2147483648
+    },
+    {
+     "tag": 0,
+     "kind": "int",
+     "value": 2
+    }
+   ],
+   "hex": "a5655adc15e04a083b1b125308e3cb234945dc555e3d1110d9b2af2e95f567bb5b",
+   "bit_count": 264
+  },
+  {
+   "actor": 300100,
+   "component": 190006,
+   "tag_bits": 3,
+   "entries": [
+    {
+     "tag": 2,
+     "kind": "int",
+     "value": -1
+    },
+    {
+     "tag": 3,
+     "kind": "int",
+     "value": 0
+    },
+    {
+     "tag": 7,
+     "kind": "int",
+     "value": 0
+    }
+   ],
+   "hex": "b5655a3c16703fad1f3d94cf2536d5fc9e793e2ee2c2305349d7261108c1fe5a1729",
+   "bit_count": 270
+  },
+  {
+   "actor": 220,
+   "component": 190004,
+   "tag_bits": 8,
+   "entries": [
+    {
+     "tag": 226,
+     "kind": "float",
+     "value_bits": 4620130267728707584
+    },
+    {
+     "tag": 21,
+     "kind": "float",
+     "value_bits": 4612811918334230528
+    },
+    {
+     "tag": 208,
+     "kind": "int",
+     "value": -1
+    }
+   ],
+   "hex": "a5655a2c1708220eeb1a2afb0a531ae6a579a6d517c66062fab7ff20722bff06c967ce07",
+   "bit_count": 285
+  },
+  {
+   "actor": 212,
+   "component": 190006,
+   "tag_bits": 10,
+   "entries": [
+    {
+     "tag": 347,
+     "kind": "int",
+     "value": 2147483647
+    },
+    {
+     "tag": 735,
+     "kind": "float",
+     "value_bits": 4599676419421066581
+    },
+    {
+     "tag": 7,
+     "kind": "float",
+     "value_bits": 4612811918334230528
+    }
+   ],
+   "hex": "b5655a8c17c8a4966c1e2aab0bdb1860d5f5b034ed9f46db3b449fdbb1bbd05e0d8251fa05",
+   "bit_count": 291
+  },
+  {
+   "actor": 300100,
+   "component": 4294967294,
+   "tag_bits": 12,
+   "entries": [
+    {
+     "tag": 1072,
+     "kind": "int",
+     "value": -2147483648
+    },
+    {
+     "tag": 1916,
+     "kind": "int",
+     "value": 4294967295
+    },
+    {
+     "tag": 3394,
+     "kind": "int",
+     "value": -2147483648
+    }
+   ],
+   "hex": "f5ffffff7bec17489c4c133fdcff22fe1a6b37196338e685979efc4e5f224bb9657fa68ca558f800",
+   "bit_count": 313
+  },
+  {
+   "actor": 208,
+   "component": 190006,
+   "tag_bits": 16,
+   "entries": [
+    {
+     "tag": 6825,
+     "kind": "int",
+     "value": -2147483648
+    },
+    {
+     "tag": 59758,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 40436,
+     "kind": "int",
+     "value": -198326751001
+    }
+   ],
+   "hex": "b5655aac20186e508818c2f80af324402e9ce1aea31008f814b4d22f9c803778cf7c5a4570af0a",
+   "bit_count": 309
+  },
+  {
+   "actor": 212,
+   "component": 190004,
+   "tag_bits": 1,
+   "entries": [
+    {
+     "tag": 0,
+     "kind": "float",
+     "value_bits": 13832806255468478464
+    },
+    {
+     "tag": 0,
+     "kind": "int",
+     "value": 2147483647
+    },
+    {
+     "tag": 0,
+     "kind": "float",
+     "value_bits": 13832806255468478464
+    },
+    {
+     "tag": 0,
+     "kind": "int",
+     "value": 2
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 1
+    }
+   ],
+   "hex": "a5655a5c25f8d20d3b436454087b77e69ec59e1d40cd29f7ad955f8f5bc774a7a0491f3fb00988094b276dff9a112d9e",
+   "bit_count": 384
+  },
+  {
+   "actor": 212,
+   "component": 190006,
+   "tag_bits": 3,
+   "entries": [
+    {
+     "tag": 2,
+     "kind": "int",
+     "value": -1
+    },
+    {
+     "tag": 0,
+     "kind": "int",
+     "value": 295308841649
+    },
+    {
+     "tag": 4,
+     "kind": "int",
+     "value": -1
+    },
+    {
+     "tag": 0,
+     "kind": "int",
+     "value": -2147483648
+    },
+    {
+     "tag": 7,
+     "kind": "int",
+     "value": -2147483648
+    }
+   ],
+   "hex": "b5655afc25d80fad3f406ccc0d63edefcb4360337486cada7a427a580647e92e1a05df287e344ceef06e830d13a0e1317f00",
+   "bit_count": 394
+  },
+  {
+   "actor": 220,
+   "component": 4294967294,
+   "tag_bits": 8,
+   "entries": [
+    {
+     "tag": 7,
+     "kind": "float",
+     "value_bits": 3933566627244108473
+    },
+    {
+     "tag": 125,
+     "kind": "float",
+     "value_bits": 5183643170835005440
+    },
+    {
+     "tag": 218,
+     "kind": "float",
+     "value_bits": 5183643170835005440
+    },
+    {
+     "tag": 92,
+     "kind": "float",
+     "value_bits": 13906592336004937417
+    },
+    {
+     "tag": 174,
+     "kind": "int",
+     "value": 0
+    }
+   ],
+   "error": "OverflowError"
+  },
+  {
+   "actor": 208,
+   "component": 4294967294,
+   "tag_bits": 10,
+   "entries": [
+    {
+     "tag": 521,
+     "kind": "int",
+     "value": 4294967295
+    },
+    {
+     "tag": 100,
+     "kind": "float",
+     "value_bits": 9218868437227405312
+    },
+    {
+     "tag": 753,
+     "kind": "float",
+     "value_bits": 4607182418800017408
+    },
+    {
+     "tag": 420,
+     "kind": "int",
+     "value": 4294967295
+    },
+    {
+     "tag": 200,
+     "kind": "int",
+     "value": -2147483648
+    }
+   ],
+   "hex": "f5ffffff7b2c30504e908c41d4fe0a73daba056760b9a5138951d6696a4effa8e16f111603dc2993bdae63e6f1cd0f2ab482a8f472741d17",
+   "bit_count": 445
+  },
+  {
+   "actor": 300100,
+   "component": 190006,
+   "tag_bits": 12,
+   "entries": [
+    {
+     "tag": 1752,
+     "kind": "int",
+     "value": -1
+    },
+    {
+     "tag": 168,
+     "kind": "int",
+     "value": 0
+    },
+    {
+     "tag": 2751,
+     "kind": "int",
+     "value": 0
+    },
+    {
+     "tag": 495,
+     "kind": "int",
+     "value": 2147483647
+    },
+    {
+     "tag": 212,
+     "kind": "float",
+     "value_bits": 13917355524848588687
+    }
+   ],
+   "hex": "b5655acc3090934ad3f9c2aa238b899eacd4b68ad73a7602b8aa534d66cc52b7a448dc3c0702e195df33f60f3867ab5b30942d0ccedd7f",
+   "bit_count": 439
+  },
+  {
+   "actor": 208,
+   "component": 190004,
+   "tag_bits": 16,
+   "entries": [
+    {
+     "tag": 15141,
+     "kind": "float",
+     "value_bits": 13906592336004937417
+    },
+    {
+     "tag": 55349,
+     "kind": "float",
+     "value_bits": 3936463288827219979
+    },
+    {
+     "tag": 64440,
+     "kind": "float",
+     "value_bits": 9218868437227405312
+    },
+    {
+     "tag": 63167,
+     "kind": "int",
+     "value": 327092147158
+    },
+    {
+     "tag": 22122,
+     "kind": "int",
+     "value": 2147483647
+    }
+   ],
+   "hex": "a5655a0c3200c989cf452caa0b0363572c8de86fae80ddd2e68098de67f59f562c650c405c39cdac66a536e1186344aa73acfe9bee0cd7ae8005",
+   "bit_count": 459
+  },
+  {
+   "actor": 216,
+   "component": 190006,
+   "tag_bits": 1,
+   "entries": [
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": -1
+    },
+    {
+     "tag": 0,
+     "kind": "float",
+     "value_bits": 5183643170835005440
+    },
+    {
+     "tag": 0,
+     "kind": "float",
+     "value_bits": 3936463288827219979
+    },
+    {
+     "tag": 1,
+     "kind": "float",
+     "value_bits": 0
+    },
+    {
+     "tag": 1,
+     "kind": "float",
+     "value_bits": 4591870180066957722
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 0,
+     "kind": "float",
+     "value_bits": 18442240474082181120
+    },
+    {
+     "tag": 0,
+     "kind": "int",
+     "value": 872913799440
+    }
+   ],
+   "error": "OverflowError"
+  },
+  {
+   "actor": 220,
+   "component": 190006,
+   "tag_bits": 3,
+   "entries": [
+    {
+     "tag": 4,
+     "kind": "float",
+     "value_bits": 5183643170835005440
+    },
+    {
+     "tag": 2,
+     "kind": "float",
+     "value_bits": 0
+    },
+    {
+     "tag": 6,
+     "kind": "float",
+     "value_bits": 4612811918334230528
+    },
+    {
+     "tag": 7,
+     "kind": "int",
+     "value": -2147483648
+    },
+    {
+     "tag": 0,
+     "kind": "int",
+     "value": 0
+    },
+    {
+     "tag": 3,
+     "kind": "float",
+     "value_bits": 4612811918334230528
+    },
+    {
+     "tag": 6,
+     "kind": "int",
+     "value": -2147483648
+    },
+    {
+     "tag": 2,
+     "kind": "float",
+     "value_bits": 4715268810125344768
+    }
+   ],
+   "error": "OverflowError"
+  },
+  {
+   "actor": 212,
+   "component": 4294967294,
+   "tag_bits": 8,
+   "entries": [
+    {
+     "tag": 161,
+     "kind": "float",
+     "value_bits": 4715268810125344768
+    },
+    {
+     "tag": 116,
+     "kind": "int",
+     "value": -2147483648
+    },
+    {
+     "tag": 27,
+     "kind": "int",
+     "value": -2147483648
+    },
+    {
+     "tag": 93,
+     "kind": "float",
+     "value_bits": 9223372036854775808
+    },
+    {
+     "tag": 147,
+     "kind": "int",
+     "value": -2147483648
+    },
+    {
+     "tag": 69,
+     "kind": "float",
+     "value_bits": 3936463288827219979
+    },
+    {
+     "tag": 90,
+     "kind": "int",
+     "value": -1
+    },
+    {
+     "tag": 24,
+     "kind": "int",
+     "value": 1
+    }
+   ],
+   "hex": "f5ffffff7b1c4458aa0823d76d570833547f8adbbea8725bc9cfb58120624331c60ccbf81f93e6f391d2d1b4350f1702f33a8710da005e3c6e33966b13ede35c328c7f0fda5b4546160a323ae20eca03",
+   "bit_count": 636
+  },
+  {
+   "actor": 220,
+   "component": 4294967294,
+   "tag_bits": 10,
+   "entries": [
+    {
+     "tag": 445,
+     "kind": "int",
+     "value": -2147483648
+    },
+    {
+     "tag": 177,
+     "kind": "int",
+     "value": 4294967295
+    },
+    {
+     "tag": 84,
+     "kind": "float",
+     "value_bits": 4607182418800017408
+    },
+    {
+     "tag": 821,
+     "kind": "int",
+     "value": 2147483647
+    },
+    {
+     "tag": 399,
+     "kind": "float",
+     "value_bits": 4612811918334230528
+    },
+    {
+     "tag": 532,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 624,
+     "kind": "float",
+     "value_bits": 13832806255468478464
+    },
+    {
+     "tag": 550,
+     "kind": "int",
+     "value": 2
+    }
+   ],
+   "hex": "f5ffffff7b1c456850f763d2ad56084b973e0d35c89f71ceacfbbab1004cca2ea527bda03b2372e7077f9bc66f8a0ffbc6be2db05f51fd5a07fbb9e3b708e96cd18bcd5f4ea150bfb774c5923882948b9005",
+   "bit_count": 652
+  },
+  {
+   "actor": 208,
+   "component": 190004,
+   "tag_bits": 12,
+   "entries": [
+    {
+     "tag": 2383,
+     "kind": "int",
+     "value": 0
+    },
+    {
+     "tag": 2082,
+     "kind": "int",
+     "value": -1
+    },
+    {
+     "tag": 578,
+     "kind": "float",
+     "value_bits": 3936463288827219979
+    },
+    {
+     "tag": 846,
+     "kind": "int",
+     "value": 2147483647
+    },
+    {
+     "tag": 2044,
+     "kind": "int",
+     "value": 0
+    },
+    {
+     "tag": 387,
+     "kind": "int",
+     "value": 2
+    },
+    {
+     "tag": 2890,
+     "kind": "float",
+     "value_bits": 9223372036854775808
+    },
+    {
+     "tag": 3867,
+     "kind": "float",
+     "value_bits": 4715268810125344768
+    }
+   ],
+   "hex": "a5655a1c46b0b1495bd6355308b398bad7f7990d024bed0a51cde6133efed850880c1a715a670eaca350acd5d6be427f0fc362b818f0f4a05ceafaa42b1f3b33e46808207a5e54a7e98d5dd6c4d4fd0a8108",
+   "bit_count": 652
+  },
+  {
+   "actor": 300100,
+   "component": 190006,
+   "tag_bits": 16,
+   "entries": [
+    {
+     "tag": 50808,
+     "kind": "int",
+     "value": 2147483647
+    },
+    {
+     "tag": 28180,
+     "kind": "float",
+     "value_bits": 0
+    },
+    {
+     "tag": 59577,
+     "kind": "int",
+     "value": 2147483647
+    },
+    {
+     "tag": 3041,
+     "kind": "int",
+     "value": -1
+    },
+    {
+     "tag": 48337,
+     "kind": "int",
+     "value": 0
+    },
+    {
+     "tag": 63626,
+     "kind": "float",
+     "value_bits": 3933566627244108473
+    },
+    {
+     "tag": 16325,
+     "kind": "float",
+     "value_bits": 4715268810125344768
+    },
+    {
+     "tag": 36015,
+     "kind": "float",
+     "value_bits": 3936463288827219979
+    }
+   ],
+   "hex": "b5655a1c50d0625620e0f95420f37fdca63ca678b52b4407b9e6e0c16ea70b8822b940c2188ea8d220d46c9d1982a42580a321ab951170d7cb77f70b652d6ec4295a830ea432b1ba5cffa255250b8cba88f3bff5b20b",
+   "bit_count": 684
+  },
+  {
+   "actor": 220,
+   "component": 4294967294,
+   "tag_bits": 1,
+   "entries": [
+    {
+     "tag": 0,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 1,
+     "kind": "float",
+     "value_bits": 5183643170566569984
+    },
+    {
+     "tag": 1,
+     "kind": "float",
+     "value_bits": 9221120237041090560
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 4294967295
+    },
+    {
+     "tag": 0,
+     "kind": "int",
+     "value": 879910984544
+    },
+    {
+     "tag": 1,
+     "kind": "float",
+     "value_bits": 3936463288827219979
+    },
+    {
+     "tag": 0,
+     "kind": "float",
+     "value_bits": 13906592336004937417
+    },
+    {
+     "tag": 1,
+     "kind": "float",
+     "value_bits": 5183643170835005440
+    },
+    {
+     "tag": 1,
+     "kind": "float",
+     "value_bits": 9218868437227405312
+    },
+    {
+     "tag": 0,
+     "kind": "int",
+     "value": 2147483647
+    },
+    {
+     "tag": 1,
+     "kind": "float",
+     "value_bits": 4599676419421066581
+    },
+    {
+     "tag": 1,
+     "kind": "float",
+     "value_bits": 9223372036854775808
+    },
+    {
+     "tag": 1,
+     "kind": "float",
+     "value_bits": 3933566627244108473
+    }
+   ],
+   "error": "OverflowError"
+  },
+  {
+   "actor": 300100,
+   "component": 190004,
+   "tag_bits": 3,
+   "entries": [
+    {
+     "tag": 7,
+     "kind": "float",
+     "value_bits": 13906592336004937417
+    },
+    {
+     "tag": 4,
+     "kind": "float",
+     "value_bits": 9221120237041090560
+    },
+    {
+     "tag": 3,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 5,
+     "kind": "int",
+     "value": 2147483647
+    },
+    {
+     "tag": 2,
+     "kind": "int",
+     "value": -1
+    },
+    {
+     "tag": 0,
+     "kind": "int",
+     "value": -2147483648
+    },
+    {
+     "tag": 1,
+     "kind": "float",
+     "value_bits": 4715268810125344768
+    },
+    {
+     "tag": 6,
+     "kind": "float",
+     "value_bits": 13908879068519266396
+    },
+    {
+     "tag": 6,
+     "kind": "float",
+     "value_bits": 4715268810125344768
+    },
+    {
+     "tag": 7,
+     "kind": "int",
+     "value": 2147483647
+    },
+    {
+     "tag": 3,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 7,
+     "kind": "int",
+     "value": 2147483647
+    },
+    {
+     "tag": 3,
+     "kind": "int",
+     "value": 2
+    }
+   ],
+   "hex": "a5655afc64386afda06995cb25bba41cc293c54534b7863359d4c167e60bce59f1adb813661222e9b96b24bea5687d3a8d500fd0155981efce118e4eae3bfeab58a6916dab84b80da5476b30957e925bc1331550f11bed6ab691ba0c64060b35e4a7beb9cb0fde321500e6a50f138c03",
+   "bit_count": 890
+  },
+  {
+   "actor": 216,
+   "component": 190006,
+   "tag_bits": 8,
+   "entries": [
+    {
+     "tag": 168,
+     "kind": "int",
+     "value": 4294967295
+    },
+    {
+     "tag": 241,
+     "kind": "int",
+     "value": 2147483647
+    },
+    {
+     "tag": 132,
+     "kind": "float",
+     "value_bits": 9221120237041090560
+    },
+    {
+     "tag": 75,
+     "kind": "int",
+     "value": 2147483647
+    },
+    {
+     "tag": 245,
+     "kind": "int",
+     "value": -2147483648
+    },
+    {
+     "tag": 82,
+     "kind": "int",
+     "value": 4294967295
+    },
+    {
+     "tag": 179,
+     "kind": "float",
+     "value_bits": 4715268810125344768
+    },
+    {
+     "tag": 162,
+     "kind": "int",
+     "value": -2147483648
+    },
+    {
+     "tag": 194,
+     "kind": "int",
+     "value": 4294967295
+    },
+    {
+     "tag": 71,
+     "kind": "int",
+     "value": -601838754072
+    },
+    {
+     "tag": 141,
+     "kind": "float",
+     "value_bits": 4620130267728707584
+    },
+    {
+     "tag": 255,
+     "kind": "float",
+     "value_bits": 4715268810125344768
+    },
+    {
+     "tag": 211,
+     "kind": "int",
+     "value": 2147483647
+    }
+   ],
+   "hex": "b5655a0c7140020c56031aad0b131d0de61c7e109b96c24debbfe53675133619c3273f8f1c1a92fd4fbd40fa6809ee360ed7b6bc6e57a39d541bcddca40313eeb4e971979460adb7a7cbe2b63f99e11edd4ce5465828f552f08119f9fa1851031168d9ed516738210263b2a1d155dde900fab613cdda6705",
+   "bit_count": 955
+  },
+  {
+   "actor": 300100,
+   "component": 190008,
+   "tag_bits": 10,
+   "entries": [
+    {
+     "tag": 231,
+     "kind": "int",
+     "value": -2147483648
+    },
+    {
+     "tag": 971,
+     "kind": "float",
+     "value_bits": 3933566627244108473
+    },
+    {
+     "tag": 158,
+     "kind": "float",
+     "value_bits": 9221120237041090560
+    },
+    {
+     "tag": 353,
+     "kind": "int",
+     "value": 2147483647
+    },
+    {
+     "tag": 917,
+     "kind": "float",
+     "value_bits": 13832806255468478464
+    },
+    {
+     "tag": 192,
+     "kind": "int",
+     "value": 910753480865
+    },
+    {
+     "tag": 97,
+     "kind": "float",
+     "value_bits": 13832806255468478464
+    },
+    {
+     "tag": 687,
+     "kind": "float",
+     "value_bits": 4607182418800017408
+    },
+    {
+     "tag": 115,
+     "kind": "float",
+     "value_bits": 0
+    },
+    {
+     "tag": 27,
+     "kind": "float",
+     "value_bits": 9221120237041090560
+    },
+    {
+     "tag": 706,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 514,
+     "kind": "int",
+     "value": 0
+    },
+    {
+     "tag": 591,
+     "kind": "int",
+     "value": 2
+    }
+   ],
+   "hex": "c5655aac7220c6f42b6c15f8222b2cf93aece8ba730ae521dfdae05b36f3468f14acdfb6d423868c9d71ce0b2a8d323755c5b385f8ba6bc89a9372df65c3b65b89ac1e6eaa3a25c6b097180b4c15d9d6fe934ec30321edfa2006dbc6470a46c22e5c7502a528263a574dd1900af1bbe5659be46d4f38c4f1a8b308",
+   "bit_count": 981
+  },
+  {
+   "actor": 208,
+   "component": 190008,
+   "tag_bits": 12,
+   "entries": [
+    {
+     "tag": 625,
+     "kind": "float",
+     "value_bits": 13832806255468478464
+    },
+    {
+     "tag": 2,
+     "kind": "float",
+     "value_bits": 5183643170835005440
+    },
+    {
+     "tag": 1049,
+     "kind": "float",
+     "value_bits": 18442240474082181120
+    },
+    {
+     "tag": 2559,
+     "kind": "int",
+     "value": -1
+    },
+    {
+     "tag": 574,
+     "kind": "float",
+     "value_bits": 5183643170835005440
+    },
+    {
+     "tag": 2191,
+     "kind": "int",
+     "value": 836630951455
+    },
+    {
+     "tag": 3342,
+     "kind": "float",
+     "value_bits": 4715268810125344768
+    },
+    {
+     "tag": 432,
+     "kind": "int",
+     "value": -2147483648
+    },
+    {
+     "tag": 2665,
+     "kind": "float",
+     "value_bits": 9221120237041090560
+    },
+    {
+     "tag": 331,
+     "kind": "int",
+     "value": -2147483648
+    },
+    {
+     "tag": 2837,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 2102,
+     "kind": "float",
+     "value_bits": 13906592336004937417
+    },
+    {
+     "tag": 2269,
+     "kind": "int",
+     "value": 4294967295
+    }
+   ],
+   "error": "OverflowError"
+  },
+  {
+   "actor": 216,
+   "component": 190008,
+   "tag_bits": 16,
+   "entries": [
+    {
+     "tag": 60779,
+     "kind": "float",
+     "value_bits": 4620130267728707584
+    },
+    {
+     "tag": 26182,
+     "kind": "int",
+     "value": -1
+    },
+    {
+     "tag": 31520,
+     "kind": "int",
+     "value": -1
+    },
+    {
+     "tag": 55942,
+     "kind": "float",
+     "value_bits": 4591870180066957722
+    },
+    {
+     "tag": 8994,
+     "kind": "int",
+     "value": 4294967295
+    },
+    {
+     "tag": 34626,
+     "kind": "float",
+     "value_bits": 5183643170835005440
+    },
+    {
+     "tag": 35030,
+     "kind": "int",
+     "value": 0
+    },
+    {
+     "tag": 7925,
+     "kind": "float",
+     "value_bits": 9221120237041090560
+    },
+    {
+     "tag": 56042,
+     "kind": "int",
+     "value": 2
+    },
+    {
+     "tag": 5239,
+     "kind": "float",
+     "value_bits": 4620130267728707584
+    },
+    {
+     "tag": 9153,
+     "kind": "float",
+     "value_bits": 13832806255468478464
+    },
+    {
+     "tag": 63902,
+     "kind": "float",
+     "value_bits": 4591870180066957722
+    },
+    {
+     "tag": 37059,
+     "kind": "int",
+     "value": 4294967295
+    }
+   ],
+   "error": "OverflowError"
+  },
+  {
+   "actor": 220,
+   "component": 4294967294,
+   "tag_bits": 1,
+   "entries": [
+    {
+     "tag": 1,
+     "kind": "float",
+     "value_bits": 13916920990898026592
+    },
+    {
+     "tag": 0,
+     "kind": "int",
+     "value": 2147483647
+    },
+    {
+     "tag": 0,
+     "kind": "float",
+     "value_bits": 4599676419421066581
+    },
+    {
+     "tag": 0,
+     "kind": "int",
+     "value": 2147483647
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 2
+    },
+    {
+     "tag": 0,
+     "kind": "float",
+     "value_bits": 13832806255468478464
+    },
+    {
+     "tag": 0,
+     "kind": "float",
+     "value_bits": 5183643170835005440
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 0,
+     "kind": "int",
+     "value": 2147483647
+    },
+    {
+     "tag": 0,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 0,
+     "kind": "float",
+     "value_bits": 4612811918334230528
+    },
+    {
+     "tag": 0,
+     "kind": "int",
+     "value": 4294967295
+    },
+    {
+     "tag": 0,
+     "kind": "int",
+     "value": -2147483648
+    },
+    {
+     "tag": 0,
+     "kind": "int",
+     "value": 2147483647
+    },
+    {
+     "tag": 0,
+     "kind": "int",
+     "value": -1
+    },
+    {
+     "tag": 1,
+     "kind": "float",
+     "value_bits": 4612811918334230528
+    },
+    {
+     "tag": 1,
+     "kind": "float",
+     "value_bits": 4715268810125344768
+    },
+    {
+     "tag": 0,
+     "kind": "float",
+     "value_bits": 9223372036854775808
+    },
+    {
+     "tag": 1,
+     "kind": "float",
+     "value_bits": 5183643170835005440
+    },
+    {
+     "tag": 0,
+     "kind": "int",
+     "value": 2147483647
+    },
+    {
+     "tag": 0,
+     "kind": "int",
+     "value": 4294967295
+    }
+   ],
+   "error": "OverflowError"
+  },
+  {
+   "actor": 208,
+   "component": 190004,
+   "tag_bits": 3,
+   "entries": [
+    {
+     "tag": 1,
+     "kind": "float",
+     "value_bits": 9218868437227405312
+    },
+    {
+     "tag": 3,
+     "kind": "float",
+     "value_bits": 4599676419421066581
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": -1
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 2
+    },
+    {
+     "tag": 2,
+     "kind": "float",
+     "value_bits": 4612811918334230528
+    },
+    {
+     "tag": 4,
+     "kind": "int",
+     "value": -2147483648
+    },
+    {
+     "tag": 6,
+     "kind": "int",
+     "value": 0
+    },
+    {
+     "tag": 4,
+     "kind": "int",
+     "value": 4294967295
+    },
+    {
+     "tag": 6,
+     "kind": "int",
+     "value": 209354866562
+    },
+    {
+     "tag": 6,
+     "kind": "int",
+     "value": -1
+    },
+    {
+     "tag": 0,
+     "kind": "float",
+     "value_bits": 3933566627244108473
+    },
+    {
+     "tag": 4,
+     "kind": "int",
+     "value": 0
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 0,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 1,
+     "kind": "float",
+     "value_bits": 4599676419421066581
+    },
+    {
+     "tag": 2,
+     "kind": "int",
+     "value": 2
+    },
+    {
+     "tag": 4,
+     "kind": "int",
+     "value": 4294967295
+    },
+    {
+     "tag": 2,
+     "kind": "float",
+     "value_bits": 4599676419421066581
+    },
+    {
+     "tag": 3,
+     "kind": "float",
+     "value_bits": 4620130267728707584
+    },
+    {
+     "tag": 1,
+     "kind": "float",
+     "value_bits": 4694512727752555532
+    },
+    {
+     "tag": 6,
+     "kind": "int",
+     "value": 2147483647
+    }
+   ],
+   "hex": "a5655afca3e8aa08e38a88cb0d33809bd1566d4f3105f3f089405389aba120239038edc33a61c43fde7f9c9dbe7b625fdd8ba7a0977efaf9332c1a9c6706b02387aea10265f2d1e859c8714bae905a97444070d4291807ace9efcf95dd4e1df66cfc2037509833648c7d6182046e04c03792ddc5e889b671576c4b9ff27968ba09b6ab87df9f3c9e85f234a9536a2dce6014dcb29a2ce2f5229ab9f5cc5a14fcfdf8d6948a1c5392438b3c220703",
+   "bit_count": 1386
+  },
+  {
+   "actor": 208,
+   "component": 190004,
+   "tag_bits": 8,
+   "entries": [
+    {
+     "tag": 157,
+     "kind": "int",
+     "value": 911312087895
+    },
+    {
+     "tag": 214,
+     "kind": "int",
+     "value": -2147483648
+    },
+    {
+     "tag": 204,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 163,
+     "kind": "int",
+     "value": -634466649445
+    },
+    {
+     "tag": 109,
+     "kind": "float",
+     "value_bits": 4715268810125344768
+    },
+    {
+     "tag": 161,
+     "kind": "int",
+     "value": 2
+    },
+    {
+     "tag": 5,
+     "kind": "int",
+     "value": 2
+    },
+    {
+     "tag": 2,
+     "kind": "int",
+     "value": -295886961435
+    },
+    {
+     "tag": 236,
+     "kind": "float",
+     "value_bits": 4692630391014662220
+    },
+    {
+     "tag": 210,
+     "kind": "float",
+     "value_bits": 9218868437227405312
+    },
+    {
+     "tag": 122,
+     "kind": "float",
+     "value_bits": 4715268810125344768
+    },
+    {
+     "tag": 71,
+     "kind": "int",
+     "value": 349270608370
+    },
+    {
+     "tag": 145,
+     "kind": "int",
+     "value": -228180435786
+    },
+    {
+     "tag": 96,
+     "kind": "int",
+     "value": 1006546208525
+    },
+    {
+     "tag": 175,
+     "kind": "float",
+     "value_bits": 13832806255468478464
+    },
+    {
+     "tag": 199,
+     "kind": "float",
+     "value_bits": 3936463288827219979
+    },
+    {
+     "tag": 63,
+     "kind": "float",
+     "value_bits": 4715268810125344768
+    },
+    {
+     "tag": 8,
+     "kind": "int",
+     "value": -1
+    },
+    {
+     "tag": 112,
+     "kind": "float",
+     "value_bits": 9218868437227405312
+    },
+    {
+     "tag": 62,
+     "kind": "float",
+     "value_bits": 4612811918334230528
+    },
+    {
+     "tag": 192,
+     "kind": "float",
+     "value_bits": 0
+    }
+   ],
+   "hex": "a5655a8cb220d29ed78f90a80b335c5450d65fc2dd7af2f6f11aa18033793161063a14617827424dbe0da807f1c3f0c3ed52a0e7a85770bbe60e11f1aefa716e174cddd39287b568e7367f8434a88aef3968cbf69dc917b9ba7c8b49b9cae6da3140a757ff9a26d0ec95904b39c0df3094e372e98bad0bc24ed316c5ce13efdb6e9f96d5641a63dcd84969efc68e718b48956fc87d9eb58d3bd03000a25a2d3fc786c5fa8fa286e4b35fbc072e47c8c939af9baf1bb728aaea7d07",
+   "bit_count": 1491
+  },
+  {
+   "actor": 208,
+   "component": 190006,
+   "tag_bits": 10,
+   "entries": [
+    {
+     "tag": 206,
+     "kind": "int",
+     "value": -1
+    },
+    {
+     "tag": 339,
+     "kind": "int",
+     "value": -1
+    },
+    {
+     "tag": 804,
+     "kind": "int",
+     "value": 4294967295
+    },
+    {
+     "tag": 104,
+     "kind": "float",
+     "value_bits": 3933566627244108473
+    },
+    {
+     "tag": 175,
+     "kind": "float",
+     "value_bits": 3936463288827219979
+    },
+    {
+     "tag": 842,
+     "kind": "int",
+     "value": 2147483647
+    },
+    {
+     "tag": 204,
+     "kind": "float",
+     "value_bits": 3936463288827219979
+    },
+    {
+     "tag": 313,
+     "kind": "int",
+     "value": 2147483647
+    },
+    {
+     "tag": 592,
+     "kind": "float",
+     "value_bits": 3933566627244108473
+    },
+    {
+     "tag": 855,
+     "kind": "float",
+     "value_bits": 4591870180066957722
+    },
+    {
+     "tag": 758,
+     "kind": "float",
+     "value_bits": 13909877093971016652
+    },
+    {
+     "tag": 224,
+     "kind": "float",
+     "value_bits": 4681304207153519680
+    },
+    {
+     "tag": 92,
+     "kind": "float",
+     "value_bits": 9221120237041090560
+    },
+    {
+     "tag": 1007,
+     "kind": "int",
+     "value": -2147483648
+    },
+    {
+     "tag": 343,
+     "kind": "float",
+     "value_bits": 0
+    },
+    {
+     "tag": 959,
+     "kind": "float",
+     "value_bits": 13919222956413236079
+    },
+    {
+     "tag": 724,
+     "kind": "float",
+     "value_bits": 4620130267728707584
+    },
+    {
+     "tag": 568,
+     "kind": "float",
+     "value_bits": 4620130267728707584
+    },
+    {
+     "tag": 855,
+     "kind": "float",
+     "value_bits": 4591870180066957722
+    },
+    {
+     "tag": 806,
+     "kind": "int",
+     "value": -2147483648
+    },
+    {
+     "tag": 890,
+     "kind": "float",
+     "value_bits": 4607182418800017408
+    }
+   ],
+   "hex": "b5655a2cb5f04e940c8b40f80acbf8e55e306918731dba0e519e1c67f6a4d0a0a6162772be8eec0d21b7258860f17d6b9e3bce1bab7468e3b15bc86a0d0f1e82cc269b51165584f0d339c6432a24d6bef7fb612fec2ff5ac2fdc5a5b04a5f2963cbaf9c42627a99239dcb8abac9c8590d840fc2c4685cc763c884797dd9ebd1b3ce6ad1d2d41ce259a75882d1cc8a14489dd04b2fa2ba06d4ec09a38335a6e4e656ddbf7ad45077a9197c43c0abdb085d6b7e4b9ccf9155773b2842c6771de0f",
+   "bit_count": 1533
+  },
+  {
+   "actor": 212,
+   "component": 190008,
+   "tag_bits": 12,
+   "entries": [
+    {
+     "tag": 747,
+     "kind": "int",
+     "value": 2
+    },
+    {
+     "tag": 3439,
+     "kind": "float",
+     "value_bits": 3936463288827219979
+    },
+    {
+     "tag": 1589,
+     "kind": "int",
+     "value": 2147483647
+    },
+    {
+     "tag": 2097,
+     "kind": "int",
+     "value": 0
+    },
+    {
+     "tag": 2604,
+     "kind": "int",
+     "value": 2
+    },
+    {
+     "tag": 737,
+     "kind": "int",
+     "value": 0
+    },
+    {
+     "tag": 1647,
+     "kind": "float",
+     "value_bits": 9221120237041090560
+    },
+    {
+     "tag": 1466,
+     "kind": "int",
+     "value": 0
+    },
+    {
+     "tag": 3647,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 1702,
+     "kind": "int",
+     "value": -2147483648
+    },
+    {
+     "tag": 2916,
+     "kind": "int",
+     "value": -2147483648
+    },
+    {
+     "tag": 1768,
+     "kind": "int",
+     "value": 0
+    },
+    {
+     "tag": 3222,
+     "kind": "float",
+     "value_bits": 5183643170566569984
+    },
+    {
+     "tag": 2680,
+     "kind": "int",
+     "value": -1
+    },
+    {
+     "tag": 2752,
+     "kind": "float",
+     "value_bits": 18442240474082181120
+    },
+    {
+     "tag": 1813,
+     "kind": "int",
+     "value": 2
+    },
+    {
+     "tag": 2676,
+     "kind": "int",
+     "value": 4294967295
+    },
+    {
+     "tag": 2930,
+     "kind": "int",
+     "value": 2147483647
+    },
+    {
+     "tag": 3642,
+     "kind": "int",
+     "value": 442989715086
+    },
+    {
+     "tag": 3664,
+     "kind": "int",
+     "value": -1
+    },
+    {
+     "tag": 502,
+     "kind": "int",
+     "value": 4294967295
+    }
+   ],
+   "hex": "c5655accb7c0c84bd38fe8a80b9b3a947f6b1b7e72665c983801275fe4da07c133d85b971c901d052723ef2d26778cde8ddc49b2071cfab6d5cb3090c97202b21682aa38d51faba71e88a8640fd8884b1a043a8b421635651f9d6b218fb9ba14d2a28819b1b82c7348c1f1466b458f0c95281ce98b3b619f53115723fd2bc51b413c0828bda58709a42cfe81ed67ec7f448c4c2991a62da6ddd57c474ac6cef5cfaefac091bda3a852f7b7b198ff5c3975402a305d60572c3220c9554d42594374014f2877",
+   "bit_count": 1575
+  },
+  {
+   "actor": 216,
+   "component": 4294967294,
+   "tag_bits": 16,
+   "entries": [
+    {
+     "tag": 10025,
+     "kind": "int",
+     "value": -2147483648
+    },
+    {
+     "tag": 18664,
+     "kind": "float",
+     "value_bits": 9218868437227405312
+    },
+    {
+     "tag": 33931,
+     "kind": "int",
+     "value": 2
+    },
+    {
+     "tag": 17521,
+     "kind": "int",
+     "value": 4294967295
+    },
+    {
+     "tag": 28240,
+     "kind": "float",
+     "value_bits": 4620130267728707584
+    },
+    {
+     "tag": 61674,
+     "kind": "float",
+     "value_bits": 4612811918334230528
+    },
+    {
+     "tag": 33412,
+     "kind": "int",
+     "value": 4294967295
+    },
+    {
+     "tag": 6771,
+     "kind": "float",
+     "value_bits": 9221120237041090560
+    },
+    {
+     "tag": 21533,
+     "kind": "int",
+     "value": -583253281523
+    },
+    {
+     "tag": 53839,
+     "kind": "float",
+     "value_bits": 4591870180066957722
+    },
+    {
+     "tag": 44009,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 34704,
+     "kind": "float",
+     "value_bits": 0
+    },
+    {
+     "tag": 9102,
+     "kind": "float",
+     "value_bits": 4620130267728707584
+    },
+    {
+     "tag": 23281,
+     "kind": "int",
+     "value": -1
+    },
+    {
+     "tag": 11854,
+     "kind": "float",
+     "value_bits": 18442240474082181120
+    },
+    {
+     "tag": 13585,
+     "kind": "float",
+     "value_bits": 4620130267728707584
+    },
+    {
+     "tag": 13582,
+     "kind": "int",
+     "value": 2147483647
+    },
+    {
+     "tag": 52852,
+     "kind": "float",
+     "value_bits": 4599676419421066581
+    },
+    {
+     "tag": 6895,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 43856,
+     "kind": "int",
+     "value": 2147483647
+    },
+    {
+     "tag": 14621,
+     "kind": "float",
+     "value_bits": 4607182418800017408
+    }
+   ],
+   "hex": "f5ffffff7b0cc518ef5248a284aa0bf391502ce0829175d340b5ca2b18edefeb617fc8314ac21b916f360f0d0789a12324ce6583cebb7c9a4426665f6699187b103220ffda13055719161c69ec4bd1c3acc3578216aa0ac746137d3c2941968be48a76453115708ddc804a165cd6abffbbee6d5d7b1e83d3f8476d4042ea5497dbd8850eda39e31198f0c02a0d492de04f1465de9e38c53cedbbca177a642d81db4fd740ddf449fef54f3addd5cacc1958feb21711c0281dfc8e1c5ac116332b187f292c8bfd5f3bb457c1f64fca13921704",
+   "bit_count": 1675
+  },
+  {
+   "actor": 220,
+   "component": 190004,
+   "tag_bits": 1,
+   "entries": [
+    {
+     "tag": 1,
+     "kind": "float",
+     "value_bits": 4607182418800017408
+    },
+    {
+     "tag": 0,
+     "kind": "int",
+     "value": -1
+    },
+    {
+     "tag": 0,
+     "kind": "float",
+     "value_bits": 13898588238576761872
+    },
+    {
+     "tag": 0,
+     "kind": "float",
+     "value_bits": 5183643170835005440
+    },
+    {
+     "tag": 0,
+     "kind": "float",
+     "value_bits": 4591870180066957722
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": -710258190374
+    },
+    {
+     "tag": 1,
+     "kind": "float",
+     "value_bits": 3933566627244108473
+    },
+    {
+     "tag": 1,
+     "kind": "float",
+     "value_bits": 3933566627244108473
+    },
+    {
+     "tag": 0,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 0,
+     "kind": "float",
+     "value_bits": 5183643170835005440
+    },
+    {
+     "tag": 1,
+     "kind": "float",
+     "value_bits": 5183643170566569984
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": -520820932556
+    },
+    {
+     "tag": 1,
+     "kind": "float",
+     "value_bits": 4715268810125344768
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 0,
+     "kind": "float",
+     "value_bits": 4693087620433595636
+    },
+    {
+     "tag": 0,
+     "kind": "int",
+     "value": 4294967295
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 0
+    },
+    {
+     "tag": 1,
+     "kind": "float",
+     "value_bits": 4599676419421066581
+    },
+    {
+     "tag": 0,
+     "kind": "float",
+     "value_bits": 13906592336004937417
+    },
+    {
+     "tag": 0,
+     "kind": "int",
+     "value": -2147483648
+    },
+    {
+     "tag": 0,
+     "kind": "float",
+     "value_bits": 4683242587322468096
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": -585503147502
+    }
+   ],
+   "error": "OverflowError"
+  },
+  {
+   "actor": 216,
+   "component": 190006,
+   "tag_bits": 3,
+   "entries": [
+    {
+     "tag": 6,
+     "kind": "float",
+     "value_bits": 4599676419421066581
+    },
+    {
+     "tag": 6,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 5,
+     "kind": "float",
+     "value_bits": 5183643170835005440
+    },
+    {
+     "tag": 7,
+     "kind": "int",
+     "value": 2
+    },
+    {
+     "tag": 1,
+     "kind": "float",
+     "value_bits": 4715268810125344768
+    },
+    {
+     "tag": 3,
+     "kind": "int",
+     "value": -2147483648
+    },
+    {
+     "tag": 0,
+     "kind": "float",
+     "value_bits": 18442240474082181120
+    },
+    {
+     "tag": 3,
+     "kind": "float",
+     "value_bits": 13906592336004937417
+    },
+    {
+     "tag": 3,
+     "kind": "int",
+     "value": 4294967295
+    },
+    {
+     "tag": 5,
+     "kind": "int",
+     "value": -2147483648
+    },
+    {
+     "tag": 5,
+     "kind": "float",
+     "value_bits": 9221120237041090560
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 0
+    },
+    {
+     "tag": 3,
+     "kind": "int",
+     "value": 4294967295
+    },
+    {
+     "tag": 6,
+     "kind": "int",
+     "value": 0
+    },
+    {
+     "tag": 2,
+     "kind": "int",
+     "value": -34915211581
+    },
+    {
+     "tag": 6,
+     "kind": "float",
+     "value_bits": 5183643170835005440
+    },
+    {
+     "tag": 3,
+     "kind": "float",
+     "value_bits": 4607182418800017408
+    },
+    {
+     "tag": 6,
+     "kind": "float",
+     "value_bits": 3936463288827219979
+    },
+    {
+     "tag": 2,
+     "kind": "float",
+     "value_bits": 4612811918334230528
+    },
+    {
+     "tag": 0,
+     "kind": "float",
+     "value_bits": 4599676419421066581
+    },
+    {
+     "tag": 5,
+     "kind": "int",
+     "value": -1
+    },
+    {
+     "tag": 7,
+     "kind": "float",
+     "value_bits": 3933566627244108473
+    }
+   ],
+   "error": "OverflowError"
+  },
+  {
+   "actor": 220,
+   "component": 4294967294,
+   "tag_bits": 8,
+   "entries": [
+    {
+     "tag": 226,
+     "kind": "float",
+     "value_bits": 9221120237041090560
+    },
+    {
+     "tag": 189,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 84,
+     "kind": "float",
+     "value_bits": 4612811918334230528
+    },
+    {
+     "tag": 95,
+     "kind": "int",
+     "value": 0
+    },
+    {
+     "tag": 206,
+     "kind": "float",
+     "value_bits": 9221120237041090560
+    },
+    {
+     "tag": 237,
+     "kind": "int",
+     "value": 1058709010510
+    },
+    {
+     "tag": 113,
+     "kind": "float",
+     "value_bits": 9218868437227405312
+    },
+    {
+     "tag": 232,
+     "kind": "int",
+     "value": -1
+    },
+    {
+     "tag": 219,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 86,
+     "kind": "int",
+     "value": 2147483647
+    },
+    {
+     "tag": 230,
+     "kind": "float",
+     "value_bits": 13832806255468478464
+    },
+    {
+     "tag": 253,
+     "kind": "int",
+     "value": 136942114724
+    },
+    {
+     "tag": 107,
+     "kind": "float",
+     "value_bits": 9218868437227405312
+    },
+    {
+     "tag": 218,
+     "kind": "float",
+     "value_bits": 9221120237041090560
+    },
+    {
+     "tag": 249,
+     "kind": "float",
+     "value_bits": 5183643170835005440
+    },
+    {
+     "tag": 251,
+     "kind": "int",
+     "value": 2147483647
+    },
+    {
+     "tag": 178,
+     "kind": "float",
+     "value_bits": 0
+    },
+    {
+     "tag": 88,
+     "kind": "int",
+     "value": -1
+    },
+    {
+     "tag": 165,
+     "kind": "float",
+     "value_bits": 13906592336004937417
+    },
+    {
+     "tag": 146,
+     "kind": "int",
+     "value": 4294967295
+    },
+    {
+     "tag": 237,
+     "kind": "int",
+     "value": 2
+    },
+    {
+     "tag": 80,
+     "kind": "float",
+     "value_bits": 5183643170566569984
+    }
+   ],
+   "error": "OverflowError"
+  },
+  {
+   "actor": 212,
+   "component": 190008,
+   "tag_bits": 10,
+   "entries": [
+    {
+     "tag": 250,
+     "kind": "int",
+     "value": 0
+    },
+    {
+     "tag": 225,
+     "kind": "int",
+     "value": 2147483647
+    },
+    {
+     "tag": 962,
+     "kind": "float",
+     "value_bits": 18442240474082181120
+    },
+    {
+     "tag": 146,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 318,
+     "kind": "float",
+     "value_bits": 4607182418800017408
+    },
+    {
+     "tag": 990,
+     "kind": "float",
+     "value_bits": 9221120237041090560
+    },
+    {
+     "tag": 787,
+     "kind": "float",
+     "value_bits": 3933566627244108473
+    },
+    {
+     "tag": 839,
+     "kind": "int",
+     "value": -514196440157
+    },
+    {
+     "tag": 77,
+     "kind": "float",
+     "value_bits": 4607182418800017408
+    },
+    {
+     "tag": 584,
+     "kind": "float",
+     "value_bits": 9221120237041090560
+    },
+    {
+     "tag": 80,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 164,
+     "kind": "int",
+     "value": 0
+    },
+    {
+     "tag": 767,
+     "kind": "int",
+     "value": -1
+    },
+    {
+     "tag": 544,
+     "kind": "int",
+     "value": -2147483648
+    },
+    {
+     "tag": 755,
+     "kind": "float",
+     "value_bits": 4715268810125344768
+    },
+    {
+     "tag": 818,
+     "kind": "int",
+     "value": -2147483648
+    },
+    {
+     "tag": 208,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 993,
+     "kind": "float",
+     "value_bits": 9221120237041090560
+    },
+    {
+     "tag": 415,
+     "kind": "float",
+     "value_bits": 4591870180066957722
+    },
+    {
+     "tag": 284,
+     "kind": "float",
+     "value_bits": 13917201440989922744
+    },
+    {
+     "tag": 901,
+     "kind": "int",
+     "value": 2147483647
+    },
+    {
+     "tag": 153,
+     "kind": "int",
+     "value": -2147483648
+    }
+   ],
+   "hex": "c5655a7cc2a886f3834d98cc0dfb771522a4eaba95f71eb3058f91dc6bc67092fb5246dc89c4076ef3ad163a3fae548521b2079406844cecc73bf41a0d8ebafaf29f6071d38c53ef0a37fca6929c28a6b23072f97819831de0adb7c5c9985b53255a6910b3df5fa4e5dd7a5cb5538b9102bb29330061d8974f15b6e01437dd8168981d55a8102a23d2247e934fdbe7a7028ea4ce45ee83e0c3578b697005c75a4f102eb1dd42ba72338459de34971812151fba45ccfaa063e777360f6651da8b2d5794817a3b3c9b3b5f03",
+   "bit_count": 1618
+  },
+  {
+   "actor": 212,
+   "component": 190008,
+   "tag_bits": 12,
+   "entries": [
+    {
+     "tag": 3994,
+     "kind": "float",
+     "value_bits": 4599676419421066581
+    },
+    {
+     "tag": 1783,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 23,
+     "kind": "int",
+     "value": 599809090940
+    },
+    {
+     "tag": 3189,
+     "kind": "int",
+     "value": 2
+    },
+    {
+     "tag": 1296,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 2558,
+     "kind": "float",
+     "value_bits": 4715268810125344768
+    },
+    {
+     "tag": 79,
+     "kind": "float",
+     "value_bits": 4591870180066957722
+    },
+    {
+     "tag": 2678,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 1219,
+     "kind": "int",
+     "value": 2147483647
+    },
+    {
+     "tag": 2646,
+     "kind": "float",
+     "value_bits": 13906592336004937417
+    },
+    {
+     "tag": 520,
+     "kind": "int",
+     "value": 0
+    },
+    {
+     "tag": 3057,
+     "kind": "float",
+     "value_bits": 9223372036854775808
+    },
+    {
+     "tag": 3575,
+     "kind": "float",
+     "value_bits": 4599676419421066581
+    },
+    {
+     "tag": 1378,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 2595,
+     "kind": "float",
+     "value_bits": 4715268810125344768
+    },
+    {
+     "tag": 433,
+     "kind": "int",
+     "value": -403683624648
+    },
+    {
+     "tag": 815,
+     "kind": "int",
+     "value": 0
+    },
+    {
+     "tag": 842,
+     "kind": "float",
+     "value_bits": 4607182418800017408
+    },
+    {
+     "tag": 2009,
+     "kind": "float",
+     "value_bits": 5183643170566569984
+    },
+    {
+     "tag": 2360,
+     "kind": "int",
+     "value": -1
+    },
+    {
+     "tag": 3968,
+     "kind": "float",
+     "value_bits": 4612811918334230528
+    },
+    {
+     "tag": 3410,
+     "kind": "float",
+     "value_bits": 9223372036854775808
+    }
+   ],
+   "hex": "c5655a3cc5d0a044dc4d38ca0db365defe49f045c649d366867a7211354cf42ae77256f9cef29577b5fdc8fae17756b9949dcb17ac58bc9d9ff37268e6caaa1689713f97012523290c3e853b66194dbf5e9d9ae82cac9cb5e5179da98f59a2cabb87fc573e48fa8a78e9174ed4517ea8f4dfa07acd8c1a5a424f3764deb851e6baed3fc55b6284987693f372ef09f5aa20cccc9cf9249b76c3003aec14b0a01a275626d9b2b6825b7efd08051905b367664abda6ad13eeb6f23966402113d451a42e239270308a8033c843e2cbd1df11",
+   "bit_count": 1662
+  },
+  {
+   "actor": 220,
+   "component": 4294967294,
+   "tag_bits": 16,
+   "entries": [
+    {
+     "tag": 51338,
+     "kind": "float",
+     "value_bits": 5183643170566569984
+    },
+    {
+     "tag": 64705,
+     "kind": "int",
+     "value": 876021363990
+    },
+    {
+     "tag": 18139,
+     "kind": "int",
+     "value": 4294967295
+    },
+    {
+     "tag": 29448,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 27823,
+     "kind": "float",
+     "value_bits": 9221120237041090560
+    },
+    {
+     "tag": 47265,
+     "kind": "int",
+     "value": -698456268970
+    },
+    {
+     "tag": 26227,
+     "kind": "int",
+     "value": -1
+    },
+    {
+     "tag": 27782,
+     "kind": "float",
+     "value_bits": 3933566627244108473
+    },
+    {
+     "tag": 48435,
+     "kind": "float",
+     "value_bits": 4607182418800017408
+    },
+    {
+     "tag": 10089,
+     "kind": "int",
+     "value": 2147483647
+    },
+    {
+     "tag": 63405,
+     "kind": "float",
+     "value_bits": 9221120237041090560
+    },
+    {
+     "tag": 23618,
+     "kind": "float",
+     "value_bits": 5183643170566569984
+    },
+    {
+     "tag": 3397,
+     "kind": "int",
+     "value": -2147483648
+    },
+    {
+     "tag": 3652,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 16901,
+     "kind": "float",
+     "value_bits": 18442240474082181120
+    },
+    {
+     "tag": 50522,
+     "kind": "float",
+     "value_bits": 13832806255468478464
+    },
+    {
+     "tag": 2824,
+     "kind": "float",
+     "value_bits": 5183643170566569984
+    },
+    {
+     "tag": 16437,
+     "kind": "int",
+     "value": 0
+    },
+    {
+     "tag": 1840,
+     "kind": "int",
+     "value": 0
+    },
+    {
+     "tag": 48860,
+     "kind": "int",
+     "value": 4294967295
+    },
+    {
+     "tag": 5584,
+     "kind": "int",
+     "value": -1
+    },
+    {
+     "tag": 54845,
+     "kind": "int",
+     "value": -1
+    }
+   ],
+   "hex": "f5ffffff7bbcd2f8f98ce74c08cb0d7b002a2c4427ed478ff31b7e9fa07c6db46a827a3ff119958626061a44dcc3bc7b58049815500b8e6e437a191751b1f46f1f1d1500f4e17c684eb6d02169c2ffec93857404c9cad770860072fec546182ef04cd1db0f8f6feacce4a6ee8193e2881bbd3c3fca82fa11ef9502c7e631717d78c553341849e5e1a23e1768605acc1db85c40953e7e6576197853df0c27f3f69199510804d8eecb2812850d501223558d0ffad00d524768b5df7cb293871a2a363a1a322ecaaabe9df29bc05ca65dbfab76da1925d249d6fd2b689518",
+   "bit_count": 1766
+  },
+  {
+   "actor": 212,
+   "component": 190006,
+   "tag_bits": 1,
+   "entries": [
+    {
+     "tag": 0,
+     "kind": "float",
+     "value_bits": 3936463288827219979
+    },
+    {
+     "tag": 1,
+     "kind": "float",
+     "value_bits": 3933566627244108473
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": -1
+    },
+    {
+     "tag": 0,
+     "kind": "int",
+     "value": 688731578780
+    },
+    {
+     "tag": 0,
+     "kind": "float",
+     "value_bits": 5183643170835005440
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 2147483647
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": -36476912320
+    },
+    {
+     "tag": 0,
+     "kind": "float",
+     "value_bits": 13832806255468478464
+    },
+    {
+     "tag": 1,
+     "kind": "float",
+     "value_bits": 18442240474082181120
+    },
+    {
+     "tag": 0,
+     "kind": "float",
+     "value_bits": 13906592336004937417
+    },
+    {
+     "tag": 0,
+     "kind": "float",
+     "value_bits": 4612811918334230528
+    },
+    {
+     "tag": 1,
+     "kind": "float",
+     "value_bits": 3933566627244108473
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 2
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 0
+    },
+    {
+     "tag": 0,
+     "kind": "int",
+     "value": 2147483647
+    },
+    {
+     "tag": 0,
+     "kind": "int",
+     "value": 580218292890
+    },
+    {
+     "tag": 1,
+     "kind": "float",
+     "value_bits": 4620130267728707584
+    },
+    {
+     "tag": 1,
+     "kind": "float",
+     "value_bits": 5183643170835005440
+    },
+    {
+     "tag": 0,
+     "kind": "float",
+     "value_bits": 4694194783956458766
+    },
+    {
+     "tag": 0,
+     "kind": "float",
+     "value_bits": 4620130267728707584
+    },
+    {
+     "tag": 0,
+     "kind": "int",
+     "value": 770336035757
+    },
+    {
+     "tag": 0,
+     "kind": "float",
+     "value_bits": 18442240474082181120
+    },
+    {
+     "tag": 0,
+     "kind": "int",
+     "value": -1
+    },
+    {
+     "tag": 0,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 0,
+     "kind": "int",
+     "value": 2
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 2147483647
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 2147483647
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 512304693443
+    },
+    {
+     "tag": 0,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 0,
+     "kind": "float",
+     "value_bits": 5183643170835005440
+    },
+    {
+     "tag": 0,
+     "kind": "float",
+     "value_bits": 4620130267728707584
+    },
+    {
+     "tag": 1,
+     "kind": "float",
+     "value_bits": 13906592336004937417
+    }
+   ],
+   "error": "OverflowError"
+  },
+  {
+   "actor": 220,
+   "component": 4294967294,
+   "tag_bits": 3,
+   "entries": [
+    {
+     "tag": 7,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 1,
+     "kind": "float",
+     "value_bits": 4715268810125344768
+    },
+    {
+     "tag": 2,
+     "kind": "int",
+     "value": -88144258534
+    },
+    {
+     "tag": 5,
+     "kind": "int",
+     "value": -821834928825
+    },
+    {
+     "tag": 7,
+     "kind": "float",
+     "value_bits": 4715268810125344768
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 4294967295
+    },
+    {
+     "tag": 4,
+     "kind": "float",
+     "value_bits": 5183643170835005440
+    },
+    {
+     "tag": 7,
+     "kind": "float",
+     "value_bits": 4620130267728707584
+    },
+    {
+     "tag": 3,
+     "kind": "float",
+     "value_bits": 0
+    },
+    {
+     "tag": 4,
+     "kind": "int",
+     "value": 0
+    },
+    {
+     "tag": 5,
+     "kind": "float",
+     "value_bits": 13906592336004937417
+    },
+    {
+     "tag": 7,
+     "kind": "float",
+     "value_bits": 13832806255468478464
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": -2147483648
+    },
+    {
+     "tag": 5,
+     "kind": "float",
+     "value_bits": 4620130267728707584
+    },
+    {
+     "tag": 1,
+     "kind": "float",
+     "value_bits": 4691434893947617156
+    },
+    {
+     "tag": 3,
+     "kind": "float",
+     "value_bits": 4620130267728707584
+    },
+    {
+     "tag": 5,
+     "kind": "int",
+     "value": 0
+    },
+    {
+     "tag": 0,
+     "kind": "float",
+     "value_bits": 3933566627244108473
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 4294967295
+    },
+    {
+     "tag": 6,
+     "kind": "int",
+     "value": 4294967295
+    },
+    {
+     "tag": 5,
+     "kind": "int",
+     "value": -1
+    },
+    {
+     "tag": 4,
+     "kind": "int",
+     "value": -1
+    },
+    {
+     "tag": 2,
+     "kind": "float",
+     "value_bits": 3933566627244108473
+    },
+    {
+     "tag": 5,
+     "kind": "float",
+     "value_bits": 0
+    },
+    {
+     "tag": 2,
+     "kind": "float",
+     "value_bits": 4612811918334230528
+    },
+    {
+     "tag": 3,
+     "kind": "float",
+     "value_bits": 5183643170835005440
+    },
+    {
+     "tag": 3,
+     "kind": "float",
+     "value_bits": 13908857704556336356
+    },
+    {
+     "tag": 5,
+     "kind": "float",
+     "value_bits": 5183643170566569984
+    },
+    {
+     "tag": 6,
+     "kind": "int",
+     "value": -1
+    },
+    {
+     "tag": 6,
+     "kind": "int",
+     "value": -2147483648
+    },
+    {
+     "tag": 7,
+     "kind": "int",
+     "value": -2147483648
+    },
+    {
+     "tag": 4,
+     "kind": "int",
+     "value": 2147483647
+    }
+   ],
+   "error": "OverflowError"
+  },
+  {
+   "actor": 300100,
+   "component": 190006,
+   "tag_bits": 8,
+   "entries": [
+    {
+     "tag": 222,
+     "kind": "float",
+     "value_bits": 9218868437227405312
+    },
+    {
+     "tag": 83,
+     "kind": "float",
+     "value_bits": 9218868437227405312
+    },
+    {
+     "tag": 245,
+     "kind": "int",
+     "value": 2
+    },
+    {
+     "tag": 250,
+     "kind": "int",
+     "value": -2147483648
+    },
+    {
+     "tag": 203,
+     "kind": "float",
+     "value_bits": 5183643170566569984
+    },
+    {
+     "tag": 126,
+     "kind": "float",
+     "value_bits": 13906592336004937417
+    },
+    {
+     "tag": 237,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 59,
+     "kind": "float",
+     "value_bits": 4620130267728707584
+    },
+    {
+     "tag": 232,
+     "kind": "int",
+     "value": 4294967295
+    },
+    {
+     "tag": 43,
+     "kind": "float",
+     "value_bits": 5183643170835005440
+    },
+    {
+     "tag": 39,
+     "kind": "float",
+     "value_bits": 0
+    },
+    {
+     "tag": 17,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 88,
+     "kind": "int",
+     "value": -2147483648
+    },
+    {
+     "tag": 246,
+     "kind": "int",
+     "value": 2
+    },
+    {
+     "tag": 155,
+     "kind": "float",
+     "value_bits": 4612811918334230528
+    },
+    {
+     "tag": 117,
+     "kind": "float",
+     "value_bits": 4599676419421066581
+    },
+    {
+     "tag": 190,
+     "kind": "float",
+     "value_bits": 4607182418800017408
+    },
+    {
+     "tag": 28,
+     "kind": "float",
+     "value_bits": 4689301551105818904
+    },
+    {
+     "tag": 114,
+     "kind": "float",
+     "value_bits": 4607182418800017408
+    },
+    {
+     "tag": 89,
+     "kind": "float",
+     "value_bits": 4620130267728707584
+    },
+    {
+     "tag": 157,
+     "kind": "int",
+     "value": 4294967295
+    },
+    {
+     "tag": 25,
+     "kind": "int",
+     "value": -100486104210
+    },
+    {
+     "tag": 247,
+     "kind": "float",
+     "value_bits": 4612811918334230528
+    },
+    {
+     "tag": 234,
+     "kind": "int",
+     "value": -1
+    },
+    {
+     "tag": 85,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 44,
+     "kind": "int",
+     "value": 238208564461
+    },
+    {
+     "tag": 113,
+     "kind": "int",
+     "value": 4294967295
+    },
+    {
+     "tag": 61,
+     "kind": "int",
+     "value": -794675455954
+    },
+    {
+     "tag": 50,
+     "kind": "int",
+     "value": 2147483647
+    },
+    {
+     "tag": 145,
+     "kind": "float",
+     "value_bits": 4599676419421066581
+    },
+    {
+     "tag": 232,
+     "kind": "int",
+     "value": 4294967295
+    },
+    {
+     "tag": 104,
+     "kind": "float",
+     "value_bits": 9223372036854775808
+    }
+   ],
+   "error": "OverflowError"
+  },
+  {
+   "actor": 220,
+   "component": 190008,
+   "tag_bits": 10,
+   "entries": [
+    {
+     "tag": 711,
+     "kind": "float",
+     "value_bits": 9218868437227405312
+    },
+    {
+     "tag": 643,
+     "kind": "int",
+     "value": -2147483648
+    },
+    {
+     "tag": 698,
+     "kind": "float",
+     "value_bits": 13906592336004937417
+    },
+    {
+     "tag": 62,
+     "kind": "float",
+     "value_bits": 5183643170566569984
+    },
+    {
+     "tag": 47,
+     "kind": "float",
+     "value_bits": 18442240474082181120
+    },
+    {
+     "tag": 515,
+     "kind": "float",
+     "value_bits": 4599676419421066581
+    },
+    {
+     "tag": 908,
+     "kind": "float",
+     "value_bits": 0
+    },
+    {
+     "tag": 785,
+     "kind": "int",
+     "value": -2147483648
+    },
+    {
+     "tag": 179,
+     "kind": "int",
+     "value": 2
+    },
+    {
+     "tag": 831,
+     "kind": "float",
+     "value_bits": 18442240474082181120
+    },
+    {
+     "tag": 608,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 406,
+     "kind": "int",
+     "value": 4294967295
+    },
+    {
+     "tag": 185,
+     "kind": "int",
+     "value": -812191310807
+    },
+    {
+     "tag": 92,
+     "kind": "float",
+     "value_bits": 0
+    },
+    {
+     "tag": 101,
+     "kind": "float",
+     "value_bits": 4612811918334230528
+    },
+    {
+     "tag": 926,
+     "kind": "float",
+     "value_bits": 13832806255468478464
+    },
+    {
+     "tag": 30,
+     "kind": "float",
+     "value_bits": 4612811918334230528
+    },
+    {
+     "tag": 687,
+     "kind": "float",
+     "value_bits": 9218868437227405312
+    },
+    {
+     "tag": 712,
+     "kind": "int",
+     "value": 2147483647
+    },
+    {
+     "tag": 169,
+     "kind": "float",
+     "value_bits": 9221120237041090560
+    },
+    {
+     "tag": 223,
+     "kind": "float",
+     "value_bits": 13832806255468478464
+    },
+    {
+     "tag": 102,
+     "kind": "int",
+     "value": 0
+    },
+    {
+     "tag": 715,
+     "kind": "int",
+     "value": 2
+    },
+    {
+     "tag": 732,
+     "kind": "float",
+     "value_bits": 9218868437227405312
+    },
+    {
+     "tag": 970,
+     "kind": "int",
+     "value": 460992062871
+    },
+    {
+     "tag": 473,
+     "kind": "int",
+     "value": -1
+    },
+    {
+     "tag": 656,
+     "kind": "float",
+     "value_bits": 4591870180066957722
+    },
+    {
+     "tag": 915,
+     "kind": "int",
+     "value": -89769330447
+    },
+    {
+     "tag": 461,
+     "kind": "int",
+     "value": 4294967295
+    },
+    {
+     "tag": 112,
+     "kind": "float",
+     "value_bits": 9218868437227405312
+    },
+    {
+     "tag": 877,
+     "kind": "int",
+     "value": 2
+    },
+    {
+     "tag": 909,
+     "kind": "float",
+     "value_bits": 18442240474082181120
+    }
+   ],
+   "hex": "c5655a9c34d14bf55bc7ee5108c35006328520f4ecb788b9849209cac6edaa7f7305c023c9a6f1705d76a85fcc17fc54942158bf09561f3cd216122e323523d14d187153ba23eef67a39e7b40bc9eee3afca1fd175cd464ff7543b22c10c2f398273a8c9806a4ba9cb73f9b7fb0c6d11138ee121e1fc2a3a5a7bd99ddf70bfb79d281faf805f47071e2de6080c7a49bad5f45cd42998b0e9e046913d2ab4ddae2795ddbca7c8a21ec837adac798aa9409e0de580bbfd844b0efb379ea15f55d69531ebff6b7f272290cdf82015c26ffec4a5f6fb9de90df58b59b12d6128753c7891618e5a1e9efee7f4eae7cc26955ef477d57787bfaac9eec10bd259b081c05ce6b04483000138331961499cd66caa7790ac9ee3586070bf87739135414ee76f1c94c5f15384c5620945772b04e0d2c6ec19cc36a8beda4bae91ef47e108",
+   "bit_count": 2548
+  },
+  {
+   "actor": 220,
+   "component": 190008,
+   "tag_bits": 12,
+   "entries": [
+    {
+     "tag": 1809,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 2430,
+     "kind": "int",
+     "value": 2
+    },
+    {
+     "tag": 3604,
+     "kind": "int",
+     "value": 2
+    },
+    {
+     "tag": 888,
+     "kind": "int",
+     "value": -1
+    },
+    {
+     "tag": 1386,
+     "kind": "int",
+     "value": -1
+    },
+    {
+     "tag": 2523,
+     "kind": "float",
+     "value_bits": 3933566627244108473
+    },
+    {
+     "tag": 975,
+     "kind": "int",
+     "value": -1
+    },
+    {
+     "tag": 466,
+     "kind": "int",
+     "value": 0
+    },
+    {
+     "tag": 3904,
+     "kind": "float",
+     "value_bits": 4591870180066957722
+    },
+    {
+     "tag": 1422,
+     "kind": "float",
+     "value_bits": 0
+    },
+    {
+     "tag": 3969,
+     "kind": "int",
+     "value": -464962715802
+    },
+    {
+     "tag": 422,
+     "kind": "int",
+     "value": 0
+    },
+    {
+     "tag": 876,
+     "kind": "float",
+     "value_bits": 0
+    },
+    {
+     "tag": 982,
+     "kind": "int",
+     "value": 2
+    },
+    {
+     "tag": 3441,
+     "kind": "float",
+     "value_bits": 13906592336004937417
+    },
+    {
+     "tag": 2931,
+     "kind": "float",
+     "value_bits": 0
+    },
+    {
+     "tag": 1881,
+     "kind": "int",
+     "value": 2
+    },
+    {
+     "tag": 1666,
+     "kind": "float",
+     "value_bits": 4607182418800017408
+    },
+    {
+     "tag": 3370,
+     "kind": "float",
+     "value_bits": 9221120237041090560
+    },
+    {
+     "tag": 1424,
+     "kind": "int",
+     "value": -1
+    },
+    {
+     "tag": 960,
+     "kind": "float",
+     "value_bits": 13906592336004937417
+    },
+    {
+     "tag": 818,
+     "kind": "int",
+     "value": -2147483648
+    },
+    {
+     "tag": 2860,
+     "kind": "int",
+     "value": -2147483648
+    },
+    {
+     "tag": 3866,
+     "kind": "float",
+     "value_bits": 18442240474082181120
+    },
+    {
+     "tag": 3009,
+     "kind": "int",
+     "value": -1
+    },
+    {
+     "tag": 1051,
+     "kind": "int",
+     "value": 2
+    },
+    {
+     "tag": 743,
+     "kind": "float",
+     "value_bits": 9221120237041090560
+    },
+    {
+     "tag": 3199,
+     "kind": "int",
+     "value": 4294967295
+    },
+    {
+     "tag": 1418,
+     "kind": "float",
+     "value_bits": 4599676419421066581
+    },
+    {
+     "tag": 1930,
+     "kind": "int",
+     "value": -1
+    },
+    {
+     "tag": 55,
+     "kind": "float",
+     "value_bits": 4715268810125344768
+    },
+    {
+     "tag": 556,
+     "kind": "int",
+     "value": 167105127106
+    }
+   ],
+   "hex": "c5655a9c40318d4e7ba0c05708eb9232c23ccb8eefaf0e042532664e9a03d45aec750815570db321ba3fc0e82186f9441285a1eb5cba1fccd12f17cfbd43dcffc9b0fc0ce5e63dd90073ac0f6c6d096b20e5b5e374052490bcb835602671a5316b4d982d3c4a7598e4fe08f1bf9a46d8ef660350cfca671530297893a4d565611f1e9952872fb8f271e48dd8fdb8b18f6d6c8ffe5889c94c3ea24e4b9a13c15086e218a617f4286d12d62f9871b8682ebf68bebb59a6587d5c4deb547ac1fa64638f91bf9ea6f317739cffc25b3adc2b1e6aead67bafa1251220dc6d87359977b674256fc17cd8ea20d78182bf2e4116a298d61ead4b7083ad8a9d5500bd059e856350bc84cac357227e3f69899fc2baae37408a64105a5bd2fec5d2af5e2534c280d699f4107b3337a37e5d11ad3ae0708b28f836fa59e82949711d59bebb188a8d91a4c0be0b",
+   "bit_count": 2612
+  },
+  {
+   "actor": 220,
+   "component": 190008,
+   "tag_bits": 16,
+   "entries": [
+    {
+     "tag": 43567,
+     "kind": "float",
+     "value_bits": 3933566627244108473
+    },
+    {
+     "tag": 61910,
+     "kind": "float",
+     "value_bits": 18442240474082181120
+    },
+    {
+     "tag": 2296,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 64998,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 12873,
+     "kind": "int",
+     "value": -2147483648
+    },
+    {
+     "tag": 494,
+     "kind": "float",
+     "value_bits": 3933566627244108473
+    },
+    {
+     "tag": 55650,
+     "kind": "float",
+     "value_bits": 4715268810125344768
+    },
+    {
+     "tag": 6680,
+     "kind": "float",
+     "value_bits": 5183643170835005440
+    },
+    {
+     "tag": 13558,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 42145,
+     "kind": "float",
+     "value_bits": 3936463288827219979
+    },
+    {
+     "tag": 35147,
+     "kind": "int",
+     "value": 2147483647
+    },
+    {
+     "tag": 45739,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 32293,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 62061,
+     "kind": "int",
+     "value": 4294967295
+    },
+    {
+     "tag": 57071,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 23590,
+     "kind": "int",
+     "value": -2147483648
+    },
+    {
+     "tag": 50171,
+     "kind": "float",
+     "value_bits": 13906592336004937417
+    },
+    {
+     "tag": 46438,
+     "kind": "float",
+     "value_bits": 9218868437227405312
+    },
+    {
+     "tag": 58104,
+     "kind": "float",
+     "value_bits": 4620130267728707584
+    },
+    {
+     "tag": 133,
+     "kind": "int",
+     "value": 2147483647
+    },
+    {
+     "tag": 59424,
+     "kind": "float",
+     "value_bits": 4591870180066957722
+    },
+    {
+     "tag": 2040,
+     "kind": "float",
+     "value_bits": 3933566627244108473
+    },
+    {
+     "tag": 41775,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 11787,
+     "kind": "float",
+     "value_bits": 4620130267728707584
+    },
+    {
+     "tag": 53554,
+     "kind": "float",
+     "value_bits": 3933566627244108473
+    },
+    {
+     "tag": 12038,
+     "kind": "int",
+     "value": 2
+    },
+    {
+     "tag": 54310,
+     "kind": "int",
+     "value": 2147483647
+    },
+    {
+     "tag": 64973,
+     "kind": "int",
+     "value": 0
+    },
+    {
+     "tag": 49583,
+     "kind": "float",
+     "value_bits": 13906592336004937417
+    },
+    {
+     "tag": 54585,
+     "kind": "int",
+     "value": 0
+    },
+    {
+     "tag": 25445,
+     "kind": "float",
+     "value_bits": 5183643170566569984
+    },
+    {
+     "tag": 60614,
+     "kind": "float",
+     "value_bits": 5183643170835005440
+    }
+   ],
+   "error": "OverflowError"
+  },
+  {
+   "actor": 212,
+   "component": 190006,
+   "tag_bits": 10,
+   "entries": [],
+   "error": "ValueError"
+  },
+  {
+   "actor": 212,
+   "component": 190006,
+   "tag_bits": 10,
+   "entries": [
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 1
+    },
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 1
+    }
+   ],
+   "error": "ValueError"
+  },
+  {
+   "actor": 212,
+   "component": 190006,
+   "tag_bits": 0,
+   "entries": [
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 1
+    }
+   ],
+   "error": "ValueError"
+  },
+  {
+   "actor": 212,
+   "component": 190006,
+   "tag_bits": 17,
+   "entries": [
+    {
+     "tag": 1,
+     "kind": "int",
+     "value": 1
+    }
+   ],
+   "error": "ValueError"
+  },
+  {
+   "actor": 212,
+   "component": 190006,
+   "tag_bits": 10,
+   "entries": [
+    {
+     "tag": 1024,
+     "kind": "float",
+     "value_bits": 4607182418800017408
+    }
+   ],
+   "error": "ValueError"
+  },
+  {
+   "actor": 212,
+   "component": 190006,
+   "tag_bits": 10,
+   "entries": [
+    {
+     "tag": 1023,
+     "kind": "float",
+     "value_bits": 4607182418800017408
+    }
+   ],
+   "hex": "b5655ae4f6e8f233f2dbff0a63cdcbf31d8301",
+   "bit_count": 145
+  },
+  {
+   "actor": 212,
+   "component": 190006,
+   "tag_bits": 10,
+   "entries": [
+    {
+     "tag": -1,
+     "kind": "int",
+     "value": 1
+    }
+   ],
+   "error": "ValueError"
+  },
+  {
+   "actor": 212,
+   "component": 190006,
+   "tag_bits": 10,
+   "entries": [
+    {
+     "tag": 3,
+     "kind": "float",
+     "value_bits": 5190260616003865117
+    }
+   ],
+   "error": "OverflowError"
+  },
+  {
+   "actor": 212,
+   "component": 190006,
+   "tag_bits": 10,
+   "entries": [
+    {
+     "tag": 3,
+     "kind": "float",
+     "value_bits": 14407015207775020988
+    }
+   ],
+   "error": "OverflowError"
+  },
+  {
+   "actor": 212,
+   "component": 190006,
+   "tag_bits": 10,
+   "entries": [
+    {
+     "tag": 3,
+     "kind": "int",
+     "value": 5
+    },
+    {
+     "tag": 4000,
+     "kind": "float",
+     "value_bits": 4607182418800017408
+    }
+   ],
+   "error": "ValueError"
+  }
+ ],
+ "open": [
+  {
+   "index": 2,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 240,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 241,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 243,
+    "AbilityTuning.Wushu.E.MaxCharges": 244,
+    "AbilityTuning.Wushu.E.PrimeDuration": 245,
+    "AbilityTuning.Wushu.Q.MaxCharges": 250
+   },
+   "tag_bits": 10,
+   "hex": "0400000046050a4e050a00740000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be685e82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6ca00000000004200000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6cabe860000000000d2322d0a4205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000004205460514a0b44c8b6702db427e37756bb961470c285bfd5f6a270575c6d8bee900",
+   "bit_count": 1443
+  },
+  {
+   "index": 3,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 240,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 241,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 243,
+    "AbilityTuning.Wushu.E.MaxCharges": 244,
+    "AbilityTuning.Wushu.E.PrimeDuration": 245,
+    "AbilityTuning.Wushu.Q.MaxCharges": 250
+   },
+   "tag_bits": 10,
+   "hex": "0400000056050a5e050a00720000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be8a5e82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d000000000004000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d0be860000000000da322d0a5205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000005205560514a0b64c8bf102dba77e5a436575616495acba84008a7fd6ec4cebbe8ebdb8d46b1f3cba4abf",
+   "bit_count": 1496
+  },
+  {
+   "index": 4,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 240,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 241,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 243,
+    "AbilityTuning.Wushu.E.MaxCharges": 244,
+    "AbilityTuning.Wushu.E.PrimeDuration": 245,
+    "AbilityTuning.Wushu.Q.MaxCharges": 250
+   },
+   "tag_bits": 10,
+   "hex": "0400000066050a6e050a00820000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2bea25e82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e800000000005000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e8be860000000000e2322d0a6205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000006205660514a0b84c8bdcd97073f57e675f61644715775616",
+   "bit_count": 1478
+  },
+  {
+   "index": 2,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 983,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 200,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 344,
+    "AbilityTuning.Wushu.E.MaxCharges": 615,
+    "AbilityTuning.Wushu.E.PrimeDuration": 965,
+    "AbilityTuning.Wushu.Q.MaxCharges": 336,
+    "AbilityTuning.Wushu.Unused": 667
+   },
+   "tag_bits": 10,
+   "hex": "0400000046050a4e050a00740000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be685e82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6ca00000000004200000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6cabe860000000000d2322d0a4205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000004205460514a0b44c8b67021c7e7e37756bb9612c02285bfd5f6a270575c6d8bee900",
+   "bit_count": 1443
+  },
+  {
+   "index": 3,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 983,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 200,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 344,
+    "AbilityTuning.Wushu.E.MaxCharges": 615,
+    "AbilityTuning.Wushu.E.PrimeDuration": 965,
+    "AbilityTuning.Wushu.Q.MaxCharges": 336,
+    "AbilityTuning.Wushu.Unused": 667
+   },
+   "tag_bits": 10,
+   "hex": "0400000056050a5e050a00720000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be8a5e82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d000000000004000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d0be860000000000da322d0a5205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000005205560514a0b64c8bf10299547e5a436575613e95acba84008a7fd3ec4c78be8ebdb8d46b1f3cba4abf",
+   "bit_count": 1496
+  },
+  {
+   "index": 4,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 983,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 200,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 344,
+    "AbilityTuning.Wushu.E.MaxCharges": 615,
+    "AbilityTuning.Wushu.E.PrimeDuration": 965,
+    "AbilityTuning.Wushu.Q.MaxCharges": 336,
+    "AbilityTuning.Wushu.Unused": 667
+   },
+   "tag_bits": 10,
+   "hex": "0400000066050a6e050a00820000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2bea25e82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e800000000005000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e8be860000000000e2322d0a6205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000006205660514a0b84c8bdc9b1b73f57e675f61644715775616",
+   "bit_count": 1478
+  },
+  {
+   "index": 2,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 380,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 483,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 441,
+    "AbilityTuning.Wushu.E.MaxCharges": 306,
+    "AbilityTuning.Wushu.E.PrimeDuration": 309,
+    "AbilityTuning.Wushu.Q.MaxCharges": 460,
+    "AbilityTuning.Wushu.Unused": 487
+   },
+   "tag_bits": 9,
+   "hex": "0400000046050a4e050a00740000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be685e82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6ca00000000004200000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6cabe860000000000d2322d0a4205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000004205460514a0b44c8b6302c790669d756b0a61b422410c9d79b92f2cf92261ef9801",
+   "bit_count": 1441
+  },
+  {
+   "index": 3,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 380,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 483,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 441,
+    "AbilityTuning.Wushu.E.MaxCharges": 306,
+    "AbilityTuning.Wushu.E.PrimeDuration": 309,
+    "AbilityTuning.Wushu.Q.MaxCharges": 460,
+    "AbilityTuning.Wushu.Unused": 487
+   },
+   "tag_bits": 9,
+   "hex": "0400000056050a5e050a00720000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be8a5e82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d000000000004000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d0be860000000000da322d0a5205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000005205560514a0b64c8beb02909966dd43700a61cb9b4c00fc34a825cbf80989f37617e41968e8e730e904",
+   "bit_count": 1493
+  },
+  {
+   "index": 4,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 380,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 483,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 441,
+    "AbilityTuning.Wushu.E.MaxCharges": 306,
+    "AbilityTuning.Wushu.E.PrimeDuration": 309,
+    "AbilityTuning.Wushu.Q.MaxCharges": 460,
+    "AbilityTuning.Wushu.Unused": 487
+   },
+   "tag_bits": 9,
+   "hex": "0400000066050a6e050a00820000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2bea25e82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e800000000005000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e8be860000000000e2322d0a6205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000006205660514a0b84c8bda92dfdbe07e670a613c70a1e5fb1a",
+   "bit_count": 1477
+  },
+  {
+   "index": 2,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 1374,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 229,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 1945,
+    "AbilityTuning.Wushu.E.MaxCharges": 1228,
+    "AbilityTuning.Wushu.E.PrimeDuration": 966,
+    "AbilityTuning.Wushu.Q.MaxCharges": 1068,
+    "AbilityTuning.Wushu.Unused": 1909
+   },
+   "tag_bits": 11,
+   "hex": "0400000046050a4e050a00740000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be685e82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6ca00000000004200000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6cabe860000000000d2322d0a4205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000004205460514a0b44c8b6b023913b19f75f60a61c9d1223428e6b95c252bee35709108",
+   "bit_count": 1445
+  },
+  {
+   "index": 3,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 1374,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 229,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 1945,
+    "AbilityTuning.Wushu.E.MaxCharges": 1228,
+    "AbilityTuning.Wushu.E.PrimeDuration": 966,
+    "AbilityTuning.Wushu.Q.MaxCharges": 1068,
+    "AbilityTuning.Wushu.Unused": 1909
+   },
+   "tag_bits": 11,
+   "hex": "0400000056050a5e050a00720000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be8a5e82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d000000000004000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d0be860000000000da322d0a5205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000005205560514a0b64c8bf7029bdab1f74365b961b07a9ca1251236e35687d963870c5dcd04323b035df05107",
+   "bit_count": 1499
+  },
+  {
+   "index": 4,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 1374,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 229,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 1945,
+    "AbilityTuning.Wushu.E.MaxCharges": 1228,
+    "AbilityTuning.Wushu.E.PrimeDuration": 966,
+    "AbilityTuning.Wushu.Q.MaxCharges": 1068,
+    "AbilityTuning.Wushu.Unused": 1909
+   },
+   "tag_bits": 11,
+   "hex": "0400000066050a6e050a00820000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2bea25e82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e800000000005000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e8be860000000000e2322d0a6205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000006205660514a0b84c8bde5e7a2e657e67b961436ed78b0a45",
+   "bit_count": 1479
+  },
+  {
+   "index": 2,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 53674,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 17589,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 5374,
+    "AbilityTuning.Wushu.E.MaxCharges": 37017,
+    "AbilityTuning.Wushu.E.PrimeDuration": 14707,
+    "AbilityTuning.Wushu.Q.MaxCharges": 47402,
+    "AbilityTuning.Wushu.Unused": 54196
+   },
+   "tag_bits": 16,
+   "hex": "0400000046050a4e050a00740000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be685e82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6ca00000000004200000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6cabe860000000000d2322d0a4205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000004205460514a0b44c8b7f0229fcf1ac75e5b961b1d61a461cfcee7348706798aadee677",
+   "bit_count": 1455
+  },
+  {
+   "index": 3,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 53674,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 17589,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 5374,
+    "AbilityTuning.Wushu.E.MaxCharges": 37017,
+    "AbilityTuning.Wushu.E.PrimeDuration": 14707,
+    "AbilityTuning.Wushu.Q.MaxCharges": 47402,
+    "AbilityTuning.Wushu.Unused": 54196
+   },
+   "tag_bits": 16,
+   "hex": "0400000056050a5e050a00720000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be8a5e82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d000000000004000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d0be860000000000da322d0a5205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000005205560514a0b64c8b150403a7f115430c5f6141899c5e0e43e22fe24fbef94cb134d65a41f2c896e21fc9fb02",
+   "bit_count": 1514
+  },
+  {
+   "index": 4,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 53674,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 17589,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 5374,
+    "AbilityTuning.Wushu.E.MaxCharges": 37017,
+    "AbilityTuning.Wushu.E.PrimeDuration": 14707,
+    "AbilityTuning.Wushu.Q.MaxCharges": 47402,
+    "AbilityTuning.Wushu.Unused": 54196
+   },
+   "tag_bits": 16,
+   "hex": "0400000066050a6e050a00820000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2bea25e82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e800000000005000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e8be860000000000e2322d0a6205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000006205660514a0b84c8be88d830ae57e4975615ebc0bbbfb300f",
+   "bit_count": 1484
+  },
+  {
+   "index": 2,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 1,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 1,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 0,
+    "AbilityTuning.Wushu.E.MaxCharges": 0,
+    "AbilityTuning.Wushu.E.PrimeDuration": 1,
+    "AbilityTuning.Wushu.Q.MaxCharges": 1,
+    "AbilityTuning.Wushu.Unused": 1
+   },
+   "tag_bits": 1,
+   "hex": "0400000046050a4e050a00740000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be685e82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6ca00000000004200000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6cabe860000000000d2322d0a4205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000004205460514a0b44c8b43025c0961b7758a0a6166d71b1b912122945d73a35000",
+   "bit_count": 1425
+  },
+  {
+   "index": 3,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 1,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 1,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 0,
+    "AbilityTuning.Wushu.E.MaxCharges": 0,
+    "AbilityTuning.Wushu.E.PrimeDuration": 1,
+    "AbilityTuning.Wushu.Q.MaxCharges": 1,
+    "AbilityTuning.Wushu.Unused": 1
+   },
+   "tag_bits": 1,
+   "hex": "0400000056050a5e050a00720000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be8a5e82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d000000000004000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d0be860000000000da322d0a5205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000005205560514a0b64c8bbb025cba614743070a61cb0d028a6ab5cf1539c2a38513c6dfbbe9d1c313",
+   "bit_count": 1469
+  },
+  {
+   "index": 4,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 1,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 1,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 0,
+    "AbilityTuning.Wushu.E.MaxCharges": 0,
+    "AbilityTuning.Wushu.E.PrimeDuration": 1,
+    "AbilityTuning.Wushu.Q.MaxCharges": 1,
+    "AbilityTuning.Wushu.Unused": 1
+   },
+   "tag_bits": 1,
+   "hex": "0400000066050a6e050a00820000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2bea25e82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e800000000005000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e8be860000000000e2322d0a6205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000006205660514a0b84c8bca7709616e7e380a610f799a2b0d",
+   "bit_count": 1469
+  },
+  {
+   "index": 2,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 261,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 778,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 748,
+    "AbilityTuning.Wushu.E.MaxCharges": 645,
+    "AbilityTuning.Wushu.E.PrimeDuration": 874,
+    "AbilityTuning.Wushu.Q.MaxCharges": 904,
+    "AbilityTuning.Wushu.Unused": 108
+   },
+   "tag_bits": 10,
+   "hex": "0400000046050a4e050a00740000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be685e82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6ca00000000004200000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6cabe860000000000d2322d0a4205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000004205460514a0b44c8b670299ec7e37756bb961a104285bfd5f6a270575c6d8bee900",
+   "bit_count": 1443
+  },
+  {
+   "index": 3,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 261,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 778,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 748,
+    "AbilityTuning.Wushu.E.MaxCharges": 645,
+    "AbilityTuning.Wushu.E.PrimeDuration": 874,
+    "AbilityTuning.Wushu.Q.MaxCharges": 904,
+    "AbilityTuning.Wushu.Unused": 108
+   },
+   "tag_bits": 10,
+   "hex": "0400000056050a5e050a00720000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be8a5e82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d000000000004000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d0be860000000000da322d0a5205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000005205560514a0b64c8bf1025bcc7e5a43657561789dacba84008a7f6bec4ccbbe8ebdb8d46b1f3cba4abf",
+   "bit_count": 1496
+  },
+  {
+   "index": 4,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 261,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 778,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 748,
+    "AbilityTuning.Wushu.E.MaxCharges": 645,
+    "AbilityTuning.Wushu.E.PrimeDuration": 874,
+    "AbilityTuning.Wushu.Q.MaxCharges": 904,
+    "AbilityTuning.Wushu.Unused": 108
+   },
+   "tag_bits": 10,
+   "hex": "0400000066050a6e050a00820000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2bea25e82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e800000000005000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e8be860000000000e2322d0a6205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000006205660514a0b84c8bdc1eba73f57e675f61644715775616",
+   "bit_count": 1478
+  },
+  {
+   "index": 2,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 372,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 441,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 263,
+    "AbilityTuning.Wushu.E.MaxCharges": 492,
+    "AbilityTuning.Wushu.E.PrimeDuration": 321,
+    "AbilityTuning.Wushu.Q.MaxCharges": 227,
+    "AbilityTuning.Wushu.Unused": 39
+   },
+   "tag_bits": 9,
+   "hex": "0400000046050a4e050a00740000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be685e82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6ca00000000004200000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6cabe860000000000d2322d0a4205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000004205460514a0b44c8b6302c7ed669d756b0a61c4c5410c9d79b92f2cf92261ef9801",
+   "bit_count": 1441
+  },
+  {
+   "index": 3,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 372,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 441,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 263,
+    "AbilityTuning.Wushu.E.MaxCharges": 492,
+    "AbilityTuning.Wushu.E.PrimeDuration": 321,
+    "AbilityTuning.Wushu.Q.MaxCharges": 227,
+    "AbilityTuning.Wushu.Unused": 39
+   },
+   "tag_bits": 9,
+   "hex": "0400000056050a5e050a00720000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be8a5e82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d000000000004000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d0be860000000000da322d0a5205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000005205560514a0b64c8beb02c7d766dd43700a61b84e4c00fc34a825cdf8097df37617e41968e8e730e904",
+   "bit_count": 1493
+  },
+  {
+   "index": 4,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 372,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 441,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 263,
+    "AbilityTuning.Wushu.E.MaxCharges": 492,
+    "AbilityTuning.Wushu.E.PrimeDuration": 321,
+    "AbilityTuning.Wushu.Q.MaxCharges": 227,
+    "AbilityTuning.Wushu.Unused": 39
+   },
+   "tag_bits": 9,
+   "hex": "0400000066050a6e050a00820000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2bea25e82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e800000000005000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e8be860000000000e2322d0a6205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000006205660514a0b84c8bdadca0dbe07e670a613c70a1e5fb1a",
+   "bit_count": 1477
+  },
+  {
+   "index": 2,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 241,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 1348,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 1039,
+    "AbilityTuning.Wushu.E.MaxCharges": 19,
+    "AbilityTuning.Wushu.E.PrimeDuration": 1179,
+    "AbilityTuning.Wushu.Q.MaxCharges": 239,
+    "AbilityTuning.Wushu.Unused": 1305
+   },
+   "tag_bits": 11,
+   "hex": "0400000046050a4e050a00740000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be685e82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6ca00000000004200000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6cabe860000000000d2322d0a4205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000004205460514a0b44c8b6b02ad07b19f75f60a61db2522f128e6b95c252bee35709108",
+   "bit_count": 1445
+  },
+  {
+   "index": 3,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 241,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 1348,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 1039,
+    "AbilityTuning.Wushu.E.MaxCharges": 19,
+    "AbilityTuning.Wushu.E.PrimeDuration": 1179,
+    "AbilityTuning.Wushu.Q.MaxCharges": 239,
+    "AbilityTuning.Wushu.Unused": 1305
+   },
+   "tag_bits": 11,
+   "hex": "0400000056050a5e050a00720000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be8a5e82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d000000000004000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d0be860000000000da322d0a5205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000005205560514a0b64c8bf7025ce7b1f74365b961ee979c7f251236e3a687d988870c5dcd04323b035df05107",
+   "bit_count": 1499
+  },
+  {
+   "index": 4,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 241,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 1348,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 1039,
+    "AbilityTuning.Wushu.E.MaxCharges": 19,
+    "AbilityTuning.Wushu.E.PrimeDuration": 1179,
+    "AbilityTuning.Wushu.Q.MaxCharges": 239,
+    "AbilityTuning.Wushu.Unused": 1305
+   },
+   "tag_bits": 11,
+   "hex": "0400000066050a6e050a00820000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2bea25e82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e800000000005000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e8be860000000000e2322d0a6205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000006205660514a0b84c8bdeaf052e657e67b961436ed78b0a45",
+   "bit_count": 1479
+  },
+  {
+   "index": 2,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 23188,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 36727,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 28114,
+    "AbilityTuning.Wushu.E.MaxCharges": 9596,
+    "AbilityTuning.Wushu.E.PrimeDuration": 1551,
+    "AbilityTuning.Wushu.Q.MaxCharges": 31744,
+    "AbilityTuning.Wushu.Unused": 61214
+   },
+   "tag_bits": 16,
+   "hex": "0400000046050a4e050a00740000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be685e82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6ca00000000004200000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6cabe860000000000d2322d0a4205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000004205460514a0b44c8b7f020626f18475e5b961c2d606981cfcee7348706798aadee677",
+   "bit_count": 1455
+  },
+  {
+   "index": 3,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 23188,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 36727,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 28114,
+    "AbilityTuning.Wushu.E.MaxCharges": 9596,
+    "AbilityTuning.Wushu.E.PrimeDuration": 1551,
+    "AbilityTuning.Wushu.Q.MaxCharges": 31744,
+    "AbilityTuning.Wushu.Unused": 61214
+   },
+   "tag_bits": 16,
+   "hex": "0400000056050a5e050a00720000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be8a5e82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d000000000004000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d0be860000000000da322d0a5205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000005205560514a0b64c8b15046d77f115430c5f618c89c36b0e43e22fe24f867c4cb134d65a41f2c896a31fc9fb02",
+   "bit_count": 1514
+  },
+  {
+   "index": 4,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 23188,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 36727,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 28114,
+    "AbilityTuning.Wushu.E.MaxCharges": 9596,
+    "AbilityTuning.Wushu.E.PrimeDuration": 1551,
+    "AbilityTuning.Wushu.Q.MaxCharges": 31744,
+    "AbilityTuning.Wushu.Unused": 61214
+   },
+   "tag_bits": 16,
+   "hex": "0400000066050a6e050a00820000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2bea25e82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e800000000005000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e8be860000000000e2322d0a6205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000006205660514a0b84c8be801610acd7e4975615ebc0bbbfb300f",
+   "bit_count": 1484
+  },
+  {
+   "index": 2,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 1,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 0,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 0,
+    "AbilityTuning.Wushu.E.MaxCharges": 0,
+    "AbilityTuning.Wushu.E.PrimeDuration": 0,
+    "AbilityTuning.Wushu.Q.MaxCharges": 0,
+    "AbilityTuning.Wushu.Unused": 0
+   },
+   "tag_bits": 1,
+   "hex": "0400000046050a4e050a00740000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be685e82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6ca00000000004200000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6cabe860000000000d2322d0a4205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000004205460514a0b44c8b43025c0961b7758a0a6166d71b1b912160945d73a35000",
+   "bit_count": 1425
+  },
+  {
+   "index": 3,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 1,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 0,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 0,
+    "AbilityTuning.Wushu.E.MaxCharges": 0,
+    "AbilityTuning.Wushu.E.PrimeDuration": 0,
+    "AbilityTuning.Wushu.Q.MaxCharges": 0,
+    "AbilityTuning.Wushu.Unused": 0
+   },
+   "tag_bits": 1,
+   "hex": "0400000056050a5e050a00720000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be8a5e82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d000000000004000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d0be860000000000da322d0a5205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000005205560514a0b64c8bbb025cba614743070a61cb0d028a6ab5c41539c2a38513c6dfbbe9d1c313",
+   "bit_count": 1469
+  },
+  {
+   "index": 4,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 1,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 0,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 0,
+    "AbilityTuning.Wushu.E.MaxCharges": 0,
+    "AbilityTuning.Wushu.E.PrimeDuration": 0,
+    "AbilityTuning.Wushu.Q.MaxCharges": 0,
+    "AbilityTuning.Wushu.Unused": 0
+   },
+   "tag_bits": 1,
+   "hex": "0400000066050a6e050a00820000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2bea25e82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e800000000005000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e8be860000000000e2322d0a6205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000006205660514a0b84c8bca77ba616e7e380a610f799a2b0d",
+   "bit_count": 1469
+  },
+  {
+   "index": 2,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 1019,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 368,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 275,
+    "AbilityTuning.Wushu.E.MaxCharges": 501,
+    "AbilityTuning.Wushu.E.PrimeDuration": 206,
+    "AbilityTuning.Wushu.Q.MaxCharges": 1013,
+    "AbilityTuning.Wushu.Unused": 351
+   },
+   "tag_bits": 10,
+   "hex": "0400000046050a4e050a00740000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be685e82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6ca00000000004200000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6cabe860000000000d2322d0a4205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000004205460514a0b44c8b67021cf17e37756bb961f702285bfd5f6a270575c6d8bee900",
+   "bit_count": 1443
+  },
+  {
+   "index": 3,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 1019,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 368,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 275,
+    "AbilityTuning.Wushu.E.MaxCharges": 501,
+    "AbilityTuning.Wushu.E.PrimeDuration": 206,
+    "AbilityTuning.Wushu.Q.MaxCharges": 1013,
+    "AbilityTuning.Wushu.Unused": 351
+   },
+   "tag_bits": 10,
+   "hex": "0400000056050a5e050a00720000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be8a5e82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d000000000004000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d0be860000000000da322d0a5205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000005205560514a0b64c8bf10299137e5a43657561909dacba84008a7fe1ec4c2cbe8ebdb8d46b1f3cba4abf",
+   "bit_count": 1496
+  },
+  {
+   "index": 4,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 1019,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 368,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 275,
+    "AbilityTuning.Wushu.E.MaxCharges": 501,
+    "AbilityTuning.Wushu.E.PrimeDuration": 206,
+    "AbilityTuning.Wushu.Q.MaxCharges": 1013,
+    "AbilityTuning.Wushu.Unused": 351
+   },
+   "tag_bits": 10,
+   "hex": "0400000066050a6e050a00820000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2bea25e82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e800000000005000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e8be860000000000e2322d0a6205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000006205660514a0b84c8bdc1ec373f57e675f61644715775616",
+   "bit_count": 1478
+  },
+  {
+   "index": 2,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 332,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 503,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 246,
+    "AbilityTuning.Wushu.E.MaxCharges": 506,
+    "AbilityTuning.Wushu.E.PrimeDuration": 167,
+    "AbilityTuning.Wushu.Q.MaxCharges": 493,
+    "AbilityTuning.Wushu.Unused": 468
+   },
+   "tag_bits": 9,
+   "hex": "0400000046050a4e050a00740000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be685e82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6ca00000000004200000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6cabe860000000000d2322d0a4205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000004205460514a0b44c8b6302c7df669d756b0a617864410c9d79b92f2cf92261ef9801",
+   "bit_count": 1441
+  },
+  {
+   "index": 3,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 332,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 503,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 246,
+    "AbilityTuning.Wushu.E.MaxCharges": 506,
+    "AbilityTuning.Wushu.E.PrimeDuration": 167,
+    "AbilityTuning.Wushu.Q.MaxCharges": 493,
+    "AbilityTuning.Wushu.Unused": 468
+   },
+   "tag_bits": 9,
+   "hex": "0400000056050a5e050a00720000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be8a5e82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d000000000004000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d0be860000000000da322d0a5205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000005205560514a0b64c8beb02ded566dd43700a617cef4c00fc34a8255ef8097df37617e41968e8e730e904",
+   "bit_count": 1493
+  },
+  {
+   "index": 4,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 332,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 503,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 246,
+    "AbilityTuning.Wushu.E.MaxCharges": 506,
+    "AbilityTuning.Wushu.E.PrimeDuration": 167,
+    "AbilityTuning.Wushu.Q.MaxCharges": 493,
+    "AbilityTuning.Wushu.Unused": 468
+   },
+   "tag_bits": 9,
+   "hex": "0400000066050a6e050a00820000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2bea25e82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e800000000005000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e8be860000000000e2322d0a6205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000006205660514a0b84c8bda928fdbe07e670a613c70a1e5fb1a",
+   "bit_count": 1477
+  },
+  {
+   "index": 2,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 1160,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 417,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 222,
+    "AbilityTuning.Wushu.E.MaxCharges": 807,
+    "AbilityTuning.Wushu.E.PrimeDuration": 578,
+    "AbilityTuning.Wushu.Q.MaxCharges": 772,
+    "AbilityTuning.Wushu.Unused": 882
+   },
+   "tag_bits": 11,
+   "hex": "0400000046050a4e050a00740000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be685e82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6ca00000000004200000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6cabe860000000000d2322d0a4205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000004205460514a0b44c8b6b0249bab19f75f60a61c7d1223428e6b95c252bee35709108",
+   "bit_count": 1445
+  },
+  {
+   "index": 3,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 1160,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 417,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 222,
+    "AbilityTuning.Wushu.E.MaxCharges": 807,
+    "AbilityTuning.Wushu.E.PrimeDuration": 578,
+    "AbilityTuning.Wushu.Q.MaxCharges": 772,
+    "AbilityTuning.Wushu.Unused": 882
+   },
+   "tag_bits": 11,
+   "hex": "0400000056050a5e050a00720000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be8a5e82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d000000000004000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d0be860000000000da322d0a5205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000005205560514a0b64c8bf702ad13b1f74365b961727a9ca1251236e37787d93c870c5dcd04323b035df05107",
+   "bit_count": 1499
+  },
+  {
+   "index": 4,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 1160,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 417,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 222,
+    "AbilityTuning.Wushu.E.MaxCharges": 807,
+    "AbilityTuning.Wushu.E.PrimeDuration": 578,
+    "AbilityTuning.Wushu.Q.MaxCharges": 772,
+    "AbilityTuning.Wushu.Unused": 882
+   },
+   "tag_bits": 11,
+   "hex": "0400000066050a6e050a00820000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2bea25e82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e800000000005000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e8be860000000000e2322d0a6205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000006205660514a0b84c8bded0aa2e657e67b961436ed78b0a45",
+   "bit_count": 1479
+  },
+  {
+   "index": 2,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 1500,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 36723,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 11877,
+    "AbilityTuning.Wushu.E.MaxCharges": 13484,
+    "AbilityTuning.Wushu.E.PrimeDuration": 26290,
+    "AbilityTuning.Wushu.Q.MaxCharges": 17147,
+    "AbilityTuning.Wushu.Unused": 11214
+   },
+   "tag_bits": 16,
+   "hex": "0400000046050a4e050a00740000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be685e82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6ca00000000004200000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6cabe860000000000d2322d0a4205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000004205460514a0b44c8b7f0216b5f18475e5b9613dd606981cfcee7348706798aadee677",
+   "bit_count": 1455
+  },
+  {
+   "index": 3,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 1500,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 36723,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 11877,
+    "AbilityTuning.Wushu.E.MaxCharges": 13484,
+    "AbilityTuning.Wushu.E.PrimeDuration": 26290,
+    "AbilityTuning.Wushu.Q.MaxCharges": 17147,
+    "AbilityTuning.Wushu.Unused": 11214
+   },
+   "tag_bits": 16,
+   "hex": "0400000056050a5e050a00720000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be8a5e82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d000000000004000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d0be860000000000da322d0a5205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000005205560514a0b64c8b1504c7a8f115430c5f611789e1f80e43e22fe24ff67c4cb134d65a41f2c896131fc9fb02",
+   "bit_count": 1514
+  },
+  {
+   "index": 4,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 1500,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 36723,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 11877,
+    "AbilityTuning.Wushu.E.MaxCharges": 13484,
+    "AbilityTuning.Wushu.E.PrimeDuration": 26290,
+    "AbilityTuning.Wushu.Q.MaxCharges": 17147,
+    "AbilityTuning.Wushu.Unused": 11214
+   },
+   "tag_bits": 16,
+   "hex": "0400000066050a6e050a00820000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2bea25e82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e800000000005000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e8be860000000000e2322d0a6205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000006205660514a0b84c8be81f170acd7e4975615ebc0bbbfb300f",
+   "bit_count": 1484
+  },
+  {
+   "index": 2,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 1,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 1,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 1,
+    "AbilityTuning.Wushu.E.MaxCharges": 1,
+    "AbilityTuning.Wushu.E.PrimeDuration": 0,
+    "AbilityTuning.Wushu.Q.MaxCharges": 1,
+    "AbilityTuning.Wushu.Unused": 1
+   },
+   "tag_bits": 1,
+   "hex": "0400000046050a4e050a00740000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be685e82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6ca00000000004200000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6cabe860000000000d2322d0a4205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000004205460514a0b44c8b43025c0961b7758a0a6166d71b1b912122945d73a35000",
+   "bit_count": 1425
+  },
+  {
+   "index": 3,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 1,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 1,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 1,
+    "AbilityTuning.Wushu.E.MaxCharges": 1,
+    "AbilityTuning.Wushu.E.PrimeDuration": 0,
+    "AbilityTuning.Wushu.Q.MaxCharges": 1,
+    "AbilityTuning.Wushu.Unused": 1
+   },
+   "tag_bits": 1,
+   "hex": "0400000056050a5e050a00720000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be8a5e82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d000000000004000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d0be860000000000da322d0a5205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000005205560514a0b64c8bbb025c09614743070a61cb0d028a6ab5c41539c2a38513c65fbbe9d1c313",
+   "bit_count": 1469
+  },
+  {
+   "index": 4,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 1,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 1,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 1,
+    "AbilityTuning.Wushu.E.MaxCharges": 1,
+    "AbilityTuning.Wushu.E.PrimeDuration": 0,
+    "AbilityTuning.Wushu.Q.MaxCharges": 1,
+    "AbilityTuning.Wushu.Unused": 1
+   },
+   "tag_bits": 1,
+   "hex": "0400000066050a6e050a00820000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2bea25e82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e800000000005000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e8be860000000000e2322d0a6205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000006205660514a0b84c8bca7709616e7e380a610f799a2b0d",
+   "bit_count": 1469
+  },
+  {
+   "index": 2,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 1021,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 1006,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 654,
+    "AbilityTuning.Wushu.E.MaxCharges": 468,
+    "AbilityTuning.Wushu.E.PrimeDuration": 50,
+    "AbilityTuning.Wushu.Q.MaxCharges": 1017,
+    "AbilityTuning.Wushu.Unused": 380
+   },
+   "tag_bits": 10,
+   "hex": "0400000046050a4e050a00740000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be685e82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6ca00000000004200000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6cabe860000000000d2322d0a4205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000004205460514a0b44c8b67021cc57e37756bb961b504285bfd5f6a270575c6d8bee900",
+   "bit_count": 1443
+  },
+  {
+   "index": 3,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 1021,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 1006,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 654,
+    "AbilityTuning.Wushu.E.MaxCharges": 468,
+    "AbilityTuning.Wushu.E.PrimeDuration": 50,
+    "AbilityTuning.Wushu.Q.MaxCharges": 1017,
+    "AbilityTuning.Wushu.Unused": 380
+   },
+   "tag_bits": 10,
+   "hex": "0400000056050a5e050a00720000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be8a5e82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d000000000004000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d0be860000000000da322d0a5205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000005205560514a0b64c8bf1025bf07e5a43657561379dacba84008a7fd6ec4c5cbe8ebdb8d46b1f3cba4abf",
+   "bit_count": 1496
+  },
+  {
+   "index": 4,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 1021,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 1006,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 654,
+    "AbilityTuning.Wushu.E.MaxCharges": 468,
+    "AbilityTuning.Wushu.E.PrimeDuration": 50,
+    "AbilityTuning.Wushu.Q.MaxCharges": 1017,
+    "AbilityTuning.Wushu.Unused": 380
+   },
+   "tag_bits": 10,
+   "hex": "0400000066050a6e050a00820000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2bea25e82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e800000000005000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e8be860000000000e2322d0a6205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000006205660514a0b84c8bdc1ef073f57e675f61644715775616",
+   "bit_count": 1478
+  },
+  {
+   "index": 2,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 366,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 423,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 451,
+    "AbilityTuning.Wushu.E.MaxCharges": 510,
+    "AbilityTuning.Wushu.E.PrimeDuration": 348,
+    "AbilityTuning.Wushu.Q.MaxCharges": 161,
+    "AbilityTuning.Wushu.Unused": 295
+   },
+   "tag_bits": 9,
+   "hex": "0400000046050a4e050a00740000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be685e82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6ca00000000004200000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6cabe860000000000d2322d0a4205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000004205460514a0b44c8b6302c75f669d756b0a61d164410c9d79b92f2cf92261ef9801",
+   "bit_count": 1441
+  },
+  {
+   "index": 3,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 366,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 423,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 451,
+    "AbilityTuning.Wushu.E.MaxCharges": 510,
+    "AbilityTuning.Wushu.E.PrimeDuration": 348,
+    "AbilityTuning.Wushu.Q.MaxCharges": 161,
+    "AbilityTuning.Wushu.Unused": 295
+   },
+   "tag_bits": 9,
+   "hex": "0400000056050a5e050a00720000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be8a5e82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d000000000004000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d0be860000000000da322d0a5205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000005205560514a0b64c8beb02901a66dd43700a61bb924c00fc34a8253bf8097df37617e41968e8e730e904",
+   "bit_count": 1493
+  },
+  {
+   "index": 4,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 366,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 423,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 451,
+    "AbilityTuning.Wushu.E.MaxCharges": 510,
+    "AbilityTuning.Wushu.E.PrimeDuration": 348,
+    "AbilityTuning.Wushu.Q.MaxCharges": 161,
+    "AbilityTuning.Wushu.Unused": 295
+   },
+   "tag_bits": 9,
+   "hex": "0400000066050a6e050a00820000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2bea25e82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e800000000005000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e8be860000000000e2322d0a6205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000006205660514a0b84c8bdadc15dbe07e670a613c70a1e5fb1a",
+   "bit_count": 1477
+  },
+  {
+   "index": 2,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 1991,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 943,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 1421,
+    "AbilityTuning.Wushu.E.MaxCharges": 253,
+    "AbilityTuning.Wushu.E.PrimeDuration": 1088,
+    "AbilityTuning.Wushu.Q.MaxCharges": 1431,
+    "AbilityTuning.Wushu.Unused": 238
+   },
+   "tag_bits": 11,
+   "hex": "0400000046050a4e050a00740000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be685e82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6ca00000000004200000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6cabe860000000000d2322d0a4205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000004205460514a0b44c8b6b029ba9b19f75f60a610ed1222f28e6b95c252bee35709108",
+   "bit_count": 1445
+  },
+  {
+   "index": 3,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 1991,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 943,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 1421,
+    "AbilityTuning.Wushu.E.MaxCharges": 253,
+    "AbilityTuning.Wushu.E.PrimeDuration": 1088,
+    "AbilityTuning.Wushu.Q.MaxCharges": 1431,
+    "AbilityTuning.Wushu.Unused": 238
+   },
+   "tag_bits": 11,
+   "hex": "0400000056050a5e050a00720000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be8a5e82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d000000000004000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d0be860000000000da322d0a5205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000005205560514a0b64c8bf7029c40b1f74365b961f37a9c7f251236e34787d9af870c5dcd04323b035df05107",
+   "bit_count": 1499
+  },
+  {
+   "index": 4,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 1991,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 943,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 1421,
+    "AbilityTuning.Wushu.E.MaxCharges": 253,
+    "AbilityTuning.Wushu.E.PrimeDuration": 1088,
+    "AbilityTuning.Wushu.Q.MaxCharges": 1431,
+    "AbilityTuning.Wushu.Unused": 238
+   },
+   "tag_bits": 11,
+   "hex": "0400000066050a6e050a00820000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2bea25e82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e800000000005000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e8be860000000000e2322d0a6205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000006205660514a0b84c8bde9eb82e657e67b961436ed78b0a45",
+   "bit_count": 1479
+  },
+  {
+   "index": 2,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 1269,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 7799,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 10477,
+    "AbilityTuning.Wushu.E.MaxCharges": 62034,
+    "AbilityTuning.Wushu.E.PrimeDuration": 19224,
+    "AbilityTuning.Wushu.Q.MaxCharges": 8760,
+    "AbilityTuning.Wushu.Unused": 57525
+   },
+   "tag_bits": 16,
+   "hex": "0400000046050a4e050a00740000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be685e82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6ca00000000004200000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6cabe860000000000d2322d0a4205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000004205460514a0b44c8b7f0241c3f18475e5b961c2d609e51cfcee7348706798aadee677",
+   "bit_count": 1455
+  },
+  {
+   "index": 3,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 1269,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 7799,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 10477,
+    "AbilityTuning.Wushu.E.MaxCharges": 62034,
+    "AbilityTuning.Wushu.E.PrimeDuration": 19224,
+    "AbilityTuning.Wushu.Q.MaxCharges": 8760,
+    "AbilityTuning.Wushu.Unused": 57525
+   },
+   "tag_bits": 16,
+   "hex": "0400000056050a5e050a00720000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be8a5e82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d000000000004000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d0be860000000000da322d0a5205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000005205560514a0b64c8b1504438ff115430c5f611a89d7100e43e22fe24f267c4cb134d65a41f2c896191fc9fb02",
+   "bit_count": 1514
+  },
+  {
+   "index": 4,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 1269,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 7799,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 10477,
+    "AbilityTuning.Wushu.E.MaxCharges": 62034,
+    "AbilityTuning.Wushu.E.PrimeDuration": 19224,
+    "AbilityTuning.Wushu.Q.MaxCharges": 8760,
+    "AbilityTuning.Wushu.Unused": 57525
+   },
+   "tag_bits": 16,
+   "hex": "0400000066050a6e050a00820000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2bea25e82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e800000000005000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e8be860000000000e2322d0a6205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000006205660514a0b84c8be8f5f30acd7e4975615ebc0bbbfb300f",
+   "bit_count": 1484
+  },
+  {
+   "index": 2,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 0,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 0,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 1,
+    "AbilityTuning.Wushu.E.MaxCharges": 0,
+    "AbilityTuning.Wushu.E.PrimeDuration": 1,
+    "AbilityTuning.Wushu.Q.MaxCharges": 1,
+    "AbilityTuning.Wushu.Unused": 1
+   },
+   "tag_bits": 1,
+   "hex": "0400000046050a4e050a00740000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be685e82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6ca00000000004200000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6cabe860000000000d2322d0a4205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000004205460514a0b44c8b43025cba61b7758a0a6166d71b1b912160945d73a35000",
+   "bit_count": 1425
+  },
+  {
+   "index": 3,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 0,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 0,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 1,
+    "AbilityTuning.Wushu.E.MaxCharges": 0,
+    "AbilityTuning.Wushu.E.PrimeDuration": 1,
+    "AbilityTuning.Wushu.Q.MaxCharges": 1,
+    "AbilityTuning.Wushu.Unused": 1
+   },
+   "tag_bits": 1,
+   "hex": "0400000056050a5e050a00720000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be8a5e82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d000000000004000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d0be860000000000da322d0a5205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000005205560514a0b64c8bbb025c09614743070a61cb0d028a6ab5cf1539c2a38513c6dfbbe9d1c313",
+   "bit_count": 1469
+  },
+  {
+   "index": 4,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 0,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 0,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 1,
+    "AbilityTuning.Wushu.E.MaxCharges": 0,
+    "AbilityTuning.Wushu.E.PrimeDuration": 1,
+    "AbilityTuning.Wushu.Q.MaxCharges": 1,
+    "AbilityTuning.Wushu.Unused": 1
+   },
+   "tag_bits": 1,
+   "hex": "0400000066050a6e050a00820000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2bea25e82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e800000000005000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e8be860000000000e2322d0a6205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000006205660514a0b84c8bca7709616e7e380a610f799a2b0d",
+   "bit_count": 1469
+  },
+  {
+   "index": 2,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 493,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 553,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 43,
+    "AbilityTuning.Wushu.E.MaxCharges": 870,
+    "AbilityTuning.Wushu.E.PrimeDuration": 615,
+    "AbilityTuning.Wushu.Q.MaxCharges": 498,
+    "AbilityTuning.Wushu.Unused": 916
+   },
+   "tag_bits": 10,
+   "hex": "0400000046050a4e050a00740000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be685e82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6ca00000000004200000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6cabe860000000000d2322d0a4205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000004205460514a0b44c8b6702078f7e37756bb9619f0c285bfd5f6a270575c6d8bee900",
+   "bit_count": 1443
+  },
+  {
+   "index": 3,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 493,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 553,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 43,
+    "AbilityTuning.Wushu.E.MaxCharges": 870,
+    "AbilityTuning.Wushu.E.PrimeDuration": 615,
+    "AbilityTuning.Wushu.Q.MaxCharges": 498,
+    "AbilityTuning.Wushu.Unused": 916
+   },
+   "tag_bits": 10,
+   "hex": "0400000056050a5e050a00720000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be8a5e82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d000000000004000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d0be860000000000da322d0a5205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000005205560514a0b64c8bf1025ad07e5a43657561c003acba84008a7f07ec4cdbbe8ebdb8d46b1f3cba4abf",
+   "bit_count": 1496
+  },
+  {
+   "index": 4,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 493,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 553,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 43,
+    "AbilityTuning.Wushu.E.MaxCharges": 870,
+    "AbilityTuning.Wushu.E.PrimeDuration": 615,
+    "AbilityTuning.Wushu.Q.MaxCharges": 498,
+    "AbilityTuning.Wushu.Unused": 916
+   },
+   "tag_bits": 10,
+   "hex": "0400000066050a6e050a00820000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2bea25e82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e800000000005000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e8be860000000000e2322d0a6205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000006205660514a0b84c8bdc052473f57e675f61644715775616",
+   "bit_count": 1478
+  },
+  {
+   "index": 2,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 182,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 256,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 284,
+    "AbilityTuning.Wushu.E.MaxCharges": 38,
+    "AbilityTuning.Wushu.E.PrimeDuration": 347,
+    "AbilityTuning.Wushu.Q.MaxCharges": 221,
+    "AbilityTuning.Wushu.Unused": 75
+   },
+   "tag_bits": 9,
+   "hex": "0400000046050a4e050a00740000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be685e82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6ca00000000004200000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6cabe860000000000d2322d0a4205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000004205460514a0b44c8b6302deae669d756b0a619a34410c9d79b92f2cf92261ef9801",
+   "bit_count": 1441
+  },
+  {
+   "index": 3,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 182,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 256,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 284,
+    "AbilityTuning.Wushu.E.MaxCharges": 38,
+    "AbilityTuning.Wushu.E.PrimeDuration": 347,
+    "AbilityTuning.Wushu.Q.MaxCharges": 221,
+    "AbilityTuning.Wushu.Unused": 75
+   },
+   "tag_bits": 9,
+   "hex": "0400000056050a5e050a00720000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be8a5e82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d000000000004000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d0be860000000000da322d0a5205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000005205560514a0b64c8beb02c71466dd43700a61bba94c00fc34a82599f809f5f37617e41968e8e730e904",
+   "bit_count": 1493
+  },
+  {
+   "index": 4,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 182,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 256,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 284,
+    "AbilityTuning.Wushu.E.MaxCharges": 38,
+    "AbilityTuning.Wushu.E.PrimeDuration": 347,
+    "AbilityTuning.Wushu.Q.MaxCharges": 221,
+    "AbilityTuning.Wushu.Unused": 75
+   },
+   "tag_bits": 9,
+   "hex": "0400000066050a6e050a00820000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2bea25e82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e800000000005000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e8be860000000000e2322d0a6205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000006205660514a0b84c8bdadccfdbe07e670a613c70a1e5fb1a",
+   "bit_count": 1477
+  },
+  {
+   "index": 2,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 725,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 1610,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 687,
+    "AbilityTuning.Wushu.E.MaxCharges": 1415,
+    "AbilityTuning.Wushu.E.PrimeDuration": 1191,
+    "AbilityTuning.Wushu.Q.MaxCharges": 272,
+    "AbilityTuning.Wushu.Unused": 983
+   },
+   "tag_bits": 11,
+   "hex": "0400000046050a4e050a00740000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be685e82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6ca00000000004200000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6cabe860000000000d2322d0a4205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000004205460514a0b44c8b6b0267adb19f75f60a611d2522b228e6b95c252bee35709108",
+   "bit_count": 1445
+  },
+  {
+   "index": 3,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 725,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 1610,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 687,
+    "AbilityTuning.Wushu.E.MaxCharges": 1415,
+    "AbilityTuning.Wushu.E.PrimeDuration": 1191,
+    "AbilityTuning.Wushu.Q.MaxCharges": 272,
+    "AbilityTuning.Wushu.Unused": 983
+   },
+   "tag_bits": 11,
+   "hex": "0400000056050a5e050a00720000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be8a5e82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d000000000004000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d0be860000000000da322d0a5205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000005205560514a0b64c8bf70267ddb1f74365b96140979c7f251236e37787d9a2870c5dcd04323b035df05107",
+   "bit_count": 1499
+  },
+  {
+   "index": 4,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 725,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 1610,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 687,
+    "AbilityTuning.Wushu.E.MaxCharges": 1415,
+    "AbilityTuning.Wushu.E.PrimeDuration": 1191,
+    "AbilityTuning.Wushu.Q.MaxCharges": 272,
+    "AbilityTuning.Wushu.Unused": 983
+   },
+   "tag_bits": 11,
+   "hex": "0400000066050a6e050a00820000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2bea25e82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e800000000005000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e8be860000000000e2322d0a6205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000006205660514a0b84c8bde71252e657e67b961436ed78b0a45",
+   "bit_count": 1479
+  },
+  {
+   "index": 2,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 62897,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 27491,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 36829,
+    "AbilityTuning.Wushu.E.MaxCharges": 18265,
+    "AbilityTuning.Wushu.E.PrimeDuration": 35264,
+    "AbilityTuning.Wushu.Q.MaxCharges": 28238,
+    "AbilityTuning.Wushu.Unused": 382
+   },
+   "tag_bits": 16,
+   "hex": "0400000046050a4e050a00740000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be685e82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6ca00000000004200000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6cabe860000000000d2322d0a4205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000004205460514a0b44c8b7f02828bf1ac75e5b9613dd62c0e1cfcee7348706798aadee677",
+   "bit_count": 1455
+  },
+  {
+   "index": 3,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 62897,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 27491,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 36829,
+    "AbilityTuning.Wushu.E.MaxCharges": 18265,
+    "AbilityTuning.Wushu.E.PrimeDuration": 35264,
+    "AbilityTuning.Wushu.Q.MaxCharges": 28238,
+    "AbilityTuning.Wushu.Unused": 382
+   },
+   "tag_bits": 16,
+   "hex": "0400000056050a5e050a00720000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be8a5e82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d000000000004000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d0be860000000000da322d0a5205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000005205560514a0b64c8b15045acff13d430c5f612c89cb510e43e22fe24fb5f94cb134d65a41f2c8964a1fc9fb02",
+   "bit_count": 1514
+  },
+  {
+   "index": 4,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 62897,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 27491,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 36829,
+    "AbilityTuning.Wushu.E.MaxCharges": 18265,
+    "AbilityTuning.Wushu.E.PrimeDuration": 35264,
+    "AbilityTuning.Wushu.Q.MaxCharges": 28238,
+    "AbilityTuning.Wushu.Unused": 382
+   },
+   "tag_bits": 16,
+   "hex": "0400000066050a6e050a00820000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2bea25e82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e800000000005000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e8be860000000000e2322d0a6205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000006205660514a0b84c8be896e30acd7e4975615ebc0bbbfb300f",
+   "bit_count": 1484
+  },
+  {
+   "index": 2,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 0,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 0,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 0,
+    "AbilityTuning.Wushu.E.MaxCharges": 1,
+    "AbilityTuning.Wushu.E.PrimeDuration": 0,
+    "AbilityTuning.Wushu.Q.MaxCharges": 0,
+    "AbilityTuning.Wushu.Unused": 1
+   },
+   "tag_bits": 1,
+   "hex": "0400000046050a4e050a00740000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be685e82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6ca00000000004200000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6cabe860000000000d2322d0a4205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000004205460514a0b44c8b43025cba61b7758a0a6166d71b1b912160945d73a35000",
+   "bit_count": 1425
+  },
+  {
+   "index": 3,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 0,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 0,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 0,
+    "AbilityTuning.Wushu.E.MaxCharges": 1,
+    "AbilityTuning.Wushu.E.PrimeDuration": 0,
+    "AbilityTuning.Wushu.Q.MaxCharges": 0,
+    "AbilityTuning.Wushu.Unused": 1
+   },
+   "tag_bits": 1,
+   "hex": "0400000056050a5e050a00720000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be8a5e82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d000000000004000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d0be860000000000da322d0a5205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000005205560514a0b64c8bbb025cba614743070a61cb0d028a6ab5c41539c2a38513c65fbbe9d1c313",
+   "bit_count": 1469
+  },
+  {
+   "index": 4,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 0,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 0,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 0,
+    "AbilityTuning.Wushu.E.MaxCharges": 1,
+    "AbilityTuning.Wushu.E.PrimeDuration": 0,
+    "AbilityTuning.Wushu.Q.MaxCharges": 0,
+    "AbilityTuning.Wushu.Unused": 1
+   },
+   "tag_bits": 1,
+   "hex": "0400000066050a6e050a00820000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2bea25e82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e800000000005000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e8be860000000000e2322d0a6205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000006205660514a0b84c8bca77ba616e7e380a610f799a2b0d",
+   "bit_count": 1469
+  },
+  {
+   "index": 2,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 296,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 658,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 663,
+    "AbilityTuning.Wushu.E.MaxCharges": 190,
+    "AbilityTuning.Wushu.E.PrimeDuration": 954,
+    "AbilityTuning.Wushu.Q.MaxCharges": 164,
+    "AbilityTuning.Wushu.Unused": 403
+   },
+   "tag_bits": 10,
+   "hex": "0400000046050a4e050a00740000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be685e82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6ca00000000004200000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6cabe860000000000d2322d0a4205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000004205460514a0b44c8b670299817e37756bb961c204285bfd5f6a270575c6d8bee900",
+   "bit_count": 1443
+  },
+  {
+   "index": 3,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 296,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 658,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 663,
+    "AbilityTuning.Wushu.E.MaxCharges": 190,
+    "AbilityTuning.Wushu.E.PrimeDuration": 954,
+    "AbilityTuning.Wushu.Q.MaxCharges": 164,
+    "AbilityTuning.Wushu.Unused": 403
+   },
+   "tag_bits": 10,
+   "hex": "0400000056050a5e050a00720000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be8a5e82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d000000000004000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d0be860000000000da322d0a5205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000005205560514a0b64c8bf1025b707e5a436575613a9dacba84008a7fcaec4ccdbe8ebdb8d46b1f3cba4abf",
+   "bit_count": 1496
+  },
+  {
+   "index": 4,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 296,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 658,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 663,
+    "AbilityTuning.Wushu.E.MaxCharges": 190,
+    "AbilityTuning.Wushu.E.PrimeDuration": 954,
+    "AbilityTuning.Wushu.Q.MaxCharges": 164,
+    "AbilityTuning.Wushu.Unused": 403
+   },
+   "tag_bits": 10,
+   "hex": "0400000066050a6e050a00820000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2bea25e82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e800000000005000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e8be860000000000e2322d0a6205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000006205660514a0b84c8bdcd95973f57e675f61644715775616",
+   "bit_count": 1478
+  },
+  {
+   "index": 2,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 29,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 292,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 133,
+    "AbilityTuning.Wushu.E.MaxCharges": 387,
+    "AbilityTuning.Wushu.E.PrimeDuration": 444,
+    "AbilityTuning.Wushu.Q.MaxCharges": 112,
+    "AbilityTuning.Wushu.Unused": 446
+   },
+   "tag_bits": 9,
+   "hex": "0400000046050a4e050a00740000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be685e82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6ca00000000004200000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6cabe860000000000d2322d0a4205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000004205460514a0b44c8b6302f89d669d756b0a610b19410c9d79b92f2cf92261ef9801",
+   "bit_count": 1441
+  },
+  {
+   "index": 3,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 29,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 292,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 133,
+    "AbilityTuning.Wushu.E.MaxCharges": 387,
+    "AbilityTuning.Wushu.E.PrimeDuration": 444,
+    "AbilityTuning.Wushu.Q.MaxCharges": 112,
+    "AbilityTuning.Wushu.Unused": 446
+   },
+   "tag_bits": 9,
+   "hex": "0400000056050a5e050a00720000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be8a5e82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d000000000004000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d0be860000000000da322d0a5205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000005205560514a0b64c8beb02deec66dd43700a61dc924c00fc34a82542f8097df37617e41968e8e730e904",
+   "bit_count": 1493
+  },
+  {
+   "index": 4,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 29,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 292,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 133,
+    "AbilityTuning.Wushu.E.MaxCharges": 387,
+    "AbilityTuning.Wushu.E.PrimeDuration": 444,
+    "AbilityTuning.Wushu.Q.MaxCharges": 112,
+    "AbilityTuning.Wushu.Unused": 446
+   },
+   "tag_bits": 9,
+   "hex": "0400000066050a6e050a00820000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2bea25e82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e800000000005000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e8be860000000000e2322d0a6205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000006205660514a0b84c8bdafa42dbe07e670a613c70a1e5fb1a",
+   "bit_count": 1477
+  },
+  {
+   "index": 2,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 171,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 1914,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 1942,
+    "AbilityTuning.Wushu.E.MaxCharges": 1467,
+    "AbilityTuning.Wushu.E.PrimeDuration": 1364,
+    "AbilityTuning.Wushu.Q.MaxCharges": 1947,
+    "AbilityTuning.Wushu.Unused": 1852
+   },
+   "tag_bits": 11,
+   "hex": "0400000046050a4e050a00740000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be685e82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6ca00000000004200000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6cabe860000000000d2322d0a4205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000004205460514a0b44c8b6b02ad88b19f75f60a61632522b228e6b95c252bee35709108",
+   "bit_count": 1445
+  },
+  {
+   "index": 3,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 171,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 1914,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 1942,
+    "AbilityTuning.Wushu.E.MaxCharges": 1467,
+    "AbilityTuning.Wushu.E.PrimeDuration": 1364,
+    "AbilityTuning.Wushu.Q.MaxCharges": 1947,
+    "AbilityTuning.Wushu.Unused": 1852
+   },
+   "tag_bits": 11,
+   "hex": "0400000056050a5e050a00720000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be8a5e82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d000000000004000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d0be860000000000da322d0a5205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000005205560514a0b64c8bf7029bc7b1f74365b961d47a9c7f251236e3a687d9b8870c5dcd04323b035df05107",
+   "bit_count": 1499
+  },
+  {
+   "index": 4,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 171,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 1914,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 1942,
+    "AbilityTuning.Wushu.E.MaxCharges": 1467,
+    "AbilityTuning.Wushu.E.PrimeDuration": 1364,
+    "AbilityTuning.Wushu.Q.MaxCharges": 1947,
+    "AbilityTuning.Wushu.Unused": 1852
+   },
+   "tag_bits": 11,
+   "hex": "0400000066050a6e050a00820000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2bea25e82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e800000000005000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e8be860000000000e2322d0a6205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000006205660514a0b84c8bde99be2e657e67b961436ed78b0a45",
+   "bit_count": 1479
+  },
+  {
+   "index": 2,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 41952,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 41925,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 47384,
+    "AbilityTuning.Wushu.E.MaxCharges": 51470,
+    "AbilityTuning.Wushu.E.PrimeDuration": 53458,
+    "AbilityTuning.Wushu.Q.MaxCharges": 47196,
+    "AbilityTuning.Wushu.Unused": 58253
+   },
+   "tag_bits": 16,
+   "hex": "0400000046050a4e050a00740000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be685e82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6ca00000000004200000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6cabe860000000000d2322d0a4205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000004205460514a0b44c8b7f02b97ff1ac75e5b961b1d6e7ae1cfcee7348706798aadee677",
+   "bit_count": 1455
+  },
+  {
+   "index": 3,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 41952,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 41925,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 47384,
+    "AbilityTuning.Wushu.E.MaxCharges": 51470,
+    "AbilityTuning.Wushu.E.PrimeDuration": 53458,
+    "AbilityTuning.Wushu.Q.MaxCharges": 47196,
+    "AbilityTuning.Wushu.Unused": 58253
+   },
+   "tag_bits": 16,
+   "hex": "0400000056050a5e050a00720000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be8a5e82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d000000000004000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d0be860000000000da322d0a5205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000005205560514a0b64c8b15048ccef13d430c5f61178942520e43e22fe24f1d7c4cb134d65a41f2c8962a1fc9fb02",
+   "bit_count": 1514
+  },
+  {
+   "index": 4,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 41952,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 41925,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 47384,
+    "AbilityTuning.Wushu.E.MaxCharges": 51470,
+    "AbilityTuning.Wushu.E.PrimeDuration": 53458,
+    "AbilityTuning.Wushu.Q.MaxCharges": 47196,
+    "AbilityTuning.Wushu.Unused": 58253
+   },
+   "tag_bits": 16,
+   "hex": "0400000066050a6e050a00820000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2bea25e82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e800000000005000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e8be860000000000e2322d0a6205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000006205660514a0b84c8be8f14c0ae57e4975615ebc0bbbfb300f",
+   "bit_count": 1484
+  },
+  {
+   "index": 2,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 1,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 1,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 0,
+    "AbilityTuning.Wushu.E.MaxCharges": 1,
+    "AbilityTuning.Wushu.E.PrimeDuration": 1,
+    "AbilityTuning.Wushu.Q.MaxCharges": 1,
+    "AbilityTuning.Wushu.Unused": 0
+   },
+   "tag_bits": 1,
+   "hex": "0400000046050a4e050a00740000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be685e82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6ca00000000004200000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe68bea6daded6cabe860000000000d2322d0a4205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000004205460514a0b44c8b43025c0961b7758a0a6166d71b1b912122945d73a35000",
+   "bit_count": 1425
+  },
+  {
+   "index": 3,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 1,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 1,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 0,
+    "AbilityTuning.Wushu.E.MaxCharges": 1,
+    "AbilityTuning.Wushu.E.PrimeDuration": 1,
+    "AbilityTuning.Wushu.Q.MaxCharges": 1,
+    "AbilityTuning.Wushu.Unused": 0
+   },
+   "tag_bits": 1,
+   "hex": "0400000056050a5e050a00720000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2be8a5e82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d000000000004000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabe8abe88c2e6d0be860000000000da322d0a5205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000005205560514a0b64c8bbb025cba614743070a61cb0d028a6ab5cf1539c2a38513c65fbbe9d1c313",
+   "bit_count": 1469
+  },
+  {
+   "index": 4,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 1,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 1,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 0,
+    "AbilityTuning.Wushu.E.MaxCharges": 1,
+    "AbilityTuning.Wushu.E.PrimeDuration": 1,
+    "AbilityTuning.Wushu.Q.MaxCharges": 1,
+    "AbilityTuning.Wushu.Unused": 0
+   },
+   "tag_bits": 1,
+   "hex": "0400000066050a6e050a00820000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2bea25e82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e800000000005000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e8be860000000000e2322d0a6205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000006205660514a0b84c8bca7709616e7e380a610f799a2b0d",
+   "bit_count": 1469
+  },
+  {
+   "index": 5,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 240,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 241,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 243,
+    "AbilityTuning.Wushu.E.MaxCharges": 244,
+    "AbilityTuning.Wushu.E.PrimeDuration": 245,
+    "AbilityTuning.Wushu.Q.MaxCharges": 250
+   },
+   "tag_bits": 10,
+   "error": "ValueError"
+  },
+  {
+   "index": 0,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 240,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 241,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 243,
+    "AbilityTuning.Wushu.E.MaxCharges": 244,
+    "AbilityTuning.Wushu.E.PrimeDuration": 245,
+    "AbilityTuning.Wushu.Q.MaxCharges": 250
+   },
+   "tag_bits": 10,
+   "error": "ValueError"
+  },
+  {
+   "index": 3,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 240,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 241,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 243,
+    "AbilityTuning.Wushu.E.MaxCharges": 244,
+    "AbilityTuning.Wushu.Q.MaxCharges": 250
+   },
+   "tag_bits": 10,
+   "error": "KeyError"
+  },
+  {
+   "index": 2,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 1024,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 241,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 243,
+    "AbilityTuning.Wushu.E.MaxCharges": 244,
+    "AbilityTuning.Wushu.E.PrimeDuration": 245,
+    "AbilityTuning.Wushu.Q.MaxCharges": 250
+   },
+   "tag_bits": 10,
+   "error": "ValueError"
+  },
+  {
+   "index": 4,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 240,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 241,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 243,
+    "AbilityTuning.Wushu.E.MaxCharges": 244,
+    "AbilityTuning.Wushu.E.PrimeDuration": 245,
+    "AbilityTuning.Wushu.Q.MaxCharges": 250
+   },
+   "tag_bits": 0,
+   "error": "ValueError"
+  },
+  {
+   "index": 4,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 240,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 241,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 243,
+    "AbilityTuning.Wushu.E.MaxCharges": 244,
+    "AbilityTuning.Wushu.E.PrimeDuration": 245,
+    "AbilityTuning.Wushu.Q.MaxCharges": 250
+   },
+   "tag_bits": 17,
+   "error": "ValueError"
+  },
+  {
+   "index": 4,
+   "tags": {
+    "AbilityTuning.Wushu.4.SmokeDuration": 240,
+    "AbilityTuning.Wushu.4.SmokeMaxCharges": 241,
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier": 243,
+    "AbilityTuning.Wushu.E.MaxCharges": 244,
+    "AbilityTuning.Wushu.E.PrimeDuration": 245,
+    "AbilityTuning.Wushu.Q.MaxCharges": 65535
+   },
+   "tag_bits": 16,
+   "hex": "0400000066050a6e050a00820000005e8ec2daca5e86d0c2e4c2c6e8cae4e65eaeeae6d0ea5ea6605e82c4d2d8d2e8f2bea25e82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e800000000005000000088caccc2ead8e8bebe82c4d2d8d2e8f2beaeeae6d0eabea2be86f2c6d8dedcca84dedee6e8be860000000000e2322d0a6205001c00000082c4d2d8d2e8f2a8eadcd2dcce00000000006205660514a0b84c8be8f7200ae57e4975615ebc0bbbfb300f",
+   "bit_count": 1484
+  }
+ ],
+ "tunings": {
+  "2": [
+   [
+    "AbilityTuning.Wushu.4.SmokeDuration",
+    "float",
+    2.5
+   ],
+   [
+    "AbilityTuning.Wushu.4.SmokeMaxCharges",
+    "int",
+    2
+   ]
+  ],
+  "3": [
+   [
+    "AbilityTuning.Wushu.E.DashVelocityMultiplier",
+    "float",
+    1.0
+   ],
+   [
+    "AbilityTuning.Wushu.E.PrimeDuration",
+    "float",
+    7.5
+   ],
+   [
+    "AbilityTuning.Wushu.E.MaxCharges",
+    "int",
+    1
+   ]
+  ],
+  "4": [
+   [
+    "AbilityTuning.Wushu.Q.MaxCharges",
+    "int",
+    1
+   ]
+  ]
+ },
+ "after_plans": {
+  "next_guid": 100016,
+  "next_channel": 0
+ }
+}
