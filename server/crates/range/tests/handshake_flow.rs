@@ -1,4 +1,4 @@
-//! loopback harness: a scripted client drives the stateless handshake, hello,
+﻿//! loopback harness: a scripted client drives the stateless handshake, hello,
 //! nmt challenge/welcome, join and session acks through RangeServer, and
 //! decodes every reply.
 
@@ -146,8 +146,9 @@ fn full_bringup_sequences() {
             }
         }
     }
-    // ch4 +8/+9 range hud classes; ch5 +6 hud rebuild, +7/+8 streaming, +9 settings request
-    let expected_counts = [(3u32, 1usize), (4, 10), (5, 10), (6, 11), (7, 2), (8, 51), (9, 5), (10, 2), (11, 2), (12, 2), (13, 5), (14, 2), (15, 2), (16, 2), (17, 2), (18, 2)];
+    // ch4 +8/+9 range hud classes; ch5 +6 hud rebuild, +7/+8 streaming, +9 settings request;
+    // ch14-17 ability role, machine, InactiveState; ch400 the dummy, 401-405 bots (open, health)
+    let expected_counts = [(3u32, 1usize), (4, 10), (5, 10), (6, 11), (7, 2), (8, 51), (9, 5), (10, 2), (11, 2), (12, 2), (13, 5), (14, 5), (15, 5), (16, 5), (17, 5), (18, 2), (400, 2), (401, 2), (402, 2), (403, 2), (404, 2), (405, 2)];
     for (channel, count) in expected_counts {
         let sequences = per_channel.get(&channel).unwrap_or_else(|| panic!("channel {channel} never sent"));
         let wanted: Vec<u32> = (0..count as u32).map(|i| (base + i) & 0xFFF).collect();

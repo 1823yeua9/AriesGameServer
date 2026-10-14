@@ -36,7 +36,7 @@ pub const HUD_REFRESH_POLL: f64 = 1.0;
 pub const HUD_REFRESH_LIMIT: u32 = 6;
 
 /// per-connection authority state (python run_probe dicts keyed by source).
-#[derive(Debug, Default, Clone)]
+#[derive(Default, Clone)]
 pub struct AuthorityState {
     pub input_correction_polled: Option<f64>,
     pub input_correction_sent: Option<f64>,
@@ -57,6 +57,12 @@ pub struct AuthorityState {
     pub purchased_class_guids: HashMap<String, u32>,
     pub mirror: crate::mirror::MirrorBook,
     pub purchases: crate::purchases::PurchaseBook,
+    /// python bot_fields[source], made on the first bot tick (or a queued spawn)
+    pub bots: Option<crate::gameplay::BotSystem>,
+    /// python projectile_fields[source], made on the first smoke read
+    pub projectiles: Option<aries_world::projectiles::ProjectileField>,
+    /// python ability_jobs[source]
+    pub abilities: Option<aries_world::abilities::AbilityJobs>,
 }
 
 fn due(last: Option<f64>, now: f64, interval: f64) -> bool {
@@ -70,7 +76,14 @@ fn starting_equippables_done(reply: &Reply) -> bool {
 /// python 1566-2078 in order. the gate (ClientRestart sent) is checked by the caller.
 pub fn run_authority(reply: &mut Reply, env: &mut Env, decoded: &Bits) {
     let config = env.config;
-    let _pass = crate::mirror::run_mirror(reply, config, env.live);
+    let pass = crate::mirror::run_mirror(reply, config, env.live);
+    // python runs these inline in the mirror loop; each only touches its own channels
+    if let Some(predicted) = pass.smoke_state {
+        crate::gameplay::smoke_state(reply, env, predicted.as_deref());
+    }
+    for class in &pass.shots {
+        crate::gameplay::bot_shots(reply, env, class);
+    }
     if config.features.input_correction && env.live.attached() {
         input_correction(reply, env.live);
     }
@@ -91,12 +104,20 @@ pub fn run_authority(reply: &mut Reply, env: &mut Env, decoded: &Bits) {
         range_settings_apply(reply, decoded);
     }
     if let Some(queue) = &config.command_queue {
-        command_queue(reply, queue);
+        command_queue(reply, env, queue);
     }
     if config.features.hud_refresh && env.live.attached() {
         hud_refresh(reply, env.live);
     }
-    // 12 cloudburst flights, 13 bots, 14 ability jobs: world integration
+    if config.features.ability_projectiles {
+        crate::gameplay::projectile_tick(reply, env);
+    }
+    if config.features.bots && reply.conn.authority.streaming_sent {
+        crate::gameplay::bot_tick(reply, env);
+    }
+    if config.features.ability_activation {
+        crate::gameplay::ability_jobs(reply, env);
+    }
 }
 
 /// 6.5: the client stopped replicating inputs (>256 unacked or a stale frame);
@@ -288,7 +309,7 @@ fn settings_event(request: &RangeSettingsRequest) -> Value {
 
 /// 6.11: a debug hook. json files dropped in the queue dir are sent as
 /// reliable bunches ({"channel", "body_hex", "bits", "exports"?, "open"?}).
-fn command_queue(reply: &mut Reply, queue: &Path) {
+fn command_queue(reply: &mut Reply, env: &mut Env, queue: &Path) {
     if !due(reply.conn.authority.command_queue_polled, reply.now, COMMAND_QUEUE_POLL) {
         return;
     }
@@ -304,10 +325,19 @@ fn command_queue(reply: &mut Reply, queue: &Path) {
         let command = std::fs::read_to_string(&file).map_err(|e| e.to_string()).and_then(|text| serde_json::from_str::<Value>(&text).map_err(|e| e.to_string()));
         let result = command.and_then(|command| {
             let _ = std::fs::remove_file(&file);
-            queued_bunch(reply, &command)
+            // debug: a server-tracked bot at an exact location
+            if let Some(spot) = command.get("spawn_bot") {
+                let spot: Vec<f64> = spot.as_array().map(|a| a.iter().filter_map(Value::as_f64).collect()).unwrap_or_default();
+                let [x, y, z] = spot[..] else {
+                    return Err("spawn_bot needs [x, y, z]".to_string());
+                };
+                return crate::gameplay::spawn_bot_at(reply, env, [x, y, z]).map(|()| None);
+            }
+            queued_bunch(reply, &command).map(Some)
         });
         match result {
-            Ok((channel, bits)) => reply.event.push("sent_queued_commands", json!([name, channel, bits])),
+            Ok(Some((channel, bits))) => reply.event.push("sent_queued_commands", json!([name, channel, bits])),
+            Ok(None) => {}
             Err(error) => reply.event.push("queued_command_errors", json!([name, error])),
         }
     }

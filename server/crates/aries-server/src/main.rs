@@ -103,6 +103,8 @@ fn main() {
                 std::process::exit(0);
             }
         }
+        let now = start.elapsed().as_secs_f64();
+        server.tick(clock.tick, now);
         clock.wait(started);
         if last_report.elapsed() >= Duration::from_secs(30) {
             last_report = Instant::now();

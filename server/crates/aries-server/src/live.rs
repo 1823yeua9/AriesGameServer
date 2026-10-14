@@ -8,7 +8,8 @@ use std::time::{Duration, Instant};
 use aries_oracle::Process;
 use aries_oracle::client::LiveClient as Oracle;
 use aries_oracle::equippable::ResourceSlot;
-use aries_range::{Camera, HudWidget, InputReplication, LiveClient, LiveItemMachine, ResourceAmounts, SavedMoves, SlotMachine};
+use aries_range::{Camera, HudWidget, InputReplication, LiveClient, LiveItemMachine, ResourceAmounts, SavedMoves, SlotMachine, TagIndices};
+use aries_world::projectiles::ProjectileSnapshot;
 use aries_world::equippables::ResourceSubobject;
 use log::{info, warn};
 
@@ -19,11 +20,13 @@ pub struct OracleLive {
     image_base: u64,
     oracle: Option<Oracle<Process>>,
     last_attempt: Option<Instant>,
+    /// python tag_net_index_cache: kept once read
+    tags: Option<TagIndices>,
 }
 
 impl OracleLive {
     pub fn new(pid: u32, image_base: u64) -> Self {
-        Self { pid, image_base, oracle: None, last_attempt: None }
+        Self { pid, image_base, oracle: None, last_attempt: None, tags: None }
     }
 
     /// the reader, opened on first use (and re-opened after a failed open).
@@ -126,5 +129,20 @@ impl LiveClient for OracleLive {
     fn client_set_hud_index(&mut self) -> Result<Option<(u32, u32)>, String> {
         let index = self.oracle()?.client_set_hud_index().map_err(text)?;
         Ok(index.map(|i| (i.field_index, i.class_max_index as u32)))
+    }
+
+    fn projectile(&mut self, channel: u32) -> Result<Option<ProjectileSnapshot>, String> {
+        let snapshot = self.oracle()?.projectile(channel).map_err(text)?;
+        Ok(snapshot.map(|s| ProjectileSnapshot { class_name: s.class_name, location: s.location, collisions: s.collisions, hit_location: s.hit_location, hit_normal: s.hit_normal }))
+    }
+
+    fn tag_net_indices(&mut self) -> Result<TagIndices, String> {
+        if let Some(tags) = &self.tags {
+            return Ok(tags.clone());
+        }
+        let read = self.oracle()?.tag_net_indices().map_err(text)?;
+        let tags = TagIndices { indices: read.indices, true_bit_num: read.true_bit_num, first_bit_segment: read.first_bit_segment, constructed: read.constructed };
+        self.tags = Some(tags.clone());
+        Ok(tags)
     }
 }

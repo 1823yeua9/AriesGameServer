@@ -8,6 +8,7 @@ pub mod capture;
 pub mod config;
 pub mod conn;
 pub mod event;
+pub mod gameplay;
 pub mod hooks;
 pub mod live;
 pub mod mirror;
@@ -27,7 +28,7 @@ use aries_net::{AresGcm, decode_client_packet, seal_packet};
 pub use config::RangeConfig;
 pub use conn::Connection;
 pub use event::{Event, EventLog};
-pub use live::{Camera, HudWidget, InputReplication, LiveClient, LiveItemMachine, NoLiveClient, ResourceAmounts, SavedMoves, SlotMachine};
+pub use live::{Camera, HudWidget, InputReplication, LiveClient, LiveItemMachine, NoLiveClient, ResourceAmounts, SavedMoves, SlotMachine, TagIndices};
 pub use send::{Outbox, Reply, SendError};
 
 /// both session keys, read from the live client's ares packet handler.
@@ -273,6 +274,18 @@ impl RangeServer {
         true
     }
 
+    /// once per 128 hz tick, after every datagram of the tick: record where each
+    /// compensated entity stands (source's post-think record), drop what is too old.
+    pub fn tick(&mut self, tick: u64, now: f64) {
+        for conn in self.connections.values_mut() {
+            if let Some(system) = conn.authority.bots.as_mut() {
+                let poses = system.poses();
+                system.lagcomp.record(tick, now, poses);
+                system.lagcomp.prune(now);
+            }
+        }
+    }
+
     pub fn flush(&mut self) {
         self.events.flush();
     }
@@ -317,6 +330,11 @@ fn inspection_event(event: &mut Event, decoded: &Bits, info: Option<&aries_net::
 
 fn seal(packet: &Bits, stateless_header: u32, gcm: &AresGcm) -> Vec<u8> {
     seal_packet(packet, stateless_header, gcm).expect("control replies have a valid stateless header")
+}
+
+/// python random.random() on the unseeded global rng: uniform in [0, 1).
+pub fn random_unit() -> f64 {
+    (u64::from_le_bytes(random_bytes()) >> 11) as f64 * (1.0 / (1u64 << 53) as f64)
 }
 
 /// os random bytes (python os.urandom).

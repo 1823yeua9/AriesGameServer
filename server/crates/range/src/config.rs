@@ -24,6 +24,8 @@ pub struct RangeConfig {
     /// debug queue directory (python runtime/responder_queue)
     pub command_queue: Option<PathBuf>,
     pub features: Features,
+    /// lag compensation for shots (docs/port/10 section 4.11)
+    pub lagcomp: LagCompSettings,
 }
 
 #[derive(Debug, Clone, Deserialize)]
@@ -81,6 +83,27 @@ impl Default for RangeConfig {
             player_id: "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61".into(),
             command_queue: Some(backend.join("runtime").join("responder_queue")),
             features: Features::default(),
+            lagcomp: LagCompSettings::default(),
         }
+    }
+}
+
+/// [range.lagcomp] (source sdk defaults; view_interp is measured, 0 until then).
+#[derive(Debug, Clone, Deserialize)]
+#[serde(default)]
+pub struct LagCompSettings {
+    pub enabled: bool,
+    /// sv_maxunlag
+    pub max_unlag: f64,
+    /// sv_lagcompensation_teleport_dist, 2d per record
+    pub teleport_dist: f64,
+    pub claim_tolerance: f64,
+    /// the client's view delay for remote entities (docs/port/10 section 4.13)
+    pub view_interp: f64,
+}
+
+impl Default for LagCompSettings {
+    fn default() -> Self {
+        Self { enabled: true, max_unlag: 1.0, teleport_dist: 64.0, claim_tolerance: 0.2, view_interp: 0.0 }
     }
 }

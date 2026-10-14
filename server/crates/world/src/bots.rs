@@ -728,12 +728,30 @@ impl BotField {
     /// takes the shot when it is strictly nearer than the first live bot; a bot
     /// hit sends its health, and on death its DamageHandler bAlive (exported).
     pub fn shots(&mut self, class_name: Option<&str>, shots: u32, camera_location: [f64; 3], pitch: f64, yaw: f64, now: f64) -> RepResult<ShotsResult> {
+        self.shots_with(class_name, shots, camera_location, pitch, yaw, now, |bot| Some(bot.location))
+    }
+
+    /// shots against positions from `locate` (lag compensation rewinds them;
+    /// none = not hittable). `shots` is this with every bot where it stands.
+    #[allow(clippy::too_many_arguments)]
+    pub fn shots_with(&mut self, class_name: Option<&str>, shots: u32, camera_location: [f64; 3], pitch: f64, yaw: f64, now: f64, mut locate: impl FnMut(&Bot) -> Option<[f64; 3]>) -> RepResult<ShotsResult> {
         let direction = view_ray(pitch, yaw);
         let origin = camera_location;
         let mut result = ShotsResult::default();
         for _ in 0..shots {
-            let hit = first_hit(&self.bots, origin, direction);
-            let on_dummy = dummy_hit(self.dummy.as_ref(), origin, direction);
+            // rb:346-355 first_hit and rb:229-234 dummy_hit on the located positions
+            let mut hit: Option<(usize, Region, f64)> = None;
+            for (index, bot) in self.bots.iter().enumerate() {
+                if !bot.alive || !bot.opened {
+                    continue;
+                }
+                if let Some((region, distance)) = locate(bot).and_then(|center| hit_region(origin, direction, center))
+                    && hit.is_none_or(|(_, _, current)| distance < current)
+                {
+                    hit = Some((index, region, distance));
+                }
+            }
+            let on_dummy = self.dummy.as_ref().filter(|dummy| dummy.opened).and_then(|dummy| locate(dummy)).and_then(|[x, y, z]| hit_region(origin, direction, [x, y, z + DUMMY_MESH_LIFT]));
             if let (Some((region, distance)), Some(dummy)) = (on_dummy, self.dummy.as_ref())
                 && hit.is_none_or(|(_, _, bot_distance)| distance < bot_distance)
             {

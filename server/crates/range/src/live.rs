@@ -133,6 +133,23 @@ pub trait LiveClient {
     fn client_set_hud_index(&mut self) -> Result<Option<(u32, u32)>, String> {
         Ok(None)
     }
+    /// our projectile channel's actor on the client (cloudburst flights)
+    fn projectile(&mut self, _channel: u32) -> Result<Option<aries_world::projectiles::ProjectileSnapshot>, String> {
+        Ok(None)
+    }
+    /// the client's gameplay tag net indices (ability tuning opens)
+    fn tag_net_indices(&mut self) -> Result<TagIndices, String> {
+        Err("no live client".into())
+    }
+}
+
+/// predict_net_indices (gameplay_tag_net_index.py) as the ability opens use it.
+#[derive(Debug, Clone, Default, PartialEq)]
+pub struct TagIndices {
+    pub indices: std::collections::HashMap<String, u32>,
+    pub true_bit_num: u32,
+    pub first_bit_segment: i32,
+    pub constructed: bool,
 }
 
 /// no client to read (tests, or the oracle failed to attach): every read is "no data".

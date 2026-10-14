@@ -43,6 +43,16 @@ pub fn pistol_open_body(env: &mut Env, event: &mut Event) -> RepResult<Bits> {
 /// B18 (python 4024-4068): the knife opens with its saved skin; ability
 /// tuning opens join here once the tag net indices are read live.
 pub fn starting_equippable_open_body(index: usize, env: &mut Env, event: &mut Event) -> RepResult<Bits> {
+    if env.config.features.ability_activation && aries_world::abilities::starting_ability_tunings(index).is_some() {
+        // the blueprint reads its tuning at BeginPlay, so it rides in the opening bunch
+        match ability_open_with_tuning(index, env) {
+            Ok((body, tag_bits, constructed)) => {
+                event.set("ability_open_tuning", serde_json::json!([index, tag_bits, constructed]));
+                return Ok(body);
+            }
+            Err(error) => event.set("ability_open_tuning_error", error),
+        }
+    }
     if index != MELEE_STARTING_INDEX {
         return aries_rep::setup::starting_equippable_open_body(index);
     }
@@ -58,6 +68,15 @@ pub fn starting_equippable_open_body(index: usize, env: &mut Env, event: &mut Ev
         MeleeOpen::Error(error) => event.set("melee_initial_cosmetic_error", Value::from(error)),
     }
     Ok(body)
+}
+
+fn ability_open_with_tuning(index: usize, env: &mut Env) -> Result<(Bits, u32, bool), String> {
+    let tags = env.live.tag_net_indices()?;
+    if tags.first_bit_segment < tags.true_bit_num as i32 {
+        return Err("segmented tag net index is not supported".into());
+    }
+    let body = aries_world::abilities::build_ability_open_with_tuning(index, &tags.indices, tags.true_bit_num).map_err(|e| e.to_string())?;
+    Ok((body, tags.true_bit_num, tags.constructed))
 }
 
 /// B13 (python 3784-3791): ClientSetHUD's (field, class max) from the live
