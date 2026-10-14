@@ -75,12 +75,15 @@ struct Timer(windows_sys::Win32::Foundation::HANDLE);
 impl Timer {
     fn new() -> Self {
         use windows_sys::Win32::System::Threading::{
-            CREATE_WAITABLE_TIMER_HIGH_RESOLUTION, CreateWaitableTimerExW, GetCurrentThread, SetThreadPriority, THREAD_PRIORITY_HIGHEST,
-            TIMER_ALL_ACCESS,
+            CREATE_WAITABLE_TIMER_HIGH_RESOLUTION, CreateWaitableTimerExW, GetCurrentProcess, GetCurrentThread, HIGH_PRIORITY_CLASS, SetPriorityClass, SetThreadPriority,
+            THREAD_PRIORITY_HIGHEST, TIMER_ALL_ACCESS,
         };
         unsafe {
             windows_sys::Win32::Media::timeBeginPeriod(1);
-            // the tick thread must win the scheduler when the box is busy
+            // the tick thread must win the scheduler while the game renders on every
+            // core: at normal class the live test lost ticks to 30+ ms preemptions.
+            // it sleeps all but ~0.6 ms of each tick, so the game barely notices
+            SetPriorityClass(GetCurrentProcess(), HIGH_PRIORITY_CLASS);
             SetThreadPriority(GetCurrentThread(), THREAD_PRIORITY_HIGHEST);
             Self(CreateWaitableTimerExW(std::ptr::null(), std::ptr::null(), CREATE_WAITABLE_TIMER_HIGH_RESOLUTION, TIMER_ALL_ACCESS))
         }
