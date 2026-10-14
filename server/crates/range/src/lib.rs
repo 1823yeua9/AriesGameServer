@@ -168,10 +168,11 @@ impl RangeServer {
         if self.config.features.retransmit && reply.conn.challenge_sent {
             reply.resend_lost(header.acked, header.history);
         }
-        // per-packet authority work runs before the dispatch chain, so its frames
-        // take the lower packet sequences (python 1566-2078)
+        // the input ack and the per-packet authority work run before the dispatch
+        // chain, so their frames take the lower packet sequences (python 1496-2078)
+        moves::run_input_ack(&mut reply, &self.config, self.live.as_mut(), decoded, first_bunch.as_ref());
         if reply.conn.bringup.sent(bringup::Stage::ClientRestart) {
-            authority::run_authority(&mut reply, &self.config, self.live.as_mut());
+            authority::run_authority(&mut reply, &self.config, self.live.as_mut(), decoded);
         }
 
         let message_type = first_bunch.as_ref().and_then(|b| b.control_message_type);

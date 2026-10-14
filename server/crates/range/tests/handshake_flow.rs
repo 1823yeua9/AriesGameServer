@@ -4,137 +4,14 @@
 
 use std::net::SocketAddr;
 
-use aries_bits::{BitReader, BitWriter, Bits};
 use aries_net::AresGcm;
-use aries_net::client::{open_server_datagram, seal_client_packet};
+use aries_net::client::open_server_datagram;
 use aries_net::control::{inspect_first_bunch, read_packet_header};
 use aries_net::handshake::{self, CHALLENGE_BITS};
-use aries_range::{KeySource, Outbox, RangeConfig, RangeServer, SessionKeys};
+use aries_range::{Outbox, RangeConfig, RangeServer};
 
-const CLIENT_KEY: [u8; 32] = [0x20; 32];
-const SERVER_KEY: [u8; 32] = [0x40; 32];
-const STATELESS: u32 = 12;
-
-struct FixedKeys;
-
-impl KeySource for FixedKeys {
-    fn read_keys(&mut self) -> Result<SessionKeys, String> {
-        Ok(SessionKeys { client_send: CLIENT_KEY, server_send: SERVER_KEY })
-    }
-}
-
-struct Client {
-    gcm: AresGcm,
-    server_gcm: AresGcm,
-    sequence: u32,
-    acked: u32,
-    counter: u32,
-}
-
-fn packed(w: &mut BitWriter, value: u64) {
-    w.append_packed_uint(value);
-}
-
-impl Client {
-    fn header(&mut self, w: &mut BitWriter) {
-        w.append_u32((self.sequence << 18) | (self.acked << 4));
-        w.append_u32(0);
-        w.append_bits(1, 1);
-        w.append_bits(0, 11);
-        self.sequence = (self.sequence + 1) & 0x3FFF;
-    }
-
-    /// an ack-only 77-bit packet.
-    fn short(&mut self) -> Bits {
-        let mut w = BitWriter::new();
-        self.header(&mut w);
-        w.append_bits(1, 1);
-        w.finish().unwrap()
-    }
-
-    /// a reliable control bunch on channel 0 with an nmt message, padded to `total` bits.
-    fn control(&mut self, message_type: u8, open: bool, total: usize) -> Bits {
-        let mut w = BitWriter::new();
-        self.header(&mut w);
-        w.append_bits(1, 1); // control
-        w.append_bool(open);
-        w.append_bits(0, 1); // close
-        w.append_bits(0, 1); // paused
-        w.append_bits(1, 1); // reliable
-        packed(&mut w, 0);
-        w.append_bits(0, 4);
-        w.append_bits(100, 12);
-        w.append_bits(1, 1);
-        packed(&mut w, 2);
-        let body_bits = total - 1 - w.bit_count() - 13;
-        w.append_bits(body_bits as u64, 13);
-        w.append_bits(message_type as u64, 8);
-        for _ in 8..body_bits {
-            w.append_bits(0, 1);
-        }
-        w.append_bits(1, 1);
-        let bits = w.finish().unwrap();
-        assert_eq!(bits.bit_count, total);
-        bits
-    }
-
-    fn seal(&mut self, packet: &Bits) -> Vec<u8> {
-        self.counter += 1;
-        seal_client_packet(packet, self.counter, STATELESS, &self.gcm)
-    }
-}
-
-fn initial_datagram() -> Vec<u8> {
-    let mut w = BitWriter::new();
-    w.append_bits(0, 64);
-    w.append_bits(1, 2);
-    w.append_bits(3, 3);
-    w.append_bits(1, 1);
-    w.append_bits(0, 1);
-    w.append_bits(4, 8);
-    w.append_bits(4, 8);
-    w.append_bits(0, 8);
-    w.append_bits(1, 8);
-    w.append_u32(0x1234);
-    w.append_bits(0, 16);
-    w.append_bits(0, 1);
-    w.append_f64(0.0);
-    for _ in 0..(160 + 128) / 32 {
-        w.append_u32(0);
-    }
-    w.append_bits(1, 1);
-    w.finish().unwrap().bytes
-}
-
-fn response_datagram(challenge: &[u8]) -> Vec<u8> {
-    // echo the challenge's timestamp and cookie back as a type-2 response
-    let mut r = BitReader::new(&challenge[4..], (challenge.len() - 4) * 8);
-    r.set_position(2 + 3 + 2 + 8 + 8 + 8 + 8 + 32 + 16 + 1);
-    let timestamp = r.read_f64();
-    let cookie: Vec<u64> = (0..20).map(|_| r.read_bits(8)).collect();
-    let mut w = BitWriter::new();
-    w.append_bits(0, 64);
-    w.append_bits(1, 2);
-    w.append_bits(3, 3);
-    w.append_bits(1, 1);
-    w.append_bits(0, 1);
-    w.append_bits(4, 8);
-    w.append_bits(4, 8);
-    w.append_bits(2, 8);
-    w.append_bits(2, 8);
-    w.append_u32(0x1234);
-    w.append_bits(0, 16);
-    w.append_bits(0, 1);
-    w.append_f64(timestamp);
-    for byte in cookie {
-        w.append_bits(byte, 8);
-    }
-    for _ in 0..4 {
-        w.append_u32(0);
-    }
-    w.append_bits(1, 1);
-    w.finish().unwrap().bytes
-}
+mod common;
+use common::*;
 
 #[test]
 fn handshake_through_session_acks() {

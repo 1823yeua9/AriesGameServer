@@ -3,10 +3,12 @@
 //! before the session-ack tick (so their frames take the lower packet
 //! sequences). docs/port/05_authority_loop.md.
 
-use std::collections::HashMap;
+use std::collections::{HashMap, HashSet};
 use std::path::Path;
 
-use serde_json::{Value, json};
+use aries_bits::Bits;
+use aries_rep::decode::RangeSettingsRequest;
+use serde_json::{Map, Value, json};
 
 use crate::bringup::{STARTING_EQUIPPABLES, Stage};
 use crate::config::RangeConfig;
@@ -32,6 +34,12 @@ pub struct AuthorityState {
     pub streaming_sent: bool,
     pub ultimate_points_sent: bool,
     pub settings_requested: bool,
+    /// python range_settings_sequences_seen (172..177 share it)
+    pub settings_sequences_seen: HashSet<u32>,
+    /// the last ServerUpdateShootingRangeSettings (python range_settings_state)
+    pub settings: Option<RangeSettingsRequest>,
+    /// python range_infinite_ammo_sent
+    pub infinite_ammo_sent: Option<bool>,
     pub command_queue_polled: Option<f64>,
     pub hud_refresh_polled: Option<f64>,
     pub hud_refresh_count: u32,
@@ -48,7 +56,7 @@ fn starting_equippables_done(reply: &Reply) -> bool {
 }
 
 /// python 1566-2078 in order. the gate (ClientRestart sent) is checked by the caller.
-pub fn run_authority(reply: &mut Reply, config: &RangeConfig, live: &mut dyn LiveClient) {
+pub fn run_authority(reply: &mut Reply, config: &RangeConfig, live: &mut dyn LiveClient, decoded: &Bits) {
     // 2 equippable mirror (+ firing seed shots, cloudburst hook): world integration
     if config.features.input_correction {
         input_correction(reply, live);
@@ -61,8 +69,9 @@ pub fn run_authority(reply: &mut Reply, config: &RangeConfig, live: &mut dyn Liv
     }
     ultimate_points(reply, live);
     // 8 store purchases: world integration
-    if config.features.range_settings {
+    if config.features.range_settings && reply.conn.authority.streaming_sent {
         range_settings_request(reply);
+        range_settings_apply(reply, decoded);
     }
     if let Some(queue) = &config.command_queue {
         command_queue(reply, queue);
@@ -186,7 +195,7 @@ fn ultimate_points(reply: &mut Reply, live: &mut dyn LiveClient) {
 
 /// 6.10 (request half): ask the client for its range settings once, 3 s after the range hud.
 fn range_settings_request(reply: &mut Reply) {
-    if !reply.conn.authority.streaming_sent || reply.conn.authority.settings_requested {
+    if reply.conn.authority.settings_requested {
         return;
     }
     if reply.conn.authority.range_hud_sent.is_some_and(|t| reply.now - t < SETTINGS_REQUEST_DELAY) {
@@ -202,6 +211,62 @@ fn range_settings_request(reply: &mut Reply) {
         }
         Err(error) => reply.event.set("range_settings_error", error),
     }
+}
+
+/// 6.10 (apply half): each new 172..177 rpc is logged; 176 carries the settings
+/// struct and its infinite-ammo flag goes to GameState GameInfo handle 46,
+/// which the client's ammo and reload paths read natively.
+fn range_settings_apply(reply: &mut Reply, decoded: &Bits) {
+    let requests = aries_rep::decode::decode_range_settings_requests(decoded);
+    for request in aries_rep::decode::take_new_range_settings(requests, &mut reply.conn.authority.settings_sequences_seen) {
+        reply.event.push("received_range_settings", settings_event(&request));
+        if request.field != aries_rep::decode::SERVER_UPDATE_SHOOTING_RANGE_SETTINGS_FIELD {
+            continue;
+        }
+        let infinite_ammo = request.infinite_ammo;
+        reply.conn.authority.settings = Some(request);
+        if reply.conn.authority.infinite_ammo_sent == Some(infinite_ammo) {
+            continue;
+        }
+        // python marks it sent only after the send returns
+        let result = aries_rep::setup::infinite_ammo_body(infinite_ammo)
+            .map_err(|e| e.to_string())
+            .and_then(|body| reply.send_reliable(4, &body, false, false, false).map_err(|e| e.to_string()));
+        match result {
+            Ok(_) => {
+                reply.conn.authority.infinite_ammo_sent = Some(infinite_ammo);
+                reply.event.set("sent_infinite_ammo", infinite_ammo);
+            }
+            Err(error) => reply.event.set("range_settings_error", error),
+        }
+    }
+}
+
+/// python {key: value for key, value in request.__dict__.items() if value}
+fn settings_event(request: &RangeSettingsRequest) -> Value {
+    let mut map = Map::new();
+    let mut put = |key: &str, value: Value, truthy: bool| {
+        if truthy {
+            map.insert(key.to_string(), value);
+        }
+    };
+    put("field", json!(request.field), request.field != 0);
+    put("channel_sequence", json!(request.channel_sequence), request.channel_sequence != 0);
+    put("bot_armor", json!(true), request.bot_armor);
+    put("bot_strafe", json!(true), request.bot_strafe);
+    put("infinite_ammo", json!(true), request.infinite_ammo);
+    put("skill_test", json!(request.skill_test), request.skill_test != 0);
+    put("plant_difficulty", json!(request.plant_difficulty), request.plant_difficulty != 0);
+    put("defuse_difficulty", json!(request.defuse_difficulty), request.defuse_difficulty != 0);
+    put("practice_mode", json!(true), request.practice_mode);
+    put("bot_amount_index", json!(request.bot_amount_index), request.bot_amount_index != 0);
+    put("distance_index", json!(request.distance_index), request.distance_index != 0);
+    put("bot_enabled", json!(true), request.bot_enabled);
+    put("is_init_settings_flow", json!(true), request.is_init_settings_flow);
+    if let Some(path) = request.object_path.as_deref().filter(|p| !p.is_empty()) {
+        put("object_path", json!(path), true);
+    }
+    Value::Object(map)
 }
 
 /// 6.11: a debug hook. json files dropped in the queue dir are sent as

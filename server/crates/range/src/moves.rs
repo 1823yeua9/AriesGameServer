@@ -3,6 +3,8 @@
 //! correction, every later one ClientAckInputAndMovement(0xffffffff, move).
 //! unreliable on ch8. docs/port/04_bringup_b.md section 9.
 
+use aries_bits::Bits;
+use aries_net::control::BunchInfo;
 use serde_json::json;
 
 use crate::bringup::Stage;
@@ -22,6 +24,50 @@ pub struct MoveAckState {
     pub correction_sent: bool,
     /// python last_input_ack_numbers (default -1)
     pub last_input_event: Option<u32>,
+}
+
+/// the input-ack trial (python 1496-1563), every authenticated datagram whose
+/// first bunch is on the pawn channel: ack only event ids parsed off this
+/// packet's wire, never the client's generated cursor. the generated bound only
+/// guards against a stray 0xA3 marker inside another rpc's payload.
+pub fn run_input_ack(reply: &mut Reply, config: &RangeConfig, live: &mut dyn LiveClient, decoded: &Bits, first_bunch: Option<&BunchInfo>) {
+    if !config.features.input_ack || !reply.conn.bringup.sent(Stage::ClientRestart) {
+        return;
+    }
+    let Some(bunch) = first_bunch.filter(|b| b.channel_index == 8) else {
+        return;
+    };
+    // the first bunch's bounds are not checked against the payload size, so read
+    // the bytes as python holds them (trailer bits restored)
+    let packet = aries_rep::decode::with_client_trailer(decoded);
+    let streams = aries_rep::decode::decode_received_actor_inputs(&packet, bunch.body_start_bit, bunch.end_bit, None).unwrap_or_default();
+    let [stream] = streams.as_slice() else {
+        return;
+    };
+    let latest = stream.last_event_id;
+    match live.latest_generated_input_event() {
+        Ok(Some(bound)) if latest <= bound => {}
+        _ => {
+            reply.event.set("input_ack_rejected_event_id", latest);
+            return;
+        }
+    }
+    let activations: Vec<_> = stream.events.iter().filter(|e| e.kind == 1).map(|e| json!({"event_id": e.event_id, "slot": e.slot, "state": e.state, "action": e.action})).collect();
+    if !activations.is_empty() {
+        reply.event.set("received_activation_events", activations);
+    }
+    if reply.conn.moves.last_input_event.is_some_and(|last| latest <= last) {
+        return;
+    }
+    let result = aries_rep::setup::input_ack_body(latest).map_err(|e| e.to_string()).and_then(|body| reply.send_unreliable(8, &body).map_err(|e| e.to_string()));
+    match result {
+        Ok(length) => {
+            reply.event.set("input_ack_received_event_id", latest);
+            reply.event.set("input_ack_received_frame_length", length);
+            reply.conn.moves.last_input_event = Some(latest);
+        }
+        Err(error) => reply.event.set("input_ack_error", error),
+    }
 }
 
 pub fn run_move_ack(reply: &mut Reply, config: &RangeConfig, live: &mut dyn LiveClient) {
