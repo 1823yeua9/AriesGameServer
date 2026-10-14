@@ -1,0 +1,3048 @@
+{
+ "words": [
+  {
+   "text": "17f0db96-4e2d-6bfd-da2f-aaa54a1d3ffc",
+   "words": [
+    401660822,
+    1311599613,
+    3660556965,
+    1243430908
+   ]
+  },
+  {
+   "text": "29a0cfab-485b-f5d5-779a-b59f85e204a8",
+   "words": [
+    698404779,
+    1213986261,
+    2006627743,
+    2246182056
+   ]
+  },
+  {
+   "text": "2f59173c-4bed-b6c3-2191-dea9b58be9c7",
+   "words": [
+    794367804,
+    1273870019,
+    563207849,
+    3045845447
+   ]
+  },
+  {
+   "text": "FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF",
+   "words": [
+    4294967295,
+    4294967295,
+    4294967295,
+    4294967295
+   ]
+  },
+  {
+   "text": "00000000-0000-0000-0000-000000000000",
+   "words": [
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "text": "AbCdEf01-2345-6789-aBcD-eF0123456789",
+   "words": [
+    2882400001,
+    591751049,
+    2882400001,
+    591751049
+   ]
+  },
+  {
+   "text": "17f0db964e2d6bfdda2faaa54a1d3ffc",
+   "error": "ValueError",
+   "message": "asset GUID must use canonical 8-4-4-4-12 text"
+  },
+  {
+   "text": "{17f0db96-4e2d-6bfd-da2f-aaa54a1d3ffc}",
+   "error": "ValueError",
+   "message": "asset GUID must use canonical 8-4-4-4-12 text"
+  },
+  {
+   "text": "17f0db96-4e2d-6bfd-da2f-aaa54a1d3ffc ",
+   "error": "ValueError",
+   "message": "asset GUID must use canonical 8-4-4-4-12 text"
+  },
+  {
+   "text": "17f0db96-4e2d-6bfd-da2f-aaa54a1d3ff",
+   "error": "ValueError",
+   "message": "asset GUID must use canonical 8-4-4-4-12 text"
+  },
+  {
+   "text": "17f0db96-4e2d-6bfd-da2f-aaa54a1d3ffg",
+   "error": "ValueError",
+   "message": "asset GUID must use canonical 8-4-4-4-12 text"
+  },
+  {
+   "text": "17f0db96_4e2d_6bfd_da2f_aaa54a1d3ffc",
+   "error": "ValueError",
+   "message": "asset GUID must use canonical 8-4-4-4-12 text"
+  },
+  {
+   "text": "",
+   "error": "ValueError",
+   "message": "asset GUID must use canonical 8-4-4-4-12 text"
+  },
+  {
+   "text": "17f0db96-4e2d-6bfd-da2f-aaa54a1d3ffc\n",
+   "error": "ValueError",
+   "message": "asset GUID must use canonical 8-4-4-4-12 text"
+  },
+  {
+   "text": "\uff117f0db96-4e2d-6bfd-da2f-aaa54a1d3ffc",
+   "error": "ValueError",
+   "message": "asset GUID must use canonical 8-4-4-4-12 text"
+  }
+ ],
+ "layouts": {
+  "base_pistol": {
+   "weapon_id": "29a0cfab-485b-f5d5-779a-b59f85e204a8",
+   "channel": 9,
+   "actor": 94,
+   "archetype_name": "Default__BasePistol_C",
+   "archetype_package": "/Game/Equippables/Guns/Sidearms/BasePistol/BasePistol",
+   "archetype_guid": 95,
+   "package_guid": 97,
+   "level_guid": 5,
+   "pointer_handles": [
+    18,
+    19,
+    21
+   ],
+   "uuid_handles": [
+    24,
+    28,
+    41
+   ],
+   "pairs": [
+    [
+     229,
+     231
+    ],
+    [
+     233,
+     235
+    ],
+    [
+     237,
+     239
+    ]
+   ]
+  },
+  "melee": {
+   "weapon_id": "2f59173c-4bed-b6c3-2191-dea9b58be9c7",
+   "channel": 13,
+   "actor": 204,
+   "archetype_name": "Default__Ability_Melee_Base_C",
+   "archetype_package": "/Game/Equippables/Melee/Ability_Melee_Base",
+   "archetype_guid": 205,
+   "package_guid": 207,
+   "level_guid": 5,
+   "pointer_handles": [
+    18,
+    19,
+    21
+   ],
+   "uuid_handles": [
+    24,
+    28,
+    41
+   ],
+   "pairs": [
+    [
+     241,
+     243
+    ],
+    [
+     245,
+     247
+    ],
+    [
+     249,
+     251
+    ]
+   ]
+  }
+ },
+ "opens": [
+  {
+   "name": "pistol_saved",
+   "paths": {
+    "weapon_id": "29a0cfab-485b-f5d5-779a-b59f85e204a8",
+    "skin": {
+     "kind": "skin",
+     "asset_id": "051f5a50-4b95-9452-f18a-a1add8266757",
+     "source_asset": "Equippables/Guns/Sidearms/BasePistol/Coven/BasePistol_Coven_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Sidearms/BasePistol/Coven/BasePistol_Coven_PrimaryAsset",
+     "object_name": "Default__BasePistol_Coven_PrimaryAsset_C",
+     "packaged": true
+    },
+    "level": {
+     "kind": "level",
+     "asset_id": "48d4142e-4538-0bb6-9fa1-57b36dd87b47",
+     "source_asset": "Equippables/Guns/Sidearms/BasePistol/Coven/Levels/BasePistol_Coven_Lv4_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Sidearms/BasePistol/Coven/Levels/BasePistol_Coven_Lv4_PrimaryAsset",
+     "object_name": "Default__BasePistol_Coven_Lv4_PrimaryAsset_C",
+     "packaged": true
+    },
+    "chroma": {
+     "kind": "chroma",
+     "asset_id": "b36bfcf3-45a0-64c5-fa75-61bd9b20c107",
+     "source_asset": "Equippables/Guns/Sidearms/BasePistol/Coven/Chromas/v2/BasePistol_Coven_V2_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Sidearms/BasePistol/Coven/Chromas/v2/BasePistol_Coven_V2_PrimaryAsset",
+     "object_name": "Default__BasePistol_Coven_V2_PrimaryAsset_C",
+     "packaged": true
+    }
+   },
+   "layout": {
+    "weapon_id": "29a0cfab-485b-f5d5-779a-b59f85e204a8",
+    "channel": 9,
+    "actor": 94,
+    "archetype_name": "Default__BasePistol_C",
+    "archetype_package": "/Game/Equippables/Guns/Sidearms/BasePistol/BasePistol",
+    "archetype_guid": 95,
+    "package_guid": 97,
+    "level_guid": 5,
+    "pointer_handles": [
+     18,
+     19,
+     21
+    ],
+    "uuid_handles": [
+     24,
+     28,
+     41
+    ],
+    "pairs": [
+     [
+      229,
+      231
+     ],
+     [
+      233,
+      235
+     ],
+     [
+      237,
+      239
+     ]
+    ]
+   },
+   "attachments": [],
+   "hex": "080000007c0b840b006c0000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea6d2c8cac2e4dae65e84c2e6caa0d2e6e8ded85e84c2e6caa0d2e6e8ded800000000002c00000088caccc2ead8e8bebe84c2e6caa0d2e6e8ded8be86000000000096050a9e050a009e0000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea6d2c8cac2e4dae65e84c2e6caa0d2e6e8ded85e86deeccadc5e84c2e6caa0d2e6e8ded8be86deeccadcbea0e4d2dac2e4f282e6e6cae800000000005200000088caccc2ead8e8bebe84c2e6caa0d2e6e8ded8be86deeccadcbea0e4d2dac2e4f282e6e6cae8be860000000000a6050aae050a00b40000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea6d2c8cac2e4dae65e84c2e6caa0d2e6e8ded85e86deeccadc5e98caeccad8e65e84c2e6caa0d2e6e8ded8be86deeccadcbe98ec68bea0e4d2dac2e4f282e6e6cae800000000005a00000088caccc2ead8e8bebe84c2e6caa0d2e6e8ded8be86deeccadcbe98ec68bea0e4d2dac2e4f282e6e6cae8be860000000000b6050abe050a00ba0000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea6d2c8cac2e4dae65e84c2e6caa0d2e6e8ded85e86deeccadc5e86d0e4dedac2e65eec645e84c2e6caa0d2e6e8ded8be86deeccadcbeac64bea0e4d2dac2e4f282e6e6cae800000000005800000088caccc2ead8e8bebe84c2e6caa0d2e6e8ded8be86deeccadcbeac64bea0e4d2dac2e4f282e6e6cae8be860000000000787d15e03184dc3e6ab79bbe9bd85c794f081c5db6f836450058a4fdac9fa5ea9980d295117e444d9dbcecc571ea8c7bdcfa53d99ffd6b91b49332ed747af44a2ec5ec9345eedbf23bcfc787",
+   "bit_count": 5104
+  },
+  {
+   "name": "pistol_test_selection",
+   "paths": {
+    "weapon_id": "29a0cfab-485b-f5d5-779a-b59f85e204a8",
+    "skin": {
+     "kind": "skin",
+     "asset_id": "17f0db96-4e2d-6bfd-da2f-aaa54a1d3ffc",
+     "source_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/BasePistol_VCTCaps24_GX_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/BasePistol_VCTCaps24_GX_PrimaryAsset",
+     "object_name": "Default__BasePistol_VCTCaps24_GX_PrimaryAsset_C",
+     "packaged": true
+    },
+    "level": {
+     "kind": "level",
+     "asset_id": "ec4538c6-4cca-ac11-817a-648683ba94a8",
+     "source_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Levels/BasePistol_VCTCaps24_GX_Lv3_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Levels/BasePistol_VCTCaps24_GX_Lv3_PrimaryAsset",
+     "object_name": "Default__BasePistol_VCTCaps24_GX_Lv3_PrimaryAsset_C",
+     "packaged": true
+    },
+    "chroma": {
+     "kind": "chroma",
+     "asset_id": "dc43425b-4c3c-f90e-613b-46996c48eba8",
+     "source_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Chromas/Standard/BasePistol_VCTCaps24_GX_Standard_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Chromas/Standard/BasePistol_VCTCaps24_GX_Standard_PrimaryAsset",
+     "object_name": "Default__BasePistol_VCTCaps24_GX_Standard_PrimaryAsset_C",
+     "packaged": true
+    }
+   },
+   "layout": {
+    "weapon_id": "29a0cfab-485b-f5d5-779a-b59f85e204a8",
+    "channel": 9,
+    "actor": 94,
+    "archetype_name": "Default__BasePistol_C",
+    "archetype_package": "/Game/Equippables/Guns/Sidearms/BasePistol/BasePistol",
+    "archetype_guid": 95,
+    "package_guid": 97,
+    "level_guid": 5,
+    "pointer_handles": [
+     18,
+     19,
+     21
+    ],
+    "uuid_handles": [
+     24,
+     28,
+     41
+    ],
+    "pairs": [
+     [
+      229,
+      231
+     ],
+     [
+      233,
+      235
+     ],
+     [
+      237,
+      239
+     ]
+    ]
+   },
+   "attachments": [],
+   "hex": "080000007c0b840b006c0000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea6d2c8cac2e4dae65e84c2e6caa0d2e6e8ded85e84c2e6caa0d2e6e8ded800000000002c00000088caccc2ead8e8bebe84c2e6caa0d2e6e8ded8be86000000000096050a9e050a00ce0000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea6d2c8cac2e4dae65e84c2e6caa0d2e6e8ded85eac86a886c2e0e664685eac86a886c2e0e66468be8eb05e84c2e6caa0d2e6e8ded8beac86a886c2e0e66468be8eb0bea0e4d2dac2e4f282e6e6cae800000000006000000088caccc2ead8e8bebe84c2e6caa0d2e6e8ded8beac86a886c2e0e66468be8eb0bea0e4d2dac2e4f282e6e6cae8be860000000000a6050aae050a00e40000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea6d2c8cac2e4dae65e84c2e6caa0d2e6e8ded85eac86a886c2e0e664685eac86a886c2e0e66468be8eb05e98caeccad8e65e84c2e6caa0d2e6e8ded8beac86a886c2e0e66468be8eb0be98ec66bea0e4d2dac2e4f282e6e6cae800000000006800000088caccc2ead8e8bebe84c2e6caa0d2e6e8ded8beac86a886c2e0e66468be8eb0be98ec66bea0e4d2dac2e4f282e6e6cae8be860000000000b6050abe050a00020100005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea6d2c8cac2e4dae65e84c2e6caa0d2e6e8ded85eac86a886c2e0e664685eac86a886c2e0e66468be8eb05e86d0e4dedac2e65ea6e8c2dcc8c2e4c85e84c2e6caa0d2e6e8ded8beac86a886c2e0e66468be8eb0bea6e8c2dcc8c2e4c8bea0e4d2dac2e4f282e6e6cae800000000007200000088caccc2ead8e8bebe84c2e6caa0d2e6e8ded8beac86a886c2e0e66468be8eb0bea6e8c2dcc8c2e4c8bea0e4d2dac2e4f282e6e6cae8be860000000000787d15e03184dc3e6ab79bbe9b58fc5240081cdd7fc42625496985beac3c45d4b04098158b81002c1da0ade11af68a2b28f1e2d8756233e29a936cdf6ea515dec8514fca459b89cec7e5effa",
+   "bit_count": 5992
+  },
+  {
+   "name": "knife_saved",
+   "paths": {
+    "weapon_id": "2f59173c-4bed-b6c3-2191-dea9b58be9c7",
+    "skin": {
+     "kind": "skin",
+     "asset_id": "1c808469-4aee-ae6c-fcd2-1099e96ac6a0",
+     "source_asset": "Equippables/Melee/Rogue/Melee_Rogue_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Melee/Rogue/Melee_Rogue_PrimaryAsset",
+     "object_name": "Default__Melee_Rogue_PrimaryAsset_C",
+     "packaged": true
+    },
+    "level": {
+     "kind": "level",
+     "asset_id": "319ba790-4bfc-0099-4c50-de822474a7b8",
+     "source_asset": "Equippables/Melee/Rogue/Levels/Melee_Rogue_Lv2_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Melee/Rogue/Levels/Melee_Rogue_Lv2_PrimaryAsset",
+     "object_name": "Default__Melee_Rogue_Lv2_PrimaryAsset_C",
+     "packaged": true
+    },
+    "chroma": {
+     "kind": "chroma",
+     "asset_id": "a0887c73-4ba7-3064-2378-3981c6ed3e2c",
+     "source_asset": "Equippables/Melee/Rogue/Chromas/v3/Melee_Rogue_v3_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Melee/Rogue/Chromas/v3/Melee_Rogue_v3_PrimaryAsset",
+     "object_name": "Default__Melee_Rogue_v3_PrimaryAsset_C",
+     "packaged": true
+    }
+   },
+   "layout": {
+    "weapon_id": "2f59173c-4bed-b6c3-2191-dea9b58be9c7",
+    "channel": 13,
+    "actor": 204,
+    "archetype_name": "Default__Ability_Melee_Base_C",
+    "archetype_package": "/Game/Equippables/Melee/Ability_Melee_Base",
+    "archetype_guid": 205,
+    "package_guid": 207,
+    "level_guid": 5,
+    "pointer_handles": [
+     18,
+     19,
+     21
+    ],
+    "uuid_handles": [
+     24,
+     28,
+     41
+    ],
+    "pairs": [
+     [
+      241,
+      243
+     ],
+     [
+      245,
+      247
+     ],
+     [
+      249,
+      251
+     ]
+    ]
+   },
+   "attachments": [],
+   "hex": "0800000036050a3e050a00560000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e9acad8caca5e82c4d2d8d2e8f2be9acad8cacabe84c2e6ca00000000003c00000088caccc2ead8e8bebe82c4d2d8d2e8f2be9acad8cacabe84c2e6cabe860000000000c6050ace050a006e0000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e9acad8caca5ea4deceeaca5e9acad8cacabea4deceeacabea0e4d2dac2e4f282e6e6cae800000000004800000088caccc2ead8e8bebe9acad8cacabea4deceeacabea0e4d2dac2e4f282e6e6cae8be860000000000d6050ade050a00840000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e9acad8caca5ea4deceeaca5e98caeccad8e65e9acad8cacabea4deceeacabe98ec64bea0e4d2dac2e4f282e6e6cae800000000005000000088caccc2ead8e8bebe9acad8cacabea4deceeacabe98ec64bea0e4d2dac2e4f282e6e6cae8be860000000000e6050aee050a008a0000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e9acad8caca5ea4deceeaca5e86d0e4dedac2e65eec665e9acad8cacabea4deceeacabeec66bea0e4d2dac2e4f282e6e6cae800000000004e00000088caccc2ead8e8bebe9acad8cacabea4deceeacabeec66bea0e4d2dac2e4f282e6e6cae8be8600000000003205360514e03184ddbc533b50e9da589456920fc94009f30a99567d90aab1b920547752d8abac4688ea7aa496aaf4e8154f666cd6c0c7ae0c6e750567f7f8a3d88ffb5acea0f05d1fc1bcb53df5",
+   "bit_count": 4416
+  },
+  {
+   "name": "vandal_saved_one",
+   "paths": {
+    "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+    "skin": {
+     "kind": "skin",
+     "asset_id": "4f5ee03a-4204-5526-6941-bca4f911a768",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/AK_StarPower_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/AK_StarPower_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_PrimaryAsset_C",
+     "packaged": true
+    },
+    "level": {
+     "kind": "level",
+     "asset_id": "cdb2688f-4a03-3d6a-39e0-1bafe0d9c8ce",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/Levels/AK_StarPower_Lv4_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/Levels/AK_StarPower_Lv4_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_Lv4_PrimaryAsset_C",
+     "packaged": true
+    },
+    "chroma": {
+     "kind": "chroma",
+     "asset_id": "1bf0d77f-4e94-9dc0-7a7a-fb8430b569d3",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/Chromas/Standard/AK_StarPower_Standard_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/Chromas/Standard/AK_StarPower_Standard_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_Standard_PrimaryAsset_C",
+     "packaged": true
+    }
+   },
+   "layout": {
+    "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+    "channel": 20,
+    "actor": 520,
+    "archetype_name": "Default__AssaultRifle_AK_C",
+    "archetype_package": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK",
+    "archetype_guid": 523,
+    "package_guid": 525,
+    "level_guid": 5,
+    "pointer_handles": [
+     18,
+     19,
+     21
+    ],
+    "uuid_handles": [
+     24,
+     28,
+     41
+    ],
+    "pairs": [
+     [
+      535,
+      537
+     ],
+     [
+      539,
+      541
+     ],
+     [
+      543,
+      545
+     ]
+    ]
+   },
+   "attachments": [
+    [
+     547,
+     [
+      3641701264,
+      1296952904,
+      2370616479,
+      2064791186
+     ]
+    ]
+   ],
+   "hex": "080000002e100a36100a00620000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea4d2ccd8cae65e82965e82e6e6c2ead8e8a4d2ccd8cabe829600000000003600000088caccc2ead8e8bebe82e6e6c2ead8e8a4d2ccd8cabe8296be8600000000005e100a66100a008a0000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea4d2ccd8cae65e82965ea6e8c2e4a0deeecae45e8296bea6e8c2e4a0deeecae4bea0e4d2dac2e4f282e6e6cae800000000004a00000088caccc2ead8e8bebe8296bea6e8c2e4a0deeecae4bea0e4d2dac2e4f282e6e6cae8be8600000000006e100a76100a00a00000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea4d2ccd8cae65e82965ea6e8c2e4a0deeecae45e98caeccad8e65e8296bea6e8c2e4a0deeecae4be98ec68bea0e4d2dac2e4f282e6e6cae800000000005200000088caccc2ead8e8bebe8296bea6e8c2e4a0deeecae4be98ec68bea0e4d2dac2e4f282e6e6cae8be8600000000007e100a86100a00be0000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea4d2ccd8cae65e82965ea6e8c2e4a0deeecae45e86d0e4dedac2e65ea6e8c2dcc8c2e4c85e8296bea6e8c2e4a0deeecae4bea6e8c2dcc8c2e4c8bea0e4d2dac2e4f282e6e6cae800000000005c00000088caccc2ead8e8bebe8296bea6e8c2e4a0deeecae4bea6e8c2dcc8c2e4c8bea0e4d2dac2e4f282e6e6cae8be86000000000022102e1014e02986fc11bf80eeb95afc2de0911d761aac11c3fe7a287c75529e9634ec31ea7c466879f8bfe2a826a7a524c0cf99bd6700e43d441c5a35f041d7146a20ac3749758187767216535861c8ce87ee80e66ef9d86d2ae1e65bfcccfd87b481c0990cbf126edcfd4cc4",
+   "bit_count": 5192
+  },
+  {
+   "name": "vandal_saved_two",
+   "paths": {
+    "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+    "skin": {
+     "kind": "skin",
+     "asset_id": "4f5ee03a-4204-5526-6941-bca4f911a768",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/AK_StarPower_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/AK_StarPower_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_PrimaryAsset_C",
+     "packaged": true
+    },
+    "level": {
+     "kind": "level",
+     "asset_id": "cdb2688f-4a03-3d6a-39e0-1bafe0d9c8ce",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/Levels/AK_StarPower_Lv4_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/Levels/AK_StarPower_Lv4_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_Lv4_PrimaryAsset_C",
+     "packaged": true
+    },
+    "chroma": {
+     "kind": "chroma",
+     "asset_id": "1bf0d77f-4e94-9dc0-7a7a-fb8430b569d3",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/Chromas/Standard/AK_StarPower_Standard_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/Chromas/Standard/AK_StarPower_Standard_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_Standard_PrimaryAsset_C",
+     "packaged": true
+    }
+   },
+   "layout": {
+    "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+    "channel": 20,
+    "actor": 520,
+    "archetype_name": "Default__AssaultRifle_AK_C",
+    "archetype_package": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK",
+    "archetype_guid": 523,
+    "package_guid": 525,
+    "level_guid": 5,
+    "pointer_handles": [
+     18,
+     19,
+     21
+    ],
+    "uuid_handles": [
+     24,
+     28,
+     41
+    ],
+    "pairs": [
+     [
+      535,
+      537
+     ],
+     [
+      539,
+      541
+     ],
+     [
+      543,
+      545
+     ]
+    ]
+   },
+   "attachments": [
+    [
+     547,
+     [
+      1,
+      2,
+      3,
+      4
+     ]
+    ],
+    [
+     551,
+     [
+      5,
+      6,
+      7,
+      8
+     ]
+    ]
+   ],
+   "hex": "080000002e100a36100a00620000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea4d2ccd8cae65e82965e82e6e6c2ead8e8a4d2ccd8cabe829600000000003600000088caccc2ead8e8bebe82e6e6c2ead8e8a4d2ccd8cabe8296be8600000000005e100a66100a008a0000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea4d2ccd8cae65e82965ea6e8c2e4a0deeecae45e8296bea6e8c2e4a0deeecae4bea0e4d2dac2e4f282e6e6cae800000000004a00000088caccc2ead8e8bebe8296bea6e8c2e4a0deeecae4bea0e4d2dac2e4f282e6e6cae8be8600000000006e100a76100a00a00000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea4d2ccd8cae65e82965ea6e8c2e4a0deeecae45e98caeccad8e65e8296bea6e8c2e4a0deeecae4be98ec68bea0e4d2dac2e4f282e6e6cae800000000005200000088caccc2ead8e8bebe8296bea6e8c2e4a0deeecae4be98ec68bea0e4d2dac2e4f282e6e6cae8be8600000000007e100a86100a00be0000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea4d2ccd8cae65e82965ea6e8c2e4a0deeecae45e86d0e4dedac2e65ea6e8c2dcc8c2e4c85e8296bea6e8c2e4a0deeecae4bea6e8c2dcc8c2e4c8bea0e4d2dac2e4f282e6e6cae800000000005c00000088caccc2ead8e8bebe8296bea6e8c2e4a0deeecae4bea6e8c2dcc8c2e4c8bea0e4d2dac2e4f282e6e6cae8be86000000000022102e1014e06187fd91bab0ee975afc9496c5c037d7c30c9f24ed5771f573718f3f1921176beefeefdb4ddd979f23706f9a5b921fddf7dc2da60aabe9b8756e2f87bd012315e5f6529ca91d8ccf31058e6f1e062d10c28068a229825652b5020f7b551fed0637579adcdfb63cbb7d2c8a76f50915a20180bbef22da277f2237cd270be5",
+   "bit_count": 5376
+  },
+  {
+   "name": "vandal_saved_none",
+   "paths": {
+    "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+    "skin": {
+     "kind": "skin",
+     "asset_id": "4f5ee03a-4204-5526-6941-bca4f911a768",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/AK_StarPower_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/AK_StarPower_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_PrimaryAsset_C",
+     "packaged": true
+    },
+    "level": {
+     "kind": "level",
+     "asset_id": "cdb2688f-4a03-3d6a-39e0-1bafe0d9c8ce",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/Levels/AK_StarPower_Lv4_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/Levels/AK_StarPower_Lv4_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_Lv4_PrimaryAsset_C",
+     "packaged": true
+    },
+    "chroma": {
+     "kind": "chroma",
+     "asset_id": "1bf0d77f-4e94-9dc0-7a7a-fb8430b569d3",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/Chromas/Standard/AK_StarPower_Standard_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/Chromas/Standard/AK_StarPower_Standard_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_Standard_PrimaryAsset_C",
+     "packaged": true
+    }
+   },
+   "layout": {
+    "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+    "channel": 20,
+    "actor": 520,
+    "archetype_name": "Default__AssaultRifle_AK_C",
+    "archetype_package": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK",
+    "archetype_guid": 523,
+    "package_guid": 525,
+    "level_guid": 5,
+    "pointer_handles": [
+     18,
+     19,
+     21
+    ],
+    "uuid_handles": [
+     24,
+     28,
+     41
+    ],
+    "pairs": [
+     [
+      535,
+      537
+     ],
+     [
+      539,
+      541
+     ],
+     [
+      543,
+      545
+     ]
+    ]
+   },
+   "attachments": [],
+   "hex": "080000002e100a36100a00620000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea4d2ccd8cae65e82965e82e6e6c2ead8e8a4d2ccd8cabe829600000000003600000088caccc2ead8e8bebe82e6e6c2ead8e8a4d2ccd8cabe8296be8600000000005e100a66100a008a0000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea4d2ccd8cae65e82965ea6e8c2e4a0deeecae45e8296bea6e8c2e4a0deeecae4bea0e4d2dac2e4f282e6e6cae800000000004a00000088caccc2ead8e8bebe8296bea6e8c2e4a0deeecae4bea0e4d2dac2e4f282e6e6cae8be8600000000006e100a76100a00a00000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea4d2ccd8cae65e82965ea6e8c2e4a0deeecae45e98caeccad8e65e8296bea6e8c2e4a0deeecae4be98ec68bea0e4d2dac2e4f282e6e6cae800000000005200000088caccc2ead8e8bebe8296bea6e8c2e4a0deeecae4be98ec68bea0e4d2dac2e4f282e6e6cae8be8600000000007e100a86100a00be0000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea4d2ccd8cae65e82965ea6e8c2e4a0deeecae45e86d0e4dedac2e65ea6e8c2dcc8c2e4c85e8296bea6e8c2e4a0deeecae4bea6e8c2dcc8c2e4c8bea0e4d2dac2e4f282e6e6cae800000000005c00000088caccc2ead8e8bebe8296bea6e8c2e4a0deeecae4bea6e8c2dcc8c2e4c8bea0e4d2dac2e4f282e6e6cae8be86000000000022102e1014e03104fc910a9980f95a7c46cc50bb649317366a483d95b016db09b85d0abeaf10222bcf53d68800ce85b732d04834dfa387d4be2b1693f912144c7d9dea8d740673443a6560366974",
+   "bit_count": 4944
+  },
+  {
+   "name": "vandal_big_guids",
+   "paths": {
+    "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+    "skin": {
+     "kind": "skin",
+     "asset_id": "4f5ee03a-4204-5526-6941-bca4f911a768",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/AK_StarPower_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/AK_StarPower_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_PrimaryAsset_C",
+     "packaged": true
+    },
+    "level": {
+     "kind": "level",
+     "asset_id": "cdb2688f-4a03-3d6a-39e0-1bafe0d9c8ce",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/Levels/AK_StarPower_Lv4_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/Levels/AK_StarPower_Lv4_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_Lv4_PrimaryAsset_C",
+     "packaged": true
+    },
+    "chroma": {
+     "kind": "chroma",
+     "asset_id": "1bf0d77f-4e94-9dc0-7a7a-fb8430b569d3",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/Chromas/Standard/AK_StarPower_Standard_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/Chromas/Standard/AK_StarPower_Standard_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_Standard_PrimaryAsset_C",
+     "packaged": true
+    }
+   },
+   "layout": {
+    "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+    "channel": 20,
+    "actor": 100000,
+    "archetype_name": "Default__AssaultRifle_AK_C",
+    "archetype_package": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK",
+    "archetype_guid": 100001,
+    "package_guid": 100003,
+    "level_guid": 5,
+    "pointer_handles": [
+     18,
+     19,
+     21
+    ],
+    "uuid_handles": [
+     24,
+     28,
+     41
+    ],
+    "pairs": [
+     [
+      100005,
+      100007
+     ],
+     [
+      100009,
+      100011
+     ],
+     [
+      100013,
+      100015
+     ]
+    ]
+   },
+   "attachments": [
+    [
+     547,
+     [
+      1,
+      2,
+      3,
+      4
+     ]
+    ],
+    [
+     551,
+     [
+      5,
+      6,
+      7,
+      8
+     ]
+    ]
+   ],
+   "hex": "080000008636180a8e36180a00620000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea4d2ccd8cae65e82965e82e6e6c2ead8e8a4d2ccd8cabe829600000000003600000088caccc2ead8e8bebe82e6e6c2ead8e8a4d2ccd8cabe8296be8600000000009636180a9e36180a008a0000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea4d2ccd8cae65e82965ea6e8c2e4a0deeecae45e8296bea6e8c2e4a0deeecae4bea0e4d2dac2e4f282e6e6cae800000000004a00000088caccc2ead8e8bebe8296bea6e8c2e4a0deeecae4bea0e4d2dac2e4f282e6e6cae8be860000000000a636180aae36180a00a00000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea4d2ccd8cae65e82965ea6e8c2e4a0deeecae45e98caeccad8e65e8296bea6e8c2e4a0deeecae4be98ec68bea0e4d2dac2e4f282e6e6cae800000000005200000088caccc2ead8e8bebe8296bea6e8c2e4a0deeecae4be98ec68bea0e4d2dac2e4f282e6e6cae8be860000000000b636180abe36180a00be0000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea4d2ccd8cae65e82965ea6e8c2e4a0deeecae45e86d0e4dedac2e65ea6e8c2dcc8c2e4c85e8296bea6e8c2e4a0deeecae4bea6e8c2dcc8c2e4c8bea0e4d2dac2e4f282e6e6cae800000000005c00000088caccc2ead8e8bebe8296bea6e8c2e4a0deeecae4bea6e8c2dcc8c2e4c8bea0e4d2dac2e4f282e6e6cae8be86000000000082361886361814e07907864d8de1b5760259e1b5d62f07d129371b622a8f6794039c0dc0e34aea7b0ae2099722ffb550becf1871023351a3e7d80712d52684d06089988f6644700478ac9e6808a9a8fe43b85233a459889f2bc63306e4091ecd3afab5ca1b88b08f2510b2dd20a156afa01b1466ebc51054014c402074b6e944d4875d33cd0148d93e",
+   "bit_count": 5480
+  },
+  {
+   "name": "vandal_guard",
+   "paths": {
+    "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+    "skin": {
+     "kind": "skin",
+     "asset_id": "4f5ee03a-4204-5526-6941-bca4f911a768",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/AK_StarPower_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/AK_StarPower_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_PrimaryAsset_C",
+     "packaged": true
+    },
+    "level": {
+     "kind": "level",
+     "asset_id": "cdb2688f-4a03-3d6a-39e0-1bafe0d9c8ce",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/Levels/AK_StarPower_Lv4_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/Levels/AK_StarPower_Lv4_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_Lv4_PrimaryAsset_C",
+     "packaged": true
+    },
+    "chroma": {
+     "kind": "chroma",
+     "asset_id": "1bf0d77f-4e94-9dc0-7a7a-fb8430b569d3",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/Chromas/Standard/AK_StarPower_Standard_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/Chromas/Standard/AK_StarPower_Standard_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_Standard_PrimaryAsset_C",
+     "packaged": true
+    }
+   },
+   "layout": {
+    "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+    "channel": 20,
+    "actor": 520,
+    "archetype_name": "Default__AssaultRifle_AK_C",
+    "archetype_package": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK",
+    "archetype_guid": 523,
+    "package_guid": 525,
+    "level_guid": 5,
+    "pointer_handles": [
+     18,
+     19,
+     21
+    ],
+    "uuid_handles": [
+     24,
+     28,
+     41
+    ],
+    "pairs": [
+     [
+      535,
+      537
+     ],
+     [
+      539,
+      541
+     ],
+     [
+      543,
+      545
+     ]
+    ]
+   },
+   "attachments": [
+    [
+     1001,
+     [
+      0,
+      1,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1003,
+     [
+      1,
+      2,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1005,
+     [
+      2,
+      3,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1007,
+     [
+      3,
+      4,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1009,
+     [
+      4,
+      5,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1011,
+     [
+      5,
+      6,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1013,
+     [
+      6,
+      7,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1015,
+     [
+      7,
+      8,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1017,
+     [
+      8,
+      9,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1019,
+     [
+      9,
+      10,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1021,
+     [
+      10,
+      11,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1023,
+     [
+      11,
+      12,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1025,
+     [
+      12,
+      13,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1027,
+     [
+      13,
+      14,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1029,
+     [
+      14,
+      15,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1031,
+     [
+      15,
+      16,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1033,
+     [
+      16,
+      17,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1035,
+     [
+      17,
+      18,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1037,
+     [
+      18,
+      19,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1039,
+     [
+      19,
+      20,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1041,
+     [
+      20,
+      21,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1043,
+     [
+      21,
+      22,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1045,
+     [
+      22,
+      23,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1047,
+     [
+      23,
+      24,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1049,
+     [
+      24,
+      25,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1051,
+     [
+      25,
+      26,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1053,
+     [
+      26,
+      27,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1055,
+     [
+      27,
+      28,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1057,
+     [
+      28,
+      29,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1059,
+     [
+      29,
+      30,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1061,
+     [
+      30,
+      31,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1063,
+     [
+      31,
+      32,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1065,
+     [
+      32,
+      33,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1067,
+     [
+      33,
+      34,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1069,
+     [
+      34,
+      35,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1071,
+     [
+      35,
+      36,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1073,
+     [
+      36,
+      37,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1075,
+     [
+      37,
+      38,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1077,
+     [
+      38,
+      39,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1079,
+     [
+      39,
+      40,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1081,
+     [
+      40,
+      41,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1083,
+     [
+      41,
+      42,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1085,
+     [
+      42,
+      43,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1087,
+     [
+      43,
+      44,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1089,
+     [
+      44,
+      45,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1091,
+     [
+      45,
+      46,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1093,
+     [
+      46,
+      47,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1095,
+     [
+      47,
+      48,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1097,
+     [
+      48,
+      49,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1099,
+     [
+      49,
+      50,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1101,
+     [
+      50,
+      51,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1103,
+     [
+      51,
+      52,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1105,
+     [
+      52,
+      53,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1107,
+     [
+      53,
+      54,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1109,
+     [
+      54,
+      55,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1111,
+     [
+      55,
+      56,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1113,
+     [
+      56,
+      57,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1115,
+     [
+      57,
+      58,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1117,
+     [
+      58,
+      59,
+      4294967295,
+      0
+     ]
+    ],
+    [
+     1119,
+     [
+      59,
+      60,
+      4294967295,
+      0
+     ]
+    ]
+   ],
+   "error": "ValueError",
+   "message": "cosmetic actor-open bunch exceeds protocol size limit"
+  },
+  {
+   "name": "weapon_mismatch",
+   "paths": {
+    "weapon_id": "29a0cfab-485b-f5d5-779a-b59f85e204a8",
+    "skin": {
+     "kind": "skin",
+     "asset_id": "051f5a50-4b95-9452-f18a-a1add8266757",
+     "source_asset": "Equippables/Guns/Sidearms/BasePistol/Coven/BasePistol_Coven_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Sidearms/BasePistol/Coven/BasePistol_Coven_PrimaryAsset",
+     "object_name": "Default__BasePistol_Coven_PrimaryAsset_C",
+     "packaged": true
+    },
+    "level": {
+     "kind": "level",
+     "asset_id": "48d4142e-4538-0bb6-9fa1-57b36dd87b47",
+     "source_asset": "Equippables/Guns/Sidearms/BasePistol/Coven/Levels/BasePistol_Coven_Lv4_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Sidearms/BasePistol/Coven/Levels/BasePistol_Coven_Lv4_PrimaryAsset",
+     "object_name": "Default__BasePistol_Coven_Lv4_PrimaryAsset_C",
+     "packaged": true
+    },
+    "chroma": {
+     "kind": "chroma",
+     "asset_id": "b36bfcf3-45a0-64c5-fa75-61bd9b20c107",
+     "source_asset": "Equippables/Guns/Sidearms/BasePistol/Coven/Chromas/v2/BasePistol_Coven_V2_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Sidearms/BasePistol/Coven/Chromas/v2/BasePistol_Coven_V2_PrimaryAsset",
+     "object_name": "Default__BasePistol_Coven_V2_PrimaryAsset_C",
+     "packaged": true
+    }
+   },
+   "layout": {
+    "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+    "channel": 20,
+    "actor": 520,
+    "archetype_name": "Default__AssaultRifle_AK_C",
+    "archetype_package": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK",
+    "archetype_guid": 523,
+    "package_guid": 525,
+    "level_guid": 5,
+    "pointer_handles": [
+     18,
+     19,
+     21
+    ],
+    "uuid_handles": [
+     24,
+     28,
+     41
+    ],
+    "pairs": [
+     [
+      535,
+      537
+     ],
+     [
+      539,
+      541
+     ],
+     [
+      543,
+      545
+     ]
+    ]
+   },
+   "attachments": [],
+   "error": "ValueError",
+   "message": "cosmetic and actor weapon IDs differ"
+  },
+  {
+   "name": "actor_odd",
+   "paths": {
+    "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+    "skin": {
+     "kind": "skin",
+     "asset_id": "4f5ee03a-4204-5526-6941-bca4f911a768",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/AK_StarPower_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/AK_StarPower_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_PrimaryAsset_C",
+     "packaged": true
+    },
+    "level": {
+     "kind": "level",
+     "asset_id": "cdb2688f-4a03-3d6a-39e0-1bafe0d9c8ce",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/Levels/AK_StarPower_Lv4_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/Levels/AK_StarPower_Lv4_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_Lv4_PrimaryAsset_C",
+     "packaged": true
+    },
+    "chroma": {
+     "kind": "chroma",
+     "asset_id": "1bf0d77f-4e94-9dc0-7a7a-fb8430b569d3",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/Chromas/Standard/AK_StarPower_Standard_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/Chromas/Standard/AK_StarPower_Standard_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_Standard_PrimaryAsset_C",
+     "packaged": true
+    }
+   },
+   "layout": {
+    "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+    "channel": 20,
+    "actor": 521,
+    "archetype_name": "Default__AssaultRifle_AK_C",
+    "archetype_package": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK",
+    "archetype_guid": 523,
+    "package_guid": 525,
+    "level_guid": 5,
+    "pointer_handles": [
+     18,
+     19,
+     21
+    ],
+    "uuid_handles": [
+     24,
+     28,
+     41
+    ],
+    "pairs": [
+     [
+      535,
+      537
+     ],
+     [
+      539,
+      541
+     ],
+     [
+      543,
+      545
+     ]
+    ]
+   },
+   "attachments": [],
+   "error": "ValueError",
+   "message": "dynamic actor NetGUID must be positive and even"
+  },
+  {
+   "name": "actor_zero",
+   "paths": {
+    "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+    "skin": {
+     "kind": "skin",
+     "asset_id": "4f5ee03a-4204-5526-6941-bca4f911a768",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/AK_StarPower_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/AK_StarPower_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_PrimaryAsset_C",
+     "packaged": true
+    },
+    "level": {
+     "kind": "level",
+     "asset_id": "cdb2688f-4a03-3d6a-39e0-1bafe0d9c8ce",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/Levels/AK_StarPower_Lv4_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/Levels/AK_StarPower_Lv4_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_Lv4_PrimaryAsset_C",
+     "packaged": true
+    },
+    "chroma": {
+     "kind": "chroma",
+     "asset_id": "1bf0d77f-4e94-9dc0-7a7a-fb8430b569d3",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/Chromas/Standard/AK_StarPower_Standard_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/Chromas/Standard/AK_StarPower_Standard_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_Standard_PrimaryAsset_C",
+     "packaged": true
+    }
+   },
+   "layout": {
+    "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+    "channel": 20,
+    "actor": 0,
+    "archetype_name": "Default__AssaultRifle_AK_C",
+    "archetype_package": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK",
+    "archetype_guid": 523,
+    "package_guid": 525,
+    "level_guid": 5,
+    "pointer_handles": [
+     18,
+     19,
+     21
+    ],
+    "uuid_handles": [
+     24,
+     28,
+     41
+    ],
+    "pairs": [
+     [
+      535,
+      537
+     ],
+     [
+      539,
+      541
+     ],
+     [
+      543,
+      545
+     ]
+    ]
+   },
+   "attachments": [],
+   "error": "ValueError",
+   "message": "dynamic actor NetGUID must be positive and even"
+  },
+  {
+   "name": "static_even",
+   "paths": {
+    "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+    "skin": {
+     "kind": "skin",
+     "asset_id": "4f5ee03a-4204-5526-6941-bca4f911a768",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/AK_StarPower_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/AK_StarPower_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_PrimaryAsset_C",
+     "packaged": true
+    },
+    "level": {
+     "kind": "level",
+     "asset_id": "cdb2688f-4a03-3d6a-39e0-1bafe0d9c8ce",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/Levels/AK_StarPower_Lv4_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/Levels/AK_StarPower_Lv4_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_Lv4_PrimaryAsset_C",
+     "packaged": true
+    },
+    "chroma": {
+     "kind": "chroma",
+     "asset_id": "1bf0d77f-4e94-9dc0-7a7a-fb8430b569d3",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/Chromas/Standard/AK_StarPower_Standard_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/Chromas/Standard/AK_StarPower_Standard_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_Standard_PrimaryAsset_C",
+     "packaged": true
+    }
+   },
+   "layout": {
+    "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+    "channel": 20,
+    "actor": 520,
+    "archetype_name": "Default__AssaultRifle_AK_C",
+    "archetype_package": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK",
+    "archetype_guid": 524,
+    "package_guid": 525,
+    "level_guid": 5,
+    "pointer_handles": [
+     18,
+     19,
+     21
+    ],
+    "uuid_handles": [
+     24,
+     28,
+     41
+    ],
+    "pairs": [
+     [
+      535,
+      537
+     ],
+     [
+      539,
+      541
+     ],
+     [
+      543,
+      545
+     ]
+    ]
+   },
+   "attachments": [],
+   "error": "ValueError",
+   "message": "static NetGUIDs must be distinct positive odd values"
+  },
+  {
+   "name": "static_duplicate",
+   "paths": {
+    "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+    "skin": {
+     "kind": "skin",
+     "asset_id": "4f5ee03a-4204-5526-6941-bca4f911a768",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/AK_StarPower_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/AK_StarPower_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_PrimaryAsset_C",
+     "packaged": true
+    },
+    "level": {
+     "kind": "level",
+     "asset_id": "cdb2688f-4a03-3d6a-39e0-1bafe0d9c8ce",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/Levels/AK_StarPower_Lv4_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/Levels/AK_StarPower_Lv4_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_Lv4_PrimaryAsset_C",
+     "packaged": true
+    },
+    "chroma": {
+     "kind": "chroma",
+     "asset_id": "1bf0d77f-4e94-9dc0-7a7a-fb8430b569d3",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/Chromas/Standard/AK_StarPower_Standard_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/Chromas/Standard/AK_StarPower_Standard_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_Standard_PrimaryAsset_C",
+     "packaged": true
+    }
+   },
+   "layout": {
+    "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+    "channel": 20,
+    "actor": 520,
+    "archetype_name": "Default__AssaultRifle_AK_C",
+    "archetype_package": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK",
+    "archetype_guid": 523,
+    "package_guid": 525,
+    "level_guid": 5,
+    "pointer_handles": [
+     18,
+     19,
+     21
+    ],
+    "uuid_handles": [
+     24,
+     28,
+     41
+    ],
+    "pairs": [
+     [
+      535,
+      537
+     ],
+     [
+      535,
+      541
+     ],
+     [
+      543,
+      545
+     ]
+    ]
+   },
+   "attachments": [],
+   "error": "ValueError",
+   "message": "static NetGUIDs must be distinct positive odd values"
+  },
+  {
+   "name": "static_is_actor",
+   "paths": {
+    "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+    "skin": {
+     "kind": "skin",
+     "asset_id": "4f5ee03a-4204-5526-6941-bca4f911a768",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/AK_StarPower_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/AK_StarPower_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_PrimaryAsset_C",
+     "packaged": true
+    },
+    "level": {
+     "kind": "level",
+     "asset_id": "cdb2688f-4a03-3d6a-39e0-1bafe0d9c8ce",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/Levels/AK_StarPower_Lv4_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/Levels/AK_StarPower_Lv4_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_Lv4_PrimaryAsset_C",
+     "packaged": true
+    },
+    "chroma": {
+     "kind": "chroma",
+     "asset_id": "1bf0d77f-4e94-9dc0-7a7a-fb8430b569d3",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/Chromas/Standard/AK_StarPower_Standard_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/Chromas/Standard/AK_StarPower_Standard_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_Standard_PrimaryAsset_C",
+     "packaged": true
+    }
+   },
+   "layout": {
+    "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+    "channel": 20,
+    "actor": 520,
+    "archetype_name": "Default__AssaultRifle_AK_C",
+    "archetype_package": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK",
+    "archetype_guid": 523,
+    "package_guid": 521,
+    "level_guid": 5,
+    "pointer_handles": [
+     18,
+     19,
+     21
+    ],
+    "uuid_handles": [
+     24,
+     28,
+     41
+    ],
+    "pairs": [
+     [
+      535,
+      537
+     ],
+     [
+      539,
+      541
+     ],
+     [
+      543,
+      545
+     ]
+    ]
+   },
+   "attachments": [],
+   "hex": "080000002e100a26100a00620000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea4d2ccd8cae65e82965e82e6e6c2ead8e8a4d2ccd8cabe829600000000003600000088caccc2ead8e8bebe82e6e6c2ead8e8a4d2ccd8cabe8296be8600000000005e100a66100a008a0000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea4d2ccd8cae65e82965ea6e8c2e4a0deeecae45e8296bea6e8c2e4a0deeecae4bea0e4d2dac2e4f282e6e6cae800000000004a00000088caccc2ead8e8bebe8296bea6e8c2e4a0deeecae4bea0e4d2dac2e4f282e6e6cae8be8600000000006e100a76100a00a00000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea4d2ccd8cae65e82965ea6e8c2e4a0deeecae45e98caeccad8e65e8296bea6e8c2e4a0deeecae4be98ec68bea0e4d2dac2e4f282e6e6cae800000000005200000088caccc2ead8e8bebe8296bea6e8c2e4a0deeecae4be98ec68bea0e4d2dac2e4f282e6e6cae8be8600000000007e100a86100a00be0000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea4d2ccd8cae65e82965ea6e8c2e4a0deeecae45e86d0e4dedac2e65ea6e8c2dcc8c2e4c85e8296bea6e8c2e4a0deeecae4bea6e8c2dcc8c2e4c8bea0e4d2dac2e4f282e6e6cae800000000005c00000088caccc2ead8e8bebe8296bea6e8c2e4a0deeecae4bea6e8c2dcc8c2e4c8bea0e4d2dac2e4f282e6e6cae8be86000000000022102e1014e03104fc910a9980f95a7c46cc50bb649317366a483d95b016db09b85d0abeaf10222bcf53d68800ce85b732d04834dfa387d4be2b1693f912144c7d9dea8d740673443a6560366974",
+   "bit_count": 4944
+  },
+  {
+   "name": "handle_zero",
+   "paths": {
+    "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+    "skin": {
+     "kind": "skin",
+     "asset_id": "4f5ee03a-4204-5526-6941-bca4f911a768",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/AK_StarPower_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/AK_StarPower_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_PrimaryAsset_C",
+     "packaged": true
+    },
+    "level": {
+     "kind": "level",
+     "asset_id": "cdb2688f-4a03-3d6a-39e0-1bafe0d9c8ce",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/Levels/AK_StarPower_Lv4_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/Levels/AK_StarPower_Lv4_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_Lv4_PrimaryAsset_C",
+     "packaged": true
+    },
+    "chroma": {
+     "kind": "chroma",
+     "asset_id": "1bf0d77f-4e94-9dc0-7a7a-fb8430b569d3",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/Chromas/Standard/AK_StarPower_Standard_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/Chromas/Standard/AK_StarPower_Standard_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_Standard_PrimaryAsset_C",
+     "packaged": true
+    }
+   },
+   "layout": {
+    "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+    "channel": 20,
+    "actor": 520,
+    "archetype_name": "Default__AssaultRifle_AK_C",
+    "archetype_package": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK",
+    "archetype_guid": 523,
+    "package_guid": 525,
+    "level_guid": 5,
+    "pointer_handles": [
+     18,
+     19,
+     21
+    ],
+    "uuid_handles": [
+     0,
+     28,
+     41
+    ],
+    "pairs": [
+     [
+      535,
+      537
+     ],
+     [
+      539,
+      541
+     ],
+     [
+      543,
+      545
+     ]
+    ]
+   },
+   "attachments": [],
+   "error": "ValueError",
+   "message": "cosmetic handles must be positive"
+  },
+  {
+   "name": "archetype_outside",
+   "paths": {
+    "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+    "skin": {
+     "kind": "skin",
+     "asset_id": "4f5ee03a-4204-5526-6941-bca4f911a768",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/AK_StarPower_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/AK_StarPower_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_PrimaryAsset_C",
+     "packaged": true
+    },
+    "level": {
+     "kind": "level",
+     "asset_id": "cdb2688f-4a03-3d6a-39e0-1bafe0d9c8ce",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/Levels/AK_StarPower_Lv4_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/Levels/AK_StarPower_Lv4_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_Lv4_PrimaryAsset_C",
+     "packaged": true
+    },
+    "chroma": {
+     "kind": "chroma",
+     "asset_id": "1bf0d77f-4e94-9dc0-7a7a-fb8430b569d3",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/Chromas/Standard/AK_StarPower_Standard_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/Chromas/Standard/AK_StarPower_Standard_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_Standard_PrimaryAsset_C",
+     "packaged": true
+    }
+   },
+   "layout": {
+    "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+    "channel": 20,
+    "actor": 520,
+    "archetype_name": "Default__AssaultRifle_AK_C",
+    "archetype_package": "/Game/Gear/X",
+    "archetype_guid": 523,
+    "package_guid": 525,
+    "level_guid": 5,
+    "pointer_handles": [
+     18,
+     19,
+     21
+    ],
+    "uuid_handles": [
+     24,
+     28,
+     41
+    ],
+    "pairs": [
+     [
+      535,
+      537
+     ],
+     [
+      539,
+      541
+     ],
+     [
+      543,
+      545
+     ]
+    ]
+   },
+   "attachments": [],
+   "error": "ValueError",
+   "message": "actor archetype package is outside Equippables"
+  },
+  {
+   "name": "unmeasured_handles",
+   "paths": {
+    "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+    "skin": {
+     "kind": "skin",
+     "asset_id": "4f5ee03a-4204-5526-6941-bca4f911a768",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/AK_StarPower_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/AK_StarPower_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_PrimaryAsset_C",
+     "packaged": true
+    },
+    "level": {
+     "kind": "level",
+     "asset_id": "cdb2688f-4a03-3d6a-39e0-1bafe0d9c8ce",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/Levels/AK_StarPower_Lv4_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/Levels/AK_StarPower_Lv4_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_Lv4_PrimaryAsset_C",
+     "packaged": true
+    },
+    "chroma": {
+     "kind": "chroma",
+     "asset_id": "1bf0d77f-4e94-9dc0-7a7a-fb8430b569d3",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/Chromas/Standard/AK_StarPower_Standard_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/Chromas/Standard/AK_StarPower_Standard_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_Standard_PrimaryAsset_C",
+     "packaged": true
+    }
+   },
+   "layout": {
+    "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+    "channel": 20,
+    "actor": 520,
+    "archetype_name": "Default__AssaultRifle_AK_C",
+    "archetype_package": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK",
+    "archetype_guid": 523,
+    "package_guid": 525,
+    "level_guid": 5,
+    "pointer_handles": [
+     18,
+     19,
+     22
+    ],
+    "uuid_handles": [
+     24,
+     28,
+     41
+    ],
+    "pairs": [
+     [
+      535,
+      537
+     ],
+     [
+      539,
+      541
+     ],
+     [
+      543,
+      545
+     ]
+    ]
+   },
+   "attachments": [
+    [
+     547,
+     [
+      3641701264,
+      1296952904,
+      2370616479,
+      2064791186
+     ]
+    ]
+   ],
+   "error": "ValueError",
+   "message": "attachment handles 20/40 are only placed for the measured AAresEquippable layout"
+  },
+  {
+   "name": "unmeasured_no_attachments",
+   "paths": {
+    "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+    "skin": {
+     "kind": "skin",
+     "asset_id": "4f5ee03a-4204-5526-6941-bca4f911a768",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/AK_StarPower_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/AK_StarPower_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_PrimaryAsset_C",
+     "packaged": true
+    },
+    "level": {
+     "kind": "level",
+     "asset_id": "cdb2688f-4a03-3d6a-39e0-1bafe0d9c8ce",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/Levels/AK_StarPower_Lv4_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/Levels/AK_StarPower_Lv4_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_Lv4_PrimaryAsset_C",
+     "packaged": true
+    },
+    "chroma": {
+     "kind": "chroma",
+     "asset_id": "1bf0d77f-4e94-9dc0-7a7a-fb8430b569d3",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/Chromas/Standard/AK_StarPower_Standard_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/Chromas/Standard/AK_StarPower_Standard_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_Standard_PrimaryAsset_C",
+     "packaged": true
+    }
+   },
+   "layout": {
+    "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+    "channel": 20,
+    "actor": 520,
+    "archetype_name": "Default__AssaultRifle_AK_C",
+    "archetype_package": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK",
+    "archetype_guid": 523,
+    "package_guid": 525,
+    "level_guid": 5,
+    "pointer_handles": [
+     18,
+     19,
+     22
+    ],
+    "uuid_handles": [
+     24,
+     28,
+     41
+    ],
+    "pairs": [
+     [
+      535,
+      537
+     ],
+     [
+      539,
+      541
+     ],
+     [
+      543,
+      545
+     ]
+    ]
+   },
+   "attachments": [],
+   "hex": "080000002e100a36100a00620000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea4d2ccd8cae65e82965e82e6e6c2ead8e8a4d2ccd8cabe829600000000003600000088caccc2ead8e8bebe82e6e6c2ead8e8a4d2ccd8cabe8296be8600000000005e100a66100a008a0000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea4d2ccd8cae65e82965ea6e8c2e4a0deeecae45e8296bea6e8c2e4a0deeecae4bea0e4d2dac2e4f282e6e6cae800000000004a00000088caccc2ead8e8bebe8296bea6e8c2e4a0deeecae4bea0e4d2dac2e4f282e6e6cae8be8600000000006e100a76100a00a00000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea4d2ccd8cae65e82965ea6e8c2e4a0deeecae45e98caeccad8e65e8296bea6e8c2e4a0deeecae4be98ec68bea0e4d2dac2e4f282e6e6cae800000000005200000088caccc2ead8e8bebe8296bea6e8c2e4a0deeecae4be98ec68bea0e4d2dac2e4f282e6e6cae8be8600000000007e100a86100a00be0000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea4d2ccd8cae65e82965ea6e8c2e4a0deeecae45e86d0e4dedac2e65ea6e8c2dcc8c2e4c85e8296bea6e8c2e4a0deeecae4bea6e8c2dcc8c2e4c8bea0e4d2dac2e4f282e6e6cae800000000005c00000088caccc2ead8e8bebe8296bea6e8c2e4a0deeecae4bea6e8c2dcc8c2e4c8bea0e4d2dac2e4f282e6e6cae8be86000000000022102e1014e03104fc918ace80f95a7c46cc50bb649317366a483d95b016db09b85d0abeaf10222bcf53d68800ce85b732d04834dfa387d4be2b1693f912144c7d9dea8d740673443a6560366974",
+   "bit_count": 4944
+  },
+  {
+   "name": "swapped_handles",
+   "paths": {
+    "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+    "skin": {
+     "kind": "skin",
+     "asset_id": "4f5ee03a-4204-5526-6941-bca4f911a768",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/AK_StarPower_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/AK_StarPower_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_PrimaryAsset_C",
+     "packaged": true
+    },
+    "level": {
+     "kind": "level",
+     "asset_id": "cdb2688f-4a03-3d6a-39e0-1bafe0d9c8ce",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/Levels/AK_StarPower_Lv4_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/Levels/AK_StarPower_Lv4_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_Lv4_PrimaryAsset_C",
+     "packaged": true
+    },
+    "chroma": {
+     "kind": "chroma",
+     "asset_id": "1bf0d77f-4e94-9dc0-7a7a-fb8430b569d3",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/Chromas/Standard/AK_StarPower_Standard_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/Chromas/Standard/AK_StarPower_Standard_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_Standard_PrimaryAsset_C",
+     "packaged": true
+    }
+   },
+   "layout": {
+    "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+    "channel": 20,
+    "actor": 520,
+    "archetype_name": "Default__AssaultRifle_AK_C",
+    "archetype_package": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK",
+    "archetype_guid": 523,
+    "package_guid": 525,
+    "level_guid": 5,
+    "pointer_handles": [
+     21,
+     19,
+     18
+    ],
+    "uuid_handles": [
+     41,
+     28,
+     24
+    ],
+    "pairs": [
+     [
+      535,
+      537
+     ],
+     [
+      539,
+      541
+     ],
+     [
+      543,
+      545
+     ]
+    ]
+   },
+   "attachments": [],
+   "hex": "080000002e100a36100a00620000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea4d2ccd8cae65e82965e82e6e6c2ead8e8a4d2ccd8cabe829600000000003600000088caccc2ead8e8bebe82e6e6c2ead8e8a4d2ccd8cabe8296be8600000000005e100a66100a008a0000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea4d2ccd8cae65e82965ea6e8c2e4a0deeecae45e8296bea6e8c2e4a0deeecae4bea0e4d2dac2e4f282e6e6cae800000000004a00000088caccc2ead8e8bebe8296bea6e8c2e4a0deeecae4bea0e4d2dac2e4f282e6e6cae8be8600000000006e100a76100a00a00000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea4d2ccd8cae65e82965ea6e8c2e4a0deeecae45e98caeccad8e65e8296bea6e8c2e4a0deeecae4be98ec68bea0e4d2dac2e4f282e6e6cae800000000005200000088caccc2ead8e8bebe8296bea6e8c2e4a0deeecae4be98ec68bea0e4d2dac2e4f282e6e6cae8be8600000000007e100a86100a00be0000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea4d2ccd8cae65e82965ea6e8c2e4a0deeecae45e86d0e4dedac2e65ea6e8c2dcc8c2e4c85e8296bea6e8c2e4a0deeecae4bea6e8c2dcc8c2e4c8bea0e4d2dac2e4f282e6e6cae800000000005c00000088caccc2ead8e8bebe8296bea6e8c2e4a0deeecae4bea6e8c2dcc8c2e4c8bea0e4d2dac2e4f282e6e6cae8be86000000000022102e1014e03104fc918af600ca5a7c46cc502b4b93174f6a483d95b096cb09b85d0abe2f3b222bcf53d68800ce85b732d04834dfa387d4be2b1603881294417d9dea8d74062f443a65e06a6974",
+   "bit_count": 4944
+  },
+  {
+   "name": "unpackaged",
+   "paths": {
+    "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+    "skin": {
+     "kind": "skin",
+     "asset_id": "4f5ee03a-4204-5526-6941-bca4f911a768",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/AK_StarPower_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/AK_StarPower_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_PrimaryAsset_C",
+     "packaged": true
+    },
+    "level": {
+     "kind": "level",
+     "asset_id": "cdb2688f-4a03-3d6a-39e0-1bafe0d9c8ce",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/Levels/AK_StarPower_Lv4_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/Levels/AK_StarPower_Lv4_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_Lv4_PrimaryAsset_C",
+     "packaged": false
+    },
+    "chroma": {
+     "kind": "chroma",
+     "asset_id": "1bf0d77f-4e94-9dc0-7a7a-fb8430b569d3",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/Chromas/Standard/AK_StarPower_Standard_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/Chromas/Standard/AK_StarPower_Standard_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_Standard_PrimaryAsset_C",
+     "packaged": true
+    }
+   },
+   "layout": {
+    "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+    "channel": 20,
+    "actor": 520,
+    "archetype_name": "Default__AssaultRifle_AK_C",
+    "archetype_package": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK",
+    "archetype_guid": 523,
+    "package_guid": 525,
+    "level_guid": 5,
+    "pointer_handles": [
+     18,
+     19,
+     21
+    ],
+    "uuid_handles": [
+     24,
+     28,
+     41
+    ],
+    "pairs": [
+     [
+      535,
+      537
+     ],
+     [
+      539,
+      541
+     ],
+     [
+      543,
+      545
+     ]
+    ]
+   },
+   "attachments": [],
+   "error": "ValueError",
+   "message": "cosmetic CDO is missing or not packaged"
+  },
+  {
+   "name": "wrong_kind",
+   "paths": {
+    "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+    "skin": {
+     "kind": "skin",
+     "asset_id": "4f5ee03a-4204-5526-6941-bca4f911a768",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/AK_StarPower_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/AK_StarPower_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_PrimaryAsset_C",
+     "packaged": true
+    },
+    "level": {
+     "kind": "level",
+     "asset_id": "cdb2688f-4a03-3d6a-39e0-1bafe0d9c8ce",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/Levels/AK_StarPower_Lv4_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/Levels/AK_StarPower_Lv4_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_Lv4_PrimaryAsset_C",
+     "packaged": true
+    },
+    "chroma": {
+     "kind": "level",
+     "asset_id": "1bf0d77f-4e94-9dc0-7a7a-fb8430b569d3",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/Chromas/Standard/AK_StarPower_Standard_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/Chromas/Standard/AK_StarPower_Standard_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_Standard_PrimaryAsset_C",
+     "packaged": true
+    }
+   },
+   "layout": {
+    "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+    "channel": 20,
+    "actor": 520,
+    "archetype_name": "Default__AssaultRifle_AK_C",
+    "archetype_package": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK",
+    "archetype_guid": 523,
+    "package_guid": 525,
+    "level_guid": 5,
+    "pointer_handles": [
+     18,
+     19,
+     21
+    ],
+    "uuid_handles": [
+     24,
+     28,
+     41
+    ],
+    "pairs": [
+     [
+      535,
+      537
+     ],
+     [
+      539,
+      541
+     ],
+     [
+      543,
+      545
+     ]
+    ]
+   },
+   "attachments": [],
+   "error": "ValueError",
+   "message": "cosmetic CDO is missing or not packaged"
+  },
+  {
+   "name": "package_outside",
+   "paths": {
+    "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+    "skin": {
+     "kind": "skin",
+     "asset_id": "4f5ee03a-4204-5526-6941-bca4f911a768",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/AK_StarPower_PrimaryAsset.uasset",
+     "package_path": "/Game/Other/X",
+     "object_name": "Default__AK_StarPower_PrimaryAsset_C",
+     "packaged": true
+    },
+    "level": {
+     "kind": "level",
+     "asset_id": "cdb2688f-4a03-3d6a-39e0-1bafe0d9c8ce",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/Levels/AK_StarPower_Lv4_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/Levels/AK_StarPower_Lv4_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_Lv4_PrimaryAsset_C",
+     "packaged": true
+    },
+    "chroma": {
+     "kind": "chroma",
+     "asset_id": "1bf0d77f-4e94-9dc0-7a7a-fb8430b569d3",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/Chromas/Standard/AK_StarPower_Standard_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/Chromas/Standard/AK_StarPower_Standard_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_Standard_PrimaryAsset_C",
+     "packaged": true
+    }
+   },
+   "layout": {
+    "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+    "channel": 20,
+    "actor": 520,
+    "archetype_name": "Default__AssaultRifle_AK_C",
+    "archetype_package": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK",
+    "archetype_guid": 523,
+    "package_guid": 525,
+    "level_guid": 5,
+    "pointer_handles": [
+     18,
+     19,
+     21
+    ],
+    "uuid_handles": [
+     24,
+     28,
+     41
+    ],
+    "pairs": [
+     [
+      535,
+      537
+     ],
+     [
+      539,
+      541
+     ],
+     [
+      543,
+      545
+     ]
+    ]
+   },
+   "attachments": [],
+   "error": "ValueError",
+   "message": "cosmetic package is outside Equippables"
+  },
+  {
+   "name": "object_not_default",
+   "paths": {
+    "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+    "skin": {
+     "kind": "skin",
+     "asset_id": "4f5ee03a-4204-5526-6941-bca4f911a768",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/AK_StarPower_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/AK_StarPower_PrimaryAsset",
+     "object_name": "X_C",
+     "packaged": true
+    },
+    "level": {
+     "kind": "level",
+     "asset_id": "cdb2688f-4a03-3d6a-39e0-1bafe0d9c8ce",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/Levels/AK_StarPower_Lv4_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/Levels/AK_StarPower_Lv4_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_Lv4_PrimaryAsset_C",
+     "packaged": true
+    },
+    "chroma": {
+     "kind": "chroma",
+     "asset_id": "1bf0d77f-4e94-9dc0-7a7a-fb8430b569d3",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/Chromas/Standard/AK_StarPower_Standard_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/Chromas/Standard/AK_StarPower_Standard_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_Standard_PrimaryAsset_C",
+     "packaged": true
+    }
+   },
+   "layout": {
+    "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+    "channel": 20,
+    "actor": 520,
+    "archetype_name": "Default__AssaultRifle_AK_C",
+    "archetype_package": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK",
+    "archetype_guid": 523,
+    "package_guid": 525,
+    "level_guid": 5,
+    "pointer_handles": [
+     18,
+     19,
+     21
+    ],
+    "uuid_handles": [
+     24,
+     28,
+     41
+    ],
+    "pairs": [
+     [
+      535,
+      537
+     ],
+     [
+      539,
+      541
+     ],
+     [
+      543,
+      545
+     ]
+    ]
+   },
+   "attachments": [],
+   "error": "ValueError",
+   "message": "cosmetic object is not a class default"
+  },
+  {
+   "name": "asset_id_upper",
+   "paths": {
+    "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+    "skin": {
+     "kind": "skin",
+     "asset_id": "4F5EE03A-4204-5526-6941-BCA4F911A768",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/AK_StarPower_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/AK_StarPower_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_PrimaryAsset_C",
+     "packaged": true
+    },
+    "level": {
+     "kind": "level",
+     "asset_id": "cdb2688f-4a03-3d6a-39e0-1bafe0d9c8ce",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/Levels/AK_StarPower_Lv4_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/Levels/AK_StarPower_Lv4_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_Lv4_PrimaryAsset_C",
+     "packaged": true
+    },
+    "chroma": {
+     "kind": "chroma",
+     "asset_id": "1bf0d77f-4e94-9dc0-7a7a-fb8430b569d3",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/Chromas/Standard/AK_StarPower_Standard_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/Chromas/Standard/AK_StarPower_Standard_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_Standard_PrimaryAsset_C",
+     "packaged": true
+    }
+   },
+   "layout": {
+    "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+    "channel": 20,
+    "actor": 520,
+    "archetype_name": "Default__AssaultRifle_AK_C",
+    "archetype_package": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK",
+    "archetype_guid": 523,
+    "package_guid": 525,
+    "level_guid": 5,
+    "pointer_handles": [
+     18,
+     19,
+     21
+    ],
+    "uuid_handles": [
+     24,
+     28,
+     41
+    ],
+    "pairs": [
+     [
+      535,
+      537
+     ],
+     [
+      539,
+      541
+     ],
+     [
+      543,
+      545
+     ]
+    ]
+   },
+   "attachments": [],
+   "hex": "080000002e100a36100a00620000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea4d2ccd8cae65e82965e82e6e6c2ead8e8a4d2ccd8cabe829600000000003600000088caccc2ead8e8bebe82e6e6c2ead8e8a4d2ccd8cabe8296be8600000000005e100a66100a008a0000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea4d2ccd8cae65e82965ea6e8c2e4a0deeecae45e8296bea6e8c2e4a0deeecae4bea0e4d2dac2e4f282e6e6cae800000000004a00000088caccc2ead8e8bebe8296bea6e8c2e4a0deeecae4bea0e4d2dac2e4f282e6e6cae8be8600000000006e100a76100a00a00000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea4d2ccd8cae65e82965ea6e8c2e4a0deeecae45e98caeccad8e65e8296bea6e8c2e4a0deeecae4be98ec68bea0e4d2dac2e4f282e6e6cae800000000005200000088caccc2ead8e8bebe8296bea6e8c2e4a0deeecae4be98ec68bea0e4d2dac2e4f282e6e6cae8be8600000000007e100a86100a00be0000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea4d2ccd8cae65e82965ea6e8c2e4a0deeecae45e86d0e4dedac2e65ea6e8c2dcc8c2e4c85e8296bea6e8c2e4a0deeecae4bea6e8c2dcc8c2e4c8bea0e4d2dac2e4f282e6e6cae800000000005c00000088caccc2ead8e8bebe8296bea6e8c2e4a0deeecae4bea6e8c2dcc8c2e4c8bea0e4d2dac2e4f282e6e6cae8be86000000000022102e1014e03104fc910a9980f95a7c46cc50bb649317366a483d95b016db09b85d0abeaf10222bcf53d68800ce85b732d04834dfa387d4be2b1693f912144c7d9dea8d740673443a6560366974",
+   "bit_count": 4944
+  },
+  {
+   "name": "asset_id_bad",
+   "paths": {
+    "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+    "skin": {
+     "kind": "skin",
+     "asset_id": "nope",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/AK_StarPower_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/AK_StarPower_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_PrimaryAsset_C",
+     "packaged": true
+    },
+    "level": {
+     "kind": "level",
+     "asset_id": "cdb2688f-4a03-3d6a-39e0-1bafe0d9c8ce",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/Levels/AK_StarPower_Lv4_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/Levels/AK_StarPower_Lv4_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_Lv4_PrimaryAsset_C",
+     "packaged": true
+    },
+    "chroma": {
+     "kind": "chroma",
+     "asset_id": "1bf0d77f-4e94-9dc0-7a7a-fb8430b569d3",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/Chromas/Standard/AK_StarPower_Standard_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/Chromas/Standard/AK_StarPower_Standard_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_Standard_PrimaryAsset_C",
+     "packaged": true
+    }
+   },
+   "layout": {
+    "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+    "channel": 20,
+    "actor": 520,
+    "archetype_name": "Default__AssaultRifle_AK_C",
+    "archetype_package": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK",
+    "archetype_guid": 523,
+    "package_guid": 525,
+    "level_guid": 5,
+    "pointer_handles": [
+     18,
+     19,
+     21
+    ],
+    "uuid_handles": [
+     24,
+     28,
+     41
+    ],
+    "pairs": [
+     [
+      535,
+      537
+     ],
+     [
+      539,
+      541
+     ],
+     [
+      543,
+      545
+     ]
+    ]
+   },
+   "attachments": [],
+   "error": "ValueError",
+   "message": "asset GUID must use canonical 8-4-4-4-12 text"
+  },
+  {
+   "name": "package_unicode",
+   "paths": {
+    "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+    "skin": {
+     "kind": "skin",
+     "asset_id": "4f5ee03a-4204-5526-6941-bca4f911a768",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/AK_StarPower_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/\u00dc",
+     "object_name": "Default__AK_StarPower_PrimaryAsset_C",
+     "packaged": true
+    },
+    "level": {
+     "kind": "level",
+     "asset_id": "cdb2688f-4a03-3d6a-39e0-1bafe0d9c8ce",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/Levels/AK_StarPower_Lv4_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/Levels/AK_StarPower_Lv4_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_Lv4_PrimaryAsset_C",
+     "packaged": true
+    },
+    "chroma": {
+     "kind": "chroma",
+     "asset_id": "1bf0d77f-4e94-9dc0-7a7a-fb8430b569d3",
+     "source_asset": "Equippables/Guns/Rifles/AK/StarPower/Chromas/Standard/AK_StarPower_Standard_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Rifles/AK/StarPower/Chromas/Standard/AK_StarPower_Standard_PrimaryAsset",
+     "object_name": "Default__AK_StarPower_Standard_PrimaryAsset_C",
+     "packaged": true
+    }
+   },
+   "layout": {
+    "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+    "channel": 20,
+    "actor": 520,
+    "archetype_name": "Default__AssaultRifle_AK_C",
+    "archetype_package": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK",
+    "archetype_guid": 523,
+    "package_guid": 525,
+    "level_guid": 5,
+    "pointer_handles": [
+     18,
+     19,
+     21
+    ],
+    "uuid_handles": [
+     24,
+     28,
+     41
+    ],
+    "pairs": [
+     [
+      535,
+      537
+     ],
+     [
+      539,
+      541
+     ],
+     [
+      543,
+      545
+     ]
+    ]
+   },
+   "attachments": [],
+   "error": "UnicodeEncodeError",
+   "message": "'ascii' codec can't encode character '\\xdc' in position 18: ordinal not in range(128)"
+  }
+ ],
+ "pistol_initial": [
+  {
+   "name": "current_saved",
+   "cosmetic": {
+    "weapon_id": "29a0cfab-485b-f5d5-779a-b59f85e204a8",
+    "skin_id": "051f5a50-4b95-9452-f18a-a1add8266757",
+    "level_id": "48d4142e-4538-0bb6-9fa1-57b36dd87b47",
+    "chroma_id": "b36bfcf3-45a0-64c5-fa75-61bd9b20c107",
+    "name": "BasePistol_Coven",
+    "weapon_asset": "Equippables/Guns/Sidearms/BasePistol/BasePistolPrimaryAsset.uasset",
+    "skin_asset": "Equippables/Guns/Sidearms/BasePistol/Coven/BasePistol_Coven_PrimaryAsset.uasset",
+    "level_asset": "Equippables/Guns/Sidearms/BasePistol/Coven/Levels/BasePistol_Coven_Lv4_PrimaryAsset.uasset",
+    "chroma_asset": "Equippables/Guns/Sidearms/BasePistol/Coven/Chromas/v2/BasePistol_Coven_V2_PrimaryAsset.uasset"
+   },
+   "paths": {
+    "weapon_id": "29a0cfab-485b-f5d5-779a-b59f85e204a8",
+    "skin": {
+     "kind": "skin",
+     "asset_id": "051f5a50-4b95-9452-f18a-a1add8266757",
+     "source_asset": "Equippables/Guns/Sidearms/BasePistol/Coven/BasePistol_Coven_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Sidearms/BasePistol/Coven/BasePistol_Coven_PrimaryAsset",
+     "object_name": "Default__BasePistol_Coven_PrimaryAsset_C",
+     "packaged": true
+    },
+    "level": {
+     "kind": "level",
+     "asset_id": "48d4142e-4538-0bb6-9fa1-57b36dd87b47",
+     "source_asset": "Equippables/Guns/Sidearms/BasePistol/Coven/Levels/BasePistol_Coven_Lv4_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Sidearms/BasePistol/Coven/Levels/BasePistol_Coven_Lv4_PrimaryAsset",
+     "object_name": "Default__BasePistol_Coven_Lv4_PrimaryAsset_C",
+     "packaged": true
+    },
+    "chroma": {
+     "kind": "chroma",
+     "asset_id": "b36bfcf3-45a0-64c5-fa75-61bd9b20c107",
+     "source_asset": "Equippables/Guns/Sidearms/BasePistol/Coven/Chromas/v2/BasePistol_Coven_V2_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Sidearms/BasePistol/Coven/Chromas/v2/BasePistol_Coven_V2_PrimaryAsset",
+     "object_name": "Default__BasePistol_Coven_V2_PrimaryAsset_C",
+     "packaged": true
+    }
+   },
+   "hex": "080000007c0b840b006c0000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea6d2c8cac2e4dae65e84c2e6caa0d2e6e8ded85e84c2e6caa0d2e6e8ded800000000002c00000088caccc2ead8e8bebe84c2e6caa0d2e6e8ded8be86000000000096050a9e050a009e0000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea6d2c8cac2e4dae65e84c2e6caa0d2e6e8ded85e86deeccadc5e84c2e6caa0d2e6e8ded8be86deeccadcbea0e4d2dac2e4f282e6e6cae800000000005200000088caccc2ead8e8bebe84c2e6caa0d2e6e8ded8be86deeccadcbea0e4d2dac2e4f282e6e6cae8be860000000000a6050aae050a00b40000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea6d2c8cac2e4dae65e84c2e6caa0d2e6e8ded85e86deeccadc5e98caeccad8e65e84c2e6caa0d2e6e8ded8be86deeccadcbe98ec68bea0e4d2dac2e4f282e6e6cae800000000005a00000088caccc2ead8e8bebe84c2e6caa0d2e6e8ded8be86deeccadcbe98ec68bea0e4d2dac2e4f282e6e6cae8be860000000000b6050abe050a00ba0000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea6d2c8cac2e4dae65e84c2e6caa0d2e6e8ded85e86deeccadc5e86d0e4dedac2e65eec645e84c2e6caa0d2e6e8ded8be86deeccadcbeac64bea0e4d2dac2e4f282e6e6cae800000000005800000088caccc2ead8e8bebe84c2e6caa0d2e6e8ded8be86deeccadcbeac64bea0e4d2dac2e4f282e6e6cae8be860000000000787d15e03184dc3e6ab79bbe9bd85c794f081c5db6f836450058a4fdac9fa5ea9980d295117e444d9dbcecc571ea8c7bdcfa53d99ffd6b91b49332ed747af44a2ec5ec9345eedbf23bcfc787",
+   "bit_count": 5104
+  },
+  {
+   "name": "test_selection",
+   "cosmetic": {
+    "weapon_id": "29a0cfab-485b-f5d5-779a-b59f85e204a8",
+    "skin_id": "17f0db96-4e2d-6bfd-da2f-aaa54a1d3ffc",
+    "level_id": "ec4538c6-4cca-ac11-817a-648683ba94a8",
+    "chroma_id": "dc43425b-4c3c-f90e-613b-46996c48eba8",
+    "name": "VCTCaps24 GX",
+    "weapon_asset": "Equippables/Guns/Sidearms/BasePistol/BasePistol.uasset",
+    "skin_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/BasePistol_VCTCaps24_GX_PrimaryAsset.uasset",
+    "level_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Levels/BasePistol_VCTCaps24_GX_Lv3_PrimaryAsset.uasset",
+    "chroma_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Chromas/Standard/BasePistol_VCTCaps24_GX_Standard_PrimaryAsset.uasset"
+   },
+   "paths": {
+    "weapon_id": "29a0cfab-485b-f5d5-779a-b59f85e204a8",
+    "skin": {
+     "kind": "skin",
+     "asset_id": "17f0db96-4e2d-6bfd-da2f-aaa54a1d3ffc",
+     "source_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/BasePistol_VCTCaps24_GX_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/BasePistol_VCTCaps24_GX_PrimaryAsset",
+     "object_name": "Default__BasePistol_VCTCaps24_GX_PrimaryAsset_C",
+     "packaged": true
+    },
+    "level": {
+     "kind": "level",
+     "asset_id": "ec4538c6-4cca-ac11-817a-648683ba94a8",
+     "source_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Levels/BasePistol_VCTCaps24_GX_Lv3_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Levels/BasePistol_VCTCaps24_GX_Lv3_PrimaryAsset",
+     "object_name": "Default__BasePistol_VCTCaps24_GX_Lv3_PrimaryAsset_C",
+     "packaged": true
+    },
+    "chroma": {
+     "kind": "chroma",
+     "asset_id": "dc43425b-4c3c-f90e-613b-46996c48eba8",
+     "source_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Chromas/Standard/BasePistol_VCTCaps24_GX_Standard_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Chromas/Standard/BasePistol_VCTCaps24_GX_Standard_PrimaryAsset",
+     "object_name": "Default__BasePistol_VCTCaps24_GX_Standard_PrimaryAsset_C",
+     "packaged": true
+    }
+   },
+   "hex": "080000007c0b840b006c0000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea6d2c8cac2e4dae65e84c2e6caa0d2e6e8ded85e84c2e6caa0d2e6e8ded800000000002c00000088caccc2ead8e8bebe84c2e6caa0d2e6e8ded8be86000000000096050a9e050a00ce0000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea6d2c8cac2e4dae65e84c2e6caa0d2e6e8ded85eac86a886c2e0e664685eac86a886c2e0e66468be8eb05e84c2e6caa0d2e6e8ded8beac86a886c2e0e66468be8eb0bea0e4d2dac2e4f282e6e6cae800000000006000000088caccc2ead8e8bebe84c2e6caa0d2e6e8ded8beac86a886c2e0e66468be8eb0bea0e4d2dac2e4f282e6e6cae8be860000000000a6050aae050a00e40000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea6d2c8cac2e4dae65e84c2e6caa0d2e6e8ded85eac86a886c2e0e664685eac86a886c2e0e66468be8eb05e98caeccad8e65e84c2e6caa0d2e6e8ded8beac86a886c2e0e66468be8eb0be98ec66bea0e4d2dac2e4f282e6e6cae800000000006800000088caccc2ead8e8bebe84c2e6caa0d2e6e8ded8beac86a886c2e0e66468be8eb0be98ec66bea0e4d2dac2e4f282e6e6cae8be860000000000b6050abe050a00020100005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea6d2c8cac2e4dae65e84c2e6caa0d2e6e8ded85eac86a886c2e0e664685eac86a886c2e0e66468be8eb05e86d0e4dedac2e65ea6e8c2dcc8c2e4c85e84c2e6caa0d2e6e8ded8beac86a886c2e0e66468be8eb0bea6e8c2dcc8c2e4c8bea0e4d2dac2e4f282e6e6cae800000000007200000088caccc2ead8e8bebe84c2e6caa0d2e6e8ded8beac86a886c2e0e66468be8eb0bea6e8c2dcc8c2e4c8bea0e4d2dac2e4f282e6e6cae8be860000000000787d15e03184dc3e6ab79bbe9b58fc5240081cdd7fc42625496985beac3c45d4b04098158b81002c1da0ade11af68a2b28f1e2d8756233e29a936cdf6ea515dec8514fca459b89cec7e5effa",
+   "bit_count": 5992
+  },
+  {
+   "name": "weapon_mismatch",
+   "cosmetic": {
+    "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+    "skin_id": "17f0db96-4e2d-6bfd-da2f-aaa54a1d3ffc",
+    "level_id": "ec4538c6-4cca-ac11-817a-648683ba94a8",
+    "chroma_id": "dc43425b-4c3c-f90e-613b-46996c48eba8",
+    "name": "VCTCaps24 GX",
+    "weapon_asset": "Equippables/Guns/Sidearms/BasePistol/BasePistol.uasset",
+    "skin_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/BasePistol_VCTCaps24_GX_PrimaryAsset.uasset",
+    "level_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Levels/BasePistol_VCTCaps24_GX_Lv3_PrimaryAsset.uasset",
+    "chroma_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Chromas/Standard/BasePistol_VCTCaps24_GX_Standard_PrimaryAsset.uasset"
+   },
+   "paths": {
+    "weapon_id": "29a0cfab-485b-f5d5-779a-b59f85e204a8",
+    "skin": {
+     "kind": "skin",
+     "asset_id": "17f0db96-4e2d-6bfd-da2f-aaa54a1d3ffc",
+     "source_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/BasePistol_VCTCaps24_GX_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/BasePistol_VCTCaps24_GX_PrimaryAsset",
+     "object_name": "Default__BasePistol_VCTCaps24_GX_PrimaryAsset_C",
+     "packaged": true
+    },
+    "level": {
+     "kind": "level",
+     "asset_id": "ec4538c6-4cca-ac11-817a-648683ba94a8",
+     "source_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Levels/BasePistol_VCTCaps24_GX_Lv3_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Levels/BasePistol_VCTCaps24_GX_Lv3_PrimaryAsset",
+     "object_name": "Default__BasePistol_VCTCaps24_GX_Lv3_PrimaryAsset_C",
+     "packaged": true
+    },
+    "chroma": {
+     "kind": "chroma",
+     "asset_id": "dc43425b-4c3c-f90e-613b-46996c48eba8",
+     "source_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Chromas/Standard/BasePistol_VCTCaps24_GX_Standard_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Chromas/Standard/BasePistol_VCTCaps24_GX_Standard_PrimaryAsset",
+     "object_name": "Default__BasePistol_VCTCaps24_GX_Standard_PrimaryAsset_C",
+     "packaged": true
+    }
+   },
+   "error": "ValueError",
+   "message": "expected an equipped BasePistol cosmetic selection"
+  },
+  {
+   "name": "paths_weapon_mismatch",
+   "cosmetic": {
+    "weapon_id": "29a0cfab-485b-f5d5-779a-b59f85e204a8",
+    "skin_id": "17f0db96-4e2d-6bfd-da2f-aaa54a1d3ffc",
+    "level_id": "ec4538c6-4cca-ac11-817a-648683ba94a8",
+    "chroma_id": "dc43425b-4c3c-f90e-613b-46996c48eba8",
+    "name": "VCTCaps24 GX",
+    "weapon_asset": "Equippables/Guns/Sidearms/BasePistol/BasePistol.uasset",
+    "skin_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/BasePistol_VCTCaps24_GX_PrimaryAsset.uasset",
+    "level_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Levels/BasePistol_VCTCaps24_GX_Lv3_PrimaryAsset.uasset",
+    "chroma_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Chromas/Standard/BasePistol_VCTCaps24_GX_Standard_PrimaryAsset.uasset"
+   },
+   "paths": {
+    "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+    "skin": {
+     "kind": "skin",
+     "asset_id": "17f0db96-4e2d-6bfd-da2f-aaa54a1d3ffc",
+     "source_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/BasePistol_VCTCaps24_GX_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/BasePistol_VCTCaps24_GX_PrimaryAsset",
+     "object_name": "Default__BasePistol_VCTCaps24_GX_PrimaryAsset_C",
+     "packaged": true
+    },
+    "level": {
+     "kind": "level",
+     "asset_id": "ec4538c6-4cca-ac11-817a-648683ba94a8",
+     "source_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Levels/BasePistol_VCTCaps24_GX_Lv3_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Levels/BasePistol_VCTCaps24_GX_Lv3_PrimaryAsset",
+     "object_name": "Default__BasePistol_VCTCaps24_GX_Lv3_PrimaryAsset_C",
+     "packaged": true
+    },
+    "chroma": {
+     "kind": "chroma",
+     "asset_id": "dc43425b-4c3c-f90e-613b-46996c48eba8",
+     "source_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Chromas/Standard/BasePistol_VCTCaps24_GX_Standard_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Chromas/Standard/BasePistol_VCTCaps24_GX_Standard_PrimaryAsset",
+     "object_name": "Default__BasePistol_VCTCaps24_GX_Standard_PrimaryAsset_C",
+     "packaged": true
+    }
+   },
+   "error": "ValueError",
+   "message": "catalog CDO paths do not match equipped weapon"
+  },
+  {
+   "name": "source_outside",
+   "cosmetic": {
+    "weapon_id": "29a0cfab-485b-f5d5-779a-b59f85e204a8",
+    "skin_id": "17f0db96-4e2d-6bfd-da2f-aaa54a1d3ffc",
+    "level_id": "ec4538c6-4cca-ac11-817a-648683ba94a8",
+    "chroma_id": "dc43425b-4c3c-f90e-613b-46996c48eba8",
+    "name": "VCTCaps24 GX",
+    "weapon_asset": "Equippables/Guns/Sidearms/BasePistol/BasePistol.uasset",
+    "skin_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/BasePistol_VCTCaps24_GX_PrimaryAsset.uasset",
+    "level_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Levels/BasePistol_VCTCaps24_GX_Lv3_PrimaryAsset.uasset",
+    "chroma_asset": "Equippables/Guns/X.uasset"
+   },
+   "paths": {
+    "weapon_id": "29a0cfab-485b-f5d5-779a-b59f85e204a8",
+    "skin": {
+     "kind": "skin",
+     "asset_id": "17f0db96-4e2d-6bfd-da2f-aaa54a1d3ffc",
+     "source_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/BasePistol_VCTCaps24_GX_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/BasePistol_VCTCaps24_GX_PrimaryAsset",
+     "object_name": "Default__BasePistol_VCTCaps24_GX_PrimaryAsset_C",
+     "packaged": true
+    },
+    "level": {
+     "kind": "level",
+     "asset_id": "ec4538c6-4cca-ac11-817a-648683ba94a8",
+     "source_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Levels/BasePistol_VCTCaps24_GX_Lv3_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Levels/BasePistol_VCTCaps24_GX_Lv3_PrimaryAsset",
+     "object_name": "Default__BasePistol_VCTCaps24_GX_Lv3_PrimaryAsset_C",
+     "packaged": true
+    },
+    "chroma": {
+     "kind": "chroma",
+     "asset_id": "dc43425b-4c3c-f90e-613b-46996c48eba8",
+     "source_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Chromas/Standard/BasePistol_VCTCaps24_GX_Standard_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Chromas/Standard/BasePistol_VCTCaps24_GX_Standard_PrimaryAsset",
+     "object_name": "Default__BasePistol_VCTCaps24_GX_Standard_PrimaryAsset_C",
+     "packaged": true
+    }
+   },
+   "error": "ValueError",
+   "message": "catalog CDO path differs from saved selection"
+  },
+  {
+   "name": "unpackaged",
+   "cosmetic": {
+    "weapon_id": "29a0cfab-485b-f5d5-779a-b59f85e204a8",
+    "skin_id": "17f0db96-4e2d-6bfd-da2f-aaa54a1d3ffc",
+    "level_id": "ec4538c6-4cca-ac11-817a-648683ba94a8",
+    "chroma_id": "dc43425b-4c3c-f90e-613b-46996c48eba8",
+    "name": "VCTCaps24 GX",
+    "weapon_asset": "Equippables/Guns/Sidearms/BasePistol/BasePistol.uasset",
+    "skin_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/BasePistol_VCTCaps24_GX_PrimaryAsset.uasset",
+    "level_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Levels/BasePistol_VCTCaps24_GX_Lv3_PrimaryAsset.uasset",
+    "chroma_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Chromas/Standard/BasePistol_VCTCaps24_GX_Standard_PrimaryAsset.uasset"
+   },
+   "paths": {
+    "weapon_id": "29a0cfab-485b-f5d5-779a-b59f85e204a8",
+    "skin": {
+     "kind": "skin",
+     "asset_id": "17f0db96-4e2d-6bfd-da2f-aaa54a1d3ffc",
+     "source_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/BasePistol_VCTCaps24_GX_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/BasePistol_VCTCaps24_GX_PrimaryAsset",
+     "object_name": "Default__BasePistol_VCTCaps24_GX_PrimaryAsset_C",
+     "packaged": true
+    },
+    "level": {
+     "kind": "level",
+     "asset_id": "ec4538c6-4cca-ac11-817a-648683ba94a8",
+     "source_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Levels/BasePistol_VCTCaps24_GX_Lv3_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Levels/BasePistol_VCTCaps24_GX_Lv3_PrimaryAsset",
+     "object_name": "Default__BasePistol_VCTCaps24_GX_Lv3_PrimaryAsset_C",
+     "packaged": false
+    },
+    "chroma": {
+     "kind": "chroma",
+     "asset_id": "dc43425b-4c3c-f90e-613b-46996c48eba8",
+     "source_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Chromas/Standard/BasePistol_VCTCaps24_GX_Standard_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Chromas/Standard/BasePistol_VCTCaps24_GX_Standard_PrimaryAsset",
+     "object_name": "Default__BasePistol_VCTCaps24_GX_Standard_PrimaryAsset_C",
+     "packaged": true
+    }
+   },
+   "error": "ValueError",
+   "message": "catalog CDO path differs from saved selection"
+  },
+  {
+   "name": "asset_id_differs",
+   "cosmetic": {
+    "weapon_id": "29a0cfab-485b-f5d5-779a-b59f85e204a8",
+    "skin_id": "ec4538c6-4cca-ac11-817a-648683ba94a8",
+    "level_id": "ec4538c6-4cca-ac11-817a-648683ba94a8",
+    "chroma_id": "dc43425b-4c3c-f90e-613b-46996c48eba8",
+    "name": "VCTCaps24 GX",
+    "weapon_asset": "Equippables/Guns/Sidearms/BasePistol/BasePistol.uasset",
+    "skin_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/BasePistol_VCTCaps24_GX_PrimaryAsset.uasset",
+    "level_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Levels/BasePistol_VCTCaps24_GX_Lv3_PrimaryAsset.uasset",
+    "chroma_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Chromas/Standard/BasePistol_VCTCaps24_GX_Standard_PrimaryAsset.uasset"
+   },
+   "paths": {
+    "weapon_id": "29a0cfab-485b-f5d5-779a-b59f85e204a8",
+    "skin": {
+     "kind": "skin",
+     "asset_id": "17f0db96-4e2d-6bfd-da2f-aaa54a1d3ffc",
+     "source_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/BasePistol_VCTCaps24_GX_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/BasePistol_VCTCaps24_GX_PrimaryAsset",
+     "object_name": "Default__BasePistol_VCTCaps24_GX_PrimaryAsset_C",
+     "packaged": true
+    },
+    "level": {
+     "kind": "level",
+     "asset_id": "ec4538c6-4cca-ac11-817a-648683ba94a8",
+     "source_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Levels/BasePistol_VCTCaps24_GX_Lv3_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Levels/BasePistol_VCTCaps24_GX_Lv3_PrimaryAsset",
+     "object_name": "Default__BasePistol_VCTCaps24_GX_Lv3_PrimaryAsset_C",
+     "packaged": true
+    },
+    "chroma": {
+     "kind": "chroma",
+     "asset_id": "dc43425b-4c3c-f90e-613b-46996c48eba8",
+     "source_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Chromas/Standard/BasePistol_VCTCaps24_GX_Standard_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Chromas/Standard/BasePistol_VCTCaps24_GX_Standard_PrimaryAsset",
+     "object_name": "Default__BasePistol_VCTCaps24_GX_Standard_PrimaryAsset_C",
+     "packaged": true
+    }
+   },
+   "error": "ValueError",
+   "message": "catalog CDO path differs from saved selection"
+  },
+  {
+   "name": "package_outside",
+   "cosmetic": {
+    "weapon_id": "29a0cfab-485b-f5d5-779a-b59f85e204a8",
+    "skin_id": "17f0db96-4e2d-6bfd-da2f-aaa54a1d3ffc",
+    "level_id": "ec4538c6-4cca-ac11-817a-648683ba94a8",
+    "chroma_id": "dc43425b-4c3c-f90e-613b-46996c48eba8",
+    "name": "VCTCaps24 GX",
+    "weapon_asset": "Equippables/Guns/Sidearms/BasePistol/BasePistol.uasset",
+    "skin_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/BasePistol_VCTCaps24_GX_PrimaryAsset.uasset",
+    "level_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Levels/BasePistol_VCTCaps24_GX_Lv3_PrimaryAsset.uasset",
+    "chroma_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Chromas/Standard/BasePistol_VCTCaps24_GX_Standard_PrimaryAsset.uasset"
+   },
+   "paths": {
+    "weapon_id": "29a0cfab-485b-f5d5-779a-b59f85e204a8",
+    "skin": {
+     "kind": "skin",
+     "asset_id": "17f0db96-4e2d-6bfd-da2f-aaa54a1d3ffc",
+     "source_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/BasePistol_VCTCaps24_GX_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/BasePistol_VCTCaps24_GX_PrimaryAsset",
+     "object_name": "Default__BasePistol_VCTCaps24_GX_PrimaryAsset_C",
+     "packaged": true
+    },
+    "level": {
+     "kind": "level",
+     "asset_id": "ec4538c6-4cca-ac11-817a-648683ba94a8",
+     "source_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Levels/BasePistol_VCTCaps24_GX_Lv3_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Levels/BasePistol_VCTCaps24_GX_Lv3_PrimaryAsset",
+     "object_name": "Default__BasePistol_VCTCaps24_GX_Lv3_PrimaryAsset_C",
+     "packaged": true
+    },
+    "chroma": {
+     "kind": "chroma",
+     "asset_id": "dc43425b-4c3c-f90e-613b-46996c48eba8",
+     "source_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Chromas/Standard/BasePistol_VCTCaps24_GX_Standard_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/X",
+     "object_name": "Default__BasePistol_VCTCaps24_GX_Standard_PrimaryAsset_C",
+     "packaged": true
+    }
+   },
+   "error": "ValueError",
+   "message": "catalog CDO path differs from saved selection"
+  },
+  {
+   "name": "wrong_kind",
+   "cosmetic": {
+    "weapon_id": "29a0cfab-485b-f5d5-779a-b59f85e204a8",
+    "skin_id": "17f0db96-4e2d-6bfd-da2f-aaa54a1d3ffc",
+    "level_id": "ec4538c6-4cca-ac11-817a-648683ba94a8",
+    "chroma_id": "dc43425b-4c3c-f90e-613b-46996c48eba8",
+    "name": "VCTCaps24 GX",
+    "weapon_asset": "Equippables/Guns/Sidearms/BasePistol/BasePistol.uasset",
+    "skin_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/BasePistol_VCTCaps24_GX_PrimaryAsset.uasset",
+    "level_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Levels/BasePistol_VCTCaps24_GX_Lv3_PrimaryAsset.uasset",
+    "chroma_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Chromas/Standard/BasePistol_VCTCaps24_GX_Standard_PrimaryAsset.uasset"
+   },
+   "paths": {
+    "weapon_id": "29a0cfab-485b-f5d5-779a-b59f85e204a8",
+    "skin": {
+     "kind": "chroma",
+     "asset_id": "17f0db96-4e2d-6bfd-da2f-aaa54a1d3ffc",
+     "source_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/BasePistol_VCTCaps24_GX_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/BasePistol_VCTCaps24_GX_PrimaryAsset",
+     "object_name": "Default__BasePistol_VCTCaps24_GX_PrimaryAsset_C",
+     "packaged": true
+    },
+    "level": {
+     "kind": "level",
+     "asset_id": "ec4538c6-4cca-ac11-817a-648683ba94a8",
+     "source_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Levels/BasePistol_VCTCaps24_GX_Lv3_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Levels/BasePistol_VCTCaps24_GX_Lv3_PrimaryAsset",
+     "object_name": "Default__BasePistol_VCTCaps24_GX_Lv3_PrimaryAsset_C",
+     "packaged": true
+    },
+    "chroma": {
+     "kind": "chroma",
+     "asset_id": "dc43425b-4c3c-f90e-613b-46996c48eba8",
+     "source_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Chromas/Standard/BasePistol_VCTCaps24_GX_Standard_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Chromas/Standard/BasePistol_VCTCaps24_GX_Standard_PrimaryAsset",
+     "object_name": "Default__BasePistol_VCTCaps24_GX_Standard_PrimaryAsset_C",
+     "packaged": true
+    }
+   },
+   "error": "ValueError",
+   "message": "catalog CDO path differs from saved selection"
+  },
+  {
+   "name": "source_differs",
+   "cosmetic": {
+    "weapon_id": "29a0cfab-485b-f5d5-779a-b59f85e204a8",
+    "skin_id": "17f0db96-4e2d-6bfd-da2f-aaa54a1d3ffc",
+    "level_id": "ec4538c6-4cca-ac11-817a-648683ba94a8",
+    "chroma_id": "dc43425b-4c3c-f90e-613b-46996c48eba8",
+    "name": "VCTCaps24 GX",
+    "weapon_asset": "Equippables/Guns/Sidearms/BasePistol/BasePistol.uasset",
+    "skin_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/BasePistol_VCTCaps24_GX_PrimaryAsset.uasset",
+    "level_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Levels/BasePistol_VCTCaps24_GX_Lv3_PrimaryAsset.uasset",
+    "chroma_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Chromas/Standard/BasePistol_VCTCaps24_GX_Standard_PrimaryAsset.uasset"
+   },
+   "paths": {
+    "weapon_id": "29a0cfab-485b-f5d5-779a-b59f85e204a8",
+    "skin": {
+     "kind": "skin",
+     "asset_id": "17f0db96-4e2d-6bfd-da2f-aaa54a1d3ffc",
+     "source_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Levels/BasePistol_VCTCaps24_GX_Lv3_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/BasePistol_VCTCaps24_GX_PrimaryAsset",
+     "object_name": "Default__BasePistol_VCTCaps24_GX_PrimaryAsset_C",
+     "packaged": true
+    },
+    "level": {
+     "kind": "level",
+     "asset_id": "ec4538c6-4cca-ac11-817a-648683ba94a8",
+     "source_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Levels/BasePistol_VCTCaps24_GX_Lv3_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Levels/BasePistol_VCTCaps24_GX_Lv3_PrimaryAsset",
+     "object_name": "Default__BasePistol_VCTCaps24_GX_Lv3_PrimaryAsset_C",
+     "packaged": true
+    },
+    "chroma": {
+     "kind": "chroma",
+     "asset_id": "dc43425b-4c3c-f90e-613b-46996c48eba8",
+     "source_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Chromas/Standard/BasePistol_VCTCaps24_GX_Standard_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Chromas/Standard/BasePistol_VCTCaps24_GX_Standard_PrimaryAsset",
+     "object_name": "Default__BasePistol_VCTCaps24_GX_Standard_PrimaryAsset_C",
+     "packaged": true
+    }
+   },
+   "error": "ValueError",
+   "message": "catalog CDO path differs from saved selection"
+  },
+  {
+   "name": "object_not_default",
+   "cosmetic": {
+    "weapon_id": "29a0cfab-485b-f5d5-779a-b59f85e204a8",
+    "skin_id": "17f0db96-4e2d-6bfd-da2f-aaa54a1d3ffc",
+    "level_id": "ec4538c6-4cca-ac11-817a-648683ba94a8",
+    "chroma_id": "dc43425b-4c3c-f90e-613b-46996c48eba8",
+    "name": "VCTCaps24 GX",
+    "weapon_asset": "Equippables/Guns/Sidearms/BasePistol/BasePistol.uasset",
+    "skin_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/BasePistol_VCTCaps24_GX_PrimaryAsset.uasset",
+    "level_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Levels/BasePistol_VCTCaps24_GX_Lv3_PrimaryAsset.uasset",
+    "chroma_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Chromas/Standard/BasePistol_VCTCaps24_GX_Standard_PrimaryAsset.uasset"
+   },
+   "paths": {
+    "weapon_id": "29a0cfab-485b-f5d5-779a-b59f85e204a8",
+    "skin": {
+     "kind": "skin",
+     "asset_id": "17f0db96-4e2d-6bfd-da2f-aaa54a1d3ffc",
+     "source_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/BasePistol_VCTCaps24_GX_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/BasePistol_VCTCaps24_GX_PrimaryAsset",
+     "object_name": "Plain_C",
+     "packaged": true
+    },
+    "level": {
+     "kind": "level",
+     "asset_id": "ec4538c6-4cca-ac11-817a-648683ba94a8",
+     "source_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Levels/BasePistol_VCTCaps24_GX_Lv3_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Levels/BasePistol_VCTCaps24_GX_Lv3_PrimaryAsset",
+     "object_name": "Default__BasePistol_VCTCaps24_GX_Lv3_PrimaryAsset_C",
+     "packaged": true
+    },
+    "chroma": {
+     "kind": "chroma",
+     "asset_id": "dc43425b-4c3c-f90e-613b-46996c48eba8",
+     "source_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Chromas/Standard/BasePistol_VCTCaps24_GX_Standard_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Chromas/Standard/BasePistol_VCTCaps24_GX_Standard_PrimaryAsset",
+     "object_name": "Default__BasePistol_VCTCaps24_GX_Standard_PrimaryAsset_C",
+     "packaged": true
+    }
+   },
+   "hex": "080000007c0b840b006c0000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea6d2c8cac2e4dae65e84c2e6caa0d2e6e8ded85e84c2e6caa0d2e6e8ded800000000002c00000088caccc2ead8e8bebe84c2e6caa0d2e6e8ded8be86000000000096050a9e050a00ce0000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea6d2c8cac2e4dae65e84c2e6caa0d2e6e8ded85eac86a886c2e0e664685eac86a886c2e0e66468be8eb05e84c2e6caa0d2e6e8ded8beac86a886c2e0e66468be8eb0bea0e4d2dac2e4f282e6e6cae8000000000010000000a0d8c2d2dcbe860000000000a6050aae050a00e40000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea6d2c8cac2e4dae65e84c2e6caa0d2e6e8ded85eac86a886c2e0e664685eac86a886c2e0e66468be8eb05e98caeccad8e65e84c2e6caa0d2e6e8ded8beac86a886c2e0e66468be8eb0be98ec66bea0e4d2dac2e4f282e6e6cae800000000006800000088caccc2ead8e8bebe84c2e6caa0d2e6e8ded8beac86a886c2e0e66468be8eb0be98ec66bea0e4d2dac2e4f282e6e6cae8be860000000000b6050abe050a00020100005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea6d2c8cac2e4dae65e84c2e6caa0d2e6e8ded85eac86a886c2e0e664685eac86a886c2e0e66468be8eb05e86d0e4dedac2e65ea6e8c2dcc8c2e4c85e84c2e6caa0d2e6e8ded8beac86a886c2e0e66468be8eb0bea6e8c2dcc8c2e4c8bea0e4d2dac2e4f282e6e6cae800000000007200000088caccc2ead8e8bebe84c2e6caa0d2e6e8ded8beac86a886c2e0e66468be8eb0bea6e8c2dcc8c2e4c8bea0e4d2dac2e4f282e6e6cae8be860000000000787d15e03184dc3e6ab79bbe9b58fc5240081cdd7fc42625496985beac3c45d4b04098158b81002c1da0ade11af68a2b28f1e2d8756233e29a936cdf6ea515dec8514fca459b89cec7e5effa",
+   "bit_count": 5672
+  },
+  {
+   "name": "guard",
+   "cosmetic": {
+    "weapon_id": "29a0cfab-485b-f5d5-779a-b59f85e204a8",
+    "skin_id": "17f0db96-4e2d-6bfd-da2f-aaa54a1d3ffc",
+    "level_id": "ec4538c6-4cca-ac11-817a-648683ba94a8",
+    "chroma_id": "dc43425b-4c3c-f90e-613b-46996c48eba8",
+    "name": "VCTCaps24 GX",
+    "weapon_asset": "Equippables/Guns/Sidearms/BasePistol/BasePistol.uasset",
+    "skin_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/BasePistol_VCTCaps24_GX_PrimaryAsset.uasset",
+    "level_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Levels/BasePistol_VCTCaps24_GX_Lv3_PrimaryAsset.uasset",
+    "chroma_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Chromas/Standard/BasePistol_VCTCaps24_GX_Standard_PrimaryAsset.uasset"
+   },
+   "paths": {
+    "weapon_id": "29a0cfab-485b-f5d5-779a-b59f85e204a8",
+    "skin": {
+     "kind": "skin",
+     "asset_id": "17f0db96-4e2d-6bfd-da2f-aaa54a1d3ffc",
+     "source_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/BasePistol_VCTCaps24_GX_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/BasePistol_VCTCaps24_GX_PrimaryAsset",
+     "object_name": "Default__AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA_C",
+     "packaged": true
+    },
+    "level": {
+     "kind": "level",
+     "asset_id": "ec4538c6-4cca-ac11-817a-648683ba94a8",
+     "source_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Levels/BasePistol_VCTCaps24_GX_Lv3_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Levels/BasePistol_VCTCaps24_GX_Lv3_PrimaryAsset",
+     "object_name": "Default__AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA_C",
+     "packaged": true
+    },
+    "chroma": {
+     "kind": "chroma",
+     "asset_id": "dc43425b-4c3c-f90e-613b-46996c48eba8",
+     "source_asset": "Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Chromas/Standard/BasePistol_VCTCaps24_GX_Standard_PrimaryAsset.uasset",
+     "package_path": "/Game/Equippables/Guns/Sidearms/BasePistol/VCTCaps24/VCTCaps24_GX/Chromas/Standard/BasePistol_VCTCaps24_GX_Standard_PrimaryAsset",
+     "object_name": "Default__AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA_C",
+     "packaged": true
+    }
+   },
+   "error": "ValueError",
+   "message": "initial BasePistol bunch exceeds protocol size limit"
+  }
+ ],
+ "plain": {
+  "base_pistol": {
+   "hex": "020000007c0b840b006c0000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea6d2c8cac2e4dae65e84c2e6caa0d2e6e8ded85e84c2e6caa0d2e6e8ded800000000002c00000088caccc2ead8e8bebe84c2e6caa0d2e6e8ded8be860000000000787d1500",
+   "bit_count": 837
+  },
+  "melee": {
+   "hex": "0200000036050a3e050a00560000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e9acad8caca5e82c4d2d8d2e8f2be9acad8cacabe84c2e6ca00000000003c00000088caccc2ead8e8bebe82c4d2d8d2e8f2be9acad8cacabe84c2e6cabe860000000000320536051400",
+   "bit_count": 845
+  },
+  "knife_saved_open": {
+   "hex": "0800000036050a3e050a00560000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e9acad8caca5e82c4d2d8d2e8f2be9acad8cacabe84c2e6ca00000000003c00000088caccc2ead8e8bebe82c4d2d8d2e8f2be9acad8cacabe84c2e6cabe860000000000c6050ace050a006e0000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e9acad8caca5ea4deceeaca5e9acad8cacabea4deceeacabea0e4d2dac2e4f282e6e6cae800000000004800000088caccc2ead8e8bebe9acad8cacabea4deceeacabea0e4d2dac2e4f282e6e6cae8be860000000000d6050ade050a00840000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e9acad8caca5ea4deceeaca5e98caeccad8e65e9acad8cacabea4deceeacabe98ec64bea0e4d2dac2e4f282e6e6cae800000000005000000088caccc2ead8e8bebe9acad8cacabea4deceeacabe98ec64bea0e4d2dac2e4f282e6e6cae8be860000000000e6050aee050a008a0000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e9acad8caca5ea4deceeaca5e86d0e4dedac2e65eec665e9acad8cacabea4deceeacabeec66bea0e4d2dac2e4f282e6e6cae800000000004e00000088caccc2ead8e8bebe9acad8cacabea4deceeacabeec66bea0e4d2dac2e4f282e6e6cae8be8600000000003205360514e03184ddbc533b50e9da589456920fc94009f30a99567d90aab1b920547752d8abac4688ea7aa496aaf4e8154f666cd6c0c7ae0c6e750567f7f8a3d88ffb5acea0f05d1fc1bcb53df5",
+   "bit_count": 4416
+  }
+ }
+}

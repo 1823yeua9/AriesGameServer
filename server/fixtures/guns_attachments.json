@@ -1,0 +1,643 @@
+{
+ "handles": [
+  20,
+  40
+ ],
+ "guard": 7600,
+ "table": [
+  [
+   "AssaultRifle_ACR_C",
+   [
+    [
+     "/Game/Equippables/Guns/Rifles/Carbine/Attachments/Reflex/RedDot/Attachment_ACR_Reflex_RedDotPrimaryAsset",
+     "Default__Attachment_ACR_Reflex_RedDotPrimaryAsset_C",
+     [
+      3239696930,
+      1100831357,
+      780390044,
+      2168920549
+     ]
+    ],
+    [
+     "/Game/Equippables/Guns/Rifles/Carbine/Attachments/Muzzle/Silencer/Attachment_ACR_Silencer_PrimaryAsset",
+     "Default__Attachment_ACR_Silencer_PrimaryAsset_C",
+     [
+      4045900709,
+      1170727868,
+      2990095774,
+      3860568221
+     ]
+    ]
+   ]
+  ],
+  [
+   "SubMachineGun_MP5_C",
+   [
+    [
+     "/Game/Equippables/Guns/SubMachineGuns/MP5/Attachments/Reflex/RedDot/Attachment_MP5_Reflex_RedDotPrimaryAsset",
+     "Default__Attachment_MP5_Reflex_RedDotPrimaryAsset_C",
+     [
+      3314819544,
+      3621539445,
+      2411303025,
+      59136414
+     ]
+    ],
+    [
+     "/Game/Equippables/Guns/SubMachineGuns/MP5/Attachments/Muzzle/Silencer/Attachment_MP5_Silencer_PrimaryAsset",
+     "Default__Attachment_MP5_Silencer_PrimaryAsset_C",
+     [
+      2802931290,
+      3850126280,
+      2476074960,
+      2452225830
+     ]
+    ]
+   ]
+  ],
+  [
+   "AssaultRifle_AK_C",
+   [
+    [
+     "/Game/Equippables/Guns/Rifles/AK/Attachments/Reflex/RedDot/Attachment_AK_ReflexPrimaryAsset",
+     "Default__Attachment_AK_ReflexPrimaryAsset_C",
+     [
+      3641701264,
+      1296952904,
+      2370616479,
+      2064791186
+     ]
+    ]
+   ]
+  ],
+  [
+   "AssaultRifle_Burst_C",
+   [
+    [
+     "/Game/Equippables/Guns/Rifles/Burst/Attachments/Rfx/RedDot/Attachment_Burst_Reflex_RedDotPrimaryAsset",
+     "Default__Attachment_Burst_Reflex_RedDotPrimaryAsset_C",
+     [
+      2354076767,
+      1268675384,
+      2773427371,
+      2705009515
+     ]
+    ]
+   ]
+  ],
+  [
+   "DMR_C",
+   [
+    [
+     "/Game/Equippables/Guns/SniperRifles/DMR/Attachments/Reflex/ACOG/Attachment_DMR_Reflex_ReddotPrimaryAsset",
+     "Default__Attachment_DMR_Reflex_ReddotPrimaryAsset_C",
+     [
+      749459543,
+      1134244788,
+      3472294824,
+      327078372
+     ]
+    ]
+   ]
+  ],
+  [
+   "BattleRifle_C",
+   [
+    [
+     "/Game/Equippables/Guns/Rifles/BattleRifle/Attachments/Reflex/Acog/Attachment_BattleRifle_ACOGScope_PrimaryAsset",
+     "Default__Attachment_BattleRifle_ACOGScope_PrimaryAsset_C",
+     [
+      2415401105,
+      1276825532,
+      2192703930,
+      925174671
+     ]
+    ]
+   ]
+  ],
+  [
+   "Vector_C",
+   [
+    [
+     "/Game/Equippables/Guns/SubMachineGuns/Vector/Attachments/Reflex/RedDot/Attachment_Vector_Reflex_RedDotPrimaryAsset",
+     "Default__Attachment_Vector_Reflex_RedDotPrimaryAsset_C",
+     [
+      3520348771,
+      1100140220,
+      158651534,
+      4075904541
+     ]
+    ]
+   ]
+  ],
+  [
+   "LightMachineGun_C",
+   [
+    [
+     "/Game/Equippables/Guns/HvyMachineGuns/LMG/Attachments/Reflex/RedDot/Attachment_LMG_Reflex_RedDotPrimaryAsset",
+     "Default__Attachment_LMG_Reflex_RedDotPrimaryAsset_C",
+     [
+      3684570365,
+      1280786380,
+      941034412,
+      4203434380
+     ]
+    ]
+   ]
+  ],
+  [
+   "HeavyMachineGun_C",
+   [
+    [
+     "/Game/Equippables/Guns/HvyMachineGuns/HMG/Attachments/Reflex/Attachment_HMG_ReflexPrimaryAsset",
+     "Default__Attachment_HMG_ReflexPrimaryAsset_C",
+     [
+      3251270587,
+      1305475264,
+      3869953930,
+      1374354583
+     ]
+    ]
+   ]
+  ],
+  [
+   "LeverSniperRifle_C",
+   [
+    [
+     "/Game/Equippables/Guns/SniperRifles/Leversniper/Attachments/Reflex/Default/Scope_Lever_DataAsset",
+     "Default__Scope_Lever_DataAsset_C",
+     [
+      65357220,
+      1310300350,
+      1109192122,
+      563075686
+     ]
+    ]
+   ]
+  ],
+  [
+   "DS_Gun_C",
+   [
+    [
+     "/Game/Equippables/Guns/SniperRifles/Doublesniper/Attachments/Scope/Scope_DS_DataAsset",
+     "Default__Scope_DS_DataAsset_C",
+     [
+      1943888111,
+      1258463901,
+      741565853,
+      1033904868
+     ]
+    ]
+   ]
+  ],
+  [
+   "BoltSniper_C",
+   [
+    [
+     "/Game/Equippables/Guns/SniperRifles/Boltsniper/Attachments/2XScope/Attachment_BoltSniper_2XScope_PrimaryAsset",
+     "Default__Attachment_BoltSniper_2XScope_PrimaryAsset_C",
+     [
+      3799909021,
+      1206316919,
+      2719851706,
+      1181970544
+     ]
+    ]
+   ]
+  ],
+  [
+   "LugerPistol_C",
+   [
+    [
+     "/Game/Equippables/Guns/Sidearms/Luger/Attachments/Silencer/Attachment_Luger_Silencer_PrimaryAsset",
+     "Default__Attachment_Luger_Silencer_PrimaryAsset_C",
+     [
+      275652879,
+      2140094603,
+      2148565441,
+      1521811506
+     ]
+    ]
+   ]
+  ]
+ ],
+ "lookup": [
+  [
+   "BasePistol_C",
+   0
+  ],
+  [
+   "SawedOffShotgun_C",
+   0
+  ],
+  [
+   "AutomaticPistol_C",
+   0
+  ],
+  [
+   "LugerPistol_C",
+   1
+  ],
+  [
+   "CompactPistol_C",
+   0
+  ],
+  [
+   "RevolverPistol_C",
+   0
+  ],
+  [
+   "Vector_C",
+   1
+  ],
+  [
+   "SubMachineGun_MP5_C",
+   2
+  ],
+  [
+   "PumpShotgun_C",
+   0
+  ],
+  [
+   "AutomaticShotgun_C",
+   0
+  ],
+  [
+   "AssaultRifle_Burst_C",
+   1
+  ],
+  [
+   "DMR_C",
+   1
+  ],
+  [
+   "AssaultRifle_ACR_C",
+   2
+  ],
+  [
+   "AssaultRifle_AK_C",
+   1
+  ],
+  [
+   "BattleRifle_C",
+   1
+  ],
+  [
+   "LeverSniperRifle_C",
+   1
+  ],
+  [
+   "DS_Gun_C",
+   1
+  ],
+  [
+   "BoltSniper_C",
+   1
+  ],
+  [
+   "LightMachineGun_C",
+   1
+  ],
+  [
+   "HeavyMachineGun_C",
+   1
+  ],
+  [
+   "HeavyArmorItem_C",
+   0
+  ],
+  [
+   "Nope_C",
+   0
+  ],
+  [
+   "",
+   0
+  ]
+ ],
+ "object_arrays": [
+  {
+   "handle": 20,
+   "guids": [
+    547
+   ],
+   "hex": "28010002470800",
+   "bit_count": 56
+  },
+  {
+   "handle": 20,
+   "guids": [
+    547,
+    551
+   ],
+   "hex": "280200024708044f0800",
+   "bit_count": 80
+  },
+  {
+   "handle": 20,
+   "guids": [],
+   "hex": "28000000",
+   "bit_count": 32
+  },
+  {
+   "handle": 3,
+   "guids": [
+    1,
+    127,
+    128,
+    16383,
+    16384,
+    4294967295
+   ],
+   "hex": "060600020204fe06010208fffe0a0101020cffffffff1e00",
+   "bit_count": 192
+  },
+  {
+   "handle": 200,
+   "guids": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39
+   ],
+   "hex": "9102270002020404060608080a0a0c0c0e0e101012121414161618181a1a1c1c1e1e202022222424262628282a2a2c2c2e2e303032323434363638383a3a3c3c3e3e404042424444464648484a4a4c4c4e4e00",
+   "bit_count": 664
+  }
+ ],
+ "guid_arrays": [
+  {
+   "handle": 40,
+   "words": [
+    [
+     3239696930,
+     1100831357,
+     780390044,
+     2168920549
+    ]
+   ],
+   "hex": "5001000222da19c1047d5a9d41069cce832e08e519478100",
+   "bit_count": 192
+  },
+  {
+   "handle": 40,
+   "words": [
+    [
+     3239696930,
+     1100831357,
+     780390044,
+     2168920549
+    ],
+    [
+     4045900709,
+     1170727868,
+     2990095774,
+     3860568221
+    ]
+   ],
+   "hex": "5002000222da19c1047d5a9d41069cce832e08e51947810aa58b27f10cbce3c7450e9e3d39b2109d981be600",
+   "bit_count": 352
+  },
+  {
+   "handle": 40,
+   "words": [],
+   "hex": "50000000",
+   "bit_count": 32
+  },
+  {
+   "handle": 40,
+   "words": [
+    [
+     3239696930,
+     1100831357,
+     780390044,
+     2168920549
+    ],
+    [
+     4045900709,
+     1170727868,
+     2990095774,
+     3860568221
+    ],
+    [
+     3314819544,
+     3621539445,
+     2411303025,
+     59136414
+    ],
+    [
+     2802931290,
+     3850126280,
+     2476074960,
+     2452225830
+    ],
+    [
+     3641701264,
+     1296952904,
+     2370616479,
+     2064791186
+    ],
+    [
+     2354076767,
+     1268675384,
+     2773427371,
+     2705009515
+    ],
+    [
+     749459543,
+     1134244788,
+     3472294824,
+     327078372
+    ],
+    [
+     2415401105,
+     1276825532,
+     2192703930,
+     925174671
+    ],
+    [
+     3520348771,
+     1100140220,
+     158651534,
+     4075904541
+    ],
+    [
+     3684570365,
+     1280786380,
+     941034412,
+     4203434380
+    ],
+    [
+     3251270587,
+     1305475264,
+     3869953930,
+     1374354583
+    ],
+    [
+     65357220,
+     1310300350,
+     1109192122,
+     563075686
+    ],
+    [
+     1943888111,
+     1258463901,
+     741565853,
+     1033904868
+    ],
+    [
+     3799909021,
+     1206316919,
+     2719851706,
+     1181970544
+    ],
+    [
+     275652879,
+     2140094603,
+     2148565441,
+     1521811506
+    ]
+   ],
+   "hex": "500f000222da19c1047d5a9d41069cce832e08e51947810aa58b27f10cbce3c7450e9e3d39b2109d981be612d82194c514754edcd7167190b98f189e5986031a5a5611a71cc8437ce51ed0e795932026ff29922290f30fd92448ee4d4d269fbc4c8d289236127b2a5f5c508c2c38739e4b2eab244fa5306b2b3ba13257d8ab2c34b4339b4336a803f7ce38e4d17e133a9118f88f3cbccf1a4c3eba01b282408f0b2537426342d4d144bcce9241468ed47409481d5ef1f24afd149edb4ccc3f574c4eac0b1738508c518bfa52bb73cac154c0f8cf4d568acfaae65897fcea515aa445e5035cbe98194e5ebaed1c426066da8f2162ef60dd73649da2024b669d65332c68e422a03d6a9d027ee26c77efe6476ebaa41da27070707346720f216e10748b408f7f76c1811080783200b55a00",
+   "bit_count": 2432
+  },
+  {
+   "handle": 130,
+   "words": [
+    [
+     2802931290,
+     3850126280,
+     2476074960,
+     2452225830
+    ],
+    [
+     3641701264,
+     1296952904,
+     2370616479,
+     2064791186
+    ],
+    [
+     2354076767,
+     1268675384,
+     2773427371,
+     2705009515
+    ],
+    [
+     749459543,
+     1134244788,
+     3472294824,
+     327078372
+    ]
+   ],
+   "hex": "05020400025a5611a704c8437ce506d0e795930826ff29920a90f30fd90c48ee4d4d0e9fbc4c8d109236127b125f5c508c1438739e4b16ab244fa5186b2b3ba11a57d8ab2c1cb4339b431ea803f7ce20e4d17e1300",
+   "bit_count": 680
+  }
+ ],
+ "pre_export": [
+  {
+   "class": "AssaultRifle_ACR_C",
+   "pairs": [
+    [
+     547,
+     549
+    ],
+    [
+     551,
+     553
+    ]
+   ],
+   "hex": "040000008e100a96100a00d20000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea4d2ccd8cae65e86c2e4c4d2dcca5e82e8e8c2c6d0dacadce8e65ea4caccd8caf05ea4cac888dee85e82e8e8c2c6d0dacadce8be8286a4bea4caccd8caf0bea4cac888dee8a0e4d2dac2e4f282e6e6cae800000000006800000088caccc2ead8e8bebe82e8e8c2c6d0dacadce8be8286a4bea4caccd8caf0bea4cac888dee8a0e4d2dac2e4f282e6e6cae8be8600000000009e100aa6100a00ce0000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea4d2ccd8cae65e86c2e4c4d2dcca5e82e8e8c2c6d0dacadce8e65e9aeaf4f4d8ca5ea6d2d8cadcc6cae45e82e8e8c2c6d0dacadce8be8286a4bea6d2d8cadcc6cae4bea0e4d2dac2e4f282e6e6cae800000000006000000088caccc2ead8e8bebe82e8e8c2c6d0dacadce8be8286a4bea6d2d8cadcc6cae4bea0e4d2dac2e4f282e6e6cae8be86000000000000",
+   "bit_count": 2865
+  },
+  {
+   "class": "AssaultRifle_AK_C",
+   "pairs": [
+    [
+     547,
+     549
+    ]
+   ],
+   "hex": "020000008e100a96100a00b80000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea4d2ccd8cae65e82965e82e8e8c2c6d0dacadce8e65ea4caccd8caf05ea4cac888dee85e82e8e8c2c6d0dacadce8be8296bea4caccd8caf0a0e4d2dac2e4f282e6e6cae800000000005800000088caccc2ead8e8bebe82e8e8c2c6d0dacadce8be8296bea4caccd8caf0a0e4d2dac2e4f282e6e6cae8be86000000000000",
+   "bit_count": 1305
+  },
+  {
+   "class": "AssaultRifle_AK_C",
+   "pairs": [
+    [
+     613,
+     615
+    ]
+   ],
+   "hex": "0200000096110a9e110a00b80000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea4d2ccd8cae65e82965e82e8e8c2c6d0dacadce8e65ea4caccd8caf05ea4cac888dee85e82e8e8c2c6d0dacadce8be8296bea4caccd8caf0a0e4d2dac2e4f282e6e6cae800000000005800000088caccc2ead8e8bebe82e8e8c2c6d0dacadce8be8296bea4caccd8caf0a0e4d2dac2e4f282e6e6cae8be86000000000000",
+   "bit_count": 1305
+  },
+  {
+   "class": "AssaultRifle_ACR_C",
+   "pairs": [
+    [
+     547,
+     549
+    ]
+   ],
+   "error": "ValueError",
+   "message": "each attachment needs exactly one (object, package) GUID pair"
+  },
+  {
+   "class": "AssaultRifle_AK_C",
+   "pairs": [],
+   "error": "ValueError",
+   "message": "each attachment needs exactly one (object, package) GUID pair"
+  },
+  {
+   "class": "BasePistol_C",
+   "pairs": [],
+   "error": "ValueError",
+   "message": "each attachment needs exactly one (object, package) GUID pair"
+  },
+  {
+   "class": "DS_Gun_C",
+   "pairs": [
+    [
+     4294967295,
+     1
+    ]
+   ],
+   "hex": "02000000feffffff3d0a040a00ac0000005e8ec2daca5e8ae2ead2e0e0c2c4d8cae65e8eeadce65ea6dcd2e0cae4a4d2ccd8cae65e88deeac4d8cae6dcd2e0cae45e82e8e8c2c6d0dacadce8e65ea6c6dee0ca5ea6c6dee0cabe88a6be88c2e8c282e6e6cae800000000003c00000088caccc2ead8e8bebea6c6dee0cabe88a6be88c2e8c282e6e6cae8be86000000000000",
+   "bit_count": 1161
+  }
+ ]
+}

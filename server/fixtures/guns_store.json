@@ -1,0 +1,1618 @@
+{
+ "slots": [
+  0,
+  1,
+  11
+ ],
+ "items": [
+  {
+   "display": "Classic",
+   "class": "BasePistol_C",
+   "cost": 0,
+   "weapon_id": "29a0cfab-485b-f5d5-779a-b59f85e204a8",
+   "slot": 1,
+   "is_gun": true
+  },
+  {
+   "display": "Shorty",
+   "class": "SawedOffShotgun_C",
+   "cost": 300,
+   "weapon_id": "42da8ccc-40d5-affc-beec-15aa47b42eda",
+   "slot": 1,
+   "is_gun": true
+  },
+  {
+   "display": "Frenzy",
+   "class": "AutomaticPistol_C",
+   "cost": 450,
+   "weapon_id": "44d4e95c-4157-0037-81b2-17841bf2e8e3",
+   "slot": 1,
+   "is_gun": true
+  },
+  {
+   "display": "Ghost",
+   "class": "LugerPistol_C",
+   "cost": 500,
+   "weapon_id": "1baa85b4-4c70-1284-64bb-6481dfc3bb4e",
+   "slot": 1,
+   "is_gun": true
+  },
+  {
+   "display": "Bandit",
+   "class": "CompactPistol_C",
+   "cost": 600,
+   "weapon_id": "410b2e0b-4ceb-1321-1727-20858f7f3477",
+   "slot": 1,
+   "is_gun": true
+  },
+  {
+   "display": "Sheriff",
+   "class": "RevolverPistol_C",
+   "cost": 800,
+   "weapon_id": "e336c6b8-418d-9340-d77f-7a9e4cfe0702",
+   "slot": 1,
+   "is_gun": true
+  },
+  {
+   "display": "Stinger",
+   "class": "Vector_C",
+   "cost": 1100,
+   "weapon_id": "f7e1b454-4ad4-1063-ec0a-159e56b58941",
+   "slot": 0,
+   "is_gun": true
+  },
+  {
+   "display": "Spectre",
+   "class": "SubMachineGun_MP5_C",
+   "cost": 1600,
+   "weapon_id": "462080d1-4035-2937-7c09-27aa2a5c27a7",
+   "slot": 0,
+   "is_gun": true
+  },
+  {
+   "display": "Bucky",
+   "class": "PumpShotgun_C",
+   "cost": 850,
+   "weapon_id": "910be174-449b-c412-ab22-d0873436b21b",
+   "slot": 0,
+   "is_gun": true
+  },
+  {
+   "display": "Judge",
+   "class": "AutomaticShotgun_C",
+   "cost": 1850,
+   "weapon_id": "ec845bf4-4f79-ddda-a3da-0db3774b2794",
+   "slot": 0,
+   "is_gun": true
+  },
+  {
+   "display": "Bulldog",
+   "class": "AssaultRifle_Burst_C",
+   "cost": 2050,
+   "weapon_id": "ae3de142-4d85-2547-dd26-4e90bed35cf7",
+   "slot": 0,
+   "is_gun": true
+  },
+  {
+   "display": "Guardian",
+   "class": "DMR_C",
+   "cost": 2250,
+   "weapon_id": "4ade7faa-4cf1-8376-95ef-39884480959b",
+   "slot": 0,
+   "is_gun": true
+  },
+  {
+   "display": "Phantom",
+   "class": "AssaultRifle_ACR_C",
+   "cost": 2900,
+   "weapon_id": "ee8e8d15-496b-07ac-e5f6-8fae5d4c7b1a",
+   "slot": 0,
+   "is_gun": true
+  },
+  {
+   "display": "Vandal",
+   "class": "AssaultRifle_AK_C",
+   "cost": 2900,
+   "weapon_id": "9c82e19d-4575-0200-1a81-3eacf00cf872",
+   "slot": 0,
+   "is_gun": true
+  },
+  {
+   "display": "Warden",
+   "class": "BattleRifle_C",
+   "cost": 2900,
+   "weapon_id": "8db0a1bf-4a50-832a-4566-faaaa6d250ca",
+   "slot": 0,
+   "is_gun": true
+  },
+  {
+   "display": "Marshal",
+   "class": "LeverSniperRifle_C",
+   "cost": 950,
+   "weapon_id": "c4883e50-4494-202c-3ec3-6b8a9284f00b",
+   "slot": 0,
+   "is_gun": true
+  },
+  {
+   "display": "Outlaw",
+   "class": "DS_Gun_C",
+   "cost": 2400,
+   "weapon_id": "5f0aaf7a-4289-3998-d5ff-eb9a5cf7ef5c",
+   "slot": 0,
+   "is_gun": true
+  },
+  {
+   "display": "Operator",
+   "class": "BoltSniper_C",
+   "cost": 4700,
+   "weapon_id": "a03b24d3-4319-996d-0f8c-94bbfba1dfc7",
+   "slot": 0,
+   "is_gun": true
+  },
+  {
+   "display": "Ares",
+   "class": "LightMachineGun_C",
+   "cost": 1600,
+   "weapon_id": "55d8a0f4-4274-ca67-fe2c-06ab45efdf58",
+   "slot": 0,
+   "is_gun": true
+  },
+  {
+   "display": "Odin",
+   "class": "HeavyMachineGun_C",
+   "cost": 3200,
+   "weapon_id": "63e6c2b6-4a8e-869c-3d4c-e38355226584",
+   "slot": 0,
+   "is_gun": true
+  },
+  {
+   "display": "Light Shields",
+   "class": "LightArmorItem_C",
+   "cost": 400,
+   "weapon_id": "4dec83d5-4902-9ab3-bed6-a7a390761157",
+   "slot": 11,
+   "is_gun": false
+  },
+  {
+   "display": "Heavy Shields",
+   "class": "HeavyArmorItem_C",
+   "cost": 1000,
+   "weapon_id": "822bcab2-40a2-324e-c137-e09195ad7692",
+   "slot": 11,
+   "is_gun": false
+  },
+  {
+   "display": "Regen Shield",
+   "class": "PlasmaArmorItem_C",
+   "cost": 650,
+   "weapon_id": "b1b9086d-41bd-a516-5d29-e3b34a6f1644",
+   "slot": 11,
+   "is_gun": false
+  }
+ ],
+ "split": [
+  {
+   "path": "/Game/Equippables/Guns/Sidearms/BasePistol/BasePistol.BasePistol_C",
+   "ok": [
+    "/Game/Equippables/Guns/Sidearms/BasePistol/BasePistol",
+    "BasePistol_C",
+    "Default__BasePistol_C"
+   ]
+  },
+  {
+   "path": "/Game/Equippables/Guns/Sidearms/Slim/SawedOffShotgun.SawedOffShotgun_C",
+   "ok": [
+    "/Game/Equippables/Guns/Sidearms/Slim/SawedOffShotgun",
+    "SawedOffShotgun_C",
+    "Default__SawedOffShotgun_C"
+   ]
+  },
+  {
+   "path": "/Game/Equippables/Guns/Sidearms/AutoPistol/AutomaticPistol.AutomaticPistol_C",
+   "ok": [
+    "/Game/Equippables/Guns/Sidearms/AutoPistol/AutomaticPistol",
+    "AutomaticPistol_C",
+    "Default__AutomaticPistol_C"
+   ]
+  },
+  {
+   "path": "/Game/Equippables/Guns/Sidearms/Luger/LugerPistol.LugerPistol_C",
+   "ok": [
+    "/Game/Equippables/Guns/Sidearms/Luger/LugerPistol",
+    "LugerPistol_C",
+    "Default__LugerPistol_C"
+   ]
+  },
+  {
+   "path": "/Game/Equippables/Guns/Sidearms/Compact/CompactPistol.CompactPistol_C",
+   "ok": [
+    "/Game/Equippables/Guns/Sidearms/Compact/CompactPistol",
+    "CompactPistol_C",
+    "Default__CompactPistol_C"
+   ]
+  },
+  {
+   "path": "/Game/Equippables/Guns/Sidearms/Revolver/RevolverPistol.RevolverPistol_C",
+   "ok": [
+    "/Game/Equippables/Guns/Sidearms/Revolver/RevolverPistol",
+    "RevolverPistol_C",
+    "Default__RevolverPistol_C"
+   ]
+  },
+  {
+   "path": "/Game/Equippables/Guns/SubMachineGuns/Vector/Vector.Vector_C",
+   "ok": [
+    "/Game/Equippables/Guns/SubMachineGuns/Vector/Vector",
+    "Vector_C",
+    "Default__Vector_C"
+   ]
+  },
+  {
+   "path": "/Game/Equippables/Guns/SubMachineGuns/MP5/SubMachineGun_MP5.SubMachineGun_MP5_C",
+   "ok": [
+    "/Game/Equippables/Guns/SubMachineGuns/MP5/SubMachineGun_MP5",
+    "SubMachineGun_MP5_C",
+    "Default__SubMachineGun_MP5_C"
+   ]
+  },
+  {
+   "path": "/Game/Equippables/Guns/Shotguns/PumpShotgun/PumpShotgun.PumpShotgun_C",
+   "ok": [
+    "/Game/Equippables/Guns/Shotguns/PumpShotgun/PumpShotgun",
+    "PumpShotgun_C",
+    "Default__PumpShotgun_C"
+   ]
+  },
+  {
+   "path": "/Game/Equippables/Guns/Shotguns/AutoShotgun/AutomaticShotgun.AutomaticShotgun_C",
+   "ok": [
+    "/Game/Equippables/Guns/Shotguns/AutoShotgun/AutomaticShotgun",
+    "AutomaticShotgun_C",
+    "Default__AutomaticShotgun_C"
+   ]
+  },
+  {
+   "path": "/Game/Equippables/Guns/Rifles/Burst/AssaultRifle_Burst.AssaultRifle_Burst_C",
+   "ok": [
+    "/Game/Equippables/Guns/Rifles/Burst/AssaultRifle_Burst",
+    "AssaultRifle_Burst_C",
+    "Default__AssaultRifle_Burst_C"
+   ]
+  },
+  {
+   "path": "/Game/Equippables/Guns/SniperRifles/DMR/DMR.DMR_C",
+   "ok": [
+    "/Game/Equippables/Guns/SniperRifles/DMR/DMR",
+    "DMR_C",
+    "Default__DMR_C"
+   ]
+  },
+  {
+   "path": "/Game/Equippables/Guns/Rifles/Carbine/AssaultRifle_ACR.AssaultRifle_ACR_C",
+   "ok": [
+    "/Game/Equippables/Guns/Rifles/Carbine/AssaultRifle_ACR",
+    "AssaultRifle_ACR_C",
+    "Default__AssaultRifle_ACR_C"
+   ]
+  },
+  {
+   "path": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.AssaultRifle_AK_C",
+   "ok": [
+    "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK",
+    "AssaultRifle_AK_C",
+    "Default__AssaultRifle_AK_C"
+   ]
+  },
+  {
+   "path": "/Game/Equippables/Guns/Rifles/BattleRifle/BattleRifle.BattleRifle_C",
+   "ok": [
+    "/Game/Equippables/Guns/Rifles/BattleRifle/BattleRifle",
+    "BattleRifle_C",
+    "Default__BattleRifle_C"
+   ]
+  },
+  {
+   "path": "/Game/Equippables/Guns/SniperRifles/Leversniper/LeverSniperRifle.LeverSniperRifle_C",
+   "ok": [
+    "/Game/Equippables/Guns/SniperRifles/Leversniper/LeverSniperRifle",
+    "LeverSniperRifle_C",
+    "Default__LeverSniperRifle_C"
+   ]
+  },
+  {
+   "path": "/Game/Equippables/Guns/SniperRifles/Doublesniper/DS_Gun.DS_Gun_C",
+   "ok": [
+    "/Game/Equippables/Guns/SniperRifles/Doublesniper/DS_Gun",
+    "DS_Gun_C",
+    "Default__DS_Gun_C"
+   ]
+  },
+  {
+   "path": "/Game/Equippables/Guns/SniperRifles/Boltsniper/BoltSniper.BoltSniper_C",
+   "ok": [
+    "/Game/Equippables/Guns/SniperRifles/Boltsniper/BoltSniper",
+    "BoltSniper_C",
+    "Default__BoltSniper_C"
+   ]
+  },
+  {
+   "path": "/Game/Equippables/Guns/HvyMachineGuns/LMG/LightMachineGun.LightMachineGun_C",
+   "ok": [
+    "/Game/Equippables/Guns/HvyMachineGuns/LMG/LightMachineGun",
+    "LightMachineGun_C",
+    "Default__LightMachineGun_C"
+   ]
+  },
+  {
+   "path": "/Game/Equippables/Guns/HvyMachineGuns/HMG/HeavyMachineGun.HeavyMachineGun_C",
+   "ok": [
+    "/Game/Equippables/Guns/HvyMachineGuns/HMG/HeavyMachineGun",
+    "HeavyMachineGun_C",
+    "Default__HeavyMachineGun_C"
+   ]
+  },
+  {
+   "path": "/Game/Gear/HeavyArmorItem.HeavyArmorItem_C",
+   "ok": [
+    "/Game/Gear/HeavyArmorItem",
+    "HeavyArmorItem_C",
+    "Default__HeavyArmorItem_C"
+   ]
+  },
+  {
+   "path": "BattleRifle_C",
+   "error": "ValueError",
+   "message": "expected a /Game/<package>.<Class>_C path"
+  },
+  {
+   "path": "/Game/X/Y.Z_C",
+   "error": "ValueError",
+   "message": "class does not match its package"
+  },
+  {
+   "path": "/Engine/A/A.A_C",
+   "error": "ValueError",
+   "message": "expected a /Game/<package>.<Class>_C path"
+  },
+  {
+   "path": "/Game/A/B.C.D_C",
+   "error": "ValueError",
+   "message": "expected a /Game/<package>.<Class>_C path"
+  },
+  {
+   "path": "/Game/A/B.B",
+   "error": "ValueError",
+   "message": "class does not match its package"
+  },
+  {
+   "path": "",
+   "error": "ValueError",
+   "message": "expected a /Game/<package>.<Class>_C path"
+  },
+  {
+   "path": "/Game/",
+   "error": "ValueError",
+   "message": "expected a /Game/<package>.<Class>_C path"
+  },
+  {
+   "path": "/Game/A/A.A_C",
+   "ok": [
+    "/Game/A/A",
+    "A_C",
+    "Default__A_C"
+   ]
+  },
+  {
+   "path": "/Game/A.A_C",
+   "ok": [
+    "/Game/A",
+    "A_C",
+    "Default__A_C"
+   ]
+  },
+  {
+   "path": "/Game/._C",
+   "ok": [
+    "/Game/",
+    "_C",
+    "Default___C"
+   ]
+  },
+  {
+   "path": "/Game/A/._C",
+   "ok": [
+    "/Game/A/",
+    "_C",
+    "Default___C"
+   ]
+  },
+  {
+   "path": "/game/A/A.A_C",
+   "error": "ValueError",
+   "message": "expected a /Game/<package>.<Class>_C path"
+  },
+  {
+   "path": "/Game/A/A.a_c",
+   "error": "ValueError",
+   "message": "class does not match its package"
+  },
+  {
+   "path": "/Game/A/A.A_c",
+   "error": "ValueError",
+   "message": "class does not match its package"
+  },
+  {
+   "path": "/Game/A/BA.A_C",
+   "error": "ValueError",
+   "message": "class does not match its package"
+  },
+  {
+   "path": "/Game/A/A_C.A_C",
+   "error": "ValueError",
+   "message": "class does not match its package"
+  },
+  {
+   "path": "/Game/A/A.A_C.",
+   "error": "ValueError",
+   "message": "expected a /Game/<package>.<Class>_C path"
+  },
+  {
+   "path": "/Game/\u00dc/\u00dc.\u00dc_C",
+   "ok": [
+    "/Game/\u00dc/\u00dc",
+    "\u00dc_C",
+    "Default__\u00dc_C"
+   ]
+  },
+  {
+   "path": "/Game/Gear/LightArmorItem.LightArmorItem_C",
+   "ok": [
+    "/Game/Gear/LightArmorItem",
+    "LightArmorItem_C",
+    "Default__LightArmorItem_C"
+   ]
+  },
+  {
+   "path": "/Game/Gear/Thing.Thing_C",
+   "ok": [
+    "/Game/Gear/Thing",
+    "Thing_C",
+    "Default__Thing_C"
+   ]
+  },
+  {
+   "path": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.AssaultRifle_ACR_C",
+   "error": "ValueError",
+   "message": "class does not match its package"
+  },
+  {
+   "path": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK/AssaultRifle_AK.AssaultRifle_AK_C",
+   "ok": [
+    "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK/AssaultRifle_AK",
+    "AssaultRifle_AK_C",
+    "Default__AssaultRifle_AK_C"
+   ]
+  },
+  {
+   "path": "/Game/A/A.A_C ",
+   "error": "ValueError",
+   "message": "class does not match its package"
+  },
+  {
+   "path": " /Game/A/A.A_C",
+   "error": "ValueError",
+   "message": "expected a /Game/<package>.<Class>_C path"
+  },
+  {
+   "path": "/Game//A.A_C",
+   "ok": [
+    "/Game//A",
+    "A_C",
+    "Default__A_C"
+   ]
+  },
+  {
+   "path": "/Game/A/_C._C",
+   "error": "ValueError",
+   "message": "class does not match its package"
+  }
+ ],
+ "item_for_path": [
+  {
+   "path": "/Game/Equippables/Guns/Sidearms/BasePistol/BasePistol.BasePistol_C",
+   "class": "BasePistol_C"
+  },
+  {
+   "path": "/Game/Equippables/Guns/Sidearms/Slim/SawedOffShotgun.SawedOffShotgun_C",
+   "class": "SawedOffShotgun_C"
+  },
+  {
+   "path": "/Game/Equippables/Guns/Sidearms/AutoPistol/AutomaticPistol.AutomaticPistol_C",
+   "class": "AutomaticPistol_C"
+  },
+  {
+   "path": "/Game/Equippables/Guns/Sidearms/Luger/LugerPistol.LugerPistol_C",
+   "class": "LugerPistol_C"
+  },
+  {
+   "path": "/Game/Equippables/Guns/Sidearms/Compact/CompactPistol.CompactPistol_C",
+   "class": "CompactPistol_C"
+  },
+  {
+   "path": "/Game/Equippables/Guns/Sidearms/Revolver/RevolverPistol.RevolverPistol_C",
+   "class": "RevolverPistol_C"
+  },
+  {
+   "path": "/Game/Equippables/Guns/SubMachineGuns/Vector/Vector.Vector_C",
+   "class": "Vector_C"
+  },
+  {
+   "path": "/Game/Equippables/Guns/SubMachineGuns/MP5/SubMachineGun_MP5.SubMachineGun_MP5_C",
+   "class": "SubMachineGun_MP5_C"
+  },
+  {
+   "path": "/Game/Equippables/Guns/Shotguns/PumpShotgun/PumpShotgun.PumpShotgun_C",
+   "class": "PumpShotgun_C"
+  },
+  {
+   "path": "/Game/Equippables/Guns/Shotguns/AutoShotgun/AutomaticShotgun.AutomaticShotgun_C",
+   "class": "AutomaticShotgun_C"
+  },
+  {
+   "path": "/Game/Equippables/Guns/Rifles/Burst/AssaultRifle_Burst.AssaultRifle_Burst_C",
+   "class": "AssaultRifle_Burst_C"
+  },
+  {
+   "path": "/Game/Equippables/Guns/SniperRifles/DMR/DMR.DMR_C",
+   "class": "DMR_C"
+  },
+  {
+   "path": "/Game/Equippables/Guns/Rifles/Carbine/AssaultRifle_ACR.AssaultRifle_ACR_C",
+   "class": "AssaultRifle_ACR_C"
+  },
+  {
+   "path": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.AssaultRifle_AK_C",
+   "class": "AssaultRifle_AK_C"
+  },
+  {
+   "path": "/Game/Equippables/Guns/Rifles/BattleRifle/BattleRifle.BattleRifle_C",
+   "class": "BattleRifle_C"
+  },
+  {
+   "path": "/Game/Equippables/Guns/SniperRifles/Leversniper/LeverSniperRifle.LeverSniperRifle_C",
+   "class": "LeverSniperRifle_C"
+  },
+  {
+   "path": "/Game/Equippables/Guns/SniperRifles/Doublesniper/DS_Gun.DS_Gun_C",
+   "class": "DS_Gun_C"
+  },
+  {
+   "path": "/Game/Equippables/Guns/SniperRifles/Boltsniper/BoltSniper.BoltSniper_C",
+   "class": "BoltSniper_C"
+  },
+  {
+   "path": "/Game/Equippables/Guns/HvyMachineGuns/LMG/LightMachineGun.LightMachineGun_C",
+   "class": "LightMachineGun_C"
+  },
+  {
+   "path": "/Game/Equippables/Guns/HvyMachineGuns/HMG/HeavyMachineGun.HeavyMachineGun_C",
+   "class": "HeavyMachineGun_C"
+  },
+  {
+   "path": "/Game/Gear/HeavyArmorItem.HeavyArmorItem_C",
+   "class": "HeavyArmorItem_C"
+  },
+  {
+   "path": "BattleRifle_C",
+   "error": "ValueError",
+   "message": "expected a /Game/<package>.<Class>_C path"
+  },
+  {
+   "path": "/Game/X/Y.Z_C",
+   "error": "ValueError",
+   "message": "class does not match its package"
+  },
+  {
+   "path": "/Engine/A/A.A_C",
+   "error": "ValueError",
+   "message": "expected a /Game/<package>.<Class>_C path"
+  },
+  {
+   "path": "/Game/A/B.C.D_C",
+   "error": "ValueError",
+   "message": "expected a /Game/<package>.<Class>_C path"
+  },
+  {
+   "path": "/Game/A/B.B",
+   "error": "ValueError",
+   "message": "class does not match its package"
+  },
+  {
+   "path": "",
+   "error": "ValueError",
+   "message": "expected a /Game/<package>.<Class>_C path"
+  },
+  {
+   "path": "/Game/",
+   "error": "ValueError",
+   "message": "expected a /Game/<package>.<Class>_C path"
+  },
+  {
+   "path": "/Game/A/A.A_C",
+   "class": null
+  },
+  {
+   "path": "/Game/A.A_C",
+   "class": null
+  },
+  {
+   "path": "/Game/._C",
+   "class": null
+  },
+  {
+   "path": "/Game/A/._C",
+   "class": null
+  },
+  {
+   "path": "/game/A/A.A_C",
+   "error": "ValueError",
+   "message": "expected a /Game/<package>.<Class>_C path"
+  },
+  {
+   "path": "/Game/A/A.a_c",
+   "error": "ValueError",
+   "message": "class does not match its package"
+  },
+  {
+   "path": "/Game/A/A.A_c",
+   "error": "ValueError",
+   "message": "class does not match its package"
+  },
+  {
+   "path": "/Game/A/BA.A_C",
+   "error": "ValueError",
+   "message": "class does not match its package"
+  },
+  {
+   "path": "/Game/A/A_C.A_C",
+   "error": "ValueError",
+   "message": "class does not match its package"
+  },
+  {
+   "path": "/Game/A/A.A_C.",
+   "error": "ValueError",
+   "message": "expected a /Game/<package>.<Class>_C path"
+  },
+  {
+   "path": "/Game/\u00dc/\u00dc.\u00dc_C",
+   "class": null
+  },
+  {
+   "path": "/Game/Gear/LightArmorItem.LightArmorItem_C",
+   "class": "LightArmorItem_C"
+  },
+  {
+   "path": "/Game/Gear/Thing.Thing_C",
+   "class": null
+  },
+  {
+   "path": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.AssaultRifle_ACR_C",
+   "error": "ValueError",
+   "message": "class does not match its package"
+  },
+  {
+   "path": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK/AssaultRifle_AK.AssaultRifle_AK_C",
+   "class": "AssaultRifle_AK_C"
+  },
+  {
+   "path": "/Game/A/A.A_C ",
+   "error": "ValueError",
+   "message": "class does not match its package"
+  },
+  {
+   "path": " /Game/A/A.A_C",
+   "error": "ValueError",
+   "message": "expected a /Game/<package>.<Class>_C path"
+  },
+  {
+   "path": "/Game//A.A_C",
+   "class": null
+  },
+  {
+   "path": "/Game/A/_C._C",
+   "error": "ValueError",
+   "message": "class does not match its package"
+  }
+ ],
+ "resolve": [
+  {
+   "item_path": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.AssaultRifle_AK_C",
+   "package_guids": [],
+   "seen_paths": [],
+   "result": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.AssaultRifle_AK_C"
+  },
+  {
+   "item_path": "<guid:525>.AssaultRifle_AK_C",
+   "package_guids": [
+    [
+     525,
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK"
+    ]
+   ],
+   "seen_paths": [],
+   "result": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.AssaultRifle_AK_C"
+  },
+  {
+   "item_path": "<guid:9>.AssaultRifle_AK_C",
+   "package_guids": [],
+   "seen_paths": [
+    [
+     "AssaultRifle_AK_C",
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.AssaultRifle_AK_C"
+    ]
+   ],
+   "result": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.AssaultRifle_AK_C"
+  },
+  {
+   "item_path": "<guid:9>.AssaultRifle_AK_C",
+   "package_guids": [],
+   "seen_paths": [],
+   "result": null
+  },
+  {
+   "item_path": "<guid:525>",
+   "package_guids": [
+    [
+     525,
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK"
+    ]
+   ],
+   "seen_paths": [],
+   "result": null
+  },
+  {
+   "item_path": "<guid:x>.AssaultRifle_AK_C",
+   "package_guids": [
+    [
+     525,
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK"
+    ]
+   ],
+   "seen_paths": [],
+   "result": null
+  },
+  {
+   "item_path": "",
+   "package_guids": [],
+   "seen_paths": [],
+   "result": null
+  },
+  {
+   "item_path": null,
+   "package_guids": [],
+   "seen_paths": [],
+   "result": null
+  },
+  {
+   "item_path": "<guid:591>.AssaultRifle_ACR_C",
+   "package_guids": [
+    [
+     525,
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK"
+    ],
+    [
+     591,
+     "/Game/Equippables/Guns/Rifles/Carbine/AssaultRifle_ACR"
+    ]
+   ],
+   "seen_paths": [
+    [
+     "AssaultRifle_AK_C",
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.AssaultRifle_AK_C"
+    ],
+    [
+     "BattleRifle_C",
+     "/Game/Equippables/Guns/Rifles/BattleRifle/BattleRifle.BattleRifle_C"
+    ]
+   ],
+   "result": "/Game/Equippables/Guns/Rifles/Carbine/AssaultRifle_ACR.AssaultRifle_ACR_C"
+  },
+  {
+   "item_path": "<guid:591>.Anything_C",
+   "package_guids": [
+    [
+     525,
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK"
+    ],
+    [
+     591,
+     "/Game/Equippables/Guns/Rifles/Carbine/AssaultRifle_ACR"
+    ]
+   ],
+   "seen_paths": [
+    [
+     "AssaultRifle_AK_C",
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.AssaultRifle_AK_C"
+    ],
+    [
+     "BattleRifle_C",
+     "/Game/Equippables/Guns/Rifles/BattleRifle/BattleRifle.BattleRifle_C"
+    ]
+   ],
+   "result": "/Game/Equippables/Guns/Rifles/Carbine/AssaultRifle_ACR.Anything_C"
+  },
+  {
+   "item_path": "<guid:9>.BattleRifle_C",
+   "package_guids": [
+    [
+     525,
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK"
+    ],
+    [
+     591,
+     "/Game/Equippables/Guns/Rifles/Carbine/AssaultRifle_ACR"
+    ]
+   ],
+   "seen_paths": [
+    [
+     "AssaultRifle_AK_C",
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.AssaultRifle_AK_C"
+    ],
+    [
+     "BattleRifle_C",
+     "/Game/Equippables/Guns/Rifles/BattleRifle/BattleRifle.BattleRifle_C"
+    ]
+   ],
+   "result": "/Game/Equippables/Guns/Rifles/BattleRifle/BattleRifle.BattleRifle_C"
+  },
+  {
+   "item_path": "<guid:525>.BattleRifle_C",
+   "package_guids": [
+    [
+     525,
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK"
+    ],
+    [
+     591,
+     "/Game/Equippables/Guns/Rifles/Carbine/AssaultRifle_ACR"
+    ]
+   ],
+   "seen_paths": [
+    [
+     "AssaultRifle_AK_C",
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.AssaultRifle_AK_C"
+    ],
+    [
+     "BattleRifle_C",
+     "/Game/Equippables/Guns/Rifles/BattleRifle/BattleRifle.BattleRifle_C"
+    ]
+   ],
+   "result": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.BattleRifle_C"
+  },
+  {
+   "item_path": "<guid: 525 >.AssaultRifle_AK_C",
+   "package_guids": [
+    [
+     525,
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK"
+    ],
+    [
+     591,
+     "/Game/Equippables/Guns/Rifles/Carbine/AssaultRifle_ACR"
+    ]
+   ],
+   "seen_paths": [],
+   "result": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.AssaultRifle_AK_C"
+  },
+  {
+   "item_path": "<guid:+525>.AssaultRifle_AK_C",
+   "package_guids": [
+    [
+     525,
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK"
+    ],
+    [
+     591,
+     "/Game/Equippables/Guns/Rifles/Carbine/AssaultRifle_ACR"
+    ]
+   ],
+   "seen_paths": [],
+   "result": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.AssaultRifle_AK_C"
+  },
+  {
+   "item_path": "<guid:-525>.AssaultRifle_AK_C",
+   "package_guids": [
+    [
+     525,
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK"
+    ],
+    [
+     591,
+     "/Game/Equippables/Guns/Rifles/Carbine/AssaultRifle_ACR"
+    ]
+   ],
+   "seen_paths": [
+    [
+     "AssaultRifle_AK_C",
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.AssaultRifle_AK_C"
+    ],
+    [
+     "BattleRifle_C",
+     "/Game/Equippables/Guns/Rifles/BattleRifle/BattleRifle.BattleRifle_C"
+    ]
+   ],
+   "result": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.AssaultRifle_AK_C"
+  },
+  {
+   "item_path": "<guid:-525>.BattleRifle_C",
+   "package_guids": [
+    [
+     525,
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK"
+    ],
+    [
+     591,
+     "/Game/Equippables/Guns/Rifles/Carbine/AssaultRifle_ACR"
+    ]
+   ],
+   "seen_paths": [
+    [
+     "AssaultRifle_AK_C",
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.AssaultRifle_AK_C"
+    ],
+    [
+     "BattleRifle_C",
+     "/Game/Equippables/Guns/Rifles/BattleRifle/BattleRifle.BattleRifle_C"
+    ]
+   ],
+   "result": "/Game/Equippables/Guns/Rifles/BattleRifle/BattleRifle.BattleRifle_C"
+  },
+  {
+   "item_path": "<guid:5_25>.AssaultRifle_AK_C",
+   "package_guids": [
+    [
+     525,
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK"
+    ],
+    [
+     591,
+     "/Game/Equippables/Guns/Rifles/Carbine/AssaultRifle_ACR"
+    ]
+   ],
+   "seen_paths": [],
+   "result": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.AssaultRifle_AK_C"
+  },
+  {
+   "item_path": "<guid:5__25>.AssaultRifle_AK_C",
+   "package_guids": [
+    [
+     525,
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK"
+    ],
+    [
+     591,
+     "/Game/Equippables/Guns/Rifles/Carbine/AssaultRifle_ACR"
+    ]
+   ],
+   "seen_paths": [
+    [
+     "AssaultRifle_AK_C",
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.AssaultRifle_AK_C"
+    ],
+    [
+     "BattleRifle_C",
+     "/Game/Equippables/Guns/Rifles/BattleRifle/BattleRifle.BattleRifle_C"
+    ]
+   ],
+   "result": null
+  },
+  {
+   "item_path": "<guid:_525>.AssaultRifle_AK_C",
+   "package_guids": [
+    [
+     525,
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK"
+    ],
+    [
+     591,
+     "/Game/Equippables/Guns/Rifles/Carbine/AssaultRifle_ACR"
+    ]
+   ],
+   "seen_paths": [
+    [
+     "AssaultRifle_AK_C",
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.AssaultRifle_AK_C"
+    ],
+    [
+     "BattleRifle_C",
+     "/Game/Equippables/Guns/Rifles/BattleRifle/BattleRifle.BattleRifle_C"
+    ]
+   ],
+   "result": null
+  },
+  {
+   "item_path": "<guid:525_>.AssaultRifle_AK_C",
+   "package_guids": [
+    [
+     525,
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK"
+    ],
+    [
+     591,
+     "/Game/Equippables/Guns/Rifles/Carbine/AssaultRifle_ACR"
+    ]
+   ],
+   "seen_paths": [
+    [
+     "AssaultRifle_AK_C",
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.AssaultRifle_AK_C"
+    ],
+    [
+     "BattleRifle_C",
+     "/Game/Equippables/Guns/Rifles/BattleRifle/BattleRifle.BattleRifle_C"
+    ]
+   ],
+   "result": null
+  },
+  {
+   "item_path": "<guid:0525>.AssaultRifle_AK_C",
+   "package_guids": [
+    [
+     525,
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK"
+    ],
+    [
+     591,
+     "/Game/Equippables/Guns/Rifles/Carbine/AssaultRifle_ACR"
+    ]
+   ],
+   "seen_paths": [],
+   "result": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.AssaultRifle_AK_C"
+  },
+  {
+   "item_path": "<guid:525>>.AssaultRifle_AK_C",
+   "package_guids": [
+    [
+     525,
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK"
+    ],
+    [
+     591,
+     "/Game/Equippables/Guns/Rifles/Carbine/AssaultRifle_ACR"
+    ]
+   ],
+   "seen_paths": [],
+   "result": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.AssaultRifle_AK_C"
+  },
+  {
+   "item_path": "<guid:525>>>.AssaultRifle_AK_C",
+   "package_guids": [
+    [
+     525,
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK"
+    ],
+    [
+     591,
+     "/Game/Equippables/Guns/Rifles/Carbine/AssaultRifle_ACR"
+    ]
+   ],
+   "seen_paths": [],
+   "result": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.AssaultRifle_AK_C"
+  },
+  {
+   "item_path": "<guid:525>.",
+   "package_guids": [
+    [
+     525,
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK"
+    ],
+    [
+     591,
+     "/Game/Equippables/Guns/Rifles/Carbine/AssaultRifle_ACR"
+    ]
+   ],
+   "seen_paths": [
+    [
+     "AssaultRifle_AK_C",
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.AssaultRifle_AK_C"
+    ],
+    [
+     "BattleRifle_C",
+     "/Game/Equippables/Guns/Rifles/BattleRifle/BattleRifle.BattleRifle_C"
+    ]
+   ],
+   "result": null
+  },
+  {
+   "item_path": "<guid:>.BattleRifle_C",
+   "package_guids": [
+    [
+     525,
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK"
+    ],
+    [
+     591,
+     "/Game/Equippables/Guns/Rifles/Carbine/AssaultRifle_ACR"
+    ]
+   ],
+   "seen_paths": [
+    [
+     "AssaultRifle_AK_C",
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.AssaultRifle_AK_C"
+    ],
+    [
+     "BattleRifle_C",
+     "/Game/Equippables/Guns/Rifles/BattleRifle/BattleRifle.BattleRifle_C"
+    ]
+   ],
+   "result": null
+  },
+  {
+   "item_path": "<guid:525",
+   "package_guids": [
+    [
+     525,
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK"
+    ],
+    [
+     591,
+     "/Game/Equippables/Guns/Rifles/Carbine/AssaultRifle_ACR"
+    ]
+   ],
+   "seen_paths": [
+    [
+     "AssaultRifle_AK_C",
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.AssaultRifle_AK_C"
+    ],
+    [
+     "BattleRifle_C",
+     "/Game/Equippables/Guns/Rifles/BattleRifle/BattleRifle.BattleRifle_C"
+    ]
+   ],
+   "result": null
+  },
+  {
+   "item_path": "<guid:525>.X>.Y",
+   "package_guids": [
+    [
+     525,
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK"
+    ],
+    [
+     591,
+     "/Game/Equippables/Guns/Rifles/Carbine/AssaultRifle_ACR"
+    ]
+   ],
+   "seen_paths": [
+    [
+     "AssaultRifle_AK_C",
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.AssaultRifle_AK_C"
+    ],
+    [
+     "BattleRifle_C",
+     "/Game/Equippables/Guns/Rifles/BattleRifle/BattleRifle.BattleRifle_C"
+    ]
+   ],
+   "result": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.X>.Y"
+  },
+  {
+   "item_path": "<guid:\t525\n>.AssaultRifle_AK_C",
+   "package_guids": [
+    [
+     525,
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK"
+    ],
+    [
+     591,
+     "/Game/Equippables/Guns/Rifles/Carbine/AssaultRifle_ACR"
+    ]
+   ],
+   "seen_paths": [],
+   "result": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.AssaultRifle_AK_C"
+  },
+  {
+   "item_path": "<guid:\u001c525>.AssaultRifle_AK_C",
+   "package_guids": [
+    [
+     525,
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK"
+    ],
+    [
+     591,
+     "/Game/Equippables/Guns/Rifles/Carbine/AssaultRifle_ACR"
+    ]
+   ],
+   "seen_paths": [],
+   "result": null
+  },
+  {
+   "item_path": "<guid:\u3000525>.AssaultRifle_AK_C",
+   "package_guids": [
+    [
+     525,
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK"
+    ],
+    [
+     591,
+     "/Game/Equippables/Guns/Rifles/Carbine/AssaultRifle_ACR"
+    ]
+   ],
+   "seen_paths": [],
+   "result": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.AssaultRifle_AK_C"
+  },
+  {
+   "item_path": "<guid:\u001f525>.AssaultRifle_AK_C",
+   "package_guids": [
+    [
+     525,
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK"
+    ],
+    [
+     591,
+     "/Game/Equippables/Guns/Rifles/Carbine/AssaultRifle_ACR"
+    ]
+   ],
+   "seen_paths": [],
+   "result": null
+  },
+  {
+   "item_path": "<guid:\u000b525\f>.AssaultRifle_AK_C",
+   "package_guids": [
+    [
+     525,
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK"
+    ],
+    [
+     591,
+     "/Game/Equippables/Guns/Rifles/Carbine/AssaultRifle_ACR"
+    ]
+   ],
+   "seen_paths": [],
+   "result": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.AssaultRifle_AK_C"
+  },
+  {
+   "item_path": "<guid:\u0085525\u00a0>.AssaultRifle_AK_C",
+   "package_guids": [
+    [
+     525,
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK"
+    ],
+    [
+     591,
+     "/Game/Equippables/Guns/Rifles/Carbine/AssaultRifle_ACR"
+    ]
+   ],
+   "seen_paths": [],
+   "result": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.AssaultRifle_AK_C"
+  },
+  {
+   "item_path": "<guid:\u2007525\u202f>.AssaultRifle_AK_C",
+   "package_guids": [
+    [
+     525,
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK"
+    ],
+    [
+     591,
+     "/Game/Equippables/Guns/Rifles/Carbine/AssaultRifle_ACR"
+    ]
+   ],
+   "seen_paths": [],
+   "result": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.AssaultRifle_AK_C"
+  },
+  {
+   "item_path": "<guid:\u200b525>.AssaultRifle_AK_C",
+   "package_guids": [
+    [
+     525,
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK"
+    ],
+    [
+     591,
+     "/Game/Equippables/Guns/Rifles/Carbine/AssaultRifle_ACR"
+    ]
+   ],
+   "seen_paths": [],
+   "result": null
+  },
+  {
+   "item_path": "<guid:\u180e525>.AssaultRifle_AK_C",
+   "package_guids": [
+    [
+     525,
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK"
+    ],
+    [
+     591,
+     "/Game/Equippables/Guns/Rifles/Carbine/AssaultRifle_ACR"
+    ]
+   ],
+   "seen_paths": [],
+   "result": null
+  },
+  {
+   "item_path": "<guid:- 525>.BattleRifle_C",
+   "package_guids": [
+    [
+     525,
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK"
+    ],
+    [
+     591,
+     "/Game/Equippables/Guns/Rifles/Carbine/AssaultRifle_ACR"
+    ]
+   ],
+   "seen_paths": [
+    [
+     "AssaultRifle_AK_C",
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.AssaultRifle_AK_C"
+    ],
+    [
+     "BattleRifle_C",
+     "/Game/Equippables/Guns/Rifles/BattleRifle/BattleRifle.BattleRifle_C"
+    ]
+   ],
+   "result": null
+  },
+  {
+   "item_path": "<guid:+_525>.BattleRifle_C",
+   "package_guids": [
+    [
+     525,
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK"
+    ],
+    [
+     591,
+     "/Game/Equippables/Guns/Rifles/Carbine/AssaultRifle_ACR"
+    ]
+   ],
+   "seen_paths": [
+    [
+     "AssaultRifle_AK_C",
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.AssaultRifle_AK_C"
+    ],
+    [
+     "BattleRifle_C",
+     "/Game/Equippables/Guns/Rifles/BattleRifle/BattleRifle.BattleRifle_C"
+    ]
+   ],
+   "result": null
+  },
+  {
+   "item_path": "<guid:->.BattleRifle_C",
+   "package_guids": [
+    [
+     525,
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK"
+    ],
+    [
+     591,
+     "/Game/Equippables/Guns/Rifles/Carbine/AssaultRifle_ACR"
+    ]
+   ],
+   "seen_paths": [
+    [
+     "AssaultRifle_AK_C",
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.AssaultRifle_AK_C"
+    ],
+    [
+     "BattleRifle_C",
+     "/Game/Equippables/Guns/Rifles/BattleRifle/BattleRifle.BattleRifle_C"
+    ]
+   ],
+   "result": null
+  },
+  {
+   "item_path": "<guid:99999999999999999999999999999999>.BattleRifle_C",
+   "package_guids": [
+    [
+     525,
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK"
+    ],
+    [
+     591,
+     "/Game/Equippables/Guns/Rifles/Carbine/AssaultRifle_ACR"
+    ]
+   ],
+   "seen_paths": [
+    [
+     "AssaultRifle_AK_C",
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.AssaultRifle_AK_C"
+    ],
+    [
+     "BattleRifle_C",
+     "/Game/Equippables/Guns/Rifles/BattleRifle/BattleRifle.BattleRifle_C"
+    ]
+   ],
+   "result": "/Game/Equippables/Guns/Rifles/BattleRifle/BattleRifle.BattleRifle_C"
+  },
+  {
+   "item_path": "<guid:9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999>.BattleRifle_C",
+   "package_guids": [
+    [
+     525,
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK"
+    ],
+    [
+     591,
+     "/Game/Equippables/Guns/Rifles/Carbine/AssaultRifle_ACR"
+    ]
+   ],
+   "seen_paths": [
+    [
+     "AssaultRifle_AK_C",
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.AssaultRifle_AK_C"
+    ],
+    [
+     "BattleRifle_C",
+     "/Game/Equippables/Guns/Rifles/BattleRifle/BattleRifle.BattleRifle_C"
+    ]
+   ],
+   "result": "/Game/Equippables/Guns/Rifles/BattleRifle/BattleRifle.BattleRifle_C"
+  },
+  {
+   "item_path": "<guid:99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999>.BattleRifle_C",
+   "package_guids": [
+    [
+     525,
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK"
+    ],
+    [
+     591,
+     "/Game/Equippables/Guns/Rifles/Carbine/AssaultRifle_ACR"
+    ]
+   ],
+   "seen_paths": [
+    [
+     "AssaultRifle_AK_C",
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.AssaultRifle_AK_C"
+    ],
+    [
+     "BattleRifle_C",
+     "/Game/Equippables/Guns/Rifles/BattleRifle/BattleRifle.BattleRifle_C"
+    ]
+   ],
+   "result": null
+  },
+  {
+   "item_path": "<guid:1e3>.BattleRifle_C",
+   "package_guids": [
+    [
+     525,
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK"
+    ],
+    [
+     591,
+     "/Game/Equippables/Guns/Rifles/Carbine/AssaultRifle_ACR"
+    ]
+   ],
+   "seen_paths": [
+    [
+     "AssaultRifle_AK_C",
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.AssaultRifle_AK_C"
+    ],
+    [
+     "BattleRifle_C",
+     "/Game/Equippables/Guns/Rifles/BattleRifle/BattleRifle.BattleRifle_C"
+    ]
+   ],
+   "result": null
+  },
+  {
+   "item_path": "<guid:0x20b>.BattleRifle_C",
+   "package_guids": [
+    [
+     525,
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK"
+    ],
+    [
+     591,
+     "/Game/Equippables/Guns/Rifles/Carbine/AssaultRifle_ACR"
+    ]
+   ],
+   "seen_paths": [
+    [
+     "AssaultRifle_AK_C",
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.AssaultRifle_AK_C"
+    ],
+    [
+     "BattleRifle_C",
+     "/Game/Equippables/Guns/Rifles/BattleRifle/BattleRifle.BattleRifle_C"
+    ]
+   ],
+   "result": null
+  },
+  {
+   "item_path": "<GUID:525>.AssaultRifle_AK_C",
+   "package_guids": [
+    [
+     525,
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK"
+    ],
+    [
+     591,
+     "/Game/Equippables/Guns/Rifles/Carbine/AssaultRifle_ACR"
+    ]
+   ],
+   "seen_paths": [
+    [
+     "AssaultRifle_AK_C",
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.AssaultRifle_AK_C"
+    ],
+    [
+     "BattleRifle_C",
+     "/Game/Equippables/Guns/Rifles/BattleRifle/BattleRifle.BattleRifle_C"
+    ]
+   ],
+   "result": "<GUID:525>.AssaultRifle_AK_C"
+  },
+  {
+   "item_path": "guid:525.AssaultRifle_AK_C",
+   "package_guids": [
+    [
+     525,
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK"
+    ],
+    [
+     591,
+     "/Game/Equippables/Guns/Rifles/Carbine/AssaultRifle_ACR"
+    ]
+   ],
+   "seen_paths": [
+    [
+     "AssaultRifle_AK_C",
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.AssaultRifle_AK_C"
+    ],
+    [
+     "BattleRifle_C",
+     "/Game/Equippables/Guns/Rifles/BattleRifle/BattleRifle.BattleRifle_C"
+    ]
+   ],
+   "result": "guid:525.AssaultRifle_AK_C"
+  },
+  {
+   "item_path": "<guid:4294967296>.BattleRifle_C",
+   "package_guids": [
+    [
+     0,
+     "/Game/Wrap"
+    ]
+   ],
+   "seen_paths": [
+    [
+     "AssaultRifle_AK_C",
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.AssaultRifle_AK_C"
+    ],
+    [
+     "BattleRifle_C",
+     "/Game/Equippables/Guns/Rifles/BattleRifle/BattleRifle.BattleRifle_C"
+    ]
+   ],
+   "result": "/Game/Equippables/Guns/Rifles/BattleRifle/BattleRifle.BattleRifle_C"
+  },
+  {
+   "item_path": "<guid:525>.<guid:9>.X",
+   "package_guids": [
+    [
+     525,
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK"
+    ],
+    [
+     591,
+     "/Game/Equippables/Guns/Rifles/Carbine/AssaultRifle_ACR"
+    ]
+   ],
+   "seen_paths": [
+    [
+     "AssaultRifle_AK_C",
+     "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.AssaultRifle_AK_C"
+    ],
+    [
+     "BattleRifle_C",
+     "/Game/Equippables/Guns/Rifles/BattleRifle/BattleRifle.BattleRifle_C"
+    ]
+   ],
+   "result": "/Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.<guid:9>.X"
+  }
+ ]
+}

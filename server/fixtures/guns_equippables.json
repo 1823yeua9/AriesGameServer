@@ -1,0 +1,2189 @@
+{
+ "starting": [
+  {
+   "key": "BasePistol",
+   "class": "BasePistol_C",
+   "channel": 9,
+   "actor": 94,
+   "slot": 1,
+   "state_machine": 96,
+   "states": [
+    [
+     "InactiveState",
+     98
+    ],
+    [
+     "EquipState",
+     99
+    ],
+    [
+     "IdleWaitingForEventState",
+     240
+    ],
+    [
+     "IdleState",
+     242
+    ],
+    [
+     "FiringState",
+     244
+    ],
+    [
+     "ReloadState",
+     246
+    ],
+    [
+     "ReadyingState",
+     248
+    ],
+    [
+     "JammedState",
+     250
+    ],
+    [
+     "FiringStateBurst",
+     252
+    ]
+   ],
+   "resources": [
+    [
+     "MagazineAmmo",
+     308,
+     4616,
+     300,
+     null
+    ],
+    [
+     "ReserveAmmo",
+     306,
+     4608,
+     300,
+     null
+    ]
+   ],
+   "extra": [],
+   "mirror_states": true
+  },
+  {
+   "key": "Melee",
+   "class": "Ability_Melee_Base_C",
+   "channel": 13,
+   "actor": 204,
+   "slot": 2,
+   "state_machine": 206,
+   "states": [
+    [
+     "InactiveState",
+     256
+    ],
+    [
+     "EquipState",
+     258
+    ],
+    [
+     "ReadyingState",
+     260
+    ],
+    [
+     "IdleWaitingForEventState",
+     262
+    ],
+    [
+     "RespondToEventState",
+     264
+    ],
+    [
+     "FirstAttackIdle",
+     266
+    ],
+    [
+     "AnimTriggeredState1",
+     268
+    ],
+    [
+     "MeleeAttackState1",
+     270
+    ],
+    [
+     "WaitForComboInput1",
+     272
+    ],
+    [
+     "MeleeAttackState2",
+     274
+    ],
+    [
+     "WaitForComboInput2",
+     276
+    ],
+    [
+     "AnimTriggeredState2",
+     278
+    ],
+    [
+     "WaitForComboInput3",
+     280
+    ],
+    [
+     "AnimTriggeredState3",
+     282
+    ],
+    [
+     "MeleeAttackState3",
+     284
+    ],
+    [
+     "AnimTriggeredState4",
+     286
+    ],
+    [
+     "MeleeAttackState4",
+     288
+    ],
+    [
+     "WaitForComboInput4",
+     290
+    ],
+    [
+     "AnimTriggeredState_Alt",
+     292
+    ],
+    [
+     "MeleeAttackState_Alt",
+     294
+    ],
+    [
+     "WaitForAltAttack",
+     296
+    ],
+    [
+     "GhostEquipState",
+     298
+    ],
+    [
+     "AnimTriggeredState5",
+     300
+    ],
+    [
+     "MeleeAttackState5",
+     302
+    ],
+    [
+     "WaitForComboInput5",
+     304
+    ]
+   ],
+   "resources": [],
+   "extra": [],
+   "mirror_states": true
+  }
+ ],
+ "abilities": [
+  {
+   "key": "Ability_Wushu_4_Smoke_C",
+   "class": "Ability_Wushu_4_Smoke_C",
+   "channel": 14,
+   "actor": 208,
+   "slot": 3,
+   "state_machine": 0,
+   "states": [
+    [
+     "InactiveState",
+     0
+    ]
+   ],
+   "resources": [
+    [
+     "EquipmentCharge",
+     310,
+     4672,
+     392,
+     4.0
+    ]
+   ],
+   "extra": [],
+   "mirror_states": false
+  },
+  {
+   "key": "Ability_Wushu_Q_CycloneBoost_C",
+   "class": "Ability_Wushu_Q_CycloneBoost_C",
+   "channel": 16,
+   "actor": 216,
+   "slot": 4,
+   "state_machine": 0,
+   "states": [
+    [
+     "InactiveState",
+     0
+    ]
+   ],
+   "resources": [
+    [
+     "EquipmentCharge",
+     312,
+     4768,
+     392,
+     4.0
+    ]
+   ],
+   "extra": [],
+   "mirror_states": false
+  },
+  {
+   "key": "Ability_Wushu_E_Dash_C",
+   "class": "Ability_Wushu_E_Dash_C",
+   "channel": 15,
+   "actor": 212,
+   "slot": 5,
+   "state_machine": 0,
+   "states": [
+    [
+     "InactiveState",
+     0
+    ]
+   ],
+   "resources": [
+    [
+     "SignatureAbilityResource",
+     314,
+     4752,
+     392,
+     4.0
+    ]
+   ],
+   "extra": [],
+   "mirror_states": false
+  }
+ ],
+ "armor": [
+  [
+   "LightArmorItem_C",
+   25.0
+  ],
+  [
+   "HeavyArmorItem_C",
+   50.0
+  ],
+  [
+   "PlasmaArmorItem_C",
+   25.0
+  ]
+ ],
+ "pistol_state_guids": [
+  [
+   "InactiveState",
+   98
+  ],
+  [
+   "EquipState",
+   99
+  ],
+  [
+   "IdleWaitingForEventState",
+   240
+  ],
+  [
+   "IdleState",
+   242
+  ],
+  [
+   "FiringState",
+   244
+  ],
+  [
+   "ReloadState",
+   246
+  ],
+  [
+   "ReadyingState",
+   248
+  ],
+  [
+   "JammedState",
+   250
+  ],
+  [
+   "FiringStateBurst",
+   252
+  ]
+ ],
+ "melee": {
+  "channel": 13,
+  "actor": 204,
+  "state_machine": 206,
+  "states": [
+   [
+    "InactiveState",
+    256
+   ],
+   [
+    "EquipState",
+    258
+   ],
+   [
+    "ReadyingState",
+    260
+   ],
+   [
+    "IdleWaitingForEventState",
+    262
+   ],
+   [
+    "RespondToEventState",
+    264
+   ],
+   [
+    "FirstAttackIdle",
+    266
+   ],
+   [
+    "AnimTriggeredState1",
+    268
+   ],
+   [
+    "MeleeAttackState1",
+    270
+   ],
+   [
+    "WaitForComboInput1",
+    272
+   ],
+   [
+    "MeleeAttackState2",
+    274
+   ],
+   [
+    "WaitForComboInput2",
+    276
+   ],
+   [
+    "AnimTriggeredState2",
+    278
+   ],
+   [
+    "WaitForComboInput3",
+    280
+   ],
+   [
+    "AnimTriggeredState3",
+    282
+   ],
+   [
+    "MeleeAttackState3",
+    284
+   ],
+   [
+    "AnimTriggeredState4",
+    286
+   ],
+   [
+    "MeleeAttackState4",
+    288
+   ],
+   [
+    "WaitForComboInput4",
+    290
+   ],
+   [
+    "AnimTriggeredState_Alt",
+    292
+   ],
+   [
+    "MeleeAttackState_Alt",
+    294
+   ],
+   [
+    "WaitForAltAttack",
+    296
+   ],
+   [
+    "GhostEquipState",
+    298
+   ],
+   [
+    "AnimTriggeredState5",
+    300
+   ],
+   [
+    "MeleeAttackState5",
+    302
+   ],
+   [
+    "WaitForComboInput5",
+    304
+   ]
+  ],
+  "role": {
+   "hex": "a3acf008",
+   "bit_count": 30
+  },
+  "sm_open": {
+   "hex": "020000003a050a3205002e0000008ae2ead2e0e0c2c4d8caa6e8c2e8ca9ac2c6d0d2dcca0000000000ea1428e110",
+   "bit_count": 365
+  },
+  "auth": [
+   {
+    "state": "InactiveState",
+    "export": true,
+    "hex": "0200000002080a3205001c00000092dcc2c6e8d2eccaa6e8c2e8ca0000000000ea142864ed911e15",
+    "bit_count": 317
+   },
+   {
+    "state": "InactiveState",
+    "export": false,
+    "hex": "750a14b2f6488f0a",
+    "bit_count": 60
+   },
+   {
+    "state": "EquipState",
+    "export": true,
+    "hex": "020000000a080a320500160000008ae2ead2e0a6e8c2e8ca0000000000ea142864edf11115",
+    "bit_count": 293
+   },
+   {
+    "state": "EquipState",
+    "export": false,
+    "hex": "750a14b2f6f8880a",
+    "bit_count": 60
+   },
+   {
+    "state": "ReadyingState",
+    "export": true,
+    "hex": "0200000012080a3205001c000000a4cac2c8f2d2dccea6e8c2e8ca0000000000ea142864eda11915",
+    "bit_count": 317
+   },
+   {
+    "state": "ReadyingState",
+    "export": false,
+    "hex": "750a14b2f6d08c0a",
+    "bit_count": 60
+   },
+   {
+    "state": "IdleWaitingForEventState",
+    "export": true,
+    "hex": "020000001a080a3205003200000092c8d8caaec2d2e8d2dcce8cdee48aeccadce8a6e8c2e8ca0000000000ea142864ed411915",
+    "bit_count": 405
+   },
+   {
+    "state": "IdleWaitingForEventState",
+    "export": false,
+    "hex": "750a14b2f6a08c0a",
+    "bit_count": 60
+   },
+   {
+    "state": "RespondToEventState",
+    "export": true,
+    "hex": "0200000022080a32050028000000a4cae6e0dedcc8a8de8aeccadce8a6e8c2e8ca0000000000ea142864edd11115",
+    "bit_count": 365
+   },
+   {
+    "state": "RespondToEventState",
+    "export": false,
+    "hex": "750a14b2f6e8880a",
+    "bit_count": 60
+   },
+   {
+    "state": "FirstAttackIdle",
+    "export": true,
+    "hex": "020000002a080a320500200000008cd2e4e6e882e8e8c2c6d692c8d8ca0000000000ea142864ed611f15",
+    "bit_count": 333
+   },
+   {
+    "state": "FirstAttackIdle",
+    "export": false,
+    "hex": "750a14b2f6b08f0a",
+    "bit_count": 60
+   },
+   {
+    "state": "AnimTriggeredState1",
+    "export": true,
+    "hex": "0200000032080a3205002800000082dcd2daa8e4d2cececae4cac8a6e8c2e8ca620000000000ea142864ed411d15",
+    "bit_count": 365
+   },
+   {
+    "state": "AnimTriggeredState1",
+    "export": false,
+    "hex": "750a14b2f6a08e0a",
+    "bit_count": 60
+   },
+   {
+    "state": "MeleeAttackState1",
+    "export": true,
+    "hex": "020000003a080a320500240000009acad8caca82e8e8c2c6d6a6e8c2e8ca620000000000ea142864ed911715",
+    "bit_count": 349
+   },
+   {
+    "state": "MeleeAttackState1",
+    "export": false,
+    "hex": "750a14b2f6c88b0a",
+    "bit_count": 60
+   },
+   {
+    "state": "WaitForComboInput1",
+    "export": true,
+    "hex": "0200000042080a32050026000000aec2d2e88cdee486dedac4de92dce0eae8620000000000ea142864ed311a15",
+    "bit_count": 357
+   },
+   {
+    "state": "WaitForComboInput1",
+    "export": false,
+    "hex": "750a14b2f6188d0a",
+    "bit_count": 60
+   },
+   {
+    "state": "MeleeAttackState2",
+    "export": true,
+    "hex": "020000004a080a320500240000009acad8caca82e8e8c2c6d6a6e8c2e8ca640000000000ea142864ede11e15",
+    "bit_count": 349
+   },
+   {
+    "state": "MeleeAttackState2",
+    "export": false,
+    "hex": "750a14b2f6708f0a",
+    "bit_count": 60
+   },
+   {
+    "state": "WaitForComboInput2",
+    "export": true,
+    "hex": "0200000052080a32050026000000aec2d2e88cdee486dedac4de92dce0eae8640000000000ea142864ed911f15",
+    "bit_count": 357
+   },
+   {
+    "state": "WaitForComboInput2",
+    "export": false,
+    "hex": "750a14b2f6c88f0a",
+    "bit_count": 60
+   },
+   {
+    "state": "AnimTriggeredState2",
+    "export": true,
+    "hex": "020000005a080a3205002800000082dcd2daa8e4d2cececae4cac8a6e8c2e8ca640000000000ea142864ed011015",
+    "bit_count": 365
+   },
+   {
+    "state": "AnimTriggeredState2",
+    "export": false,
+    "hex": "750a14b2f600880a",
+    "bit_count": 60
+   },
+   {
+    "state": "WaitForComboInput3",
+    "export": true,
+    "hex": "0200000062080a32050026000000aec2d2e88cdee486dedac4de92dce0eae8660000000000ea142864edc11115",
+    "bit_count": 357
+   },
+   {
+    "state": "WaitForComboInput3",
+    "export": false,
+    "hex": "750a14b2f6e0880a",
+    "bit_count": 60
+   },
+   {
+    "state": "AnimTriggeredState3",
+    "export": true,
+    "hex": "020000006a080a3205002800000082dcd2daa8e4d2cececae4cac8a6e8c2e8ca660000000000ea142864edf11715",
+    "bit_count": 365
+   },
+   {
+    "state": "AnimTriggeredState3",
+    "export": false,
+    "hex": "750a14b2f6f88b0a",
+    "bit_count": 60
+   },
+   {
+    "state": "MeleeAttackState3",
+    "export": true,
+    "hex": "0200000072080a320500240000009acad8caca82e8e8c2c6d6a6e8c2e8ca660000000000ea142864ed011715",
+    "bit_count": 349
+   },
+   {
+    "state": "MeleeAttackState3",
+    "export": false,
+    "hex": "750a14b2f6808b0a",
+    "bit_count": 60
+   },
+   {
+    "state": "AnimTriggeredState4",
+    "export": true,
+    "hex": "020000007a080a3205002800000082dcd2daa8e4d2cececae4cac8a6e8c2e8ca680000000000ea142864ede11815",
+    "bit_count": 365
+   },
+   {
+    "state": "AnimTriggeredState4",
+    "export": false,
+    "hex": "750a14b2f6708c0a",
+    "bit_count": 60
+   },
+   {
+    "state": "MeleeAttackState4",
+    "export": true,
+    "hex": "0200000082080a320500240000009acad8caca82e8e8c2c6d6a6e8c2e8ca680000000000ea142864ed211a15",
+    "bit_count": 349
+   },
+   {
+    "state": "MeleeAttackState4",
+    "export": false,
+    "hex": "750a14b2f6108d0a",
+    "bit_count": 60
+   },
+   {
+    "state": "WaitForComboInput4",
+    "export": true,
+    "hex": "020000008a080a32050026000000aec2d2e88cdee486dedac4de92dce0eae8680000000000ea142864edc11715",
+    "bit_count": 357
+   },
+   {
+    "state": "WaitForComboInput4",
+    "export": false,
+    "hex": "750a14b2f6e08b0a",
+    "bit_count": 60
+   },
+   {
+    "state": "AnimTriggeredState_Alt",
+    "export": true,
+    "hex": "0200000092080a3205002e00000082dcd2daa8e4d2cececae4cac8a6e8c2e8cabe82d8e80000000000ea142864ed311315",
+    "bit_count": 389
+   },
+   {
+    "state": "AnimTriggeredState_Alt",
+    "export": false,
+    "hex": "750a14b2f698890a",
+    "bit_count": 60
+   },
+   {
+    "state": "MeleeAttackState_Alt",
+    "export": true,
+    "hex": "020000009a080a3205002a0000009acad8caca82e8e8c2c6d6a6e8c2e8cabe82d8e80000000000ea142864ed711315",
+    "bit_count": 373
+   },
+   {
+    "state": "MeleeAttackState_Alt",
+    "export": false,
+    "hex": "750a14b2f6b8890a",
+    "bit_count": 60
+   },
+   {
+    "state": "WaitForAltAttack",
+    "export": true,
+    "hex": "02000000a2080a32050022000000aec2d2e88cdee482d8e882e8e8c2c6d60000000000ea142864ed711715",
+    "bit_count": 341
+   },
+   {
+    "state": "WaitForAltAttack",
+    "export": false,
+    "hex": "750a14b2f6b88b0a",
+    "bit_count": 60
+   },
+   {
+    "state": "GhostEquipState",
+    "export": true,
+    "hex": "02000000aa080a320500200000008ed0dee6e88ae2ead2e0a6e8c2e8ca0000000000ea142864ed911c15",
+    "bit_count": 333
+   },
+   {
+    "state": "GhostEquipState",
+    "export": false,
+    "hex": "750a14b2f6488e0a",
+    "bit_count": 60
+   },
+   {
+    "state": "AnimTriggeredState5",
+    "export": true,
+    "hex": "02000000b2080a3205002800000082dcd2daa8e4d2cececae4cac8a6e8c2e8ca6a0000000000ea142864edd11015",
+    "bit_count": 365
+   },
+   {
+    "state": "AnimTriggeredState5",
+    "export": false,
+    "hex": "750a14b2f668880a",
+    "bit_count": 60
+   },
+   {
+    "state": "MeleeAttackState5",
+    "export": true,
+    "hex": "02000000ba080a320500240000009acad8caca82e8e8c2c6d6a6e8c2e8ca6a0000000000ea142864edd11a15",
+    "bit_count": 349
+   },
+   {
+    "state": "MeleeAttackState5",
+    "export": false,
+    "hex": "750a14b2f6688d0a",
+    "bit_count": 60
+   },
+   {
+    "state": "WaitForComboInput5",
+    "export": true,
+    "hex": "02000000c2080a32050026000000aec2d2e88cdee486dedac4de92dce0eae86a0000000000ea142864edb11f15",
+    "bit_count": 357
+   },
+   {
+    "state": "WaitForComboInput5",
+    "export": false,
+    "hex": "750a14b2f6d88f0a",
+    "bit_count": 60
+   },
+   {
+    "state": "NotAState",
+    "export": true,
+    "error": "ValueError",
+    "message": "melee state must be a live-verified named subobject"
+   },
+   {
+    "state": "NotAState",
+    "export": false,
+    "error": "ValueError",
+    "message": "melee state must be a live-verified named subobject"
+   }
+  ]
+ },
+ "auth": [
+  {
+   "eq": "BasePistol",
+   "state": "InactiveState",
+   "export": true,
+   "hex": "02000000880b78011c00000092dcc2c6e8d2eccaa6e8c2e8ca0000000000022ec3210705",
+   "bit_count": 285
+  },
+  {
+   "eq": "BasePistol",
+   "state": "InactiveState",
+   "export": false,
+   "hex": "0197e1908302",
+   "bit_count": 44
+  },
+  {
+   "eq": "BasePistol",
+   "state": "EquipState",
+   "export": true,
+   "hex": "020000008c0b7801160000008ae2ead2e0a6e8c2e8ca0000000000022ec3a10b05",
+   "bit_count": 261
+  },
+  {
+   "eq": "BasePistol",
+   "state": "EquipState",
+   "export": false,
+   "hex": "0197e1d08502",
+   "bit_count": 44
+  },
+  {
+   "eq": "BasePistol",
+   "state": "IdleWaitingForEventState",
+   "export": true,
+   "hex": "02000000c2050a78013200000092c8d8caaec2d2e8d2dcce8cdee48aeccadce8a6e8c2e8ca0000000000022e647d09b00f",
+   "bit_count": 389
+  },
+  {
+   "eq": "BasePistol",
+   "state": "IdleWaitingForEventState",
+   "export": false,
+   "hex": "0117b2be04d807",
+   "bit_count": 52
+  },
+  {
+   "eq": "BasePistol",
+   "state": "IdleState",
+   "export": true,
+   "hex": "02000000ca050a78011400000092c8d8caa6e8c2e8ca0000000000022e647d89b80f",
+   "bit_count": 269
+  },
+  {
+   "eq": "BasePistol",
+   "state": "IdleState",
+   "export": false,
+   "hex": "0117b2be44dc07",
+   "bit_count": 52
+  },
+  {
+   "eq": "BasePistol",
+   "state": "FiringState",
+   "export": true,
+   "hex": "02000000d2050a7801180000008cd2e4d2dccea6e8c2e8ca0000000000022e647d99b60f",
+   "bit_count": 285
+  },
+  {
+   "eq": "BasePistol",
+   "state": "FiringState",
+   "export": false,
+   "hex": "0117b2be4cdb07",
+   "bit_count": 52
+  },
+  {
+   "eq": "BasePistol",
+   "state": "ReloadState",
+   "export": true,
+   "hex": "02000000da050a780118000000a4cad8dec2c8a6e8c2e8ca0000000000022e647d99be0f",
+   "bit_count": 285
+  },
+  {
+   "eq": "BasePistol",
+   "state": "ReloadState",
+   "export": false,
+   "hex": "0117b2be4cdf07",
+   "bit_count": 52
+  },
+  {
+   "eq": "BasePistol",
+   "state": "ReadyingState",
+   "export": true,
+   "hex": "02000000e2050a78011c000000a4cac2c8f2d2dccea6e8c2e8ca0000000000022e647db9bc0f",
+   "bit_count": 301
+  },
+  {
+   "eq": "BasePistol",
+   "state": "ReadyingState",
+   "export": false,
+   "hex": "0117b2be5cde07",
+   "bit_count": 52
+  },
+  {
+   "eq": "BasePistol",
+   "state": "JammedState",
+   "export": true,
+   "hex": "02000000ea050a78011800000094c2dadacac8a6e8c2e8ca0000000000022e647d59b90f",
+   "bit_count": 285
+  },
+  {
+   "eq": "BasePistol",
+   "state": "JammedState",
+   "export": false,
+   "hex": "0117b2beacdc07",
+   "bit_count": 52
+  },
+  {
+   "eq": "BasePistol",
+   "state": "FiringStateBurst",
+   "export": true,
+   "hex": "02000000f2050a7801220000008cd2e4d2dccea6e8c2e8ca84eae4e6e80000000000022e647d59be0f",
+   "bit_count": 325
+  },
+  {
+   "eq": "BasePistol",
+   "state": "FiringStateBurst",
+   "export": false,
+   "hex": "0117b2be2cdf07",
+   "bit_count": 52
+  },
+  {
+   "eq": "BasePistol",
+   "state": "NotAState",
+   "export": true,
+   "error": "KeyError",
+   "message": "'NotAState'"
+  },
+  {
+   "eq": "BasePistol",
+   "state": "NotAState",
+   "export": false,
+   "error": "KeyError",
+   "message": "'NotAState'"
+  },
+  {
+   "eq": "Melee",
+   "state": "InactiveState",
+   "export": true,
+   "hex": "0200000002080a3205001c00000092dcc2c6e8d2eccaa6e8c2e8ca0000000000ea142864ed911e15",
+   "bit_count": 317
+  },
+  {
+   "eq": "Melee",
+   "state": "InactiveState",
+   "export": false,
+   "hex": "750a14b2f6488f0a",
+   "bit_count": 60
+  },
+  {
+   "eq": "Melee",
+   "state": "EquipState",
+   "export": true,
+   "hex": "020000000a080a320500160000008ae2ead2e0a6e8c2e8ca0000000000ea142864edf11115",
+   "bit_count": 293
+  },
+  {
+   "eq": "Melee",
+   "state": "EquipState",
+   "export": false,
+   "hex": "750a14b2f6f8880a",
+   "bit_count": 60
+  },
+  {
+   "eq": "Melee",
+   "state": "ReadyingState",
+   "export": true,
+   "hex": "0200000012080a3205001c000000a4cac2c8f2d2dccea6e8c2e8ca0000000000ea142864eda11915",
+   "bit_count": 317
+  },
+  {
+   "eq": "Melee",
+   "state": "ReadyingState",
+   "export": false,
+   "hex": "750a14b2f6d08c0a",
+   "bit_count": 60
+  },
+  {
+   "eq": "Melee",
+   "state": "IdleWaitingForEventState",
+   "export": true,
+   "hex": "020000001a080a3205003200000092c8d8caaec2d2e8d2dcce8cdee48aeccadce8a6e8c2e8ca0000000000ea142864ed411915",
+   "bit_count": 405
+  },
+  {
+   "eq": "Melee",
+   "state": "IdleWaitingForEventState",
+   "export": false,
+   "hex": "750a14b2f6a08c0a",
+   "bit_count": 60
+  },
+  {
+   "eq": "Melee",
+   "state": "RespondToEventState",
+   "export": true,
+   "hex": "0200000022080a32050028000000a4cae6e0dedcc8a8de8aeccadce8a6e8c2e8ca0000000000ea142864edd11115",
+   "bit_count": 365
+  },
+  {
+   "eq": "Melee",
+   "state": "RespondToEventState",
+   "export": false,
+   "hex": "750a14b2f6e8880a",
+   "bit_count": 60
+  },
+  {
+   "eq": "Melee",
+   "state": "FirstAttackIdle",
+   "export": true,
+   "hex": "020000002a080a320500200000008cd2e4e6e882e8e8c2c6d692c8d8ca0000000000ea142864ed611f15",
+   "bit_count": 333
+  },
+  {
+   "eq": "Melee",
+   "state": "FirstAttackIdle",
+   "export": false,
+   "hex": "750a14b2f6b08f0a",
+   "bit_count": 60
+  },
+  {
+   "eq": "Melee",
+   "state": "AnimTriggeredState1",
+   "export": true,
+   "hex": "0200000032080a3205002800000082dcd2daa8e4d2cececae4cac8a6e8c2e8ca620000000000ea142864ed411d15",
+   "bit_count": 365
+  },
+  {
+   "eq": "Melee",
+   "state": "AnimTriggeredState1",
+   "export": false,
+   "hex": "750a14b2f6a08e0a",
+   "bit_count": 60
+  },
+  {
+   "eq": "Melee",
+   "state": "MeleeAttackState1",
+   "export": true,
+   "hex": "020000003a080a320500240000009acad8caca82e8e8c2c6d6a6e8c2e8ca620000000000ea142864ed911715",
+   "bit_count": 349
+  },
+  {
+   "eq": "Melee",
+   "state": "MeleeAttackState1",
+   "export": false,
+   "hex": "750a14b2f6c88b0a",
+   "bit_count": 60
+  },
+  {
+   "eq": "Melee",
+   "state": "WaitForComboInput1",
+   "export": true,
+   "hex": "0200000042080a32050026000000aec2d2e88cdee486dedac4de92dce0eae8620000000000ea142864ed311a15",
+   "bit_count": 357
+  },
+  {
+   "eq": "Melee",
+   "state": "WaitForComboInput1",
+   "export": false,
+   "hex": "750a14b2f6188d0a",
+   "bit_count": 60
+  },
+  {
+   "eq": "Melee",
+   "state": "MeleeAttackState2",
+   "export": true,
+   "hex": "020000004a080a320500240000009acad8caca82e8e8c2c6d6a6e8c2e8ca640000000000ea142864ede11e15",
+   "bit_count": 349
+  },
+  {
+   "eq": "Melee",
+   "state": "MeleeAttackState2",
+   "export": false,
+   "hex": "750a14b2f6708f0a",
+   "bit_count": 60
+  },
+  {
+   "eq": "Melee",
+   "state": "WaitForComboInput2",
+   "export": true,
+   "hex": "0200000052080a32050026000000aec2d2e88cdee486dedac4de92dce0eae8640000000000ea142864ed911f15",
+   "bit_count": 357
+  },
+  {
+   "eq": "Melee",
+   "state": "WaitForComboInput2",
+   "export": false,
+   "hex": "750a14b2f6c88f0a",
+   "bit_count": 60
+  },
+  {
+   "eq": "Melee",
+   "state": "AnimTriggeredState2",
+   "export": true,
+   "hex": "020000005a080a3205002800000082dcd2daa8e4d2cececae4cac8a6e8c2e8ca640000000000ea142864ed011015",
+   "bit_count": 365
+  },
+  {
+   "eq": "Melee",
+   "state": "AnimTriggeredState2",
+   "export": false,
+   "hex": "750a14b2f600880a",
+   "bit_count": 60
+  },
+  {
+   "eq": "Melee",
+   "state": "WaitForComboInput3",
+   "export": true,
+   "hex": "0200000062080a32050026000000aec2d2e88cdee486dedac4de92dce0eae8660000000000ea142864edc11115",
+   "bit_count": 357
+  },
+  {
+   "eq": "Melee",
+   "state": "WaitForComboInput3",
+   "export": false,
+   "hex": "750a14b2f6e0880a",
+   "bit_count": 60
+  },
+  {
+   "eq": "Melee",
+   "state": "AnimTriggeredState3",
+   "export": true,
+   "hex": "020000006a080a3205002800000082dcd2daa8e4d2cececae4cac8a6e8c2e8ca660000000000ea142864edf11715",
+   "bit_count": 365
+  },
+  {
+   "eq": "Melee",
+   "state": "AnimTriggeredState3",
+   "export": false,
+   "hex": "750a14b2f6f88b0a",
+   "bit_count": 60
+  },
+  {
+   "eq": "Melee",
+   "state": "MeleeAttackState3",
+   "export": true,
+   "hex": "0200000072080a320500240000009acad8caca82e8e8c2c6d6a6e8c2e8ca660000000000ea142864ed011715",
+   "bit_count": 349
+  },
+  {
+   "eq": "Melee",
+   "state": "MeleeAttackState3",
+   "export": false,
+   "hex": "750a14b2f6808b0a",
+   "bit_count": 60
+  },
+  {
+   "eq": "Melee",
+   "state": "AnimTriggeredState4",
+   "export": true,
+   "hex": "020000007a080a3205002800000082dcd2daa8e4d2cececae4cac8a6e8c2e8ca680000000000ea142864ede11815",
+   "bit_count": 365
+  },
+  {
+   "eq": "Melee",
+   "state": "AnimTriggeredState4",
+   "export": false,
+   "hex": "750a14b2f6708c0a",
+   "bit_count": 60
+  },
+  {
+   "eq": "Melee",
+   "state": "MeleeAttackState4",
+   "export": true,
+   "hex": "0200000082080a320500240000009acad8caca82e8e8c2c6d6a6e8c2e8ca680000000000ea142864ed211a15",
+   "bit_count": 349
+  },
+  {
+   "eq": "Melee",
+   "state": "MeleeAttackState4",
+   "export": false,
+   "hex": "750a14b2f6108d0a",
+   "bit_count": 60
+  },
+  {
+   "eq": "Melee",
+   "state": "WaitForComboInput4",
+   "export": true,
+   "hex": "020000008a080a32050026000000aec2d2e88cdee486dedac4de92dce0eae8680000000000ea142864edc11715",
+   "bit_count": 357
+  },
+  {
+   "eq": "Melee",
+   "state": "WaitForComboInput4",
+   "export": false,
+   "hex": "750a14b2f6e08b0a",
+   "bit_count": 60
+  },
+  {
+   "eq": "Melee",
+   "state": "AnimTriggeredState_Alt",
+   "export": true,
+   "hex": "0200000092080a3205002e00000082dcd2daa8e4d2cececae4cac8a6e8c2e8cabe82d8e80000000000ea142864ed311315",
+   "bit_count": 389
+  },
+  {
+   "eq": "Melee",
+   "state": "AnimTriggeredState_Alt",
+   "export": false,
+   "hex": "750a14b2f698890a",
+   "bit_count": 60
+  },
+  {
+   "eq": "Melee",
+   "state": "MeleeAttackState_Alt",
+   "export": true,
+   "hex": "020000009a080a3205002a0000009acad8caca82e8e8c2c6d6a6e8c2e8cabe82d8e80000000000ea142864ed711315",
+   "bit_count": 373
+  },
+  {
+   "eq": "Melee",
+   "state": "MeleeAttackState_Alt",
+   "export": false,
+   "hex": "750a14b2f6b8890a",
+   "bit_count": 60
+  },
+  {
+   "eq": "Melee",
+   "state": "WaitForAltAttack",
+   "export": true,
+   "hex": "02000000a2080a32050022000000aec2d2e88cdee482d8e882e8e8c2c6d60000000000ea142864ed711715",
+   "bit_count": 341
+  },
+  {
+   "eq": "Melee",
+   "state": "WaitForAltAttack",
+   "export": false,
+   "hex": "750a14b2f6b88b0a",
+   "bit_count": 60
+  },
+  {
+   "eq": "Melee",
+   "state": "GhostEquipState",
+   "export": true,
+   "hex": "02000000aa080a320500200000008ed0dee6e88ae2ead2e0a6e8c2e8ca0000000000ea142864ed911c15",
+   "bit_count": 333
+  },
+  {
+   "eq": "Melee",
+   "state": "GhostEquipState",
+   "export": false,
+   "hex": "750a14b2f6488e0a",
+   "bit_count": 60
+  },
+  {
+   "eq": "Melee",
+   "state": "AnimTriggeredState5",
+   "export": true,
+   "hex": "02000000b2080a3205002800000082dcd2daa8e4d2cececae4cac8a6e8c2e8ca6a0000000000ea142864edd11015",
+   "bit_count": 365
+  },
+  {
+   "eq": "Melee",
+   "state": "AnimTriggeredState5",
+   "export": false,
+   "hex": "750a14b2f668880a",
+   "bit_count": 60
+  },
+  {
+   "eq": "Melee",
+   "state": "MeleeAttackState5",
+   "export": true,
+   "hex": "02000000ba080a320500240000009acad8caca82e8e8c2c6d6a6e8c2e8ca6a0000000000ea142864edd11a15",
+   "bit_count": 349
+  },
+  {
+   "eq": "Melee",
+   "state": "MeleeAttackState5",
+   "export": false,
+   "hex": "750a14b2f6688d0a",
+   "bit_count": 60
+  },
+  {
+   "eq": "Melee",
+   "state": "WaitForComboInput5",
+   "export": true,
+   "hex": "02000000c2080a32050026000000aec2d2e88cdee486dedac4de92dce0eae86a0000000000ea142864edb11f15",
+   "bit_count": 357
+  },
+  {
+   "eq": "Melee",
+   "state": "WaitForComboInput5",
+   "export": false,
+   "hex": "750a14b2f6d88f0a",
+   "bit_count": 60
+  },
+  {
+   "eq": "Melee",
+   "state": "NotAState",
+   "export": true,
+   "error": "KeyError",
+   "message": "'NotAState'"
+  },
+  {
+   "eq": "Melee",
+   "state": "NotAState",
+   "export": false,
+   "error": "KeyError",
+   "message": "'NotAState'"
+  },
+  {
+   "eq": "vandal",
+   "state": "InactiveState",
+   "export": true,
+   "hex": "02000000a2100a2210001c00000092dcc2c6e8d2eccaa6e8c2e8ca00000000000a4128644d421506",
+   "bit_count": 317
+  },
+  {
+   "eq": "vandal",
+   "state": "EquipState",
+   "export": true,
+   "hex": "02000000ca100a221000160000008ae2ead2e0a6e8c2e8ca00000000000a4128644df21d06",
+   "bit_count": 293
+  }
+ ],
+ "machine_open": [
+  {
+   "actor": 94,
+   "machine": 96,
+   "name": "EquippableStateMachine",
+   "hex": "02000000800b78012e0000008ae2ead2e0e0c2c4d8caa6e8c2e8ca9ac2c6d0d2dcca0000000000022e411e",
+   "bit_count": 341
+  },
+  {
+   "actor": 204,
+   "machine": 206,
+   "name": "EquippableStateMachine",
+   "hex": "020000003a050a3205002e0000008ae2ead2e0e0c2c4d8caa6e8c2e8ca9ac2c6d0d2dcca0000000000ea1428e110",
+   "bit_count": 365
+  },
+  {
+   "actor": 520,
+   "machine": 554,
+   "name": "ZoomStateMachine",
+   "hex": "02000000aa100a22100022000000b4dededaa6e8c2e8ca9ac2c6d0d2dcca0000000000aa4228f109",
+   "bit_count": 317
+  },
+  {
+   "actor": 520,
+   "machine": 528,
+   "name": "EquippableStateMachine",
+   "hex": "0200000042100a2210002e0000008ae2ead2e0e0c2c4d8caa6e8c2e8ca9ac2c6d0d2dcca00000000000a4128f109",
+   "bit_count": 365
+  },
+  {
+   "actor": 208,
+   "machine": 100000,
+   "name": "EquippableStateMachine",
+   "hex": "020000008236180a4205002e0000008ae2ead2e0e0c2c4d8caa6e8c2e8ca9ac2c6d0d2dcca00000000000ada60281101",
+   "bit_count": 381
+  },
+  {
+   "actor": 16384,
+   "machine": 16386,
+   "name": "M",
+   "hex": "020000000a02040a02020400040000009a00000000002a0810289105",
+   "bit_count": 221
+  },
+  {
+   "actor": 2,
+   "machine": 4294967295,
+   "name": "EquippableStateMachine",
+   "hex": "02000000feffffff3d0a08002e0000008ae2ead2e0e0c2c4d8caa6e8c2e8ca9ac2c6d0d2dcca0000000000fafffffff728a110",
+   "bit_count": 405
+  }
+ ],
+ "machine_state": [
+  {
+   "state": "ZoomStateDisabled",
+   "export": true,
+   "hex": "02000000b2100a22100024000000b4dededaa6e8c2e8ca88d2e6c2c4d8cac80000000000aa4228644d121806",
+   "bit_count": 349
+  },
+  {
+   "state": "ZoomStateDisabled",
+   "export": false,
+   "hex": "552114b226090c03",
+   "bit_count": 60
+  },
+  {
+   "state": "ZoomStateUnzoomed",
+   "export": true,
+   "hex": "02000000ba100a22100024000000b4dededaa6e8c2e8caaadcf4dededacac80000000000aa422864dd441d06",
+   "bit_count": 349
+  },
+  {
+   "state": "ZoomStateUnzoomed",
+   "export": false,
+   "hex": "552114b26ea20e03",
+   "bit_count": 60
+  },
+  {
+   "state": "ZoomStateLevel1",
+   "export": true,
+   "hex": "02000000c2100a22100020000000b4dededaa6e8c2e8ca98caeccad8620000000000aa4228644dd21c06",
+   "bit_count": 333
+  },
+  {
+   "state": "ZoomStateLevel1",
+   "export": false,
+   "hex": "552114b226690e03",
+   "bit_count": 60
+  },
+  {
+   "state": "Nope",
+   "export": true,
+   "error": "KeyError",
+   "message": "'Nope'"
+  },
+  {
+   "state": "Nope",
+   "export": false,
+   "error": "KeyError",
+   "message": "'Nope'"
+  }
+ ],
+ "resource": [
+  {
+   "eq": "BasePistol",
+   "resource": 0,
+   "amount": 12,
+   "export": true,
+   "hex": "02000000d2080a78011a0000009ac2cec2f4d2dcca82dadade00000000004a232866dd4a6e851d10",
+   "bit_count": 317
+  },
+  {
+   "eq": "BasePistol",
+   "resource": 0,
+   "amount": 12,
+   "export": false,
+   "hex": "a51114b36e25b7c20e08",
+   "bit_count": 76
+  },
+  {
+   "eq": "BasePistol",
+   "resource": 0,
+   "amount": 11,
+   "export": true,
+   "hex": "02000000d2080a78011a0000009ac2cec2f4d2dcca82dadade00000000004a232866dd2a6f851d10",
+   "bit_count": 317
+  },
+  {
+   "eq": "BasePistol",
+   "resource": 0,
+   "amount": 11,
+   "export": false,
+   "hex": "a51114b36e95b7c20e08",
+   "bit_count": 76
+  },
+  {
+   "eq": "BasePistol",
+   "resource": 0,
+   "amount": 0,
+   "export": true,
+   "hex": "02000000d2080a78011a0000009ac2cec2f4d2dcca82dadade00000000004a232866dd7a62851d10",
+   "bit_count": 317
+  },
+  {
+   "eq": "BasePistol",
+   "resource": 0,
+   "amount": 0,
+   "export": false,
+   "hex": "a51114b36e3db1c20e08",
+   "bit_count": 76
+  },
+  {
+   "eq": "BasePistol",
+   "resource": 0,
+   "amount": 1,
+   "export": true,
+   "hex": "02000000d2080a78011a0000009ac2cec2f4d2dcca82dadade00000000004a232866ddaa64851d10",
+   "bit_count": 317
+  },
+  {
+   "eq": "BasePistol",
+   "resource": 0,
+   "amount": 1,
+   "export": false,
+   "hex": "a51114b36e55b2c20e08",
+   "bit_count": 76
+  },
+  {
+   "eq": "BasePistol",
+   "resource": 0,
+   "amount": 127,
+   "export": true,
+   "hex": "02000000d2080a78011a0000009ac2cec2f4d2dcca82dadade00000000004a232866ddba61851d10",
+   "bit_count": 317
+  },
+  {
+   "eq": "BasePistol",
+   "resource": 0,
+   "amount": 127,
+   "export": false,
+   "hex": "a51114b36eddb0c20e08",
+   "bit_count": 76
+  },
+  {
+   "eq": "BasePistol",
+   "resource": 0,
+   "amount": 128,
+   "export": true,
+   "hex": "02000000d2080a78011a0000009ac2cec2f4d2dcca82dadade00000000004a232866fd7d62851d10",
+   "bit_count": 317
+  },
+  {
+   "eq": "BasePistol",
+   "resource": 0,
+   "amount": 128,
+   "export": false,
+   "hex": "a51114b3fe3eb1c20e08",
+   "bit_count": 76
+  },
+  {
+   "eq": "BasePistol",
+   "resource": 0,
+   "amount": 16383,
+   "export": true,
+   "hex": "02000000d2080a78011a0000009ac2cec2f4d2dcca82dadade00000000004a2328662db861851d10",
+   "bit_count": 317
+  },
+  {
+   "eq": "BasePistol",
+   "resource": 0,
+   "amount": 16383,
+   "export": false,
+   "hex": "a51114b316dcb0c20e08",
+   "bit_count": 76
+  },
+  {
+   "eq": "BasePistol",
+   "resource": 0,
+   "amount": 16384,
+   "export": true,
+   "hex": "02000000d2080a78011a0000009ac2cec2f4d2dcca82dadade00000000004a232866bd7462851d10",
+   "bit_count": 317
+  },
+  {
+   "eq": "BasePistol",
+   "resource": 0,
+   "amount": 16384,
+   "export": false,
+   "hex": "a51114b35e3ab1c20e08",
+   "bit_count": 76
+  },
+  {
+   "eq": "BasePistol",
+   "resource": 0,
+   "amount": 2147483647,
+   "export": true,
+   "hex": "02000000d2080a78011a0000009ac2cec2f4d2dcca82dadade00000000004a23288634b361051410",
+   "bit_count": 317
+  },
+  {
+   "eq": "BasePistol",
+   "resource": 0,
+   "amount": 2147483647,
+   "export": false,
+   "hex": "a51114439ad9b0020a08",
+   "bit_count": 76
+  },
+  {
+   "eq": "BasePistol",
+   "resource": 0,
+   "amount": 2147483648,
+   "export": true,
+   "error": "ValueError",
+   "message": "resource amount must be a non-negative int32"
+  },
+  {
+   "eq": "BasePistol",
+   "resource": 0,
+   "amount": 2147483648,
+   "export": false,
+   "error": "ValueError",
+   "message": "resource amount must be a non-negative int32"
+  },
+  {
+   "eq": "BasePistol",
+   "resource": 0,
+   "amount": -1,
+   "export": true,
+   "error": "ValueError",
+   "message": "resource amount must be a non-negative int32"
+  },
+  {
+   "eq": "BasePistol",
+   "resource": 0,
+   "amount": -1,
+   "export": false,
+   "error": "ValueError",
+   "message": "resource amount must be a non-negative int32"
+  },
+  {
+   "eq": "BasePistol",
+   "resource": 1,
+   "amount": 36,
+   "export": true,
+   "hex": "02000000ca080a780118000000a4cae6cae4ecca82dadade00000000002a232866dd0a66851d10",
+   "bit_count": 309
+  },
+  {
+   "eq": "BasePistol",
+   "resource": 1,
+   "amount": 36,
+   "export": false,
+   "hex": "951114b36e05b3c20e08",
+   "bit_count": 76
+  },
+  {
+   "eq": "BasePistol",
+   "resource": 1,
+   "amount": 35,
+   "export": true,
+   "hex": "02000000ca080a780118000000a4cae6cae4ecca82dadade00000000002a232866dd7a6c851d10",
+   "bit_count": 309
+  },
+  {
+   "eq": "BasePistol",
+   "resource": 1,
+   "amount": 35,
+   "export": false,
+   "hex": "951114b36e3db6c20e08",
+   "bit_count": 76
+  },
+  {
+   "eq": "vandal",
+   "resource": 0,
+   "amount": 25,
+   "export": true,
+   "hex": "020000004a100a2210001a0000009ac2cec2f4d2dcca82dadade00000000002a412866ad2bfa418519",
+   "bit_count": 325
+  },
+  {
+   "eq": "vandal",
+   "resource": 0,
+   "amount": 25,
+   "export": false,
+   "hex": "952014b3d615fda0c20c",
+   "bit_count": 76
+  },
+  {
+   "eq": "vandal",
+   "resource": 0,
+   "amount": 24,
+   "export": true,
+   "hex": "020000004a100a2210001a0000009ac2cec2f4d2dcca82dadade00000000002a412866adabfe418519",
+   "bit_count": 325
+  },
+  {
+   "eq": "vandal",
+   "resource": 0,
+   "amount": 24,
+   "export": false,
+   "hex": "952014b3d655ffa0c20c",
+   "bit_count": 76
+  },
+  {
+   "eq": "vandal",
+   "resource": 1,
+   "amount": 50,
+   "export": true,
+   "hex": "0200000052100a22100018000000a4cae6cae4ecca82dadade00000000004a412866adabf4418519",
+   "bit_count": 317
+  },
+  {
+   "eq": "vandal",
+   "resource": 1,
+   "amount": 50,
+   "export": false,
+   "hex": "a52014b3d655faa0c20c",
+   "bit_count": 76
+  },
+  {
+   "eq": "vandal",
+   "resource": 1,
+   "amount": 49,
+   "export": true,
+   "hex": "0200000052100a22100018000000a4cae6cae4ecca82dadade00000000004a412866adebf2418519",
+   "bit_count": 317
+  },
+  {
+   "eq": "vandal",
+   "resource": 1,
+   "amount": 49,
+   "export": false,
+   "hex": "a52014b3d675f9a0c20c",
+   "bit_count": 76
+  },
+  {
+   "eq": "Ability_Wushu_4_Smoke_C",
+   "resource": 0,
+   "amount": 0,
+   "export": true,
+   "hex": "02000000da080a420500200000008ae2ead2e0dacadce886d0c2e4ceca00000000006a2328666d72ed9b6e1a",
+   "bit_count": 349
+  },
+  {
+   "eq": "Ability_Wushu_4_Smoke_C",
+   "resource": 0,
+   "amount": 0,
+   "export": false,
+   "hex": "b51114b336b9f64d370d",
+   "bit_count": 76
+  },
+  {
+   "eq": "Ability_Wushu_4_Smoke_C",
+   "resource": 0,
+   "amount": 1,
+   "export": true,
+   "hex": "02000000da080a420500200000008ae2ead2e0dacadce886d0c2e4ceca00000000006a2328666d92ee9b6e1a",
+   "bit_count": 349
+  },
+  {
+   "eq": "Ability_Wushu_4_Smoke_C",
+   "resource": 0,
+   "amount": 1,
+   "export": false,
+   "hex": "b51114b33649f74d370d",
+   "bit_count": 76
+  },
+  {
+   "eq": "Ability_Wushu_4_Smoke_C",
+   "resource": 0,
+   "amount": 2,
+   "export": true,
+   "hex": "02000000da080a420500200000008ae2ead2e0dacadce886d0c2e4ceca00000000006a2328666da2ed9b6e1a",
+   "bit_count": 349
+  },
+  {
+   "eq": "Ability_Wushu_4_Smoke_C",
+   "resource": 0,
+   "amount": 2,
+   "export": false,
+   "hex": "b51114b336d1f64d370d",
+   "bit_count": 76
+  },
+  {
+   "eq": "Ability_Wushu_Q_CycloneBoost_C",
+   "resource": 0,
+   "amount": 0,
+   "export": true,
+   "hex": "02000000e2080a620500200000008ae2ead2e0dacadce886d0c2e4ceca00000000008a232866ed721d06d312",
+   "bit_count": 349
+  },
+  {
+   "eq": "Ability_Wushu_Q_CycloneBoost_C",
+   "resource": 0,
+   "amount": 0,
+   "export": false,
+   "hex": "c51114b376b90e836909",
+   "bit_count": 76
+  },
+  {
+   "eq": "Ability_Wushu_Q_CycloneBoost_C",
+   "resource": 0,
+   "amount": 1,
+   "export": true,
+   "hex": "02000000e2080a620500200000008ae2ead2e0dacadce886d0c2e4ceca00000000008a232866ed921e06d312",
+   "bit_count": 349
+  },
+  {
+   "eq": "Ability_Wushu_Q_CycloneBoost_C",
+   "resource": 0,
+   "amount": 1,
+   "export": false,
+   "hex": "c51114b376490f836909",
+   "bit_count": 76
+  },
+  {
+   "eq": "Ability_Wushu_Q_CycloneBoost_C",
+   "resource": 0,
+   "amount": 2,
+   "export": true,
+   "hex": "02000000e2080a620500200000008ae2ead2e0dacadce886d0c2e4ceca00000000008a232866eda21d06d312",
+   "bit_count": 349
+  },
+  {
+   "eq": "Ability_Wushu_Q_CycloneBoost_C",
+   "resource": 0,
+   "amount": 2,
+   "export": false,
+   "hex": "c51114b376d10e836909",
+   "bit_count": 76
+  },
+  {
+   "eq": "Ability_Wushu_E_Dash_C",
+   "resource": 0,
+   "amount": 0,
+   "export": true,
+   "hex": "02000000ea080a52050032000000a6d2cedcc2e8eae4ca82c4d2d8d2e8f2a4cae6deeae4c6ca0000000000aa2328667d720d563c16",
+   "bit_count": 421
+  },
+  {
+   "eq": "Ability_Wushu_E_Dash_C",
+   "resource": 0,
+   "amount": 0,
+   "export": false,
+   "hex": "d51114b33eb9062b1e0b",
+   "bit_count": 76
+  },
+  {
+   "eq": "Ability_Wushu_E_Dash_C",
+   "resource": 0,
+   "amount": 1,
+   "export": true,
+   "hex": "02000000ea080a52050032000000a6d2cedcc2e8eae4ca82c4d2d8d2e8f2a4cae6deeae4c6ca0000000000aa2328667d920e563c16",
+   "bit_count": 421
+  },
+  {
+   "eq": "Ability_Wushu_E_Dash_C",
+   "resource": 0,
+   "amount": 1,
+   "export": false,
+   "hex": "d51114b33e49072b1e0b",
+   "bit_count": 76
+  },
+  {
+   "eq": "Ability_Wushu_E_Dash_C",
+   "resource": 0,
+   "amount": 2,
+   "export": true,
+   "hex": "02000000ea080a52050032000000a6d2cedcc2e8eae4ca82c4d2d8d2e8f2a4cae6deeae4c6ca0000000000aa2328667da20d563c16",
+   "bit_count": 421
+  },
+  {
+   "eq": "Ability_Wushu_E_Dash_C",
+   "resource": 0,
+   "amount": 2,
+   "export": false,
+   "hex": "d51114b33ed1062b1e0b",
+   "bit_count": 76
+  }
+ ],
+ "shield": [
+  {
+   "life": 25.0,
+   "maximum": 25.0,
+   "export": true,
+   "hex": "02000000f2080a280028000000a6d0d2cad8c888c2dac2cecaa6cac6e8d2dedc0000000000ca2348fcac15069ec91716f6a7c25229",
+   "bit_count": 422
+  },
+  {
+   "life": 25.0,
+   "maximum": 25.0,
+   "export": false,
+   "hex": "e511247ed60a03cfe40b0bfb5361a914",
+   "bit_count": 125
+  },
+  {
+   "life": 50.0,
+   "maximum": 50.0,
+   "export": true,
+   "hex": "02000000f2080a280028000000a6d0d2cad8c888c2dac2cecaa6cac6e8d2dedc0000000000ca23481ca415069ec91716f687ca5229",
+   "bit_count": 422
+  },
+  {
+   "life": 50.0,
+   "maximum": 50.0,
+   "export": false,
+   "hex": "e511240ed20a03cfe40b0bfb4365a914",
+   "bit_count": 125
+  },
+  {
+   "life": 0.0,
+   "maximum": 0.0,
+   "export": true,
+   "hex": "02000000f2080a280028000000a6d0d2cad8c888c2dac2cecaa6cac6e8d2dedc0000000000ca23481c16160698c91716f635c95329",
+   "bit_count": 422
+  },
+  {
+   "life": 0.0,
+   "maximum": 0.0,
+   "export": false,
+   "hex": "e511240e0b0b03cce40b0bfb9ae4a914",
+   "bit_count": 125
+  },
+  {
+   "life": 0.0,
+   "maximum": 1000.0,
+   "export": true,
+   "hex": "02000000f2080a280028000000a6d0d2cad8c888c2dac2cecaa6cac6e8d2dedc0000000000ca23481c16160698c91716f6077c5a29",
+   "bit_count": 422
+  },
+  {
+   "life": 0.0,
+   "maximum": 1000.0,
+   "export": false,
+   "hex": "e511240e0b0b03cce40b0bfb033ead14",
+   "bit_count": 125
+  },
+  {
+   "life": 1000.0,
+   "maximum": 1000.0,
+   "export": true,
+   "hex": "02000000f2080a280028000000a6d0d2cad8c888c2dac2cecaa6cac6e8d2dedc0000000000ca2348eccd1d069ec91716f6077c5a29",
+   "bit_count": 422
+  },
+  {
+   "life": 1000.0,
+   "maximum": 1000.0,
+   "export": false,
+   "hex": "e51124f6e60e03cfe40b0bfb033ead14",
+   "bit_count": 125
+  },
+  {
+   "life": 12.5,
+   "maximum": 50.0,
+   "export": true,
+   "hex": "02000000f2080a280028000000a6d0d2cad8c888c2dac2cecaa6cac6e8d2dedc0000000000ca23481cab15069ec91716f687ca5229",
+   "bit_count": 422
+  },
+  {
+   "life": 12.5,
+   "maximum": 50.0,
+   "export": false,
+   "hex": "e511248ed50a03cfe40b0bfb4365a914",
+   "bit_count": 125
+  },
+  {
+   "life": 0.1,
+   "maximum": 0.1,
+   "export": true,
+   "hex": "02000000f2080a280028000000a6d0d2cad8c888c2dac2cecaa6cac6e8d2dedc0000000000ca23482c541c0198c9571c6142d55726",
+   "bit_count": 422
+  },
+  {
+   "life": 0.1,
+   "maximum": 0.1,
+   "export": false,
+   "hex": "e51124162a8e00cce42b8e30a1ea2b13",
+   "bit_count": 125
+  },
+  {
+   "life": 1e-45,
+   "maximum": 1e-45,
+   "export": true,
+   "hex": "02000000f2080a280028000000a6d0d2cad8c888c2dac2cecaa6cac6e8d2dedc0000000000ca23481c16560798c91756f735c95329",
+   "bit_count": 422
+  },
+  {
+   "life": 1e-45,
+   "maximum": 1e-45,
+   "export": false,
+   "hex": "e511240e0bab03cce40babfb9ae4a914",
+   "bit_count": 125
+  },
+  {
+   "life": 33.333333333333336,
+   "maximum": 100.0,
+   "export": true,
+   "hex": "02000000f2080a280028000000a6d0d2cad8c888c2dac2cecaa6cac6e8d2dedc0000000000ca23489ce611069ec90731f817ce5229",
+   "bit_count": 422
+  },
+  {
+   "life": 33.333333333333336,
+   "maximum": 100.0,
+   "export": false,
+   "hex": "e511244ef30803cfe48318fc0b67a914",
+   "bit_count": 125
+  },
+  {
+   "life": -1.0,
+   "maximum": 25.0,
+   "export": true,
+   "error": "ValueError",
+   "message": "shield values out of range"
+  },
+  {
+   "life": -1.0,
+   "maximum": 25.0,
+   "export": false,
+   "error": "ValueError",
+   "message": "shield values out of range"
+  },
+  {
+   "life": 30.0,
+   "maximum": 25.0,
+   "export": true,
+   "error": "ValueError",
+   "message": "shield values out of range"
+  },
+  {
+   "life": 30.0,
+   "maximum": 25.0,
+   "export": false,
+   "error": "ValueError",
+   "message": "shield values out of range"
+  },
+  {
+   "life": 0.0,
+   "maximum": 1000.5,
+   "export": true,
+   "error": "ValueError",
+   "message": "shield values out of range"
+  },
+  {
+   "life": 0.0,
+   "maximum": 1000.5,
+   "export": false,
+   "error": "ValueError",
+   "message": "shield values out of range"
+  },
+  {
+   "life": -0.0,
+   "maximum": 0.0,
+   "export": true,
+   "hex": "02000000f2080a280028000000a6d0d2cad8c888c2dac2cecaa6cac6e8d2dedc0000000000ca23481c1616a694c91716f635c95329",
+   "bit_count": 422
+  },
+  {
+   "life": -0.0,
+   "maximum": 0.0,
+   "export": false,
+   "hex": "e511240e0b0b53cae40b0bfb9ae4a914",
+   "bit_count": 125
+  },
+  {
+   "life": 999.9999999999999,
+   "maximum": 1000.0,
+   "export": true,
+   "hex": "02000000f2080a280028000000a6d0d2cad8c888c2dac2cecaa6cac6e8d2dedc0000000000ca2348eccd1d069ec91716f6077c5a29",
+   "bit_count": 422
+  },
+  {
+   "life": 999.9999999999999,
+   "maximum": 1000.0,
+   "export": false,
+   "hex": "e51124f6e60e03cfe40b0bfb033ead14",
+   "bit_count": 125
+  }
+ ],
+ "validate": [
+  {
+   "args": {
+    "key": "K",
+    "class_name": "K_C",
+    "channel": 30,
+    "actor_guid": 0,
+    "slot": 3,
+    "state_machine_guid": 602,
+    "state_guids": [
+     [
+      "InactiveState",
+      604
+     ]
+    ]
+   },
+   "error": "ValueError",
+   "message": "dynamic actor NetGUID must be positive and even"
+  },
+  {
+   "args": {
+    "key": "K",
+    "class_name": "K_C",
+    "channel": 30,
+    "actor_guid": 95,
+    "slot": 3,
+    "state_machine_guid": 602,
+    "state_guids": [
+     [
+      "InactiveState",
+      604
+     ]
+    ]
+   },
+   "error": "ValueError",
+   "message": "dynamic actor NetGUID must be positive and even"
+  },
+  {
+   "args": {
+    "key": "K",
+    "class_name": "K_C",
+    "channel": 30,
+    "actor_guid": -2,
+    "slot": 3,
+    "state_machine_guid": 602,
+    "state_guids": [
+     [
+      "InactiveState",
+      604
+     ]
+    ]
+   },
+   "error": "ValueError",
+   "message": "dynamic actor NetGUID must be positive and even"
+  },
+  {
+   "args": {
+    "key": "K",
+    "class_name": "K_C",
+    "channel": 30,
+    "actor_guid": 600,
+    "slot": 16,
+    "state_machine_guid": 602,
+    "state_guids": [
+     [
+      "InactiveState",
+      604
+     ]
+    ]
+   },
+   "error": "ValueError",
+   "message": "inventory slot out of range"
+  },
+  {
+   "args": {
+    "key": "K",
+    "class_name": "K_C",
+    "channel": 30,
+    "actor_guid": 600,
+    "slot": -1,
+    "state_machine_guid": 602,
+    "state_guids": [
+     [
+      "InactiveState",
+      604
+     ]
+    ]
+   },
+   "error": "ValueError",
+   "message": "inventory slot out of range"
+  },
+  {
+   "args": {
+    "key": "K",
+    "class_name": "K_C",
+    "channel": 30,
+    "actor_guid": 600,
+    "slot": 15,
+    "state_machine_guid": 602,
+    "state_guids": [
+     [
+      "InactiveState",
+      604
+     ]
+    ]
+   },
+   "ok": true
+  },
+  {
+   "args": {
+    "key": "K",
+    "class_name": "K_C",
+    "channel": 30,
+    "actor_guid": 600,
+    "slot": 3,
+    "state_machine_guid": 602,
+    "state_guids": [
+     [
+      "EquipState",
+      1
+     ]
+    ]
+   },
+   "error": "ValueError",
+   "message": "every equippable state machine has an InactiveState"
+  },
+  {
+   "args": {
+    "key": "K",
+    "class_name": "K_C",
+    "channel": 30,
+    "actor_guid": 600,
+    "slot": 3,
+    "state_machine_guid": 602,
+    "state_guids": []
+   },
+   "error": "ValueError",
+   "message": "every equippable state machine has an InactiveState"
+  },
+  {
+   "args": {
+    "key": "K",
+    "class_name": "K_C",
+    "channel": 30,
+    "actor_guid": 600,
+    "slot": 3,
+    "state_machine_guid": 602,
+    "state_guids": [
+     [
+      "InactiveState",
+      604
+     ]
+    ]
+   },
+   "ok": true
+  }
+ ],
+ "vandal": {
+  "key": "AssaultRifle_AK_C@20",
+  "class": "AssaultRifle_AK_C",
+  "channel": 20,
+  "actor": 520,
+  "slot": 0,
+  "state_machine": 528,
+  "states": [
+   [
+    "InactiveState",
+    552
+   ],
+   [
+    "EquipState",
+    562
+   ]
+  ],
+  "resources": [
+   [
+    "MagazineAmmo",
+    530,
+    4616,
+    300,
+    null
+   ],
+   [
+    "ReserveAmmo",
+    532,
+    4608,
+    300,
+    null
+   ]
+  ],
+  "extra": [
+   {
+    "name": "ZoomStateMachine",
+    "guid": 554,
+    "starting": "ZoomStateDisabled",
+    "states": [
+     [
+      "ZoomStateDisabled",
+      556
+     ],
+     [
+      "ZoomStateUnzoomed",
+      558
+     ],
+     [
+      "ZoomStateLevel1",
+      560
+     ]
+    ]
+   }
+  ],
+  "mirror_states": true
+ }
+}
