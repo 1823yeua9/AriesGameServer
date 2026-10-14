@@ -22,27 +22,31 @@ pub struct OracleLive {
     last_attempt: Option<Instant>,
     /// python tag_net_index_cache: kept once read
     tags: Option<TagIndices>,
+    /// the last failed open (python equippable_reader_error)
+    open_error: Option<String>,
 }
 
 impl OracleLive {
     pub fn new(pid: u32, image_base: u64) -> Self {
-        Self { pid, image_base, oracle: None, last_attempt: None, tags: None }
+        Self { pid, image_base, oracle: None, last_attempt: None, tags: None, open_error: None }
     }
 
     /// the reader, opened on first use (and re-opened after a failed open).
     fn oracle(&mut self) -> Result<&mut Oracle<Process>, String> {
         if self.oracle.is_none() {
             if self.last_attempt.is_some_and(|t| t.elapsed() < REOPEN_AFTER) {
-                return Err("live client reader not open".into());
+                return Err(self.open_error.clone().unwrap_or_else(|| "live client reader not open".into()));
             }
             self.last_attempt = Some(Instant::now());
             match Oracle::open(self.pid, self.image_base) {
                 Ok(oracle) => {
                     info!(target: "oracle", "reader attached to pid {}", self.pid);
                     self.oracle = Some(oracle);
+                    self.open_error = None;
                 }
                 Err(error) => {
                     warn!(target: "oracle", "reader open failed: {error}");
+                    self.open_error = Some(error.to_string());
                     return Err(error.to_string());
                 }
             }
@@ -58,6 +62,10 @@ fn text(error: aries_oracle::OracleError) -> String {
 impl LiveClient for OracleLive {
     fn attached(&mut self) -> bool {
         self.oracle().is_ok()
+    }
+
+    fn attach_error(&mut self) -> Option<String> {
+        self.open_error.clone()
     }
 
     fn saved_moves(&mut self) -> Result<Option<SavedMoves>, String> {

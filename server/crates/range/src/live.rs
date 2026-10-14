@@ -95,6 +95,10 @@ pub trait LiveClient {
     fn attached(&mut self) -> bool {
         true
     }
+    /// why the reader is not attached (python equippable_reader_error)
+    fn attach_error(&mut self) -> Option<String> {
+        None
+    }
     /// none when the pawn or its prediction data is not there yet
     fn saved_moves(&mut self) -> Result<Option<SavedMoves>, String>;
     /// read_pending_input_bounds: (cursor + count) of the pawn input component
