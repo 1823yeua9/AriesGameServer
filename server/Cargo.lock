@@ -86,6 +86,7 @@ dependencies = [
  "aries-bits",
  "aries-oracle",
  "aries-range",
+ "aries-world",
  "log",
  "serde",
  "toml",

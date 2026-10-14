@@ -5,6 +5,7 @@
 
 mod console;
 mod keys;
+mod live;
 mod settings;
 mod tick;
 
@@ -52,7 +53,13 @@ fn main() {
     let key_source = keys::BackgroundKeys::start(client.pid, client.image_base);
     let events = settings.log_dir.join(format!("aries_events_{pid_tag}.jsonl"));
     let mut server = RangeServer::new(settings.range.clone(), Box::new(key_source), Some(&events));
+    server.live = Box::new(live::OracleLive::new(client.pid, client.image_base));
     info!("events -> {}", events.display());
+    // the 3 mb skin catalog parses once here, not on the tick thread
+    match server.skins.get() {
+        Ok(inventory) => info!("skins: {} catalog entries, {} owned, {} equipped", inventory.catalog.len(), inventory.owned.len(), inventory.equipped.len()),
+        Err(error) => warn!("skins unavailable, guns open unskinned: {error}"),
+    }
 
     let mut clock = tick::TickClock::new(tick::TICK_RATE);
     let start = Instant::now();
@@ -61,6 +68,7 @@ fn main() {
     let mut outbox = Outbox::default();
     let mut received = 0u64;
     let mut sent = 0u64;
+    let mut last_alive_check = Instant::now();
     loop {
         let started = Instant::now();
         // drain everything that arrived since the last tick, in arrival order
@@ -84,6 +92,15 @@ fn main() {
             match socket.send_to(&datagram, target) {
                 Ok(_) => sent += 1,
                 Err(e) => warn!("send to {target}: {e}"),
+            }
+        }
+        // python stops with the client so 58100 is free for the next range entry
+        if last_alive_check.elapsed() >= Duration::from_secs(1) {
+            last_alive_check = Instant::now();
+            if !aries_oracle::client::client_process_alive(client.pid) {
+                info!("live_client_exited: pid {} is gone, stopping", client.pid);
+                server.flush();
+                std::process::exit(0);
             }
         }
         clock.wait(started);
