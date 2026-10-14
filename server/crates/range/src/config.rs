@@ -42,6 +42,8 @@ pub struct Features {
     pub ability_projectiles: bool,
     pub move_ack: bool,
     pub input_ack: bool,
+    /// resend reliable bunches the client reports lost (new; python never resent)
+    pub retransmit: bool,
 }
 
 impl Default for Features {
@@ -60,6 +62,7 @@ impl Default for Features {
             ability_projectiles: true,
             move_ack: true,
             input_ack: true,
+            retransmit: true,
         }
     }
 }

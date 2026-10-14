@@ -7,6 +7,7 @@ use std::net::SocketAddr;
 use aries_bits::Bits;
 use aries_net::control::session_ack_packet;
 use aries_net::frame::ACTOR_CHANNEL_NAME;
+use aries_net::reliable::ReliableBunch;
 use aries_net::{AresGcm, BunchHeader, FrameError, PacketInfo, build_server_frame, seal_packet};
 
 use crate::conn::Connection;
@@ -54,10 +55,26 @@ impl Reply<'_> {
         length
     }
 
-    /// one bunch, one datagram. returns the datagram length.
+    /// one bunch, one datagram. returns the datagram length. reliable bunches are
+    /// remembered until the client acks the packet that carried them.
     pub fn send_bunch(&mut self, header: &BunchHeader, body: &Bits) -> Result<usize, SendError> {
+        let sequence = self.conn.next_server_sequence;
         let (datagram, _) = build_server_frame(body, header, &self.info(), self.gcm)?;
+        let tracked = if header.is_reliable { vec![ReliableBunch { header: header.clone(), body: body.clone() }] } else { Vec::new() };
+        self.conn.reliable.sent(sequence, self.now, tracked);
         Ok(self.push(datagram))
+    }
+
+    /// applies the client's ack of our packets and resends reliable bunches it
+    /// reports lost (original channel sequence and body, in a new packet).
+    pub fn resend_lost(&mut self, acked: u32, history: u32) {
+        let lost = self.conn.reliable.on_ack(acked, history, self.now);
+        for bunch in lost {
+            match self.send_bunch(&bunch.header, &bunch.body) {
+                Ok(_) => self.event.push("resent_reliable", serde_json::json!([bunch.header.channel_index, bunch.header.channel_sequence])),
+                Err(error) => self.event.set("resend_error", error.to_string()),
+            }
+        }
     }
 
     /// reliable bunch at a fixed bring-up offset: sequence (B + offset) & 0xfff.
@@ -102,8 +119,10 @@ impl Reply<'_> {
 
     /// the 77-bit ack-only packet with this datagram's history mask.
     pub fn send_session_ack(&mut self, history_mask: u32) -> Result<usize, SendError> {
-        let packet = session_ack_packet(self.conn.next_server_sequence, self.client_sequence, history_mask);
+        let sequence = self.conn.next_server_sequence;
+        let packet = session_ack_packet(sequence, self.client_sequence, history_mask);
         let datagram = seal_packet(&packet, self.stateless_header, self.gcm)?;
+        self.conn.reliable.sent(sequence, self.now, Vec::new());
         Ok(self.push(datagram))
     }
 }

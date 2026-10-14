@@ -4,6 +4,7 @@ use std::collections::{HashMap, VecDeque};
 use std::net::SocketAddr;
 
 use aries_bits::Bits;
+use aries_net::reliable::ReliableTracker;
 
 use crate::bringup::BringupState;
 
@@ -35,6 +36,10 @@ pub struct Connection {
     /// first dynamic offset per channel; dynamic channels register 0 before their open
     pub channel_first_offset: HashMap<u32, u32>,
     pub bringup: BringupState,
+    /// python auth_correct_rep_index: bring-up sends 1..5, purchases and the input-correction responder continue it
+    pub correction_index: u32,
+    /// reliable bunches in flight, for retransmission (new; python never resent)
+    pub reliable: ReliableTracker,
 }
 
 impl Connection {
@@ -53,6 +58,8 @@ impl Connection {
             channel_next_offset: HashMap::new(),
             channel_first_offset: FIRST_DYNAMIC_OFFSETS.into_iter().collect(),
             bringup: BringupState::default(),
+            correction_index: 0,
+            reliable: ReliableTracker::default(),
         }
     }
 

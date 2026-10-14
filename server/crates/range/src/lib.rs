@@ -158,6 +158,9 @@ impl RangeServer {
         let ack_mask = conn.record_client_sequence(header.sequence);
         let mut reply = Reply { conn, gcm: &keys.server, out, event, now, client_sequence: header.sequence, ack_mask, stateless_header: packet.stateless_header };
 
+        if self.config.features.retransmit && reply.conn.challenge_sent {
+            reply.resend_lost(header.acked, header.history);
+        }
         // per-packet work that runs before the dispatch chain (input ack, authority)
         // lands here as those systems come online.
 

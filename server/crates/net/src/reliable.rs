@@ -1,7 +1,11 @@
 //! reliable delivery tracking (new; the python never retransmitted).
 //!
 //! every datagram we send gets the 14-bit packet sequence; the client acks the
-//! newest sequence it received plus a 32-bit history of the ones before it.
+//! newest sequence it received plus a 32-bit history. ue 5.3 FNetPacketNotify:
+//! the receiver shifts each status in at bit 0 (AddDeliveryStatus), so bit k is
+//! AckedSeq - k (bit 0 = the acked packet itself) and the sender reads
+//! IsDelivered(k). (the python's own server-side mask is shifted by one: bit 0
+//! = current-1; kept for parity there, but we read the client the ue way.)
 //! a reliable bunch in a packet the client reports missing is sent again in a
 //! new packet with its ORIGINAL channel sequence and body, exactly like ue's
 //! UChannel resend; the client drops any copy it already has by sequence.
@@ -92,11 +96,11 @@ impl ReliableTracker {
         let keys: Vec<u64> = self.in_flight.range(..=acked_unwrapped).map(|(k, _)| *k).collect();
         for key in keys {
             let distance = acked_unwrapped - key;
-            let received = distance == 0 || (distance <= 32 && history & (1 << (distance - 1)) != 0);
+            let received = distance == 0 || (distance < 32 && history & (1 << distance) != 0);
             let flight = self.in_flight.remove(&key).expect("key from range");
             if received {
                 self.acked += 1;
-            } else if distance <= 32 || now - flight.sent_at >= ACK_TIMEOUT {
+            } else if distance < 32 || now - flight.sent_at >= ACK_TIMEOUT {
                 // inside the window and not received, or fell out of the window unacked
                 self.resent += flight.bunches.len() as u64;
                 resend.extend(flight.bunches);
@@ -138,8 +142,8 @@ mod tests {
         for s in 100..110u32 {
             t.sent(s, 0.0, vec![bunch(s)]);
         }
-        // client got 109, 108, 106 (not 107), and everything up to 105
-        let history = 0b1 | 0b100 | (0xFFFF_FFF8);
+        // client got 109 (bit 0), 108 (bit 1), not 107 (bit 2), 106 and older
+        let history = 0b11 | 0xFFFF_FFF8;
         let resend = t.on_ack(109, history, 0.1);
         assert_eq!(resend, vec![bunch(107)]);
         assert_eq!(t.in_flight(), 0);
@@ -151,8 +155,8 @@ mod tests {
         for s in [0x3FFE, 0x3FFF, 0, 1] {
             t.sent(s, 0.0, vec![bunch(s)]);
         }
-        // got 1; history bit d-1 = distance d: 0 (d1) yes, 0x3fff (d2) no, 0x3ffe (d3) yes
-        let resend = t.on_ack(1, 0b101, 0.0);
+        // got 1 (bit 0); bit k = distance k: 0 (k1) yes, 0x3fff (k2) no, 0x3ffe (k3) yes
+        let resend = t.on_ack(1, 0b1011, 0.0);
         assert_eq!(resend, vec![bunch(0x3FFF)]);
         assert_eq!(sequence_delta(1, 0x3FFF), 2);
         assert_eq!(sequence_delta(0x3FFF, 1), -2);
@@ -163,7 +167,7 @@ mod tests {
         let mut t = ReliableTracker::default();
         t.sent(10, 0.0, vec![]);
         t.sent(11, 0.0, vec![bunch(11)]);
-        assert!(t.on_ack(11, 1, 0.0).is_empty());
+        assert!(t.on_ack(11, 0b1, 0.0).is_empty());
         assert!(t.on_ack(10, 0, 0.0).is_empty());
         assert_eq!(t.acked, 1);
     }

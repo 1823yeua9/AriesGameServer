@@ -38,3 +38,4 @@ hud_refresh = true
 ability_projectiles = true
 move_ack = true
 input_ack = true
+retransmit = true
