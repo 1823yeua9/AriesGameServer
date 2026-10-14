@@ -6,6 +6,7 @@ pub mod control;
 pub mod frame;
 pub mod gcm;
 pub mod handshake;
+pub mod reliable;
 pub mod keys;
 pub mod sbox;
 pub mod transform;
