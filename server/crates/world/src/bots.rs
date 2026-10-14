@@ -329,10 +329,11 @@ pub struct BotField {
     pub bots: Vec<Bot>,
     pub rng: PyRandom,
     pub dummy: Option<Bot>,
-    /// ruh bot_ticks.get(source, 0)
-    pub ticked_at: f64,
-    /// ruh bot_spawned_at.get(source, 0)
-    pub spawned_at: f64,
+    /// ruh bot_ticks.get(source, 0): none is "long ago" (python's monotonic
+    /// uptime minus 0 always passes the gate, whatever our clock starts at)
+    pub ticked_at: Option<f64>,
+    /// ruh bot_spawned_at.get(source, 0), same "long ago" default
+    pub spawned_at: Option<f64>,
 }
 
 impl Default for BotField {
@@ -351,8 +352,8 @@ impl BotField {
             bots: Vec::new(),
             rng: PyRandom::new(1306),
             dummy: None,
-            ticked_at: 0.0,
-            spawned_at: 0.0,
+            ticked_at: None,
+            spawned_at: None,
         }
     }
 
@@ -649,6 +650,17 @@ pub fn first_hit(bots: &[Bot], origin: [f64; 3], direction: [f64; 3]) -> Option<
 
 // ---------------------------------------------------------------- the per-packet systems
 
+/// the oracle's read_camera (res:66-74): PlayerCameraManager (controller+0x528)
+/// POV at +0x17C0, six doubles: location, then pitch, yaw, roll in degrees.
+/// the bot shots and the cloudburst throw both start from it.
+#[derive(Debug, Clone, Copy, PartialEq)]
+pub struct Camera {
+    pub location: [f64; 3],
+    pub pitch: f64,
+    pub yaw: f64,
+    pub roll: f64,
+}
+
 /// what one bot tick did (ruh:2034-2062): bunches in send order and the event values.
 #[derive(Debug, Clone, Default, PartialEq)]
 pub struct BotTick {
@@ -659,6 +671,9 @@ pub struct BotTick {
     pub retired: Vec<u32>,
     /// event bot_spawned: [channel, actor, location rounded half-even]
     pub spawned: Vec<(u32, u32, [i64; 3])>,
+    /// the tick stopped here (python raises out of the per-packet block, so
+    /// what went out before stays sent); `sends` are still to be sent
+    pub error: Option<RepError>,
 }
 
 /// one shot's outcome (ruh:987-1012).
@@ -677,21 +692,30 @@ pub enum ShotOutcome {
 pub struct ShotsResult {
     pub sends: Vec<ChannelSend>,
     pub outcomes: Vec<ShotOutcome>,
+    /// stopped here, like BotTick::error
+    pub error: Option<RepError>,
 }
 
 impl BotField {
     /// ruh:2035: the 0.1 s tick gate; the caller adds range_bots and the
     /// range-streaming-sent gate.
     pub fn tick_due(&self, now: f64) -> bool {
-        now - self.ticked_at >= BOT_TICK_INTERVAL
+        self.ticked_at.is_none_or(|at| now - at >= BOT_TICK_INTERVAL)
     }
 
     /// ruh:2036-2062, one tick: the dummy once (open +0, health +1), retire bots
     /// dead >= 1.5 s (close), then at most one spawn (open +0, health +1) while
     /// fewer than `count` are alive and >= 0.3 s since the last spawn.
-    pub fn tick(&mut self, now: f64) -> RepResult<BotTick> {
-        self.ticked_at = now;
+    pub fn tick(&mut self, now: f64) -> BotTick {
         let mut tick = BotTick::default();
+        if let Err(error) = self.tick_into(now, &mut tick) {
+            tick.error = Some(error);
+        }
+        tick
+    }
+
+    fn tick_into(&mut self, now: f64, tick: &mut BotTick) -> RepResult<()> {
+        self.ticked_at = Some(now);
         if self.dummy.is_none() {
             let dummy = self.allocate_dummy()?.clone();
             tick.sends.push(ChannelSend::open(dummy.channel, build_dummy_open(&dummy)?));
@@ -712,32 +736,64 @@ impl BotField {
                 index += 1;
             }
         }
-        if self.alive_count() < self.count && now - self.spawned_at >= SPAWN_SPACING {
-            let mut bot = self.allocate(self.bots.len() as i64)?;
-            tick.sends.push(ChannelSend::open(bot.channel, build_bot_open(&bot)?));
-            tick.sends.push(ChannelSend::update(bot.channel, build_bot_health_body(&bot, true)?, true));
-            bot.opened = true;
-            self.spawned_at = now;
-            tick.spawned.push((bot.channel, bot.actor_guid, bot.location.map(py_round)));
+        if self.alive_count() < self.count && self.spawned_at.is_none_or(|at| now - at >= SPAWN_SPACING) {
+            // ruh:2054-2061: appended before its bunches are built
+            let bot = self.allocate(self.bots.len() as i64)?;
             self.bots.push(bot);
+            self.open_last_bot(tick)?;
+            self.spawned_at = Some(now);
         }
-        Ok(tick)
+        Ok(())
+    }
+
+    /// open (+0) and exported health (+1) for the bot just appended, then
+    /// mark it opened (ruh:2056-2062, 1966-1971).
+    fn open_last_bot(&mut self, tick: &mut BotTick) -> RepResult<()> {
+        let Some(bot) = self.bots.last_mut() else { return Ok(()) };
+        tick.sends.push(ChannelSend::open(bot.channel, build_bot_open(bot)?));
+        tick.sends.push(ChannelSend::update(bot.channel, build_bot_health_body(bot, true)?, true));
+        bot.opened = true;
+        tick.spawned.push((bot.channel, bot.actor_guid, bot.location.map(py_round)));
+        Ok(())
+    }
+
+    /// ruh:1958-1971, the debug queue's {"spawn_bot": [x, y, z]}: a bot
+    /// allocated as usual (channel, 8 guids, placement draws and the yaw of that
+    /// placement) moved to `location`, opened at once. it ignores `count` and
+    /// leaves the spawn spacing alone. not a protocol path (spec 05 6.11).
+    pub fn spawn_at(&mut self, location: [f64; 3]) -> BotTick {
+        let mut tick = BotTick::default();
+        let result = self.allocate(self.bots.len() as i64).and_then(|mut bot| {
+            bot.location = location;
+            self.bots.push(bot);
+            self.open_last_bot(&mut tick)
+        });
+        if let Err(error) = result {
+            tick.error = Some(error);
+        }
+        tick
     }
 
     /// ruh:985-1012 after a camera read: `shots` shots along the view. the dummy
     /// takes the shot when it is strictly nearer than the first live bot; a bot
     /// hit sends its health, and on death its DamageHandler bAlive (exported).
-    pub fn shots(&mut self, class_name: Option<&str>, shots: u32, camera_location: [f64; 3], pitch: f64, yaw: f64, now: f64) -> RepResult<ShotsResult> {
-        self.shots_with(class_name, shots, camera_location, pitch, yaw, now, |bot| Some(bot.location))
+    pub fn shots(&mut self, class_name: Option<&str>, shots: u32, camera: &Camera, now: f64) -> ShotsResult {
+        self.shots_with(class_name, shots, camera, now, |bot| Some(bot.location))
     }
 
     /// shots against positions from `locate` (lag compensation rewinds them;
     /// none = not hittable). `shots` is this with every bot where it stands.
-    #[allow(clippy::too_many_arguments)]
-    pub fn shots_with(&mut self, class_name: Option<&str>, shots: u32, camera_location: [f64; 3], pitch: f64, yaw: f64, now: f64, mut locate: impl FnMut(&Bot) -> Option<[f64; 3]>) -> RepResult<ShotsResult> {
-        let direction = view_ray(pitch, yaw);
-        let origin = camera_location;
+    pub fn shots_with(&mut self, class_name: Option<&str>, shots: u32, camera: &Camera, now: f64, mut locate: impl FnMut(&Bot) -> Option<[f64; 3]>) -> ShotsResult {
         let mut result = ShotsResult::default();
+        if let Err(error) = self.shots_into(class_name, shots, camera, now, &mut locate, &mut result) {
+            result.error = Some(error);
+        }
+        result
+    }
+
+    fn shots_into(&mut self, class_name: Option<&str>, shots: u32, camera: &Camera, now: f64, locate: &mut impl FnMut(&Bot) -> Option<[f64; 3]>, result: &mut ShotsResult) -> RepResult<()> {
+        let direction = view_ray(camera.pitch, camera.yaw);
+        let origin = camera.location;
         for _ in 0..shots {
             // rb:346-355 first_hit and rb:229-234 dummy_hit on the located positions
             let mut hit: Option<(usize, Region, f64)> = None;
@@ -778,7 +834,7 @@ impl BotField {
             }
             result.outcomes.push(ShotOutcome::Bot { actor_guid: bot.actor_guid, region, damage, life: bot.life, distance, killed: !bot.alive });
         }
-        Ok(result)
+        Ok(())
     }
 }
 
@@ -798,4 +854,23 @@ impl FiringSeeds {
             None => false,
         }
     }
+}
+
+/// ruh:953-956, read_firing_seed's pick of the firing state on the reader's
+/// {state name: address} of the item machine (SM+0x160 order, `states` as the
+/// oracle lists them): "FiringState" if its address is non-zero, else the
+/// first name starting with "Firing"; a zero address is no state (python's
+/// `or` and `if not firing`). repeated names act as python dict keys: first
+/// position, last address.
+pub fn firing_state_address(states: &[(String, u64)]) -> Option<u64> {
+    let mut map: Vec<(&str, u64)> = Vec::with_capacity(states.len());
+    for (name, address) in states {
+        match map.iter_mut().find(|(seen, _)| *seen == name.as_str()) {
+            Some(entry) => entry.1 = *address,
+            None => map.push((name, *address)),
+        }
+    }
+    let named = map.iter().find(|(name, _)| *name == "FiringState").map(|(_, address)| *address).filter(|&address| address != 0);
+    let firing = named.or_else(|| map.iter().find(|(name, _)| name.starts_with("Firing")).map(|(_, address)| *address));
+    firing.filter(|&address| address != 0)
 }

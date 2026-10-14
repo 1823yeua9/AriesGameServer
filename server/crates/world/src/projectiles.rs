@@ -14,7 +14,7 @@ use aries_rep::block::{Spawn, Target, append_export_header, append_rep_block, ap
 use aries_rep::props::empty_rep;
 use aries_rep::{RepError, RepResult};
 
-use crate::bots::{ChannelSend, py_radians, py_round};
+use crate::bots::{Camera, ChannelSend, py_radians, py_round};
 
 /// rp:33-34
 pub const PAWN_GUID: u32 = 10;
@@ -117,8 +117,9 @@ pub struct ProjectileField {
     pub next_guid: u32,
     pub flights: Vec<Flight>,
     pub previous_smoke_state: Option<String>,
-    /// ruh projectile_ticks.get(source, 0)
-    pub ticked_at: f64,
+    /// ruh projectile_ticks.get(source, 0): none is "long ago" (python's
+    /// monotonic uptime minus 0 always passes the gate)
+    pub ticked_at: Option<f64>,
 }
 
 impl Default for ProjectileField {
@@ -128,7 +129,7 @@ impl Default for ProjectileField {
             next_guid: FIRST_PROJECTILE_GUID,
             flights: Vec::new(),
             previous_smoke_state: None,
-            ticked_at: 0.0,
+            ticked_at: None,
         }
     }
 }
@@ -173,8 +174,8 @@ pub struct ThrowTransform {
 /// with python's floored modulo, lifted by the arc, spawn shifted down and forward.
 pub fn throw_transform(view_location: [f64; 3], view_pitch: f64, view_yaw: f64) -> ThrowTransform {
     let view_pitch = py_mod(view_pitch + 180.0, 360.0) - 180.0;
-    let scale = 1.0 - 0.25 * view_pitch.abs().min(90.0) / 90.0;
-    let pitch = (view_pitch + scale * THROW_UPWARD_ARC).min(THROW_MAX_PITCH);
+    let scale = 1.0 - 0.25 * py_min(view_pitch.abs(), 90.0) / 90.0;
+    let pitch = py_min(view_pitch + scale * THROW_UPWARD_ARC, THROW_MAX_PITCH);
     let (p, y) = (py_radians(pitch), py_radians(view_yaw));
     let direction = [p.cos() * y.cos(), p.cos() * y.sin(), p.sin()];
     let forward = STAGE_A_SPAWN_FORWARD;
@@ -184,6 +185,12 @@ pub fn throw_transform(view_location: [f64; 3], view_pitch: f64, view_yaw: f64) 
         view_location[2] - scale * THROW_UPWARD_SHIFT + direction[2] * forward,
     ];
     ThrowTransform { location, pitch, yaw: view_yaw, velocity: direction.map(|c| c * THROW_SPEED) }
+}
+
+/// builtin min(a, b) on floats: b only when b < a, so a nan first argument
+/// survives (f64::min would drop it).
+fn py_min(a: f64, b: f64) -> f64 {
+    if b < a { b } else { a }
 }
 
 /// python float % for a positive divisor (cpython float_rem: fmod, then shift
@@ -389,6 +396,10 @@ pub struct ProjectileTick {
     pub zones: Vec<ZoneOpened>,
     /// event cloudburst_zone_closed: zone channels
     pub zones_closed: Vec<u32>,
+    /// the tick stopped here (python raises out of the per-packet block, e.g.
+    /// rp:99-100 out of channels, so what went out before stays sent); `sends`
+    /// are still to be sent
+    pub error: Option<RepError>,
 }
 
 impl ProjectileField {
@@ -400,9 +411,11 @@ impl ProjectileField {
     }
 
     /// ruh:1033-1044: spawn the projectile from the camera view on a fresh
-    /// channel (its open is sequence +0).
-    pub fn throw(&mut self, view_location: [f64; 3], view_pitch: f64, view_yaw: f64, now: f64) -> RepResult<CloudburstOpen> {
-        let throw = throw_transform(view_location, view_pitch, view_yaw);
+    /// channel (its open is sequence +0). as in python, running out of
+    /// channels allocates nothing, while a body that cannot be built (a
+    /// non-finite camera) has used its channel and guids but adds no flight.
+    pub fn throw(&mut self, camera: &Camera, now: f64) -> RepResult<CloudburstOpen> {
+        let throw = throw_transform(camera.location, camera.pitch, camera.yaw);
         let channel = self.channel()?;
         let actor_guid = self.guid();
         let movement_guid = self.guid();
@@ -419,16 +432,23 @@ impl ProjectileField {
 
     /// ruh:2026-2027: the 0.05 s gate (the caller adds ability_projectiles).
     pub fn tick_due(&self, now: f64) -> bool {
-        now - self.ticked_at >= PROJECTILE_TICK_INTERVAL
+        self.ticked_at.is_none_or(|at| now - at >= PROJECTILE_TICK_INTERVAL)
     }
 
     /// ruh:1059-1100, stage A: a flying flight reads its client actor
     /// (`read(channel)`, none on a failed read) and, once it stops, opens the
     /// zone there (yaw from `zone_yaw`) and closes the projectile channel in the
     /// same tick; the zone closes after 3.2 s; a done flight is dropped.
-    pub fn tick(&mut self, now: f64, mut read: impl FnMut(u32) -> Option<ProjectileSnapshot>, mut zone_yaw: impl FnMut() -> f64) -> RepResult<ProjectileTick> {
-        self.ticked_at = now;
+    pub fn tick(&mut self, now: f64, read: impl FnMut(u32) -> Option<ProjectileSnapshot>, zone_yaw: impl FnMut() -> f64) -> ProjectileTick {
         let mut tick = ProjectileTick::default();
+        if let Err(error) = self.tick_into(now, read, zone_yaw, &mut tick) {
+            tick.error = Some(error);
+        }
+        tick
+    }
+
+    fn tick_into(&mut self, now: f64, mut read: impl FnMut(u32) -> Option<ProjectileSnapshot>, mut zone_yaw: impl FnMut() -> f64, tick: &mut ProjectileTick) -> RepResult<()> {
+        self.ticked_at = Some(now);
         let mut index = 0;
         while index < self.flights.len() {
             if self.flights[index].state == FlightState::Flying {
@@ -466,6 +486,6 @@ impl ProjectileField {
                 index += 1;
             }
         }
-        Ok(tick)
+        Ok(())
     }
 }

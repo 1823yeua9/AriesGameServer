@@ -10,7 +10,7 @@ use serde_json::json;
 use aries_interp::lagcomp::{HitShape, LagCompConfig, LagCompensation, Pose};
 use aries_interp::value::Vec3;
 use aries_world::abilities::{AbilityEquippable, AbilityJobs, AbilityOracle, ItemMachine, SlotMachine as AbilitySlot};
-use aries_world::bots::{Bot, BotField, ChannelSend, ShotOutcome, py_round};
+use aries_world::bots::{Bot, BotField, Camera as ViewCamera, ChannelSend, ShotOutcome, py_round};
 use aries_world::equippables::{EquippableActor, ExtraStateMachine, MirrorState, StateGuids};
 use aries_world::projectiles::ProjectileField;
 
@@ -46,6 +46,12 @@ fn pose(bot: &Bot, lift: f64) -> Pose {
     Pose { origin: Vec3 { x, y, z }, yaw: bot.yaw, shape: HitShape::TrainingBot { lift }, alive: bot.alive, serial: 0 }
 }
 
+/// the world's camera from the oracle's (pitch, yaw, roll in degrees).
+fn view_camera(camera: &crate::live::Camera) -> ViewCamera {
+    let [pitch, yaw, roll] = camera.rotation;
+    ViewCamera { location: camera.location, pitch, yaw, roll }
+}
+
 /// sends planned bunches in order; an open starts its channel at +0.
 pub fn apply(reply: &mut Reply, sends: Vec<ChannelSend>) -> Result<(), String> {
     for send in sends {
@@ -79,22 +85,18 @@ pub fn bot_shots(reply: &mut Reply, env: &mut Env, class_name: &str) {
     let system = reply.conn.authority.bots.as_mut().expect("checked above");
     let target = system.lagcomp.target_time(now, srtt, settings.view_interp, None);
     let lagcomp = &system.lagcomp;
-    let [pitch, yaw, _] = camera.rotation;
-    let shots = system.field.shots_with(Some(class_name), 1, camera.location, pitch, yaw, now, |bot| {
+    let view = view_camera(&camera);
+    let shots = system.field.shots_with(Some(class_name), 1, &view, now, |bot| {
         if !lagcomp.config.enabled {
             return Some(bot.location);
         }
-        // pose() adds no lift; dummy_hit adds it after locating
+        // pose() adds no lift; the dummy's is added after locating
         let current = pose(bot, 0.0);
         lagcomp.rewind(bot.actor_guid, &current, now, target.t).effective(&current).map(|p| [p.origin.x, p.origin.y, p.origin.z])
     });
-    let shots = match shots {
-        Ok(shots) => shots,
-        Err(error) => {
-            reply.event.set("bot_shot_error", error.to_string());
-            return;
-        }
-    };
+    if let Some(error) = &shots.error {
+        reply.event.set("bot_shot_error", error.to_string());
+    }
     log::debug!(target: "lagcomp", "shot now={now:.4} target={:.4} ({:.1} ms) srtt {:.1} ms", target.t, (target.t - now) * 1000.0, srtt * 1000.0);
     if let Err(error) = apply(reply, shots.sends) {
         reply.event.set("bot_shot_error", error);
@@ -120,13 +122,11 @@ pub fn bot_tick(reply: &mut Reply, env: &mut Env) {
     if !system.field.tick_due(reply.now) {
         return;
     }
-    let tick = match system.field.tick(reply.now) {
-        Ok(tick) => tick,
-        Err(error) => {
-            reply.event.set("bot_tick_error", error.to_string());
-            return;
-        }
-    };
+    // python raises out of the block mid-tick: what was planned before still goes out
+    let tick = system.field.tick(reply.now);
+    if let Some(error) = &tick.error {
+        reply.event.set("bot_tick_error", error.to_string());
+    }
     for actor_guid in &tick.retired {
         system.lagcomp.forget(*actor_guid);
     }
@@ -149,17 +149,15 @@ pub fn bot_tick(reply: &mut Reply, env: &mut Env) {
 pub fn spawn_bot_at(reply: &mut Reply, env: &Env, location: [f64; 3]) -> Result<(), String> {
     let count = env.config.bot_count;
     let system = reply.conn.authority.bots.get_or_insert_with(|| BotSystem::new(count, &env.config.lagcomp));
-    let index = system.field.bots.len() as i64;
-    let mut bot = system.field.allocate(index).map_err(|e| e.to_string())?;
-    bot.location = location;
-    let open = aries_world::bots::build_bot_open(&bot).map_err(|e| e.to_string())?;
-    let health = aries_world::bots::build_bot_health_body(&bot, true).map_err(|e| e.to_string())?;
-    bot.opened = true;
-    let (channel, actor_guid) = (bot.channel, bot.actor_guid);
-    system.field.bots.push(bot);
-    apply(reply, vec![ChannelSend::open(channel, open), ChannelSend::update(channel, health, true)])?;
-    reply.event.push("bot_spawned", json!([channel, actor_guid, location.map(py_round)]));
-    Ok(())
+    let tick = system.field.spawn_at(location);
+    apply(reply, tick.sends)?;
+    for (channel, actor_guid, location) in tick.spawned {
+        reply.event.push("bot_spawned", json!([channel, actor_guid, location]));
+    }
+    match tick.error {
+        Some(error) => Err(error.to_string()),
+        None => Ok(()),
+    }
 }
 
 // ---------------------------------------------------------------- cloudburst
@@ -179,9 +177,8 @@ pub fn smoke_state(reply: &mut Reply, env: &mut Env, predicted: Option<&str>) {
             return;
         }
     };
-    let [pitch, yaw, _] = camera.rotation;
     let field = reply.conn.authority.projectiles.as_mut().expect("inserted above");
-    match field.throw(camera.location, pitch, yaw, reply.now) {
+    match field.throw(&view_camera(&camera), reply.now) {
         Ok(open) => {
             let event = json!([open.channel, open.actor_guid, open.location, open.velocity, "A"]);
             match apply(reply, vec![open.send]) {
@@ -219,13 +216,9 @@ pub fn projectile_tick(reply: &mut Reply, env: &mut Env) {
     if let Some(error) = read_errors.pop() {
         reply.event.set("cloudburst_read_error", error);
     }
-    let tick = match tick {
-        Ok(tick) => tick,
-        Err(error) => {
-            reply.event.set("cloudburst_error", error.to_string());
-            return;
-        }
-    };
+    if let Some(error) = &tick.error {
+        reply.event.set("cloudburst_error", error.to_string());
+    }
     if let Err(error) = apply(reply, tick.sends) {
         reply.event.set("cloudburst_error", error);
     }
@@ -281,13 +274,10 @@ pub fn ability_jobs(reply: &mut Reply, env: &mut Env) {
         }
     }
     let jobs = reply.conn.authority.abilities.as_mut().expect("planned above");
-    let step = match jobs.step(now, &mut AbilityReads { env }) {
-        Ok(step) => step,
-        Err(error) => {
-            reply.event.set("ability_register_error", error.to_string());
-            return;
-        }
-    };
+    let step = jobs.step(now, &mut AbilityReads { env });
+    if let Some(error) = &step.error {
+        reply.event.set("ability_register_error", error.to_string());
+    }
     if let Err(error) = apply(reply, step.sends) {
         reply.event.set("ability_register_error", error);
     }

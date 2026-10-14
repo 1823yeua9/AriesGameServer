@@ -71,11 +71,10 @@ pub fn starting_equippable_open_body(index: usize, env: &mut Env, event: &mut Ev
 }
 
 fn ability_open_with_tuning(index: usize, env: &mut Env) -> Result<(Bits, u32, bool), String> {
-    let tags = env.live.tag_net_indices()?;
-    if tags.first_bit_segment < tags.true_bit_num as i32 {
-        return Err("segmented tag net index is not supported".into());
-    }
-    let body = aries_world::abilities::build_ability_open_with_tuning(index, &tags.indices, tags.true_bit_num).map_err(|e| e.to_string())?;
+    let read = env.live.tag_net_indices()?;
+    let tags = aries_world::tags::TagNetIndex { indices: read.indices, true_bit_num: read.true_bit_num, first_bit_segment: read.first_bit_segment as i64, constructed: read.constructed };
+    // python refuses a segmented index there too (ruh:4061-4062)
+    let body = aries_world::abilities::build_ability_open_from_tags(index, &tags).map_err(|e| e.to_string())?;
     Ok((body, tags.true_bit_num, tags.constructed))
 }
 
