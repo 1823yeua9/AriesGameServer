@@ -77,3 +77,26 @@ fn ack_history_matches_python() {
         assert_eq!(received_history_mask(recent, u(&case["current"])), u(&case["mask"]));
     }
 }
+
+#[test]
+fn client_and_server_sealing_round_trip() {
+    use aries_net::client::{open_server_datagram, seal_client_packet};
+    use aries_net::decode_client_packet;
+    let gcm = key();
+    for bits in [77usize, 128, 232, 1089, 1194, 1337, 4000] {
+        let bytes: Vec<u8> = (0..bits.div_ceil(8)).map(|i| (i * 37 + bits) as u8).collect();
+        let mut bytes = bytes;
+        if bits % 8 != 0 {
+            let last = bytes.len() - 1;
+            bytes[last] &= (1u8 << (bits % 8)) - 1;
+        }
+        let plain = Bits::new(bytes, bits).unwrap();
+        let datagram = seal_client_packet(&plain, 0x1234_5678 ^ bits as u32, 12, &gcm);
+        let back = decode_client_packet(&datagram, &gcm).expect("client packet decodes");
+        assert_eq!(back.decoded, plain, "{bits}");
+        assert_eq!(back.stateless_header, 12);
+        let datagram = seal_packet(&plain, 9, &gcm).unwrap();
+        let (opened, stateless) = open_server_datagram(&datagram, &gcm).expect("server datagram opens");
+        assert_eq!((opened, stateless), (plain, 9));
+    }
+}

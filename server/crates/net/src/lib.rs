@@ -1,6 +1,7 @@
 //! ares transport for the pinned 13.06 client: the packet transform, gcm with
 //! 4-byte tags, framing, and (soon) the stateless handshake and channels.
 
+pub mod client;
 pub mod control;
 pub mod frame;
 pub mod gcm;

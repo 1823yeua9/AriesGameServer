@@ -1,0 +1,21 @@
+[package]
+name = "aries-range"
+description = "the range game mode: per-datagram dispatch, bring-up stages, authority systems"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+aries-bits.workspace = true
+aries-net.workspace = true
+aries-rep.workspace = true
+aries-world.workspace = true
+aries-interp.workspace = true
+aries-oracle.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+log.workspace = true
+getrandom.workspace = true
+
+[dev-dependencies]
