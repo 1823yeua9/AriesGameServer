@@ -74,7 +74,20 @@ impl Settings {
         let pid = value("--pid").map(|p| parse_number(&p).map(|v| v as u32).ok_or(format!("bad --pid {p}"))).transpose()?;
         let image_base = value("--image-base").map(|b| parse_number(&b).ok_or(format!("bad --image-base {b}"))).transpose()?;
         let log_dir = if file.log_dir.is_relative() { exe_dir.join(file.log_dir) } else { file.log_dir };
-        Ok(Self { bind, log_dir, log_level, client_path: file.client_path, pid, image_base, range: file.range })
+        // range paths are relative to the config file, whatever the cwd the loader gives us
+        let config_dir = config_path.parent().filter(|_| config_path.exists()).map(Path::to_path_buf).unwrap_or(exe_dir);
+        let mut range = file.range;
+        let anchor = |path: &mut PathBuf| {
+            if path.is_relative() {
+                *path = config_dir.join(&*path);
+            }
+        };
+        anchor(&mut range.skin_catalog);
+        anchor(&mut range.skin_state);
+        if let Some(queue) = range.command_queue.as_mut() {
+            anchor(queue);
+        }
+        Ok(Self { bind, log_dir, log_level, client_path: file.client_path, pid, image_base, range })
     }
 
     /// the one running client (or the one given on the command line).

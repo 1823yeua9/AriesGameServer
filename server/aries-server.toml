@@ -17,12 +17,13 @@ desired_class_guid = [0xADD6443A, 0x41BDE414, 0xF6ADE58D, 0x267F4E95]
 game_state_phase = 4
 player_team = 1
 bot_count = 5
-# shared with the platform backend
-skin_catalog = "../local_backend/skin_catalog.json"
-skin_state = "../local_backend/offline_skin_state.json"
+# shared with the platform backend; relative paths are from this file's folder
+skin_catalog = "../../local_backend/skin_catalog.json"
+skin_state = "../../local_backend/offline_skin_state.json"
 player_id = "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61"
-# debug hook: json files dropped here are sent as reliable bunches
-command_queue = "../local_backend/runtime/responder_queue"
+# debug hook: json files dropped here are sent as reliable bunches ({"channel",
+# "body_hex", "bits", "exports"?, "open"?}) or spawn a bot ({"spawn_bot": [x, y, z]})
+command_queue = "../../local_backend/runtime/responder_queue"
 
 [range.features]
 pistol_initial_cosmetic = true
@@ -39,3 +40,15 @@ ability_projectiles = true
 move_ack = true
 input_ack = true
 retransmit = true
+
+# shots are hit-tested where the client saw the bots (source sdk lag
+# compensation, docs/port/10). bots never move today, so this cannot change a hit.
+[range.lagcomp]
+enabled = true
+# sv_maxunlag (seconds)
+max_unlag = 1.0
+# sv_lagcompensation_teleport_dist (units, 2d per record)
+teleport_dist = 64.0
+claim_tolerance = 0.2
+# the client's view delay for remote entities; measure before bots move (docs/port/10 4.13)
+view_interp = 0.0
