@@ -86,3 +86,15 @@ Every 128 hz tick also records bot poses for lag compensation.
 and check every bunch against the spec vectors.
 `cargo run -p aries-oracle --example live_reads` is a read-only live check against a
 running client.
+
+## shadow diff against the python
+
+```
+python tools/shadow_diff.py <local_backend/runtime/responder_*.out> <logs/aries_events_<pid>.jsonl>
+```
+
+Both servers log one json event per datagram with the same keys. The tool compares the
+order of first appearances, the deterministic frame lengths and bit counts, and per-key
+counts (timing-dependent and rust-only keys are left out).
+`cargo test -p aries-range --test gameplay_flow -- --ignored` writes a scripted session to
+`target/harness_events.jsonl` for the same comparison.
