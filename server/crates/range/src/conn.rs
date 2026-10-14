@@ -67,6 +67,10 @@ pub type PlayerTrack = aries_interp::stream::OracleStream<aries_interp::value::V
 
 impl Connection {
     pub fn new(source: SocketAddr) -> Self {
+        Self::with_stream_config(source, aries_interp::stream::StreamConfig::default())
+    }
+
+    pub fn with_stream_config(source: SocketAddr, stream: aries_interp::stream::StreamConfig) -> Self {
         Self {
             source,
             pending: None,
@@ -86,7 +90,7 @@ impl Connection {
             authority: AuthorityState::default(),
             capture: Default::default(),
             rtt: Default::default(),
-            player: PlayerTrack::new(PLAYER_FEED_PERIOD, 0.0),
+            player: PlayerTrack::with_config(PLAYER_FEED_PERIOD, 0.0, stream),
         }
     }
 

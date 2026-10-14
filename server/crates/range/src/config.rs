@@ -26,6 +26,8 @@ pub struct RangeConfig {
     pub features: Features,
     /// lag compensation for shots (docs/port/10 section 4.11)
     pub lagcomp: LagCompSettings,
+    /// smoothing of values read from the client (the player position stream)
+    pub interp: InterpSettings,
 }
 
 #[derive(Debug, Clone, Deserialize)]
@@ -84,6 +86,7 @@ impl Default for RangeConfig {
             command_queue: Some(backend.join("runtime").join("responder_queue")),
             features: Features::default(),
             lagcomp: LagCompSettings::default(),
+            interp: InterpSettings::default(),
         }
     }
 }
@@ -105,5 +108,32 @@ pub struct LagCompSettings {
 impl Default for LagCompSettings {
     fn default() -> Self {
         Self { enabled: true, max_unlag: 1.0, teleport_dist: 64.0, claim_tolerance: 0.2, view_interp: 0.0 }
+    }
+}
+
+/// [range.interp] (source sdk defaults, docs/port/10 section 4.11).
+#[derive(Debug, Clone, Deserialize)]
+#[serde(default)]
+pub struct InterpSettings {
+    /// cl_interp_ratio
+    pub oracle_interp_ratio: f64,
+    /// cl_extrapolate_amount (seconds)
+    pub max_extrapolate: f64,
+    /// a stream silent this long is reported held (seconds)
+    pub stale_after: f64,
+    /// EXTRA_INTERPOLATION_HISTORY_STORED (seconds)
+    pub history_extra: f64,
+}
+
+impl Default for InterpSettings {
+    fn default() -> Self {
+        let source = aries_interp::stream::StreamConfig::default();
+        Self { oracle_interp_ratio: source.interp_ratio, max_extrapolate: source.max_extrapolate, stale_after: source.stale_after, history_extra: source.history_extra }
+    }
+}
+
+impl InterpSettings {
+    pub fn stream(&self) -> aries_interp::stream::StreamConfig {
+        aries_interp::stream::StreamConfig { interp_ratio: self.oracle_interp_ratio, max_extrapolate: self.max_extrapolate, stale_after: self.stale_after, history_extra: self.history_extra }
     }
 }

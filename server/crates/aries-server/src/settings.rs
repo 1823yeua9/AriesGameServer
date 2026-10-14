@@ -133,3 +133,20 @@ impl Settings {
         Ok(FoundProcess { image_base, ..client })
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    /// the shipped config parses, with every section the server reads
+    #[test]
+    fn shipped_config_parses() {
+        let file: FileSettings = toml::from_str(include_str!("../../../aries-server.toml")).expect("aries-server.toml");
+        assert_eq!(file.bind, "127.0.0.1:58100");
+        assert!(file.client_path.ends_with("VALORANT-Win64-Shipping.exe"));
+        assert!(file.range.features.retransmit && file.range.lagcomp.enabled);
+        assert_eq!(file.range.interp.oracle_interp_ratio, 2.0);
+        assert_eq!(file.range.interp.stream(), aries_interp::stream::StreamConfig::default());
+        assert_eq!(file.range.bot_count, 5);
+    }
+}

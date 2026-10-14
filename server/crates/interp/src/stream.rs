@@ -14,9 +14,29 @@ pub const HISTORY_EXTRA: f64 = 0.05;
 /// after this long without a snapshot the stream is reported held.
 pub const STALE_AFTER: f64 = 0.5;
 
+/// the server's [interp] settings (docs/port/10 section 4.11); defaults are source's.
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct StreamConfig {
+    /// cl_interp_ratio: update intervals of delay
+    pub interp_ratio: f64,
+    /// cl_extrapolate_amount: the most a stale stream runs ahead
+    pub max_extrapolate: f64,
+    /// a stream with no snapshot for this long is reported held
+    pub stale_after: f64,
+    /// EXTRA_INTERPOLATION_HISTORY_STORED
+    pub history_extra: f64,
+}
+
+impl Default for StreamConfig {
+    fn default() -> Self {
+        Self { interp_ratio: ORACLE_INTERP_RATIO, max_extrapolate: MAX_EXTRAPOLATE, stale_after: STALE_AFTER, history_extra: HISTORY_EXTRA }
+    }
+}
+
 #[derive(Clone, Debug)]
 pub struct OracleStream<T: Interp, const N: usize> {
     pub var: InterpolatedVar<T, N>,
+    pub config: StreamConfig,
     /// the period the stream is actually fed at
     pub nominal_period: f64,
     /// ticks_to_time(time_to_ticks(ratio * nominal_period) + 1)
@@ -35,22 +55,26 @@ pub struct StreamValue<T> {
 
 impl<T: Interp, const N: usize> OracleStream<T, N> {
     pub fn new(nominal_period: f64, lookback: f64) -> Self {
-        let delay = ticks_to_time(time_to_ticks(ORACLE_INTERP_RATIO * nominal_period) + 1);
-        Self { var: InterpolatedVar::new(), nominal_period, delay, lookback, newest_snapshot_t: f64::NEG_INFINITY }
+        Self::with_config(nominal_period, lookback, StreamConfig::default())
+    }
+
+    pub fn with_config(nominal_period: f64, lookback: f64, config: StreamConfig) -> Self {
+        let delay = ticks_to_time(time_to_ticks(config.interp_ratio * nominal_period) + 1);
+        Self { var: InterpolatedVar::new(), config, nominal_period, delay, lookback, newest_snapshot_t: f64::NEG_INFINITY }
     }
 
     /// pushes a snapshot taken at sample_t (every snapshot, even unchanged ones).
     pub fn ingest(&mut self, now: f64, sample_t: f64, v: T) {
         self.var.push(sample_t, v);
         self.newest_snapshot_t = sample_t;
-        self.var.prune_before(now - self.delay.max(self.lookback) - HISTORY_EXTRA);
+        self.var.prune_before(now - self.delay.max(self.lookback) - self.config.history_extra);
     }
 
     /// the smoothed value for this tick: `delay` behind, extrapolating up to
     /// 0.25 s only when no snapshot covers that time yet.
     pub fn value_now(&self, now: f64) -> Option<StreamValue<T>> {
-        let value = self.var.value_at(now - self.delay, Some(MAX_EXTRAPOLATE))?;
-        Some(StreamValue { value, stale: now - self.newest_snapshot_t > STALE_AFTER })
+        let value = self.var.value_at(now - self.delay, Some(self.config.max_extrapolate))?;
+        Some(StreamValue { value, stale: now - self.newest_snapshot_t > self.config.stale_after })
     }
 
     /// exact-time lookup (shots); no delay and no extrapolation.

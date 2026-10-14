@@ -53,3 +53,12 @@ teleport_dist = 64.0
 claim_tolerance = 0.2
 # the client's view delay for remote entities; measure before bots move (docs/port/10 4.13)
 view_interp = 0.0
+
+# smoothing of values read from the client (source sdk interpolation; the player
+# position stream). delay = (ratio x feed period) rounded up to ticks, + 1 tick
+[range.interp]
+oracle_interp_ratio = 2.0
+# seconds a stale stream may run ahead before it holds
+max_extrapolate = 0.25
+stale_after = 0.5
+history_extra = 0.05

@@ -85,6 +85,7 @@ name = "aries-server"
 version = "0.1.0"
 dependencies = [
  "aries-bits",
+ "aries-interp",
  "aries-oracle",
  "aries-range",
  "aries-world",

@@ -195,7 +195,8 @@ impl RangeServer {
         event.set("packet_count", packet.packet_count);
         event.set("network_version", packet.network_version);
         event.set("client_id", packet.client_id);
-        let conn = self.connections.entry(source).or_insert_with(|| Connection::new(source));
+        let stream = self.config.interp.stream();
+        let conn = self.connections.entry(source).or_insert_with(|| Connection::with_stream_config(source, stream));
         if packet.packet_type == PACKET_INITIAL {
             // python: timestamp = time.monotonic() (positive), cookie = os.urandom(20)
             let timestamp = now + 1.0;

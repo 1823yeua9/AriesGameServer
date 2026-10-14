@@ -1,4 +1,4 @@
-[package]
+﻿[package]
 name = "aries-server"
 description = "aries range game server: 128 hz authoritative network server for the pinned 13.06 client"
 version.workspace = true
@@ -14,3 +14,6 @@ log.workspace = true
 serde.workspace = true
 toml.workspace = true
 windows-sys.workspace = true
+
+[dev-dependencies]
+aries-interp.workspace = true
