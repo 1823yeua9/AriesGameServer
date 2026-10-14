@@ -212,3 +212,30 @@ fn player_track_follows_the_saved_moves() {
     let newest = conn.player.var.newest().unwrap().v.x;
     assert!(value.value.v.x < newest && value.value.v.x > newest - 2.0 * 120.0, "{} vs {newest}", value.value.v.x);
 }
+/// the debug command queue, python semantics: case-insensitive glob and sort,
+/// parse before unlink, int()/float()/bool() coercion, fromhex whitespace.
+#[test]
+fn command_queue_matches_python() {
+    let queue = std::env::temp_dir().join(format!("aries_queue_{}", std::process::id()));
+    let _ = std::fs::remove_dir_all(&queue);
+    std::fs::create_dir_all(&queue).unwrap();
+    let mut h = Harness::new(50614, Some(0));
+    h.server.config.command_queue = Some(queue.clone());
+    h.run_until(|s, source| s.connections[&source].bringup.sent(Stage::ClientRestart));
+    // ch6 is open: a 16-bit body, channel and bits as strings, hex with spaces
+    std::fs::write(queue.join("a.json"), r#"{"channel": "6", "body_hex": "ab cd", "bits": "16", "exports": 0}"#).unwrap();
+    std::fs::write(queue.join("B.JSON"), r#"{"spawn_bot": ["5000", 1300, -14000.5]}"#).unwrap();
+    std::fs::write(queue.join("c.json"), "{not json").unwrap();
+    std::fs::write(queue.join("d.json"), r#"{"channel": 6, "body_hex": "abc", "bits": 12}"#).unwrap();
+    h.now += 0.3;
+    let (sent, event) = h.send_captured("trailer_overrun_1");
+    assert_eq!(event["sent_queued_commands"], serde_json::json!([["a.json", "6", "16"]]));
+    let errors = event["queued_command_errors"].as_array().unwrap();
+    assert_eq!(errors.iter().map(|e| e[0].as_str().unwrap()).collect::<Vec<_>>(), ["c.json", "d.json"]);
+    assert_eq!(event["bot_spawned"][0][2], serde_json::json!([5000, 1300, -14000]));
+    assert!(sent.iter().any(|(channel, reliable, body)| *channel == 6 && *reliable && body.bytes == [0xAB, 0xCD]));
+    // a file that does not parse stays; the others are gone
+    let left: Vec<_> = std::fs::read_dir(&queue).unwrap().flatten().map(|e| e.file_name().to_string_lossy().into_owned()).collect();
+    assert_eq!(left, ["c.json"]);
+    let _ = std::fs::remove_dir_all(&queue);
+}

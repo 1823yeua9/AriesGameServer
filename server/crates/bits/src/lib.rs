@@ -35,6 +35,9 @@ impl Bits {
     }
 
     pub fn from_hex(hex: &str, bit_count: usize) -> Result<Self, BitError> {
+        if hex.len() % 2 != 0 || !hex.is_ascii() {
+            return Err(BitError::BadHex);
+        }
         let bytes = (0..hex.len())
             .step_by(2)
             .map(|i| u8::from_str_radix(&hex[i..i + 2], 16).map_err(|_| BitError::BadHex))

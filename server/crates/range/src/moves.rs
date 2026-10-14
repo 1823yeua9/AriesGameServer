@@ -130,15 +130,10 @@ pub fn run_move_ack(reply: &mut Reply, config: &RangeConfig, live: &mut dyn Live
             reply.event.set("move_ack_value", moves.newest);
             reply.event.set("move_ack_newest_number", moves.newest);
             reply.event.set("move_ack_count", moves.count);
-            if let Some(oldest) = moves.oldest {
-                reply.event.set("move_ack_oldest", oldest);
-            }
-            if let Some(last) = moves.last_acked {
-                reply.event.set("move_ack_last_acked", last);
-            }
-            if let Some(timestamp) = moves.timestamp {
-                reply.event.set("move_ack_timestamp", timestamp as f64);
-            }
+            // python logs these even when they are None
+            reply.event.set("move_ack_timestamp", moves.timestamp.map(f64::from));
+            reply.event.set("move_ack_oldest", moves.oldest);
+            reply.event.set("move_ack_last_acked", moves.last_acked);
         }
         Err(error) => reply.event.set("move_ack_error", error.to_string()),
     }

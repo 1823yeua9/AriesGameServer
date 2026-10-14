@@ -308,7 +308,11 @@ fn settings_event(request: &RangeSettingsRequest) -> Value {
 }
 
 /// 6.11: a debug hook. json files dropped in the queue dir are sent as
-/// reliable bunches ({"channel", "body_hex", "bits", "exports"?, "open"?}).
+/// reliable bunches ({"channel", "body_hex", "bits", "exports"?, "open"?}) or
+/// spawn a bot ({"spawn_bot": [x, y, z]}). python semantics throughout:
+/// windows glob and sort ignore case, a file is parsed before it is unlinked
+/// (one that does not parse stays and errors every poll), a failed unlink
+/// skips the command, and values go through int()/float()/bool().
 fn command_queue(reply: &mut Reply, env: &mut Env, queue: &Path) {
     if !due(reply.conn.authority.command_queue_polled, reply.now, COMMAND_QUEUE_POLL) {
         return;
@@ -317,42 +321,108 @@ fn command_queue(reply: &mut Reply, env: &mut Env, queue: &Path) {
     let Ok(entries) = std::fs::read_dir(queue) else {
         return;
     };
-    let mut files: Vec<_> = entries.flatten().map(|e| e.path()).filter(|p| p.extension().is_some_and(|x| x == "json")).collect();
-    files.sort();
+    let mut files: Vec<_> = entries.flatten().map(|e| e.path()).filter(|p| p.extension().is_some_and(|x| x.eq_ignore_ascii_case("json"))).collect();
+    files.sort_by_key(|p| p.to_string_lossy().to_lowercase());
     for file in files {
         let name = file.file_name().map(|n| n.to_string_lossy().into_owned()).unwrap_or_default();
-        // python parses before it unlinks: a file that does not parse stays and errors every poll
-        let command = std::fs::read_to_string(&file).map_err(|e| e.to_string()).and_then(|text| serde_json::from_str::<Value>(&text).map_err(|e| e.to_string()));
-        let result = command.and_then(|command| {
-            let _ = std::fs::remove_file(&file);
-            // debug: a server-tracked bot at an exact location
-            if let Some(spot) = command.get("spawn_bot") {
-                let spot: Vec<f64> = spot.as_array().map(|a| a.iter().filter_map(Value::as_f64).collect()).unwrap_or_default();
-                let [x, y, z] = spot[..] else {
-                    return Err("spawn_bot needs [x, y, z]".to_string());
-                };
-                return crate::gameplay::spawn_bot_at(reply, env, [x, y, z]).map(|()| None);
-            }
-            queued_bunch(reply, &command).map(Some)
-        });
+        let result = std::fs::read_to_string(&file)
+            .map_err(|e| e.to_string())
+            .and_then(|text| serde_json::from_str::<Value>(&text).map_err(|e| e.to_string()))
+            .and_then(|command| {
+                std::fs::remove_file(&file).map_err(|e| e.to_string())?;
+                queued_command(reply, env, &command)
+            });
         match result {
-            Ok(Some((channel, bits))) => reply.event.push("sent_queued_commands", json!([name, channel, bits])),
+            Ok(Some(sent)) => reply.event.push("sent_queued_commands", json!([name, sent.0, sent.1])),
             Ok(None) => {}
             Err(error) => reply.event.push("queued_command_errors", json!([name, error])),
         }
     }
 }
 
-fn queued_bunch(reply: &mut Reply, command: &Value) -> Result<(u32, u64), String> {
-    let channel = command["channel"].as_u64().ok_or("missing channel")? as u32;
-    let bits = command["bits"].as_u64().ok_or("missing bits")?;
-    let body = aries_bits::Bits::from_hex(command["body_hex"].as_str().ok_or("missing body_hex")?, bits as usize).map_err(|e| e.to_string())?;
-    let open = command["open"].as_bool().unwrap_or(false);
+/// one parsed command; Some((channel, bits) as given) for a sent bunch.
+fn queued_command(reply: &mut Reply, env: &mut Env, command: &Value) -> Result<Option<(Value, Value)>, String> {
+    if !command.is_object() {
+        return Err("command is not an object".into());
+    }
+    if let Some(spot) = command.get("spawn_bot") {
+        // tuple(float(v) for v in ...) then a 3-tuple location
+        let values = spot.as_array().ok_or("spawn_bot is not a list")?.iter().map(py_float).collect::<Result<Vec<_>, _>>()?;
+        let [x, y, z] = values[..] else {
+            return Err(format!("spawn_bot needs 3 values, got {}", values.len()));
+        };
+        crate::gameplay::spawn_bot_at(reply, env, [x, y, z])?;
+        return Ok(None);
+    }
+    let channel = py_int(command.get("channel").ok_or("KeyError: 'channel'")?)?;
+    let channel = u32::try_from(channel).map_err(|_| format!("bad channel {channel}"))?;
+    let open = command.get("open").is_some_and(py_truthy);
     if open {
         reply.conn.channel_first_offset.entry(channel).or_insert(0);
     }
-    reply.send_reliable(channel, &body, command["exports"].as_bool().unwrap_or(false), open, false).map_err(|e| e.to_string())?;
-    Ok((channel, bits))
+    let hex = command.get("body_hex").ok_or("KeyError: 'body_hex'")?.as_str().ok_or("fromhex() argument must be str")?;
+    let bytes = py_fromhex(hex)?;
+    let bits = py_int(command.get("bits").ok_or("KeyError: 'bits'")?)?;
+    let bits = usize::try_from(bits).map_err(|_| format!("bad bits {bits}"))?;
+    // append_payload reads only the first `bits` bits of a longer payload
+    let mut bytes = bytes;
+    if bytes.len() < bits.div_ceil(8) {
+        return Err(format!("{} payload bytes cannot hold {bits} bits", bytes.len()));
+    }
+    bytes.truncate(bits.div_ceil(8));
+    let body = aries_bits::Bits::new(bytes, bits).map_err(|e| e.to_string())?;
+    let exports = command.get("exports").is_some_and(py_truthy);
+    reply.send_reliable(channel, &body, exports, open, false).map_err(|e| e.to_string())?;
+    Ok(Some((command["channel"].clone(), command["bits"].clone())))
+}
+
+/// python int(): ints, floats truncated, bools, and integer strings.
+fn py_int(value: &Value) -> Result<i64, String> {
+    match value {
+        Value::Bool(b) => Ok(*b as i64),
+        Value::Number(n) => n.as_i64().or_else(|| n.as_f64().filter(|f| f.is_finite()).map(|f| f.trunc() as i64)).ok_or_else(|| format!("int() of {n}")),
+        Value::String(text) => text.trim().replace('_', "").parse().map_err(|_| format!("invalid literal for int(): {text:?}")),
+        other => Err(format!("int() argument must be a string or a number, not {other}")),
+    }
+}
+
+/// python float(): numbers, bools and numeric strings.
+fn py_float(value: &Value) -> Result<f64, String> {
+    match value {
+        Value::Bool(b) => Ok(*b as u8 as f64),
+        Value::Number(n) => n.as_f64().ok_or_else(|| format!("float() of {n}")),
+        Value::String(text) => {
+            let t = text.trim().to_ascii_lowercase();
+            match t.as_str() {
+                "inf" | "+inf" | "infinity" | "+infinity" => Ok(f64::INFINITY),
+                "-inf" | "-infinity" => Ok(f64::NEG_INFINITY),
+                "nan" | "+nan" | "-nan" => Ok(f64::NAN),
+                _ => t.replace('_', "").parse().map_err(|_| format!("could not convert string to float: {text:?}")),
+            }
+        }
+        other => Err(format!("float() argument must be a string or a real number, not {other}")),
+    }
+}
+
+/// python truthiness of a json value.
+fn py_truthy(value: &Value) -> bool {
+    match value {
+        Value::Null => false,
+        Value::Bool(b) => *b,
+        Value::Number(n) => n.as_f64().is_some_and(|f| f != 0.0),
+        Value::String(s) => !s.is_empty(),
+        Value::Array(a) => !a.is_empty(),
+        Value::Object(o) => !o.is_empty(),
+    }
+}
+
+/// python bytes.fromhex: ascii whitespace is skipped, pairs of hex digits.
+fn py_fromhex(text: &str) -> Result<Vec<u8>, String> {
+    let digits: Vec<u8> = text.bytes().filter(|b| !b.is_ascii_whitespace()).collect();
+    if digits.len() % 2 != 0 || !digits.iter().all(u8::is_ascii_hexdigit) {
+        return Err("non-hexadecimal number found in fromhex() arg".into());
+    }
+    Ok(digits.chunks(2).map(|pair| u8::from_str_radix(std::str::from_utf8(pair).expect("ascii"), 16).expect("hex")).collect())
 }
 
 /// 6.12: the bottom hud starts collapsed when load-in cinematic mode is still
