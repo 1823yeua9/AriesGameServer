@@ -37,24 +37,48 @@ codex (`server/platform`, `loader/`). The Python stays untouched; a snapshot is 
 ## Runtime
 
 ```
-main thread (128 Hz, highest priority)          oracle thread
-  drain udp socket (non-blocking)                 polls the client at its own cadence
-  decode + route client packets                   publishes Arc<Snapshot> (latest wins)
-  range systems step (uses latest snapshot)       on-demand queries via channel
-  net: retransmit unacked reliables
+main thread (128 Hz, highest priority)          key-scan thread
+  drain udp socket (non-blocking)                 retries the ares handler scan
+  per datagram, in the python's order:            every 100 ms until it is found
+    resend lost reliables, input ack,
+    authority block, capture, dispatch
+  per tick: lag-compensation records, replay
+    datagrams held for the keys
   flush outgoing datagrams
+  every 1 s: stop when the client process exits
   wait for the next tick
 ```
 
-- The server never blocks the tick on the oracle. Oracle data is a timestamped snapshot; the
-  `interp` history smooths and rewinds it when we need a value at a specific time (shots).
-- Bring-up keeps the Python's pacing (one stage per >= 0.1 s, same order, same gates) so
-  timing-sensitive steps (HUD, cinematic, inventory) behave identically. Stages are a table:
-  `{ id, prerequisites, gate, build }`, not an `elif` chain.
-- Reliable bunches get real tracking: per-channel sequence, packet-level ack history from the
-  client, retransmission of unacked reliables with their original channel sequence. The Python
-  never retransmits; loopback rarely drops, so this only matters when it does.
-- One bunch per datagram, like the Python. Batching is a later optimization.
+- Systems stay datagram-driven like the Python (every gate compares the same seconds
+  thresholds against the datagram's time), so their timing matches it; the 128 Hz tick adds
+  only what the Python did not have (lag-compensation records, held-datagram replay).
+- Oracle reads are synchronous ReadProcessMemory calls inside the datagram, as in the Python
+  (each is microseconds). A datagram slower than one tick logs a warning, and one over 25 ms
+  gets `handler_elapsed_ms` like the Python.
+- Bring-up keeps the Python's pacing (one stage per >= 0.1 s session-ack tick, same order,
+  same gates). Stages are an enum with a gate table, not an `elif` chain.
+- Reliable bunches get real tracking: packet-level ack history from the client and
+  retransmission of lost reliables with their original channel sequence. The Python never
+  retransmits; loopback rarely drops, so this only matters when it does (switch `retransmit`).
+- One bunch per datagram, like the Python.
+
+## Decided deviations from the Python
+
+Everything else is meant to match it bit for bit (bodies, bunch headers, per-channel order,
+gates, event keys and values).
+
+| What | Python | Rust | Why |
+|---|---|---|---|
+| lost reliable bunches | never resent | resent with the original channel sequence | real reliability; switch `retransmit` |
+| key scan | blocks the receive loop per datagram | background thread; datagrams wait (up to 2 s) and replay in order | the tick never blocks; same result |
+| skin load error at A21 | raises out of the stage | plain Classic open, `base_pistol_initial_cosmetic_error` | keep the session |
+| ClientSetHUD index read fails | raises | 52/178 (every logged session), `hud_rpc_error` | keep the session |
+| lifetime | 3600 s deadline | none; exits when the client exits | the loader owns restarts |
+| shots | hit-tested at the bots' current position | rewound by lag compensation | bots never move, so every hit is identical (tested) |
+| reader reopen after a failure | every pass | at most once a second (`equippable_reader_error` still logged every pass) | no handle churn |
+| `channel_first_dynamic_offset` (05 quirk 10) | global | per connection | no observable difference: every dynamic open resets its channel to 0 and fixed channels share the same constants |
+| `pre_control_sequence`, `pre_in_sequence` | diagnostic packet-notify read at the nmt challenge | not logged | diagnostic only |
+| console | prints every event | levels: errors warn, authority work info, high-rate keys debug; every event still goes to the jsonl file | readable console |
 
 ## Configuration
 
@@ -68,6 +92,9 @@ is the project client, and reads its image base.
 1. Golden fixtures per builder (bit-exact).
 2. Stage-table tests: the bring-up order and gates match `docs/port/03_bringup_a.md` and
    `04_bringup_b.md`.
-3. A loopback harness: a scripted client drives the handshake and bring-up against the Rust
-   server, decoding every bunch it receives.
-4. Live test with the user (needs their go-ahead; never relaunch a live session unasked).
+3. A loopback harness (`server/crates/range/tests`): a scripted client and scripted live
+   reads drive handshake, bring-up, purchases, mirror, bots, cloudburst and abilities through
+   `RangeServer`, decoding every bunch and checking it against the spec vectors.
+4. Shadow diff (`server/tools/shadow_diff.py`): a harness or live events log against a
+   Python responder log. Against the production log every bring-up frame length matches.
+5. Live test with the user (needs their go-ahead; never relaunch a live session unasked).
