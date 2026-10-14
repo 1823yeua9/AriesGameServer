@@ -1,0 +1,12 @@
+[package]
+name = "aries-bits"
+description = "ue 5.3 bit archive: lsb-first writer/reader, packed ints, serialize int, fstrings, quantized vectors"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+thiserror.workspace = true
+
+[dev-dependencies]
+serde_json.workspace = true

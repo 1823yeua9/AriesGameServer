@@ -1,0 +1,15 @@
+[package]
+name = "aries-rep"
+description = "replication encoding: content transform, content blocks, netguid exports, and every range bunch builder"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+aries-bits.workspace = true
+aries-net.workspace = true
+thiserror.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+
+[dev-dependencies]
