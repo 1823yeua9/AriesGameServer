@@ -51,29 +51,20 @@ pub struct GObjects {
 }
 
 impl GObjects {
+    /// the walk with the name-key header rule (FNP:48), the strictest one.
     pub fn read(process: &impl Memory) -> Result<Self, OracleError> {
-        let owner: [u8; 0x80] = process.read(process.image_base() + OWNER_RVA)?;
-        let array = decode_array_pointer(&owner);
-        let header: [u8; 0x20] = process.read(array)?;
-        let chunk_array = u64::from_le_bytes(header[0..8].try_into().unwrap());
-        let num_elements = u32::from_le_bytes(header[0x14..0x18].try_into().unwrap());
-        let num_chunks = u32::from_le_bytes(header[0x1C..0x20].try_into().unwrap());
-        if !(1..=0x14).contains(&num_chunks) || !(0x800..=0x40_0000).contains(&num_elements) {
-            return Err(OracleError::Invalid("GObjects header failed validation"));
-        }
-        let chunks = (0..num_chunks as u64).map(|i| process.u64(chunk_array + i * 8)).collect::<Result<Vec<_>, _>>()?;
-        Ok(Self { chunks, num_elements })
+        crate::world::require_object_array(process, crate::world::HeaderRule::NameKey)
     }
 
     pub fn object(&self, process: &impl Memory, index: u32) -> Result<u64, OracleError> {
         let chunk = *self.chunks.get((index / 0x10000) as usize).ok_or(OracleError::Invalid("object index outside populated chunks"))?;
-        process.u64(chunk + 24 * (index % 0x10000) as u64)
+        process.u64(chunk.saturating_add(24 * (index % 0x10000) as u64))
     }
 
     /// GEngine (AresGameEngine), checked by its object index.
     pub fn engine(&self, process: &impl Memory) -> Result<u64, OracleError> {
         let engine = self.object(process, ENGINE_INDEX)?;
-        if process.u32(engine + 0xC)? != ENGINE_INDEX {
+        if process.u32(engine.saturating_add(0xC))? != ENGINE_INDEX {
             return Err(OracleError::Invalid("AresGameEngine object index changed"));
         }
         Ok(engine)
@@ -109,7 +100,7 @@ impl NamePool {
     /// derives and validates the key from the AresGameEngine name.
     pub fn new(process: &impl Memory, objects: &GObjects) -> Result<Self, OracleError> {
         let engine = objects.engine(process)?;
-        let name_index = process.u32(engine + 0x18)?;
+        let name_index = process.u32(engine.saturating_add(0x18))?;
         let (encrypted, length, wide) = read_name_entry(process, name_index)?;
         if wide || length != ENGINE_NAME.len() {
             return Err(OracleError::Invalid("AresGameEngine anchor has an unexpected name layout"));
@@ -122,11 +113,20 @@ impl NamePool {
         Ok(Self { key, cache: HashMap::new() })
     }
 
+    /// the derived per-run xor key (derive_name_key's return value).
+    pub fn key(&self) -> [u8; 4] {
+        self.key
+    }
+
     pub fn name(&mut self, process: &impl Memory, index: u32) -> Result<String, OracleError> {
         if let Some(name) = self.cache.get(&index) {
             return Ok(name.clone());
         }
         let (encrypted, length, wide) = read_name_entry(process, index)?;
+        // python xors the full length into each byte; from 256 up bytes() raises (FNP:69-70)
+        if length >= 256 {
+            return Err(OracleError::Invalid("FName entry too long to decode"));
+        }
         let decoded: Vec<u8> = encrypted.iter().enumerate().map(|(i, b)| b ^ length as u8 ^ self.key[i & 3]).collect();
         let name = if wide {
             let units: Vec<u16> = decoded.chunks_exact(2).map(|c| u16::from_le_bytes([c[0], c[1]])).collect();
@@ -140,13 +140,14 @@ impl NamePool {
 
     /// an object's own name (UObject +0x18 comparison index).
     pub fn object_name(&mut self, process: &impl Memory, object: u64) -> Result<String, OracleError> {
-        let index = process.u32(object + 0x18)?;
+        let index = process.u32(object.saturating_add(0x18))?;
         self.name(process, index)
     }
 
-    /// an object's class name (UObject +0x10 class, its +0x18 name).
+    /// an object's class name (UObject +0x10 class, its +0x18 name). the class
+    /// pointer is not null-checked: a bad one fails the name read (RES:149-151).
     pub fn class_name(&mut self, process: &impl Memory, object: u64) -> Result<String, OracleError> {
-        let class = process.ptr(object + 0x10)?;
+        let class = process.u64(object.saturating_add(0x10))?;
         self.object_name(process, class)
     }
 }
