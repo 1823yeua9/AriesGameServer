@@ -5,7 +5,8 @@ use std::collections::HashMap;
 
 use aries_net::transform::reverse_wide_bits;
 
-use crate::{OracleError, Process};
+use crate::process::valid_address;
+use crate::{Memory, OracleError};
 
 /// rva of the obfuscated GObjects owner block.
 pub const OWNER_RVA: u64 = 0xD3E_7140;
@@ -50,8 +51,8 @@ pub struct GObjects {
 }
 
 impl GObjects {
-    pub fn read(process: &Process) -> Result<Self, OracleError> {
-        let owner: [u8; 0x80] = process.read(process.image_base + OWNER_RVA)?;
+    pub fn read(process: &impl Memory) -> Result<Self, OracleError> {
+        let owner: [u8; 0x80] = process.read(process.image_base() + OWNER_RVA)?;
         let array = decode_array_pointer(&owner);
         let header: [u8; 0x20] = process.read(array)?;
         let chunk_array = u64::from_le_bytes(header[0..8].try_into().unwrap());
@@ -64,13 +65,13 @@ impl GObjects {
         Ok(Self { chunks, num_elements })
     }
 
-    pub fn object(&self, process: &Process, index: u32) -> Result<u64, OracleError> {
+    pub fn object(&self, process: &impl Memory, index: u32) -> Result<u64, OracleError> {
         let chunk = *self.chunks.get((index / 0x10000) as usize).ok_or(OracleError::Invalid("object index outside populated chunks"))?;
         process.u64(chunk + 24 * (index % 0x10000) as u64)
     }
 
     /// GEngine (AresGameEngine), checked by its object index.
-    pub fn engine(&self, process: &Process) -> Result<u64, OracleError> {
+    pub fn engine(&self, process: &impl Memory) -> Result<u64, OracleError> {
         let engine = self.object(process, ENGINE_INDEX)?;
         if process.u32(engine + 0xC)? != ENGINE_INDEX {
             return Err(OracleError::Invalid("AresGameEngine object index changed"));
@@ -85,12 +86,12 @@ pub struct NamePool {
     cache: HashMap<u32, String>,
 }
 
-fn read_name_entry(process: &Process, index: u32) -> Result<(Vec<u8>, usize, bool), OracleError> {
+fn read_name_entry(process: &impl Memory, index: u32) -> Result<(Vec<u8>, usize, bool), OracleError> {
     if index >= 0x1000_0000 {
         return Err(OracleError::Invalid("FName comparison index outside bounded range"));
     }
-    let block = process.u64(process.image_base + NAME_POOL_RVA + 0x10 + (index >> 16) as u64 * 8)?;
-    if !Process::valid_address(block) {
+    let block = process.u64(process.image_base() + NAME_POOL_RVA + 0x10 + (index >> 16) as u64 * 8)?;
+    if !valid_address(block) {
         return Err(OracleError::Invalid("invalid FName pool block pointer"));
     }
     let entry = block + (index & 0xFFFF) as u64 * 4;
@@ -106,7 +107,7 @@ fn read_name_entry(process: &Process, index: u32) -> Result<(Vec<u8>, usize, boo
 
 impl NamePool {
     /// derives and validates the key from the AresGameEngine name.
-    pub fn new(process: &Process, objects: &GObjects) -> Result<Self, OracleError> {
+    pub fn new(process: &impl Memory, objects: &GObjects) -> Result<Self, OracleError> {
         let engine = objects.engine(process)?;
         let name_index = process.u32(engine + 0x18)?;
         let (encrypted, length, wide) = read_name_entry(process, name_index)?;
@@ -121,7 +122,7 @@ impl NamePool {
         Ok(Self { key, cache: HashMap::new() })
     }
 
-    pub fn name(&mut self, process: &Process, index: u32) -> Result<String, OracleError> {
+    pub fn name(&mut self, process: &impl Memory, index: u32) -> Result<String, OracleError> {
         if let Some(name) = self.cache.get(&index) {
             return Ok(name.clone());
         }
@@ -138,13 +139,13 @@ impl NamePool {
     }
 
     /// an object's own name (UObject +0x18 comparison index).
-    pub fn object_name(&mut self, process: &Process, object: u64) -> Result<String, OracleError> {
+    pub fn object_name(&mut self, process: &impl Memory, object: u64) -> Result<String, OracleError> {
         let index = process.u32(object + 0x18)?;
         self.name(process, index)
     }
 
     /// an object's class name (UObject +0x10 class, its +0x18 name).
-    pub fn class_name(&mut self, process: &Process, object: u64) -> Result<String, OracleError> {
+    pub fn class_name(&mut self, process: &impl Memory, object: u64) -> Result<String, OracleError> {
         let class = process.ptr(object + 0x10)?;
         self.object_name(process, class)
     }
