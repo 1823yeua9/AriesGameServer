@@ -17,6 +17,8 @@ pub struct SavedMoves {
     pub oldest: Option<u32>,
     pub last_acked: Option<u32>,
     pub timestamp: Option<f32>,
+    /// saved move +592 of slot min(count, 256) - 1 (rmn:145-146); diagnostics only
+    pub newest_location: Option<[f64; 3]>,
 }
 
 /// read_input_replication (read_equippable_state.py:247-268).

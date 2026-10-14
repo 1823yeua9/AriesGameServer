@@ -50,7 +50,14 @@ pub struct Connection {
     pub capture: crate::capture::CaptureState,
     /// smoothed round trip from the client's acks (lag compensation)
     pub rtt: aries_net::rtt::RttEstimator,
+    /// the player's position from the saved moves, smoothed (docs/port/10 4.9)
+    pub player: PlayerTrack,
 }
+
+/// fed on move-ack reads (<= 10 hz), so 0.1 s nominal: a 27-tick delay.
+pub const PLAYER_FEED_PERIOD: f64 = 0.1;
+
+pub type PlayerTrack = aries_interp::stream::OracleStream<aries_interp::value::Vec3, 32>;
 
 impl Connection {
     pub fn new(source: SocketAddr) -> Self {
@@ -74,6 +81,7 @@ impl Connection {
             authority: AuthorityState::default(),
             capture: Default::default(),
             rtt: Default::default(),
+            player: PlayerTrack::new(PLAYER_FEED_PERIOD, 0.0),
         }
     }
 

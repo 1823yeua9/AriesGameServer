@@ -119,6 +119,12 @@ fn main() {
                 stats.overruns,
                 server.connections.len()
             );
+            for conn in server.connections.values() {
+                if let Some(player) = conn.player.value_now(now) {
+                    let p = player.value.v;
+                    info!("player {}: ({:.1}, {:.1}, {:.1}) {:?}{} | srtt {:.1} ms", conn.source.port(), p.x, p.y, p.z, player.value.kind, if player.stale { " stale" } else { "" }, conn.rtt.srtt_or_zero() * 1000.0);
+                }
+            }
         }
     }
 }

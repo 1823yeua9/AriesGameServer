@@ -469,6 +469,11 @@ pub fn run_stage_chain(reply: &mut Reply, env: &mut Env) -> Option<Stage> {
         reply.event.set("auth_correct_rep_index", reply.conn.correction_index);
     }
     let now = reply.now;
+    if stage == Stage::PawnOpen {
+        // the pawn opens at the spawn point: start the position track there
+        let [x, y, z] = env.config.spawn_location;
+        reply.conn.player.var.reset(now, aries_interp::value::Vec3 { x, y, z });
+    }
     reply.conn.bringup.advance(stage, now);
     log::info!(target: "bringup", "{stage:?} ({key} {total})");
     Some(stage)

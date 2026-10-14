@@ -23,7 +23,9 @@ struct ScriptedLive {
 impl LiveClient for ScriptedLive {
     fn saved_moves(&mut self) -> Result<Option<SavedMoves>, String> {
         self.number += 15;
-        Ok(Some(SavedMoves { newest: self.number, count: 20, ..Default::default() }))
+        // walking +x at 120 u per move-ack read
+        let x = self.number as f64 * 8.0;
+        Ok(Some(SavedMoves { newest: self.number, count: 20, newest_location: Some([x, -12019.322, 1294.153]), ..Default::default() }))
     }
 
     fn latest_generated_input_event(&mut self) -> Result<Option<u32>, String> {
@@ -185,4 +187,24 @@ fn range_settings_apply_infinite_ammo() {
     assert_eq!(event["received_range_settings"].as_array().map(|a| a.len()), Some(2));
     assert!(event.get("sent_infinite_ammo").is_none());
     assert!(sent.iter().all(|(channel, _, _)| *channel != 4));
+}
+
+/// the player position track: reset at the placement correction, then
+/// smoothed 27 ticks (0.2109375 s) behind the move-ack reads.
+#[test]
+fn player_track_follows_the_saved_moves() {
+    let mut h = Harness::new(50613, Some(0));
+    h.run_until(|s, source| s.connections[&source].moves.correction_sent);
+    for _ in 0..8 {
+        h.now += 0.125;
+        h.client.tick(&mut h.server, h.now, h.source, &mut h.out);
+    }
+    let conn = &h.server.connections[&h.source];
+    assert_eq!(conn.player.delay, 0.2109375);
+    let value = conn.player.value_now(h.now).expect("samples");
+    assert!(!value.stale);
+    assert!(matches!(value.value.kind, aries_interp::var::Kind::Hermite | aries_interp::var::Kind::Linear), "{:?}", value.value.kind);
+    // between the reads that bracket now - delay
+    let newest = conn.player.var.newest().unwrap().v.x;
+    assert!(value.value.v.x < newest && value.value.v.x > newest - 2.0 * 120.0, "{} vs {newest}", value.value.v.x);
 }

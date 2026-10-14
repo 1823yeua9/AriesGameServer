@@ -86,6 +86,10 @@ pub fn run_move_ack(reply: &mut Reply, config: &RangeConfig, live: &mut dyn Live
             return;
         }
     };
+    if let Some([x, y, z]) = moves.newest_location {
+        reply.conn.player.ingest(reply.now, reply.now, aries_interp::value::Vec3 { x, y, z });
+    }
+    let state = &reply.conn.moves;
     if state.last_number.is_some_and(|last| moves.newest <= last) {
         return;
     }
@@ -108,6 +112,9 @@ pub fn run_move_ack(reply: &mut Reply, config: &RangeConfig, live: &mut dyn Live
         reply.event.set("move_correction_location", json!(config.spawn_location));
         reply.event.set("move_correction_rpc_bits", body.bit_count);
         reply.conn.moves.correction_sent = true;
+        // the correction teleports the pawn: a discontinuity for the position track
+        let [x, y, z] = config.spawn_location;
+        reply.conn.player.var.reset(reply.now, aries_interp::value::Vec3 { x, y, z });
     } else {
         reply.event.set("movement_ack_path", "input_and_movement");
     }

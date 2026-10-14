@@ -1,4 +1,4 @@
-//! the range's live reads served by the oracle (ReadProcessMemory, read only).
+﻿//! the range's live reads served by the oracle (ReadProcessMemory, read only).
 //! python opened one EquippableStateReader lazily on the first authority pass
 //! and retried every pass after a failure; we retry at most once a second.
 
@@ -62,7 +62,7 @@ impl LiveClient for OracleLive {
 
     fn saved_moves(&mut self) -> Result<Option<SavedMoves>, String> {
         let moves = self.oracle()?.saved_moves().map_err(text)?;
-        Ok(moves.map(|m| SavedMoves { newest: m.newest, count: m.count, oldest: Some(m.oldest), last_acked: m.last_acked, timestamp: m.newest_timestamp() }))
+        Ok(moves.map(|m| SavedMoves { newest: m.newest, count: m.count, oldest: Some(m.oldest), last_acked: m.last_acked, timestamp: m.newest_timestamp(), newest_location: None }))
     }
 
     fn latest_generated_input_event(&mut self) -> Result<Option<u32>, String> {
