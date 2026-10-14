@@ -1,0 +1,17 @@
+[package]
+name = "aries-oracle"
+description = "read-only view of the live client: process memory now, the internal dll over a named pipe later"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+aries-net.workspace = true
+thiserror.workspace = true
+log.workspace = true
+
+[target.'cfg(windows)'.dependencies]
+windows-sys.workspace = true
+
+[dev-dependencies]
+serde_json.workspace = true

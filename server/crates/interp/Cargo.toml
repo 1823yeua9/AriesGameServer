@@ -1,0 +1,8 @@
+[package]
+name = "aries-interp"
+description = "interpolation, clamped extrapolation and lag compensation (source sdk 2013 design, reimplemented)"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]

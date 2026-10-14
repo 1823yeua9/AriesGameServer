@@ -7,3 +7,5 @@ license.workspace = true
 
 [dependencies]
 aries-bits.workspace = true
+log.workspace = true
+windows-sys.workspace = true
