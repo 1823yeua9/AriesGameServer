@@ -280,3 +280,80 @@ fn full_bringup_sequences() {
     assert!(bringup.sent(aries_range::bringup::Stage::MeleeInactiveState));
     assert_eq!(server.connections[&source].correction_index, 5);
 }
+
+/// a client whose saved-move number climbs ~15 per tick once the pawn exists.
+struct ScriptedMoves {
+    number: u32,
+    stall: bool,
+}
+
+impl aries_range::LiveClient for ScriptedMoves {
+    fn saved_moves(&mut self) -> Result<Option<aries_range::SavedMoves>, String> {
+        if !self.stall {
+            self.number += 15;
+        }
+        Ok(Some(aries_range::SavedMoves { newest: self.number, count: 20, ..Default::default() }))
+    }
+
+    fn latest_generated_input_event(&mut self) -> Result<Option<u32>, String> {
+        Ok(None)
+    }
+}
+
+#[test]
+fn move_acks_follow_client_restart() {
+    let source: SocketAddr = "127.0.0.1:50508".parse().unwrap();
+    let mut server = RangeServer::new(RangeConfig::default(), Box::new(FixedKeys), None);
+    server.live = Box::new(ScriptedMoves { number: 186, stall: false });
+    let mut client = Client { gcm: AresGcm::new(&CLIENT_KEY), server_gcm: AresGcm::new(&SERVER_KEY), sequence: 300, acked: 900, counter: 5 };
+    let mut out = Outbox::default();
+    let mut now = 10.0;
+    server.handle_datagram(now, source, &initial_datagram(), &mut out);
+    let (_, challenge) = out.datagrams.pop().unwrap();
+    server.handle_datagram(now, source, &response_datagram(&challenge), &mut out);
+    for packet in [client.control(0, true, 232), client.short(), client.control(5, false, 600), client.control(9, false, 142)] {
+        let d = client.seal(&packet);
+        server.handle_datagram(now, source, &d, &mut out);
+    }
+    out.datagrams.clear();
+
+    let mut acks: Vec<(usize, usize)> = Vec::new(); // (datagram bytes, body bits)
+    let mut restart_seen = false;
+    for _ in 0..400 {
+        now += 0.125;
+        let short = client.short();
+        let d = client.seal(&short);
+        server.handle_datagram(now, source, &d, &mut out);
+        restart_seen |= server.connections[&source].bringup.sent(aries_range::bringup::Stage::ClientRestart);
+        for (_, datagram) in out.datagrams.drain(..) {
+            let (packet, _) = open_server_datagram(&datagram, &client.server_gcm).unwrap();
+            if let Some(bunch) = inspect_first_bunch(&packet) {
+                if !bunch.reliable && bunch.channel_index == 8 {
+                    assert!(restart_seen, "no move ack before ClientRestart");
+                    acks.push((datagram.len(), bunch.bunch_bit_count));
+                }
+            }
+        }
+        if acks.len() > 30 {
+            break;
+        }
+    }
+    assert!(acks.len() > 30);
+    assert_eq!(acks[0].1, 950, "placement correction body");
+    for &(bytes, bits) in &acks[1..] {
+        assert_eq!((bytes, bits), (39, 90), "ClientAckInputAndMovement");
+    }
+    assert!(server.connections[&source].moves.correction_sent);
+
+    // a move number that does not advance sends nothing
+    server.live = Box::new(ScriptedMoves { number: 99_999, stall: true });
+    server.connections.get_mut(&source).unwrap().moves.last_number = Some(99_999);
+    now += 0.125;
+    let short = client.short();
+    let d = client.seal(&short);
+    server.handle_datagram(now, source, &d, &mut out);
+    assert!(out.datagrams.iter().all(|(_, d)| {
+        let (packet, _) = open_server_datagram(d, &client.server_gcm).unwrap();
+        inspect_first_bunch(&packet).is_none_or(|b| b.reliable || b.channel_index != 8)
+    }));
+}

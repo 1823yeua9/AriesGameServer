@@ -7,6 +7,7 @@ use aries_bits::Bits;
 use aries_net::reliable::ReliableTracker;
 
 use crate::bringup::BringupState;
+use crate::moves::MoveAckState;
 
 /// how many recent client packet sequences feed the ack history (python deque maxlen 64).
 pub const RECENT_SEQUENCES: usize = 64;
@@ -40,6 +41,8 @@ pub struct Connection {
     pub correction_index: u32,
     /// reliable bunches in flight, for retransmission (new; python never resent)
     pub reliable: ReliableTracker,
+    /// move and input acks
+    pub moves: MoveAckState,
 }
 
 impl Connection {
@@ -60,6 +63,7 @@ impl Connection {
             bringup: BringupState::default(),
             correction_index: 0,
             reliable: ReliableTracker::default(),
+            moves: MoveAckState::default(),
         }
     }
 

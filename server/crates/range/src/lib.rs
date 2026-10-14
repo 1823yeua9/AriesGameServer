@@ -6,6 +6,7 @@ pub mod bringup;
 pub mod config;
 pub mod conn;
 pub mod event;
+pub mod live;
 pub mod moves;
 pub mod send;
 
@@ -21,6 +22,7 @@ use aries_net::{AresGcm, decode_client_packet, seal_packet};
 pub use config::RangeConfig;
 pub use conn::Connection;
 pub use event::{Event, EventLog};
+pub use live::{LiveClient, NoLiveClient, SavedMoves};
 pub use send::{Outbox, Reply, SendError};
 
 /// both session keys, read from the live client's ares packet handler.
@@ -50,6 +52,8 @@ pub struct RangeServer {
     pub events: EventLog,
     /// skins, ability tuning and live rpc indices for bring-up
     pub hooks: Box<dyn bringup::StageHooks>,
+    /// reads of the running client (moves, input bounds, game state)
+    pub live: Box<dyn LiveClient>,
     start: f64,
 }
 
@@ -58,7 +62,7 @@ pub const WELCOME_MAP_URL: &str = "/Game/Maps/Poveglia/Range";
 
 impl RangeServer {
     pub fn new(config: RangeConfig, key_source: Box<dyn KeySource>, event_path: Option<&Path>) -> Self {
-        Self { config, keys: None, key_source, connections: HashMap::new(), events: EventLog::new(event_path), hooks: Box::new(bringup::DefaultHooks), start: 0.0 }
+        Self { config, keys: None, key_source, connections: HashMap::new(), events: EventLog::new(event_path), hooks: Box::new(bringup::DefaultHooks), live: Box::new(NoLiveClient), start: 0.0 }
     }
 
     /// handles one datagram at monotonic time `now` (seconds).
@@ -228,7 +232,7 @@ impl RangeServer {
                     reply.event.set("server_sequence", server_sequence);
                     reply.conn.last_session_ack = Some(now);
                     bringup::run_stage_chain(&mut reply, &self.config, self.hooks.as_mut());
-                    moves::run_move_ack(&mut reply, &self.config);
+                    moves::run_move_ack(&mut reply, &self.config, self.live.as_mut());
                 }
                 Err(error) => reply.event.set("session_ack_error", error.to_string()),
             }
