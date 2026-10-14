@@ -2,6 +2,7 @@
 //! drives the range game mode for the pinned 13.06 client.
 //!
 //! usage: aries-server [--config aries-server.toml] [--port 58100] [--pid N --image-base 0x..]
+//!                     [--skin-catalog skin_catalog.json --skin-state skins.json]
 
 mod console;
 mod keys;

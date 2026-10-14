@@ -86,6 +86,13 @@ impl Settings {
         };
         anchor(&mut range.skin_catalog);
         anchor(&mut range.skin_state);
+        // the loader passes the platform's own skin files (cwd-relative, like --config)
+        if let Some(path) = value("--skin-catalog") {
+            range.skin_catalog = PathBuf::from(path);
+        }
+        if let Some(path) = value("--skin-state") {
+            range.skin_state = PathBuf::from(path);
+        }
         if let Some(queue) = range.command_queue.as_mut() {
             anchor(queue);
         }

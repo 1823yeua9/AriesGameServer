@@ -36,6 +36,11 @@ see `docs/port/10_interp_source_sdk.md` 4.13).
 | `gameplay_path` | `server/target/release/aries-server.exe` |
 | `gameplay_config` | `server/aries-server.toml` |
 
+The loader should also pass `--skin-catalog` and `--skin-state` with the same files it
+gives the platform (`runtime/account/skins.json`), so bought guns and the starting
+Classic/knife open with the skins the player equipped through the platform. Without them
+the server reads the paths in `aries-server.toml` (the python's `local_backend` files).
+
 Start it after the game process exists (it needs the pid for the key scan); it retries
 the key scan in the background until the client's handler exists, and drops game
 packets until then (the python's `not_ready`).
