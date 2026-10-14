@@ -40,6 +40,8 @@ fn main() {
     };
     info!("client pid {} image base {:#x}", client.pid, client.image_base);
 
+    // python's clock starts just before the bind (elapsed_seconds, ruh:1409)
+    let start = Instant::now();
     let socket = match UdpSocket::bind(&settings.bind) {
         Ok(socket) => socket,
         Err(e) => {
@@ -50,7 +52,7 @@ fn main() {
     };
     socket.set_nonblocking(true).expect("non-blocking socket");
 
-    let key_source = keys::BackgroundKeys::start(client.pid, client.image_base);
+    let key_source = keys::BackgroundKeys::start(client.pid, client.image_base, start);
     let events = settings.log_dir.join(format!("aries_events_{pid_tag}.jsonl"));
     let mut server = RangeServer::new(settings.range.clone(), Box::new(key_source), Some(&events));
     server.live = Box::new(live::OracleLive::new(client.pid, client.image_base));
@@ -62,7 +64,6 @@ fn main() {
     }
 
     let mut clock = tick::TickClock::new(tick::TICK_RATE);
-    let start = Instant::now();
     let mut last_report = Instant::now();
     let mut buffer = vec![0u8; 4096];
     let mut outbox = Outbox::default();

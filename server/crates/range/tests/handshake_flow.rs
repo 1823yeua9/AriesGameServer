@@ -237,38 +237,48 @@ fn move_acks_follow_client_restart() {
     }));
 }
 
-/// keys that appear only after a few tries (the handler scan still running).
-struct LateKeys(u32);
+/// keys that appear only after a few tries; `failed_scan` is when the last
+/// failed scan started (server seconds).
+struct LateKeys {
+    tries: u32,
+    failed_scan: Option<f64>,
+}
 
 impl aries_range::KeySource for LateKeys {
     fn read_keys(&mut self) -> Result<aries_range::SessionKeys, String> {
-        if self.0 > 0 {
-            self.0 -= 1;
+        if self.tries > 0 {
+            self.tries -= 1;
             return Err("ares handler keys not read yet".into());
         }
         FixedKeys.read_keys()
     }
+
+    fn failed_scan_since(&mut self, since: f64) -> Option<String> {
+        self.failed_scan.filter(|started| *started >= since).map(|_| "no ares handler".to_string())
+    }
 }
 
-/// python blocked on the key scan and then handled the datagram; datagrams
-/// that arrive during the scan are held and replayed, old ones dropped.
+/// python scanned on the receive loop and then handled the datagram; a held
+/// datagram waits for the keys and is dropped (not_ready) only when a scan
+/// that started after it arrived fails.
 #[test]
 fn datagrams_wait_for_the_key_scan() {
     let source: SocketAddr = "127.0.0.1:50509".parse().unwrap();
-    let mut server = RangeServer::new(RangeConfig::default(), Box::new(LateKeys(2)), None);
+    // a scan that failed before the datagram arrived does not drop it
+    let mut server = RangeServer::new(RangeConfig::default(), Box::new(LateKeys { tries: 2, failed_scan: Some(9.0) }), None);
     let mut out = Outbox::default();
     server.handle_datagram(10.0, source, &initial_datagram(), &mut out);
     assert!(out.datagrams.is_empty(), "held while the scan runs");
-    server.tick(1, 10.05, &mut out);
+    server.tick(1, 13.0, &mut out);
     assert!(out.datagrams.is_empty());
-    server.tick(2, 10.1, &mut out);
-    assert_eq!(out.datagrams.len(), 1, "the held initial packet gets its challenge");
+    server.tick(2, 14.0, &mut out);
+    assert_eq!(out.datagrams.len(), 1, "the held initial packet gets its challenge, however long the scan took");
 
-    // held past the limit: dropped like a failed scan; a fresh datagram still works
-    let mut server = RangeServer::new(RangeConfig::default(), Box::new(LateKeys(2)), None);
+    // a scan that started after it and failed drops it; a fresh datagram still works
+    let mut server = RangeServer::new(RangeConfig::default(), Box::new(LateKeys { tries: 2, failed_scan: Some(10.5) }), None);
     let mut out = Outbox::default();
     server.handle_datagram(10.0, source, &initial_datagram(), &mut out);
-    server.tick(1, 12.5, &mut out);
+    server.tick(1, 10.6, &mut out);
     assert!(out.datagrams.is_empty());
     server.handle_datagram(12.6, source, &initial_datagram(), &mut out);
     assert_eq!(out.datagrams.len(), 1, "only the fresh packet is answered");

@@ -44,6 +44,11 @@ pub struct SessionKeys {
 /// where keys come from (the oracle's handler scan in production).
 pub trait KeySource {
     fn read_keys(&mut self) -> Result<SessionKeys, String>;
+    /// the newest failed scan that started at or after `since` (server
+    /// seconds): python dropped a datagram only when its own scan failed
+    fn failed_scan_since(&mut self, _since: f64) -> Option<String> {
+        None
+    }
 }
 
 struct Keys {
@@ -68,9 +73,7 @@ pub struct RangeServer {
     first_offsets: conn::FirstOffsets,
 }
 
-/// python handled a datagram after a scan that succeeded; one held longer than
-/// this is dropped as not_ready, like a scan that failed.
-pub const HOLD_FOR_KEYS: f64 = 2.0;
+/// a bound on held datagrams (the oldest goes first); python's socket buffer.
 pub const HOLD_LIMIT: usize = 512;
 
 /// python handler_elapsed_ms threshold.
@@ -116,26 +119,27 @@ impl RangeServer {
         if self.keys.is_some() {
             return true;
         }
-        let error = match self.key_source.read_keys() {
-            Ok(keys) => {
-                log::info!(target: "range", "session keys read from the live client");
-                self.keys = Some(Keys { client: AresGcm::new(&keys.client_send), server: AresGcm::new(&keys.server_send) });
-                for (_, source, datagram) in std::mem::take(&mut self.held) {
-                    self.handle_keyed(now, source, &datagram, out);
-                }
-                return true;
+        if let Ok(keys) = self.key_source.read_keys() {
+            log::info!(target: "range", "session keys read from the live client");
+            self.keys = Some(Keys { client: AresGcm::new(&keys.client_send), server: AresGcm::new(&keys.server_send) });
+            for (_, source, datagram) in std::mem::take(&mut self.held) {
+                self.handle_keyed(now, source, &datagram, out);
             }
-            Err(error) => error,
-        };
-        // held too long: the python's failed scan (not_ready, dropped)
-        while self.held.front().is_some_and(|(t, _, _)| now - t >= HOLD_FOR_KEYS) {
+            return true;
+        }
+        // a scan that started after a datagram arrived and failed drops it
+        // (python's not_ready); the rest keep waiting for the keys
+        while let Some(&(arrived, _, _)) = self.held.front() {
+            let Some(error) = self.key_source.failed_scan_since(arrived) else {
+                break;
+            };
             let (_, source, datagram) = self.held.pop_front().expect("front checked");
             let mut event = Event::default();
             event.set("elapsed_seconds", (now * 1000.0).round() / 1000.0);
             event.set("source_port", source.port());
             event.set("length", datagram.len());
             event.set("handler_state", "not_ready");
-            event.set("handler_error", error.as_str());
+            event.set("handler_error", error);
             self.events.record(event);
         }
         false
