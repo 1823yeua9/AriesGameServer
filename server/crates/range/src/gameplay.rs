@@ -56,7 +56,7 @@ fn view_camera(camera: &crate::live::Camera) -> ViewCamera {
 pub fn apply(reply: &mut Reply, sends: Vec<ChannelSend>) -> Result<(), String> {
     for send in sends {
         if send.is_open {
-            reply.conn.register_dynamic_channel(send.channel);
+            reply.register_dynamic_channel(send.channel);
         }
         reply.send_reliable(send.channel, &send.body, send.has_exports, send.is_open, send.is_close).map_err(|e| e.to_string())?;
     }
@@ -144,20 +144,38 @@ pub fn bot_tick(reply: &mut Reply, env: &mut Env) {
     }
 }
 
-/// the command queue's {"spawn_bot": [x, y, z]} (python 1958-1971): a bot at an
-/// exact spot; the yaw keeps the random placement (05 quirk 12).
-pub fn spawn_bot_at(reply: &mut Reply, env: &Env, location: [f64; 3]) -> Result<(), String> {
+/// the command queue's {"spawn_bot": [x, y, z]} (python 1958-1971), in its
+/// order: allocate (placement draws and yaw), coerce with float(), append the
+/// bot, then open it. a failed coercion leaves the allocation spent and no
+/// bot; a bad length leaves an unopened bot, as python's raise does.
+pub fn spawn_bot_from_command(reply: &mut Reply, env: &Env, spot: &serde_json::Value) -> Result<(), String> {
     let count = env.config.bot_count;
     let system = reply.conn.authority.bots.get_or_insert_with(|| BotSystem::new(count, &env.config.lagcomp));
-    let tick = system.field.spawn_at(location);
-    apply(reply, tick.sends)?;
-    for (channel, actor_guid, location) in tick.spawned {
-        reply.event.push("bot_spawned", json!([channel, actor_guid, location]));
+    let index = system.field.bots.len() as i64;
+    let mut bot = system.field.allocate(index).map_err(|e| e.to_string())?;
+    let coords = crate::py::py_iter(spot)?.iter().map(crate::py::py_float).collect::<Result<Vec<f64>, _>>()?;
+    let location = <[f64; 3]>::try_from(coords.as_slice()).ok();
+    if let Some(location) = location {
+        bot.location = location;
     }
-    match tick.error {
-        Some(error) => Err(error.to_string()),
-        None => Ok(()),
+    let channel = bot.channel;
+    system.field.bots.push(bot);
+    reply.register_dynamic_channel(channel);
+    if location.is_none() {
+        return Err(format!("ValueError: expected 3 values to unpack, got {}", coords.len()));
     }
+    let system = reply.conn.authority.bots.as_mut().expect("made above");
+    let bot = system.field.bots.last().expect("pushed above");
+    let open = aries_world::bots::build_bot_open(bot).map_err(|e| e.to_string())?;
+    let health = aries_world::bots::build_bot_health_body(bot, true).map_err(|e| e.to_string())?;
+    let (actor_guid, location) = (bot.actor_guid, bot.location.map(py_round));
+    reply.send_reliable(channel, &open, true, true, false).map_err(|e| e.to_string())?;
+    reply.send_reliable(channel, &health, true, false, false).map_err(|e| e.to_string())?;
+    if let Some(bot) = reply.conn.authority.bots.as_mut().and_then(|s| s.field.bots.last_mut()) {
+        bot.opened = true;
+    }
+    reply.event.push("bot_spawned", json!([channel, actor_guid, location]));
+    Ok(())
 }
 
 // ---------------------------------------------------------------- cloudburst

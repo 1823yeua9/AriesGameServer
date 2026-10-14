@@ -14,6 +14,7 @@ pub mod live;
 pub mod mirror;
 pub mod moves;
 pub mod purchases;
+pub mod py;
 pub mod send;
 
 use std::collections::{HashMap, VecDeque};
@@ -63,6 +64,8 @@ pub struct RangeServer {
     /// datagrams that arrived while the key scan ran (python blocked on the
     /// scan, then handled them): replayed in order once the keys are read
     held: VecDeque<(f64, SocketAddr, Vec<u8>)>,
+    /// python channel_first_dynamic_offset (global, 05 quirk 10)
+    first_offsets: conn::FirstOffsets,
 }
 
 /// python handled a datagram after a scan that succeeded; one held longer than
@@ -88,6 +91,7 @@ impl RangeServer {
             live: Box::new(NoLiveClient),
             skins,
             held: VecDeque::new(),
+            first_offsets: conn::first_offsets(),
         }
     }
 
@@ -218,7 +222,7 @@ impl RangeServer {
         };
         let ack_mask = conn.record_client_sequence(header.sequence);
         conn.rtt.acked(header.acked, now);
-        let mut reply = Reply { conn, gcm: &keys.server, out, event, now, client_sequence: header.sequence, ack_mask, stateless_header: packet.stateless_header };
+        let mut reply = Reply { conn, first_offsets: &mut self.first_offsets, gcm: &keys.server, out, event, now, client_sequence: header.sequence, ack_mask, stateless_header: packet.stateless_header };
 
         if self.config.features.retransmit && reply.conn.challenge_sent {
             reply.resend_lost(header.acked, header.history);

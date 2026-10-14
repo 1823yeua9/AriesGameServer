@@ -10,7 +10,7 @@ use aries_net::frame::ACTOR_CHANNEL_NAME;
 use aries_net::reliable::ReliableBunch;
 use aries_net::{AresGcm, BunchHeader, FrameError, PacketInfo, build_server_frame, seal_packet};
 
-use crate::conn::Connection;
+use crate::conn::{Connection, FirstOffsets};
 use crate::event::Event;
 
 /// datagrams waiting to go out this tick.
@@ -29,6 +29,8 @@ pub enum SendError {
 
 pub struct Reply<'a> {
     pub conn: &'a mut Connection,
+    /// python channel_first_dynamic_offset, shared by every connection
+    pub first_offsets: &'a mut FirstOffsets,
     pub gcm: &'a AresGcm,
     pub out: &'a mut Outbox,
     pub event: &'a mut Event,
@@ -92,9 +94,25 @@ impl Reply<'_> {
         self.send_bunch(&header, body)
     }
 
+    /// a fresh dynamic channel (purchases, bots, projectiles): python
+    /// channel_first_dynamic_offset[ch] = 0.
+    pub fn register_dynamic_channel(&mut self, channel: u32) {
+        self.first_offsets.insert(channel, 0);
+    }
+
+    /// python take_channel_sequence (the reliable send takes it first).
+    pub fn take_channel_sequence(&mut self, channel: u32) -> Result<u32, SendError> {
+        self.conn.take_channel_sequence(channel, self.first_offsets).ok_or(SendError::UnregisteredChannel(channel))
+    }
+
     /// python send_reliable: next dynamic sequence on the channel.
     pub fn send_reliable(&mut self, channel: u32, body: &Bits, has_exports: bool, is_open: bool, is_close: bool) -> Result<usize, SendError> {
-        let sequence = self.conn.take_channel_sequence(channel).ok_or(SendError::UnregisteredChannel(channel))?;
+        let sequence = self.take_channel_sequence(channel)?;
+        self.send_with_sequence(channel, sequence, body, has_exports, is_open, is_close)
+    }
+
+    /// a reliable bunch on a sequence already taken.
+    pub fn send_with_sequence(&mut self, channel: u32, sequence: u32, body: &Bits, has_exports: bool, is_open: bool, is_close: bool) -> Result<usize, SendError> {
         let header = BunchHeader {
             channel_index: channel,
             channel_name_index: ACTOR_CHANNEL_NAME,

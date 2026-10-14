@@ -15,6 +15,14 @@ pub const RECENT_SEQUENCES: usize = 64;
 
 /// first dynamic reliable offset per fixed channel = how many fixed bring-up
 /// bunches that channel carries (python channel_first_dynamic_offset, production values).
+/// python channel_first_dynamic_offset: one table for the whole server (05
+/// quirk 10), seeded with the fixed channels' first dynamic offsets.
+pub type FirstOffsets = HashMap<u32, u32>;
+
+pub fn first_offsets() -> FirstOffsets {
+    FIRST_DYNAMIC_OFFSETS.into_iter().collect()
+}
+
 pub const FIRST_DYNAMIC_OFFSETS: [(u32, u32); 12] =
     [(4, 8), (5, 6), (6, 11), (8, 51), (9, 5), (12, 2), (13, 5), (14, 2), (15, 2), (16, 2), (17, 2), (18, 2)];
 
@@ -35,8 +43,6 @@ pub struct Connection {
     pub last_session_ack: Option<f64>,
     /// next dynamic reliable offset per channel (python channel_next_offset)
     pub channel_next_offset: HashMap<u32, u32>,
-    /// first dynamic offset per channel; dynamic channels register 0 before their open
-    pub channel_first_offset: HashMap<u32, u32>,
     pub bringup: BringupState,
     /// python auth_correct_rep_index: bring-up sends 1..5, purchases and the input-correction responder continue it
     pub correction_index: u32,
@@ -73,7 +79,6 @@ impl Connection {
             recent_client_sequences: VecDeque::with_capacity(RECENT_SEQUENCES),
             last_session_ack: None,
             channel_next_offset: HashMap::new(),
-            channel_first_offset: FIRST_DYNAMIC_OFFSETS.into_iter().collect(),
             bringup: BringupState::default(),
             correction_index: 0,
             reliable: ReliableTracker::default(),
@@ -95,20 +100,17 @@ impl Connection {
         mask
     }
 
-    /// python take_channel_sequence. none when the channel was never registered (python KeyError).
-    pub fn take_channel_sequence(&mut self, channel: u32) -> Option<u32> {
+    /// python take_channel_sequence: this connection's next offset, else the
+    /// server-wide first offset. none when never registered (python KeyError).
+    pub fn take_channel_sequence(&mut self, channel: u32, first_offsets: &FirstOffsets) -> Option<u32> {
         let offset = match self.channel_next_offset.get(&channel) {
             Some(&offset) => offset,
-            None => *self.channel_first_offset.get(&channel)?,
+            None => *first_offsets.get(&channel)?,
         };
         self.channel_next_offset.insert(channel, offset + 1);
         Some((self.base_sequence + offset) & 0xFFF)
     }
 
-    /// a fresh dynamic channel (purchases, bots, projectiles): first reliable offset 0.
-    pub fn register_dynamic_channel(&mut self, channel: u32) {
-        self.channel_first_offset.insert(channel, 0);
-    }
 
     /// (B + offset) & 0xfff for the fixed bring-up stages.
     pub fn fixed_sequence(&self, offset: u32) -> u32 {

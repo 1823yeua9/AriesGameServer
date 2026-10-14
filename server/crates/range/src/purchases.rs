@@ -146,7 +146,7 @@ fn send(reply: &mut Reply, channel: u32, body: aries_rep::RepResult<Bits>, expor
 fn advance_armor(reply: &mut Reply, job: &mut PurchaseJob, load: &ItemLoad) -> Result<(), String> {
     match job.stage {
         0 => {
-            reply.conn.register_dynamic_channel(load.channel);
+            reply.register_dynamic_channel(load.channel);
             send(reply, load.channel, item_open_body(load), true, true)?;
             send(reply, load.channel, aries_rep::bodies::channel_actor_owner_block(load.actor_guid, PAWN_ACTOR_GUID), false, false)?;
         }
@@ -188,7 +188,7 @@ fn advance_gun(reply: &mut Reply, env: &mut Env, job: &mut PurchaseJob) -> Resul
                 job.next = now + ATTACHMENT_DELAY;
                 return Ok(());
             }
-            reply.conn.register_dynamic_channel(load.channel);
+            reply.register_dynamic_channel(load.channel);
             // saved skin, else the standard skin (sights need the first-person mesh), else none
             let inventory = env.skins.get();
             let saved = inventory.as_ref().map_err(Clone::clone).and_then(|inventory| select_saved_cdo_paths(inventory, load.item.weapon_id));

@@ -227,15 +227,27 @@ fn command_queue_matches_python() {
     std::fs::write(queue.join("B.JSON"), r#"{"spawn_bot": ["5000", 1300, -14000.5]}"#).unwrap();
     std::fs::write(queue.join("c.json"), "{not json").unwrap();
     std::fs::write(queue.join("d.json"), r#"{"channel": 6, "body_hex": "abc", "bits": 12}"#).unwrap();
+    // python os.unlink refuses a read-only file: error, the file stays, nothing sent
+    std::fs::write(queue.join("e.json"), r#"{"channel": 6, "body_hex": "ef", "bits": 8}"#).unwrap();
+    let mut readonly = std::fs::metadata(queue.join("e.json")).unwrap().permissions();
+    readonly.set_readonly(true);
+    std::fs::set_permissions(queue.join("e.json"), readonly).unwrap();
+    // python iterates a string: "123" spawns at (1, 2, 3)
+    std::fs::write(queue.join("f.json"), r#"{"spawn_bot": "123"}"#).unwrap();
     h.now += 0.3;
     let (sent, event) = h.send_captured("trailer_overrun_1");
     assert_eq!(event["sent_queued_commands"], serde_json::json!([["a.json", "6", "16"]]));
     let errors = event["queued_command_errors"].as_array().unwrap();
-    assert_eq!(errors.iter().map(|e| e[0].as_str().unwrap()).collect::<Vec<_>>(), ["c.json", "d.json"]);
+    assert_eq!(errors.iter().map(|e| e[0].as_str().unwrap()).collect::<Vec<_>>(), ["c.json", "d.json", "e.json"]);
     assert_eq!(event["bot_spawned"][0][2], serde_json::json!([5000, 1300, -14000]));
+    assert_eq!(event["bot_spawned"][1][2], serde_json::json!([1, 2, 3]));
     assert!(sent.iter().any(|(channel, reliable, body)| *channel == 6 && *reliable && body.bytes == [0xAB, 0xCD]));
     // a file that does not parse stays; the others are gone
     let left: Vec<_> = std::fs::read_dir(&queue).unwrap().flatten().map(|e| e.file_name().to_string_lossy().into_owned()).collect();
-    assert_eq!(left, ["c.json"]);
+    assert_eq!(left, ["c.json", "e.json"]);
+    let mut writable = std::fs::metadata(queue.join("e.json")).unwrap().permissions();
+    #[allow(clippy::permissions_set_readonly_false)]
+    writable.set_readonly(false);
+    std::fs::set_permissions(queue.join("e.json"), writable).unwrap();
     let _ = std::fs::remove_dir_all(&queue);
 }
