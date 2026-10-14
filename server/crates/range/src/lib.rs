@@ -4,6 +4,7 @@
 
 pub mod authority;
 pub mod bringup;
+pub mod capture;
 pub mod config;
 pub mod conn;
 pub mod event;
@@ -164,12 +165,7 @@ impl RangeServer {
         event.set("stateless_header", packet.stateless_header);
         event.set("payload_bits", decoded.bit_count);
         let first_bunch = inspect_first_bunch(decoded);
-        if let Some(info) = &first_bunch {
-            event.set("channel_index", info.channel_index);
-            if let Some(kind) = info.control_message_type {
-                event.set("control_message_type", kind);
-            }
-        }
+        inspection_event(event, decoded, first_bunch.as_ref());
 
         let Some(conn) = self.connections.get_mut(&source) else {
             // a client of another responder instance: decoded, logged, never answered
@@ -187,6 +183,10 @@ impl RangeServer {
         if reply.conn.bringup.sent(bringup::Stage::ClientRestart) {
             let mut env = authority::Env { config: &self.config, live: self.live.as_mut(), skins: &mut self.skins };
             authority::run_authority(&mut reply, &mut env, decoded);
+        }
+        if reply.conn.bringup.sent(bringup::Stage::PawnRole) {
+            let elapsed = reply.event.get("elapsed_seconds").and_then(|v| v.as_f64()).unwrap_or(0.0);
+            capture::run_capture(&mut reply, decoded, first_bunch.as_ref(), elapsed);
         }
 
         let message_type = first_bunch.as_ref().and_then(|b| b.control_message_type);
@@ -263,6 +263,43 @@ impl RangeServer {
     pub fn flush(&mut self) {
         self.events.flush();
     }
+}
+
+/// python inspect_client_ares_packet's keys (range_udp_handshake.py:526-551).
+fn inspection_event(event: &mut Event, decoded: &Bits, info: Option<&aries_net::control::BunchInfo>) {
+    let bytes = aries_rep::decode::with_client_trailer(decoded).bytes;
+    event.set("ciphertext_length", bytes.len());
+    event.set("control_prefix_hex", bytes.iter().take(12).map(|b| format!("{b:02x}")).collect::<String>());
+    if decoded.bit_count < 128 {
+        return;
+    }
+    let Some(info) = info else {
+        event.set("bunch_parse_error", "control header exceeds packet");
+        return;
+    };
+    event.set("bunch_start_bit", info.bunch_start_bit);
+    if info.is_close {
+        event.set("bunch_is_close", true);
+        return;
+    }
+    event.set("bunch_header_end_bit", info.header_end_bit);
+    event.set("bunch_is_control", info.is_control);
+    event.set("bunch_is_open", info.is_open);
+    event.set("bunch_replication_paused", info.replication_paused);
+    event.set("bunch_reliable", info.reliable);
+    event.set("channel_index", info.channel_index);
+    event.set("has_exports", info.has_exports);
+    event.set("has_must_map", info.has_must_map);
+    event.set("bunch_partial", info.partial);
+    event.set("header_flag_4", info.header_flag_4);
+    event.set("channel_sequence", info.channel_sequence);
+    event.set("channel_sequence_start_bit", info.channel_sequence_start_bit);
+    event.set("hardcoded_name", info.hardcoded_name);
+    event.set("channel_name_index", info.channel_name_index);
+    event.set("bunch_bit_count", info.bunch_bit_count);
+    event.set("bunch_body_start_bit", info.body_start_bit);
+    event.set("bunch_end_bit", info.end_bit);
+    event.set("control_message_type", info.control_message_type);
 }
 
 fn seal(packet: &Bits, stateless_header: u32, gcm: &AresGcm) -> Vec<u8> {

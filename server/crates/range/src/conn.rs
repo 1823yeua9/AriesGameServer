@@ -46,6 +46,8 @@ pub struct Connection {
     pub moves: MoveAckState,
     /// the per-packet authority features
     pub authority: AuthorityState,
+    /// diagnostic packet capture
+    pub capture: crate::capture::CaptureState,
 }
 
 impl Connection {
@@ -68,6 +70,7 @@ impl Connection {
             reliable: ReliableTracker::default(),
             moves: MoveAckState::default(),
             authority: AuthorityState::default(),
+            capture: Default::default(),
         }
     }
 
