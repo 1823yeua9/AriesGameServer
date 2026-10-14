@@ -323,9 +323,12 @@ def section_primitives():
         out["header_packed"].append({**base, **attempt(header)})
 
     sint_inputs = []
-    for value, maximum in ((156, 179), (157, 179), (161, 179), (170, 179), (172, 179), (176, 179), (177, 179),
-                           (70, 179), (83, 179), (92, 179), (154, 179), (0, 179), (1, 179), (178, 179),
-                           (51, 53), (25, 53), (41, 53), (52, 53), (0, 2), (1, 2), (0, 1), (3, 5), (4, 5),
+    # spec 06 13.1: controller fields with max 179 (class max 178 + 1) and pawn fields with max 54
+    # (class max 53 + 1); 21 is 5 bits under 53 but 6 under 54, so both are kept
+    for value, maximum in ((156, 179), (157, 179), (161, 179), (170, 179), (172, 179), (173, 179), (174, 179),
+                           (175, 179), (176, 179), (177, 179), (70, 179), (83, 179), (92, 179), (154, 179),
+                           (0, 179), (1, 179), (178, 179), (51, 54), (25, 54), (41, 54), (21, 54), (53, 54),
+                           (51, 53), (25, 53), (41, 53), (21, 53), (52, 53), (0, 2), (1, 2), (0, 1), (3, 5), (4, 5),
                            (65535, 65536), (2 ** 32 - 1, 2 ** 32)):
         w = writer()
         w.append_bits(1, 2)
@@ -334,6 +337,13 @@ def section_primitives():
         data, bits = pair(w)
         sint_inputs.append((data, 2, bits, maximum))
         sint_inputs.append((data, 2, 4, maximum))
+    # spec 06 13.1 decoder case: bits 1,0,1,0,1,1 read as 53 (6 bits) with max 54, 21 (5 bits) with max 53
+    w = writer()
+    for bit in (1, 0, 1, 0, 1, 1, 0, 1):
+        w.append_bits(bit, 1)
+    data, bits = pair(w)
+    for maximum in (53, 54, 179):
+        sint_inputs.append((data, 0, bits, maximum))
     for maximum in (0, 1, 2, 3, 5, 53, 54, 179, 180, 256, 257, 65536, 2 ** 32, 2 ** 32 + 1, 2 ** 40):
         for _ in range(3):
             data = random_bytes(rng, 64, clear_tail=False)
@@ -532,6 +542,11 @@ def section_inputs():
         for at in range(0, len(suffix), 2):
             w.append_bits(suffix[at], suffix[at + 1])
         scan(f"test_empty_or_unknown_{index}", *pair(w))
+    # spec 06 13.7 F, verbatim: the rejects, the real count-0 case and the minimal accepted stream
+    for index, (text, bits) in enumerate((("a300", 9), ("a3010000000400", 49), ("a30f000000043e", 55),
+                                          ("a3c900000004460100", 65), ("a3c9000000000000", 57),
+                                          ("187d000000205002", 59))):
+        scan(f"spec_13_7_f_{index}", bytes.fromhex(text), bits)
     widths = {0: 37, 1: 11, 2: 1, 3: 2, 5: 48, 6: 32, 7: 32, 9: 40, 10: 9, 11: 8, 12: 32}
     for kind in range(16):
         value = rng.getrandbits(widths.get(kind, 0)) if kind in widths else (rng.getrandbits(12) if kind in (4, 8) else 0)
@@ -678,7 +693,8 @@ def packet_case(name, data, bit_count):
         else:
             entry["block"] = block_dict(block)
             if not block.has_rep_layout:
-                field_max = 179 if bunch.channel_index == 5 else 53
+                # SerializeInt(field, class max + 1): controller 178 + 1, pawn 53 + 1 (spec 06 5.4)
+                field_max = 179 if bunch.channel_index == 5 else 54
 
                 def header():
                     reader = _Reader(block.payload, 0, block.bit_count)
@@ -699,18 +715,22 @@ def packet_case(name, data, bit_count):
         info = inspect_control_bunch(data, bit_count)
     except ValueError as error:
         info = {"inspect_error": str(error)}
-    # the first-bunch header fields python's Bunch does not keep, for the BunchView extras.
-    # false / None values are left out to keep the file small (the rust test reads them as such)
-    keep = ("inspect_error", "bunch_start_bit", "bunch_is_close", "bunch_is_open", "bunch_replication_paused",
-            "has_exports", "has_must_map", "header_flag_4", "hardcoded_name", "channel_name_index",
-            "bunch_body_start_bit", "bunch_end_bit")
-    case["inspect"] = {key: info[key] for key in keep if info.get(key) not in (None, False)}
+    # the first bunch as the packet inspector reads it: the BunchView extras python's Bunch does
+    # not keep, and what net's inspect_first_bunch must agree on for the input ack.
+    # false / None values are left out to keep the file small (the rust test reads them as such);
+    # `is` so a 0 (channel 0, name index 0, nmt type 0) is kept
+    keep = ("inspect_error", "bunch_start_bit", "bunch_is_close", "bunch_is_control", "bunch_is_open",
+            "bunch_replication_paused", "bunch_reliable", "channel_index", "has_exports", "has_must_map",
+            "bunch_partial", "header_flag_4", "channel_sequence", "hardcoded_name", "channel_name_index",
+            "bunch_bit_count", "bunch_body_start_bit", "bunch_end_bit", "control_message_type")
+    case["inspect"] = {key: info[key] for key in keep if info.get(key) is not None and info.get(key) is not False}
     if "bunch_body_start_bit" in info:
         bounds = (info["bunch_body_start_bit"], info["bunch_end_bit"])
         # same bounds as the walk's first bunch: its "inputs" already holds this result
         if not bunches or (bunches[0].body_start_bit, bunches[0].end_bit) != bounds:
             case["first_inputs"] = attempt(lambda: [stream_dict(s) for s in decode_received_actor_inputs(
                 data, *bounds)])
+            case["first_block"] = attempt(lambda: block_dict(read_actor_content_block(data, *bounds)))
     return case
 
 
@@ -901,7 +921,7 @@ def synthetic_packets():
                                   settings(177, settings_params([(0, 1), (0, 1), (1, 1)]), 57)])
 
     # walk edges
-    movement = actor_block(rpc_payload(51, settings_params([(rng.getrandbits(30), 30)] * 4), field_max=53), 10)
+    movement = actor_block(rpc_payload(51, settings_params([(rng.getrandbits(30), 30)] * 4), field_max=54), 10)
     add("close_stops_walk", [purchase(156, purchase_params(items["mapped"]), 60, name=102),
                              ((b"", 0), {"control": True, "close": True}),
                              purchase(156, purchase_params(items["mapped"]), 61, name=102)])
@@ -925,7 +945,7 @@ def synthetic_packets():
         events = [(rng.choice((1, 4, 5, 7)), 0) for _ in range(rng.randrange(1, 5))]
         events = [(kind, rng.getrandbits({1: 11, 5: 48, 7: 32}[kind]) if kind != 4 else rng.randrange(300)) for kind, _ in events]
         payload = writer()
-        payload.append_serialize_int(51, 53)
+        payload.append_serialize_int(51, 54)
         params = writer()
         params.append_bits(rng.getrandbits(40), 40)
         stream_bits(params, rng.randrange(20000), events)
@@ -936,6 +956,32 @@ def synthetic_packets():
         block = actor_block(pair(payload), 10)
         add(f"ch8_stream_{index}", [(block, {"reliable": False, "channel": 8})] +
             ([purchase(156, purchase_params(items["guid_outer"]), 80 + index, name=102)] if index % 2 else []))
+    # a first ch8 bunch whose declared end lies past P but inside the last byte: iter_bunches drops it,
+    # inspect_control_bunch keeps it, and the input ack's content block reads the client's 0xcc
+    # trailer bits (spec 06 2.4, 8.5). the last byte carries the trailer the way the client sends it
+    for overrun in range(1, 8):
+        events = [(1, rng.getrandbits(11)), (7, rng.getrandbits(32))]
+        for pad in range(8):
+            payload = writer()
+            payload.append_serialize_int(51, 54)
+            params = writer()
+            params.append_bits(rng.getrandbits(40), 40)
+            stream_bits(params, 500 + overrun, events)
+            params.append_bits(0, 6 + pad)
+            params_data, params_bits = pair(params)
+            payload.append_packed_uint(params_bits)
+            payload.append_payload(params_data, params_bits)
+            data, bits = client_packet([(actor_block(pair(payload), 10), {"reliable": False, "channel": 8})],
+                                       terminator=False)
+            cut = bits - overrun
+            if cut % 8 and bits <= (cut + 7) // 8 * 8:
+                break
+        else:
+            raise ValueError(f"no padding puts a {overrun}-bit overrun inside the last byte")
+        tail = cut % 8
+        data = bytearray(data[:(cut + 7) // 8])
+        data[-1] = (data[-1] & ((1 << tail) - 1)) | ((0xCC << tail) & 0xFF)
+        out.append((f"trailer_overrun_{overrun}", bytes(data), cut))
     header, header_bits = client_packet([], terminator=False)
     out.append(("too_short_63", header[:8], 63))
     out.append(("too_short_64", header[:8], 64))
@@ -978,6 +1024,13 @@ def section_packets():
             ("join", "0000000000000000ff3701a02cfe0b8081040000000000000000000080", 232),
             ("ack_only", "d036676500000000059a", 77)):
         packets.append((name, bytes.fromhex(data_hex), bits))
+    # spec 06 13.4 header misparse vectors: only the 12-byte control_prefix_hex was logged, so the
+    # rest is zero. history count 1 reads as a close bunch at 76 (the prefix decides it); bit 64 = 0
+    # puts the bunch at 66 (python consumes bit 75 anyway)
+    for name, prefix_hex, bits in (("history_count_1_prefix", "e1c19270ffffffffffffffff", 506),
+                                   ("bit64_zero_prefix", "c079ddb7ffffff01a840c96d", 1567)):
+        prefix = bytes.fromhex(prefix_hex)
+        packets.append((name, prefix + bytes((bits + 7) // 8 - len(prefix)), bits))
     for name, stem, elapsed in NAMED_CAPTURES:
         data_hex, bits = named[(stem, elapsed)]
         packets.append((name, bytes.fromhex(data_hex), bits))

@@ -2141,7 +2141,55 @@
    "error_type": "ValueError"
   },
   {
-   "hex": "c1aa00",
+   "hex": "b5aa00",
+   "offset": 2,
+   "limit": 17,
+   "maximum": 179,
+   "value": 173,
+   "end": 10
+  },
+  {
+   "hex": "b5aa00",
+   "offset": 2,
+   "limit": 4,
+   "maximum": 179,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "b93a00",
+   "offset": 2,
+   "limit": 17,
+   "maximum": 179,
+   "value": 174,
+   "end": 10
+  },
+  {
+   "hex": "b93a00",
+   "offset": 2,
+   "limit": 4,
+   "maximum": 179,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "bd4e01",
+   "offset": 2,
+   "limit": 17,
+   "maximum": 179,
+   "value": 175,
+   "end": 10
+  },
+  {
+   "hex": "bd4e01",
+   "offset": 2,
+   "limit": 4,
+   "maximum": 179,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "c19a01",
    "offset": 2,
    "limit": 17,
    "maximum": 179,
@@ -2149,7 +2197,7 @@
    "end": 10
   },
   {
-   "hex": "c1aa00",
+   "hex": "c19a01",
    "offset": 2,
    "limit": 4,
    "maximum": 179,
@@ -2157,7 +2205,7 @@
    "error_type": "ValueError"
   },
   {
-   "hex": "c53a00",
+   "hex": "c5ae00",
    "offset": 2,
    "limit": 17,
    "maximum": 179,
@@ -2165,7 +2213,7 @@
    "end": 10
   },
   {
-   "hex": "c53a00",
+   "hex": "c5ae00",
    "offset": 2,
    "limit": 4,
    "maximum": 179,
@@ -2173,7 +2221,7 @@
    "error_type": "ValueError"
   },
   {
-   "hex": "19a7",
+   "hex": "1975",
    "offset": 2,
    "limit": 16,
    "maximum": 179,
@@ -2181,7 +2229,7 @@
    "end": 9
   },
   {
-   "hex": "19a7",
+   "hex": "1975",
    "offset": 2,
    "limit": 4,
    "maximum": 179,
@@ -2189,7 +2237,7 @@
    "error_type": "ValueError"
   },
   {
-   "hex": "4dcd",
+   "hex": "4d45",
    "offset": 2,
    "limit": 16,
    "maximum": 179,
@@ -2197,7 +2245,7 @@
    "end": 9
   },
   {
-   "hex": "4dcd",
+   "hex": "4d45",
    "offset": 2,
    "limit": 4,
    "maximum": 179,
@@ -2205,7 +2253,7 @@
    "error_type": "ValueError"
   },
   {
-   "hex": "7157",
+   "hex": "716f",
    "offset": 2,
    "limit": 16,
    "maximum": 179,
@@ -2213,7 +2261,7 @@
    "end": 9
   },
   {
-   "hex": "7157",
+   "hex": "716f",
    "offset": 2,
    "limit": 4,
    "maximum": 179,
@@ -2221,7 +2269,7 @@
    "error_type": "ValueError"
   },
   {
-   "hex": "69ea00",
+   "hex": "696a01",
    "offset": 2,
    "limit": 17,
    "maximum": 179,
@@ -2229,7 +2277,7 @@
    "end": 10
   },
   {
-   "hex": "69ea00",
+   "hex": "696a01",
    "offset": 2,
    "limit": 4,
    "maximum": 179,
@@ -2237,7 +2285,7 @@
    "error_type": "ValueError"
   },
   {
-   "hex": "018800",
+   "hex": "016400",
    "offset": 2,
    "limit": 17,
    "maximum": 179,
@@ -2245,7 +2293,7 @@
    "end": 10
   },
   {
-   "hex": "018800",
+   "hex": "016400",
    "offset": 2,
    "limit": 4,
    "maximum": 179,
@@ -2253,7 +2301,7 @@
    "error_type": "ValueError"
   },
   {
-   "hex": "05dc00",
+   "hex": "05fc00",
    "offset": 2,
    "limit": 17,
    "maximum": 179,
@@ -2261,7 +2309,7 @@
    "end": 10
   },
   {
-   "hex": "05dc00",
+   "hex": "05fc00",
    "offset": 2,
    "limit": 4,
    "maximum": 179,
@@ -2269,7 +2317,7 @@
    "error_type": "ValueError"
   },
   {
-   "hex": "c96a01",
+   "hex": "c96601",
    "offset": 2,
    "limit": 17,
    "maximum": 179,
@@ -2277,7 +2325,7 @@
    "end": 10
   },
   {
-   "hex": "c96a01",
+   "hex": "c96601",
    "offset": 2,
    "limit": 4,
    "maximum": 179,
@@ -2285,7 +2333,87 @@
    "error_type": "ValueError"
   },
   {
-   "hex": "cd19",
+   "hex": "cd39",
+   "offset": 2,
+   "limit": 15,
+   "maximum": 54,
+   "value": 51,
+   "end": 8
+  },
+  {
+   "hex": "cd39",
+   "offset": 2,
+   "limit": 4,
+   "maximum": 54,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "e525",
+   "offset": 2,
+   "limit": 14,
+   "maximum": 54,
+   "value": 25,
+   "end": 7
+  },
+  {
+   "hex": "e525",
+   "offset": 2,
+   "limit": 4,
+   "maximum": 54,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "a508",
+   "offset": 2,
+   "limit": 15,
+   "maximum": 54,
+   "value": 41,
+   "end": 8
+  },
+  {
+   "hex": "a508",
+   "offset": 2,
+   "limit": 4,
+   "maximum": 54,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "5571",
+   "offset": 2,
+   "limit": 15,
+   "maximum": 54,
+   "value": 21,
+   "end": 8
+  },
+  {
+   "hex": "5571",
+   "offset": 2,
+   "limit": 4,
+   "maximum": 54,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "d552",
+   "offset": 2,
+   "limit": 15,
+   "maximum": 54,
+   "value": 53,
+   "end": 8
+  },
+  {
+   "hex": "d552",
+   "offset": 2,
+   "limit": 4,
+   "maximum": 54,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "cd22",
    "offset": 2,
    "limit": 15,
    "maximum": 53,
@@ -2293,7 +2421,7 @@
    "end": 8
   },
   {
-   "hex": "cd19",
+   "hex": "cd22",
    "offset": 2,
    "limit": 4,
    "maximum": 53,
@@ -2301,7 +2429,7 @@
    "error_type": "ValueError"
   },
   {
-   "hex": "e51f",
+   "hex": "6529",
    "offset": 2,
    "limit": 14,
    "maximum": 53,
@@ -2309,7 +2437,7 @@
    "end": 7
   },
   {
-   "hex": "e51f",
+   "hex": "6529",
    "offset": 2,
    "limit": 4,
    "maximum": 53,
@@ -2317,7 +2445,7 @@
    "error_type": "ValueError"
   },
   {
-   "hex": "a559",
+   "hex": "a513",
    "offset": 2,
    "limit": 15,
    "maximum": 53,
@@ -2325,7 +2453,7 @@
    "end": 8
   },
   {
-   "hex": "a559",
+   "hex": "a513",
    "offset": 2,
    "limit": 4,
    "maximum": 53,
@@ -2333,7 +2461,23 @@
    "error_type": "ValueError"
   },
   {
-   "hex": "d139",
+   "hex": "552b",
+   "offset": 2,
+   "limit": 14,
+   "maximum": 53,
+   "value": 21,
+   "end": 7
+  },
+  {
+   "hex": "552b",
+   "offset": 2,
+   "limit": 4,
+   "maximum": 53,
+   "error": "read past end",
+   "error_type": "ValueError"
+  },
+  {
+   "hex": "d11b",
    "offset": 2,
    "limit": 15,
    "maximum": 53,
@@ -2341,7 +2485,7 @@
    "end": 8
   },
   {
-   "hex": "d139",
+   "hex": "d11b",
    "offset": 2,
    "limit": 4,
    "maximum": 53,
@@ -2349,7 +2493,7 @@
    "error_type": "ValueError"
   },
   {
-   "hex": "5902",
+   "hex": "7901",
    "offset": 2,
    "limit": 10,
    "maximum": 2,
@@ -2357,7 +2501,7 @@
    "end": 3
   },
   {
-   "hex": "5902",
+   "hex": "7901",
    "offset": 2,
    "limit": 4,
    "maximum": 2,
@@ -2365,7 +2509,7 @@
    "end": 3
   },
   {
-   "hex": "4500",
+   "hex": "1d02",
    "offset": 2,
    "limit": 10,
    "maximum": 2,
@@ -2373,7 +2517,7 @@
    "end": 3
   },
   {
-   "hex": "4500",
+   "hex": "1d02",
    "offset": 2,
    "limit": 4,
    "maximum": 2,
@@ -2381,7 +2525,7 @@
    "end": 3
   },
   {
-   "hex": "c501",
+   "hex": "e901",
    "offset": 2,
    "limit": 9,
    "maximum": 1,
@@ -2389,7 +2533,7 @@
    "end": 2
   },
   {
-   "hex": "c501",
+   "hex": "e901",
    "offset": 2,
    "limit": 4,
    "maximum": 1,
@@ -2397,7 +2541,7 @@
    "end": 2
   },
   {
-   "hex": "2d05",
+   "hex": "6d06",
    "offset": 2,
    "limit": 11,
    "maximum": 5,
@@ -2405,7 +2549,7 @@
    "end": 4
   },
   {
-   "hex": "2d05",
+   "hex": "6d06",
    "offset": 2,
    "limit": 4,
    "maximum": 5,
@@ -2413,7 +2557,7 @@
    "end": 4
   },
   {
-   "hex": "5104",
+   "hex": "f10d",
    "offset": 2,
    "limit": 12,
    "maximum": 5,
@@ -2421,7 +2565,7 @@
    "end": 5
   },
   {
-   "hex": "5104",
+   "hex": "f10d",
    "offset": 2,
    "limit": 4,
    "maximum": 5,
@@ -2429,7 +2573,7 @@
    "error_type": "ValueError"
   },
   {
-   "hex": "fdff4b01",
+   "hex": "fdffcb00",
    "offset": 2,
    "limit": 25,
    "maximum": 65536,
@@ -2437,7 +2581,7 @@
    "end": 18
   },
   {
-   "hex": "fdff4b01",
+   "hex": "fdffcb00",
    "offset": 2,
    "limit": 4,
    "maximum": 65536,
@@ -2445,7 +2589,7 @@
    "error_type": "ValueError"
   },
   {
-   "hex": "fdffffff4f00",
+   "hex": "fdffffffe701",
    "offset": 2,
    "limit": 41,
    "maximum": 4294967296,
@@ -2453,7 +2597,7 @@
    "end": 34
   },
   {
-   "hex": "fdffffff4f00",
+   "hex": "fdffffffe701",
    "offset": 2,
    "limit": 4,
    "maximum": 4294967296,
@@ -2461,36 +2605,60 @@
    "error_type": "ValueError"
   },
   {
-   "hex": "6dbec951a5af6d56",
-   "offset": 5,
-   "limit": 25,
-   "maximum": 0,
-   "value": 0,
+   "hex": "b5",
+   "offset": 0,
+   "limit": 8,
+   "maximum": 53,
+   "value": 21,
    "end": 5
   },
   {
-   "hex": "44409b555fc8b257",
+   "hex": "b5",
+   "offset": 0,
+   "limit": 8,
+   "maximum": 54,
+   "value": 53,
+   "end": 6
+  },
+  {
+   "hex": "b5",
+   "offset": 0,
+   "limit": 8,
+   "maximum": 179,
+   "value": 53,
+   "end": 7
+  },
+  {
+   "hex": "51a5af6d56b6a244",
    "offset": 2,
-   "limit": 33,
+   "limit": 49,
    "maximum": 0,
    "value": 0,
    "end": 2
   },
   {
-   "hex": "520b34880ffd7db5",
+   "hex": "9b555fc8b2575cfd",
+   "offset": 2,
+   "limit": 3,
+   "maximum": 0,
+   "value": 0,
+   "end": 2
+  },
+  {
+   "hex": "34880ffd7db5fe2d",
    "offset": 7,
-   "limit": 12,
+   "limit": 55,
    "maximum": 0,
    "value": 0,
    "end": 7
   },
   {
-   "hex": "fe06bdd6fad17289",
-   "offset": 4,
-   "limit": 30,
+   "hex": "06bdd6fad1728986",
+   "offset": 6,
+   "limit": 50,
    "maximum": 1,
    "value": 0,
-   "end": 4
+   "end": 6
   },
   {
    "hex": "f88a30ee14803037",

@@ -130,7 +130,8 @@ fn read_bunch_header(reader: &mut BoundedReader, bit_count: usize) -> DecodeResu
 /// inverse transform leaves them (spec 06 2.4). aries_net::decode_client_packet
 /// zeroes them; restore them before a read that is not bounded by P (the
 /// first-bunch input ack takes its bounds from inspect_control_bunch, which
-/// never checks end <= P).
+/// never checks end <= P) and before logging decoded_packet_hex (spec 06 8.6),
+/// which python writes from these bytes.
 pub fn with_client_trailer(decoded: &Bits) -> Bits {
     let mut out = decoded.clone();
     let tail = decoded.bit_count % 8;

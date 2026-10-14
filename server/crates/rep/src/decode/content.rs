@@ -17,6 +17,7 @@ pub const CONTROLLER_ACTOR_MAP_VALUE: u32 = 4;
 pub const PAWN_ACTOR_MAP_VALUE: u32 = 10;
 /// largest content block either side accepts (range_client_input.py:95, 162).
 const MAX_CONTENT_BITS: usize = 8192;
+/// seed-mix multiplier (range_client_input.py:101).
 const MULTIPLIER: u64 = 0x2545_F491_4F6C_DD1D;
 
 fn swap_adjacent(value: u32) -> u32 {
@@ -91,6 +92,7 @@ pub fn decode_content_payload(wire: &Bits, actor_map_value: u32) -> DecodeResult
     let data = &wire.bytes;
     let mut seed = actor_map_value ^ bit_count as u32;
     let mut first = mix_seed(seed, seed);
+    // range_client_input.py:108-109
     let mut second = mix_seed(seed.wrapping_sub(378_250_948), seed.wrapping_add(60));
     let mut advance = |seed: &mut u32| {
         let next_seed = (first.wrapping_add(second) >> 32) as u32;

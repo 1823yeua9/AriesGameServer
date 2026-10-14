@@ -239,6 +239,40 @@ fn check_first_bunch_extras(bunch: &BunchView, inspect: &Value, name: &str) {
     assert_eq!(bunch.channel_name_index, inspect.get("channel_name_index").and_then(Value::as_u64), "{name} name index");
     assert_eq!(bunch.body_start_bit as u64, inspect["bunch_body_start_bit"].as_u64().unwrap(), "{name} body");
     assert_eq!(bunch.end_bit as u64, inspect["bunch_end_bit"].as_u64().unwrap(), "{name} end");
+    assert_eq!(bunch.is_control, flag("bunch_is_control"), "{name} control");
+    assert_eq!(bunch.is_reliable, flag("bunch_reliable"), "{name} reliable");
+    assert_eq!(bunch.is_partial, flag("bunch_partial"), "{name} partial");
+    assert_eq!(Some(bunch.channel_index), inspect.get("channel_index").and_then(Value::as_u64), "{name} channel");
+    assert_eq!(bunch.channel_sequence.map(u64::from), inspect.get("channel_sequence").and_then(Value::as_u64), "{name} sequence");
+}
+
+/// net's inspect_first_bunch is the reader the input ack (channel 8, body bounds)
+/// and the control chain (nmt type) take the first bunch from; it must agree
+/// with python's inspect_control_bunch wherever those consumers look.
+fn check_net_inspect(decoded: &Bits, inspect: &Value, name: &str) {
+    let net = aries_net::control::inspect_first_bunch(decoded);
+    assert_eq!(net.is_some(), inspect.get("bunch_start_bit").is_some(), "{name} net inspect parsed");
+    let Some(info) = net else {
+        return;
+    };
+    let flag = |key: &str| inspect.get(key).and_then(Value::as_bool).unwrap_or(false);
+    let number = |key: &str| inspect.get(key).and_then(Value::as_u64);
+    assert_eq!(Some(info.bunch_start_bit as u64), number("bunch_start_bit"), "{name} net start");
+    assert_eq!(info.is_close, flag("bunch_is_close"), "{name} net close");
+    if info.is_close {
+        return;
+    }
+    // net keeps the packed channel in 32 bits, python in 35: compare the gates
+    let channel = number("channel_index").expect("python channel");
+    for gate in [0, 5, 8] {
+        assert_eq!(info.channel_index == gate, channel == gate as u64, "{name} net channel {gate} gate");
+    }
+    assert_eq!(info.reliable, flag("bunch_reliable"), "{name} net reliable");
+    assert_eq!(info.partial, flag("bunch_partial"), "{name} net partial");
+    assert_eq!(info.channel_sequence.map(u64::from), number("channel_sequence"), "{name} net sequence");
+    assert_eq!(Some(info.body_start_bit as u64), number("bunch_body_start_bit"), "{name} net body");
+    assert_eq!(Some(info.end_bit as u64), number("bunch_end_bit"), "{name} net end");
+    assert_eq!(info.control_message_type.map(u64::from), number("control_message_type"), "{name} net nmt type");
 }
 
 fn check_packet(case: &Value) {
@@ -264,7 +298,9 @@ fn check_packet(case: &Value) {
                 assert_eq!(map as u64, want["block_map"].as_u64().unwrap(), "{what} map");
                 let block = read_actor_content_block(&decoded, bunch.body_start_bit, bunch.end_bit, map);
                 if let (Ok(block), Some(rpc)) = (&block, want.get("rpc_header")) {
-                    let field_max = rpc["field_max"].as_u64().unwrap();
+                    // the exporter reads controller fields with 179 and every other channel like the pawn (54)
+                    let field_max = if bunch.channel_index == CONTROLLER_CHANNEL { CONTROLLER_FIELD_MAX } else { PAWN_FIELD_MAX };
+                    assert_eq!(field_max, rpc["field_max"].as_u64().unwrap(), "{what} field max");
                     let header = read_rpc_header(&block.payload, field_max);
                     let to_json = |h: RpcHeader| json!({"field_max": field_max, "field": h.field, "payload_bits": h.payload_bits, "params_start": h.params_start});
                     expect(header, rpc, to_json, &format!("{what} rpc header"));
@@ -297,18 +333,23 @@ fn check_packet(case: &Value) {
 
     // the input ack's read: the first bunch with the packet inspector's bounds
     let inspect = &case["inspect"];
+    check_net_inspect(&decoded, inspect, &name);
     if let Some(start) = inspect.get("bunch_body_start_bit") {
         let end = n(&inspect["bunch_end_bit"]);
         let expected = case.get("first_inputs").unwrap_or_else(|| &case["bunches"][0]["inputs"]);
         let result = decode_received_actor_inputs(&decoded, n(start), end, None);
         expect(result, expected, streams_json, &format!("{name} first inputs"));
+        if let Some(block) = case.get("first_block") {
+            let result = read_actor_content_block(&decoded, n(start), end, PAWN_ACTOR_MAP_VALUE);
+            expect(result, block, block_json, &format!("{name} first block"));
+        }
     } else {
-        assert!(case.get("first_inputs").is_none());
+        assert!(case.get("first_inputs").is_none() && case.get("first_block").is_none());
     }
 
-    // real captures keep the client's 0xcc trailer bits; masking then restoring them is lossless
-    // (mutants are named <base>_flipN / <base>_cutN and are left out: a cut moves the last byte)
-    let captured = name.starts_with("capture_") || name == "warden_fixture" || NAMED.contains(&name.as_str());
+    // real captures (and the trailer synthetics) keep the client's 0xcc trailer bits; masking then
+    // restoring them is lossless. mutants are named <base>_flipN / <base>_cutN and are left out
+    let captured = name.starts_with("capture_") || name == "warden_fixture" || NAMED.contains(&name.as_str()) || TRAILER_OVERRUNS.contains(&name.as_str());
     if captured && !decoded.bit_count.is_multiple_of(8) {
         let mut zeroed = decoded.clone();
         let last = zeroed.bytes.len() - 1;
@@ -316,6 +357,11 @@ fn check_packet(case: &Value) {
         assert_eq!(with_client_trailer(&zeroed), decoded, "{name} trailer");
     }
 }
+
+/// synthetic first ch8 bunches that end past P inside the last byte (tools/golden/decode.py):
+/// the input ack's block read covers trailer bits, so net's zeroed bytes need with_client_trailer.
+const TRAILER_OVERRUNS: [&str; 7] =
+    ["trailer_overrun_1", "trailer_overrun_2", "trailer_overrun_3", "trailer_overrun_4", "trailer_overrun_5", "trailer_overrun_6", "trailer_overrun_7"];
 
 /// the named real captures in decode_packets (spec 06 13.4 / 13.7).
 const NAMED: [&str; 12] = [
@@ -357,6 +403,35 @@ fn net_decoded_datagrams_match_python() {
         let purchases: Vec<Value> = decode_purchase_requests(&packet.decoded).iter().map(purchase_json).collect();
         assert_eq!(Value::Array(purchases), case["purchases"], "{name}");
     }
+}
+
+/// the input ack path in production order: net's decoded bytes (trailer zeroed), net's
+/// first-bunch bounds, then the pawn block. without with_client_trailer the bits past P
+/// read as zero and the block no longer matches python.
+#[test]
+fn first_bunch_past_p_reads_the_client_trailer() {
+    let cases = fixture("decode_packets");
+    let mut zeroed_differs = 0;
+    for name in TRAILER_OVERRUNS {
+        let case = packet_named(&cases, name);
+        let decoded = bits(&case["hex"], &case["bit_count"]);
+        let mut zeroed = decoded.clone();
+        let last = zeroed.bytes.len() - 1;
+        zeroed.bytes[last] &= (1u8 << (decoded.bit_count % 8)) - 1;
+        let info = aries_net::control::inspect_first_bunch(&zeroed).expect("first bunch");
+        assert!(info.channel_index == 8 && info.end_bit > decoded.bit_count, "{name}: first ch8 bunch ends past P");
+        assert!(iter_bunches(&decoded).unwrap().is_empty(), "{name}: the walk drops it");
+        let restored = with_client_trailer(&zeroed);
+        let block = read_actor_content_block(&restored, info.body_start_bit, info.end_bit, PAWN_ACTOR_MAP_VALUE);
+        expect(block, &case["first_block"], block_json, &format!("{name} restored block"));
+        let inputs = decode_received_actor_inputs(&restored, info.body_start_bit, info.end_bit, None);
+        expect(inputs, &case["first_inputs"], streams_json, &format!("{name} restored inputs"));
+        let raw = read_actor_content_block(&zeroed, info.body_start_bit, info.end_bit, PAWN_ACTOR_MAP_VALUE);
+        if raw.map(block_json).ok().as_ref() != Some(&case["first_block"]) {
+            zeroed_differs += 1;
+        }
+    }
+    assert!(zeroed_differs > 0, "the trailer bits never mattered: the cases do not cover the overrun");
 }
 
 fn packet_named<'a>(cases: &'a Value, name: &str) -> &'a Value {

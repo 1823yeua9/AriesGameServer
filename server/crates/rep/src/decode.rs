@@ -8,6 +8,10 @@
 //! odd input; errors carry python's ValueError text so the logs diff cleanly.
 //! data bounds use `bytes.len() * 8` (python `len(data) * 8`), limits use
 //! `bit_count`, so a `Bits` whose bytes run past `bit_count` reads like python.
+//! net's decode_client_packet zeroes the client's trailer bits that python
+//! keeps; the walk and the rpc decoders never read past P, but the first-bunch
+//! input ack (bounds from inspect_first_bunch) and the decoded_packet_hex log
+//! need `with_client_trailer(&packet.decoded)`.
 
 mod bunch;
 mod content;

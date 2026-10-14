@@ -14,11 +14,14 @@ use super::{DecodeError, DecodeResult};
 
 /// the controller's actor channel (range_client_rpc.py:162, 239).
 pub const CONTROLLER_CHANNEL: u64 = 5;
-/// ShootingRangeController_C FClassNetCache max 178, plus one (range_client_rpc.py:23).
+/// SerializeInt max for controller fields: ShootingRangeController_C FClassNetCache
+/// max 178, plus one (range_client_rpc.py:23).
 pub const CONTROLLER_FIELD_MAX: u64 = 179;
-/// pawn rpc field max (build_input_ack_rpc_payload(.., 41, 53), range_udp_handshake.py:1541-1542).
-/// python never reads a ch8 field; kept for read_rpc_header callers.
-pub const PAWN_FIELD_MAX: u64 = 53;
+/// SerializeInt max for pawn fields: class max 53, plus one, the same convention
+/// (build_input_ack_rpc_payload(.., 41, 53) writes max + 1, range_server_bunch.py:486,
+/// range_udp_handshake.py:1541-1542; launch_range.py:50). 53 would misread field 21
+/// as 5 bits (spec 06 5.4). python never reads a ch8 field; kept for read_rpc_header.
+pub const PAWN_FIELD_MAX: u64 = 54;
 
 /// range_client_rpc.py:20-22.
 pub const SERVER_PURCHASE_FIELD: u64 = 156;
@@ -43,7 +46,9 @@ const PURCHASABLE_TYPE_BITS: usize = 3;
 const EXPORT_FLAGS_BITS: usize = 8;
 /// network checksum after the name when export flag 4 is set (range_client_rpc.py:146-147).
 const EXPORT_CHECKSUM_BITS: usize = 32;
+/// export flag bit: a path (outer + name) follows (range_client_rpc.py:142).
 const EXPORT_HAS_PATH: u64 = 1;
+/// export flag bit: a 32-bit checksum follows the name (range_client_rpc.py:146).
 const EXPORT_HAS_CHECKSUM: u64 = 4;
 /// outer chains deeper than this are rejected (range_client_rpc.py:134).
 const MAX_OUTER_DEPTH: u32 = 8;
