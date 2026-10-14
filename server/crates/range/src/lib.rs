@@ -62,6 +62,9 @@ pub struct RangeServer {
     start: f64,
 }
 
+/// python handler_elapsed_ms threshold.
+pub const HANDLER_SLOW_MS: f64 = 25.0;
+
 /// the welcome map url (python welcome_map_url default).
 pub const WELCOME_MAP_URL: &str = "/Game/Maps/Poveglia/Range";
 
@@ -88,6 +91,7 @@ impl RangeServer {
         if self.start == 0.0 {
             self.start = now;
         }
+        let started = std::time::Instant::now();
         let mut event = Event::default();
         event.set("elapsed_seconds", ((now - self.start) * 1000.0).round() / 1000.0);
         event.set("source_port", source.port());
@@ -115,6 +119,14 @@ impl RangeServer {
                     return;
                 }
             }
+        }
+        // python adds this past 25 ms; a 128 hz tick is 7.8 ms, so it also warns
+        let elapsed_ms = started.elapsed().as_secs_f64() * 1000.0;
+        if elapsed_ms >= HANDLER_SLOW_MS {
+            event.set("handler_elapsed_ms", (elapsed_ms * 1000.0).round() / 1000.0);
+        }
+        if elapsed_ms * 1e-3 > aries_interp::time::TICK_DT {
+            log::warn!(target: "range", "datagram took {elapsed_ms:.3} ms (tick is {:.4} ms)", aries_interp::time::TICK_DT * 1000.0);
         }
         self.events.record(event);
     }
