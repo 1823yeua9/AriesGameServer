@@ -1,4 +1,4 @@
-//! aries range game server. owns the udp socket, runs the 128 hz tick, and
+﻿//! aries range game server. owns the udp socket, runs the 128 hz tick, and
 //! drives the range game mode for the pinned 13.06 client.
 //!
 //! usage: aries-server [--config aries-server.toml] [--port 58100] [--pid N --image-base 0x..]
@@ -24,6 +24,7 @@ fn main() {
             console::init("aries server", LevelFilter::Info, None);
             error!("{message}");
             std::thread::sleep(Duration::from_secs(5));
+            log::logger().flush();
             std::process::exit(2);
         }
     };
@@ -36,6 +37,7 @@ fn main() {
         Err(message) => {
             error!("{message}");
             std::thread::sleep(Duration::from_secs(5));
+            log::logger().flush();
             std::process::exit(3);
         }
     };
@@ -48,6 +50,7 @@ fn main() {
         Err(e) => {
             error!("cannot bind {}: {e} (is the python responder still running?)", settings.bind);
             std::thread::sleep(Duration::from_secs(5));
+            log::logger().flush();
             std::process::exit(4);
         }
     };
@@ -102,6 +105,7 @@ fn main() {
             if !aries_oracle::client::client_process_alive(client.pid) {
                 info!("live_client_exited: pid {} is gone, stopping", client.pid);
                 server.flush();
+                log::logger().flush();
                 std::process::exit(0);
             }
         }
@@ -120,12 +124,13 @@ fn main() {
             let stats = clock.take_stats();
             let average = stats.busy_total.as_secs_f64() * 1000.0 / stats.ticks.max(1) as f64;
             info!(
-                "tick {} | {:.1} hz | avg {average:.3} ms max {:.3} ms | overruns {} | rx {received} tx {sent} | connections {}",
+                "tick {} | {:.1} hz | avg {average:.3} ms max {:.3} ms | overruns {} | rx {received} tx {sent} | connections {} | log drops {}",
                 clock.tick,
                 stats.ticks as f64 / 30.0,
                 stats.busy_max.as_secs_f64() * 1000.0,
                 stats.overruns,
-                server.connections.len()
+                server.connections.len(),
+                console::dropped()
             );
             for conn in server.connections.values() {
                 if let Some(player) = conn.player.value_now(now) {

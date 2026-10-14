@@ -90,6 +90,8 @@ impl EventLog {
         if let Some(file) = self.file.as_mut() {
             let _ = serde_json::to_writer(&mut *file, &Value::Object(event.fields));
             let _ = file.write_all(b"\n");
+            // python printed every event with flush=True: a kill loses nothing
+            let _ = file.flush();
         }
     }
 

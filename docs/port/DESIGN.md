@@ -40,6 +40,9 @@ codex (`server/platform`, `loader/`). The Python stays untouched; a snapshot is 
 main thread (128 Hz, highest priority)          key-scan thread
   drain udp socket (non-blocking)                 retries the ares handler scan
   per datagram, in the python's order:            every 100 ms until it is found
+                                                  log-writer thread
+                                                  owns the console and log file;
+                                                  the tick only queues lines
     resend lost reliables, input ack,
     authority block, capture, dispatch
   per tick: lag-compensation records, replay
