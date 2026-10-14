@@ -68,6 +68,14 @@ impl LiveClient for OracleLive {
         self.open_error.clone()
     }
 
+    fn new_session(&mut self) {
+        // python's caches lived one responder (one range entry)
+        if let Some(oracle) = self.oracle.as_mut() {
+            oracle.caches.clear();
+        }
+        self.tags = None;
+    }
+
     fn saved_moves(&mut self) -> Result<Option<SavedMoves>, String> {
         let moves = self.oracle()?.saved_moves().map_err(text)?;
         Ok(moves.map(|m| SavedMoves { newest: m.newest, count: m.count, oldest: Some(m.oldest), last_acked: m.last_acked, timestamp: m.newest_timestamp(), newest_location: m.newest_saved_location }))

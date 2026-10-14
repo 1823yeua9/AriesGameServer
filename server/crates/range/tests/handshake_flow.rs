@@ -278,3 +278,45 @@ fn datagrams_wait_for_the_key_scan() {
     server.handle_datagram(12.6, source, &initial_datagram(), &mut out);
     assert_eq!(out.datagrams.len(), 1, "only the fresh packet is answered");
 }
+
+/// keys that change on every rescan, like a new range entry's handler.
+struct SessionKeysBySession {
+    session: u8,
+}
+
+impl aries_range::KeySource for SessionKeysBySession {
+    fn read_keys(&mut self) -> Result<aries_range::SessionKeys, String> {
+        Ok(aries_range::SessionKeys { client_send: [0x20 + self.session; 32], server_send: [0x40 + self.session; 32] })
+    }
+
+    fn rescan(&mut self) {
+        self.session += 1;
+    }
+}
+
+/// the loader keeps the server across range entries: a handshake from a new
+/// client socket starts a fresh session with the new handler's keys.
+#[test]
+fn a_new_range_entry_gets_a_fresh_session() {
+    let mut server = RangeServer::new(RangeConfig::default(), Box::new(SessionKeysBySession { session: 0 }), None);
+    let mut out = Outbox::default();
+    let first: SocketAddr = "127.0.0.1:50520".parse().unwrap();
+    let mut client = Client::new(100, 4000, 1);
+    client.connect(&mut server, 1.0, first, &mut out);
+    for i in 0..40 {
+        client.tick(&mut server, 1.0 + 0.125 * i as f64, first, &mut out);
+    }
+    assert!(server.connections[&first].bringup.sent(aries_range::bringup::Stage::WorldSettingsOpen));
+
+    // the second entry: new socket, new keys (session 1)
+    let second: SocketAddr = "127.0.0.1:50521".parse().unwrap();
+    let mut client = Client { gcm: AresGcm::new(&[0x21; 32]), server_gcm: AresGcm::new(&[0x41; 32]), sequence: 700, acked: 9000, counter: 1 };
+    out.datagrams.clear();
+    client.connect(&mut server, 20.0, second, &mut out);
+    assert!(!server.connections.contains_key(&first), "the old session is gone");
+    let conn = &server.connections[&second];
+    assert!(conn.join_ack_sent, "the new session's nmt exchange used the new keys");
+    client.tick(&mut server, 20.2, second, &mut out);
+    let (_, ack) = out.datagrams.first().expect("session ack");
+    assert!(open_server_datagram(ack, &client.server_gcm).is_some(), "sealed with the new server key");
+}

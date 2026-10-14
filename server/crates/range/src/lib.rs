@@ -49,6 +49,8 @@ pub trait KeySource {
     fn failed_scan_since(&mut self, _since: f64) -> Option<String> {
         None
     }
+    /// a new client connection has its own handler and keys: scan again
+    fn rescan(&mut self) {}
 }
 
 struct Keys {
@@ -104,6 +106,10 @@ impl RangeServer {
         if !source.ip().is_loopback() {
             return;
         }
+        // python ran one responder per range entry; the loader keeps us across entries
+        if self.keys.is_some() && !self.connections.contains_key(&source) && is_initial_handshake(datagram) {
+            self.new_session(source);
+        }
         if !self.keys_ready(now, out) {
             if self.held.len() == HOLD_LIMIT {
                 self.held.pop_front();
@@ -112,6 +118,19 @@ impl RangeServer {
             return;
         }
         self.handle_keyed(now, source, datagram, out);
+    }
+
+    /// a new range entry: what a fresh python responder started without. the
+    /// client built a new connection (new handler, keys and actors), so drop
+    /// the old connections, re-scan the keys and forget address caches.
+    fn new_session(&mut self, source: SocketAddr) {
+        log::info!(target: "range", "new client connection from port {}: starting a fresh session", source.port());
+        self.connections.clear();
+        self.first_offsets = conn::first_offsets();
+        self.keys = None;
+        self.held.clear();
+        self.key_source.rescan();
+        self.live.new_session();
     }
 
     /// reads the keys once they exist; then replays every held datagram.
@@ -330,6 +349,11 @@ impl RangeServer {
     pub fn flush(&mut self) {
         self.events.flush();
     }
+}
+
+/// a stateless handshake Initial (the first packet of a client connection).
+fn is_initial_handshake(datagram: &[u8]) -> bool {
+    handshake::parse_handshake(datagram).is_ok_and(|packet| packet.packet_type == PACKET_INITIAL)
 }
 
 /// python hashlib.sha256(cookie).hexdigest()[:12]

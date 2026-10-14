@@ -99,6 +99,8 @@ pub trait LiveClient {
     fn attach_error(&mut self) -> Option<String> {
         None
     }
+    /// a new range entry: address caches from the last one are stale
+    fn new_session(&mut self) {}
     /// none when the pawn or its prediction data is not there yet
     fn saved_moves(&mut self) -> Result<Option<SavedMoves>, String>;
     /// read_pending_input_bounds: (cursor + count) of the pawn input component
