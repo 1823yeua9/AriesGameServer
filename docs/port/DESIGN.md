@@ -70,15 +70,14 @@ gates, event keys and values).
 | What | Python | Rust | Why |
 |---|---|---|---|
 | lost reliable bunches | never resent | resent with the original channel sequence | real reliability; switch `retransmit` |
-| key scan | blocks the receive loop per datagram | background thread; datagrams wait (up to 2 s) and replay in order | the tick never blocks; same result |
+| key scan | blocks the receive loop per datagram | background thread; datagrams wait and replay in order, and one is dropped (not_ready) only when a scan that started after it fails | the tick never blocks; same result |
 | skin load error at A21 | raises out of the stage | plain Classic open, `base_pistol_initial_cosmetic_error` | keep the session |
 | ClientSetHUD index read fails | raises | 52/178 (every logged session), `hud_rpc_error` | keep the session |
 | lifetime | 3600 s deadline | none; exits when the client exits | the loader owns restarts |
 | shots | hit-tested at the bots' current position | rewound by lag compensation | bots never move, so every hit is identical (tested) |
 | reader reopen after a failure | every pass | at most once a second (`equippable_reader_error` still logged every pass) | no handle churn |
-| `channel_first_dynamic_offset` (05 quirk 10) | global | per connection | no observable difference: every dynamic open resets its channel to 0 and fixed channels share the same constants |
 | `pre_control_sequence`, `pre_in_sequence` | diagnostic packet-notify read at the nmt challenge | not logged | diagnostic only |
-| console | prints every event | levels: errors warn, authority work info, high-rate keys debug; every event still goes to the jsonl file | readable console |
+| console | prints every event to a redirected stdout | its own visible console (a hidden or missing one is replaced), levels: errors warn, authority work info, high-rate keys debug; every event still goes to the jsonl file | the user watches the log |
 
 ## Configuration
 

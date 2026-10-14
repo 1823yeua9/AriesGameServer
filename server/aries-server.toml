@@ -7,8 +7,9 @@ bind = "127.0.0.1:58100"
 log_dir = "logs"
 # trace | debug | info | warn | error
 log_level = "info"
-# refuse any client exe other than this one (python check_project_client); unset = any
-# client_path = "C:/Users/Cayden/Desktop/valorant proj/game req/VALORANT_GAME/VALORANT/live/ShooterGame/Binaries/Win64/VALORANT-Win64-Shipping.exe"
+# refuse any client exe other than this one (python check_project_client), from this
+# file's folder; "" turns the check off
+client_path = "../../game req/VALORANT_GAME/VALORANT/live/ShooterGame/Binaries/Win64/VALORANT-Win64-Shipping.exe"
 
 [range]
 spawn_location = [3581.634, -12019.322, 1294.153]

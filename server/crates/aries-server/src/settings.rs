@@ -9,6 +9,8 @@ use log::LevelFilter;
 use serde::Deserialize;
 
 pub const CLIENT_EXE: &str = "VALORANT-Win64-Shipping.exe";
+/// python check_project_client's exe, from the config folder (server/)
+pub const PROJECT_CLIENT: &str = "../../game req/VALORANT_GAME/VALORANT/live/ShooterGame/Binaries/Win64/VALORANT-Win64-Shipping.exe";
 
 #[derive(Debug, Clone, Deserialize)]
 #[serde(default)]
@@ -16,14 +18,14 @@ struct FileSettings {
     bind: String,
     log_dir: PathBuf,
     log_level: String,
-    /// refuse any client whose exe is not this one (python check_project_client)
-    client_path: Option<PathBuf>,
+    /// refuse any client whose exe is not this one (python check_project_client); "" skips the check
+    client_path: PathBuf,
     range: RangeConfig,
 }
 
 impl Default for FileSettings {
     fn default() -> Self {
-        Self { bind: "127.0.0.1:58100".into(), log_dir: PathBuf::from("logs"), log_level: "info".into(), client_path: None, range: RangeConfig::default() }
+        Self { bind: "127.0.0.1:58100".into(), log_dir: PathBuf::from("logs"), log_level: "info".into(), client_path: PathBuf::from(PROJECT_CLIENT), range: RangeConfig::default() }
     }
 }
 
@@ -87,7 +89,14 @@ impl Settings {
         if let Some(queue) = range.command_queue.as_mut() {
             anchor(queue);
         }
-        Ok(Self { bind, log_dir, log_level, client_path: file.client_path, pid, image_base, range })
+        let mut client_path = file.client_path;
+        let client_path = if client_path.as_os_str().is_empty() {
+            None
+        } else {
+            anchor(&mut client_path);
+            Some(client_path)
+        };
+        Ok(Self { bind, log_dir, log_level, client_path, pid, image_base, range })
     }
 
     /// the one running client (or the one given on the command line).
@@ -102,9 +111,11 @@ impl Settings {
                 found.remove(0)
             }
         };
-        if let (Some(expected), Some(actual)) = (&self.client_path, &client.path) {
-            let same = expected.canonicalize().ok() == actual.canonicalize().ok();
-            if !same {
+        // python check_project_client: an unreadable path refuses too
+        if let Some(expected) = &self.client_path {
+            let actual = client.path.as_ref().ok_or(format!("cannot read the exe path of pid {}; refusing it", client.pid))?;
+            let canonical = |path: &Path| path.canonicalize().map(|p| p.to_string_lossy().to_lowercase()).map_err(|e| format!("{}: {e}", path.display()));
+            if canonical(expected)? != canonical(actual)? {
                 return Err(format!("refusing non-project client {}", actual.display()));
             }
         }

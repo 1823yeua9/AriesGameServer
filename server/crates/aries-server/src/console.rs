@@ -1,4 +1,4 @@
-//! console + logging. the loader may start us hidden, so we allocate our own
+﻿//! console + logging. the loader may start us hidden, so we allocate our own
 //! console when none is attached, then log to it (colored) and to a file.
 
 use std::fs::File;
@@ -9,33 +9,45 @@ use std::time::Instant;
 
 use log::{Level, LevelFilter, Log, Metadata, Record};
 
+/// a visible console of our own: the loader may start us with no console, a
+/// hidden one, or stdout redirected, and the user wants to watch the log. the
+/// sink is CONOUT$ itself, so a redirected stdout cannot swallow it.
 #[cfg(windows)]
-fn ensure_console(title: &str) {
-    use windows_sys::Win32::System::Console::{
-        AllocConsole, ENABLE_VIRTUAL_TERMINAL_PROCESSING, GetConsoleMode, GetConsoleWindow, GetStdHandle, STD_OUTPUT_HANDLE,
-        SetConsoleMode, SetConsoleTitleW,
-    };
+fn ensure_console(title: &str) -> Option<File> {
+    use std::os::windows::io::AsRawHandle;
+    use windows_sys::Win32::System::Console::{AllocConsole, ENABLE_VIRTUAL_TERMINAL_PROCESSING, FreeConsole, GetConsoleMode, GetConsoleWindow, SetConsoleMode, SetConsoleTitleW};
+    use windows_sys::Win32::UI::WindowsAndMessaging::IsWindowVisible;
     unsafe {
-        if GetConsoleWindow().is_null() {
+        let window = GetConsoleWindow();
+        if window.is_null() || IsWindowVisible(window) == 0 {
+            FreeConsole();
             AllocConsole();
         }
         let wide: Vec<u16> = title.encode_utf16().chain(std::iter::once(0)).collect();
         SetConsoleTitleW(wide.as_ptr());
-        // enable ansi colors
-        let out = GetStdHandle(STD_OUTPUT_HANDLE);
+    }
+    let console = std::fs::OpenOptions::new().read(true).write(true).open("CONOUT$").ok()?;
+    unsafe {
+        // ansi colors
+        let handle = console.as_raw_handle();
         let mut mode = 0;
-        if GetConsoleMode(out, &mut mode) != 0 {
-            SetConsoleMode(out, mode | ENABLE_VIRTUAL_TERMINAL_PROCESSING);
+        if GetConsoleMode(handle, &mut mode) != 0 {
+            SetConsoleMode(handle, mode | ENABLE_VIRTUAL_TERMINAL_PROCESSING);
         }
     }
+    Some(console)
 }
 
 #[cfg(not(windows))]
-fn ensure_console(_title: &str) {}
+fn ensure_console(_title: &str) -> Option<File> {
+    None
+}
 
 struct Logger {
     start: Instant,
     level: LevelFilter,
+    /// CONOUT$ (stdout when there is no console to open)
+    console: Mutex<Option<File>>,
     file: Mutex<Option<File>>,
 }
 
@@ -57,8 +69,16 @@ impl Log for Logger {
             Level::Trace => ("\x1b[90m", "trace"),
         };
         let target = record.target().strip_prefix("aries_").unwrap_or(record.target());
-        // stdout may be gone if the console was closed; never panic on log
-        let _ = writeln!(std::io::stdout(), "\x1b[90m{elapsed:9.3}\x1b[0m {color}{tag}\x1b[0m \x1b[35m{target:<14}\x1b[0m {}", record.args());
+        // the console may be gone if it was closed; never panic on log
+        let line = format!("\x1b[90m{elapsed:9.3}\x1b[0m {color}{tag}\x1b[0m \x1b[35m{target:<14}\x1b[0m {}", record.args());
+        match self.console.lock().as_deref_mut() {
+            Ok(Some(console)) => {
+                let _ = writeln!(console, "{line}");
+            }
+            _ => {
+                let _ = writeln!(std::io::stdout(), "{line}");
+            }
+        }
         if let Ok(mut file) = self.file.lock() {
             if let Some(file) = file.as_mut() {
                 let _ = writeln!(file, "{elapsed:9.3} {tag} {target:<14} {}", record.args());
@@ -68,6 +88,9 @@ impl Log for Logger {
 
     fn flush(&self) {
         let _ = std::io::stdout().flush();
+        if let Ok(Some(console)) = self.console.lock().as_deref_mut() {
+            let _ = console.flush();
+        }
         if let Ok(mut file) = self.file.lock() {
             if let Some(file) = file.as_mut() {
                 let _ = file.flush();
@@ -79,14 +102,14 @@ impl Log for Logger {
 /// allocates the console (if needed) and installs the logger. log_path's
 /// directory is created; logging still works when the file cannot be opened.
 pub fn init(title: &str, level: LevelFilter, log_path: Option<&Path>) {
-    ensure_console(title);
+    let console = ensure_console(title);
     let file = log_path.and_then(|path| {
         if let Some(parent) = path.parent() {
             let _ = std::fs::create_dir_all(parent);
         }
         File::create(path).ok()
     });
-    let logger = Logger { start: Instant::now(), level, file: Mutex::new(file) };
+    let logger = Logger { start: Instant::now(), level, console: Mutex::new(console), file: Mutex::new(file) };
     if log::set_boxed_logger(Box::new(logger)).is_ok() {
         log::set_max_level(level);
     }
