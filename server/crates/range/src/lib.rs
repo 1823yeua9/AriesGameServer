@@ -8,7 +8,9 @@ pub mod config;
 pub mod conn;
 pub mod event;
 pub mod live;
+pub mod mirror;
 pub mod moves;
+pub mod purchases;
 pub mod send;
 
 use std::collections::HashMap;
@@ -23,7 +25,7 @@ use aries_net::{AresGcm, decode_client_packet, seal_packet};
 pub use config::RangeConfig;
 pub use conn::Connection;
 pub use event::{Event, EventLog};
-pub use live::{HudWidget, InputReplication, LiveClient, NoLiveClient, SavedMoves};
+pub use live::{Camera, HudWidget, InputReplication, LiveClient, LiveItemMachine, NoLiveClient, ResourceAmounts, SavedMoves, SlotMachine};
 pub use send::{Outbox, Reply, SendError};
 
 /// both session keys, read from the live client's ares packet handler.
@@ -55,6 +57,8 @@ pub struct RangeServer {
     pub hooks: Box<dyn bringup::StageHooks>,
     /// reads of the running client (moves, input bounds, game state)
     pub live: Box<dyn LiveClient>,
+    /// the player's skins (bought guns; reloaded when the state file changes)
+    pub skins: aries_world::skins::InventoryCache,
     start: f64,
 }
 
@@ -63,7 +67,18 @@ pub const WELCOME_MAP_URL: &str = "/Game/Maps/Poveglia/Range";
 
 impl RangeServer {
     pub fn new(config: RangeConfig, key_source: Box<dyn KeySource>, event_path: Option<&Path>) -> Self {
-        Self { config, keys: None, key_source, connections: HashMap::new(), events: EventLog::new(event_path), hooks: Box::new(bringup::DefaultHooks), live: Box::new(NoLiveClient), start: 0.0 }
+        let skins = aries_world::skins::InventoryCache::new(&config.player_id, config.skin_catalog.clone(), config.skin_state.clone());
+        Self {
+            config,
+            keys: None,
+            key_source,
+            connections: HashMap::new(),
+            events: EventLog::new(event_path),
+            hooks: Box::new(bringup::DefaultHooks),
+            live: Box::new(NoLiveClient),
+            skins,
+            start: 0.0,
+        }
     }
 
     /// handles one datagram at monotonic time `now` (seconds).
@@ -172,7 +187,8 @@ impl RangeServer {
         // chain, so their frames take the lower packet sequences (python 1496-2078)
         moves::run_input_ack(&mut reply, &self.config, self.live.as_mut(), decoded, first_bunch.as_ref());
         if reply.conn.bringup.sent(bringup::Stage::ClientRestart) {
-            authority::run_authority(&mut reply, &self.config, self.live.as_mut(), decoded);
+            let mut env = authority::Env { config: &self.config, live: self.live.as_mut(), skins: &mut self.skins };
+            authority::run_authority(&mut reply, &mut env, decoded);
         }
 
         let message_type = first_bunch.as_ref().and_then(|b| b.control_message_type);

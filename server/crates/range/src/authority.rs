@@ -10,10 +10,20 @@ use aries_bits::Bits;
 use aries_rep::decode::RangeSettingsRequest;
 use serde_json::{Map, Value, json};
 
+use aries_world::skins::InventoryCache;
+
 use crate::bringup::{STARTING_EQUIPPABLES, Stage};
 use crate::config::RangeConfig;
 use crate::live::LiveClient;
 use crate::send::Reply;
+
+/// what the authority systems use besides the connection.
+pub struct Env<'a> {
+    pub config: &'a RangeConfig,
+    pub live: &'a mut dyn LiveClient,
+    /// skin_catalog.json + offline_skin_state.json (bought gun skins)
+    pub skins: &'a mut InventoryCache,
+}
 
 /// python input_correction_polled gate and resend spacing.
 pub const INPUT_CORRECTION_POLL: f64 = 0.2;
@@ -45,6 +55,8 @@ pub struct AuthorityState {
     pub hud_refresh_count: u32,
     /// python purchased_class_guids: class -> actor guid of bought items
     pub purchased_class_guids: HashMap<String, u32>,
+    pub mirror: crate::mirror::MirrorBook,
+    pub purchases: crate::purchases::PurchaseBook,
 }
 
 fn due(last: Option<f64>, now: f64, interval: f64) -> bool {
@@ -56,10 +68,11 @@ fn starting_equippables_done(reply: &Reply) -> bool {
 }
 
 /// python 1566-2078 in order. the gate (ClientRestart sent) is checked by the caller.
-pub fn run_authority(reply: &mut Reply, config: &RangeConfig, live: &mut dyn LiveClient, decoded: &Bits) {
-    // 2 equippable mirror (+ firing seed shots, cloudburst hook): world integration
-    if config.features.input_correction {
-        input_correction(reply, live);
+pub fn run_authority(reply: &mut Reply, env: &mut Env, decoded: &Bits) {
+    let config = env.config;
+    let _pass = crate::mirror::run_mirror(reply, config, env.live);
+    if config.features.input_correction && env.live.attached() {
+        input_correction(reply, env.live);
     }
     if config.features.range_hud {
         range_hud(reply);
@@ -67,8 +80,12 @@ pub fn run_authority(reply: &mut Reply, config: &RangeConfig, live: &mut dyn Liv
     if config.features.streaming_levels {
         level_streaming(reply);
     }
-    ultimate_points(reply, live);
-    // 8 store purchases: world integration
+    if env.live.attached() {
+        ultimate_points(reply, env.live);
+    }
+    if config.features.store_purchases && starting_equippables_done(reply) {
+        crate::purchases::run_purchases(reply, env, decoded);
+    }
     if config.features.range_settings && reply.conn.authority.streaming_sent {
         range_settings_request(reply);
         range_settings_apply(reply, decoded);
@@ -76,8 +93,8 @@ pub fn run_authority(reply: &mut Reply, config: &RangeConfig, live: &mut dyn Liv
     if let Some(queue) = &config.command_queue {
         command_queue(reply, queue);
     }
-    if config.features.hud_refresh {
-        hud_refresh(reply, live);
+    if config.features.hud_refresh && env.live.attached() {
+        hud_refresh(reply, env.live);
     }
     // 12 cloudburst flights, 13 bots, 14 ability jobs: world integration
 }

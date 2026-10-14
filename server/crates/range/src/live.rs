@@ -3,6 +3,10 @@
 //! this; tests use scripted values. every read may fail: the python treated a
 //! failed read as "no data" and sent nothing for that step.
 
+use std::collections::BTreeMap;
+
+use aries_world::equippables::ResourceSubobject;
+
 /// read_saved_moves (read_move_number.py:45): only newest and count drive sends.
 #[derive(Debug, Clone, Copy, Default, PartialEq)]
 pub struct SavedMoves {
@@ -35,7 +39,60 @@ pub struct HudWidget {
     pub cinematic: bool,
 }
 
+/// one inventory slot's item and its main state machine (read_slot_machines,
+/// read_equippable_state.py:132-164).
+#[derive(Debug, Clone, Default, PartialEq, Eq)]
+pub struct SlotMachine {
+    pub slot: u32,
+    pub item: u64,
+    pub class_name: String,
+    pub state_machine: u64,
+    /// SM+0x1B0 state name
+    pub predicted: Option<String>,
+    /// the inventory's current equippable is this item
+    pub is_current: bool,
+}
+
+/// one machine of an item's machine array (read_item_machines, :177-202).
+#[derive(Debug, Clone, Default, PartialEq, Eq)]
+pub struct LiveItemMachine {
+    pub name: String,
+    pub address: u64,
+    pub predicted: Option<String>,
+    /// SM+0x1E8; none or empty means no starting state
+    pub starting: Option<String>,
+    /// state names in client TMap order
+    pub state_names: Vec<String>,
+}
+
+impl LiveItemMachine {
+    /// what plan_extra_machines needs
+    pub fn plan_view(&self) -> aries_world::loader::ItemMachine {
+        aries_world::loader::ItemMachine { name: self.name.clone(), address: self.address, starting: self.starting.clone(), state_names: self.state_names.clone() }
+    }
+}
+
+/// one resource component's amounts (read_resource_amounts, :212-236).
+#[derive(Debug, Clone, Copy, Default, PartialEq, Eq)]
+pub struct ResourceAmounts {
+    pub predicted: i64,
+    pub authoritative: i64,
+    pub default_amount: i64,
+}
+
+/// the player camera (read_camera, :66-74).
+#[derive(Debug, Clone, Copy, Default, PartialEq)]
+pub struct Camera {
+    pub location: [f64; 3],
+    /// pitch, yaw, roll in degrees
+    pub rotation: [f64; 3],
+}
+
 pub trait LiveClient {
+    /// python `state_reader is not None`: the equippable reads can be attempted
+    fn attached(&mut self) -> bool {
+        true
+    }
     /// none when the pawn or its prediction data is not there yet
     fn saved_moves(&mut self) -> Result<Option<SavedMoves>, String>;
     /// read_pending_input_bounds: (cursor + count) of the pawn input component
@@ -50,12 +107,38 @@ pub trait LiveClient {
     fn hud_widget(&mut self) -> Result<Option<HudWidget>, String> {
         Ok(None)
     }
+    /// the machines of these slots; a slot with no item or machine is left out
+    fn slot_machines(&mut self, _slots: &[u32]) -> Result<Vec<SlotMachine>, String> {
+        Ok(Vec::new())
+    }
+    /// a state machine's state names in client TMap order (python reader._names[sm])
+    fn state_names(&mut self, _state_machine: u64) -> Result<Vec<String>, String> {
+        Ok(Vec::new())
+    }
+    fn item_machines(&mut self, _item: u64) -> Result<Vec<LiveItemMachine>, String> {
+        Ok(Vec::new())
+    }
+    /// by resource name; a component that is missing or misnamed is left out
+    fn resource_amounts(&mut self, _item: u64, _resources: &[ResourceSubobject]) -> Result<BTreeMap<String, ResourceAmounts>, String> {
+        Ok(BTreeMap::new())
+    }
+    /// the firing state's networked rng seed; none on any failure (python 946-964)
+    fn firing_seed(&mut self, _state_machine: u64, _key: &str) -> Option<u32> {
+        None
+    }
+    fn camera(&mut self) -> Result<Option<Camera>, String> {
+        Ok(None)
+    }
 }
 
 /// no client to read (tests, or the oracle failed to attach): every read is "no data".
 pub struct NoLiveClient;
 
 impl LiveClient for NoLiveClient {
+    fn attached(&mut self) -> bool {
+        false
+    }
+
     fn saved_moves(&mut self) -> Result<Option<SavedMoves>, String> {
         Ok(None)
     }
