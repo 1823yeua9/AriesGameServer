@@ -1,9 +1,17 @@
 //! the oracle: everything the server learns from the client process instead of
 //! the protocol. read-only (ReadProcessMemory); never writes, never injects.
 
+pub mod equippable;
+pub mod input;
+pub mod keys;
 pub mod memory;
+pub mod moves;
 pub mod objects;
+pub mod probes;
 pub mod process;
+pub mod rpc_index;
+pub mod tags;
+pub mod world;
 
 pub use memory::{FakeMemory, Memory};
 pub use objects::{GObjects, NamePool, decode_array_pointer};

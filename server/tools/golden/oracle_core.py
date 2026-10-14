@@ -6,7 +6,8 @@ from pathlib import Path
 
 
 def section_oracle_decode():
-    sys.path.insert(0, str(Path(__file__).resolve().parents[4] / "range_authority_probe"))
+    import os
+    sys.path.insert(0, str(Path(os.environ["ARIES_PROJECT_ROOT"]) / "range_authority_probe"))
     from read_world_state import decode_array_pointer
 
     rng = random.Random(9)

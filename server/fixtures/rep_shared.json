@@ -1,0 +1,218 @@
+{
+ "bool": [
+  {
+   "handle": 18,
+   "value": true,
+   "hex": "480200",
+   "bit_count": 18
+  },
+  {
+   "handle": 18,
+   "value": false,
+   "hex": "480000",
+   "bit_count": 18
+  },
+  {
+   "handle": 46,
+   "value": true,
+   "hex": "b80200",
+   "bit_count": 18
+  },
+  {
+   "handle": 63,
+   "value": false,
+   "hex": "fc0000",
+   "bit_count": 18
+  }
+ ],
+ "object": [
+  {
+   "handle": 15,
+   "guid": 6,
+   "hex": "3c180000",
+   "bit_count": 25
+  },
+  {
+   "handle": 16,
+   "guid": 10,
+   "hex": "40280000",
+   "bit_count": 25
+  },
+  {
+   "handle": 30,
+   "guid": 8,
+   "hex": "78200000",
+   "bit_count": 25
+  },
+  {
+   "handle": 194,
+   "guid": 10,
+   "hex": "0a05280000",
+   "bit_count": 33
+  },
+  {
+   "handle": 195,
+   "guid": 10,
+   "hex": "0e05280000",
+   "bit_count": 33
+  },
+  {
+   "handle": 1,
+   "guid": 200,
+   "hex": "0422050000",
+   "bit_count": 33
+  },
+  {
+   "handle": 12,
+   "guid": 10,
+   "hex": "30280000",
+   "bit_count": 25
+  },
+  {
+   "handle": 3,
+   "guid": 62,
+   "hex": "0cf80000",
+   "bit_count": 25
+  },
+  {
+   "handle": 300,
+   "guid": 65535,
+   "hex": "b208feff0d0000",
+   "bit_count": 49
+  }
+ ],
+ "role": [
+  {
+   "width": 3,
+   "value": 2,
+   "hex": "100400",
+   "bit_count": 20
+  },
+  {
+   "width": 3,
+   "value": 3,
+   "hex": "100600",
+   "bit_count": 20
+  },
+  {
+   "width": 8,
+   "value": 2,
+   "hex": "10040000",
+   "bit_count": 25
+  }
+ ],
+ "owner": [
+  {
+   "actor": 94,
+   "owner": 10,
+   "hex": "cb60018902",
+   "bit_count": 35
+  },
+  {
+   "actor": 200,
+   "owner": 10,
+   "hex": "cb28b69304",
+   "bit_count": 35
+  },
+  {
+   "actor": 204,
+   "owner": 10,
+   "hex": "cbb0228104",
+   "bit_count": 35
+  },
+  {
+   "actor": 520,
+   "owner": 10,
+   "hex": "cb94985a05",
+   "bit_count": 35
+  },
+  {
+   "actor": 100000,
+   "owner": 10,
+   "hex": "cb4c523102",
+   "bit_count": 35
+  }
+ ],
+ "contents": [
+  {
+   "slot": 1,
+   "item": 94,
+   "hex": "01a2074f86fcee01",
+   "bit_count": 62
+  },
+  {
+   "slot": 10,
+   "item": 200,
+   "hex": "91a2074fc85a102028",
+   "bit_count": 70
+  },
+  {
+   "slot": 2,
+   "item": 204,
+   "hex": "11a2074fc85ad02e28",
+   "bit_count": 70
+  },
+  {
+   "slot": 3,
+   "item": 208,
+   "hex": "21a2074fc85a303e28",
+   "bit_count": 70
+  },
+  {
+   "slot": 0,
+   "item": 520,
+   "hex": "f1a1074fc8da042028",
+   "bit_count": 70
+  },
+  {
+   "slot": 11,
+   "item": 640,
+   "hex": "a1a2074fc8da562928",
+   "bit_count": 70
+  }
+ ],
+ "correction": [
+  {
+   "index": 1,
+   "guid": 94,
+   "hex": "e1150c0b0b43b8cb72a60f",
+   "bit_count": 84
+  },
+  {
+   "index": 5,
+   "guid": 94,
+   "hex": "e1150c230b43b8cb82a20f",
+   "bit_count": 84
+  },
+  {
+   "index": 6,
+   "guid": null,
+   "hex": "e115b3c67d26c59000",
+   "bit_count": 68
+  },
+  {
+   "index": 7,
+   "guid": 204,
+   "hex": "e1950c530b43f940198a0509",
+   "bit_count": 92
+  },
+  {
+   "index": 6,
+   "guid": 200,
+   "hex": "e1950c130b43c944198a0509",
+   "bit_count": 92
+  },
+  {
+   "index": 300,
+   "guid": 520,
+   "hex": "e195f4630943c94419c20709",
+   "bit_count": 92
+  },
+  {
+   "index": 4294967295,
+   "guid": 94,
+   "hex": "e115ac0737e3bccb2aa40f",
+   "bit_count": 84
+  }
+ ]
+}
