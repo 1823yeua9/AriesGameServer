@@ -307,7 +307,8 @@ impl Harness {
         self.collect();
         // the 128 hz loop's per-tick work (lag compensation records)
         self.ticks += 16;
-        self.server.tick(self.ticks, self.now);
+        self.server.tick(self.ticks, self.now, &mut self.out);
+        self.collect();
     }
 
     pub fn run_until(&mut self, done: impl Fn(&RangeServer, SocketAddr) -> bool) {

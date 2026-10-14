@@ -236,3 +236,40 @@ fn move_acks_follow_client_restart() {
         inspect_first_bunch(&packet).is_none_or(|b| b.reliable || b.channel_index != 8)
     }));
 }
+
+/// keys that appear only after a few tries (the handler scan still running).
+struct LateKeys(u32);
+
+impl aries_range::KeySource for LateKeys {
+    fn read_keys(&mut self) -> Result<aries_range::SessionKeys, String> {
+        if self.0 > 0 {
+            self.0 -= 1;
+            return Err("ares handler keys not read yet".into());
+        }
+        FixedKeys.read_keys()
+    }
+}
+
+/// python blocked on the key scan and then handled the datagram; datagrams
+/// that arrive during the scan are held and replayed, old ones dropped.
+#[test]
+fn datagrams_wait_for_the_key_scan() {
+    let source: SocketAddr = "127.0.0.1:50509".parse().unwrap();
+    let mut server = RangeServer::new(RangeConfig::default(), Box::new(LateKeys(2)), None);
+    let mut out = Outbox::default();
+    server.handle_datagram(10.0, source, &initial_datagram(), &mut out);
+    assert!(out.datagrams.is_empty(), "held while the scan runs");
+    server.tick(1, 10.05, &mut out);
+    assert!(out.datagrams.is_empty());
+    server.tick(2, 10.1, &mut out);
+    assert_eq!(out.datagrams.len(), 1, "the held initial packet gets its challenge");
+
+    // held past the limit: dropped like a failed scan; a fresh datagram still works
+    let mut server = RangeServer::new(RangeConfig::default(), Box::new(LateKeys(2)), None);
+    let mut out = Outbox::default();
+    server.handle_datagram(10.0, source, &initial_datagram(), &mut out);
+    server.tick(1, 12.5, &mut out);
+    assert!(out.datagrams.is_empty());
+    server.handle_datagram(12.6, source, &initial_datagram(), &mut out);
+    assert_eq!(out.datagrams.len(), 1, "only the fresh packet is answered");
+}

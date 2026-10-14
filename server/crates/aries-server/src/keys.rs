@@ -26,8 +26,10 @@ impl BackgroundKeys {
                             return;
                         }
                         Err(e) => {
-                            log::warn!(target: "keys", "handler not ready ({e}); retrying");
-                            std::thread::sleep(Duration::from_secs(1));
+                            // the handler appears when the client starts connecting; retry
+                            // fast so its first datagrams wait as little as possible
+                            log::debug!(target: "keys", "handler not ready ({e}); retrying");
+                            std::thread::sleep(Duration::from_millis(100));
                         }
                     }
                 }

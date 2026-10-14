@@ -104,7 +104,13 @@ fn main() {
             }
         }
         let now = start.elapsed().as_secs_f64();
-        server.tick(clock.tick, now);
+        server.tick(clock.tick, now, &mut outbox);
+        for (target, datagram) in outbox.datagrams.drain(..) {
+            match socket.send_to(&datagram, target) {
+                Ok(_) => sent += 1,
+                Err(e) => warn!("send to {target}: {e}"),
+            }
+        }
         clock.wait(started);
         if last_report.elapsed() >= Duration::from_secs(30) {
             last_report = Instant::now();

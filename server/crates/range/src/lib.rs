@@ -16,7 +16,7 @@ pub mod moves;
 pub mod purchases;
 pub mod send;
 
-use std::collections::HashMap;
+use std::collections::{HashMap, VecDeque};
 use std::net::SocketAddr;
 use std::path::Path;
 
@@ -60,8 +60,15 @@ pub struct RangeServer {
     pub live: Box<dyn LiveClient>,
     /// the player's skins (bought guns; reloaded when the state file changes)
     pub skins: aries_world::skins::InventoryCache,
-    start: f64,
+    /// datagrams that arrived while the key scan ran (python blocked on the
+    /// scan, then handled them): replayed in order once the keys are read
+    held: VecDeque<(f64, SocketAddr, Vec<u8>)>,
 }
+
+/// python handled a datagram after a scan that succeeded; one held longer than
+/// this is dropped as not_ready, like a scan that failed.
+pub const HOLD_FOR_KEYS: f64 = 2.0;
+pub const HOLD_LIMIT: usize = 512;
 
 /// python handler_elapsed_ms threshold.
 pub const HANDLER_SLOW_MS: f64 = 25.0;
@@ -80,38 +87,62 @@ impl RangeServer {
             events: EventLog::new(event_path),
             live: Box::new(NoLiveClient),
             skins,
-            start: 0.0,
+            held: VecDeque::new(),
         }
     }
 
     /// handles one datagram at monotonic time `now` (seconds).
+    /// `now` is seconds since the server started (python elapsed_seconds).
     pub fn handle_datagram(&mut self, now: f64, source: SocketAddr, datagram: &[u8], out: &mut Outbox) {
         if !source.ip().is_loopback() {
             return;
         }
-        if self.start == 0.0 {
-            self.start = now;
+        if !self.keys_ready(now, out) {
+            if self.held.len() == HOLD_LIMIT {
+                self.held.pop_front();
+            }
+            self.held.push_back((now, source, datagram.to_vec()));
+            return;
         }
+        self.handle_keyed(now, source, datagram, out);
+    }
+
+    /// reads the keys once they exist; then replays every held datagram.
+    fn keys_ready(&mut self, now: f64, out: &mut Outbox) -> bool {
+        if self.keys.is_some() {
+            return true;
+        }
+        let error = match self.key_source.read_keys() {
+            Ok(keys) => {
+                log::info!(target: "range", "session keys read from the live client");
+                self.keys = Some(Keys { client: AresGcm::new(&keys.client_send), server: AresGcm::new(&keys.server_send) });
+                for (_, source, datagram) in std::mem::take(&mut self.held) {
+                    self.handle_keyed(now, source, &datagram, out);
+                }
+                return true;
+            }
+            Err(error) => error,
+        };
+        // held too long: the python's failed scan (not_ready, dropped)
+        while self.held.front().is_some_and(|(t, _, _)| now - t >= HOLD_FOR_KEYS) {
+            let (_, source, datagram) = self.held.pop_front().expect("front checked");
+            let mut event = Event::default();
+            event.set("elapsed_seconds", (now * 1000.0).round() / 1000.0);
+            event.set("source_port", source.port());
+            event.set("length", datagram.len());
+            event.set("handler_state", "not_ready");
+            event.set("handler_error", error.as_str());
+            self.events.record(event);
+        }
+        false
+    }
+
+    fn handle_keyed(&mut self, now: f64, source: SocketAddr, datagram: &[u8], out: &mut Outbox) {
         let started = std::time::Instant::now();
         let mut event = Event::default();
-        event.set("elapsed_seconds", ((now - self.start) * 1000.0).round() / 1000.0);
+        event.set("elapsed_seconds", (now * 1000.0).round() / 1000.0);
         event.set("source_port", source.port());
         event.set("length", datagram.len());
-
-        if self.keys.is_none() {
-            match self.key_source.read_keys() {
-                Ok(keys) => {
-                    log::info!(target: "range", "session keys read from the live client");
-                    self.keys = Some(Keys { client: AresGcm::new(&keys.client_send), server: AresGcm::new(&keys.server_send) });
-                }
-                Err(error) => {
-                    event.set("handler_state", "not_ready");
-                    event.set("handler_error", error);
-                    self.events.record(event);
-                    return;
-                }
-            }
-        }
 
         match handshake::parse_handshake(datagram) {
             Ok(packet) => self.handle_handshake(now, source, &packet, &mut event, out),
@@ -277,7 +308,10 @@ impl RangeServer {
 
     /// once per 128 hz tick, after every datagram of the tick: record where each
     /// compensated entity stands (source's post-think record), drop what is too old.
-    pub fn tick(&mut self, tick: u64, now: f64) {
+    pub fn tick(&mut self, tick: u64, now: f64, out: &mut Outbox) {
+        if !self.held.is_empty() {
+            self.keys_ready(now, out);
+        }
         for conn in self.connections.values_mut() {
             if let Some(system) = conn.authority.bots.as_mut() {
                 let poses = system.poses();
