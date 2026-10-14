@@ -164,18 +164,29 @@ pub fn wrap_gcm(plain: &Bits, gcm: &AresGcm, counter: u32) -> Vec<u8> {
 
 /// a full server datagram for one bunch. returns (datagram, decoded packet bit count).
 pub fn build_server_frame(body: &Bits, header: &BunchHeader, info: &PacketInfo, gcm: &AresGcm) -> Result<(Vec<u8>, usize), FrameError> {
-    let mut packet = build_packet_bits(body, header, info)?;
+    let packet = build_packet_bits(body, header, info)?;
     let bit_count = packet.bit_count;
-    if !transform_short_packet(&mut packet.bytes, bit_count, 0) {
+    Ok((seal_packet(&packet, info.stateless_header, gcm)?, bit_count))
+}
+
+/// transform + gcm + datagram framing for any decoded server packet:
+/// [32 zero bits][6-bit stateless header][counter|tag|ciphertext|trailer][terminal bit].
+pub fn seal_packet(packet: &Bits, stateless_header: u32, gcm: &AresGcm) -> Result<Vec<u8>, FrameError> {
+    if stateless_header >= 32 {
+        return Err(FrameError::StatelessHeader);
+    }
+    let mut transformed = packet.clone();
+    let bit_count = packet.bit_count;
+    if !transform_short_packet(&mut transformed.bytes, bit_count, 0) {
         return Err(FrameError::Transform);
     }
-    let encrypted = wrap_gcm(&packet, gcm, 0);
+    let encrypted = wrap_gcm(&transformed, gcm, 0);
     let mut w = BitWriter::new();
     w.append_bits(0, 32);
-    w.append_bits(info.stateless_header as u64, 6);
+    w.append_bits(stateless_header as u64, 6);
     w.append_payload(&encrypted, 64 + bit_count + 8);
     w.append_bits(1, 1); // terminal bit
-    Ok((w.finish()?.bytes, bit_count))
+    Ok(w.finish()?.bytes)
 }
 
 /// an authenticated, decrypted, inverse-transformed client packet.
