@@ -110,7 +110,11 @@ pub fn run_move_ack(reply: &mut Reply, config: &RangeConfig, live: &mut dyn Live
     if initial {
         reply.event.set("movement_ack_path", "placement_correction");
         reply.event.set("move_correction_location", json!(config.spawn_location));
-        reply.event.set("move_correction_rpc_bits", body.bit_count);
+        // python logs the rpc's own bits, the size its content block declares
+        let mut header = aries_bits::BitReader::from_bits(&body);
+        header.read_bool();
+        header.read_bool();
+        reply.event.set("move_correction_rpc_bits", header.read_packed_uint());
         reply.conn.moves.correction_sent = true;
         // the correction teleports the pawn: a discontinuity for the position track
         let [x, y, z] = config.spawn_location;

@@ -199,6 +199,10 @@ fn player_track_follows_the_saved_moves() {
         h.now += 0.125;
         h.client.tick(&mut h.server, h.now, h.source, &mut h.out);
     }
+    // python logs the correction rpc's own 932 bits (production log)
+    h.server.flush();
+    let log = std::fs::read_to_string(&h.events).unwrap();
+    assert!(log.contains("\"move_correction_rpc_bits\":932"));
     let conn = &h.server.connections[&h.source];
     assert_eq!(conn.player.delay, 0.2109375);
     let value = conn.player.value_now(h.now).expect("samples");

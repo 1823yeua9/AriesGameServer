@@ -190,3 +190,27 @@ fn ability_jobs_register_with_the_mirror() {
     let sent = h.events_with("sent_equippable_auth_states");
     assert_eq!(sent.last().unwrap()["Ability_Wushu_4_Smoke_C"], json!(["EquipState", "EquipState"]));
 }
+
+/// writes a whole scripted session's events (bring-up, bots, a purchase) to
+/// target/harness_events.jsonl for tools/shadow_diff.py against a python log.
+/// run with: cargo test -p aries-range --test gameplay_flow -- --ignored
+#[test]
+#[ignore]
+fn export_harness_events() {
+    let world = Rc::new(RefCell::new(World::default()));
+    let mut h = Harness::new(50640, world.clone());
+    let backend = std::path::PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../../../local_backend");
+    h.server.config.skin_catalog = backend.join("skin_catalog.json");
+    h.server.config.skin_state = backend.join("offline_skin_state.json");
+    h.server.skins = aries_world::skins::InventoryCache::new(&h.server.config.player_id, h.server.config.skin_catalog.clone(), h.server.config.skin_state.clone());
+    streaming_done(&mut h);
+    let event = h.send_captured("capture_1");
+    assert!(event.get("purchase_planned").is_some());
+    for _ in 0..40 {
+        h.tick();
+    }
+    h.server.flush();
+    let out = std::path::PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../target/harness_events.jsonl");
+    std::fs::copy(&h.events, &out).unwrap();
+    eprintln!("wrote {}", out.display());
+}

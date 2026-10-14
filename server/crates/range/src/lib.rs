@@ -152,6 +152,7 @@ impl RangeServer {
         } else if packet.packet_type == PACKET_RESPONSE {
             let matches = conn.pending.is_some_and(|(timestamp, cookie)| packet.timestamp == timestamp && packet.cookie == cookie);
             event.set("matches_challenge", matches);
+            event.set("cookie_sha256_prefix", cookie_prefix(&packet.cookie));
             if matches {
                 if let Some(ack) = handshake::build_ack(packet, &random_bytes()) {
                     let datagram = handshake::wrap_raw(&ack, RAW_ENVELOPE_BYTES);
@@ -289,6 +290,12 @@ impl RangeServer {
     pub fn flush(&mut self) {
         self.events.flush();
     }
+}
+
+/// python hashlib.sha256(cookie).hexdigest()[:12]
+fn cookie_prefix(cookie: &[u8]) -> String {
+    use sha2::Digest;
+    sha2::Sha256::digest(cookie).iter().take(6).map(|b| format!("{b:02x}")).collect()
 }
 
 /// python inspect_client_ares_packet's keys (range_udp_handshake.py:526-551).
