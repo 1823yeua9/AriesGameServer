@@ -8,7 +8,7 @@
 //!   --serve  one compact sample (no tags) per stdin line, for lockstep diffs
 //!            against the python readers while someone is playing
 
-use aries_oracle::client::{LiveClient, WatchList, client_process_alive};
+use aries_oracle::client::{LiveClient, WatchList, WatchedEquippable, client_process_alive};
 use aries_oracle::equippable::{GUN_RESOURCES, ResourceSlot, SMOKE_RESOURCES, TAILWIND_RESOURCES, UPDRAFT_RESOURCES};
 use aries_oracle::keys::fingerprint;
 use aries_oracle::{OracleError, Process, find_processes};
@@ -113,7 +113,8 @@ fn sample(client: &mut LiveClient<Process>, with_tags: bool) -> Map<String, Valu
     out.insert("read_saved_moves".into(), wrap(client.saved_moves(), |m| {
         m.map_or(Value::Null, |m| {
             json!({"count": m.count, "oldest": m.oldest, "newest": m.newest, "last_acked": m.last_acked, "numbers": m.numbers,
-                   "newest_timestamp_bits": m.newest_timestamp_bits, "newest_timestamp": m.newest_timestamp(),
+                   // widened like python's struct.unpack("<f") so the json text matches
+                   "newest_timestamp_bits": m.newest_timestamp_bits, "newest_timestamp": m.newest_timestamp().map(f64::from),
                    "move_handler_gate_open": m.move_handler_gate_open, "dropping_moves": m.dropping_moves})
         })
     }));
@@ -176,12 +177,21 @@ fn main() {
         return;
     }
     let mut out = sample(&mut client, true);
-    // one §7.2 snapshot with the production watch list, timed
+    // one §7.2 snapshot with the production mirror list, timed. the classes come from
+    // the live slots here; the range passes the ones it registered (H:1617)
+    let live_slots = client.slot_machines(&SLOTS).unwrap_or_default();
     let watch = WatchList {
-        slots: SLOTS.to_vec(),
-        resources: [1, 3, 4, 5].iter().map(|&slot| (slot, resources_for(slot).to_vec())).collect(),
-        item_machine_slots: vec![1, 4, 5],
-        firing: vec![(1, "BasePistol".into())],
+        equippables: live_slots
+            .iter()
+            .map(|m| WatchedEquippable {
+                key: m.class_name.trim_end_matches("_C").to_string(),
+                slot: m.slot,
+                class_name: m.class_name.clone(),
+                resources: resources_for(m.slot).to_vec(),
+                firing: true,
+                item_machines: [1, 4, 5].contains(&m.slot),
+            })
+            .collect(),
         projectile_channels: vec![10000],
     };
     let snapshot = client.snapshot(&watch);
@@ -190,9 +200,13 @@ fn main() {
         "read_us": snapshot.read_us,
         "chain": field(snapshot.chain.is_ok()),
         "slots": snapshot.slots.as_ref().map(|s| s.len()).ok(),
-        "resources": snapshot.resources.iter().map(|(slot, r)| json!([slot, field(r.is_ok())])).collect::<Vec<_>>(),
-        "item_machines": snapshot.item_machines.iter().map(|(slot, r)| json!([slot, r.as_ref().map(|m| m.len()).unwrap_or(0)])).collect::<Vec<_>>(),
-        "firing_seeds": snapshot.firing_seeds,
+        "equippables": snapshot.equippables.iter().map(|e| json!({
+            "key": e.key,
+            "slot": e.slot,
+            "firing_seed": e.firing_seed,
+            "resources": e.resources.as_ref().map(|r| field(r.is_ok())),
+            "item_machines": e.item_machines.as_ref().map(|r| r.as_ref().map(|m| m.len()).unwrap_or(0)),
+        })).collect::<Vec<_>>(),
         "camera": field(snapshot.camera.is_ok()),
         "input_replication": field(snapshot.input_replication.is_ok()),
         "ult_required": snapshot.ult_required.as_ref().ok(),

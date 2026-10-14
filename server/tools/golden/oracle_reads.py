@@ -915,6 +915,7 @@ def scenario_header_rules():
     """each python caller kept its own GObjects header check (spec 09 3.2)."""
     out = []
     for name, args in (("header_no_chunks", {"num_chunks": 0}),
+                       ("header_one_chunk", {"num_chunks": 1}),
                        ("header_few_elements", {"num_elements": 0x800}),
                        ("header_engine_elements", {"num_elements": 0x107E2}),
                        ("header_many_chunks", {"num_chunks": 0x15}),
@@ -924,6 +925,67 @@ def scenario_header_rules():
         run.derive_name_key()
         everything(run)
         out.append(run)
+    return out
+
+
+def scenario_name_key():
+    """R3: derive_name_key's own checks (FNP:53-64). the reader is retried by every
+    call until one creation succeeds (H:1591-1598); the tag read derives its own."""
+    run = Run("name_key")
+    a, im, names = run.a, run.image, run.client.names
+    engine, anchor = a["engine"], names.add("AresGameEngine")
+    im.u32(engine + 0xC, 0x107E3)  # the engine's object index moved
+    run.derive_name_key()
+    run.slot_machines([1])
+    run.tags()
+    im.u32(engine + 0xC, 0x107E2)
+    for bad in (names.add("AresGameEngine", wide=True),  # wide anchor
+                names.add("AresGameEngin"),              # 13 chars
+                names.add("AresGameEngins"),             # key from "Ares" fine, full name differs
+                names.add("XresGameEngine"),             # wrong key, full name differs
+                0x10005,                                 # name block 1 is null
+                names.empty()):                          # length 0
+        im.u32(engine + 0x18, bad)
+        run.derive_name_key()
+        run.slot_machines([1])
+    run.tags()
+    im.u32(engine + 0x18, anchor)
+    run.derive_name_key()
+    run.slot_machines([1])
+    run.tags()
+    # the open reader keeps its key; the tag read's own derivation fails
+    im.u32(engine + 0xC, 0x107E3)
+    run.tags()
+    run.slot_machines([1])
+    return run
+
+
+def scenario_chunk_table_edges():
+    """derive_name_key reads only the engine's chunk pointer (FNP:50-51); every other
+    walk reads the whole table (RES:37, RRI:66, CIE:30, RMN:59, GTN:46)."""
+    out = []
+    # entry 0 on an unmapped page, entry 1 (the engine's chunk) on the next one
+    run = Run("chunk_table_first_unreadable")
+    im = run.image
+    table = 0x1A0004FF8
+    im.map(table + 8, 8)
+    im.u64(table + 8, CHUNK1)
+    im.u64(ARRAY, table)
+    run.derive_name_key()
+    everything(run)
+    out.append(run)
+    # three chunks, the third pointer on an unmapped page
+    run = Run("chunk_table_last_unreadable")
+    im = run.image
+    table = 0x1A0006FF0
+    im.map(table, 16)
+    im.u64(table, CHUNK0)
+    im.u64(table + 8, CHUNK1)
+    im.u64(ARRAY, table)
+    im.u32(ARRAY + 0x1C, 3)
+    run.derive_name_key()
+    everything(run)
+    out.append(run)
     return out
 
 
@@ -1172,6 +1234,35 @@ def scenario_tags():
     return run
 
 
+def scenario_tag_sort_keys():
+    """the sort key is python 3.12's str.lower (GTN:87): characters newer than its
+    unicode 15.0 tables keep their case, so these pairs sort by text, not number."""
+    run = Run("tag_sort_keys")
+    a, im, c = run.a, run.image, run.client
+    manager, data = a["tag_manager"], a["tag_data"]
+    extra = [(4, "Ꟍ.Tag", 1, False),          # newer capital: python keeps it
+             (10, "ꟍ.Tag", 0, False),         # its newer small form
+             (11, "\U00010d50x", 1, True),         # supplementary plane, wide name
+             (12, "\U00010d70x", 0, True),
+             (13, "ΟΔΟΣ", 0, False),  # final sigma
+             (14, "AʕΣ.Tag", 0, False)]  # 0295 is cased only in python's tables
+    for k, text, number, wide in extra:
+        node = c.uobject()
+        im.u16(node + 0x50, 0xFFFF)
+        im.u32(data + 0x28 * k, c.names.add(text, wide=wide))
+        im.u32(data + 0x28 * k + 4, number)
+        im.u64(data + 0x28 * k + 0x10, node)
+    im.u32(manager + 0x138, 9 + len(extra))
+    im.u32(manager + 0x13C, 15)
+    run.tags()
+    # junk capacity: python fails on the first unreadable piece of the block
+    im.u32(manager + 0x13C, 0xFFFFFFFF)
+    run.tags()
+    im.u64(manager + 0x130, UNMAPPED)
+    run.tags()
+    return run
+
+
 def scenario_garbage_pointers():
     """pointers near 2**64: python ints do not wrap, so base + offset fails the bounds
     check; the rust reads must fail the same way (and never overflow)."""
@@ -1223,11 +1314,45 @@ def section_oracle_reads():
     global RESPONDER
     RESPONDER = Responder()
     runs = [scenario_healthy(), scenario_state_caches(), scenario_firing_names(), scenario_unpossessed(),
-            scenario_no_controller(), scenario_no_world(), *scenario_header_rules(), scenario_moves(),
-            scenario_rpc(), scenario_input(), scenario_projectile(), scenario_resources(), scenario_hud(),
-            scenario_tags(), scenario_garbage_pointers()]
+            scenario_no_controller(), scenario_no_world(), *scenario_header_rules(), scenario_name_key(),
+            *scenario_chunk_table_edges(),
+            scenario_moves(), scenario_rpc(), scenario_input(), scenario_projectile(), scenario_resources(),
+            scenario_hud(), scenario_tags(), scenario_tag_sort_keys(), scenario_garbage_pointers()]
     return [run.export() for run in runs]
 
 
+SIGMA = "Σ"
+LOWER_SAMPLES = [
+    "A" + SIGMA, SIGMA, "A" + SIGMA + "B", "A." + SIGMA, "A'" + SIGMA, "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + SIGMA,
+    "ΟΔΟ" + SIGMA, "ΟΔΟ" + SIGMA + ".Tag", "A" + SIGMA * 3, SIGMA * 3,
+    "Ꟍ" + SIGMA, "AꟌ" + SIGMA, "ʕ" + SIGMA, "Aʕ" + SIGMA, "A\U0001171e" + SIGMA,
+    "\U0001171e" + SIGMA, SIGMA + "Ꟍ", "A" + SIGMA + "ʕ", "A" + SIGMA + "\U0001171eB",
+    "A" + SIGMA + "\U0001171eʕ", "İ", "ẞ", "Ꟍꟍ.Tag", "\U00010d50x\U00010d70",
+    "AbilityTuning.Wushu.4.SmokeDuration", "aBility.Zeta",
+]
+
+
+def section_oracle_lower():
+    """python 3.12 str.lower, the tag sort key (GTN:87): every code point it changes,
+    every code point's final-sigma class as runs (2: final after "A" + c, i.e. c is
+    case-ignorable or cased; 1: final after c alone, i.e. cased and not ignorable),
+    and whole strings where sigma depends on its neighbours."""
+    changed, runs = [], []
+    for cp in range(0x110000):
+        if 0xD800 <= cp <= 0xDFFF:
+            continue
+        c = chr(cp)
+        if c.lower() != c:
+            changed.append([cp, c.lower()])
+        kind = (2 * (("A" + c + SIGMA).lower()[-1] == "ς")
+                + ((c + SIGMA).lower()[-1] == "ς"))
+        if runs and runs[-1][1] + 1 == cp and runs[-1][2] == kind:
+            runs[-1][1] = cp
+        else:
+            runs.append([cp, cp, kind])
+    return {"python": sys.version.split()[0], "changed": changed, "sigma_runs": runs,
+            "samples": [[s, s.lower()] for s in LOWER_SAMPLES]}
+
+
 RESPONDER = None
-SECTIONS = {"oracle_reads": section_oracle_reads}
+SECTIONS = {"oracle_reads": section_oracle_reads, "oracle_lower": section_oracle_lower}

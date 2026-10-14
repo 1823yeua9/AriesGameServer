@@ -4,13 +4,13 @@
 
 use std::collections::BTreeMap;
 
-use aries_oracle::client::{LiveClient, WatchList, derive_names};
-use aries_oracle::equippable::{GUN_RESOURCES, InputReplication, ItemMachine, ResourceAmounts, ResourceSlot, SMOKE_RESOURCES, SlotMachine};
+use aries_oracle::client::{LiveClient, WatchList, WatchedEquippable, derive_names};
+use aries_oracle::equippable::{GUN_RESOURCES, InputReplication, ItemMachine, ResourceAmounts, ResourceSlot, SMOKE_RESOURCES, SlotMachine, TAILWIND_RESOURCES, UPDRAFT_RESOURCES};
 use aries_oracle::input::read_pending_input_bounds;
 use aries_oracle::moves::{SavedMoves, read_saved_moves};
 use aries_oracle::probes::{HudState, ProjectileSnapshot, read_hud_state, read_ult_required};
 use aries_oracle::rpc_index::{RpcActor, resolve_rpc_index};
-use aries_oracle::tags::predict_net_indices;
+use aries_oracle::tags::{python_lower, read_tag_net_indices};
 use aries_oracle::world::{Camera, find_controller, find_pawn, find_world, read_camera};
 use aries_oracle::{FakeMemory, Memory, OracleError};
 use serde_json::{Value, json};
@@ -203,13 +203,14 @@ fn call(target: &mut Target, name: &str, args: &Value) -> Result<Value, String> 
         "read_projectile" => result(target.client()?.projectile(u64_arg(args, "channel") as u32), projectile_json),
         "hud_refresh" => Ok(hud_json(read_hud_state(&target.client()?.memory))),
         "ultimate_points" => Ok(ult_json(read_ult_required(&target.client()?.memory))),
+        // its own temporary reader: a fresh key derivation (H:4054-4059). the main
+        // reader is not needed, so this goes through LiveClient only once it exists
         "predict_net_indices" => {
-            // its own temporary reader: a fresh key derivation (H:4054-4059)
-            let memory = target.memory();
-            let mut names = derive_names(memory).map_err(|e| e.to_string())?;
-            result(predict_net_indices(memory, &mut names), |t| {
-                json!({"indices": t.indices, "true_bit_num": t.true_bit_num, "first_bit_segment": t.first_bit_segment, "constructed": t.constructed})
-            })
+            let read = match target {
+                Target::Raw(memory) => read_tag_net_indices(memory),
+                Target::Client(client) => client.tag_net_indices(),
+            };
+            result(read, |t| json!({"indices": t.indices, "true_bit_num": t.true_bit_num, "first_bit_segment": t.first_bit_segment, "constructed": t.constructed}))
         }
         other => panic!("unknown fixture call {other}"),
     }
@@ -272,22 +273,37 @@ fn assert_same(rust: Result<Value, String>, python: Result<Value, String>, conte
     }
 }
 
-/// a snapshot is the same reads as the separate python calls (spec 09 §7.2).
+fn watched(key: &str, slot: u32, class_name: &str, resources: &[ResourceSlot<'static>], firing: bool, item_machines: bool) -> WatchedEquippable {
+    WatchedEquippable { key: key.into(), slot, class_name: class_name.into(), resources: resources.to_vec(), firing, item_machines }
+}
+
+/// the end state of a run's memory, every op applied
+fn replayed(run: &Value) -> Target {
+    let mut target = Target::Raw(FakeMemory::new(run["image_base"].as_u64().unwrap()));
+    for step in run["steps"].as_array().unwrap() {
+        apply(&mut target, step);
+    }
+    target
+}
+
+/// a snapshot is the same reads as the separate python calls (spec 09 §7.2), with
+/// the mirror pass's per-equippable gates (H:1615-1700).
 #[test]
 fn snapshot_matches_python_calls() {
     for run in runs().iter().filter(|r| ["healthy", "unpossessed", "no_controller"].contains(&r["name"].as_str().unwrap())) {
-        let mut target = Target::Raw(FakeMemory::new(run["image_base"].as_u64().unwrap()));
-        for step in run["steps"].as_array().unwrap() {
-            apply(&mut target, step);
-        }
+        let mut target = replayed(run);
         let expected_slots = python_result(run, "read_slot_machines", json!({"slots": [1, 2, 3, 4, 5, 9]}));
-        let pistol = expected_slots.as_array().unwrap().first().cloned();
         let client = target.client().unwrap();
+        // the starting mirror list (H:1316-1331): pistol, melee, then C Q E X
         let watch = WatchList {
-            slots: vec![1, 2, 3, 4, 5, 9],
-            resources: vec![(1, GUN_RESOURCES.to_vec()), (3, SMOKE_RESOURCES.to_vec())],
-            item_machine_slots: vec![1],
-            firing: vec![(1, "BasePistol".into())],
+            equippables: vec![
+                watched("BasePistol", 1, "BasePistol_C", &GUN_RESOURCES, true, true),
+                watched("Melee", 2, "Ability_Melee_Base_C", &[], true, false),
+                watched("Smoke", 3, "Ability_Wushu_4_Smoke_C", &SMOKE_RESOURCES, true, true),
+                watched("Updraft", 4, "Ability_Wushu_Q_Updraft_C", &UPDRAFT_RESOURCES, true, true),
+                watched("Tailwind", 5, "Ability_Wushu_E_Tailwind_C", &TAILWIND_RESOURCES, true, true),
+                watched("BladeStorm", 9, "Ability_Wushu_X_C", &[], true, false),
+            ],
             projectile_channels: vec![10000],
         };
         let snapshot = client.snapshot(&watch);
@@ -304,21 +320,86 @@ fn snapshot_matches_python_calls() {
         assert_eq!(ult_json(snapshot.ult_required), python_result(run, "ultimate_points", json!({})), "{name} ult");
         let (channel, projectile) = snapshot.projectiles.into_iter().next().unwrap();
         assert_same(result(projectile, projectile_json), python_step(run, "read_projectile", json!({"channel": channel})), &format!("{name} projectile"));
-        let Some(pistol) = pistol else {
-            // no slots: nothing per slot is read
-            assert!(snapshot.resources.is_empty() && snapshot.item_machines.is_empty() && snapshot.firing_seeds.is_empty(), "{name}");
+        let slots = expected_slots.as_array().unwrap();
+        if slots.is_empty() {
+            // no inventory: nothing per equippable is read
+            assert!(snapshot.equippables.is_empty(), "{name}");
             continue;
-        };
-        let item = pistol["item"].as_u64().unwrap();
+        }
+        // updraft has no machine, E no item, X an empty slot: no entries (H:1616-1618)
+        let keys: Vec<&str> = snapshot.equippables.iter().map(|e| e.key.as_str()).collect();
+        assert_eq!(keys, ["BasePistol", "Melee", "Smoke"], "{name}");
+        let (pistol, melee, smoke) = (&snapshot.equippables[0], &snapshot.equippables[1], &snapshot.equippables[2]);
+        let item = |slot: usize| slots[slot]["item"].as_u64().unwrap();
         let resources = json!([["MagazineAmmo", 0x1208, 0x12C], ["ReserveAmmo", 0x1200, 0x12C]]);
-        let (slot, amounts) = &snapshot.resources[0];
-        assert_eq!(*slot, 1);
-        assert_eq!(amounts_json(amounts.as_ref().unwrap()), python_result(run, "read_resource_amounts", json!({"item": item, "resources": resources})), "{name} resources");
-        assert_eq!(machines_json(snapshot.item_machines[0].1.as_ref().unwrap()), python_result(run, "read_item_machines", json!({"item": item})), "{name} machines");
-        let seed_args = json!({"state_machine": pistol["state_machine"], "key": "BasePistol"});
-        assert_eq!(json!(snapshot.firing_seeds[0].1), python_result(run, "read_firing_seed", seed_args), "{name} firing seed");
-        // slot 3 (cloudburst) has resources on the watch list too
-        assert_eq!(snapshot.resources.len(), 2, "{name}");
+        assert_eq!(amounts_json(pistol.resources.as_ref().unwrap().as_ref().unwrap()), python_result(run, "read_resource_amounts", json!({"item": item(0), "resources": resources})), "{name} resources");
+        assert_eq!(machines_json(pistol.item_machines.as_ref().unwrap().as_ref().unwrap()), python_result(run, "read_item_machines", json!({"item": item(0)})), "{name} machines");
+        let seed_args = json!({"state_machine": slots[0]["state_machine"], "key": "BasePistol"});
+        assert_eq!(json!(pistol.firing_seed.unwrap()), python_result(run, "read_firing_seed", seed_args), "{name} firing seed");
+        // the knife has no resources: no seed, no resource read (H:1624, 1635)
+        assert!(melee.firing_seed.is_none() && melee.resources.is_none() && melee.item_machines.is_none(), "{name} melee");
+        // cloudburst is not current: resources and machines, no seed
+        assert!(smoke.firing_seed.is_none(), "{name} smoke seed");
+        let charge = json!([["EquipmentCharge", 0x1240, 0x188]]);
+        assert_eq!(amounts_json(smoke.resources.as_ref().unwrap().as_ref().unwrap()), python_result(run, "read_resource_amounts", json!({"item": item(2), "resources": charge})), "{name} smoke resources");
+        assert_eq!(machines_json(smoke.item_machines.as_ref().unwrap().as_ref().unwrap()), json!([]), "{name} smoke machines");
+    }
+}
+
+/// H:1617: a slot whose item has another class (a gun the shop just swapped in) gets
+/// no seed, resource or machine read, so none of its objects land in the caches.
+#[test]
+fn snapshot_skips_other_classes() {
+    let run = runs().into_iter().find(|r| r["name"] == "healthy").unwrap();
+    let mut target = replayed(&run);
+    let client = target.client().unwrap();
+    let watch = WatchList { equippables: vec![watched("Vandal", 1, "Vandal_C", &GUN_RESOURCES, true, true)], projectile_channels: vec![] };
+    let snapshot = client.snapshot(&watch);
+    assert_eq!(snapshot.slots.as_ref().unwrap().len(), 1);
+    assert!(snapshot.equippables.is_empty());
+    // the slot read itself caches the item's class and main machine, like the python's
+    let sizes = |client: &LiveClient<FakeMemory>| (client.caches.class_names.len(), client.caches.state_names.len(), client.caches.firing_rng.len());
+    assert_eq!(sizes(client), (1, 1, 0));
+    let watch = WatchList { equippables: vec![watched("BasePistol", 1, "BasePistol_C", &GUN_RESOURCES, true, true)], projectile_channels: vec![] };
+    let snapshot = client.snapshot(&watch);
+    assert_eq!(snapshot.equippables.len(), 1);
+    // now both machine names, both ammo components, the zoom states and the rng
+    assert_eq!(sizes(client), (5, 2, 1));
+    // nothing watched: python skips the mirror read entirely (H:1603)
+    let snapshot = client.snapshot(&WatchList::default());
+    assert!(snapshot.slots.unwrap().is_empty() && snapshot.equippables.is_empty());
+}
+
+/// the tag sort key against python 3.12's str.lower (fixtures/oracle_lower.json):
+/// every code point's own lowering, every code point's final-sigma class, and
+/// strings where sigma depends on its neighbours.
+#[test]
+fn tag_sort_key_is_python_lower() {
+    let path = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../fixtures/oracle_lower.json");
+    let data: Value = serde_json::from_str(&std::fs::read_to_string(path).unwrap()).unwrap();
+    let changed: std::collections::HashMap<u32, String> =
+        data["changed"].as_array().unwrap().iter().map(|e| (e[0].as_u64().unwrap() as u32, e[1].as_str().unwrap().to_string())).collect();
+    let mut wrong = Vec::new();
+    for c in (0..=0x10FFFFu32).filter_map(char::from_u32) {
+        let expected = changed.get(&(c as u32)).cloned().unwrap_or_else(|| c.to_string());
+        if python_lower(&c.to_string()) != expected {
+            wrong.push(c as u32);
+        }
+    }
+    assert!(wrong.is_empty(), "{} code points lower differently from python, first {:#x?}", wrong.len(), &wrong[..wrong.len().min(8)]);
+    let final_sigma = |text: String| python_lower(&text).ends_with('\u{3C2}');
+    for run in data["sigma_runs"].as_array().unwrap() {
+        let (first, last, kind) = (run[0].as_u64().unwrap() as u32, run[1].as_u64().unwrap() as u32, run[2].as_u64().unwrap());
+        for c in (first..=last).filter_map(char::from_u32) {
+            let got = 2 * final_sigma(format!("A{c}\u{3A3}")) as u64 + final_sigma(format!("{c}\u{3A3}")) as u64;
+            if got != kind {
+                wrong.push(c as u32);
+            }
+        }
+    }
+    assert!(wrong.is_empty(), "{} code points change final sigma unlike python, first {:#x?}", wrong.len(), &wrong[..wrong.len().min(8)]);
+    for sample in data["samples"].as_array().unwrap() {
+        assert_eq!(python_lower(sample[0].as_str().unwrap()), sample[1].as_str().unwrap(), "{sample}");
     }
 }
 

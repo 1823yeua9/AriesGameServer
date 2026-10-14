@@ -176,15 +176,19 @@ def section_oracle_keys():
     import check_live_packet_keys as clk
     saved = clk.kernel32
     cases = []
+    # the time limit is compared as float seconds (CLK:52, 63): a negative or nan limit
+    # scans nothing, an infinite one never times out. repr() so json keeps nan and inf.
+    limits = {"spec_decoy": [30.0, -1.0, 0.0, float("nan"), float("inf")]}
     try:
         for name, space in scenarios():
             clk.kernel32 = fake_kernel(space)
-            try:
-                handler, send_key, receive_key = clk.read_current_handler_keys(1, NEEDLE, 30.0)
-                result = {"ok": {"handler": handler, "client_send": send_key.hex(), "server_send": receive_key.hex()}}
-            except Exception as error:
-                result = {"error": type(error).__name__}
-            cases.append({"name": name, "needle": NEEDLE, **space.export(), **result})
+            for max_seconds in limits.get(name, [30.0]):
+                try:
+                    handler, send_key, receive_key = clk.read_current_handler_keys(1, NEEDLE, max_seconds)
+                    result = {"ok": {"handler": handler, "client_send": send_key.hex(), "server_send": receive_key.hex()}}
+                except Exception as error:
+                    result = {"error": type(error).__name__}
+                cases.append({"name": name, "needle": NEEDLE, "max_seconds": repr(max_seconds), **space.export(), **result})
     finally:
         clk.kernel32 = saved
     return cases

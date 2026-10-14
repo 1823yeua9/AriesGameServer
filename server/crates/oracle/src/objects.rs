@@ -81,7 +81,8 @@ fn read_name_entry(process: &impl Memory, index: u32) -> Result<(Vec<u8>, usize,
     if index >= 0x1000_0000 {
         return Err(OracleError::Invalid("FName comparison index outside bounded range"));
     }
-    let block = process.u64(process.image_base() + NAME_POOL_RVA + 0x10 + (index >> 16) as u64 * 8)?;
+    // saturating: python ints never wrap, an overflowing address fails the bounds check
+    let block = process.u64(process.image_base().saturating_add(NAME_POOL_RVA + 0x10 + (index >> 16) as u64 * 8))?;
     if !valid_address(block) {
         return Err(OracleError::Invalid("invalid FName pool block pointer"));
     }
@@ -99,7 +100,11 @@ fn read_name_entry(process: &impl Memory, index: u32) -> Result<(Vec<u8>, usize,
 impl NamePool {
     /// derives and validates the key from the AresGameEngine name.
     pub fn new(process: &impl Memory, objects: &GObjects) -> Result<Self, OracleError> {
-        let engine = objects.engine(process)?;
+        Self::from_engine(process, objects.engine(process)?)
+    }
+
+    /// the key from an engine object whose index was already checked (FNP:55-64).
+    pub fn from_engine(process: &impl Memory, engine: u64) -> Result<Self, OracleError> {
         let name_index = process.u32(engine.saturating_add(0x18))?;
         let (encrypted, length, wide) = read_name_entry(process, name_index)?;
         if wide || length != ENGINE_NAME.len() {

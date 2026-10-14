@@ -3,7 +3,7 @@
 //! it. mirrors check_live_packet_keys.read_current_handler_keys (CLK:42-82,
 //! read-only). docs/port/01_transport.md section 7, 09_oracle.md R1.
 
-use std::time::{Duration, Instant};
+use std::time::Instant;
 
 use crate::OracleError;
 
@@ -64,11 +64,13 @@ pub trait ScanSource {
 pub fn scan_handler_keys(source: &impl ScanSource, handler_vtable: u64, max_seconds: f64) -> Result<HandlerKeys, OracleError> {
     let needle = handler_vtable.to_le_bytes();
     let started = Instant::now();
-    let deadline = Duration::from_secs_f64(max_seconds);
+    // CLK:52, 63 compare float seconds: a negative or nan limit scans nothing and an
+    // infinite one never times out (Duration::from_secs_f64 would panic on all three)
+    let in_time = || started.elapsed().as_secs_f64() < max_seconds;
     let mut scanned = 0u64;
     let mut address = SCAN_START;
     let mut chunk = vec![0u8; SCAN_CHUNK];
-    while address < SCAN_END && started.elapsed() < deadline && scanned < SCAN_LIMIT {
+    while address < SCAN_END && in_time() && scanned < SCAN_LIMIT {
         let Some(region) = source.query(address) else {
             break;
         };
@@ -81,7 +83,7 @@ pub fn scan_handler_keys(source: &impl ScanSource, handler_vtable: u64, max_seco
         let readable = region.protect & PROTECT_EXCLUDED == 0 && region.protect & PROTECT_READABLE != 0;
         if region.state == MEM_COMMIT && region.kind == MEM_PRIVATE && readable {
             let mut chunk_address = address;
-            while chunk_address < next && started.elapsed() < deadline {
+            while chunk_address < next && in_time() {
                 let size = (next - chunk_address).min(SCAN_CHUNK as u64) as usize;
                 if let Some(got) = source.read(chunk_address, &mut chunk[..size]) {
                     let data = &chunk[..got.min(size)];

@@ -37,10 +37,19 @@ pub struct TagNetIndex {
     pub constructed: bool,
 }
 
+/// the responder's R16 read (H:4054-4059): its own temporary EquippableStateReader,
+/// so a fresh name key derivation (FNP:43-64, with every failure that brings), then
+/// predict_net_indices with that key. nothing is cached across calls.
+pub fn read_tag_net_indices(memory: &impl Memory) -> Result<TagNetIndex, OracleError> {
+    let mut names = crate::client::derive_names(memory)?;
+    predict_net_indices(memory, &mut names)
+}
+
 /// find_tags_manager (GTN:42-65): (manager, settings). a read failure on an object
 /// slot propagates; anything that fails while naming an object skips it.
 pub fn find_tags_manager(memory: &impl Memory, names: &mut NamePool) -> Result<(u64, u64), OracleError> {
-    // the responder's tag reader validated this header (FNP rule) just before (H:4054-4057)
+    // GTN reads every chunk pointer with no check of its own; the fresh reader it runs
+    // after has just applied the FNP rule to this header (H:4054-4057)
     let objects = require_object_array(memory, HeaderRule::NameKey)?;
     let mut manager = 0u64;
     let mut settings = 0u64;
@@ -73,15 +82,120 @@ pub fn find_tags_manager(memory: &impl Memory, names: &mut NamePool) -> Result<(
     Ok((manager, settings))
 }
 
-/// GTN:37-39: `size` bytes in 0x1000-byte reads.
+/// GTN:37-39: `size` bytes in 0x1000-byte reads. grows as it reads: the size comes
+/// from client memory, and a junk capacity must fail on its first bad piece like the
+/// python, not abort on one huge allocation.
 fn read_block(memory: &impl Memory, address: u64, size: u64) -> Result<Vec<u8>, OracleError> {
-    let mut out = Vec::with_capacity(size as usize);
+    let mut out = Vec::new();
     let mut offset = 0;
     while offset < size {
         out.extend(memory.read_bytes(at(address, offset), READ_PIECE.min(size - offset) as usize)?);
         offset += READ_PIECE;
     }
     Ok(out)
+}
+
+/// code points rust's tables (unicode 17) lowercase but python 3.12's (unicode 15.0)
+/// leave alone (unassigned there). generated from both; tests/reads_golden.rs checks
+/// every code point against python, so a toolchain with newer tables fails there.
+const NEWER_LOWERCASE: [(char, char); 9] = [
+    ('\u{1C89}', '\u{1C89}'),
+    ('\u{A7CB}', '\u{A7CC}'),
+    ('\u{A7CE}', '\u{A7CE}'),
+    ('\u{A7D2}', '\u{A7D2}'),
+    ('\u{A7D4}', '\u{A7D4}'),
+    ('\u{A7DA}', '\u{A7DA}'),
+    ('\u{A7DC}', '\u{A7DC}'),
+    ('\u{10D50}', '\u{10D65}'),
+    ('\u{16EA0}', '\u{16EB8}'),
+];
+
+/// code points whose final-sigma class differs between python 3.12 and rust, with a
+/// stand-in of python's class: ' ' neither, '.' case-ignorable, 'A' cased. CPython's
+/// handle_capital_sigma and rust's map_uppercase_sigma run the same rule on those
+/// two properties, so only these change the outcome. covers NEWER_LOWERCASE too.
+const SIGMA_CONTEXT: [(char, char, char); 40] = [
+    ('\u{295}', '\u{295}', 'A'),
+    ('\u{897}', '\u{897}', ' '),
+    ('\u{1ACF}', '\u{1ADD}', ' '),
+    ('\u{1AE0}', '\u{1AEB}', ' '),
+    ('\u{1C89}', '\u{1C8A}', ' '),
+    ('\u{A7CB}', '\u{A7CF}', ' '),
+    ('\u{A7D2}', '\u{A7D2}', ' '),
+    ('\u{A7D4}', '\u{A7D4}', ' '),
+    ('\u{A7DA}', '\u{A7DC}', ' '),
+    ('\u{A7F1}', '\u{A7F1}', ' '),
+    ('\u{10D4E}', '\u{10D4E}', ' '),
+    ('\u{10D50}', '\u{10D65}', ' '),
+    ('\u{10D69}', '\u{10D6D}', ' '),
+    ('\u{10D6F}', '\u{10D85}', ' '),
+    ('\u{10EC5}', '\u{10EC5}', ' '),
+    ('\u{10EFA}', '\u{10EFC}', ' '),
+    ('\u{113BB}', '\u{113C0}', ' '),
+    ('\u{113CE}', '\u{113CE}', ' '),
+    ('\u{113D0}', '\u{113D0}', ' '),
+    ('\u{113D2}', '\u{113D2}', ' '),
+    ('\u{113E1}', '\u{113E2}', ' '),
+    ('\u{1171E}', '\u{1171E}', '.'),
+    ('\u{11B60}', '\u{11B60}', ' '),
+    ('\u{11B62}', '\u{11B64}', ' '),
+    ('\u{11B66}', '\u{11B66}', ' '),
+    ('\u{11DD9}', '\u{11DD9}', ' '),
+    ('\u{11F5A}', '\u{11F5A}', ' '),
+    ('\u{1611E}', '\u{16129}', ' '),
+    ('\u{1612D}', '\u{1612F}', ' '),
+    ('\u{16D40}', '\u{16D42}', ' '),
+    ('\u{16D6B}', '\u{16D6C}', ' '),
+    ('\u{16EA0}', '\u{16EB8}', ' '),
+    ('\u{16EBB}', '\u{16ED3}', ' '),
+    ('\u{16FF2}', '\u{16FF3}', ' '),
+    ('\u{1E5EE}', '\u{1E5EF}', ' '),
+    ('\u{1E6E3}', '\u{1E6E3}', ' '),
+    ('\u{1E6E6}', '\u{1E6E6}', ' '),
+    ('\u{1E6EE}', '\u{1E6EF}', ' '),
+    ('\u{1E6F5}', '\u{1E6F5}', ' '),
+    ('\u{1E6FF}', '\u{1E6FF}', ' '),
+];
+
+const CAPITAL_SIGMA: char = '\u{3A3}';
+
+fn newer_lowercase(c: char) -> bool {
+    NEWER_LOWERCASE.iter().any(|&(first, last)| (first..=last).contains(&c))
+}
+
+fn sigma_stand_in(c: char) -> Option<char> {
+    SIGMA_CONTEXT.iter().find(|&&(first, last, _)| (first..=last).contains(&c)).map(|&(_, _, stand_in)| stand_in)
+}
+
+/// python 3.12 str.lower, the tag sort key (GTN:87), over rust's newer tables.
+pub fn python_lower(text: &str) -> String {
+    if !text.chars().any(|c| sigma_stand_in(c).is_some()) {
+        return text.to_lowercase();
+    }
+    // rust decides each sigma on a copy where python's properties stand in
+    let context: String = text.chars().map(|c| sigma_stand_in(c).unwrap_or(c)).collect();
+    let lowered_context = context.to_lowercase();
+    let mut lowered = lowered_context.chars();
+    let mut sigmas = Vec::new();
+    for c in context.chars() {
+        if c == CAPITAL_SIGMA {
+            sigmas.extend(lowered.next());
+        } else {
+            lowered.by_ref().take(c.to_lowercase().count()).for_each(drop);
+        }
+    }
+    let mut sigmas = sigmas.into_iter();
+    let mut out = String::with_capacity(text.len());
+    for c in text.chars() {
+        if c == CAPITAL_SIGMA {
+            out.push(sigmas.next().unwrap_or('\u{3C3}'));
+        } else if newer_lowercase(c) {
+            out.push(c);
+        } else {
+            out.extend(c.to_lowercase());
+        }
+    }
+    out
 }
 
 struct NodeEntry {
@@ -115,7 +229,7 @@ pub fn predict_net_indices(memory: &impl Memory, names: &mut NamePool) -> Result
         return Err(OracleError::Invalid("node map tag count mismatch"));
     }
     // FName order: case-insensitive text, then number (python str.lower, stable sort)
-    entries.sort_by_cached_key(|entry| (entry.name.to_lowercase(), entry.number));
+    entries.sort_by_cached_key(|entry| (python_lower(&entry.name), entry.number));
     let mut order: Vec<String> = entries.iter().map(|entry| entry.name.clone()).collect();
     // each commonly replicated tag is swapped to the front in order (GTN:89-96)
     let common = memory.u64(at(manager, MANAGER_COMMON_TAGS))?;
