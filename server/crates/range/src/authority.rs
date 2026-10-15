@@ -13,7 +13,7 @@ use serde_json::{Map, Value, json};
 use aries_world::skins::InventoryCache;
 
 use crate::bringup::{STARTING_EQUIPPABLES, Stage};
-use crate::config::RangeConfig;
+use crate::config::{PacingSettings, RangeConfig};
 use crate::live::LiveClient;
 use crate::send::Reply;
 
@@ -41,6 +41,8 @@ pub struct AuthorityState {
     pub input_correction_polled: Option<f64>,
     pub input_correction_sent: Option<f64>,
     pub range_hud_sent: Option<f64>,
+    /// fast pacing: the range hud's bunches, acked before streaming and the settings request
+    pub range_hud_waiting: Vec<(u32, u32)>,
     pub streaming_sent: bool,
     pub ultimate_points_sent: bool,
     pub settings_requested: bool,
@@ -95,7 +97,7 @@ pub fn run_authority(reply: &mut Reply, env: &mut Env, decoded: &Bits) {
         range_hud(reply);
     }
     if config.features.streaming_levels {
-        level_streaming(reply);
+        level_streaming(reply, &config.pacing);
     }
     if env.live.attached() {
         ultimate_points(reply, env.live);
@@ -104,7 +106,7 @@ pub fn run_authority(reply: &mut Reply, env: &mut Env, decoded: &Bits) {
         crate::purchases::run_purchases(reply, env, decoded);
     }
     if config.features.range_settings && reply.conn.authority.streaming_sent {
-        range_settings_request(reply);
+        range_settings_request(reply, &config.pacing);
         range_settings_apply(reply, decoded);
     }
     if let Some(queue) = &config.command_queue {
@@ -172,6 +174,7 @@ fn range_hud(reply: &mut Reply) {
         return;
     }
     use aries_rep::bodies::{RANGE_GAME_MODE_CLASS, RANGE_HUD_CONFIG_CLASS};
+    let mark = reply.sent_reliable.len();
     let sends = [
         (4, aries_rep::setup::range_class_property_body(&RANGE_GAME_MODE_CLASS), true),
         (4, aries_rep::setup::range_class_property_body(&RANGE_HUD_CONFIG_CLASS), true),
@@ -185,15 +188,19 @@ fn range_hud(reply: &mut Reply) {
         }
     }
     reply.conn.authority.range_hud_sent = Some(reply.now);
+    reply.conn.authority.range_hud_waiting = reply.reliable_since(mark);
     reply.event.set("sent_range_mode_hud", true);
 }
 
 /// 6.7: stream in Range_Only_Gameplay and the LiveStory sublevel, then flush.
-fn level_streaming(reply: &mut Reply) {
+fn level_streaming(reply: &mut Reply, pacing: &PacingSettings) {
     let Some(hud_time) = reply.conn.authority.range_hud_sent else {
         return;
     };
-    if reply.conn.authority.streaming_sent || reply.now - hud_time < STREAMING_DELAY {
+    if reply.conn.authority.streaming_sent || reply.now - hud_time < pacing.delay(STREAMING_DELAY) {
+        return;
+    }
+    if pacing.is_fast() && !reply.delivered(&reply.conn.authority.range_hud_waiting) {
         return;
     }
     for body in [aries_rep::setup::levels_streaming_body(), aries_rep::setup::flush_level_streaming_body()] {
@@ -236,11 +243,14 @@ fn ultimate_points(reply: &mut Reply, live: &mut dyn LiveClient) {
 }
 
 /// 6.10 (request half): ask the client for its range settings once, 3 s after the range hud.
-fn range_settings_request(reply: &mut Reply) {
+fn range_settings_request(reply: &mut Reply, pacing: &PacingSettings) {
     if reply.conn.authority.settings_requested {
         return;
     }
-    if reply.conn.authority.range_hud_sent.is_some_and(|t| reply.now - t < SETTINGS_REQUEST_DELAY) {
+    if reply.conn.authority.range_hud_sent.is_some_and(|t| reply.now - t < pacing.delay(SETTINGS_REQUEST_DELAY)) {
+        return;
+    }
+    if pacing.is_fast() && !reply.delivered(&reply.conn.authority.range_hud_waiting) {
         return;
     }
     let result = aries_rep::setup::range_settings_request_body()

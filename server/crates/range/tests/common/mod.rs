@@ -32,6 +32,8 @@ pub struct Client {
     pub server_gcm: AresGcm,
     pub sequence: u32,
     pub acked: u32,
+    /// ack history word (bit k = acked - k received); 0 = the python captures' value
+    pub history: u32,
     pub counter: u32,
 }
 
@@ -42,7 +44,7 @@ fn packed(w: &mut BitWriter, value: u64) {
 impl Client {
     pub fn header(&mut self, w: &mut BitWriter) {
         w.append_u32((self.sequence << 18) | (self.acked << 4));
-        w.append_u32(0);
+        w.append_u32(self.history);
         w.append_bits(1, 1);
         w.append_bits(0, 11);
         self.sequence = (self.sequence + 1) & 0x3FFF;
@@ -142,7 +144,7 @@ pub fn response_datagram(challenge: &[u8]) -> Vec<u8> {
 
 impl Client {
     pub fn new(sequence: u32, acked: u32, counter: u32) -> Self {
-        Self { gcm: AresGcm::new(&CLIENT_KEY), server_gcm: AresGcm::new(&SERVER_KEY), sequence, acked, counter }
+        Self { gcm: AresGcm::new(&CLIENT_KEY), server_gcm: AresGcm::new(&SERVER_KEY), sequence, acked, history: 0, counter }
     }
 
     /// a captured decoded packet with this client's header spliced over its first 64 bits.
@@ -150,7 +152,7 @@ impl Client {
         let source = Bits::from_hex(hex, bit_count).unwrap();
         let mut w = BitWriter::new();
         w.append_u32((self.sequence << 18) | (self.acked << 4));
-        w.append_u32(0);
+        w.append_u32(self.history);
         self.sequence = (self.sequence + 1) & 0x3FFF;
         w.append_bits_value(&slice(&source, 64, bit_count));
         w.finish().unwrap()
@@ -275,27 +277,44 @@ pub struct Harness {
     pub sent: Vec<Sent>,
     pub events: PathBuf,
     pub ticks: u64,
+    /// seconds between client packets
+    pub step: f64,
+    /// ack every server packet like the real client (the python captures never did)
+    pub auto_ack: bool,
 }
 
 impl Harness {
     pub fn new(port: u16, world: Rc<RefCell<World>>) -> Self {
-        let source: SocketAddr = format!("127.0.0.1:{port}").parse().unwrap();
-        let events = std::env::temp_dir().join(format!("aries_purchase_flow_{}_{port}.jsonl", std::process::id()));
+        Self::with_config(port, world, Self::config())
+    }
+
+    /// python defaults with no skin files: every gun opens unskinned, like the spec vectors
+    pub fn config() -> RangeConfig {
         let mut config = RangeConfig::default();
-        // no skin files: every gun opens unskinned, like the spec vectors
         config.skin_catalog = PathBuf::from("no_such_skin_catalog.json");
         config.skin_state = PathBuf::from("no_such_skin_state.json");
+        config
+    }
+
+    pub fn with_config(port: u16, world: Rc<RefCell<World>>, config: RangeConfig) -> Self {
+        let source: SocketAddr = format!("127.0.0.1:{port}").parse().unwrap();
+        let events = std::env::temp_dir().join(format!("aries_purchase_flow_{}_{port}.jsonl", std::process::id()));
         let mut server = RangeServer::new(config, Box::new(FixedKeys), Some(&events));
         server.live = Box::new(Scripted(world));
         let mut client = Client::new(1000, 3000, 40);
         let mut out = Outbox::default();
         client.connect(&mut server, 1.0, source, &mut out);
-        Self { server, client, source, out, now: 1.0, sent: Vec::new(), events, ticks: 0 }
+        Self { server, client, source, out, now: 1.0, sent: Vec::new(), events, ticks: 0, step: 0.125, auto_ack: false }
     }
 
     pub fn collect(&mut self) {
         for (_, datagram) in self.out.datagrams.drain(..) {
             let (packet, _) = open_server_datagram(&datagram, &self.client.server_gcm).unwrap();
+            if self.auto_ack {
+                let header = aries_net::control::read_packet_header(&packet).unwrap();
+                self.client.acked = header.sequence;
+                self.client.history = u32::MAX;
+            }
             if let Some(b) = inspect_first_bunch(&packet) {
                 if b.is_close {
                     // the inspector stops at bClose: [reason SerializeInt(15)][paused][reliable][packed channel]
@@ -314,11 +333,11 @@ impl Harness {
     }
 
     pub fn tick(&mut self) {
-        self.now += 0.125;
+        self.now += self.step;
         self.client.tick(&mut self.server, self.now, self.source, &mut self.out);
         self.collect();
         // the 128 hz loop's per-tick work (lag compensation records)
-        self.ticks += 16;
+        self.ticks += (self.step * 128.0).round() as u64;
         self.server.tick(self.ticks, self.now, &mut self.out);
         self.collect();
     }
@@ -399,7 +418,7 @@ impl Harness {
         let sequence = self.client.sequence;
         let mut w = BitWriter::new();
         w.append_u32((sequence << 18) | (self.client.acked << 4));
-        w.append_u32(0);
+        w.append_u32(self.client.history);
         w.append_bits(1, 1);
         w.append_bits(0, 11);
         self.client.sequence = (sequence + 1) & 0x3FFF;

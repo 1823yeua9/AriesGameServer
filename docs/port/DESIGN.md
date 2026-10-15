@@ -81,6 +81,7 @@ gates, event keys and values).
 | shots | hit-tested at the bots' current position | rewound by lag compensation | bots never move, so every hit is identical (tested) |
 | reader reopen after a failure | every pass | at most once a second (`equippable_reader_error` still logged every pass) | no handle churn |
 | `pre_control_sequence`, `pre_in_sequence` | diagnostic packet-notify read at the nmt challenge | not logged | diagnostic only |
+| pacing (`[range.pacing] mode = "fast"`, shipped) | fixed delays between bring-up stages (0.5-4 s, ~75 s to the knife), purchase steps (0.2/0.5 s), ability steps (0.25/0.4 s), streaming (+1 s) and the settings request (+3 s) | each step waits for the client's ack of the step before (bunch-level, survives resends) plus `stage_gap` (0.05 s); bring-up may go out on any datagram, one stage per datagram; registration retries every gap with python's total budget and waits for a filled state map | the delays were empirical (03 section 12 Q1); same bunches, same per-channel order (tested); ~5 s to a playable range, ~0.4 s per gun. `mode = "python"` restores the delays for shadow diffs |
 | console | prints every event to a redirected stdout | its own visible console (a hidden or missing one is replaced), levels: errors warn, authority work info, high-rate keys debug; every event still goes to the jsonl file | the user watches the log |
 
 ## Configuration

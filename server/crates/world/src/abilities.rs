@@ -480,6 +480,23 @@ pub const JOB_DONE: u8 = 7;
 /// ruh:1138-1139: stages below this send ability_setup_bodies[stage].
 pub const SETUP_STAGES: u8 = 3;
 
+/// the spacing of the jobs: python's (ruh:1142, 1156, 2073), or the range's fast
+/// pacing, where a job also waits for the client to ack its last sends.
+pub struct AbilityPace<'a> {
+    pub step_delay: f64,
+    pub retry_delay: f64,
+    pub max_tries: u32,
+    /// fast: register only once the main machine's states are filled in
+    pub need_states: bool,
+    /// false while the client has not acked what went out on this channel
+    pub settled: &'a dyn Fn(u32) -> bool,
+}
+
+impl AbilityPace<'_> {
+    pub const PYTHON: AbilityPace<'static> =
+        AbilityPace { step_delay: JOB_STEP_DELAY, retry_delay: REGISTER_RETRY_DELAY, max_tries: REGISTER_MAX_TRIES, need_states: false, settled: &|_| true };
+}
+
 /// ruh:2071-2074
 #[derive(Debug, Clone, PartialEq)]
 pub struct AbilityJob {
@@ -526,11 +543,15 @@ impl AbilityJobs {
     /// ruh:2069-2074: plan all four loads at once (fixed guids 100000-100014),
     /// staggered 0.25 s apart from `now`.
     pub fn new(now: f64) -> RepResult<Self> {
+        Self::with_stagger(now, JOB_STAGGER)
+    }
+
+    pub fn with_stagger(now: f64, stagger: f64) -> RepResult<Self> {
         let mut allocator = AbilityAllocator::default();
         let mut jobs = Vec::with_capacity(ABILITY_INDICES.len());
         for (order, &index) in ABILITY_INDICES.iter().enumerate() {
             let load = plan_ability_load(index, &mut allocator)?;
-            jobs.push(AbilityJob { load, stage: 0, next: now + JOB_STAGGER * order as f64, registered_tries: 0 });
+            jobs.push(AbilityJob { load, stage: 0, next: now + stagger * order as f64, registered_tries: 0 });
         }
         Ok(Self { allocator, jobs })
     }
@@ -541,16 +562,20 @@ impl AbilityJobs {
 
     /// ruh:2075-2078 -> advance_ability_job (ruh:1130-1170) for every due job, in order.
     pub fn step(&mut self, now: f64, oracle: &mut dyn AbilityOracle) -> AbilityStep {
+        self.step_paced(now, oracle, &AbilityPace::PYTHON)
+    }
+
+    pub fn step_paced(&mut self, now: f64, oracle: &mut dyn AbilityOracle, pace: &AbilityPace) -> AbilityStep {
         let mut step = AbilityStep::default();
-        if let Err(error) = self.step_into(now, oracle, &mut step) {
+        if let Err(error) = self.step_into(now, oracle, pace, &mut step) {
             step.error = Some(error);
         }
         step
     }
 
-    fn step_into(&mut self, now: f64, oracle: &mut dyn AbilityOracle, step: &mut AbilityStep) -> RepResult<()> {
+    fn step_into(&mut self, now: f64, oracle: &mut dyn AbilityOracle, pace: &AbilityPace, step: &mut AbilityStep) -> RepResult<()> {
         for job in &mut self.jobs {
-            if job.stage >= JOB_DONE || now < job.next {
+            if job.stage >= JOB_DONE || now < job.next || !(pace.settled)(job.load.channel) {
                 continue;
             }
             if job.stage < SETUP_STAGES {
@@ -562,7 +587,7 @@ impl AbilityJobs {
                 };
                 step.sends.push(ChannelSend::update(job.load.channel, body, has_exports));
                 job.stage += 1;
-                job.next = now + JOB_STEP_DELAY;
+                job.next = now + pace.step_delay;
                 continue;
             }
             let machine = match oracle.slot_machine(job.load.slot) {
@@ -572,13 +597,16 @@ impl AbilityJobs {
                     None
                 }
             };
-            let Some(machine) = machine.filter(|machine| machine.class_name.as_deref() == Some(job.load.class_name)) else {
+            let matched = machine.filter(|machine| machine.class_name.as_deref() == Some(job.load.class_name));
+            // an empty state map is the client not done yet; with tries left, wait for it
+            let early = matched.as_ref().is_some_and(|machine| pace.need_states && machine.state_names.is_empty() && job.registered_tries < pace.max_tries);
+            let Some(machine) = matched.filter(|_| !early) else {
                 job.registered_tries += 1;
-                if job.registered_tries > REGISTER_MAX_TRIES {
+                if job.registered_tries > pace.max_tries {
                     job.stage = JOB_DONE;
                     step.gave_up.push(job.load.class_name);
                 } else {
-                    job.next = now + REGISTER_RETRY_DELAY;
+                    job.next = now + pace.retry_delay;
                 }
                 continue;
             };

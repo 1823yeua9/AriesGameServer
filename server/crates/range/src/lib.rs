@@ -238,10 +238,22 @@ impl RangeServer {
         };
         let ack_mask = conn.record_client_sequence(header.sequence);
         conn.rtt.acked(header.acked, now);
-        let mut reply = Reply { conn, first_offsets: &mut self.first_offsets, gcm: &keys.server, out, event, now, client_sequence: header.sequence, ack_mask, stateless_header: packet.stateless_header };
+        let mut reply = Reply {
+            conn,
+            first_offsets: &mut self.first_offsets,
+            gcm: &keys.server,
+            out,
+            event,
+            now,
+            client_sequence: header.sequence,
+            ack_mask,
+            stateless_header: packet.stateless_header,
+            sent_reliable: Vec::new(),
+        };
 
-        if self.config.features.retransmit && reply.conn.challenge_sent {
-            reply.resend_lost(header.acked, header.history);
+        // acks always land (fast pacing waits on them); resending is the feature
+        if reply.conn.challenge_sent {
+            reply.resend_lost(header.acked, header.history, self.config.features.retransmit);
         }
         // the input ack and the per-packet authority work run before the dispatch
         // chain, so their frames take the lower packet sequences (python 1496-2078)
@@ -322,6 +334,10 @@ impl RangeServer {
                 }
                 Err(error) => reply.event.set("session_ack_error", error.to_string()),
             }
+        } else if self.config.pacing.is_fast() && reply.conn.join_ack_sent && pending {
+            // fast pacing: a stage can go out on any datagram once the last one is acked
+            let mut env = authority::Env { config: &self.config, live: self.live.as_mut(), skins: &mut self.skins };
+            bringup::run_stage_chain(&mut reply, &mut env);
         }
         true
     }

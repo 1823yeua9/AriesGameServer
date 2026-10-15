@@ -1,5 +1,6 @@
 # aries-server settings. every value shown is the default (the python
-# responder's production configuration); delete a line to keep the default.
+# responder's production configuration) except [range.pacing]; delete a line to
+# keep the default.
 
 # loopback only; the client connects here
 bind = "127.0.0.1:58100"
@@ -62,3 +63,12 @@ oracle_interp_ratio = 2.0
 max_extrapolate = 0.25
 stale_after = 0.5
 history_extra = 0.05
+
+# how fast bring-up, the range setup and purchases go. "fast": each step waits for
+# the client's ack of the one before plus stage_gap (~5 s to a playable range,
+# ~0.4 s per gun). "python": the responder's fixed delays (~75 s, ~2.7 s per gun),
+# for shadow diffs against python logs.
+[range.pacing]
+mode = "fast"
+# least time between two steps of one chain (seconds)
+stage_gap = 0.05

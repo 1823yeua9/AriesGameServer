@@ -38,6 +38,9 @@ pub struct Reply<'a> {
     pub client_sequence: u32,
     pub ack_mask: u32,
     pub stateless_header: u32,
+    /// every reliable (channel, channel sequence) sent for this datagram, in order;
+    /// fast pacing waits on the client's ack of a step's bunches
+    pub sent_reliable: Vec<(u32, u32)>,
 }
 
 impl Reply<'_> {
@@ -64,20 +67,36 @@ impl Reply<'_> {
         let sequence = self.conn.next_server_sequence;
         let (datagram, _) = build_server_frame(body, header, &self.info(), self.gcm)?;
         let tracked = if header.is_reliable { vec![ReliableBunch { header: header.clone(), body: body.clone() }] } else { Vec::new() };
+        if header.is_reliable {
+            self.sent_reliable.push((header.channel_index, header.channel_sequence));
+        }
         self.conn.reliable.sent(sequence, self.now, tracked);
         Ok(self.push(datagram))
     }
 
-    /// applies the client's ack of our packets and resends reliable bunches it
-    /// reports lost (original channel sequence and body, in a new packet).
-    pub fn resend_lost(&mut self, acked: u32, history: u32) {
+    /// applies the client's ack of our packets and, with `resend`, resends reliable
+    /// bunches it reports lost (original channel sequence and body, in a new packet).
+    pub fn resend_lost(&mut self, acked: u32, history: u32, resend: bool) {
         let lost = self.conn.reliable.on_ack(acked, history, self.now);
+        if !resend {
+            return;
+        }
         for bunch in lost {
             match self.send_bunch(&bunch.header, &bunch.body) {
                 Ok(_) => self.event.push("resent_reliable", serde_json::json!([bunch.header.channel_index, bunch.header.channel_sequence])),
                 Err(error) => self.event.set("resend_error", error.to_string()),
             }
         }
+    }
+
+    /// the reliable bunches sent since `mark` (a length of sent_reliable).
+    pub fn reliable_since(&self, mark: usize) -> Vec<(u32, u32)> {
+        self.sent_reliable[mark..].to_vec()
+    }
+
+    /// true once the client acked every one of these bunches.
+    pub fn delivered(&self, bunches: &[(u32, u32)]) -> bool {
+        bunches.iter().all(|&(channel, sequence)| !self.conn.reliable.pending(channel, sequence))
     }
 
     /// reliable bunch at a fixed bring-up offset: sequence (B + offset) & 0xfff.

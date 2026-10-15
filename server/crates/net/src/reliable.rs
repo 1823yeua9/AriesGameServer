@@ -130,6 +130,17 @@ impl ReliableTracker {
     pub fn in_flight(&self) -> usize {
         self.in_flight.len()
     }
+
+    /// true while any reliable bunch on this channel is unacked.
+    pub fn channel_pending(&self, channel: u32) -> bool {
+        self.in_flight.values().flat_map(|flight| &flight.bunches).any(|bunch| bunch.header.channel_index == channel)
+    }
+
+    /// true while the client has not acked this reliable bunch. a resend keeps
+    /// its channel sequence, so a lost bunch stays pending until a copy lands.
+    pub fn pending(&self, channel: u32, channel_sequence: u32) -> bool {
+        self.in_flight.values().flat_map(|flight| &flight.bunches).any(|bunch| bunch.header.channel_index == channel && bunch.header.channel_sequence == channel_sequence)
+    }
 }
 
 #[cfg(test)]
@@ -174,6 +185,22 @@ mod tests {
         assert!(t.on_ack(11, 0b1, 0.0).is_empty());
         assert!(t.on_ack(10, 0, 0.0).is_empty());
         assert_eq!(t.acked, 1);
+    }
+
+    #[test]
+    fn a_bunch_stays_pending_through_its_resend() {
+        let mut t = ReliableTracker::default();
+        t.sent(20, 0.0, vec![bunch(7)]);
+        t.sent(21, 0.0, vec![bunch(8)]);
+        assert!(t.pending(8, 7) && t.pending(8, 8));
+        // 21 arrived, 20 lost: 7 goes out again in 22 and is still pending
+        let resend = t.on_ack(21, 0b1, 0.1);
+        assert_eq!(resend, vec![bunch(7)]);
+        assert!(!t.pending(8, 8));
+        t.sent(22, 0.1, resend);
+        assert!(t.pending(8, 7));
+        t.on_ack(22, 0b11, 0.2);
+        assert!(!t.pending(8, 7));
     }
 
     #[test]

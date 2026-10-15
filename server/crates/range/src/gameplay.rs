@@ -9,7 +9,7 @@ use serde_json::json;
 
 use aries_interp::lagcomp::{HitShape, LagCompConfig, LagCompensation, Pose};
 use aries_interp::value::Vec3;
-use aries_world::abilities::{AbilityEquippable, AbilityJobs, AbilityOracle, ItemMachine, SlotMachine as AbilitySlot};
+use aries_world::abilities::{AbilityEquippable, AbilityJobs, AbilityOracle, AbilityPace, ItemMachine, SlotMachine as AbilitySlot};
 use aries_world::bots::{Bot, BotField, Camera as ViewCamera, ChannelSend, ShotOutcome, py_round};
 use aries_world::equippables::{EquippableActor, ExtraStateMachine, MirrorState, StateGuids};
 use aries_world::projectiles::ProjectileField;
@@ -282,8 +282,9 @@ pub fn ability_jobs(reply: &mut Reply, env: &mut Env) {
         return;
     }
     let now = reply.now;
+    let pacing = &env.config.pacing;
     if reply.conn.authority.abilities.is_none() {
-        match AbilityJobs::new(now) {
+        match AbilityJobs::with_stagger(now, pacing.delay(aries_world::abilities::JOB_STAGGER)) {
             Ok(jobs) => reply.conn.authority.abilities = Some(jobs),
             Err(error) => {
                 reply.event.set("ability_register_error", error.to_string());
@@ -291,8 +292,22 @@ pub fn ability_jobs(reply: &mut Reply, env: &mut Env) {
             }
         }
     }
+    let fast = pacing.is_fast();
+    let pace = if fast {
+        use aries_world::abilities::{JOB_STEP_DELAY, REGISTER_MAX_TRIES, REGISTER_RETRY_DELAY};
+        let reliable = &reply.conn.reliable;
+        AbilityPace {
+            step_delay: pacing.delay(JOB_STEP_DELAY),
+            retry_delay: pacing.delay(REGISTER_RETRY_DELAY),
+            max_tries: pacing.tries(REGISTER_RETRY_DELAY, REGISTER_MAX_TRIES),
+            need_states: true,
+            settled: &move |channel| !reliable.channel_pending(channel),
+        }
+    } else {
+        AbilityPace::PYTHON
+    };
     let jobs = reply.conn.authority.abilities.as_mut().expect("planned above");
-    let step = jobs.step(now, &mut AbilityReads { env });
+    let step = jobs.step_paced(now, &mut AbilityReads { env }, &pace);
     if let Some(error) = &step.error {
         reply.event.set("ability_register_error", error.to_string());
     }

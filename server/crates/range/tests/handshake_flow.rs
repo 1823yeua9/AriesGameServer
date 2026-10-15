@@ -17,7 +17,7 @@ use common::*;
 fn handshake_through_session_acks() {
     let source: SocketAddr = "127.0.0.1:50506".parse().unwrap();
     let mut server = RangeServer::new(RangeConfig::default(), Box::new(FixedKeys), None);
-    let mut client = Client { gcm: AresGcm::new(&CLIENT_KEY), server_gcm: AresGcm::new(&SERVER_KEY), sequence: 8000, acked: 11195, counter: 700 };
+    let mut client = Client::new(8000, 11195, 700);
     let mut out = Outbox::default();
     let mut now = 100.0;
 
@@ -106,7 +106,7 @@ fn full_bringup_sequences() {
     use std::collections::HashMap;
     let source: SocketAddr = "127.0.0.1:50507".parse().unwrap();
     let mut server = RangeServer::new(RangeConfig::default(), Box::new(FixedKeys), None);
-    let mut client = Client { gcm: AresGcm::new(&CLIENT_KEY), server_gcm: AresGcm::new(&SERVER_KEY), sequence: 100, acked: 4000, counter: 1 };
+    let mut client = Client::new(100, 4000, 1);
     let mut out = Outbox::default();
     let mut now = 50.0;
     server.handle_datagram(now, source, &initial_datagram(), &mut out);
@@ -181,7 +181,7 @@ fn move_acks_follow_client_restart() {
     let source: SocketAddr = "127.0.0.1:50508".parse().unwrap();
     let mut server = RangeServer::new(RangeConfig::default(), Box::new(FixedKeys), None);
     server.live = Box::new(ScriptedMoves { number: 186, stall: false });
-    let mut client = Client { gcm: AresGcm::new(&CLIENT_KEY), server_gcm: AresGcm::new(&SERVER_KEY), sequence: 300, acked: 900, counter: 5 };
+    let mut client = Client::new(300, 900, 5);
     let mut out = Outbox::default();
     let mut now = 10.0;
     server.handle_datagram(now, source, &initial_datagram(), &mut out);

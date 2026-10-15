@@ -148,5 +148,7 @@ mod tests {
         assert_eq!(file.range.interp.oracle_interp_ratio, 2.0);
         assert_eq!(file.range.interp.stream(), aries_interp::stream::StreamConfig::default());
         assert_eq!(file.range.bot_count, 5);
+        assert!(file.range.pacing.is_fast());
+        assert_eq!(file.range.pacing.stage_gap, 0.05);
     }
 }

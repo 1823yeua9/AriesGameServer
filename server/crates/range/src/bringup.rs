@@ -86,11 +86,24 @@ pub struct BringupState {
     pub starting_equippable_index: u32,
     /// live-resolved ClientSetHUD (field, class max) for the range hud rebuild
     pub hud_rpc: Option<(u32, u32)>,
+    /// fast pacing: when the last stage went out and its bunches, which the client
+    /// must ack before the next stage
+    pub last_stage: Option<f64>,
+    pub waiting: Vec<(u32, u32)>,
 }
 
 impl Default for BringupState {
     fn default() -> Self {
-        Self { sent: [None; STAGE_COUNT], item_slot_scale_index: 0, team_state_open_index: 0, team_state_link_index: 0, starting_equippable_index: 0, hud_rpc: None }
+        Self {
+            sent: [None; STAGE_COUNT],
+            item_slot_scale_index: 0,
+            team_state_open_index: 0,
+            team_state_link_index: 0,
+            starting_equippable_index: 0,
+            hud_rpc: None,
+            last_stage: None,
+            waiting: Vec::new(),
+        }
     }
 }
 
@@ -146,6 +159,11 @@ impl BringupState {
     /// python auth_correct_rep_index (bring-up sends 1..5; purchases and the
     /// input-correction responder raise it later).
     pub fn next_stage(&self, now: f64, corrections: u32) -> Option<Stage> {
+        self.next_stage_paced(now, corrections, &|python| python)
+    }
+
+    /// next_stage with every python delay passed through `d` (fast pacing: the gap).
+    pub fn next_stage_paced(&self, now: f64, corrections: u32, d: &dyn Fn(f64) -> f64) -> Option<Stage> {
         use Stage::*;
         let t = |s: Stage| self.time(s);
         let sent = |s: Stage| self.sent(s);
@@ -155,128 +173,128 @@ impl BringupState {
         if !sent(WorldSettingsOpen) {
             return Some(WorldSettingsOpen);
         }
-        if !sent(GameStateOpen) && after(WorldSettingsOpen, 2.0) {
+        if !sent(GameStateOpen) && after(WorldSettingsOpen, d(2.0)) {
             return Some(GameStateOpen);
         }
-        if !sent(ControllerOpen) && after(GameStateOpen, 2.0) {
+        if !sent(ControllerOpen) && after(GameStateOpen, d(2.0)) {
             return Some(ControllerOpen);
         }
-        if !sent(PlayerStateOpen) && after(ControllerOpen, 2.0) {
+        if !sent(PlayerStateOpen) && after(ControllerOpen, d(2.0)) {
             return Some(PlayerStateOpen);
         }
-        if !sent(PlayerInfoOpen) && after(PlayerStateOpen, 2.0) {
+        if !sent(PlayerInfoOpen) && after(PlayerStateOpen, d(2.0)) {
             return Some(PlayerInfoOpen);
         }
-        if !sent(PawnOpen) && after(PlayerInfoOpen, 2.0) {
+        if !sent(PawnOpen) && after(PlayerInfoOpen, d(2.0)) {
             return Some(PawnOpen);
         }
-        if !sent(GameStateBool) && after(PawnOpen, 3.0) {
+        if !sent(GameStateBool) && after(PawnOpen, d(3.0)) {
             return Some(GameStateBool);
         }
         // A08/A09 controller links
-        if self.controller_link_stage() == 0 && after(GameStateBool, 3.0) {
+        if self.controller_link_stage() == 0 && after(GameStateBool, d(3.0)) {
             return Some(ControllerPlayerState);
         }
-        if self.controller_link_stage() == 1 && elapsed(now, self.controller_link_time(), 3.0) {
+        if self.controller_link_stage() == 1 && elapsed(now, self.controller_link_time(), d(3.0)) {
             return Some(ControllerPawn);
         }
         // A10-A13 player state links
-        if self.controller_link_stage() == 2 && !sent(PlayerStatePlayerInfo) && elapsed(now, self.controller_link_time(), 3.0) {
+        if self.controller_link_stage() == 2 && !sent(PlayerStatePlayerInfo) && elapsed(now, self.controller_link_time(), d(3.0)) {
             return Some(PlayerStatePlayerInfo);
         }
-        if !sent(PlayerStateCharacter) && after(PlayerStatePlayerInfo, 0.5) {
+        if !sent(PlayerStateCharacter) && after(PlayerStatePlayerInfo, d(0.5)) {
             return Some(PlayerStateCharacter);
         }
-        if !sent(PlayerStateDesiredClass) && after(PlayerStateCharacter, 0.5) {
+        if !sent(PlayerStateDesiredClass) && after(PlayerStateCharacter, d(0.5)) {
             return Some(PlayerStateDesiredClass);
         }
-        if sent(PlayerStateDesiredClass) && sent(PlayerInfoOpen) && !sent(PlayerInfoController) && elapsed(now, t(PlayerStateDesiredClass), 0.5) {
+        if sent(PlayerStateDesiredClass) && sent(PlayerInfoOpen) && !sent(PlayerInfoController) && elapsed(now, t(PlayerStateDesiredClass), d(0.5)) {
             return Some(PlayerInfoController);
         }
         // A14-A16 pawn links and role
-        if self.controller_link_stage() == 2 && sent(PlayerStateDesiredClass) && self.pawn_link_stage() == 0 && elapsed(now, t(PlayerStateDesiredClass), 1.0) {
+        if self.controller_link_stage() == 2 && sent(PlayerStateDesiredClass) && self.pawn_link_stage() == 0 && elapsed(now, t(PlayerStateDesiredClass), d(1.0)) {
             return Some(PawnPlayerState);
         }
-        if self.pawn_link_stage() == 1 && elapsed(now, self.pawn_link_time(), 3.0) {
+        if self.pawn_link_stage() == 1 && elapsed(now, self.pawn_link_time(), d(3.0)) {
             return Some(PawnController);
         }
-        if self.pawn_link_stage() == 2 && !sent(PawnRole) && elapsed(now, self.pawn_link_time(), 1.0) {
+        if self.pawn_link_stage() == 2 && !sent(PawnRole) && elapsed(now, self.pawn_link_time(), d(1.0)) {
             return Some(PawnRole);
         }
         // A17-A20 inventory and item slots
-        if !sent(InventoryOpen) && after(PawnRole, 1.5) {
+        if !sent(InventoryOpen) && after(PawnRole, d(1.5)) {
             return Some(InventoryOpen);
         }
-        if !sent(ItemSlotCreate) && after(InventoryOpen, 2.0) {
+        if !sent(ItemSlotCreate) && after(InventoryOpen, d(2.0)) {
             return Some(ItemSlotCreate);
         }
-        if !sent(ItemSlotLink) && after(ItemSlotCreate, 1.5) {
+        if !sent(ItemSlotLink) && after(ItemSlotCreate, d(1.5)) {
             return Some(ItemSlotLink);
         }
-        if sent(ItemSlotLink) && self.item_slot_scale_index < ITEM_SLOT_COUNT && elapsed(now, self.item_slot_scale_last_time(), 1.0) {
+        if sent(ItemSlotLink) && self.item_slot_scale_index < ITEM_SLOT_COUNT && elapsed(now, self.item_slot_scale_last_time(), d(1.0)) {
             return Some(ItemSlotScale);
         }
         // A21-A26 base pistol
-        if sent(ItemSlotLink) && self.item_slot_scale_index >= ITEM_SLOT_COUNT && !sent(PistolOpen) && elapsed(now, self.item_slot_scale_last_time(), 2.0) {
+        if sent(ItemSlotLink) && self.item_slot_scale_index >= ITEM_SLOT_COUNT && !sent(PistolOpen) && elapsed(now, self.item_slot_scale_last_time(), d(2.0)) {
             return Some(PistolOpen);
         }
-        if !sent(PistolLink) && after(PistolOpen, 2.0) {
+        if !sent(PistolLink) && after(PistolOpen, d(2.0)) {
             return Some(PistolLink);
         }
-        if !sent(PistolOwner) && after(PistolLink, 1.0) {
+        if !sent(PistolOwner) && after(PistolLink, d(1.0)) {
             return Some(PistolOwner);
         }
-        if !sent(PistolRole) && after(PistolOwner, 1.0) {
+        if !sent(PistolRole) && after(PistolOwner, d(1.0)) {
             return Some(PistolRole);
         }
-        if !sent(PistolStateMachine) && after(PistolRole, 1.5) {
+        if !sent(PistolStateMachine) && after(PistolRole, d(1.5)) {
             return Some(PistolStateMachine);
         }
-        if !sent(PistolInactiveState) && after(PistolStateMachine, 1.0) {
+        if !sent(PistolInactiveState) && after(PistolStateMachine, d(1.0)) {
             return Some(PistolInactiveState);
         }
         // A27 inventory corrections 1..5, 2 s after the latest pistol stage or correction
         if sent(PistolInactiveState)
             && corrections < INVENTORY_CORRECTIONS
-            && elapsed(now, latest(&[t(PistolInactiveState), t(PistolStateMachine), t(PistolRole), t(PistolOwner), t(InventoryCorrection)]), 2.0)
+            && elapsed(now, latest(&[t(PistolInactiveState), t(PistolStateMachine), t(PistolRole), t(PistolOwner), t(InventoryCorrection)]), d(2.0))
         {
             return Some(InventoryCorrection);
         }
 
         // B1 ClientRestart, 3 s after the pawn role
-        if self.pawn_link_stage() == 2 && sent(PawnRole) && !sent(ClientRestart) && elapsed(now, t(PawnRole), 3.0) {
+        if self.pawn_link_stage() == 2 && sent(PawnRole) && !sent(ClientRestart) && elapsed(now, t(PawnRole), d(3.0)) {
             return Some(ClientRestart);
         }
-        if !sent(GameStatePhase) && after(ClientRestart, 3.0) {
+        if !sent(GameStatePhase) && after(ClientRestart, d(3.0)) {
             return Some(GameStatePhase);
         }
         // B3-B6 team states
-        if sent(GameStatePhase) && sent(PistolOpen) && self.team_state_open_index < TEAM_STATES && elapsed(now, latest(&[t(PistolOpen), t(TeamStateOpen)]), 1.0) {
+        if sent(GameStatePhase) && sent(PistolOpen) && self.team_state_open_index < TEAM_STATES && elapsed(now, latest(&[t(PistolOpen), t(TeamStateOpen)]), d(1.0)) {
             return Some(TeamStateOpen);
         }
-        if self.team_state_open_index == TEAM_STATES && !sent(TeamStateArray) && elapsed(now, t(TeamStateOpen), 2.0) {
+        if self.team_state_open_index == TEAM_STATES && !sent(TeamStateArray) && elapsed(now, t(TeamStateOpen), d(2.0)) {
             return Some(TeamStateArray);
         }
-        if sent(TeamStateArray) && self.team_state_link_index < TEAM_STATES && elapsed(now, latest(&[t(TeamStateArray), t(TeamStateLink)]), 1.0) {
+        if sent(TeamStateArray) && self.team_state_link_index < TEAM_STATES && elapsed(now, latest(&[t(TeamStateArray), t(TeamStateLink)]), d(1.0)) {
             return Some(TeamStateLink);
         }
-        if self.team_state_link_index == TEAM_STATES && !sent(TeamStatePlayer) && elapsed(now, t(TeamStateLink), 2.0) {
+        if self.team_state_link_index == TEAM_STATES && !sent(TeamStatePlayer) && elapsed(now, t(TeamStateLink), d(2.0)) {
             return Some(TeamStatePlayer);
         }
         // B7-B11 player state: bombteam, characters, unique id, money
-        if sent(TeamStatePlayer) && !sent(BombTeamOpen) && elapsed(now, t(TeamStatePlayer), 1.0) {
+        if sent(TeamStatePlayer) && !sent(BombTeamOpen) && elapsed(now, t(TeamStatePlayer), d(1.0)) {
             return Some(BombTeamOpen);
         }
-        if sent(BombTeamOpen) && !sent(BombTeamNumber) && elapsed(now, t(BombTeamOpen), 1.0) {
+        if sent(BombTeamOpen) && !sent(BombTeamNumber) && elapsed(now, t(BombTeamOpen), d(1.0)) {
             return Some(BombTeamNumber);
         }
-        if !sent(AccessibleCharacters) && after(BombTeamNumber, 0.5) {
+        if !sent(AccessibleCharacters) && after(BombTeamNumber, d(0.5)) {
             return Some(AccessibleCharacters);
         }
-        if !sent(PlayerUniqueId) && after(AccessibleCharacters, 0.5) {
+        if !sent(PlayerUniqueId) && after(AccessibleCharacters, d(0.5)) {
             return Some(PlayerUniqueId);
         }
-        if sent(PlayerUniqueId) && !sent(RangeMoney) && elapsed(now, t(PlayerUniqueId), 0.5) {
+        if sent(PlayerUniqueId) && !sent(RangeMoney) && elapsed(now, t(PlayerUniqueId), d(0.5)) {
             return Some(RangeMoney);
         }
         // B12 pawn owner: no time gate
@@ -284,38 +302,38 @@ impl BringupState {
             return Some(PawnOwner);
         }
         // B13 ClientSetHUD needs the view target (B22) too
-        if sent(AccessibleCharacters) && sent(PlayerUniqueId) && sent(ViewTarget) && !sent(ClientSetHud) && elapsed(now, t(AccessibleCharacters), 0.5) {
+        if sent(AccessibleCharacters) && sent(PlayerUniqueId) && sent(ViewTarget) && !sent(ClientSetHud) && elapsed(now, t(AccessibleCharacters), d(0.5)) {
             return Some(ClientSetHud);
         }
         // B14-B17 game state completion
-        if sent(ClientSetHud) && sent(GameStatePhase) && !sent(MatchState) && elapsed(now, t(ClientSetHud), 4.0) {
+        if sent(ClientSetHud) && sent(GameStatePhase) && !sent(MatchState) && elapsed(now, t(ClientSetHud), d(4.0)) {
             return Some(MatchState);
         }
-        if !sent(GameplayStart) && after(MatchState, 2.0) {
+        if !sent(GameplayStart) && after(MatchState, d(2.0)) {
             return Some(GameplayStart);
         }
-        if !sent(PlayerArray) && after(GameplayStart, 2.0) {
+        if !sent(PlayerArray) && after(GameplayStart, d(2.0)) {
             return Some(PlayerArray);
         }
-        if !sent(RangeShop) && after(PlayerArray, 1.0) {
+        if !sent(RangeShop) && after(PlayerArray, d(1.0)) {
             return Some(RangeShop);
         }
         // B18 starting equippables x7, 0.5 s apart
-        if sent(PawnOwner) && self.team_state_open_index >= TEAM_STATES && self.starting_equippable_index < STARTING_EQUIPPABLES && elapsed(now, t(StartingEquippable), 0.5) {
+        if sent(PawnOwner) && self.team_state_open_index >= TEAM_STATES && self.starting_equippable_index < STARTING_EQUIPPABLES && elapsed(now, t(StartingEquippable), d(0.5)) {
             return Some(StartingEquippable);
         }
         // B19-B21 knife
-        if self.starting_equippable_index >= STARTING_EQUIPPABLES && !sent(MeleeRole) && elapsed(now, t(StartingEquippable), 0.5) {
+        if self.starting_equippable_index >= STARTING_EQUIPPABLES && !sent(MeleeRole) && elapsed(now, t(StartingEquippable), d(0.5)) {
             return Some(MeleeRole);
         }
-        if !sent(MeleeStateMachine) && after(MeleeRole, 0.5) {
+        if !sent(MeleeStateMachine) && after(MeleeRole, d(0.5)) {
             return Some(MeleeStateMachine);
         }
-        if !sent(MeleeInactiveState) && after(MeleeStateMachine, 0.5) {
+        if !sent(MeleeInactiveState) && after(MeleeStateMachine, d(0.5)) {
             return Some(MeleeInactiveState);
         }
         // B22 view target, 1 s after ClientRestart (late in the chain: earlier ready stages win)
-        if !sent(ViewTarget) && after(ClientRestart, 1.0) {
+        if !sent(ViewTarget) && after(ClientRestart, d(1.0)) {
             return Some(ViewTarget);
         }
         None
@@ -534,7 +552,18 @@ const PAWN_OWNER_GUID: u32 = 4;
 /// stage when it sent. a stage whose body fails to build is logged and skipped
 /// this tick (the python would crash the responder; we keep the session).
 pub fn run_stage_chain(reply: &mut Reply, env: &mut Env) -> Option<Stage> {
-    let stage = reply.conn.bringup.next_stage(reply.now, reply.conn.correction_index)?;
+    let pacing = &env.config.pacing;
+    let stage = if pacing.is_fast() {
+        // the client has every earlier stage before the next goes out
+        let bringup = &reply.conn.bringup;
+        if bringup.last_stage.is_some_and(|t| reply.now - t < pacing.stage_gap) || !reply.delivered(&bringup.waiting) {
+            return None;
+        }
+        bringup.next_stage_paced(reply.now, reply.conn.correction_index, &|_| 0.0)?
+    } else {
+        reply.conn.bringup.next_stage(reply.now, reply.conn.correction_index)?
+    };
+    let mark = reply.sent_reliable.len();
     if stage == Stage::ClientSetHud {
         reply.conn.bringup.hud_rpc = Some(crate::hooks::client_set_hud_index(env, reply.event));
     }
@@ -581,6 +610,8 @@ pub fn run_stage_chain(reply: &mut Reply, env: &mut Env) -> Option<Stage> {
         reply.conn.player.var.reset(now, aries_interp::value::Vec3 { x, y, z });
     }
     reply.conn.bringup.advance(stage, now);
+    reply.conn.bringup.last_stage = Some(now);
+    reply.conn.bringup.waiting = reply.reliable_since(mark);
     log::info!(target: "bringup", "{stage:?} ({} {total})", plan.length_key.unwrap_or("sent"));
     Some(stage)
 }
@@ -653,14 +684,9 @@ mod tests {
 mod observed {
     use super::*;
 
-    /// the live log interleaves part A and B differently from nominal timing
-    /// (client hitches pause the session ticks), but every channel's fixed
-    /// reliable offsets must still go out in order. check that under jittered
-    /// tick cadences from 30 ms to 250 ms.
-    #[test]
-    fn per_channel_order_holds_under_any_cadence() {
-        use Stage::*;
-        let channels: [&[Stage]; 6] = [
+    use Stage::*;
+
+    const CHANNELS: [&[Stage]; 6] = [
             &[GameStateOpen, GameStateBool, GameStatePhase, TeamStateArray, MatchState, GameplayStart, PlayerArray, RangeShop],
             &[ControllerOpen, ControllerPlayerState, ControllerPawn, ClientRestart, ViewTarget, ClientSetHud],
             &[PlayerStateOpen, PlayerStatePlayerInfo, PlayerStateCharacter, PlayerStateDesiredClass, TeamStatePlayer, BombTeamOpen, BombTeamNumber, AccessibleCharacters, PlayerUniqueId, RangeMoney],
@@ -668,6 +694,44 @@ mod observed {
             &[PistolOpen, PistolOwner, PistolRole, PistolStateMachine, PistolInactiveState],
             &[StartingEquippable, MeleeRole, MeleeStateMachine, MeleeInactiveState],
         ];
+
+    /// each stage's last firing is before the next stage's first firing, per channel
+    fn assert_channel_order(fired: &[Stage], context: &str) {
+        assert_eq!(fired.iter().collect::<std::collections::HashSet<_>>().len(), STAGE_COUNT, "{context}: every stage fires");
+        for order in CHANNELS {
+            for pair in order.windows(2) {
+                let last_a = fired.iter().rposition(|s| *s == pair[0]).unwrap_or_else(|| panic!("{:?} never fired", pair[0]));
+                let first_b = fired.iter().position(|s| *s == pair[1]).unwrap_or_else(|| panic!("{:?} never fired", pair[1]));
+                assert!(last_a < first_b || pair[0] == pair[1], "{context}: {:?} after {:?}", pair[1], pair[0]);
+            }
+        }
+    }
+
+    /// fast pacing: every delay is zero and one stage goes out per call.
+    #[test]
+    fn zero_delays_keep_every_channel_in_order() {
+        let mut state = BringupState::default();
+        let mut corrections = 0u32;
+        let mut fired = Vec::new();
+        while let Some(stage) = state.next_stage_paced(fired.len() as f64, corrections, &|_| 0.0) {
+            if stage == InventoryCorrection {
+                corrections += 1;
+            }
+            state.advance(stage, fired.len() as f64);
+            fired.push(stage);
+            assert!(fired.len() < 200, "the chain never ends");
+        }
+        assert_channel_order(&fired, "fast");
+        // every stage once, plus the repeats: 14 scale pairs, 4 corrections, 2 team steps, 6 equippables
+        assert_eq!(fired.len(), STAGE_COUNT + 14 + 4 + 2 + 6);
+    }
+
+    /// the live log interleaves part A and B differently from nominal timing
+    /// (client hitches pause the session ticks), but every channel's fixed
+    /// reliable offsets must still go out in order. check that under jittered
+    /// tick cadences from 30 ms to 250 ms.
+    #[test]
+    fn per_channel_order_holds_under_any_cadence() {
         for (cadence, seed) in [(0.03, 1u64), (0.0625, 2), (0.125, 3), (0.25, 4), (0.11, 5)] {
             let mut rng = aries_world::PyRandom::new(seed);
             let mut state = BringupState::default();
@@ -685,20 +749,7 @@ mod observed {
                 // jittered arrival plus the occasional 2.5 s hitch
                 now += cadence * rng.uniform(0.6, 1.4) + if rng.random() < 0.01 { 2.5 } else { 0.0 };
             }
-            assert_eq!(fired.iter().collect::<std::collections::HashSet<_>>().len(), STAGE_COUNT, "cadence {cadence}: every stage fires");
-            for order in channels {
-                let positions: Vec<usize> = order
-                    .iter()
-                    .map(|stage| fired.iter().rposition(|s| s == stage).unwrap_or_else(|| panic!("{stage:?} never fired")))
-                    .collect();
-                // each stage's last firing is before the next stage's first firing
-                for pair in order.windows(2) {
-                    let last_a = fired.iter().rposition(|s| *s == pair[0]).unwrap();
-                    let first_b = fired.iter().position(|s| *s == pair[1]).unwrap();
-                    assert!(last_a < first_b || pair[0] == pair[1], "cadence {cadence}: {:?} after {:?}", pair[1], pair[0]);
-                }
-                assert!(!positions.is_empty());
-            }
+            assert_channel_order(&fired, &format!("cadence {cadence}"));
         }
     }
 }

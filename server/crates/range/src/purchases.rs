@@ -17,6 +17,7 @@ use aries_world::store::{resolve_class_path, store_item_for_path};
 use serde_json::{Value, json};
 
 use crate::authority::Env;
+use crate::config::PacingSettings;
 use crate::mirror::{extra_names, send_extra_machines, starting};
 use crate::send::Reply;
 
@@ -42,6 +43,8 @@ pub struct PurchaseJob {
     pub next: f64,
     pub registered_tries: u32,
     pub attachments_exported: bool,
+    /// fast pacing: the last step's bunches, acked before the next step
+    pub waiting: Vec<(u32, u32)>,
 }
 
 /// what a slot holds now (python purchased_slot_items values).
@@ -88,10 +91,15 @@ pub fn run_purchases(reply: &mut Reply, env: &mut Env, decoded: &Bits) {
         if job.stage >= STAGE_DONE || reply.now < job.next {
             continue;
         }
+        if env.config.pacing.is_fast() && !reply.delivered(&job.waiting) {
+            continue;
+        }
+        let mark = reply.sent_reliable.len();
         if let Err(error) = advance_job(reply, env, job) {
             reply.event.set("purchase_error", error);
             job.stage = STAGE_DONE;
         }
+        job.waiting = reply.reliable_since(mark);
     }
     reply.conn.authority.purchases.jobs = jobs;
 }
@@ -118,7 +126,7 @@ fn plan_purchase(reply: &mut Reply, item_path: &str) {
     match planned {
         Ok((package_guid, package, channel, actor_guid, load)) => {
             book.package_guids.insert(package_guid, package);
-            book.jobs.push(PurchaseJob { load, stage: 0, next: reply.now, registered_tries: 0, attachments_exported: false });
+            book.jobs.push(PurchaseJob { load, stage: 0, next: reply.now, registered_tries: 0, attachments_exported: false, waiting: Vec::new() });
             reply.event.set("purchase_planned", json!([item.display_name, channel, actor_guid]));
         }
         Err(error) => reply.event.set("purchase_error", error.to_string()),
@@ -130,7 +138,7 @@ fn advance_job(reply: &mut Reply, env: &mut Env, job: &mut PurchaseJob) -> Resul
     match &mut job.load {
         JobLoad::Armor(load) => {
             let load = load.clone();
-            advance_armor(reply, job, &load)
+            advance_armor(reply, &env.config.pacing, job, &load)
         }
         JobLoad::Gun(_) => advance_gun(reply, env, job),
     }
@@ -143,7 +151,7 @@ fn send(reply: &mut Reply, channel: u32, body: aries_rep::RepResult<Bits>, expor
 
 /// armor: the item in ItemSlots[11] (the shop shows it owned) and the pawn's
 /// ShieldDamageSection life (the hud shield). no correction, no replacement.
-fn advance_armor(reply: &mut Reply, job: &mut PurchaseJob, load: &ItemLoad) -> Result<(), String> {
+fn advance_armor(reply: &mut Reply, pacing: &PacingSettings, job: &mut PurchaseJob, load: &ItemLoad) -> Result<(), String> {
     match job.stage {
         0 => {
             reply.register_dynamic_channel(load.channel);
@@ -164,7 +172,7 @@ fn advance_armor(reply: &mut Reply, job: &mut PurchaseJob, load: &ItemLoad) -> R
         }
     }
     job.stage += 1;
-    job.next = reply.now + STAGE_DELAY;
+    job.next = reply.now + pacing.delay(STAGE_DELAY);
     Ok(())
 }
 
@@ -173,6 +181,7 @@ fn advance_gun(reply: &mut Reply, env: &mut Env, job: &mut PurchaseJob) -> Resul
         unreachable!("gun job");
     };
     let now = reply.now;
+    let pacing = &env.config.pacing;
     match job.stage {
         0 => {
             let attachments = forced_attachments(load.item.class_name);
@@ -185,7 +194,7 @@ fn advance_gun(reply: &mut Reply, env: &mut Env, job: &mut PurchaseJob) -> Resul
                 let mut exported: Vec<Value> = attachments.iter().map(|a| json!(a.cdo_name)).collect();
                 exported.push(json!(bits));
                 reply.event.set("purchase_attachments_exported", exported);
-                job.next = now + ATTACHMENT_DELAY;
+                job.next = now + pacing.delay(ATTACHMENT_DELAY);
                 return Ok(());
             }
             reply.register_dynamic_channel(load.channel);
@@ -221,7 +230,7 @@ fn advance_gun(reply: &mut Reply, env: &mut Env, job: &mut PurchaseJob) -> Resul
         _ => {}
     }
     job.stage += 1;
-    job.next = now + STAGE_DELAY;
+    job.next = now + pacing.delay(STAGE_DELAY);
     Ok(())
 }
 
@@ -270,17 +279,30 @@ fn register_gun(reply: &mut Reply, env: &mut Env, job: &mut PurchaseJob) {
             Err(error) => reply.event.set("purchase_register_error", error),
         }
     }
-    let Some(machine) = machine.filter(|m| m.class_name == load.item.class_name) else {
+    let pacing = &env.config.pacing;
+    let tries = pacing.tries(REGISTER_RETRY, REGISTER_TRIES);
+    let retry = |job: &mut PurchaseJob, reply: &mut Reply, name: &str| {
         job.registered_tries += 1;
-        if job.registered_tries > REGISTER_TRIES {
+        if job.registered_tries > tries {
             job.stage = STAGE_DONE;
-            reply.event.set("purchase_register_gave_up", load.item.display_name);
+            reply.event.set("purchase_register_gave_up", name);
         } else {
-            job.next = reply.now + REGISTER_RETRY;
+            job.next = reply.now + pacing.delay(REGISTER_RETRY);
         }
+    };
+    let Some(machine) = machine.filter(|m| m.class_name == load.item.class_name) else {
+        let name = load.item.display_name;
+        retry(job, reply, name);
         return;
     };
     let names = env.live.state_names(machine.state_machine).unwrap_or_default();
+    // fast pacing gets here ~0.2 s after the open, possibly before the client has
+    // filled the machine's state map; python's 2 s head start hid that race
+    if pacing.is_fast() && names.is_empty() && job.registered_tries < tries {
+        let name = load.item.display_name;
+        retry(job, reply, name);
+        return;
+    }
     let extra_machines = match env.live.item_machines(machine.item) {
         Ok(machines) => {
             let views: Vec<_> = machines.iter().map(|m| m.plan_view()).collect();

@@ -28,6 +28,58 @@ pub struct RangeConfig {
     pub lagcomp: LagCompSettings,
     /// smoothing of values read from the client (the player position stream)
     pub interp: InterpSettings,
+    /// how fast bring-up, purchases and the range setup go
+    pub pacing: PacingSettings,
+}
+
+/// [range.pacing]. python spaced every bring-up stage and purchase step by fixed
+/// delays (0.2-4 s, ~75 s to a playable range, ~2.5 s per gun). they are empirical
+/// (03 section 12 Q1): the only real dependency is that the client has the step
+/// before. fast waits for exactly that, the client's ack, plus a small gap.
+#[derive(Debug, Clone, Deserialize)]
+#[serde(default)]
+pub struct PacingSettings {
+    pub mode: PacingMode,
+    /// fast: least time between two steps of one chain (seconds)
+    pub stage_gap: f64,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default, Deserialize)]
+#[serde(rename_all = "lowercase")]
+pub enum PacingMode {
+    /// the python delays, bit for bit (shadow diffs, golden timing)
+    #[default]
+    Python,
+    /// ack-driven
+    Fast,
+}
+
+impl Default for PacingSettings {
+    fn default() -> Self {
+        Self { mode: PacingMode::Python, stage_gap: 0.05 }
+    }
+}
+
+impl PacingSettings {
+    pub fn fast() -> Self {
+        Self { mode: PacingMode::Fast, ..Self::default() }
+    }
+
+    pub fn is_fast(&self) -> bool {
+        self.mode == PacingMode::Fast
+    }
+
+    /// a python delay in this mode: as is, or the fast gap (acks do the real gating).
+    pub fn delay(&self, python: f64) -> f64 {
+        if self.is_fast() { self.stage_gap.min(python) } else { python }
+    }
+
+    /// python retried every `python_retry` s up to `python_tries` times; fast retries
+    /// every gap but keeps the same total wait.
+    pub fn tries(&self, python_retry: f64, python_tries: u32) -> u32 {
+        let retry = self.delay(python_retry);
+        if retry <= 0.0 { python_tries } else { (python_retry * python_tries as f64 / retry).ceil() as u32 }
+    }
 }
 
 #[derive(Debug, Clone, Deserialize)]
@@ -87,6 +139,7 @@ impl Default for RangeConfig {
             features: Features::default(),
             lagcomp: LagCompSettings::default(),
             interp: InterpSettings::default(),
+            pacing: PacingSettings::default(),
         }
     }
 }
