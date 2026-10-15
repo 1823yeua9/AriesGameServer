@@ -86,7 +86,7 @@ pub fn bot_shots(reply: &mut Reply, env: &mut Env, class_name: &str) {
     let target = system.lagcomp.target_time(now, srtt, settings.view_interp, None);
     let lagcomp = &system.lagcomp;
     let view = view_camera(&camera);
-    let shots = system.field.shots_with(Some(class_name), 1, &view, now, |bot| {
+    let shots = system.field.calibrated_shots_with(Some(class_name), 1, &view, now, |bot| {
         if !lagcomp.config.enabled {
             return Some(bot.location);
         }

@@ -406,3 +406,11 @@ FodyWeavers.xsd
 # Local documentation and Claude workspace
 /docs/
 /.claude/
+
+# Local launcher state and per-run credentials
+/runtime/
+/aries.val
+
+# Local test folders at any depth (existing tracked files are unaffected)
+**/[Tt]est/
+**/[Tt]ests/

@@ -28,26 +28,26 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v145</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v145</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v145</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v145</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -143,7 +143,40 @@
     </Manifest>
   </ItemDefinitionGroup>
 
-  <ItemGroup></ItemGroup>
+  <PropertyGroup>
+    <OutDir>$(ProjectDir)..\x64\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalOptions>/utf-8 /bigobj %(AdditionalOptions)</AdditionalOptions>
+      <PreprocessorDefinitions>NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)overlay\vendor\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link><SubSystem>Windows</SubSystem><AdditionalDependencies>user32.lib;d3d11.lib;dxgi.lib;gdi32.lib;dwmapi.lib;winhttp.lib;shell32.lib;%(AdditionalDependencies)</AdditionalDependencies></Link>
+  </ItemDefinitionGroup>
+  <Target Name="RequireX64" BeforeTargets="PrepareForBuild" Condition="'$(Platform)' != 'x64'"><Error Text="Internal requires x64: the supported game is 64-bit." /></Target>
+  <ItemGroup>
+    <ClCompile Include="entry.cpp" />
+    <ClCompile Include="session.cpp" />
+    <ClCompile Include="startup.cpp" />
+    <ClCompile Include="entity_viewer.cpp"><ExceptionHandling>Async</ExceptionHandling></ClCompile>
+    <ClCompile Include="overlay\overlay.cpp" />
+    <ClCompile Include="overlay\present_hook.cpp" />
+    <ClCompile Include="overlay\reflection_viewer.cpp" />
+    <ClCompile Include="overlay\sdk_reflect.cpp" />
+    <ClCompile Include="overlay\skin_client.cpp" />
+    <ClCompile Include="overlay\vendor\imgui\imgui.cpp" />
+    <ClCompile Include="overlay\vendor\imgui\imgui_draw.cpp" />
+    <ClCompile Include="overlay\vendor\imgui\imgui_tables.cpp" />
+    <ClCompile Include="overlay\vendor\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="overlay\vendor\imgui\backends\imgui_impl_dx11.cpp" />
+    <ClCompile Include="overlay\vendor\imgui\backends\imgui_impl_win32.cpp" />
+    <ClCompile Include="overlay\vendor\MinHook\src\hook.c" />
+    <ClCompile Include="overlay\vendor\MinHook\src\buffer.c" />
+    <ClCompile Include="overlay\vendor\MinHook\src\trampoline.c" />
+    <ClCompile Include="overlay\vendor\MinHook\src\hde\hde64.c" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

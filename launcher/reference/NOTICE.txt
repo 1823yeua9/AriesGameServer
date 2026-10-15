@@ -1,0 +1,38 @@
+KDE Blur reference and shader-port attribution
+
+Upstream: https://github.com/can1357/kde-blur
+Pinned revision: 4f86e779512716366554d59dbad2beed277dba6a
+
+downsample_core.frag and upsample_core.frag are unmodified upstream shader references.
+COPYING contains the upstream repository's GPL-3.0 license text.
+The derived HLSL shader is distributed under GPL-3.0.
+
+The upstream blur.cpp also carries these notices:
+SPDX-FileCopyrightText: 2010 Fredrik Höglund <fredrik@kde.org>
+SPDX-FileCopyrightText: 2011 Philipp Knechtges <philipp-dev@knechtges.com>
+SPDX-FileCopyrightText: 2018 Alex Nemeth <alex.nemeth329@gmail.com>
+SPDX-License-Identifier: GPL-2.0-or-later
+
+KDE Blur contributors also include can1357 and the Better Blur contributors.
+Upstream credits @DaddelZeit and @iGerman00 for refraction.
+The rounded-rectangle distance function is credited upstream to Inigo Quilez:
+https://iquilezles.org/articles/distfunctions2d/
+https://www.shadertoy.com/view/4llXD7
+
+Port changes: GLSL to HLSL, Windows D3D11 resources instead of KWin/OpenGL,
+snake_case identifiers, square opaque output, source-equivalent color math,
+fixed reproducible noise seed instead of a time seed. Only the default clamp
+refraction mode is implemented. No source from the game/loader is used here.
+
+Default reference settings from blur.kcfg and settings.cpp:
+blur strength 15 => 4 levels, offset 8; grain strength 5;
+brightness/saturation/contrast 1; corner radii 0; opacity 100%; refraction off.
+
+Launcher presentation overrides: noise_strength=0, requested after the default
+grain looked powdery; strength 14 (4 levels, offset 3 + 5/6 * 5 = 7.166667),
+requested for slightly less blur. The underlying blur filter is unchanged.
+
+Matching these settings is not a claim of bit-identical compositor output on
+every desktop. GLSL/D3D filtering/rounding, noise seeds, DPI, HDR, source pixels,
+and application tint layers can differ. Tests compare the pinned shader math
+with RGBA8 per-pass quantization; actual KWin execution is not available here.

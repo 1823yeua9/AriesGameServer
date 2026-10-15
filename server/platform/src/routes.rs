@@ -1,5 +1,5 @@
 use crate::{
-    Platform, agent_type, inventory::string, local_jwt, party_id, player_id, replace_strings,
+    Platform, agent_type, inventory::string, party_id, player_id, replace_strings,
     timestamp,
 };
 use base64::{Engine, engine::general_purpose::STANDARD};
@@ -38,7 +38,7 @@ impl Platform {
                     return (200, json!({"ready":true,"configAuthProgress":"Complete"}));
                 }
                 "/entitlements/v1/token" => {
-                    let token = local_jwt("valorant-client", json!({"entitlements":[]}));
+                    let token = self.identity_token("valorant-client", json!({"entitlements":[]}));
                     return (
                         200,
                         json!({"accessToken":token,"entitlements":[],"issuer":"https://offline.local","subject":player_id,"token":token}),
@@ -131,7 +131,7 @@ impl Platform {
         if post && path == "/.a.pvp.net/name-service/v3/players" {
             return (
                 200,
-                json!({"DisplayName":"OfflinePlayer#LOCAL","GameName":"OfflinePlayer","Subject":player_id,"TagLine":"LOCAL"}),
+                json!({"DisplayName":format!("{}#LOCAL", self.config.username),"GameName":self.config.username,"Subject":player_id,"TagLine":"LOCAL"}),
             );
         }
         if post && path == "/chat/v6/conversations" {
@@ -404,7 +404,7 @@ impl Platform {
             }
             return (
                 200,
-                json!({"affinities":{"live":"na"},"expiry":4102444800000u64,"issuedAt":0,"product":"valorant","puuid":player_id,"token":local_jwt("player-affinity",json!({"affinities":{"live":"na"},"product":"valorant"}))}),
+                json!({"affinities":{"live":"na"},"expiry":4102444800000u64,"issuedAt":0,"product":"valorant","puuid":player_id,"token":self.identity_token("player-affinity",json!({"affinities":{"live":"na"},"product":"valorant"}))}),
             );
         }
         if get && path.starts_with("/riot-messaging-service/v1/messages/") {
@@ -501,7 +501,7 @@ impl Platform {
             } else {
                 (
                     200,
-                    json!({"userInfo":local_jwt("valorant-client",json!({"country":"USA","ban":{"restrictions":[]},"acct":{"type":0,"state":"ENABLED","adm":false,"game_name":"OfflinePlayer","tag_line":"LOCAL"}}))}),
+                    json!({"userInfo":self.identity_token("valorant-client",json!({"country":"USA","ban":{"restrictions":[]},"acct":{"type":0,"state":"ENABLED","adm":false,"tag_line":"LOCAL"}}))}),
                 )
             };
         }
@@ -525,7 +525,7 @@ impl Platform {
         )
     }
     fn authorization(&self, client_id: &str, scopes: Value) -> Value {
-        let token = local_jwt(client_id, Value::Null);
+        let token = self.identity_token(client_id, Value::Null);
         json!({"type":"authorized","authorization":{"accessToken":{"token":token,"scopes":scopes,"expiry":4102444800u64,"clientId":client_id},"idToken":{"token":token,"expiry":4102444800u64,"clientId":client_id,"nonce":"offline"}},"country":"US"})
     }
     pub fn admin_route(&self, method: &str, path: &str, body: &[u8]) -> Reply {

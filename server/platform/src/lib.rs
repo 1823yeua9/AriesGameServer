@@ -25,6 +25,7 @@ pub const rms_topic: &str = "OnJsonApiEvent_riot-messaging-service_v1_messages";
 #[derive(Clone, Deserialize, Serialize)]
 #[serde(default, deny_unknown_fields)]
 pub struct Config {
+    pub username: String,
     pub port: u16,
     pub admin_port: u16,
     pub cert_path: PathBuf,
@@ -40,6 +41,7 @@ pub struct Config {
 impl Default for Config {
     fn default() -> Self {
         Self {
+            username: "OfflinePlayer".into(),
             port: 58089,
             admin_port: 58090,
             cert_path: "remoting_cert.pem".into(),
@@ -120,6 +122,12 @@ pub fn replace_strings(value: &mut Value, from: &str, to: &str) {
 
 impl Platform {
     pub fn new(mut config: Config) -> Result<Arc<Self>, String> {
+        if config.username.trim() != config.username || config.username.is_empty()
+            || config.username.chars().count() > 32
+            || config.username.chars().any(|character| character.is_control() || character == '#')
+        {
+            return Err("username must be 1-32 characters, without controls, #, or surrounding whitespace".into());
+        }
         if config.auth_token.is_empty() {
             config.auth_token = uuid::Uuid::new_v4().simple().to_string();
         }
@@ -141,6 +149,7 @@ impl Platform {
             "127.0.0.1:58089",
             &format!("127.0.0.1:{}", config.port),
         );
+        replace_strings(&mut contracts, "OfflinePlayer", &config.username);
         Ok(Arc::new(Self {
             config,
             inventory: Mutex::new(inventory),
@@ -152,6 +161,17 @@ impl Platform {
     }
     pub fn template(&self, name: &str) -> Value {
         self.contracts["templates"][name].clone()
+    }
+
+    pub fn identity_token(&self, audience: &str, mut extra: Value) -> String {
+        if !extra.is_object() {
+            extra = json!({});
+        }
+        if !extra["acct"].is_object() {
+            extra["acct"] = json!({"tag_line":"LOCAL"});
+        }
+        extra["acct"]["game_name"] = json!(self.config.username);
+        local_jwt(audience, extra)
     }
     pub fn settings(&self) -> Value {
         json!({"publisher":"local","product_id":"valorant","patchline_id":"live","default_region":"NA","region_data":{"NA":{"default_locale":"en_US"}},"riotgamesapi":{"persistence-path":self.config.persistence_path}})
@@ -180,7 +200,7 @@ impl Platform {
     pub fn range_snapshot(&self, match_id: &str) -> Value {
         let mut value = self.template("range_match");
         replace_strings(&mut value, "{match_id}", match_id);
-        value["TeamMatchToken"] = json!(local_jwt("offline-range", json!({"match_id":match_id})));
+        value["TeamMatchToken"] = json!(self.identity_token("offline-range", json!({"match_id":match_id})));
         value
     }
     pub fn rms_message(

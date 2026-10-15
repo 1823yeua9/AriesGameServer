@@ -16,6 +16,7 @@ namespace loader::config {
         std::string host_ip = "localhost";
         std::filesystem::path file_path;
         std::map<std::string, std::string> launch_settings = {
+            {"username", "OfflinePlayer"},
             {"port", "58089"},
             {"admin_port", "58090"},
             {"server_path", "server/platform/target/release/aries-platform.exe"},
@@ -23,10 +24,10 @@ namespace loader::config {
             {"cert_path", "../local_backend/embedded_tls/remoting_cert.pem"},
             {"key_path", "../local_backend/embedded_tls/remoting_key.pem"},
             {"skin_catalog", "../local_backend/skin_catalog.json"},
-            {"skin_state", "runtime/account/skins.json"},
+            {"skin_state", "../local_backend/offline_skin_state.json"},
             {"runtime_path", "runtime"},
-            {"gameplay_path", ""},
-            {"gameplay_config", ""}};
+            {"gameplay_path", "server/target/release/aries-server.exe"},
+            {"gameplay_config", "server/aries-server.toml"}};
 
     public:
         Settings() = default;

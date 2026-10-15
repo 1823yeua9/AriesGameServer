@@ -13,6 +13,7 @@ pub mod pyrandom;
 pub mod skins;
 pub mod store;
 pub mod tags;
+pub mod target_head;
 pub mod teams;
 
 pub use pyrandom::PyRandom;

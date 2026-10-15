@@ -5,4 +5,5 @@
   </Configurations>
   <Project Path="internal/internal.vcxproj" Id="740b5b0a-a6ab-4a79-a0bf-5f71f8f7c44b" />
   <Project Path="loader/loader.vcxproj" Id="4ff3d9a2-260f-4c47-a451-d380c31f77d2" />
+  <Project Path="launcher/launcher.vcxproj" Id="9a6d2b28-592f-495f-b58b-1bff7ce6f481" />
 </Solution>

@@ -69,6 +69,21 @@ namespace loader {
         return std::string(text.begin(), text.end());
     }
 
+    static auto require_server_running(const init::Process& process, const char* name) -> void {
+        if (process.running()) {
+            return;
+        }
+
+        DWORD exit_code = 0;
+
+        if (!GetExitCodeProcess(process.process.get(), &exit_code)) {
+            throw std::runtime_error(std::string("owned server exited: ") + name + "; exit code unavailable");
+        }
+
+        throw std::runtime_error(std::string("owned server exited: ") + name + " PID " + std::to_string(process.pid) +
+                                 " code " + std::to_string(exit_code));
+    }
+
     LaunchSession::LaunchSession(const config::Settings& settings, ServicePorts requested_ports, bool server_only)
         : settings(settings), requested_ports(requested_ports), server_only(server_only) {}
 
@@ -87,17 +102,25 @@ namespace loader {
 
         start_game();
 
+        start_gameplay();
+
         initialize_internal();
 
         wait_for(
             [&] {
-                return file_contains(game_log, "MainMenuV2");
+                if (fs::is_regular_file(run_directory / L"internal.failed")) {
+                    throw std::runtime_error("internal initialization failed; see internal.log in this run");
+                }
+
+                require_server_running(*server, "platform");
+                require_server_running(*gameplay, "gameplay");
+
+                return file_contains(game_log, "MainMenuV2") &&
+                       file_contains(run_directory / L"internal.log", "overlay: ImGui ready");
             },
             *game,
-            90000,
+            180000,
             "main-menu initialization");
-
-        start_gameplay();
 
         supervise_game();
     }
@@ -114,10 +137,13 @@ namespace loader {
         server_config = run_directory / L"platform.json";
         game_log = run_directory / L"game.log";
 
-        auth_token = init::random_token();
+        // RiotGamesApiClient accepts at most 63 characters. Keep 192 random
+        // bits for client remoting; the independent admin token stays 256-bit.
+        auth_token = init::random_token().substr(0, 48);
         admin_token = init::random_token();
 
         nlohmann::json platform_config = {{"port", requested_ports.platform},
+                                          {"username", settings.get_setting("username")},
                                           {"admin_port", requested_ports.admin},
 
                                           {"cert_path", utf8_path(settings.path_for("cert_path"))},
@@ -257,7 +283,9 @@ namespace loader {
         const auto path = settings.path_for("game_path");
 
         game.emplace(job.start(path, game_arguments(), path.parent_path(), false));
+    }
 
+    auto LaunchSession::initialize_internal() -> void {
         wait_for(
             [&] {
                 return fs::is_regular_file(waiting);
@@ -265,9 +293,6 @@ namespace loader {
             *game,
             20000,
             "held game configuration request");
-    }
-
-    auto LaunchSession::initialize_internal() -> void {
         const auto ready_name = L"Local\\Aries.Internal.Ready." + std::to_wstring(game->pid);
 
         internal_ready.emplace(CreateEventW(nullptr, TRUE, FALSE, ready_name.c_str()));
@@ -275,6 +300,14 @@ namespace loader {
         if (!internal_ready->get() || GetLastError() == ERROR_ALREADY_EXISTS) {
             throw std::runtime_error("internal readiness event is unavailable or stale");
         }
+
+        init::write_json(run_directory / L"internal.json",
+                         {{"protocol", 1},
+                          {"pid", game->pid},
+                          {"game_path", utf8_path(settings.path_for("game_path"))},
+                          {"host", "127.0.0.1"},
+                          {"port", ports.admin},
+                          {"admin_token", admin_token}});
 
         injector::Injector injection(game->pid);
 
@@ -286,10 +319,14 @@ namespace loader {
         // alone is not readiness. The bounded gate remains held on any failure.
         wait_for(
             [&] {
+                if (fs::is_regular_file(run_directory / L"internal.failed")) {
+                    throw std::runtime_error("internal startup failed; see internal.log in this run");
+                }
+
                 return WaitForSingleObject(internal_ready->get(), 0) == WAIT_OBJECT_0;
             },
             *game,
-            15000,
+            30000,
             "internal startup readiness");
 
         if (!fs::remove(gate)) {
@@ -300,18 +337,18 @@ namespace loader {
     auto LaunchSession::start_gameplay() -> void {
         const auto path = settings.path_for("gameplay_path");
 
-        if (path.empty()) {
-            return;
-        }
-
         // aries-server resolves the current image base from this owned PID.
-        // It must start after the client, not race an absent process at boot.
+        // Bind before releasing configuration, never after the first Range request.
         const std::vector<std::wstring> arguments = {L"--config",
                                                      settings.path_for("gameplay_config").wstring(),
                                                      L"--pid",
                                                      std::to_wstring(game->pid),
                                                      L"--port",
-                                                     L"58100"};
+                                                     L"58100",
+                                                     L"--skin-catalog",
+                                                     settings.path_for("skin_catalog").wstring(),
+                                                     L"--skin-state",
+                                                     settings.path_for("skin_state").wstring()};
 
         gameplay.emplace(job.start(path, arguments, path.parent_path(), true, run_directory / L"gameplay.log"));
 
@@ -344,8 +381,14 @@ namespace loader {
         std::cout << "MainMenuV2 observed. R requests Range; Q/Ctrl+C closes this launch.\n";
 
         while (!stop_requested && game->running()) {
-            if (!server->running() || (gameplay && !gameplay->running())) {
-                throw std::runtime_error("owned server exited; closing this game session");
+            if (fs::is_regular_file(run_directory / L"internal.failed")) {
+                throw std::runtime_error("internal failed; see internal.log in this run");
+            }
+
+            require_server_running(*server, "platform");
+
+            if (gameplay) {
+                require_server_running(*gameplay, "gameplay");
             }
 
             if (_kbhit()) {

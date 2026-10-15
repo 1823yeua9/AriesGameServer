@@ -96,7 +96,7 @@ namespace loader {
             << "Verified game and crash-reporter non-loopback block rules. No other programs or services changed.\n";
     }
 
-    static auto verify_service_files(const config::Settings& settings) -> void {
+    static auto verify_service_files(const config::Settings& settings, bool server_only) -> void {
         require_file(settings.path_for("server_path"), "platform executable");
 
         require_file(settings.path_for("cert_path"), "TLS certificate");
@@ -104,7 +104,7 @@ namespace loader {
 
         require_file(settings.path_for("skin_catalog"), "skin catalog");
 
-        if (!settings.path_for("gameplay_path").empty()) {
+        if (!server_only) {
             require_file(settings.path_for("gameplay_path"), "gameplay executable");
             require_file(settings.path_for("gameplay_config"), "gameplay config");
         }
@@ -138,6 +138,8 @@ namespace loader {
     }
 
     auto run(int argc, wchar_t** argv) -> int {
+        std::cout << std::unitbuf;
+
         const auto options = parse_command_line(argc, argv);
 
         if (options.mode == LaunchMode::Help) {
@@ -179,7 +181,7 @@ namespace loader {
             return 0;
         }
 
-        verify_service_files(settings);
+        verify_service_files(settings, server_only);
 
         const auto pinned_file = server_only ? init::Handle{} : pin_game_file(settings);
 

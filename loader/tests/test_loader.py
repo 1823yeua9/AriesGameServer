@@ -1,9 +1,12 @@
 """End-to-end launcher/platform supervision, without launching or altering a game."""
 import ctypes
+import base64
 import http.client
 import itertools
 import json
+import os
 import socket
+import ssl
 import subprocess
 import sys
 import tempfile
@@ -31,8 +34,8 @@ def alive(pid):
 
 
 def run():
-    loader = root / "loader/x64/Release/loader.exe"
-    server = root / "server/platform/target/debug/aries-platform.exe"
+    loader = Path(os.environ.get("ARIES_TEST_LOADER", root / "x64/Release/loader.exe"))
+    server = Path(os.environ.get("ARIES_TEST_PLATFORM", root / "server/platform/target/debug/aries-platform.exe"))
     with tempfile.TemporaryDirectory(prefix="aries-loader-test-") as temporary:
         directory = Path(temporary)
         pki = make_pki(str(directory))
@@ -60,6 +63,8 @@ def run():
         overwrite = subprocess.run([str(loader), "--write-config", str(config_path)], capture_output=True, text=True, timeout=5)
         assert overwrite.returncode != 0 and config_path.read_bytes() == original_config
         config = json.loads(config_path.read_text())
+        assert config["username"] == "OfflinePlayer"
+        config["username"] = "Loader Test 雪"
         config.update({"port": "0", "admin_port": "0", "server_path": str(server), "cert_path": pki["cert"], "key_path": pki["key"], "skin_catalog": str(root.parent / "local_backend/skin_catalog.json"), "skin_state": "account/skins.json", "game_settings_path": "account/persistence", "runtime_path": "runs"})
         config_path.write_text(json.dumps(config))
         command = [str(loader), "--config", str(config_path), "--server-only"]
@@ -82,10 +87,21 @@ def run():
                     raise AssertionError(process.stdout.read())
                 time.sleep(.05)
             assert state and alive(state["pid"]), "platform was not started"
+            assert len(state["auth_token"]) == 48, "client remoting token must fit its 63-character buffer"
+            assert len(state["admin_token"]) == 64, "admin token retains 256 random bits"
             connection = http.client.HTTPConnection("127.0.0.1", state["admin_port"], timeout=5)
             connection.request("GET", "/health", headers={"Authorization": "Bearer " + state["admin_token"]})
             response = connection.getresponse()
             assert response.status == 200 and json.loads(response.read())["pid"] == state["pid"]
+            connection.close()
+            run_config = json.loads((paths[0].parent / "platform.json").read_text(encoding="utf-8"))
+            assert run_config["username"] == config["username"]
+            connection = http.client.HTTPSConnection("127.0.0.1", state["port"], timeout=5, context=ssl._create_unverified_context())
+            auth = base64.b64encode(("riot:" + state["auth_token"]).encode()).decode()
+            connection.request("GET", "/chat/v1/session", headers={"Authorization": "Basic " + auth})
+            response = connection.getresponse()
+            assert response.status == 200
+            assert json.loads(response.read())["game_name"] == config["username"]
             connection.close()
             duplicate = subprocess.run(command, capture_output=True, text=True, timeout=5)
             assert duplicate.returncode != 0 and "another Aries loader" in duplicate.stdout + duplicate.stderr

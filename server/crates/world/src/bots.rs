@@ -618,6 +618,19 @@ pub fn hit_region(origin: [f64; 3], direction: [f64; 3], center: [f64; 3]) -> Op
     best
 }
 
+/// Live standing-target calibration. `hit_region` above retains the historical
+/// Python model only for port parity/replay; live shots use this measured head.
+pub fn calibrated_hit_region(origin: [f64; 3], direction: [f64; 3], root: [f64; 3], yaw: f64, dummy: bool) -> Option<(Region, f64)> {
+    let head = crate::target_head::head_hit(origin, direction, root, yaw, dummy);
+    let lift = if dummy { DUMMY_MESH_LIFT } else { 0.0 };
+    let body = ray_cylinder(origin, direction, root, BODY_RADIUS, BODY_LOW + lift, crate::target_head::head_floor(dummy));
+    let legs = ray_cylinder(origin, direction, root, LEG_RADIUS, LEG_LOW + lift, BODY_LOW + lift);
+
+    [(Region::Head, head), (Region::Body, body), (Region::Legs, legs)]
+        .into_iter().filter_map(|(region, distance)| distance.map(|distance| (region, distance)))
+        .min_by(|left, right| left.1.total_cmp(&right.1))
+}
+
 /// rb:229-234: the dummy's mesh sits 4 units higher than a training bot's.
 pub fn dummy_hit(dummy: Option<&Bot>, origin: [f64; 3], direction: [f64; 3]) -> Option<(Region, f64)> {
     let dummy = dummy.filter(|dummy| dummy.opened)?;
@@ -785,13 +798,22 @@ impl BotField {
     /// none = not hittable). `shots` is this with every bot where it stands.
     pub fn shots_with(&mut self, class_name: Option<&str>, shots: u32, camera: &Camera, now: f64, mut locate: impl FnMut(&Bot) -> Option<[f64; 3]>) -> ShotsResult {
         let mut result = ShotsResult::default();
-        if let Err(error) = self.shots_into(class_name, shots, camera, now, &mut locate, &mut result) {
+        if let Err(error) = self.shots_into(class_name, shots, camera, now, &mut locate, &mut result, false) {
             result.error = Some(error);
         }
         result
     }
 
-    fn shots_into(&mut self, class_name: Option<&str>, shots: u32, camera: &Camera, now: f64, locate: &mut impl FnMut(&Bot) -> Option<[f64; 3]>, result: &mut ShotsResult) -> RepResult<()> {
+    /// Production path; the legacy methods above are retained for historical fixture replays.
+    pub fn calibrated_shots_with(&mut self, class_name: Option<&str>, shots: u32, camera: &Camera, now: f64, mut locate: impl FnMut(&Bot) -> Option<[f64; 3]>) -> ShotsResult {
+        let mut result = ShotsResult::default();
+        if let Err(error) = self.shots_into(class_name, shots, camera, now, &mut locate, &mut result, true) {
+            result.error = Some(error);
+        }
+        result
+    }
+
+    fn shots_into(&mut self, class_name: Option<&str>, shots: u32, camera: &Camera, now: f64, locate: &mut impl FnMut(&Bot) -> Option<[f64; 3]>, result: &mut ShotsResult, calibrated: bool) -> RepResult<()> {
         let direction = view_ray(camera.pitch, camera.yaw);
         let origin = camera.location;
         for _ in 0..shots {
@@ -801,13 +823,21 @@ impl BotField {
                 if !bot.alive || !bot.opened {
                     continue;
                 }
-                if let Some((region, distance)) = locate(bot).and_then(|center| hit_region(origin, direction, center))
+                if let Some((region, distance)) = locate(bot).and_then(|center| {
+                    if calibrated { calibrated_hit_region(origin, direction, center, bot.yaw, false) }
+                    else { hit_region(origin, direction, center) }
+                })
                     && hit.is_none_or(|(_, _, current)| distance < current)
                 {
                     hit = Some((index, region, distance));
                 }
             }
-            let on_dummy = self.dummy.as_ref().filter(|dummy| dummy.opened).and_then(|dummy| locate(dummy)).and_then(|[x, y, z]| hit_region(origin, direction, [x, y, z + DUMMY_MESH_LIFT]));
+            let on_dummy = self.dummy.as_ref().filter(|dummy| dummy.opened).and_then(|dummy| {
+                locate(dummy).and_then(|[x, y, z]| {
+                    if calibrated { calibrated_hit_region(origin, direction, [x, y, z], dummy.yaw, true) }
+                    else { hit_region(origin, direction, [x, y, z + DUMMY_MESH_LIFT]) }
+                })
+            });
             if let (Some((region, distance)), Some(dummy)) = (on_dummy, self.dummy.as_ref())
                 && hit.is_none_or(|(_, _, bot_distance)| distance < bot_distance)
             {
