@@ -27,7 +27,12 @@ impl Platform {
         let get = method == "GET";
         let post = method == "POST";
         if get && (path.starts_with("/v1/config/") || path.starts_with("/.a.pvp.net/v1/config/")) {
-            return (200, self.template("game_config"));
+            // roaming settings on: the game then keeps keybinds (which never go to its
+            // local ini) through player-preferences below
+            let mut config = self.template("game_config");
+            config["Collapsed"]["GAME_ROAMINGSETTINGS_ENABLED"] = json!("true");
+            config["Collapsed"]["GAME_ROAMINGSETTINGS_KEY"] = json!(crate::ROAMING_SETTINGS_KEY);
+            return (200, config);
         }
         if get {
             match path {
@@ -504,6 +509,24 @@ impl Platform {
                     json!({"userInfo":self.identity_token("valorant-client",json!({"country":"USA","ban":{"restrictions":[]},"acct":{"type":0,"state":"ENABLED","adm":false,"tag_line":"LOCAL"}}))}),
                 )
             };
+        }
+        // the riot client's cloud player preferences, kept on disk instead
+        if let Some(kind) = path.strip_prefix("/player-preferences/v1/data-json/") {
+            if get {
+                return match self.load_preference(kind) {
+                    Ok(value) => (200, value),
+                    Err(message) => error(400, &message),
+                };
+            }
+            if method == "PUT" || post {
+                return match parsed {
+                    Ok(value) => match self.save_preference(kind, &value) {
+                        Ok(()) => (200, value),
+                        Err(message) => error(500, &message),
+                    },
+                    Err(_) => error(400, "preference_not_json"),
+                };
+            }
         }
         if post && path == "/product-integration/v1/settings-token" {
             let missing: Vec<_> = ["productSessionId", "productId", "patchlineId"]

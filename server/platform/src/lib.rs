@@ -20,6 +20,8 @@ use tokio::sync::broadcast;
 pub const player_id: &str = "7c9f41a4-65e2-4d81-a8d5-f879c3e5ab61";
 pub const party_id: &str = "00000000-0000-0000-0000-000000000001";
 pub const agent_type: &str = "01bb38e1-da47-4e6a-9b3d-945fe4655707";
+/// what the game stores its roaming settings (keybinds included) under
+pub const ROAMING_SETTINGS_KEY: &str = "Ares.PlayerSettings";
 pub const rms_topic: &str = "OnJsonApiEvent_riot-messaging-service_v1_messages";
 
 #[derive(Clone, Deserialize, Serialize)]
@@ -173,6 +175,31 @@ impl Platform {
         extra["acct"]["game_name"] = json!(self.config.username);
         local_jwt(audience, extra)
     }
+    /// <persistence>/player-preferences/<type>.json; only plain names, never a path.
+    fn preference_path(&self, kind: &str) -> Result<PathBuf, String> {
+        let plain = !kind.is_empty() && kind.len() <= 128 && kind.chars().all(|c| c.is_ascii_alphanumeric() || matches!(c, '.' | '_' | '-'));
+        if !plain || kind.starts_with('.') {
+            return Err("bad_preference_type".into());
+        }
+        Ok(self.config.persistence_path.join("player-preferences").join(format!("{kind}.json")))
+    }
+
+    /// what was last saved, or {} for a new player (the game then starts from defaults and saves).
+    pub fn load_preference(&self, kind: &str) -> Result<Value, String> {
+        let path = self.preference_path(kind)?;
+        Ok(std::fs::read(&path).ok().and_then(|bytes| serde_json::from_slice(&bytes).ok()).unwrap_or_else(|| json!({})))
+    }
+
+    /// written to a temp file and renamed, so a crash never leaves half a file.
+    pub fn save_preference(&self, kind: &str, value: &Value) -> Result<(), String> {
+        let path = self.preference_path(kind)?;
+        let folder = path.parent().expect("joined above");
+        std::fs::create_dir_all(folder).map_err(|e| e.to_string())?;
+        let temporary = path.with_extension("json.tmp");
+        std::fs::write(&temporary, serde_json::to_vec_pretty(value).map_err(|e| e.to_string())?).map_err(|e| e.to_string())?;
+        std::fs::rename(&temporary, &path).map_err(|e| e.to_string())
+    }
+
     pub fn settings(&self) -> Value {
         json!({"publisher":"local","product_id":"valorant","patchline_id":"live","default_region":"NA","region_data":{"NA":{"default_locale":"en_US"}},"riotgamesapi":{"persistence-path":self.config.persistence_path}})
     }
