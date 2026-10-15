@@ -74,7 +74,8 @@ impl LiveClient for OracleLive {
         if let Some(oracle) = self.oracle.as_mut() {
             oracle.caches.clear();
         }
-        self.tags = None;
+        // the tag table is fixed for the client process (python cached it per run);
+        // re-reading it cost a 52 ms datagram on the live re-entry
     }
 
     fn saved_moves(&mut self) -> Result<Option<SavedMoves>, String> {
