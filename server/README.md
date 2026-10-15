@@ -27,7 +27,10 @@ target/release/aries-server.exe --config aries-server.toml
 `aries-server.toml` holds every setting with its production default. Paths under
 `[range]` are relative to the config file. `[range.features]` switches each system;
 `[range.lagcomp]` sets lag compensation (source sdk values; `view_interp` is measured,
-see `docs/port/10_interp_source_sdk.md` 4.13).
+see `docs/port/10_interp_source_sdk.md` 4.13). `[range.pacing]` is the one section not
+at the python default: `mode = "fast"` sends each bring-up stage and purchase step as
+soon as the client acked the one before (~5 s to a playable range, ~0.4 s per gun);
+`mode = "python"` restores the fixed delays (~75 s, ~2.7 s per gun) for shadow diffs.
 
 ## for the loader
 
