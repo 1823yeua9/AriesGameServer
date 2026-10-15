@@ -137,6 +137,21 @@ pub trait LiveClient {
     fn camera(&mut self) -> Result<Option<Camera>, String> {
         Ok(None)
     }
+
+    /// Completed hitscan projectile's creation pose, including its shot spread.
+    /// None means that projectile has already been consumed; never use the
+    /// later render camera as a fallback for damage.
+    fn firing_camera(&mut self, _state_machine: u64, _key: &str, _seed: u32) -> Result<Option<Camera>, String> {
+        Err("Shot-time projectile transform unavailable".into())
+    }
+
+    /// Nearest primitive intersection per network channel, sampled from the
+    /// client's current collision pose. Missing/stale data is an error, not a
+    /// fabricated head sphere. The offline client is the geometry source only.
+    fn target_hits(&mut self, _channels: &[u32], _camera: &Camera)
+        -> Result<BTreeMap<u32, (aries_world::bots::Region, f64)>, String> {
+        Err("Live target collision feed unavailable".into())
+    }
     /// ClientSetHUD's (field index, class max) in the live controller class cache
     fn client_set_hud_index(&mut self) -> Result<Option<(u32, u32)>, String> {
         Ok(None)

@@ -198,6 +198,10 @@ pub struct World {
     pub items: HashMap<u64, Vec<LiveItemMachine>>,
     pub amounts: HashMap<u64, BTreeMap<String, ResourceAmounts>>,
     pub camera: Option<Camera>,
+    pub shot_camera: Option<Camera>,
+    pub shot_error: Option<String>,
+    pub intersected_camera: Option<Camera>,
+    pub collision_hits: Option<BTreeMap<u32, (aries_world::bots::Region, f64)>>,
     pub seed: Option<u32>,
     pub projectiles: HashMap<u32, ProjectileSnapshot>,
     pub replication: Option<aries_range::InputReplication>,
@@ -232,6 +236,17 @@ impl LiveClient for Scripted {
     }
     fn camera(&mut self) -> Result<Option<Camera>, String> {
         Ok(self.0.borrow().camera)
+    }
+
+    fn firing_camera(&mut self, _state_machine: u64, _key: &str, _seed: u32) -> Result<Option<Camera>, String> {
+        let world = self.0.borrow();
+        if let Some(error) = &world.shot_error { return Err(error.clone()); }
+        Ok(world.shot_camera.or(world.camera))
+    }
+    fn target_hits(&mut self, channels: &[u32], camera: &Camera) -> Result<BTreeMap<u32, (aries_world::bots::Region, f64)>, String> {
+        self.0.borrow_mut().intersected_camera = Some(*camera);
+        self.0.borrow().collision_hits.as_ref().map(|hits| hits.iter().filter(|(channel, _)| channels.contains(channel))
+            .map(|(&channel, &hit)| (channel, hit)).collect()).ok_or("Collision fixture absent".into())
     }
     fn projectile(&mut self, channel: u32) -> Result<Option<ProjectileSnapshot>, String> {
         Ok(self.0.borrow().projectiles.get(&channel).cloned())

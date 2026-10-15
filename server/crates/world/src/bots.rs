@@ -619,7 +619,8 @@ pub fn hit_region(origin: [f64; 3], direction: [f64; 3], center: [f64; 3]) -> Op
 }
 
 /// Live standing-target calibration. `hit_region` above retains the historical
-/// Python model only for port parity/replay; live shots use this measured head.
+/// Python model only for port parity/replay. This calibration is historical;
+/// production shots now use the client's live collision primitives.
 pub fn calibrated_hit_region(origin: [f64; 3], direction: [f64; 3], root: [f64; 3], yaw: f64, dummy: bool) -> Option<(Region, f64)> {
     let head = crate::target_head::head_hit(origin, direction, root, yaw, dummy);
     let lift = if dummy { DUMMY_MESH_LIFT } else { 0.0 };
@@ -798,24 +799,41 @@ impl BotField {
     /// none = not hittable). `shots` is this with every bot where it stands.
     pub fn shots_with(&mut self, class_name: Option<&str>, shots: u32, camera: &Camera, now: f64, mut locate: impl FnMut(&Bot) -> Option<[f64; 3]>) -> ShotsResult {
         let mut result = ShotsResult::default();
-        if let Err(error) = self.shots_into(class_name, shots, camera, now, &mut locate, &mut result, false) {
+        if let Err(error) = self.shots_into(class_name, shots, now, &mut |bot, dummy| {
+            locate(bot).and_then(|mut center| {
+                if dummy { center[2] += DUMMY_MESH_LIFT; }
+                hit_region(camera.location, view_ray(camera.pitch, camera.yaw), center)
+            })
+        }, &mut result) {
             result.error = Some(error);
         }
         result
     }
 
-    /// Production path; the legacy methods above are retained for historical fixture replays.
+    /// Historical measured-head path, retained for fixture replays only.
     pub fn calibrated_shots_with(&mut self, class_name: Option<&str>, shots: u32, camera: &Camera, now: f64, mut locate: impl FnMut(&Bot) -> Option<[f64; 3]>) -> ShotsResult {
         let mut result = ShotsResult::default();
-        if let Err(error) = self.shots_into(class_name, shots, camera, now, &mut locate, &mut result, true) {
+        if let Err(error) = self.shots_into(class_name, shots, now, &mut |bot, dummy| {
+            locate(bot).and_then(|center| calibrated_hit_region(camera.location, view_ray(camera.pitch, camera.yaw), center, bot.yaw, dummy))
+        }, &mut result) {
             result.error = Some(error);
         }
         result
     }
 
-    fn shots_into(&mut self, class_name: Option<&str>, shots: u32, camera: &Camera, now: f64, locate: &mut impl FnMut(&Bot) -> Option<[f64; 3]>, result: &mut ShotsResult, calibrated: bool) -> RepResult<()> {
-        let direction = view_ray(camera.pitch, camera.yaw);
-        let origin = camera.location;
+    /// Production geometry path. The caller supplies intersections from the
+    /// actual target collision primitives; no positional approximation fallback.
+    pub fn collision_shots(&mut self, class_name: Option<&str>, shots: u32, now: f64,
+        mut intersect: impl FnMut(&Bot) -> Option<(Region, f64)>) -> ShotsResult {
+        let mut result = ShotsResult::default();
+        if let Err(error) = self.shots_into(class_name, shots, now, &mut |bot, _| intersect(bot), &mut result) {
+            result.error = Some(error);
+        }
+        result
+    }
+
+    fn shots_into(&mut self, class_name: Option<&str>, shots: u32, now: f64,
+        intersect: &mut impl FnMut(&Bot, bool) -> Option<(Region, f64)>, result: &mut ShotsResult) -> RepResult<()> {
         for _ in 0..shots {
             // rb:346-355 first_hit and rb:229-234 dummy_hit on the located positions
             let mut hit: Option<(usize, Region, f64)> = None;
@@ -823,20 +841,14 @@ impl BotField {
                 if !bot.alive || !bot.opened {
                     continue;
                 }
-                if let Some((region, distance)) = locate(bot).and_then(|center| {
-                    if calibrated { calibrated_hit_region(origin, direction, center, bot.yaw, false) }
-                    else { hit_region(origin, direction, center) }
-                })
+                if let Some((region, distance)) = intersect(bot, false).filter(|(_, distance)| distance.is_finite() && *distance >= 0.0)
                     && hit.is_none_or(|(_, _, current)| distance < current)
                 {
                     hit = Some((index, region, distance));
                 }
             }
             let on_dummy = self.dummy.as_ref().filter(|dummy| dummy.opened).and_then(|dummy| {
-                locate(dummy).and_then(|[x, y, z]| {
-                    if calibrated { calibrated_hit_region(origin, direction, [x, y, z], dummy.yaw, true) }
-                    else { hit_region(origin, direction, [x, y, z + DUMMY_MESH_LIFT]) }
-                })
+                intersect(dummy, true).filter(|(_, distance)| distance.is_finite() && *distance >= 0.0)
             });
             if let (Some((region, distance)), Some(dummy)) = (on_dummy, self.dummy.as_ref())
                 && hit.is_none_or(|(_, _, bot_distance)| distance < bot_distance)

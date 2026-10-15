@@ -29,11 +29,14 @@ pub struct OracleLive {
     open_error: Option<String>,
     /// spec 09 Q4: python parity caches an empty state map forever
     keep_empty_state_names: bool,
+    collisions: Option<crate::collision_feed::Reader>,
+    collision_attempt: Option<Instant>,
 }
 
 impl OracleLive {
     pub fn new(pid: u32, image_base: u64, keep_empty_state_names: bool) -> Self {
-        Self { pid, image_base, oracle: None, last_attempt: None, tags: None, open_error: None, keep_empty_state_names }
+        Self { pid, image_base, oracle: None, last_attempt: None, tags: None, open_error: None, keep_empty_state_names,
+            collisions: None, collision_attempt: None }
     }
 
     /// the reader, opened on first use (and re-opened after a failed open).
@@ -150,6 +153,50 @@ impl LiveClient for OracleLive {
     fn camera(&mut self) -> Result<Option<Camera>, String> {
         let camera = self.oracle()?.camera().map_err(text)?;
         Ok(camera.map(|c| Camera { location: c.location, rotation: c.rotation }))
+    }
+
+    fn firing_camera(&mut self, state_machine: u64, key: &str, seed: u32) -> Result<Option<Camera>, String> {
+        let camera = self.oracle()?.firing_camera(state_machine, key, seed).map_err(text)?;
+        Ok(camera.map(|camera| Camera { location: camera.location, rotation: camera.rotation }))
+    }
+
+    fn target_hits(&mut self, channels: &[u32], camera: &Camera)
+        -> Result<BTreeMap<u32, (aries_world::bots::Region, f64)>, String> {
+        if channels.is_empty() { return Ok(BTreeMap::new()); }
+        if self.collisions.is_none() {
+            if self.collision_attempt.is_some_and(|at| at.elapsed() < REOPEN_AFTER) {
+                return Err("Waiting for internal collision feed".into());
+            }
+            self.collision_attempt = Some(Instant::now());
+            self.collisions = Some(crate::collision_feed::Reader::open(self.pid)?);
+        }
+        let (world, actors) = self.oracle()?.channel_actors(channels).map_err(text)?;
+        let snapshot = self.collisions.as_ref().expect("opened above").snapshot()?;
+        if world == 0 || snapshot.world != world { return Err("Collision snapshot belongs to another world".into()); }
+        let now = crate::collision_feed::now_ms();
+        let direction = aries_world::bots::view_ray(camera.rotation[0], camera.rotation[1]);
+        let mut hits = BTreeMap::new();
+        let mut unseen = Vec::new();
+        for (&channel, actor) in channels.iter().zip(actors) {
+            // a bot the feed has not sampled yet (just spawned) can't be hit, but it
+            // must not cost the shot against every other bot
+            let Some(target) = snapshot.targets[..snapshot.count as usize].iter().find(|target| target.actor == actor && actor != 0) else {
+                unseen.push(format!("{channel} missing"));
+                continue;
+            };
+            if !target.usable(now) {
+                unseen.push(format!("{channel} age={}ms shapes={} unsupported={}", now.saturating_sub(target.sampled_at), target.count, target.unsupported));
+                continue;
+            }
+            if let Some(hit) = target.hit(camera.location, direction, now) { hits.insert(channel, hit); }
+        }
+        if !unseen.is_empty() {
+            if unseen.len() == channels.len() {
+                return Err(format!("No collision targets usable: {}", unseen.join(", ")));
+            }
+            log::debug!(target: "range", "collision targets skipped: {}", unseen.join(", "));
+        }
+        Ok(hits)
     }
 
     fn client_set_hud_index(&mut self) -> Result<Option<(u32, u32)>, String> {

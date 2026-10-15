@@ -5,6 +5,7 @@ pub mod abilities;
 pub mod attachments;
 pub mod bots;
 pub mod cosmetics;
+pub mod collision;
 pub mod equippables;
 pub mod loader;
 pub mod melee;

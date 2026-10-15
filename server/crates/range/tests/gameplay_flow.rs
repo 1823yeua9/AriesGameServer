@@ -35,6 +35,35 @@ fn fire(h: &mut Harness, world: &Rc<RefCell<World>>) {
     h.tick();
 }
 
+#[test]
+fn damage_uses_shot_time_pose_and_retries_incomplete_shot_without_camera_fallback() {
+    let world = Rc::new(RefCell::new(World::default()));
+    let mut h = Harness::new(50639, world.clone());
+    streaming_done(&mut h);
+    hold_classic(&world);
+
+    let shot = Camera { location: [1.0, 2.0, 3.0], rotation: [0.0, 0.0, 0.0] };
+    {
+        let mut w = world.borrow_mut();
+        w.camera = Some(Camera { location: [10.0, 20.0, 30.0], rotation: [0.75, 0.0, 0.0] });
+        w.shot_camera = Some(shot);
+        w.collision_hits = Some([(401, (aries_world::bots::Region::Body, 172.0))].into());
+    }
+    h.tick();
+    world.borrow_mut().shot_error = Some("projectile still being initialized".into());
+    let before = h.on(401).len();
+    fire(&mut h, &world);
+    assert_eq!(h.on(401).len(), before);
+    assert!(world.borrow().intersected_camera.is_none());
+
+    world.borrow_mut().shot_error = None;
+    h.tick(); // Same seed is retried, not lost or replaced by a render-camera ray.
+    assert_eq!(h.on(401).len(), before + 1);
+    assert_eq!(world.borrow().intersected_camera, Some(shot));
+    h.tick();
+    assert_eq!(h.on(401).len(), before + 1, "shot must not be replayed");
+}
+
 fn shots_flow(port: u16, lagcomp: bool) -> Vec<serde_json::Value> {
     let world = Rc::new(RefCell::new(World::default()));
     let mut h = Harness::new(port, world.clone());
@@ -52,6 +81,9 @@ fn shots_flow(port: u16, lagcomp: bool) -> Vec<serde_json::Value> {
 
     // a body shot from 200 units north of bot0, looking south
     hold_classic(&world);
+    // Geometry is supplied by the live collision source now. These protocol
+    // vectors test damage/replication, not the retired cylinder approximation.
+    world.borrow_mut().collision_hits = Some([(401, (aries_world::bots::Region::Body, 172.0))].into());
     world.borrow_mut().camera = Some(Camera { location: [BOT0[0], BOT0[1] + 200.0, BOT0[2] + 15.0], rotation: [0.0, -90.0, 0.0] });
     h.tick(); // first seed read: no shot
     let before = h.on(401).len();
@@ -74,6 +106,7 @@ fn shots_flow(port: u16, lagcomp: bool) -> Vec<serde_json::Value> {
     );
 
     // the dummy shows damage numbers instead
+    world.borrow_mut().collision_hits = Some([(400, (aries_world::bots::Region::Body, 272.0))].into());
     world.borrow_mut().camera = Some(Camera { location: [DUMMY[0], DUMMY[1] + 300.0, DUMMY[2] + 20.0], rotation: [0.0, -90.0, 0.0] });
     fire(&mut h, &world);
     assert_eq!(h.on(400).last().unwrap().body, vector("7ad69d85217523cf93e51900", 89), "damage text 26");

@@ -5,6 +5,7 @@
 //!                     [--skin-catalog skin_catalog.json --skin-state skins.json]
 
 mod console;
+mod collision_feed;
 mod keys;
 mod live;
 mod settings;

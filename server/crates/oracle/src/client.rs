@@ -33,6 +33,7 @@ pub struct ReaderCaches {
     pub class_names: HashMap<u64, String>,
     /// H:944 `firing_rng_components`: (state machine, equippable key) -> rng component.
     pub firing_rng: HashMap<(u64, String), u64>,
+    pub last_shots: HashMap<(u64, String), (u64, u32, u32)>,
 }
 
 impl ReaderCaches {
@@ -42,6 +43,7 @@ impl ReaderCaches {
         self.state_names.clear();
         self.class_names.clear();
         self.firing_rng.clear();
+        self.last_shots.clear();
     }
 }
 

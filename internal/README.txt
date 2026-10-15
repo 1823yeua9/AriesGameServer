@@ -33,18 +33,39 @@ Viewers adds independent, OFF-by-default options:
     root sphere/capsule dimensions use engine-scaled getters.
   Optional entity names.
 
-Client collision shapes are NOT claimed to match the external server's fixed
-head/body/leg hit approximations. Those have not been resized without measured
-evidence. Unsupported convex, tapered, level-set and nonuniformly scaled skeletal
-shapes are counted, not guessed. Component traversal is cycle-checked, 64 max.
+Training targets now share their live skeletal collision primitives with the
+external server. The viewer and damage tests consume the same sphere, oriented
+box and capsule dimensions, including local shape rotations and bone transforms.
+Head/leg classification comes from AShooterCharacter's damage bone lists; other
+bones are body hits. Root movement capsules and actor bounds are NOT damage shapes.
+Non-query shape elements are excluded. Unsupported convex, tapered, level-set
+and nonuniformly scaled skeletal shapes are reported, not approximated.
 
 Engine getters run on the game window message thread, never Present. Round-robin
 sampling: 64 actors/tick, 2 ms target (an individual getter can exceed it).
 Shapes retire after a completed world sweep, not a two-second per-actor timer.
 Rendering consumes immutable snapshots; engine calls do not hold the publication
 lock and contention no longer skips drawing. A stopped sampler hides its entire
-snapshot after two seconds. Read faults disable sampling until re-enabled.
+snapshot after two seconds. Read faults disable sampling for this run.
 No viewer operation changes collision sizes, player state or server-owned values.
+
+The collision feed stays active with the viewer closed. A separate round-robin
+target pass has a 2 ms budget per 33 ms timer (one getter can exceed the budget).
+It publishes at most 64 targets / 128 primitives per target via versioned local
+shared memory. Both sides use zero-wait mutex acquisition. No per-frame files,
+server waits, process writes, or game-thread locks spanning intersection work.
+The server resolves network channels to actual actor pointers and checks world
+identity, layout version, primitive validity and sample age <= 250 ms. Incomplete
+or stale data rejects the shot with bot_collision_error; no old cylinder fallback.
+Gold target geometry is hidden when its sample expires or is incomplete.
+This uses the current skeletal pose, NOT full skeletal lag compensation. Map
+occlusion, damage falloff and historical-pose rewind are separate systems.
+Damage rays now use the completed reusable hitscan projectile's CreationTransform,
+not CameraCachePrivate sampled after recoil. The projectile includes its actual
+shot direction/spread. Seed and projectile identity are checked around the read;
+incomplete updates are retried without falling back to the later render camera.
+The live damage bone list includes Head AND Neck; headshot classification does
+not by itself prove that a head shape should be moved.
 
 Build depends on the existing 13.06 generated CppSDK and adapter in ../dumper7
 relative to this repository. Not a standalone distributable SDK. Bundled
@@ -61,9 +82,5 @@ initialization complete, original dispatch restored, and ImGui ready. The user
 confirmed Range outlines render but flicker; the snapshot/sweep correction builds
 and is undergoing live validation. First sampled TrainingBot classes log actual
 bone/collision dimensions once per world for the separate server hit-region audit.
-The separate gameplay server now uses the measured sphere/capsules for standing
-TrainingBot and dummy heads instead of the oversized legacy head sphere. Torso
-and legs remain approximations; this is not animated skeletal hit authority.
-Chest/head regression tests pass. The updated live server recorded body hits at
-40 and head hits at 160 with the Vandal; the user accepted the visible damage
-and viewer behavior as working well enough on 2026-10-14.
+The earlier standing-head calibration remains only for historical fixture tests;
+the production firing path uses collision_shots and the live geometry feed.

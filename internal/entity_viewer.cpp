@@ -1,11 +1,13 @@
 #include "entity_viewer.h"
 #include "geometry.h"
+#include "collision_feed.h"
 #include "session.h"
 #include "overlay/sdk_reflect.hpp"
 #include "overlay/vendor/imgui/imgui.h"
 
 #include "../../dumper7/output/5.3.2-5590001+++Ares-Core+release-13.06-ShooterGame/CppSDK/SDK/Engine_classes.hpp"
 #include "../../dumper7/output/5.3.2-5590001+++Ares-Core+release-13.06-ShooterGame/CppSDK/SDK/Engine_parameters.hpp"
+#include "../../dumper7/output/5.3.2-5590001+++Ares-Core+release-13.06-ShooterGame/CppSDK/SDK/ShooterGame_classes.hpp"
 #include "../../dumper7/valorant_sdk_adapter.hpp"
 
 #include <atomic>
@@ -29,6 +31,12 @@ namespace internal::entity_viewer {
         uint64_t sweep = 0;
         unsigned unsupported = 0;
         bool audit = false;
+        bool damage_target = false;
+        uint64_t actor = 0;
+        uint64_t sampled_at = 0;
+        std::vector<std::string> head_bones;
+        std::vector<std::string> leg_bones;
+        std::vector<collision_feed::Shape> hit_shapes;
     };
 
     struct Snapshot {
@@ -51,6 +59,12 @@ namespace internal::entity_viewer {
     static std::mutex snapshot_mutex;
     static std::shared_ptr<const Snapshot> published_snapshot = std::make_shared<Snapshot>();
     static bool labels_enabled = false;
+    static bool sampling_faulted = false;
+
+    struct TrackedTarget {
+        SDK::UObject* actor = nullptr;
+        uint64_t sweep = 0;
+    };
 
     static auto describe(const Vector& value) -> std::string {
         std::ostringstream text;
@@ -160,6 +174,7 @@ namespace internal::entity_viewer {
 
         for (auto* body : bodies) {
             if (!readable(body, sizeof(SDK::USkeletalBodySetup))) {
+                ++entity.unsupported;
                 continue;
             }
 
@@ -176,11 +191,28 @@ namespace internal::entity_viewer {
             socket.TransformSpace = SDK::ERelativeTransformSpace::RTS_World;
 
             if (!invoke(mesh, "SceneComponent", "GetSocketTransform", &socket)) {
+                ++entity.unsupported;
                 continue;
             }
 
             const auto world = transform(socket.ReturnValue);
             const auto& geometry = body->AggGeom;
+            const auto bone = body->BoneName.GetRawString();
+            const uint32_t region =
+                std::find(entity.head_bones.begin(), entity.head_bones.end(), bone) != entity.head_bones.end() ? 0
+                : std::find(entity.leg_bones.begin(), entity.leg_bones.end(), bone) != entity.leg_bones.end()  ? 2
+                                                                                                               : 1;
+
+            const auto record = [&](const collision_feed::Shape& shape) {
+                if (entity.damage_target) {
+                    if (entity.hit_shapes.size() < collision_feed::max_shapes) {
+                        entity.hit_shapes.push_back(shape);
+                    }
+                    else {
+                        ++entity.unsupported;
+                    }
+                }
+            };
 
             if (entity.audit) {
                 session::log("Target geometry " + entity.name + " bone=" + body->BoneName.GetRawString() +
@@ -198,29 +230,51 @@ namespace internal::entity_viewer {
 
             if (!valid_array(geometry.SphereElems, 128) || !valid_array(geometry.BoxElems, 128) ||
                 !valid_array(geometry.SphylElems, 128)) {
+                ++entity.unsupported;
                 continue;
             }
 
+            const auto query_shape = [](const SDK::FKShapeElem& shape) {
+                return shape.CollisionEnabled == SDK::ECollisionEnabled::QueryOnly ||
+                       shape.CollisionEnabled == SDK::ECollisionEnabled::QueryAndPhysics ||
+                       shape.CollisionEnabled == SDK::ECollisionEnabled::QueryAndProbe;
+            };
+
             for (const auto& sphere : geometry.SphereElems) {
+                if (!query_shape(sphere)) {
+                    continue;
+                }
                 if (entity.audit) {
                     session::log(
                         "  sphere center=" + describe(geometry::transform_point(world, vector(sphere.Center))) +
                         " radius=" + std::to_string(sphere.Radius));
                 }
-                append_shape(entity, geometry::capsule(sphere.Radius, 0), {{}, vector(sphere.Center)}, world);
+                if (shapes_enabled) {
+                    append_shape(entity, geometry::capsule(sphere.Radius, 0), {{}, vector(sphere.Center)}, world);
+                }
+                record(collision_feed::shape(0, region, {{}, vector(sphere.Center)}, world, {sphere.Radius, 0, 0}));
             }
 
             for (const auto& box : geometry.BoxElems) {
+                if (!query_shape(box)) {
+                    continue;
+                }
                 const Transform local{geometry::quaternion(box.Rotation.Pitch, box.Rotation.Yaw, box.Rotation.Roll),
                                       vector(box.Center)};
                 if (entity.audit) {
                     session::log("  box center=" + describe(geometry::transform_point(world, vector(box.Center))) +
                                  " dimensions=" + describe({box.X, box.Y, box.Z}));
                 }
-                append_shape(entity, geometry::box({}, {box.X / 2, box.Y / 2, box.Z / 2}), local, world);
+                if (shapes_enabled) {
+                    append_shape(entity, geometry::box({}, {box.X / 2, box.Y / 2, box.Z / 2}), local, world);
+                }
+                record(collision_feed::shape(1, region, local, world, {box.X / 2, box.Y / 2, box.Z / 2}));
             }
 
             for (const auto& capsule : geometry.SphylElems) {
+                if (!query_shape(capsule)) {
+                    continue;
+                }
                 const Transform local{
                     geometry::quaternion(capsule.Rotation.Pitch, capsule.Rotation.Yaw, capsule.Rotation.Roll),
                     vector(capsule.Center)};
@@ -232,7 +286,10 @@ namespace internal::entity_viewer {
                     session::log("  capsule start=" + describe(start) + " end=" + describe(end) +
                                  " radius=" + std::to_string(capsule.Radius * world.scale.x));
                 }
-                append_shape(entity, geometry::capsule(capsule.Radius, capsule.Length), local, world);
+                if (shapes_enabled) {
+                    append_shape(entity, geometry::capsule(capsule.Radius, capsule.Length), local, world);
+                }
+                record(collision_feed::shape(2, region, local, world, {capsule.Radius, 0, capsule.Length / 2}));
             }
 
             for (const auto count : {geometry.ConvexElems.Num(),
@@ -325,7 +382,7 @@ namespace internal::entity_viewer {
     }
 
     static auto sample() -> void {
-        if (!bounds_enabled && !shapes_enabled) {
+        if (sampling_faulted) {
             return;
         }
 
@@ -340,6 +397,10 @@ namespace internal::entity_viewer {
         // snapshots, so engine calls never hold a lock needed by Present.
         static Snapshot snapshot;
         static std::set<std::string> audited_classes;
+        static std::map<int, TrackedTarget> targets;
+        static int target_cursor = -1;
+        static collision_feed::Publisher publisher;
+        static auto feed = std::make_unique<collision_feed::Snapshot>();
 
         if (!is_a(engine, "Engine")) {
             engine = reinterpret_cast<SDK::UObject*>(sdk_reflect::engine());
@@ -360,6 +421,8 @@ namespace internal::entity_viewer {
             level_index = actor_index = 0;
             sweep = 1;
             audited_classes.clear();
+            targets.clear();
+            target_cursor = -1;
         }
 
         if (!is_a(controller, "PlayerController") || sdk_reflect::object_property(controller, "Player") == nullptr) {
@@ -395,6 +458,17 @@ namespace internal::entity_viewer {
             ++processed;
 
             if (!is_a(actor, "Actor")) {
+                continue;
+            }
+
+            const auto class_name = actor->Class->Name.GetRawString();
+            const bool target = class_name.find("TrainingBot") != std::string::npos && is_a(actor, "ShooterCharacter");
+            if (target && (targets.contains(actor->Index) || targets.size() < collision_feed::max_targets)) {
+                targets[actor->Index] = {actor, sweep};
+            }
+
+            // Target geometry is refreshed separately, even with the overlay closed.
+            if (target || (!bounds_enabled && !shapes_enabled)) {
                 continue;
             }
 
@@ -451,7 +525,104 @@ namespace internal::entity_viewer {
                 return item.second->sweep != completed_sweep;
             });
             ++sweep;
+            std::erase_if(targets, [completed_sweep = sweep - 1](const auto& item) {
+                return item.second.sweep != completed_sweep;
+            });
         }
+
+        // A respawned bot must be hittable on the server's next shot, not after the
+        // round-robin sweep comes back around (seconds in the Range). Replicated actors
+        // spawn at the end of the persistent level, so check its tail every tick.
+        if (auto* level = world->PersistentLevel;
+            readable(level, sizeof(SDK::ULevel)) && level->OwningWorld == world && valid_array(level->Actors)) {
+            const auto count = level->Actors.Num();
+            for (int index = std::max(0, count - 128); index < count; ++index) {
+                auto* actor = level->Actors[index];
+                if (!is_a(actor, "ShooterCharacter") ||
+                    actor->Class->Name.GetRawString().find("TrainingBot") == std::string::npos) {
+                    continue;
+                }
+                if (targets.contains(actor->Index) || targets.size() < collision_feed::max_targets) {
+                    targets[actor->Index] = {actor, sweep};
+                }
+            }
+        }
+
+        // A separate bounded pass keeps live target poses fresh without walking
+        // the entire world or generating non-target wireframes on every tick.
+        const auto target_started = std::chrono::steady_clock::now();
+        for (size_t visited = 0; visited < targets.size(); ++visited) {
+            auto next = targets.upper_bound(target_cursor);
+            if (next == targets.end()) {
+                next = targets.begin();
+            }
+            target_cursor = next->first;
+            auto* actor = next->second.actor;
+            if (!is_a(actor, "ShooterCharacter") || actor->Index != next->first ||
+                !readable(actor, sizeof(SDK::AShooterCharacter))) {
+                continue;
+            }
+
+            auto* character = static_cast<SDK::AShooterCharacter*>(actor);
+            const auto class_name = actor->Class->Name.GetRawString();
+            Entity entity;
+            entity.name = actor->Name.GetRawString();
+            entity.sweep = next->second.sweep;
+            entity.damage_target = true;
+            entity.actor = reinterpret_cast<uint64_t>(actor);
+            entity.sampled_at = GetTickCount64();
+            if (!valid_array(character->HeadDamageBoneNames, 128) || !valid_array(character->LegDamageBoneNames, 128) ||
+                character->HeadDamageBoneNames.Num() == 0 || character->LegDamageBoneNames.Num() == 0) {
+                ++entity.unsupported;
+            }
+            else {
+                for (const auto& name : character->HeadDamageBoneNames) {
+                    entity.head_bones.push_back(name.GetRawString());
+                }
+                for (const auto& name : character->LegDamageBoneNames) {
+                    entity.leg_bones.push_back(name.GetRawString());
+                }
+                collect_physics(entity, sdk_reflect::object_property(actor, "Mesh"));
+            }
+
+            if (bounds_enabled) {
+                SDK::Params::Actor_GetActorBounds bounds{};
+                if (invoke(actor, "Actor", "GetActorBounds", &bounds)) {
+                    entity.bounds = geometry::box(vector(bounds.Origin), vector(bounds.BoxExtent));
+                }
+            }
+            snapshot.entities[actor->Index] = std::make_shared<Entity>(std::move(entity));
+            if (audited_classes.insert("collision-feed:" + class_name).second) {
+                const auto& captured = *snapshot.entities[actor->Index];
+                session::log("Collision feed " + class_name + " shapes=" + std::to_string(captured.hit_shapes.size()) +
+                             " unsupported=" + std::to_string(captured.unsupported) +
+                             " head_bones=" + std::to_string(captured.head_bones.size()) +
+                             " leg_bones=" + std::to_string(captured.leg_bones.size()));
+            }
+            if (std::chrono::steady_clock::now() - target_started > std::chrono::milliseconds(2)) {
+                break;
+            }
+        }
+
+        feed->world = reinterpret_cast<uint64_t>(world);
+        feed->count = 0;
+        for (const auto& [index, target] : targets) {
+            const auto found = snapshot.entities.find(index);
+            if (found == snapshot.entities.end() || !found->second->damage_target) {
+                continue;
+            }
+            const auto& entity = *found->second;
+            if (entity.actor != reinterpret_cast<uint64_t>(target.actor)) {
+                continue;
+            }
+            auto& entry = feed->targets[feed->count++];
+            entry.actor = reinterpret_cast<uint64_t>(target.actor);
+            entry.sampled_at = entity.sampled_at;
+            entry.count = static_cast<uint32_t>(entity.hit_shapes.size());
+            entry.unsupported = entity.unsupported;
+            std::copy(entity.hit_shapes.begin(), entity.hit_shapes.end(), entry.shapes);
+        }
+        publisher.publish(*feed);
 
         snapshot.sampled_at = now;
         snapshot.visited = static_cast<unsigned>(snapshot.entities.size());
@@ -474,6 +645,7 @@ namespace internal::entity_viewer {
             bounds_enabled = false;
             shapes_enabled = false;
             ++sample_faults;
+            sampling_faulted = true;
         }
     }
 
@@ -537,7 +709,7 @@ namespace internal::entity_viewer {
 
         ImGui::Checkbox("Entity names", &labels_enabled);
         ImGui::TextWrapped(
-            "Cyan: actor bounds. Gold: root collision and skeletal PhysicsAsset shapes. These are client shapes, not a claim of matching the external server's hit tests.");
+            "Cyan: actor bounds (not damage). Gold on training targets: live skeletal collision primitives shared with server damage tests. Other entities also show root collision.");
         ImGui::TextDisabled(
             "Read-only. No collision resizing. Convex/level-set/tapered shapes are reported, not approximated.");
         ImGui::TextDisabled(
@@ -579,6 +751,10 @@ namespace internal::entity_viewer {
 
         for (const auto& [index, entry] : snapshot.entities) {
             const auto& entity = *entry;
+            if (entity.damage_target &&
+                (entity.unsupported || entity.hit_shapes.empty() || GetTickCount64() - entity.sampled_at > 250)) {
+                continue;
+            }
 
             const auto render = [&](const std::vector<Line>& lines, ImU32 color) {
                 bool labelled = false;

@@ -88,6 +88,23 @@ fn vec3(raw: &[u8]) -> [f64; 3] {
 }
 
 impl<M: Memory> LiveClient<M> {
+    /// Resolve the current world's network channel, not a nearest-position match.
+    pub fn channel_actors(&mut self, requested: &[u32]) -> Result<(u64, Vec<u64>), OracleError> {
+        let world = self.live_chain().map(|live| live.chain.world).map(Ok).unwrap_or_else(|| find_world(&self.memory))?;
+        let driver = if world == 0 { 0 } else { self.memory.u64(at(world, 0x40))? };
+        let connection = if driver == 0 { 0 } else { self.memory.u64(at(driver, DRIVER_CONNECTION))? };
+        if connection == 0 { return Err(OracleError::Invalid("no server connection for collision targets")); }
+        let channels = self.memory.u64(at(connection, CONNECTION_CHANNELS))?;
+        let count = self.memory.u32(at(connection, CONNECTION_CHANNEL_COUNT))?;
+        if channels == 0 || count > 65536 { return Err(OracleError::Invalid("invalid collision channel table")); }
+        let actors = requested.iter().map(|&channel| {
+            if channel >= count { return Ok(0); }
+            let entry = self.memory.u64(at(channels, 8 * channel as u64))?;
+            if entry == 0 { Ok(0) } else { self.memory.u64(at(entry, CHANNEL_ACTOR)) }
+        }).collect::<Result<Vec<_>, OracleError>>()?;
+        Ok((world, actors))
+    }
+
     /// R14 read_projectile (RP:308-343): the actor on our channel `channel` of the
     /// client's ServerConnection. the class name goes through the shared class cache.
     pub fn projectile(&mut self, channel: u32) -> Result<Option<ProjectileSnapshot>, OracleError> {

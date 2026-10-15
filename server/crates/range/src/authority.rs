@@ -87,8 +87,8 @@ pub fn run_authority(reply: &mut Reply, env: &mut Env, decoded: &Bits) {
     if let Some(predicted) = pass.smoke_state {
         crate::gameplay::smoke_state(reply, env, predicted.as_deref());
     }
-    for class in &pass.shots {
-        crate::gameplay::bot_shots(reply, env, class);
+    for (class, camera) in &pass.shots {
+        crate::gameplay::bot_shots(reply, env, class, camera);
     }
     if config.features.input_correction && env.live.attached() {
         input_correction(reply, env.live);

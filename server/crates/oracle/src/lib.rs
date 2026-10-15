@@ -11,6 +11,7 @@ pub mod objects;
 pub mod probes;
 pub mod process;
 pub mod rpc_index;
+pub mod shots;
 pub mod tags;
 pub mod world;
 

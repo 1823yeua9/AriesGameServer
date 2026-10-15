@@ -2,8 +2,8 @@
 //! 969-1012), cloudburst flights (1016-1100) and the starting abilities'
 //! activation jobs (2066-2078, 1130-1170). the world crate plans every bunch;
 //! this sends them on the connection and keeps the python's event keys.
-//! shots are hit-tested through lag compensation (docs/port/10 section 4.8);
-//! bots never move, so every rewind lands where the python tested.
+//! shots use live skeletal collision primitives from the contained client.
+//! Historical root-only lag compensation is not mixed with current bone poses.
 
 use serde_json::json;
 
@@ -66,38 +66,29 @@ pub fn apply(reply: &mut Reply, sends: Vec<ChannelSend>) -> Result<(), String> {
 // ---------------------------------------------------------------- bots
 
 /// python bot_shots (969-1012): one shot per firing-seed change, along the
-/// camera at poll time (05 quirk 13), against rewound bot positions.
-pub fn bot_shots(reply: &mut Reply, env: &mut Env, class_name: &str) {
+/// completed projectile's shot-time pose, against current collision geometry.
+pub fn bot_shots(reply: &mut Reply, env: &mut Env, class_name: &str, camera: &crate::live::Camera) {
     if reply.conn.authority.bots.is_none() || !env.live.attached() {
         return;
     }
-    let camera = match env.live.camera() {
-        Ok(Some(camera)) => camera,
-        Ok(None) => return,
+    reply.event.set("bot_shot_ray", json!({ "source": "projectile_creation", "origin": camera.location, "rotation": camera.rotation }));
+    let now = reply.now;
+    let system = reply.conn.authority.bots.as_mut().expect("checked above");
+    let channels: Vec<u32> = system.field.bots.iter().filter(|bot| bot.opened && bot.alive)
+        .chain(system.field.dummy.iter().filter(|bot| bot.opened)).map(|bot| bot.channel).collect();
+    let hits = match env.live.target_hits(&channels, camera) {
+        Ok(hits) => hits,
         Err(error) => {
-            reply.event.set("bot_camera_error", error);
+            reply.event.set("bot_collision_error", error);
             return;
         }
     };
-    let now = reply.now;
-    let settings = &env.config.lagcomp;
-    let srtt = reply.conn.rtt.srtt_or_zero();
-    let system = reply.conn.authority.bots.as_mut().expect("checked above");
-    let target = system.lagcomp.target_time(now, srtt, settings.view_interp, None);
-    let lagcomp = &system.lagcomp;
-    let view = view_camera(&camera);
-    let shots = system.field.calibrated_shots_with(Some(class_name), 1, &view, now, |bot| {
-        if !lagcomp.config.enabled {
-            return Some(bot.location);
-        }
-        // pose() adds no lift; the dummy's is added after locating
-        let current = pose(bot, 0.0);
-        lagcomp.rewind(bot.actor_guid, &current, now, target.t).effective(&current).map(|p| [p.origin.x, p.origin.y, p.origin.z])
-    });
+    // Do not combine current bone transforms with a rewound actor origin. The
+    // feed is a bounded-age current pose; full skeletal rewind is not implemented.
+    let shots = system.field.collision_shots(Some(class_name), 1, now, |bot| hits.get(&bot.channel).copied());
     if let Some(error) = &shots.error {
         reply.event.set("bot_shot_error", error.to_string());
     }
-    log::debug!(target: "lagcomp", "shot now={now:.4} target={:.4} ({:.1} ms) srtt {:.1} ms", target.t, (target.t - now) * 1000.0, srtt * 1000.0);
     if let Err(error) = apply(reply, shots.sends) {
         reply.event.set("bot_shot_error", error);
     }

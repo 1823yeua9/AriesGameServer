@@ -90,8 +90,8 @@ pub fn ready_equippables(reply: &Reply) -> Vec<EquippableActor> {
 pub struct MirrorPass {
     /// the smoke machine's prediction, when the smoke ability was read (cloudburst)
     pub smoke_state: Option<Option<String>>,
-    /// classes whose firing seed advanced: one shot each (bots)
-    pub shots: Vec<String>,
+    /// Classes whose firing seed advanced, paired with their recorded shot pose.
+    pub shots: Vec<(String, crate::live::Camera)>,
 }
 
 /// python 1602-1711. the cloudburst and bot hooks run inline in python; they
@@ -126,9 +126,21 @@ pub fn run_mirror(reply: &mut Reply, config: &RangeConfig, live: &mut dyn LiveCl
         }
         // a shot consumes the firing state's networked seed (works with infinite ammo too)
         if config.features.bots && machine.is_current && !equippable.resources.is_empty() && let Some(seed) = live.firing_seed(machine.state_machine, &equippable.key) {
-            let previous = reply.conn.authority.mirror.firing_seeds.insert(equippable.key.clone(), seed);
-            if previous.is_some_and(|p| p != seed) {
-                pass.shots.push(equippable.class_name.clone());
+            let previous = reply.conn.authority.mirror.firing_seeds.get(&equippable.key).copied();
+            if previous.is_none() {
+                // Prime identity so a seed observed mid-update cannot replay an
+                // old projectile. Initial observation never deals damage.
+                let _ = live.firing_camera(machine.state_machine, &equippable.key, seed);
+                reply.conn.authority.mirror.firing_seeds.insert(equippable.key.clone(), seed);
+            } else if previous != Some(seed) {
+                match live.firing_camera(machine.state_machine, &equippable.key, seed) {
+                    Ok(Some(camera)) => {
+                        pass.shots.push((equippable.class_name.clone(), camera));
+                        reply.conn.authority.mirror.firing_seeds.insert(equippable.key.clone(), seed);
+                    }
+                    Ok(None) => (), // producer has not published the new projectile yet
+                    Err(error) => { reply.event.set("bot_shot_transform_error", error); }
+                }
             }
         }
         // ammo first: a gun at AuthResourceAmount 0 never predicts FiringState

@@ -95,18 +95,6 @@ namespace launcher {
             throw std::runtime_error("Launcher client size differs from the render surface.");
         }
 
-        // Avoid feeding our previous blurred frame back into the desktop capture.
-        // This also excludes the square from external screenshot tools; see README.
-        if (!SetWindowDisplayAffinity(window, WDA_EXCLUDEFROMCAPTURE)) {
-            throw std::runtime_error("Windows could not exclude this window from backdrop capture.");
-        }
-
-        DWORD affinity = 0;
-
-        if (!GetWindowDisplayAffinity(window, &affinity) || affinity != WDA_EXCLUDEFROMCAPTURE) {
-            throw std::runtime_error("Backdrop capture exclusion was not applied.");
-        }
-
         // Do not add a native backdrop: the KDE shader supplies every pixel.
         const DWMNCRENDERINGPOLICY rendering_policy = DWMNCRP_DISABLED;
         DwmSetWindowAttribute(window, DWMWA_NCRENDERING_POLICY, &rendering_policy, sizeof(rendering_policy));
