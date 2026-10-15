@@ -290,10 +290,7 @@ impl Harness {
 
     /// python defaults with no skin files: every gun opens unskinned, like the spec vectors
     pub fn config() -> RangeConfig {
-        let mut config = RangeConfig::default();
-        config.skin_catalog = PathBuf::from("no_such_skin_catalog.json");
-        config.skin_state = PathBuf::from("no_such_skin_state.json");
-        config
+        RangeConfig { skin_catalog: PathBuf::from("no_such_skin_catalog.json"), skin_state: PathBuf::from("no_such_skin_state.json"), ..RangeConfig::default() }
     }
 
     pub fn with_config(port: u16, world: Rc<RefCell<World>>, config: RangeConfig) -> Self {

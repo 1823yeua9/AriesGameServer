@@ -5,7 +5,7 @@
 //! (spec 09 §3.1), so it is not cached here.
 
 use std::collections::HashMap;
-use std::time::Instant;
+use std::time::{Duration, Instant};
 
 use crate::equippable::{InputReplication, ItemMachine, ResourceMap, ResourceSlot, SlotMachine};
 use crate::moves::SavedMoves;
@@ -13,7 +13,7 @@ use crate::objects::NamePool;
 use crate::probes::{HudState, ProjectileSnapshot};
 use crate::rpc_index::{CLIENT_SET_HUD_RVA, RpcActor, RpcIndex, resolve_rpc_index};
 use crate::tags::TagNetIndex;
-use crate::world::{Camera, WorldChain, at, name_key_engine};
+use crate::world::{ArrayHeader, Camera, WorldChain, at, name_key_engine};
 use crate::{Memory, OracleError, Process};
 
 /// a machine's states in live TMap order (python dict order: a repeated name keeps
@@ -60,6 +60,17 @@ pub struct LiveClient<M: Memory> {
     /// client fills it never mirrors (spec 09 Q4). true = python parity; false
     /// re-reads until it has states (the spec's safer option for a 128 Hz oracle).
     pub keep_empty_state_names: bool,
+    /// how long a walked world chain is reused. None (python): every read walks
+    /// GObjects -> engine -> world -> controller -> pawn again, ~2/3 of all reads
+    pub chain_ttl: Option<Duration>,
+    chain: Option<(Instant, Option<LiveChain>)>,
+}
+
+/// a complete chain (controller, pawn and inventory all set) and its header.
+#[derive(Debug, Clone, Copy)]
+pub struct LiveChain {
+    pub chain: WorldChain,
+    pub header: ArrayHeader,
 }
 
 impl<M: Memory> LiveClient<M> {
@@ -71,7 +82,46 @@ impl<M: Memory> LiveClient<M> {
     }
 
     pub fn with_names(memory: M, names: NamePool) -> Self {
-        Self { memory, names, caches: ReaderCaches::default(), keep_empty_state_names: true }
+        Self { memory, names, caches: ReaderCaches::default(), keep_empty_state_names: true, chain_ttl: None, chain: None }
+    }
+
+    /// the cached chain, re-walked once it is older than chain_ttl. None without a
+    /// ttl or without a complete chain (no pawn yet, loading): callers then walk
+    /// the python way, which also gives the python's exact error or None.
+    pub fn live_chain(&mut self) -> Option<LiveChain> {
+        let ttl = self.chain_ttl?;
+        if let Some((at, chain)) = self.chain
+            && at.elapsed() < ttl
+        {
+            return chain;
+        }
+        let walked = crate::world::read_world_chain_with_header(&self.memory)
+            .ok()
+            .filter(|(chain, _)| chain.controller != 0 && chain.pawn != 0 && chain.inventory != 0)
+            .map(|(chain, header)| LiveChain { chain, header });
+        self.chain = Some((Instant::now(), walked));
+        walked
+    }
+
+    /// drops the cached chain (a new range entry, or a read through it failed).
+    pub fn forget_chain(&mut self) {
+        self.chain = None;
+    }
+
+    /// `cached` with the live chain when there is one, else `walk`. a cached read
+    /// that fails may be a stale pointer: forget the chain and walk instead.
+    pub(crate) fn with_chain<T>(
+        &mut self,
+        cached: impl FnOnce(&mut Self, LiveChain) -> Result<T, OracleError>,
+        walk: impl FnOnce(&mut Self) -> Result<T, OracleError>,
+    ) -> Result<T, OracleError> {
+        if let Some(chain) = self.live_chain() {
+            if let Ok(value) = cached(self, chain) {
+                return Ok(value);
+            }
+            self.forget_chain();
+        }
+        walk(self)
     }
 
     pub fn image_base(&self) -> u64 {
@@ -121,20 +171,32 @@ impl<M: Memory> LiveClient<M> {
     }
 
     /// R9 camera POV: controller +0x528 -> +0x17C0 six doubles.
-    pub fn camera(&self) -> Result<Option<Camera>, OracleError> {
-        crate::world::read_camera(&self.memory)
+    pub fn camera(&mut self) -> Result<Option<Camera>, OracleError> {
+        self.with_chain(|client, live| crate::world::camera_of(&client.memory, live.chain.controller), |client| crate::world::read_camera(&client.memory))
     }
 
     // ------------------------------------------------------------ handle-only reads
 
     /// R11: generated input-event bounds; read after the datagram arrived (§4.11).
-    pub fn pending_input_bounds(&self) -> Result<Option<crate::input::InputBounds>, OracleError> {
-        crate::input::read_pending_input_bounds(&self.memory)
+    /// the chain is only pointers; the bounds themselves are always read fresh.
+    pub fn pending_input_bounds(&mut self) -> Result<Option<crate::input::InputBounds>, OracleError> {
+        self.with_chain(
+            |client, live| crate::input::bounds_of(&client.memory, client.memory.u64(at(live.chain.pawn, crate::input::PAWN_INPUT))?),
+            |client| crate::input::read_pending_input_bounds(&client.memory),
+        )
     }
 
     /// R17: the saved-move numbers for the move ack.
-    pub fn saved_moves(&self) -> Result<Option<crate::moves::SavedMoves>, OracleError> {
-        crate::moves::read_saved_moves(&self.memory)
+    pub fn saved_moves(&mut self) -> Result<Option<crate::moves::SavedMoves>, OracleError> {
+        self.with_chain(
+            |client, live| {
+                if !crate::world::HeaderRule::Resolve.accepts(&live.header) {
+                    return Ok(None);
+                }
+                crate::moves::moves_of(&client.memory, live.chain.controller, live.chain.pawn)
+            },
+            |client| crate::moves::read_saved_moves(&client.memory),
+        )
     }
 
     /// R15 with any thunk: the field index of the function whose ExecFunction is `thunk`.
@@ -148,13 +210,13 @@ impl<M: Memory> LiveClient<M> {
     }
 
     /// R12: the pawn's ultimate point requirement (H:1835-1837).
-    pub fn ult_required(&self) -> Result<i32, OracleError> {
-        crate::probes::read_ult_required(&self.memory)
+    pub fn ult_required(&mut self) -> Result<i32, OracleError> {
+        self.with_chain(|client, live| crate::probes::ult_of(&client.memory, live.chain.pawn), |client| crate::probes::read_ult_required(&client.memory))
     }
 
     /// R13: bottom-HUD widget collapsed and the cinematic flag (H:1999-2004).
-    pub fn hud_state(&self) -> Result<crate::probes::HudState, OracleError> {
-        crate::probes::read_hud_state(&self.memory)
+    pub fn hud_state(&mut self) -> Result<crate::probes::HudState, OracleError> {
+        self.with_chain(|client, live| crate::probes::hud_state_of(&client.memory, live.chain.controller), |client| crate::probes::read_hud_state(&client.memory))
     }
 
     /// R16: gameplay-tag net indices. like the responder (H:4054-4059) it derives a
@@ -263,7 +325,11 @@ impl<M: Memory> LiveClient<M> {
     /// R11 (input bounds), R15 and R16 are on-demand queries, never snapshot fields.
     pub fn snapshot(&mut self, watch: &WatchList) -> Snapshot {
         let taken_at = Instant::now();
-        let chain = self.world_chain();
+        let chain = match self.live_chain() {
+            // the cached pointers are stable; the current equippable is not
+            Some(live) => self.memory.u64(at(live.chain.inventory, 0x278)).map(|current_equippable| WorldChain { current_equippable, ..live.chain }),
+            None => self.world_chain(),
+        };
         let (slots, equippables) = self.mirror_reads(watch);
         let camera = self.camera();
         let input_replication = self.input_replication();

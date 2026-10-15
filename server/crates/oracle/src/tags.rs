@@ -6,7 +6,7 @@ use std::collections::HashMap;
 
 use crate::objects::NamePool;
 use crate::world::{HeaderRule, at, require_object_array};
-use crate::{Memory, OracleError};
+use crate::{Block, Memory, OracleError};
 
 /// GameplayTagsManager +0x130 GameplayTagNodeMap, +0x180 CommonlyReplicatedTags (GTN:23-24)
 const MANAGER_NODE_MAP: u64 = 0x130;
@@ -23,8 +23,11 @@ const NOT_BUILT: u16 = 0xFFFF;
 /// the GObjects window searched for the manager and the settings CDO (GTN:48)
 const SCAN_FIRST: u32 = 0xEA40;
 const SCAN_END: u32 = 0xFB00;
-/// GTN:37-39 reads the node map in pieces of this size
-const READ_PIECE: u64 = 0x1000;
+/// GTN:37-39 read the node map in 0x1000-byte pieces; 64 KiB pieces fail the
+/// same way (any unreadable page fails the map) in 16x fewer reads
+const READ_PIECE: u64 = 0x10000;
+/// GObjects items are 24 bytes, 0x10000 to a chunk
+const ITEM: u64 = 24;
 
 /// GTN:29-34
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -51,17 +54,39 @@ pub fn find_tags_manager(memory: &impl Memory, names: &mut NamePool) -> Result<(
     // GTN reads every chunk pointer with no check of its own; the fresh reader it runs
     // after has just applied the FNP rule to this header (H:4054-4057)
     let objects = require_object_array(memory, HeaderRule::NameKey)?;
+    // the whole window of object slots in one read (it sits in one chunk)
+    let chunk = SCAN_FIRST / 0x10000;
+    let window = objects
+        .chunks
+        .get(chunk as usize)
+        .filter(|_| (SCAN_END - 1) / 0x10000 == chunk)
+        .map(|&base| Block::read(memory, base, ITEM * (SCAN_FIRST % 0x10000) as u64, ITEM * ((SCAN_END - 1) % 0x10000 + 1) as u64));
+    // classes repeat: their name index is read once
+    let mut class_names: HashMap<u64, u32> = HashMap::new();
     let mut manager = 0u64;
     let mut settings = 0u64;
     for index in SCAN_FIRST..SCAN_END {
-        let object = objects.object(memory, index)?;
+        let object = match &window {
+            Some(window) => window.u64(memory, ITEM * (index % 0x10000) as u64)?,
+            None => objects.object(memory, index)?,
+        };
         if object == 0 {
             continue;
         }
         let named = (|| -> Result<(String, String), OracleError> {
-            let name = names.name(memory, memory.u32(at(object, 0x18))?)?;
-            let class = memory.u64(at(object, 0x10))?;
-            let class_name = names.name(memory, memory.u32(at(class, 0x18))?)?;
+            // class and name index in one read (+0x10 .. +0x1C)
+            let fields = Block::read(memory, object, 0x10, 0x1C);
+            let name = names.name(memory, fields.u32(memory, 0x18)?)?;
+            let class = fields.u64(memory, 0x10)?;
+            let class_index = match class_names.get(&class) {
+                Some(&class_index) => class_index,
+                None => {
+                    let class_index = memory.u32(at(class, 0x18))?;
+                    class_names.insert(class, class_index);
+                    class_index
+                }
+            };
+            let class_name = names.name(memory, class_index)?;
             Ok((name, class_name))
         })();
         let Ok((name, class_name)) = named else {
@@ -234,8 +259,9 @@ pub fn predict_net_indices(memory: &impl Memory, names: &mut NamePool) -> Result
     // each commonly replicated tag is swapped to the front in order (GTN:89-96)
     let common = memory.u64(at(manager, MANAGER_COMMON_TAGS))?;
     let common_count = memory.u32(at(manager, MANAGER_COMMON_TAGS + 8))?;
+    let common_tags = Block::read(memory, common, 0, COMMON_ENTRY * common_count as u64);
     for common_index in 0..common_count as usize {
-        let comparison = memory.u32(at(common, COMMON_ENTRY * common_index as u64))?;
+        let comparison = common_tags.u32(memory, COMMON_ENTRY * common_index as u64)?;
         let name = names.name(memory, comparison)?;
         if let Some(found) = order.iter().position(|tag| *tag == name) {
             if common_index >= order.len() {

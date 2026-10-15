@@ -1,12 +1,13 @@
 //! equippable state machines, slot machines, item machines, resources, input
 //! replication, firing seed (spec 09 R4-R8, R10). read_equippable_state.py and
-//! the responder's read_firing_seed (H:946-964).
+//! the responder's read_firing_seed (H:946-964). each object's fields come out
+//! of one block read (memory::Block); the results are the python's.
 
 use std::collections::BTreeMap;
 
 use crate::client::{LiveClient, StateNames};
 use crate::world::{at, find_pawn};
-use crate::{Memory, OracleError};
+use crate::{Block, Memory, OracleError};
 
 /// UStateMachineComponent fields (RES:3-7, 78-79, 200).
 const SM_STATES: u64 = 0x160;
@@ -121,14 +122,16 @@ fn dict_set<V>(entries: &mut Vec<(String, V)>, key: String, value: V) {
 impl<M: Memory> LiveClient<M> {
     /// R5 state_names (RES:77-87), uncached: TMap index order, nulls skipped.
     pub fn read_state_names(&mut self, state_machine: u64) -> Result<StateNames, OracleError> {
-        let data = self.memory.u64(at(state_machine, SM_STATES))?;
-        let count = self.memory.u32(at(state_machine, SM_STATE_COUNT))?;
+        let map = Block::read(&self.memory, state_machine, SM_STATES, SM_STATE_COUNT + 4);
+        let data = map.u64(&self.memory, SM_STATES)?;
+        let count = map.u32(&self.memory, SM_STATE_COUNT)?;
         let mut names = StateNames::new();
         if data == 0 || !(1..=64).contains(&count) {
             return Ok(names);
         }
+        let elements = Block::read(&self.memory, data, 0, STATE_STRIDE * count as u64);
         for index in 0..count as u64 {
-            let state = self.memory.u64(at(data, STATE_STRIDE * index))?;
+            let state = elements.u64(&self.memory, STATE_STRIDE * index)?;
             if state != 0 {
                 let name = self.names.name(&self.memory, self.memory.u32(at(state, 0x18))?)?;
                 dict_set(&mut names, name, state);
@@ -150,22 +153,39 @@ impl<M: Memory> LiveClient<M> {
         Ok(names)
     }
 
-    fn state_at(&self, states: &StateNames, address: u64) -> Result<Option<String>, OracleError> {
-        Ok(state_name_of(states, self.memory.u64(address)?))
+    /// the predicted, authoritative and starting pointers of a machine in one read
+    fn machine_states(&self, machine: u64) -> Block {
+        Block::read(&self.memory, machine, SM_PREDICTED, SM_STARTING + 8)
+    }
+
+    fn state_at(&self, states: &StateNames, fields: &Block, offset: u64) -> Result<Option<String>, OracleError> {
+        Ok(state_name_of(states, fields.u64(&self.memory, offset)?))
     }
 
     /// R4 read_slot_machines (RES:132-164): result in first-seen slot order. any
     /// failure fails every slot of the call, like the python.
     pub fn slot_machines(&mut self, slots: &[u32]) -> Result<Vec<SlotMachine>, OracleError> {
-        let pawn = find_pawn(&self.memory)?;
-        let inventory = if pawn == 0 { 0 } else { self.memory.u64(at(pawn, PAWN_INVENTORY))? };
+        self.with_chain(
+            |client, live| client.slot_machines_of(live.chain.inventory, slots),
+            |client| {
+                let pawn = find_pawn(&client.memory)?;
+                let inventory = if pawn == 0 { 0 } else { client.memory.u64(at(pawn, PAWN_INVENTORY))? };
+                client.slot_machines_of(inventory, slots)
+            },
+        )
+    }
+
+    fn slot_machines_of(&mut self, inventory: u64, slots: &[u32]) -> Result<Vec<SlotMachine>, OracleError> {
         let mut result: Vec<SlotMachine> = Vec::new();
         if inventory == 0 {
             return Ok(result);
         }
-        let current = self.memory.u64(at(inventory, INVENTORY_CURRENT))?;
+        // the slot array and the current equippable in one read (+0x1B8 .. +0x280)
+        let end = slots.iter().map(|&slot| INVENTORY_SLOTS + 8 * slot as u64 + 8).fold(INVENTORY_CURRENT + 8, u64::max);
+        let fields = Block::read(&self.memory, inventory, INVENTORY_SLOTS, end);
+        let current = fields.u64(&self.memory, INVENTORY_CURRENT)?;
         for &slot in slots {
-            let item_slot = self.memory.u64(at(inventory, INVENTORY_SLOTS + 8 * slot as u64))?;
+            let item_slot = fields.u64(&self.memory, INVENTORY_SLOTS + 8 * slot as u64)?;
             let item = if item_slot == 0 { 0 } else { self.memory.u64(at(item_slot, SLOT_CONTENTS))? };
             if item == 0 {
                 continue;
@@ -176,13 +196,14 @@ impl<M: Memory> LiveClient<M> {
                 continue;
             }
             let states = self.state_names(state_machine)?;
+            let pointers = self.machine_states(state_machine);
             let machine = SlotMachine {
                 slot,
                 item,
                 class_name,
                 state_machine,
-                predicted: self.state_at(&states, at(state_machine, SM_PREDICTED))?,
-                authoritative: self.state_at(&states, at(state_machine, SM_AUTHORITATIVE))?,
+                predicted: self.state_at(&states, &pointers, SM_PREDICTED)?,
+                authoritative: self.state_at(&states, &pointers, SM_AUTHORITATIVE)?,
                 is_current: item == current,
             };
             match result.iter_mut().find(|m| m.slot == slot) {
@@ -195,25 +216,28 @@ impl<M: Memory> LiveClient<M> {
 
     /// R6 read_item_machines (RES:177-202): every machine in item +0xE30 (1..=8).
     pub fn item_machines(&mut self, item: u64) -> Result<Vec<ItemMachine>, OracleError> {
-        let array = self.memory.u64(at(item, ITEM_MACHINES))?;
-        let count = self.memory.u32(at(item, ITEM_MACHINE_COUNT))?;
+        let header = Block::read(&self.memory, item, ITEM_MACHINES, ITEM_MACHINE_COUNT + 4);
+        let array = header.u64(&self.memory, ITEM_MACHINES)?;
+        let count = header.u32(&self.memory, ITEM_MACHINE_COUNT)?;
         let mut machines = Vec::new();
         if array == 0 || !(1..=8).contains(&count) {
             return Ok(machines);
         }
+        let pointers = Block::read(&self.memory, array, 0, 8 * count as u64);
         for index in 0..count as u64 {
-            let machine = self.memory.u64(at(array, 8 * index))?;
+            let machine = pointers.u64(&self.memory, 8 * index)?;
             if machine == 0 {
                 continue;
             }
             let name = self.cached_name(machine, true)?;
             let states = self.state_names(machine)?;
+            let fields = self.machine_states(machine);
             machines.push(ItemMachine {
                 name,
                 address: machine,
-                predicted: self.state_at(&states, at(machine, SM_PREDICTED))?,
-                authoritative: self.state_at(&states, at(machine, SM_AUTHORITATIVE))?,
-                starting: self.state_at(&states, at(machine, SM_STARTING))?,
+                predicted: self.state_at(&states, &fields, SM_PREDICTED)?,
+                authoritative: self.state_at(&states, &fields, SM_AUTHORITATIVE)?,
+                starting: self.state_at(&states, &fields, SM_STARTING)?,
                 state_names: states.into_iter().map(|(name, _)| name).collect(),
             });
         }
@@ -223,16 +247,22 @@ impl<M: Memory> LiveClient<M> {
     /// R7 read_resource_amounts (RES:212-236): only components whose own name matches.
     pub fn resource_amounts(&mut self, item: u64, resources: &[ResourceSlot<'_>]) -> Result<ResourceMap, OracleError> {
         let mut result = BTreeMap::new();
+        // every component pointer of the item in one read
+        let first = resources.iter().map(|r| r.item_offset).min().unwrap_or(0);
+        let last = resources.iter().map(|r| r.item_offset + 8).max().unwrap_or(0);
+        let pointers = Block::read(&self.memory, item, first, last);
         for resource in resources {
-            let component = self.memory.u64(at(item, resource.item_offset))?;
+            let component = pointers.u64(&self.memory, resource.item_offset)?;
             if component == 0 {
                 continue;
             }
             if self.cached_name(component, true)? != resource.name {
                 continue;
             }
-            let pair: [u8; 8] = self.memory.read(at(component, 0x10C))?;
-            let default_amount = self.memory.i32(at(component, resource.default_offset))?;
+            // predicted, authoritative and the default fill in one read
+            let fields = Block::read(&self.memory, component, 0x10C, (resource.default_offset + 4).max(0x114));
+            let pair: [u8; 8] = fields.get(&self.memory, 0x10C)?;
+            let default_amount = fields.i32(&self.memory, resource.default_offset)?;
             result.insert(
                 resource.name.to_string(),
                 ResourceAmounts {
@@ -274,16 +304,29 @@ impl<M: Memory> LiveClient<M> {
 
     /// R10 read_input_replication (RES:247-268). the class name is not cached.
     pub fn input_replication(&mut self) -> Result<Option<InputReplication>, OracleError> {
-        let pawn = find_pawn(&self.memory)?;
-        let component = if pawn == 0 { 0 } else { self.memory.u64(at(pawn, PAWN_INPUT))? };
-        let inventory = if pawn == 0 { 0 } else { self.memory.u64(at(pawn, PAWN_INVENTORY))? };
+        self.with_chain(
+            |client, live| client.input_replication_of(live.chain.pawn),
+            |client| {
+                let pawn = find_pawn(&client.memory)?;
+                client.input_replication_of(pawn)
+            },
+        )
+    }
+
+    fn input_replication_of(&mut self, pawn: u64) -> Result<Option<InputReplication>, OracleError> {
+        // input component and inventory in one read (+0xB90 .. +0xC00)
+        let links = Block::read(&self.memory, pawn, PAWN_INPUT, PAWN_INVENTORY + 8);
+        let component = if pawn == 0 { 0 } else { links.u64(&self.memory, PAWN_INPUT)? };
+        let inventory = if pawn == 0 { 0 } else { links.u64(&self.memory, PAWN_INVENTORY)? };
         if component == 0 || inventory == 0 {
             return Ok(None);
         }
+        // desired, current and the correction index in one read (+0x260 .. +0x2F4)
+        let held = Block::read(&self.memory, inventory, INVENTORY_DESIRED, INVENTORY_CORRECTION + 4);
         // a resume correction force-sets the desired equippable, so it goes first (RES:256-259)
-        let mut equippable = self.memory.u64(at(inventory, INVENTORY_DESIRED))?;
+        let mut equippable = held.u64(&self.memory, INVENTORY_DESIRED)?;
         if equippable == 0 {
-            equippable = self.memory.u64(at(inventory, INVENTORY_CURRENT))?;
+            equippable = held.u64(&self.memory, INVENTORY_CURRENT)?;
         }
         let current_equippable_class = if equippable == 0 {
             None
@@ -291,10 +334,11 @@ impl<M: Memory> LiveClient<M> {
             let class = self.memory.u64(at(equippable, 0x10))?;
             Some(self.names.name(&self.memory, self.memory.u32(at(class, 0x18))?)?)
         };
+        let flags = Block::read(&self.memory, component, 0x12C, 0x134);
         Ok(Some(InputReplication {
-            stopped: self.memory.u8(at(component, 0x12C))? != 0,
-            requested_correction: self.memory.u32(at(component, 0x130))?,
-            inventory_correction: self.memory.u32(at(inventory, INVENTORY_CORRECTION))?,
+            stopped: flags.u8(&self.memory, 0x12C)? != 0,
+            requested_correction: flags.u32(&self.memory, 0x130)?,
+            inventory_correction: held.u32(&self.memory, INVENTORY_CORRECTION)?,
             current_equippable_class,
         }))
     }

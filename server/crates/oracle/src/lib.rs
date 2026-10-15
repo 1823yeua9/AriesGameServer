@@ -14,7 +14,7 @@ pub mod rpc_index;
 pub mod tags;
 pub mod world;
 
-pub use memory::{FakeMemory, Memory};
+pub use memory::{Block, Counted, FakeMemory, Memory};
 pub use objects::{GObjects, NamePool, decode_array_pointer};
 pub use process::{FoundProcess, Process, find_processes};
 

@@ -59,7 +59,9 @@ fn main() {
     let key_source = keys::BackgroundKeys::start(client.pid, client.image_base, start);
     let events = settings.log_dir.join(format!("aries_events_{pid_tag}.jsonl"));
     let mut server = RangeServer::new(settings.range.clone(), Box::new(key_source), Some(&events));
-    server.live = Box::new(live::OracleLive::new(client.pid, client.image_base));
+    // fast pacing reads machines right after the client gets them: never cache an empty state map
+    let keep_empty_state_names = !settings.range.pacing.is_fast();
+    server.live = Box::new(live::OracleLive::new(client.pid, client.image_base, keep_empty_state_names));
     info!("events -> {}", events.display());
     // the 3 mb skin catalog parses once here, not on the tick thread
     match server.skins.get() {

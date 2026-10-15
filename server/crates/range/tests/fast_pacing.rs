@@ -13,8 +13,7 @@ mod common;
 use common::*;
 
 fn fast(port: u16, world: Rc<RefCell<World>>) -> Harness {
-    let mut config = Harness::config();
-    config.pacing = PacingSettings::fast();
+    let config = aries_range::RangeConfig { pacing: PacingSettings::fast(), ..Harness::config() };
     let mut h = Harness::with_config(port, world, config);
     // a 64 fps client that acks everything it gets
     h.step = 1.0 / 64.0;

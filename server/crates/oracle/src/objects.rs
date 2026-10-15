@@ -6,7 +6,7 @@ use std::collections::HashMap;
 use aries_net::transform::reverse_wide_bits;
 
 use crate::process::valid_address;
-use crate::{Memory, OracleError};
+use crate::{Block, Memory, OracleError};
 
 /// rva of the obfuscated GObjects owner block.
 pub const OWNER_RVA: u64 = 0xD3E_7140;
@@ -16,6 +16,11 @@ pub const NAME_POOL_RVA: u64 = 0xD54_8540;
 pub const ENGINE_INDEX: u32 = 0x107E2;
 const ENGINE_NAME: &[u8] = b"AresGameEngine";
 const MULTIPLIER: u64 = 0x2545_F491_4F6C_DD1D;
+/// a pool block holds 0x10000 entry slots of 4 bytes; no entry crosses its end
+const POOL_BLOCK_BYTES: u64 = 0x10000 * 4;
+/// the first read of an entry takes its header and this many name bytes; a
+/// longer name takes a second read for the rest
+const NAME_GUESS: u64 = 96;
 
 fn swap_adjacent_bits(value: u64) -> u64 {
     ((value >> 1) & 0x5555_5555_5555_5555) | ((value << 1) & 0xAAAA_AAAA_AAAA_AAAA)
@@ -75,25 +80,38 @@ impl GObjects {
 pub struct NamePool {
     key: [u8; 4],
     cache: HashMap<u32, String>,
+    /// pool block pointers by block index: allocated once, never moved or freed
+    blocks: HashMap<u32, u64>,
 }
 
-fn read_name_entry(process: &impl Memory, index: u32) -> Result<(Vec<u8>, usize, bool), OracleError> {
+fn check_index(index: u32) -> Result<(), OracleError> {
     if index >= 0x1000_0000 {
         return Err(OracleError::Invalid("FName comparison index outside bounded range"));
     }
+    Ok(())
+}
+
+fn read_pool_block(process: &impl Memory, index: u32) -> Result<u64, OracleError> {
     // saturating: python ints never wrap, an overflowing address fails the bounds check
     let block = process.u64(process.image_base().saturating_add(NAME_POOL_RVA + 0x10 + (index >> 16) as u64 * 8))?;
     if !valid_address(block) {
         return Err(OracleError::Invalid("invalid FName pool block pointer"));
     }
+    Ok(block)
+}
+
+/// the entry's header and its bytes, in one read for names up to NAME_GUESS bytes.
+fn read_name_entry(process: &impl Memory, block: u64, index: u32) -> Result<(Vec<u8>, usize, bool), OracleError> {
     let entry = block + (index & 0xFFFF) as u64 * 4;
-    let header = process.u16(entry + 4)?;
+    let room = (block + POOL_BLOCK_BYTES).saturating_sub(entry);
+    let fields = Block::read(process, entry, 4, (6 + NAME_GUESS).min(room).max(6));
+    let header = fields.u16(process, 4)?;
     let length = (header >> 1) as usize;
     let wide = header & 1 != 0;
     if !(1..=1023).contains(&length) {
         return Err(OracleError::Invalid("invalid FName entry length"));
     }
-    let encrypted = process.read_bytes(entry + 6, length * if wide { 2 } else { 1 })?;
+    let encrypted = fields.bytes(process, 6, length * if wide { 2 } else { 1 })?;
     Ok((encrypted, length, wide))
 }
 
@@ -106,7 +124,8 @@ impl NamePool {
     /// the key from an engine object whose index was already checked (FNP:55-64).
     pub fn from_engine(process: &impl Memory, engine: u64) -> Result<Self, OracleError> {
         let name_index = process.u32(engine.saturating_add(0x18))?;
-        let (encrypted, length, wide) = read_name_entry(process, name_index)?;
+        check_index(name_index)?;
+        let (encrypted, length, wide) = read_name_entry(process, read_pool_block(process, name_index)?, name_index)?;
         if wide || length != ENGINE_NAME.len() {
             return Err(OracleError::Invalid("AresGameEngine anchor has an unexpected name layout"));
         }
@@ -115,7 +134,7 @@ impl NamePool {
         if decoded != ENGINE_NAME {
             return Err(OracleError::Invalid("FName key failed full-name validation"));
         }
-        Ok(Self { key, cache: HashMap::new() })
+        Ok(Self { key, cache: HashMap::new(), blocks: HashMap::new() })
     }
 
     /// the derived per-run xor key (derive_name_key's return value).
@@ -127,7 +146,16 @@ impl NamePool {
         if let Some(name) = self.cache.get(&index) {
             return Ok(name.clone());
         }
-        let (encrypted, length, wide) = read_name_entry(process, index)?;
+        check_index(index)?;
+        let block = match self.blocks.get(&(index >> 16)) {
+            Some(&block) => block,
+            None => {
+                let block = read_pool_block(process, index)?;
+                self.blocks.insert(index >> 16, block);
+                block
+            }
+        };
+        let (encrypted, length, wide) = read_name_entry(process, block, index)?;
         // python xors the full length into each byte; from 256 up bytes() raises (FNP:69-70)
         if length >= 256 {
             return Err(OracleError::Invalid("FName entry too long to decode"));

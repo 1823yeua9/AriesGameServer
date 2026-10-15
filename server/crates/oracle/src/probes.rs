@@ -4,7 +4,7 @@
 
 use crate::client::LiveClient;
 use crate::world::{at, find_controller, find_pawn, find_world};
-use crate::{Memory, OracleError};
+use crate::{Block, Memory, OracleError};
 
 /// pawn +0xB80 Widget_BottomHUD, widget +0x11C visibility (1 = Collapsed) (H:1985, 2002-2003)
 const PAWN_BOTTOM_HUD: u64 = 0xB80;
@@ -50,18 +50,26 @@ impl HudState {
 
 /// H:1999-2004. the flags are read even with a null controller, which fails.
 pub fn read_hud_state(memory: &impl Memory) -> Result<HudState, OracleError> {
-    let controller = find_controller(memory)?;
-    let pawn = if controller == 0 { 0 } else { memory.u64(at(controller, 0x4B0))? };
+    hud_state_of(memory, find_controller(memory)?)
+}
+
+/// the controller's pawn and flags in one read (+0x4B0 .. +0x694).
+pub fn hud_state_of(memory: &impl Memory, controller: u64) -> Result<HudState, OracleError> {
+    let fields = Block::read(memory, controller, 0x4B0, CONTROLLER_FLAGS + 4);
+    let pawn = if controller == 0 { 0 } else { fields.u64(memory, 0x4B0)? };
     let widget = if pawn == 0 { 0 } else { memory.u64(at(pawn, PAWN_BOTTOM_HUD))? };
     let collapsed = widget != 0 && memory.u8(at(widget, WIDGET_VISIBILITY))? == COLLAPSED;
-    let cinematic = memory.u32(at(controller, CONTROLLER_FLAGS))? & CINEMATIC_BIT != 0;
+    let cinematic = fields.u32(memory, CONTROLLER_FLAGS)? & CINEMATIC_BIT != 0;
     Ok(HudState { collapsed, cinematic })
 }
 
 /// H:1835-1837: i32 at pawn +0x14F4. a null pawn fails the read. the responder
 /// maps a failure to 0 and sends only 0 < ult < 50.
 pub fn read_ult_required(memory: &impl Memory) -> Result<i32, OracleError> {
-    let pawn = find_pawn(memory)?;
+    ult_of(memory, find_pawn(memory)?)
+}
+
+pub fn ult_of(memory: &impl Memory, pawn: u64) -> Result<i32, OracleError> {
     memory.i32(at(pawn, PAWN_ULT_REQUIRED))
 }
 
@@ -83,14 +91,24 @@ impl<M: Memory> LiveClient<M> {
     /// R14 read_projectile (RP:308-343): the actor on our channel `channel` of the
     /// client's ServerConnection. the class name goes through the shared class cache.
     pub fn projectile(&mut self, channel: u32) -> Result<Option<ProjectileSnapshot>, OracleError> {
-        let world = find_world(&self.memory)?;
+        self.with_chain(
+            |client, live| client.projectile_of(live.chain.world, channel),
+            |client| {
+                let world = find_world(&client.memory)?;
+                client.projectile_of(world, channel)
+            },
+        )
+    }
+
+    fn projectile_of(&mut self, world: u64, channel: u32) -> Result<Option<ProjectileSnapshot>, OracleError> {
         let driver = if world == 0 { 0 } else { self.memory.u64(at(world, 0x40))? };
         let connection = if driver == 0 { 0 } else { self.memory.u64(at(driver, DRIVER_CONNECTION))? };
         if connection == 0 {
             return Ok(None);
         }
-        let channels = self.memory.u64(at(connection, CONNECTION_CHANNELS))?;
-        let count = self.memory.u32(at(connection, CONNECTION_CHANNEL_COUNT))?;
+        let table = Block::read(&self.memory, connection, CONNECTION_CHANNELS, CONNECTION_CHANNEL_COUNT + 4);
+        let channels = table.u64(&self.memory, CONNECTION_CHANNELS)?;
+        let count = table.u32(&self.memory, CONNECTION_CHANNEL_COUNT)?;
         if channels == 0 || channel >= count {
             return Ok(None);
         }
@@ -100,14 +118,18 @@ impl<M: Memory> LiveClient<M> {
             return Ok(None);
         }
         let class_name = self.cached_name(actor, false)?;
-        let root = self.memory.u64(at(actor, ACTOR_ROOT))?;
+        // root and movement in one read (+0x290 .. +0x618)
+        let fields = Block::read(&self.memory, actor, ACTOR_ROOT, ACTOR_MOVEMENT + 8);
+        let root = fields.u64(&self.memory, ACTOR_ROOT)?;
         let location = if root == 0 { None } else { Some(self.memory.vec3(at(root, ROOT_LOCATION))?) };
-        let movement = self.memory.u64(at(actor, ACTOR_MOVEMENT))?;
+        let movement = fields.u64(&self.memory, ACTOR_MOVEMENT)?;
         let (Some(location), true) = (location, movement != 0) else {
             return Ok(Some(ProjectileSnapshot { class_name, location, collisions: 0, hit_location: [0.0; 3], hit_normal: [0.0; 3] }));
         };
-        let collisions = self.memory.u32(at(movement, MOVEMENT_COLLISIONS))?;
-        let hit: [u8; 0x48] = self.memory.read(at(movement, MOVEMENT_HIT))?;
+        // collisions and the last hit in one read (+0x198 .. +0x270)
+        let motion = Block::read(&self.memory, movement, MOVEMENT_COLLISIONS, MOVEMENT_HIT + 0x48);
+        let collisions = motion.u32(&self.memory, MOVEMENT_COLLISIONS)?;
+        let hit: [u8; 0x48] = motion.get(&self.memory, MOVEMENT_HIT)?;
         Ok(Some(ProjectileSnapshot { class_name, location: Some(location), collisions, hit_location: vec3(&hit[0..24]), hit_normal: vec3(&hit[0x30..0x48]) }))
     }
 }

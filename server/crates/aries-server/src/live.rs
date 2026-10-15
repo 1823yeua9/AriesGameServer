@@ -14,6 +14,9 @@ use aries_world::equippables::ResourceSubobject;
 use log::{info, warn};
 
 const REOPEN_AFTER: Duration = Duration::from_secs(1);
+/// the engine -> world -> controller -> pawn walk is reused this long. the pointers
+/// only change on travel or possession; every value read through them is fresh
+const CHAIN_TTL: Duration = Duration::from_millis(100);
 
 pub struct OracleLive {
     pid: u32,
@@ -24,11 +27,13 @@ pub struct OracleLive {
     tags: Option<TagIndices>,
     /// the last failed open (python equippable_reader_error)
     open_error: Option<String>,
+    /// spec 09 Q4: python parity caches an empty state map forever
+    keep_empty_state_names: bool,
 }
 
 impl OracleLive {
-    pub fn new(pid: u32, image_base: u64) -> Self {
-        Self { pid, image_base, oracle: None, last_attempt: None, tags: None, open_error: None }
+    pub fn new(pid: u32, image_base: u64, keep_empty_state_names: bool) -> Self {
+        Self { pid, image_base, oracle: None, last_attempt: None, tags: None, open_error: None, keep_empty_state_names }
     }
 
     /// the reader, opened on first use (and re-opened after a failed open).
@@ -39,8 +44,10 @@ impl OracleLive {
             }
             self.last_attempt = Some(Instant::now());
             match Oracle::open(self.pid, self.image_base) {
-                Ok(oracle) => {
+                Ok(mut oracle) => {
                     info!(target: "oracle", "reader attached to pid {}", self.pid);
+                    oracle.chain_ttl = Some(CHAIN_TTL);
+                    oracle.keep_empty_state_names = self.keep_empty_state_names;
                     self.oracle = Some(oracle);
                     self.open_error = None;
                 }
@@ -73,6 +80,7 @@ impl LiveClient for OracleLive {
         // entry's actors are new objects, so drop the address caches (DESIGN.md)
         if let Some(oracle) = self.oracle.as_mut() {
             oracle.caches.clear();
+            oracle.forget_chain();
         }
         // the tag table is fixed for the client process (python cached it per run);
         // re-reading it cost a 52 ms datagram on the live re-entry

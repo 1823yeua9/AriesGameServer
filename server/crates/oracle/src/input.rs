@@ -3,8 +3,10 @@
 
 use crate::objects::ENGINE_INDEX;
 use crate::world::{HeaderRule, at, require_object_array};
-use crate::{Memory, OracleError};
+use crate::{Block, Memory, OracleError};
 
+/// pawn +0xB90 input component (CIE:37)
+pub const PAWN_INPUT: u64 = 0xB90;
 /// input component fields (CIE:53-55)
 const INPUT_STOPPED: u64 = 0x12C;
 const INPUT_CURSOR: u64 = 0xA84;
@@ -32,18 +34,23 @@ pub fn find_input_component(memory: &impl Memory) -> Result<u64, OracleError> {
     let world = memory.u64(at(viewport, 0x80))?;
     let controller = crate::world::controller_of(memory, world)?;
     let pawn = memory.u64(at(controller, 0x4B0))?;
-    if pawn == 0 { Ok(0) } else { memory.u64(at(pawn, 0xB90)) }
+    if pawn == 0 { Ok(0) } else { memory.u64(at(pawn, PAWN_INPUT)) }
 }
 
 /// read_pending_input_bounds (CIE:42-65); None without an input component.
 pub fn read_pending_input_bounds(memory: &impl Memory) -> Result<Option<InputBounds>, OracleError> {
-    let component = find_input_component(memory)?;
+    bounds_of(memory, find_input_component(memory)?)
+}
+
+/// the three fields in one read (+0x12C .. +0x119C).
+pub fn bounds_of(memory: &impl Memory, component: u64) -> Result<Option<InputBounds>, OracleError> {
     if component == 0 {
         return Ok(None);
     }
-    let stopped = memory.u8(at(component, INPUT_STOPPED))?;
-    let cursor = memory.u32(at(component, INPUT_CURSOR))?;
-    let count = memory.u32(at(component, INPUT_PENDING))?;
+    let fields = Block::read(memory, component, INPUT_STOPPED, INPUT_PENDING + 4);
+    let stopped = fields.u8(memory, INPUT_STOPPED)?;
+    let cursor = fields.u32(memory, INPUT_CURSOR)?;
+    let count = fields.u32(memory, INPUT_PENDING)?;
     if count > MAX_PENDING {
         return Err(OracleError::Invalid("input-event count exceeds sane bound"));
     }

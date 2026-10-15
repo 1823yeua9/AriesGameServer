@@ -3,7 +3,7 @@
 
 use crate::objects::ENGINE_INDEX;
 use crate::world::{HeaderRule, at, object_array};
-use crate::{Memory, OracleError};
+use crate::{Block, Memory, OracleError};
 
 /// ClientSetHUD's native ExecFunction thunk (H:3784).
 pub const CLIENT_SET_HUD_RVA: u64 = 0x4B6_B340;
@@ -20,6 +20,8 @@ const CACHE_STRIDE: u64 = 24;
 const SET_STRIDE: u64 = 24;
 /// the parent walk is bounded (RRI:91)
 const MAX_DEPTH: u32 = 16;
+/// TSet slots read at a time
+const SET_PAGE: u64 = 4096;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum RpcActor {
@@ -59,13 +61,17 @@ fn scan_chain(memory: &impl Memory, cache: u64, thunk: u64) -> Result<(Option<u3
         if (1..=4096).contains(&count) {
             class_max = class_max.max(base as u64 + count as u64);
             if readable(memory, entries)? {
+                // every field entry in one read
+                let table = Block::read(memory, entries, 0, CACHE_STRIDE * count as u64);
                 for j in 0..count as u64 {
-                    let entry = at(entries, CACHE_STRIDE * j);
-                    let tag = memory.u64(entry)?;
+                    let tag = table.u64(memory, CACHE_STRIDE * j)?;
                     if tag & 1 != 0 {
                         let function = tag & !1;
-                        if readable(memory, function)? && memory.u64(at(function, UFUNCTION_EXEC))? == thunk {
-                            field_index = Some(memory.u32(at(entry, 8))?);
+                        // readable(function) and its ExecFunction in one read
+                        let fields = Block::read(memory, function, 0, UFUNCTION_EXEC + 8);
+                        let readable = function != 0 && fields.get::<8>(memory, 0).map(|_| true)?;
+                        if readable && fields.u64(memory, UFUNCTION_EXEC)? == thunk {
+                            field_index = Some(table.u32(memory, CACHE_STRIDE * j + 8)?);
                         }
                     }
                 }
@@ -105,12 +111,17 @@ pub fn resolve_rpc_index(memory: &impl Memory, thunk: u64, actor_kind: RpcActor)
         return Ok(None);
     }
     let class_index = memory.u32(at(actor_class, 0xC))?;
-    // no TSet hole check: slots are read until the first key match (RRI:111-117)
+    // no TSet hole check: slots are read until the first key match (RRI:111-117),
+    // a page of slots per read
     let mut chosen = None;
+    let mut page = None;
     for i in 0..set_count as u64 {
-        let entry = at(set_base, SET_STRIDE * i);
-        if memory.u64(entry)? & 0xFFFF_FFFF == class_index as u64 {
-            chosen = Some(memory.u64(at(entry, 8))?);
+        if i % SET_PAGE == 0 {
+            page = Some(Block::read(memory, set_base, SET_STRIDE * i, SET_STRIDE * (i + SET_PAGE).min(set_count as u64)));
+        }
+        let page = page.as_ref().expect("read at i = 0");
+        if page.u64(memory, SET_STRIDE * i)? & 0xFFFF_FFFF == class_index as u64 {
+            chosen = Some(page.u64(memory, SET_STRIDE * i + 8)?);
             break;
         }
     }

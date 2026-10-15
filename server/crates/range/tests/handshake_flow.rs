@@ -4,7 +4,6 @@
 
 use std::net::SocketAddr;
 
-use aries_net::AresGcm;
 use aries_net::client::open_server_datagram;
 use aries_net::control::{inspect_first_bunch, read_packet_header};
 use aries_net::handshake::{self, CHALLENGE_BITS};
