@@ -5,6 +5,7 @@
 #include "reflection_viewer.hpp"
 #include "skin_client.hpp"
 #include "../entity_viewer.h"
+#include "../bot_actions.h"
 #include <d3d11.h>
 #include <algorithm>
 #include <atomic>
@@ -198,6 +199,7 @@ namespace overlay {
                     ImGui::SameLine();
                     ImGui::Button("Enter The Range");
                     ImGui::EndDisabled();
+                    internal::bot_actions::draw();
                     ImGui::EndTabItem();
                 }
                 if (ImGui::BeginTabItem("Player")) {

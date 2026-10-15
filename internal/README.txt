@@ -16,6 +16,15 @@ INSERT toggles the existing dev menu. Skins uses the loader's authenticated
 loopback admin endpoint; reflection views inspect current world/controller data.
 Other existing placeholder controls are not claimed as completed features.
 
+Session / Maps also has Add bot. In a playable Range it requests one replicated
+bot 500 Unreal units (5 m) ahead along the player's view yaw, at pawn height,
+facing the player. It does not project onto terrain or trace through obstacles;
+use it on clear, level ground. Looking up/down does not change spawn height.
+The loader gives the internal and gameplay server a run-local gameplay_commands
+queue. Requests expire after eight seconds and are single-flight in the menu;
+the status shows the server result, not merely that a file was queued. Disk work
+and waiting run off the rendering thread. Missing/stale player poses are rejected.
+
 Viewers adds independent, OFF-by-default options:
   Cyan 3D boxes: engine-provided actor world bounds across streamed levels.
   Gold collision viewer: root/attached shape components and skeletal PhysicsAsset

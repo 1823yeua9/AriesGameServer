@@ -336,6 +336,8 @@ namespace loader {
 
     auto LaunchSession::start_gameplay() -> void {
         const auto path = settings.path_for("gameplay_path");
+        const auto command_queue = run_directory / L"gameplay_commands";
+        fs::create_directories(command_queue);
 
         // aries-server resolves the current image base from this owned PID.
         // Bind before releasing configuration, never after the first Range request.
@@ -348,7 +350,9 @@ namespace loader {
                                                      L"--skin-catalog",
                                                      settings.path_for("skin_catalog").wstring(),
                                                      L"--skin-state",
-                                                     settings.path_for("skin_state").wstring()};
+                                                     settings.path_for("skin_state").wstring(),
+                                                     L"--command-queue",
+                                                     command_queue.wstring()};
 
         gameplay.emplace(job.start(path, arguments, path.parent_path(), true, run_directory / L"gameplay.log"));
 

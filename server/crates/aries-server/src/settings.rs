@@ -96,6 +96,9 @@ impl Settings {
         if let Some(queue) = range.command_queue.as_mut() {
             anchor(queue);
         }
+        if let Some(queue) = value("--command-queue") {
+            range.command_queue = Some(PathBuf::from(queue));
+        }
         let mut client_path = file.client_path;
         let client_path = if client_path.as_os_str().is_empty() {
             None

@@ -159,6 +159,7 @@
   <ItemGroup>
     <ClCompile Include="entry.cpp" />
     <ClCompile Include="session.cpp" />
+    <ClCompile Include="bot_actions.cpp" />
     <ClCompile Include="startup.cpp" />
     <ClCompile Include="entity_viewer.cpp"><ExceptionHandling>Async</ExceptionHandling></ClCompile>
     <ClCompile Include="overlay\overlay.cpp" />

@@ -149,6 +149,34 @@ pub fn bot_tick(reply: &mut Reply, env: &mut Env) {
 /// bot, then open it. a failed coercion leaves the allocation spent and no
 /// bot; a bad length leaves an unopened bot, as python's raise does.
 pub fn spawn_bot_from_command(reply: &mut Reply, env: &Env, spot: &serde_json::Value) -> Result<(), String> {
+    spawn_bot_at(reply, env, spot, None)
+}
+
+/// Unreal positions are centimetres. Keep pawn height and use view yaw only.
+pub fn bot_spot_ahead(position: [f64; 3], yaw: f64) -> Result<[f64; 3], String> {
+    if !yaw.is_finite() || position.iter().any(|value| !value.is_finite()) {
+        return Err("Player pose is not finite".into());
+    }
+    let (sine, cosine) = yaw.to_radians().sin_cos();
+    Ok([position[0] + 500.0 * cosine, position[1] + 500.0 * sine, position[2]])
+}
+
+pub fn spawn_bot_ahead(reply: &mut Reply, env: &mut Env) -> Result<(), String> {
+    if !env.live.attached() || !reply.conn.bringup.sent(crate::bringup::Stage::GameplayStart) {
+        return Err("Enter the playable Range first".into());
+    }
+    let track = &reply.conn.player;
+    if reply.now - track.newest_snapshot_t > track.config.stale_after {
+        return Err("Player position is stale; no bot spawned".into());
+    }
+    let position = track.value_at(track.newest_snapshot_t).ok_or("Player position unavailable")?.v.to_array();
+    let camera = env.live.camera()?.ok_or("Player facing unavailable")?;
+    let yaw = camera.rotation[1];
+    let spot = bot_spot_ahead(position, yaw)?;
+    spawn_bot_at(reply, env, &json!(spot), Some((yaw + 180.0).rem_euclid(360.0)))
+}
+
+fn spawn_bot_at(reply: &mut Reply, env: &Env, spot: &serde_json::Value, yaw: Option<f64>) -> Result<(), String> {
     let count = env.config.bot_count;
     let system = reply.conn.authority.bots.get_or_insert_with(|| BotSystem::new(count, &env.config.lagcomp));
     let index = system.field.bots.len() as i64;
@@ -157,6 +185,9 @@ pub fn spawn_bot_from_command(reply: &mut Reply, env: &Env, spot: &serde_json::V
     let location = <[f64; 3]>::try_from(coords.as_slice()).ok();
     if let Some(location) = location {
         bot.location = location;
+    }
+    if let Some(yaw) = yaw {
+        bot.yaw = yaw;
     }
     let channel = bot.channel;
     system.field.bots.push(bot);

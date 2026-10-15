@@ -339,13 +339,28 @@ fn command_queue(reply: &mut Reply, env: &mut Env, queue: &Path) {
     files.sort_by_key(|p| p.to_string_lossy().to_lowercase());
     for file in files {
         let name = file.file_name().map(|n| n.to_string_lossy().into_owned()).unwrap_or_default();
+        let mut add_bot_request = false;
         let result = std::fs::read_to_string(&file)
             .map_err(|e| e.to_string())
             .and_then(|text| serde_json::from_str::<Value>(&text).map_err(|e| e.to_string()))
             .and_then(|command| {
+                add_bot_request = command.get("add_bot").is_some();
                 crate::py::py_unlink(&file)?;
                 queued_command(reply, env, &command)
             });
+        if add_bot_request {
+            let response = match &result {
+                Ok(_) => json!({"ok":true,"message":"Bot spawned 5 m ahead"}),
+                Err(error) => json!({"ok":false,"message":error}),
+            };
+            let temporary = file.with_extension("result.tmp");
+            let response_path = file.with_extension("result");
+            if let Err(error) = std::fs::write(&temporary, response.to_string())
+                .and_then(|_| std::fs::rename(&temporary, response_path))
+            {
+                reply.event.push("queued_command_errors", json!([name, format!("Cannot publish result: {error}")]));
+            }
+        }
         match result {
             Ok(Some(sent)) => reply.event.push("sent_queued_commands", json!([name, sent.0, sent.1])),
             Ok(None) => {}
@@ -358,6 +373,15 @@ fn command_queue(reply: &mut Reply, env: &mut Env, queue: &Path) {
 /// given) for a sent bunch.
 fn queued_command(reply: &mut Reply, env: &mut Env, command: &Value) -> Result<Option<(Value, Value)>, String> {
     use crate::py::{py_fromhex, py_int, py_truthy};
+    if let Some(action) = command.get("add_bot") {
+        let now = std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).map_err(|e| e.to_string())?.as_millis();
+        let expiry = command.get("expires_at_ms").and_then(Value::as_u64).ok_or("Missing command expiry")? as u128;
+        if action != &json!(true) || expiry <= now || expiry - now > 10_000 {
+            return Err("Invalid or expired Add bot request".into());
+        }
+        crate::gameplay::spawn_bot_ahead(reply, env)?;
+        return Ok(None);
+    }
     if let Some(spot) = command.as_object().and_then(|c| c.get("spawn_bot")) {
         crate::gameplay::spawn_bot_from_command(reply, env, spot)?;
         return Ok(None);
