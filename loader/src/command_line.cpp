@@ -71,6 +71,7 @@ namespace loader {
     auto print_help() -> void {
         std::cout << "Aries loader --config <settings.val> [--check | --install-firewall | --server-only]\n"
                   << "Aries loader --write-config <settings.val>\n"
-                  << "Launch owns only its children. R enters Range, Q/Ctrl+C closes the launch.\n";
+                  << "Launch owns only its children. R enters Range, Q/Ctrl+C closes the launch.\n"
+                  << "Firewall setup installs automatic disabling at Windows startup; re-run setup after reboot.\n";
     }
 } // namespace loader

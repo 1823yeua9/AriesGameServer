@@ -9,6 +9,7 @@
 #include <sstream>
 #include <vector>
 #include "firewall.h"
+#include "firewall_reset.h"
 
 #pragma comment(lib, "ole32.lib")
 #pragma comment(lib, "oleaut32.lib")
@@ -137,6 +138,12 @@ namespace loader::init::networking {
                 }
             }
 
+            // Arm reboot cleanup BEFORE adding or re-enabling any block rule.
+            // Verification must fail if that safety net has been removed.
+            if (!ensure_firewall_reset(install)) {
+                return FirewallResult::FailedResetTask;
+            }
+
             ComPtr<INetFwRules> rules;
 
             if (FAILED(policy->get_Rules(&rules))) {
@@ -173,7 +180,7 @@ namespace loader::init::networking {
                 }
 
                 // Never repair an unexpected existing rule by broadening its scope.
-                Bstr actual_app, actual_remote, local_addresses, interface_types, service_name;
+                Bstr actual_app, actual_remote, local_addresses, interface_types, service_name, actual_group;
                 NET_FW_RULE_DIRECTION direction{};
                 NET_FW_ACTION action{};
                 VARIANT_BOOL enabled{};
@@ -185,7 +192,7 @@ namespace loader::init::networking {
                     FAILED(rule->get_Profiles(&profiles)) || FAILED(rule->get_Protocol(&protocol)) ||
                     FAILED(rule->get_LocalAddresses(local_addresses.out())) ||
                     FAILED(rule->get_InterfaceTypes(interface_types.out())) ||
-                    FAILED(rule->get_ServiceName(service_name.out()))) {
+                    FAILED(rule->get_ServiceName(service_name.out())) || FAILED(rule->get_Grouping(actual_group.out()))) {
                     return FirewallResult::FailedRule;
                 }
 
@@ -205,9 +212,19 @@ namespace loader::init::networking {
 
                 if (!actual_app.value || !actual_remote.value || _wcsicmp(actual_app.value, canonical.c_str()) ||
                     ranges(actual_remote.value) != ranges(remotes[index]) || direction != NET_FW_RULE_DIR_OUT ||
-                    action != NET_FW_ACTION_BLOCK || enabled != VARIANT_TRUE || profiles != NET_FW_PROFILE2_ALL ||
+                    action != NET_FW_ACTION_BLOCK || !actual_group.value ||
+                    std::wstring(actual_group.value) != L"Aries offline containment" || profiles != NET_FW_PROFILE2_ALL ||
                     protocol != NET_FW_IP_PROTOCOL_ANY) {
                     return FirewallResult::FailedRule;
+                }
+
+                // A reboot leaves matching rules disabled. Only explicit setup
+                // may re-enable them, after all scope/ownership checks pass.
+                if (enabled != VARIANT_TRUE) {
+                    if (!install || FAILED(rule->put_Enabled(VARIANT_TRUE)) ||
+                        FAILED(rule->get_Enabled(&enabled)) || enabled != VARIANT_TRUE) {
+                        return FirewallResult::FailedRule;
+                    }
                 }
             }
 

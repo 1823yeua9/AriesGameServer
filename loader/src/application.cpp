@@ -87,13 +87,14 @@ namespace loader {
             const auto result = init::networking::contain_loopback(path.wstring(), true);
 
             if (result != init::networking::FirewallResult::Success) {
-                throw std::runtime_error("firewall installation/verification failed; use an elevated terminal, with "
-                                         "all firewall profiles enabled");
+                throw std::runtime_error("firewall or reboot-reset task installation/verification failed; use an "
+                                         "elevated terminal, with Task Scheduler and all firewall profiles enabled");
             }
         }
 
         std::cout
-            << "Verified game and crash-reporter non-loopback block rules. No other programs or services changed.\n";
+            << "Verified game and crash-reporter non-loopback block rules and automatic disabling at Windows startup.\n"
+            << "After restarting Windows, run --install-firewall explicitly to re-enable containment.\n";
     }
 
     static auto verify_service_files(const config::Settings& settings, bool server_only) -> void {
@@ -130,7 +131,8 @@ namespace loader {
             const auto result = init::networking::contain_loopback(path.wstring(), false);
 
             if (result != init::networking::FirewallResult::Success) {
-                throw std::runtime_error("containment missing or different; run --install-firewall explicitly");
+                throw std::runtime_error("containment disabled, missing, different, or reboot reset absent; "
+                                         "run --install-firewall explicitly (required after Windows restart)");
             }
         }
 

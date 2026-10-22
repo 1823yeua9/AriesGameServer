@@ -27,12 +27,14 @@
     <ClCompile Include="src\utils\injector\injector.cpp" />
     <ClCompile Include="src\init\runtime.cpp" />
     <ClCompile Include="src\init\networking\firewall.cpp" />
+    <ClCompile Include="src\init\networking\firewall_reset.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="3p\json\json.hpp" />
     <ClInclude Include="src\utils\config\settings.h" />
     <ClInclude Include="src\utils\injector\injector.h" />
     <ClInclude Include="src\init\networking\firewall.h" />
+    <ClInclude Include="src\init\networking\firewall_reset.h" />
     <ClInclude Include="src\pch.h" />
     <ClInclude Include="src\init\runtime.h" />
     <ClInclude Include="src\application.h" />

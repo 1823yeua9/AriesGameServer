@@ -27,6 +27,14 @@ requests elevation only for the bounded --install-firewall mode, never automatic
 game startup. Closing during that short setup does not cancel its elevated
 process. Logs shows this launcher's latest 16 KB of loader output at 4 Hz.
 
+Firewall setup also registers "Aries Offline Firewall Reset", a SYSTEM boot task
+that disables only rules in the Aries offline containment group with Aries rule
+names. It runs Windows PowerShell with a fixed inline command, not a script or
+binary in this writable project. Windows startup disables the rules even if the
+launcher is never opened; it does not turn off Windows Firewall. After reboot,
+use Set up offline firewall again before launching an isolated session. Ordinary
+launch/check only verifies rules and the reset task; it never re-enables rules.
+
 Local username is editable on the home card. Save username persists it to the
 selected profile; Start game also saves it before starting the loader. Changes
 apply on the next launch. Names support 1-32 Unicode characters, excluding #,
